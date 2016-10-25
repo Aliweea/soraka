@@ -15,3 +15,6 @@ KPI迁移项目
 		"scss/font-awesome.scss"
 	]
 ```
+
+* 在项目根目录gulp serve即可将项目跑起来
+
