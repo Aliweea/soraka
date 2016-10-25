@@ -62,12 +62,11 @@ function getFolders(dir) {
 }
 
 gulp.task('insertWords', function() {
-  var keyWords = '每位工程师都有保持代码优雅的义务';
+  var keyWords = '你的代码优不优雅?';
   var words = '/**\n' +
               '* ' + keyWords + '\n' +
               '* Each engineer has a duty to keep the code elegant\n' +
               '*\n' +
-              '* @author wangxiao\n' +
               '*/\n' +
               '\n';
 

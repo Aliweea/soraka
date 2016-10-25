@@ -33,3 +33,9 @@ gulp.task('inject', ['scripts', 'styles'], function () {
     .pipe(wiredep(_.extend({}, conf.wiredep)))
     .pipe(gulp.dest(path.join(conf.paths.tmp, '/serve')));
 });
+
+/* how wiredep works:
+* Installing a Bower package with --save will add the package as a dependency in your project's bower.json file. 
+* This library reads that file, then reads the bower.json files for each of those dependencies. 
+* Based on these connections, it determines the order your scripts must be included before injecting them between placeholders in your source code.
+*/

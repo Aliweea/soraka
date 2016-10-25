@@ -2,6 +2,7 @@
 * angular-loading-bar配置
 * 
 * @Author Mondooo
+* abandaned
 */
 export default(cfpLoadingBarProvider) => {
 
