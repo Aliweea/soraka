@@ -1,4 +1,5 @@
 /**
+ *  本项目所有的自定义scss均通过gulp脚本自动import, 不需要手动import自己写的scss
  *  Do not remove this comments bellow. It's the markers used by wiredep to inject
  *  sass dependencies when defined in the bower.json of your dependencies
  */
@@ -7,16 +8,6 @@
 
 // import Google Font Api
 // @import url(http://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:400,700,700italic,400italic);
-
-// 引入基本的样式
-@import './config/base';
-@import './common/mixins/transition';
-@import './common/mixins/icon';
-@import './common/mixins/image';
-
-// 引入模块样式
-@import './auth/home/home';
-@import './in/account/account';
 
 /**
  *  Do not remove this comments bellow. It's the markers used by gulp-inject to inject

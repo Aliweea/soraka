@@ -1,6 +1,7 @@
 {
-  "name": "LeanEngine-Full-Stack-Web",
+  "name": "Soraka",
   "version": "1.0.0",
+  "description":"web end of kpi",
   "dependencies": {},
   "scripts": {
     "test": "gulp test"

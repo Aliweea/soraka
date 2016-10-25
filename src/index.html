@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app="webProject">
+<html ng-app="soraka">
   <head>
     <meta charset="utf-8">
     <base href="/">
@@ -10,7 +10,7 @@
 
     <!-- build:css({.tmp/serve,src}) styles/vendor.css -->
     <!-- bower:css -->
-    <!-- run `gulp inject` to automatically populate bower styles dependencies -->
+
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -19,20 +19,17 @@
     <!-- css files will be automatically insert here -->
     <!-- endinject -->
     <!-- endbuild -->
-
-    <!-- 引入外部css -->
-    <link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css">
   </head>
   <body>
     <!--[if lt IE 10]>
         <h1>请升级您的浏览器。</h1>
     <![endif]-->
-
+    <!-- 本项目所有的第三方依赖均依据bower.json自动导入, 请不要手动导入任何东西!! -->
     <div ui-view class="h100"></div>
 
     <!-- build:js(src) scripts/vendor.js -->
     <!-- bower:js -->
-    <!-- run `gulp inject` to automatically populate bower script dependencies -->
+    
     <!-- endbower -->
     <!-- endbuild -->
 

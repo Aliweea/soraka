@@ -4,7 +4,9 @@ var path = require('path');
 var gulp = require('gulp');
 var conf = require('./conf');
 
+// This frees you up from having to manually require each gulp plugin.
 var $ = require('gulp-load-plugins')({
+  // the glob(s) to search for 
   pattern: [
     'gulp-*',
     'main-bower-files',
@@ -24,7 +26,7 @@ gulp.task('partials', function () {
       quotes: true
     }))
     .pipe($.angularTemplatecache('templateCacheHtml.js', {
-      module: 'webProject',
+      module: 'soraka',
       root: 'app'
     }))
     .pipe(gulp.dest(conf.paths.tmp + '/partials/'));
@@ -72,8 +74,8 @@ gulp.task('html', ['inject', 'partials'], function () {
 // Only applies for fonts from bower dependencies
 // Custom fonts are handled by the "other" task
 gulp.task('fonts', function () {
-  return gulp.src($.mainBowerFiles())
-    .pipe($.filter('**/*.{eot,svg,ttf,woff,woff2}'))
+  return gulp.src('bower_components/**/*.{eot,svg,ttf,woff,woff2}')
+    // .pipe($.filter('**/*.{eot,svg,ttf,woff,woff2}'))
     .pipe($.flatten())
     .pipe(gulp.dest(path.join(conf.paths.dist, '/fonts/')));
 });
@@ -91,25 +93,6 @@ gulp.task('other', function () {
     .pipe(gulp.dest(path.join(conf.paths.dist, '/')));
 });
 
-// 将 dist 目录中的文件移动到 LeanEngine 的发布目录中
-function moveToPublic() {
-  $.del([
-    path.join(conf.paths.public, '/**/*.*')
-  ], {
-    force: true
-  }, function() {
-
-    // the base option sets the relative root for the set of files,
-    // preserving the folder structure
-    gulp.src([
-      conf.paths.dist + '/**/*.*'
-    ], {
-      base: './dist'
-    })
-    .pipe(gulp.dest(conf.paths.public));
-  });
-}
-
 gulp.task('clean', function (done) {
   var fileList = [
     path.join(conf.paths.dist, '/'),
@@ -122,7 +105,5 @@ gulp.task('build', [
   'html',
   'fonts',
   'other'
-], function() {
-  moveToPublic();
-});
+]);
 
