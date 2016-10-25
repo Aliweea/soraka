@@ -1,4 +1,4 @@
-export default ($scope, accountRes, qService) => {
+export default ($scope) => {
 	'ngInject';
-	
+	$scope.content = "you are in, ha.";
 };

@@ -3,6 +3,8 @@ css标准:
   1. 命名规范 所在文件名-功能模块名-功能
     举例: index-formicon-acc 首页-form表单图标-账户
 */
+$lightgrey: #666666;
+
 * {
   margin:0;
   padding:0;
@@ -17,7 +19,7 @@ css标准:
 .index-title-text {
   width: 80%;
   margin: 10px auto 0px auto;
-  color: lightgrey;
+  color: $lightgrey;
   text-align: right;
 }
 .index-formicon-acc {
@@ -44,6 +46,6 @@ css标准:
   width: 80%;
   margin: 10px auto 0 auto;
   .error {
-    color: $lcRed;
+    color: $errMsg;
   }
 }
