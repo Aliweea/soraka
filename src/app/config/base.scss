@@ -1,17 +1,20 @@
 $standardFontSize: 14px;
 $standardWhite: #FFFFFF;
 
-$lcBlue: #2C97E8;
-$lcGreen: #20AF74;
-$lcYellow: #F39D1C;
-$lcOrange: #F95E1A;
-$lcRed: #E82C4B;
-
 $wordGray: #787878;
 $wordBlack: #333333;
 
-$maxWidth: 800px;
-$minWidth: 760px;
+// 统一提示颜色
+$errMsg: #FF0033;
+$successMsg: #33CC66;
+
+// 统一背景色
+$bgDarkBlue: #008AFF;
+$bgLightBlue: #F5FAFF;
+$bgLightGrey: #EEEEEE;
+
+// 统一文字色
+$fontBlack: #666666;
 
 * {
 	margin:0;
@@ -28,12 +31,7 @@ body {
   height: 100%;
   color: $wordBlack;
   overflow-x:hidden;
-  // background-color:#fbf9fe
-}
-
-//配置angular-loading-bar的css样式
-#loading-bar .bar {
-  background-color: $wordBlack;
+  background-color: $standardWhite;
 }
 
 //统一背景色
@@ -46,4 +44,10 @@ body {
 	height: 100%;
 }
 
+.color-w {
+  color: $standardWhite !important;
+}
 
+.opacity100 {
+  opacity: 1 !important;
+}

@@ -25,13 +25,13 @@ import inCtrl from './in/inCtrl';
 import accountCtrl from './in/account/accountCtrl';
 
 angular.module('soraka',
-  ['ngAnimate', 'ngCookies', 'ngSanitize', 'ui.router', 'ngResource', 'ngStorage'])
+  ['ngAnimate', 'ngCookies', 'ngSanitize', 'ui.router', 'ngResource', 'ngStorage', 'mobile-angular-ui'])
 
   // 配置全局常量
   .constant('lcConfig', config)
   .constant('moment', window.moment)
-  // .constant('BASE_URL', 'http://10.60.36.96:8080/api') // 测试
-  .constant('BASE_URL', '/api') // 发布
+  .constant('BASE_URL', 'http://10.60.36.96:8080/api') // 测试
+  // .constant('BASE_URL', '/api') // 发布
 
   // 基础配置
   .config(httpConfig)

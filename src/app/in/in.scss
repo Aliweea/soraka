@@ -1,0 +1,17 @@
+.soraka-menu-module {
+	.soraka-body {
+		background-color: $bgLightGrey;
+	}
+	.soraka-menu-navbar-top {
+		background-color: $bgDarkBlue;
+	}
+	.soraka-menu-navbar-bottom {
+		background-color: $bgDarkBlue;
+	}
+}
+.soraka-sidebar-left {
+	background-color: $bgLightGrey;
+	h1, a {
+		color: $fontBlack;
+	}
+}
