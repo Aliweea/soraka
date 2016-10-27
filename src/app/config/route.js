@@ -20,6 +20,10 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       templateUrl: 'app/in/account/account.html',
       controller: 'accountCtrl'
     })
+    .state('economy',{
+      url:'/economy',
+      templateUrl:'app/in/Economy/EconomyHome.html'
+    })
     ;
 
   $urlRouterProvider.otherwise('/');

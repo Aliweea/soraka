@@ -25,7 +25,7 @@ import inCtrl from './in/inCtrl';
 import accountCtrl from './in/account/accountCtrl';
 
 angular.module('soraka',
-  ['ngAnimate', 'ngCookies', 'ngSanitize', 'ui.router', 'ngResource', 'ngStorage', 'mobile-angular-ui'])
+  ['ngAnimate', 'ngCookies', 'ngSanitize', 'ui.router', 'ngResource', 'ngStorage', 'mobile-angular-ui','ui.bootstrap'])
 
   // 配置全局常量
   .constant('lcConfig', config)
