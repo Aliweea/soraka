@@ -28,7 +28,13 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       url:'/environment',
       templateUrl:'app/in/Environment/EnvironmentHome.html'
     })
+    
+    .state('police',{ 
+      url:'/police',
+      templateUrl:'app/in/Police/PoliceHome.html'
+    })
     ;
+    
 
   $urlRouterProvider.otherwise('/');
 };

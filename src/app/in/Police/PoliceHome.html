@@ -1,0 +1,39 @@
+<div class="app">
+  <div class="navbar navbar-app navbar-absolute-top">
+     <div class="btn-group btn-group-justified">
+     <div class="btn-group">
+  <a ui-turn-on='myDropdown' class='btn'>
+    公安模块
+  </a>
+  <ul 
+    class="dropdown-menu"
+    ui-outer-click="Ui.turnOff('myDropdown')"
+    ui-outer-click-if="Ui.active('myDropdown')"
+    role="menu"
+    ui-show="myDropdown" 
+    ui-state="myDropdown"
+    ui-turn-off="myDropdown" style="width: 100%">
+
+    <li style="text-align: center;"><a>公安</a></li>
+    <li class="divider"></li>
+    <li style="text-align: center;"><a>消防</a></li>
+    <li class="divider"></li>
+    <li style="text-align: center;"><a>信访</a></li>
+    <li class="divider"></li>
+    <li style="text-align: center;"><a>交通事故</a></li>
+    <li class="divider"></li>
+    <li style="text-align:center"><a>生产安全</a></li>
+  </ul>
+</div>
+      
+    </div>
+  </div>
+
+  <div class="navbar navbar-app navbar-absolute-bottom">
+    <!-- ... -->
+  </div>
+
+  <div class="app-body">
+    <ng-view></ng-view>
+  </div>
+</div>
