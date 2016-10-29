@@ -28,6 +28,27 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       url:'/waterEnvironment',
       templateUrl:'app/in/waterEnvironment/waterEnvironment.html',
       // controller: 'waterEnvironmentCtrl'
+      // resolve: {
+      //     deps: ['$ocLazyLoad',
+      //       function($ocLazyLoad) {
+      //         return $ocLazyLoad.load([
+      //           'app/in/waterEnvironment/waterEnvironmentCtrl.js'
+      //           ]);
+      //       }
+      //     ]
+      //   }
+    })
+    .state('airEnvironment',{
+      url:'/airEnvironment',
+      templateUrl:'app/in/airEnvironment/airEnvironment.html',
+    })
+    .state('landResource',{
+      url:'/landResource',
+      templateUrl:'app/in/landResource/landResource.html',
+    })
+    .state('energyResource',{
+      url:'/energyResource',
+      templateUrl:'app/in/energyResource/energyResource.html',
     })
     ;
 
