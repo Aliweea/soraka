@@ -23,6 +23,7 @@ import headerDirect from './common/header/headerDirect';
 import homeCtrl from './auth/home/homeCtrl';
 import inCtrl from './in/inCtrl';
 import accountCtrl from './in/account/accountCtrl';
+import waterCtrl from './in/water/waterCtrl';
 
 angular.module('soraka',
   ['ngAnimate', 'ngCookies', 'ngSanitize', 'ui.router', 'ngResource', 'ngStorage', 'mobile-angular-ui','ui.bootstrap'])

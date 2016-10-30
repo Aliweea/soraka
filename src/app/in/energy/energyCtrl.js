@@ -1,6 +1,6 @@
 // export default ($scope) => {
 // 	'ngInject';
-// 	$scope.content = "you are in energy, ha.";
+// 	$scope.energyContent = "you are in energy, ha.";
 
 
 // };

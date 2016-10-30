@@ -24,10 +24,10 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       url:'/economy',
       templateUrl:'app/in/Economy/EconomyHome.html'
     })
-    .state('waterEnvironment',{
-      url:'/waterEnvironment',
-      templateUrl:'app/in/waterEnvironment/waterEnvironment.html',
-      // controller: 'waterEnvironmentCtrl'
+    .state('water',{
+      url:'/water',
+      templateUrl:'app/in/water/water.html',
+      controller: 'waterCtrl'
       // resolve: {
       //     deps: ['$ocLazyLoad',
       //       function($ocLazyLoad) {
@@ -38,17 +38,17 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       //     ]
       //   }
     })
-    .state('airEnvironment',{
-      url:'/airEnvironment',
-      templateUrl:'app/in/airEnvironment/airEnvironment.html',
+    .state('air',{
+      url:'/air',
+      templateUrl:'app/in/air/air.html',
     })
-    .state('landResource',{
-      url:'/landResource',
-      templateUrl:'app/in/landResource/landResource.html',
+    .state('land',{
+      url:'/land',
+      templateUrl:'app/in/land/land.html',
     })
-    .state('energyResource',{
-      url:'/energyResource',
-      templateUrl:'app/in/energyResource/energyResource.html',
+    .state('energy',{
+      url:'/energy',
+      templateUrl:'app/in/energy/energy.html',
     })
     ;
 
