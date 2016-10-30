@@ -33,6 +33,10 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       url:'/police',
       templateUrl:'app/in/police/police.html'
     })
+    .state('firecontrol',{ 
+      url:'/firecontrol',
+      templateUrl:'app/in/firecontrol/firecontrol.html'
+    })
     ;
     
 
