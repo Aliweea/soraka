@@ -1,10 +1,43 @@
-   <script type="text/javascript" src="http://api.map.baidu.com/library/Heatmap/2.0/src/Heatmap_min.js"></script>
-	<style type="text/css">
-      #criminalMap {width: 900px;height: 500px;overflow: hidden;margin:0;font-family:"微软雅黑";}
-             .anchorBL{  
-       display:none;  }
-	</style>
-	<div class="banner details-banner">
+<!-- <link rel="stylesheet" href="/styles/map.css" /> -->
+
+<div class="app">
+  <div class="navbar navbar-app navbar-absolute-top">
+  <div class="btn-group btn-group-justified">
+    <a ui-turn-on='myDropdown' class='btn'>
+      公安模块
+    </a>
+    <ul 
+      class="dropdown-menu"
+      ui-outer-click="Ui.turnOff('myDropdown')"
+      ui-outer-click-if="Ui.active('myDropdown')"
+      role="menu"
+      ui-show="myDropdown" 
+      ui-state="myDropdown"
+      ui-turn-off="myDropdown" style="width: 100%">
+
+      <li style="text-align: center;"><a ui-sref="police">公安</a></li>
+      <li class="divider"></li>
+      <li style="text-align: center;"><a ui-sref="firecontrol">消防</a></li>
+      <li class="divider"></li>
+      <li style="text-align: center;"><a ui-sref="land">土地资源</a></li>
+      <li class="divider"></li>
+      <li style="text-align: center;"><a ui-sref="energy">电力消耗</a></li>
+      <li class="divider"></li>
+      <li style="text-align: center;"><a ui-sref="home">首页</a></li>
+    </ul>
+  </div>      
+  </div>
+
+  <div class="navbar navbar-app navbar-absolute-bottom">
+    <!-- ... -->
+  </div>
+
+
+
+
+ <div class="app-body">
+  <ng-view>
+   <div class="banner details-banner">
 
 	<div class="container" style="background-image: url(../images/banner/police_banner.png);">
 
@@ -27,9 +60,9 @@
 		<h2>治安案件KPI详情</h2>
 
 	</div>
-</div>
+   </div>
 
-<div class="details-content">
+   <div class="details-content">
 	<div class="container" >
 
 		<tabset>
@@ -120,4 +153,6 @@
 					</tabset>
 
 	</div></div>
-
+	</ng-view>
+	</div>
+</div>
