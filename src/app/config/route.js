@@ -31,8 +31,7 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
     
     .state('police',{ 
       url:'/police',
-      templateUrl:'app/in/Police/PoliceHome.html',
-      controller:'policeCtrl'
+      templateUrl:'app/in/police/police.html'
     })
     ;
     
