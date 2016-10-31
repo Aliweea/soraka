@@ -1,4 +1,11 @@
 export default ($scope) => {
 	'ngInject';
-	$scope.content = "you are in, ha.";
+	
+	// 适应屏幕高度
+	let clientH = $(window).height();
+	let contentH = clientH - 50 * 2;
+	$(".home-module").height(contentH);
+
+	let rowH_common = (contentH - 40) / 3;
+	$(".list-group-item-home").css("height", rowH_common + "px");
 };

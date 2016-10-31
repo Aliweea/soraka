@@ -20,7 +20,7 @@ export default ($scope, $timeout, $state, $q, $sessionStorage, qService, account
     	qService.httpPost(accountRes.account, {}, info, {}).then((data,headers) => {
     		if (data.errorCode == "NO_ERROR") {
                 // console.log(headers[X-Auth-Token]);
-    			$state.go('in.home');
+    			$state.go('app.in.home');
     		} else {
                 $scope.errMessage = "账号/密码不匹配!";
             }
@@ -37,4 +37,13 @@ export default ($scope, $timeout, $state, $q, $sessionStorage, qService, account
     	let code = vcode == undefined? 'opzq' : vcode;
     	return md5(md5(md5(psw) + acc) + code.toUpperCase());
     };
+
+    // 设置内容居中
+    $(function() {
+        let contentH = 446; // 内容高度
+        let clientH = $(window).height(); // 视口高度
+        let marginT = (clientH - contentH) / 2 - 5;
+
+        $(".index-module").css("margin-top", marginT + "px");
+    });
 };

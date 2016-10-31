@@ -22,6 +22,7 @@ import headerDirect from './common/header/headerDirect';
 
 // controller
 import portalCtrl from './auth/portal/portalCtrl';
+import appCtrl from './appCtrl';
 import inCtrl from './in/inCtrl';
 import homeCtrl from './in/home/homeCtrl';
 
@@ -63,6 +64,7 @@ angular.module('soraka',
 
   // controller 初始化
   .controller('portalCtrl', portalCtrl)
+  .controller('appCtrl', appCtrl)
   .controller('inCtrl', inCtrl)
   .controller('homeCtrl', homeCtrl)
   .controller('GDPCtrl',GDPCtrl)

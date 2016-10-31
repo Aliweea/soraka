@@ -12,93 +12,100 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       controller: 'portalCtrl'
     })
 
+    // 登陆之后的界面
+    .state('app', {
+      abstract: true,
+      url: '/app',
+      templateUrl: 'app/app.html',
+      controller: 'appCtrl'
+    })
     // 首页
-    .state('in', {
+    .state('app.in', {
       abstract: true,
       url: '/in',
       templateUrl: 'app/in/in.html', 
       controller: 'inCtrl'
     })
-    .state('in.home', {
-      url: '^/home',
+    .state('app.in.home', {
+      url: '/home',
       templateUrl: 'app/in/home/home.html',
       controller: 'homeCtrl'
     })
 
     // 经济
-    .state('economy',{
+    .state('app.economy',{
       abstract:true,
       url:'/economy',
       templateUrl:'app/in/Economy/EconomyHome.html'
     })
-    .state('economy.gdp',{
+    .state('app.economy.gdp',{
       url:'/gdp',
       templateUrl:'app/in/Economy/GDP/GDP.html',
       controller:'GDPCtrl'
     })
-    .state('economy.finance',{
+    .state('app.economy.finance',{
       url:'/finance',
       templateUrl:'app/in/Economy/Finance/finance.html',
       controller:'financeCtrl'
     })
-    .state('economy.financial',{
+    .state('app.economy.financial',{
       url:'/financial',
       templateUrl:'app/in/Economy/Financial/financial.html',
       controller:'financialCtrl'
     })
-    .state('economy.investment',{
+    .state('app.economy.investment',{
       url:'/investment',
       templateUrl:'app/in/Economy/investment/investment.html',
       controller:'investmentCtrl'
     })
-    .state('economy.industry',{
+    .state('app.economy.industry',{
       url:'/industry',
       templateUrl:'app/in/Economy/industry/industry.html',
       controller:'industryCtrl'
     })
 
     // 民生
-    .state('livehood',{
+    .state('app.livehood',{
       url:'/livehood',
       templateUrl:'app/in/livehood/LivehoodHome.html'
     })
 
     // 环境
-    .state('environment',{
+    .state('app.environment',{
       url:'/environment',
       templateUrl:'app/in/Environment/EnvironmentHome.html',
     })
-    .state('water',{
+    .state('app.water',{
       url:'/water',
       templateUrl:'app/in/Environment/water/water.html',
     })
-    .state('air',{
+    .state('app.air',{
       url:'/air',
       templateUrl:'app/in/Environment/air/air.html',
     })
-    .state('land',{
+    .state('app.land',{
       url:'/land',
       templateUrl:'app/in/Environment/land/land.html',
     })
-    .state('energy',{
+    .state('app.energy',{
       url:'/energy',
       templateUrl:'app/in/Environment/energy/energy.html',
     })
 
     // 公共安全
-    .state('publicsecurity',{ 
+    .state('app.publicsecurity',{ 
       url:'/publicsecurity',
       templateUrl:'app/in/publicsecurity/publicsecurityHome.html'
     })
-    .state('police',{ 
+    .state('app.police',{ 
       url:'/police',
       templateUrl:'app/in/publicsecurity/police/police.html'
     })
-    .state('firecontrol',{ 
+    .state('app.firecontrol',{ 
       url:'/firecontrol',
       templateUrl:'app/in/publicsecurity/firecontrol/firecontrol.html'
     })
-    .state('petition',{ 
+    .state('app.petition',{ 
       url:'/petition',
       templateUrl:'app/in/publicsecurity/petition/petition.html'
     })
