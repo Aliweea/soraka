@@ -90,6 +90,10 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       url:'/petition',
       templateUrl:'app/in/publicsecurity/petition/petition.html'
     })
+    .state('publicService',{ 
+      url:'/publicService',
+      templateUrl:'app/in/publicService/publicService.html'
+    })
     ;
     
 
