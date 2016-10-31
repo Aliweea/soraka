@@ -28,31 +28,25 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       url:'/livehood',
       templateUrl:'app/in/livehood/LivehoodHome.html'
     })
+    .state('environment',{
+      url:'/environment',
+      templateUrl:'app/in/Environment/EnvironmentHome.html',
+    })
     .state('water',{
       url:'/water',
-      templateUrl:'app/in/water/water.html',
-      controller: 'waterCtrl'
-      // resolve: {
-      //     deps: ['$ocLazyLoad',
-      //       function($ocLazyLoad) {
-      //         return $ocLazyLoad.load([
-      //           'app/in/waterEnvironment/waterEnvironmentCtrl.js'
-      //           ]);
-      //       }
-      //     ]
-      //   }
+      templateUrl:'app/in/Environment/water/water.html',
     })
     .state('air',{
       url:'/air',
-      templateUrl:'app/in/air/air.html',
+      templateUrl:'app/in/Environment/air/air.html',
     })
     .state('land',{
       url:'/land',
-      templateUrl:'app/in/land/land.html',
+      templateUrl:'app/in/Environment/land/land.html',
     })
     .state('energy',{
       url:'/energy',
-      templateUrl:'app/in/energy/energy.html',
+      templateUrl:'app/in/Environment/energy/energy.html',
     })
     
     .state('police',{ 
