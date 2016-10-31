@@ -1,0 +1,39 @@
+<div class="app">
+  <div class="navbar navbar-app navbar-absolute-top">
+     <div class="btn-group btn-group-justified">
+     <div class="btn-group">
+  <a ui-turn-on='myDropdown' class='btn'>
+    资源环境
+  </a>
+  <ul 
+    class="dropdown-menu"
+    ui-outer-click="Ui.turnOff('myDropdown')"
+    ui-outer-click-if="Ui.active('myDropdown')"
+    role="menu"
+    ui-show="myDropdown" 
+    ui-state="myDropdown"
+    ui-turn-off="myDropdown" style="width: 100%">
+
+    <li style="text-align: center;"><a ui-sref="water">水环境</a></li>
+    <li class="divider"></li>
+    <li style="text-align: center;"><a ui-sref="air">大气环境</a></li>
+    <li class="divider"></li>
+    <li style="text-align: center;"><a ui-sref="land">土地资源</a></li>
+    <li class="divider"></li>
+    <li style="text-align: center;"><a ui-sref="energy">电力消耗</a></li>
+    <li class="divider"></li>
+    <li style="text-align: center;"><a ui-sref="in.account">首页</a></li>
+  </ul>
+</div>
+      
+    </div>
+  </div>
+
+  <div class="navbar navbar-app navbar-absolute-bottom">
+    <!-- ... -->
+  </div>
+
+  <div class="app-body">
+    <ng-view></ng-view>
+  </div>
+</div>
