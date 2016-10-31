@@ -4,34 +4,32 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
   // 去掉路由中的「#」井号
   $locationProvider.html5Mode(true);
   $stateProvider
-    .state('home', {
+
+    //登陆
+    .state('portal', {
       url: '/',
-      templateUrl: 'app/auth/home/home.html',
-      controller: 'homeCtrl'
+      templateUrl: 'app/auth/portal/portal.html',
+      controller: 'portalCtrl'
     })
+
+    // 首页
     .state('in', {
       abstract: true,
       url: '/in',
       templateUrl: 'app/in/in.html', 
       controller: 'inCtrl'
     })
-    .state('in.account', {
-      url: '^/account',
-      templateUrl: 'app/in/account/account.html',
-      controller: 'accountCtrl'
+    .state('in.home', {
+      url: '^/home',
+      templateUrl: 'app/in/home/home.html',
+      controller: 'homeCtrl'
     })
+
+    // 经济
     .state('economy',{
       abstract:true,
       url:'/economy',
       templateUrl:'app/in/Economy/EconomyHome.html'
-    })
-    .state('livehood',{
-      url:'/livehood',
-      templateUrl:'app/in/livehood/LivehoodHome.html'
-    })
-    .state('environment',{
-      url:'/environment',
-      templateUrl:'app/in/Environment/EnvironmentHome.html',
     })
     .state('economy.gdp',{
       url:'/gdp',
@@ -58,6 +56,18 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       templateUrl:'app/in/Economy/industry/industry.html',
       controller:'industryCtrl'
     })
+
+    // 民生
+    .state('livehood',{
+      url:'/livehood',
+      templateUrl:'app/in/livehood/LivehoodHome.html'
+    })
+
+    // 环境
+    .state('environment',{
+      url:'/environment',
+      templateUrl:'app/in/Environment/EnvironmentHome.html',
+    })
     .state('water',{
       url:'/water',
       templateUrl:'app/in/Environment/water/water.html',
@@ -73,7 +83,9 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
     .state('energy',{
       url:'/energy',
       templateUrl:'app/in/Environment/energy/energy.html',
-    })   
+    })
+
+    // 公共安全
     .state('publicsecurity',{ 
       url:'/publicsecurity',
       templateUrl:'app/in/publicsecurity/publicsecurityHome.html'
