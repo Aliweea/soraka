@@ -11,6 +11,7 @@ import i18nConfig from './i18n/config';
 // service
 import commonSer from './common/commonSer';
 import qService from './services/q-service';
+import AuthTool  from './services/auth-tool';
 
 // resource
 import accountRes from './resources/account-res';
@@ -23,6 +24,14 @@ import headerDirect from './common/header/headerDirect';
 import homeCtrl from './auth/home/homeCtrl';
 import inCtrl from './in/inCtrl';
 import accountCtrl from './in/account/accountCtrl';
+
+import waterCtrl from './in/water/waterCtrl';
+import GDPCtrl from './in/Economy/GDP/GDPCtrl.js';
+import financeCtrl from './in/Economy/Finance/financeCtrl.js';
+import financialCtrl from './in/Economy/Financial/financial.js';
+import investmentCtrl from './in/Economy/investment/investmentCtrl.js';
+import industryCtrl from './in/Economy/industry/industryCtrl.js';
+
 
 angular.module('soraka',
   ['ngAnimate', 'ngCookies', 'ngSanitize', 'ui.router', 'ngResource', 'ngStorage', 'mobile-angular-ui','ui.bootstrap'])
@@ -43,6 +52,7 @@ angular.module('soraka',
   // services 初始化
   .service('commonSer', commonSer)
   .service('qService', qService)
+  .service('AuthTool',AuthTool)
 
   // factory 初始化
   .factory('accountRes', accountRes)
@@ -55,4 +65,9 @@ angular.module('soraka',
   .controller('homeCtrl', homeCtrl)
   .controller('inCtrl', inCtrl)
   .controller('accountCtrl', accountCtrl)
+  .controller('GDPCtrl',GDPCtrl)
+  .controller('financeCtrl',financeCtrl)
+  .controller('financialCtrl',financialCtrl)
+  .controller('investmentCtrl',investmentCtrl)
+  .controller('industryCtrl',industryCtrl)
   ;

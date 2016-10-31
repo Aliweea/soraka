@@ -21,6 +21,7 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       controller: 'accountCtrl'
     })
     .state('economy',{
+      abstract:true,
       url:'/economy',
       templateUrl:'app/in/Economy/EconomyHome.html'
     })
@@ -31,6 +32,31 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
     .state('environment',{
       url:'/environment',
       templateUrl:'app/in/Environment/EnvironmentHome.html',
+    })
+    .state('economy.gdp',{
+      url:'/gdp',
+      templateUrl:'app/in/Economy/GDP/GDP.html',
+      controller:'GDPCtrl'
+    })
+    .state('economy.finance',{
+      url:'/finance',
+      templateUrl:'app/in/Economy/Finance/finance.html',
+      controller:'financeCtrl'
+    })
+    .state('economy.financial',{
+      url:'/financial',
+      templateUrl:'app/in/Economy/Financial/financial.html',
+      controller:'financialCtrl'
+    })
+    .state('economy.investment',{
+      url:'/investment',
+      templateUrl:'app/in/Economy/investment/investment.html',
+      controller:'investmentCtrl'
+    })
+    .state('economy.industry',{
+      url:'/industry',
+      templateUrl:'app/in/Economy/industry/industry.html',
+      controller:'industryCtrl'
     })
     .state('water',{
       url:'/water',

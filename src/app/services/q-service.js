@@ -13,7 +13,7 @@ export default ($q) => {
 			return $q((resolve, reject) => {
 				resource(headers).get(parameters,
 				(value, responseHeaders) => {
-					resolve(value);
+					resolve(value,responseHeaders);
 				}, 
 				(httpResponse) => {
 					reject(httpResponse);
