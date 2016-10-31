@@ -47,15 +47,18 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
     .state('energy',{
       url:'/energy',
       templateUrl:'app/in/Environment/energy/energy.html',
-    })
-    
+    })   
     .state('publicsecurity',{ 
       url:'/publicsecurity',
-      templateUrl:'app/in/publicsecurity/publicsecurity.html'
+      templateUrl:'app/in/publicsecurity/publicsecurityHome.html'
+    })
+    .state('police',{ 
+      url:'/police',
+      templateUrl:'app/in/publicsecurity/police/police.html'
     })
     .state('firecontrol',{ 
       url:'/firecontrol',
-      templateUrl:'app/in/firecontrol/firecontrol.html'
+      templateUrl:'app/in/publicsecurity/firecontrol/firecontrol.html'
     })
     ;
     
