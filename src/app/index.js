@@ -25,7 +25,7 @@ import homeCtrl from './auth/home/homeCtrl';
 import inCtrl from './in/inCtrl';
 import accountCtrl from './in/account/accountCtrl';
 
-import waterCtrl from './in/water/waterCtrl';
+
 import GDPCtrl from './in/Economy/GDP/GDPCtrl.js';
 import financeCtrl from './in/Economy/Finance/financeCtrl.js';
 import financialCtrl from './in/Economy/Financial/financial.js';
