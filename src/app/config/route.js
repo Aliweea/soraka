@@ -24,6 +24,32 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       url:'/economy',
       templateUrl:'app/in/Economy/EconomyHome.html'
     })
+    .state('water',{
+      url:'/water',
+      templateUrl:'app/in/water/water.html',
+      controller: 'waterCtrl'
+      // resolve: {
+      //     deps: ['$ocLazyLoad',
+      //       function($ocLazyLoad) {
+      //         return $ocLazyLoad.load([
+      //           'app/in/waterEnvironment/waterEnvironmentCtrl.js'
+      //           ]);
+      //       }
+      //     ]
+      //   }
+    })
+    .state('air',{
+      url:'/air',
+      templateUrl:'app/in/air/air.html',
+    })
+    .state('land',{
+      url:'/land',
+      templateUrl:'app/in/land/land.html',
+    })
+    .state('energy',{
+      url:'/energy',
+      templateUrl:'app/in/energy/energy.html',
+    })
     ;
 
   $urlRouterProvider.otherwise('/');
