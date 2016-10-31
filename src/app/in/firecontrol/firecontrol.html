@@ -3,9 +3,10 @@
 <div class="app">
   <div class="navbar navbar-app navbar-absolute-top">
   <div class="btn-group btn-group-justified">
-    <a ui-turn-on='myDropdown' class='btn'>
+    <div class="btn-group">
+      <a ui-turn-on='myDropdown' class='btn'>
       公安模块
-    </a>
+      </a>
     <ul 
       class="dropdown-menu"
       ui-outer-click="Ui.turnOff('myDropdown')"
@@ -154,5 +155,7 @@
 
 
 	</ng-view>
+	</div>
 	
+</div>
 </div>
