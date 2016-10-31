@@ -21,9 +21,9 @@ import ipRes from './resources/ip-res';
 import headerDirect from './common/header/headerDirect';
 
 // controller
-import homeCtrl from './auth/home/homeCtrl';
+import portalCtrl from './auth/portal/portalCtrl';
 import inCtrl from './in/inCtrl';
-import accountCtrl from './in/account/accountCtrl';
+import homeCtrl from './in/home/homeCtrl';
 
 
 import GDPCtrl from './in/Economy/GDP/GDPCtrl.js';
@@ -62,9 +62,9 @@ angular.module('soraka',
   .directive('lcHeader', headerDirect)
 
   // controller 初始化
-  .controller('homeCtrl', homeCtrl)
+  .controller('portalCtrl', portalCtrl)
   .controller('inCtrl', inCtrl)
-  .controller('accountCtrl', accountCtrl)
+  .controller('homeCtrl', homeCtrl)
   .controller('GDPCtrl',GDPCtrl)
   .controller('financeCtrl',financeCtrl)
   .controller('financialCtrl',financialCtrl)
