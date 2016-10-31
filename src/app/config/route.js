@@ -60,6 +60,10 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       url:'/firecontrol',
       templateUrl:'app/in/publicsecurity/firecontrol/firecontrol.html'
     })
+    .state('petition',{ 
+      url:'/petition',
+      templateUrl:'app/in/publicsecurity/petition/petition.html'
+    })
     ;
     
 
