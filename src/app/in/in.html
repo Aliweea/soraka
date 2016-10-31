@@ -11,19 +11,23 @@
 		</div>
 	</div>
 </div>
-<div class="app soraka-menu-module">
+<div class="app soraka-menu-module" ui-swipe-right="Ui.turnOn('uiSidebarLeft')" ui-swipe-left="Ui.turnOff('uiSidebarLeft')">
 	<div class="navbar navbar-app navbar-absolute-top soraka-menu-navbar-top">
+		<div class="navbar-brand navbar-brand-center" ui-yield-to="title">
+			<span class="color-w">太仓市智慧城市运营中心</span>
+		</div>
 		<div class="btn-group pull-left">
 			<div class="btn btn-navbar color-w opacity100" ui-toggle='uiSidebarLeft'>
+			<i class="fa fa-bars"></i>
 				设置
 			</div>
 		</div>
 	</div>
-	<div class="app-body soraka-body">
+	<div class="soraka-body">
 		<div ng-show="loading" class="app-content-loading">
 			<i class="fa fa-spinner fa-spin loading-spinner"></i>
 		</div>
-		<div class="app-content">
+		<div class="soraka-content">
 			<div ui-view></div>
 		</div>
 	</div>

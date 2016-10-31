@@ -1,6 +1,8 @@
 .home-module {
+	background-color: #fff;
 	.list-group-item-home {
-	  padding: 20px;
+	  padding: 20px 5% 20px 5%;
+	  border: none;
 	}
 	.feature-icon {
 	  font-size: 44px;
@@ -19,6 +21,15 @@
 	  line-height: 60px;
 	}
 	.soraka-home-list-group-item {
-		width: 50%;
+		width: 49%;
+		display: inline-block;
+		
+		img {
+			width: 70%;
+		}
+		h3 {
+			font-size: 1.2em;
+			color: $fontBlack;
+		}
 	}
 }

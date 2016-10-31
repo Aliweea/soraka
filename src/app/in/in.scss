@@ -1,9 +1,13 @@
 .soraka-menu-module {
 	.soraka-body {
 		background-color: $bgLightGrey;
+		padding: 50px 0px;
 	}
 	.soraka-menu-navbar-top {
 		background-color: $bgDarkBlue;
+		span {
+			font-size: 0.9em;
+		}
 	}
 	.soraka-menu-navbar-bottom {
 		background-color: $bgDarkBlue;
