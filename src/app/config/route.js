@@ -49,9 +49,9 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       templateUrl:'app/in/Environment/energy/energy.html',
     })
     
-    .state('police',{ 
-      url:'/police',
-      templateUrl:'app/in/police/police.html'
+    .state('publicsecurity',{ 
+      url:'/publicsecurity',
+      templateUrl:'app/in/publicsecurity/publicsecurity.html'
     })
     .state('firecontrol',{ 
       url:'/firecontrol',
