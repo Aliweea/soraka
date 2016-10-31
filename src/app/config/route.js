@@ -24,6 +24,10 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       url:'/economy',
       templateUrl:'app/in/Economy/EconomyHome.html'
     })
+    .state('livehood',{
+      url:'/livehood',
+      templateUrl:'app/in/livehood/LivehoodHome.html'
+    })
     .state('water',{
       url:'/water',
       templateUrl:'app/in/water/water.html',
