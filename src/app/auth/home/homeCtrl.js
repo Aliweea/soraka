@@ -19,7 +19,7 @@ export default ($scope, $timeout, $state, $q, $sessionStorage, qService, account
     	};
     	qService.httpPost(accountRes.account, {}, info, {}).then((data,headers) => {
     		if (data.errorCode == "NO_ERROR") {
-                console.log(headers[X-Auth-Token]);
+                // console.log(headers[X-Auth-Token]);
     			$state.go('in.account');
     		} else {
                 $scope.errMessage = "账号/密码不匹配!";
