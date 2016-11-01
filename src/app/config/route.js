@@ -65,30 +65,31 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
     })
 
 
-
-
-
-
     // 环境
     .state('app.environment',{
+      abstract:true,
       url:'/environment',
       templateUrl:'app/in/Environment/EnvironmentHome.html',
     })
-    .state('app.water',{
+    .state('app.environment.water',{
       url:'/water',
       templateUrl:'app/in/Environment/water/water.html',
+      controller:'waterCtrl'
     })
-    .state('app.air',{
+    .state('app.environment.air',{
       url:'/air',
       templateUrl:'app/in/Environment/air/air.html',
+      controller:'airCtrl'
     })
-    .state('app.land',{
+    .state('app.environment.land',{
       url:'/land',
       templateUrl:'app/in/Environment/land/land.html',
+      controller:'landCtrl'
     })
-    .state('app.energy',{
+    .state('app.environment.energy',{
       url:'/energy',
       templateUrl:'app/in/Environment/energy/energy.html',
+      controller:'energyCtrl'
     })
 
     // 公共安全

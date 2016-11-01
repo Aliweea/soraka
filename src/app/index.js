@@ -32,6 +32,11 @@ import financeCtrl from './in/Economy/Finance/financeCtrl.js';
 import financialCtrl from './in/Economy/Financial/financial.js';
 import investmentCtrl from './in/Economy/investment/investmentCtrl.js';
 import industryCtrl from './in/Economy/industry/industryCtrl.js';
+//环境模块Controller
+import waterCtrl from './in/Environment/water/waterCtrl.js';
+import airCtrl from './in/Environment/air/airCtrl.js';
+import landCtrl from './in/Environment/land/landCtrl.js';
+import energyCtrl from './in/Environment/energy/energyCtrl.js';
 //民生模块Controller
 import populationCtrl from './in/livehood/population/populationCtrl.js';
 import insuranceCtrl from './in/livehood/insurance/insuranceCtrl.js';
