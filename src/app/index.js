@@ -16,6 +16,7 @@ import AuthTool  from './services/auth-tool';
 // resource
 import accountRes from './resources/account-res';
 import ipRes from './resources/ip-res';
+import ipRes from './resources/kpi-res';
 
 // directive
 import headerDirect from './common/header/headerDirect';
@@ -69,6 +70,7 @@ angular.module('soraka',
   // factory 初始化
   .factory('accountRes', accountRes)
   .factory('ipRes', ipRes)
+  .factory('kpiRes',kpiRes)
 
   // directive 初始化
   .directive('lcHeader', headerDirect)
@@ -86,5 +88,4 @@ angular.module('soraka',
   .controller('populationCtrl',populationCtrl)
   .controller('insuranceCtrl',insuranceCtrl)
   .controller('priceCtrl',priceCtrl)
-
   ;
