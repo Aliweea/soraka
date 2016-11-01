@@ -21,6 +21,9 @@ import kpiRes from './resources/kpi-res';
 // directive
 import headerDirect from './common/header/headerDirect';
 
+//filter
+import economyFilter from './filter/EconomyFilter';
+
 // controller
 import portalCtrl from './auth/portal/portalCtrl';
 import appCtrl from './appCtrl';
@@ -80,6 +83,8 @@ angular.module('soraka',
 
   // directive 初始化
   .directive('lcHeader', headerDirect)
+  //filter 初始化
+  .filter('economyFilter',economyFilter)
 
   // controller 初始化
   .controller('portalCtrl', portalCtrl)
