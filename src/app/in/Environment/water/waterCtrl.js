@@ -1,6 +1,5 @@
 export default ($scope) => {
-	'ngInject';
-	$scope.energyContent = "you are in water, ha.";
-
-
+  'ngInject';
+ 
+	$scope.test1="24小时水质达标率";
 };
