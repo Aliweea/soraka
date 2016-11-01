@@ -1,48 +1,49 @@
-<!-- <link rel="stylesheet" href="/styles/map.css" /> -->
-
 <div class="app">
-  <div class="navbar navbar-app navbar-absolute-top">
-   <div class="btn-group btn-group-justified">
-    <div class="btn-group">
-      <a ui-turn-on='myDropdown' class='btn'>
-      公共安全模块
-      </a>
-     <ul 
-      class="dropdown-menu"
-      ui-outer-click="Ui.turnOff('myDropdown')"
-      ui-outer-click-if="Ui.active('myDropdown')"
-      role="menu"
-      ui-show="myDropdown" 
-      ui-state="myDropdown"
-      ui-turn-off="myDropdown" style="width: 100%">
 
-      <li style="text-align: center;"><a ui-sref="app.police">公安</a></li>
-      <li class="divider"></li>
-      <li style="text-align: center;"><a ui-sref="app.firecontrol">消防</a></li>
-      <li class="divider"></li>
-      <li style="text-align: center;"><a ui-sref="app.petition">信访</a></li>
-      <li class="divider"></li>
-      <li style="text-align: center;"><a ui-sref="app.accident">交通事故</a></li>
-      <li class="divider"></li>
-      <li style="text-align: center;"><a ui-sref="app.safety">生产安全</a></li>
-      <li class="divider"></li>
-      <li style="text-align: center;"><a ui-sref="app.in.home">首页</a></li>
-     </ul>
-    </div>      
-  </div>
-  </div>
+  <div class="navbar navbar-app navbar-absolute-top" style="background-color: rgb(52,152,219);border-color: rgb(52,152,219);">
+     <div class="btn-group btn-group-justified">
+     <div class="btn-group">
+  <a ui-turn-on='myDropdown' class='btn' style="color: white">
+    公共安全模块
+  </a>
+  <ul 
+    class="dropdown-menu"
+    ui-outer-click="Ui.turnOff('myDropdown')"
+    ui-outer-click-if="Ui.active('myDropdown')"
+    role="menu"
+    ui-show="myDropdown" 
+    ui-state="myDropdown"
+    ui-turn-off="myDropdown" style="width: 100%">
 
-  <div class="navbar navbar-app navbar-absolute-bottom">
-    <!-- ... -->
+
+    <li style="text-align: center;"><a ui-sref="app.publicsecurity.police">公安</a></li>
+    <li class="divider"></li>
+    <li style="text-align: center;"><a ui-sref="app.publicsecurity.firecontrol">消防</a></li>
+    <li class="divider"></li>
+    <li style="text-align: center;"><a ui-sref="app.publicsecurity.petition">信访</a></li>
+    <li class="divider"></li>
+    <li style="text-align: center;"><a ui-sref="app.publicsecurity.accident">交通事故</a></li>
+    <li class="divider"></li>
+    <li style="text-align: center;"><a ui-sref="app.publicsecurity.safety">生产安全</a></li>
+  </ul>
+</div>
+      
+    </div>
   </div>
 
 
-
-
-  <div class="app-body">
-    <ng-view>
-   
-	</ng-view>
+  <div class="navbar navbar-app navbar-absolute-bottom" style="background-color: rgb(52,152,219);">
+        <a  class='btn' ui-sref="app.in.home" style="color: white">
+           返回主页
+        </a>
   </div>
- </div>
+
+  <div class="app-body" style="background-color: white">
+    <div ui-view></div>
+  </div>
+</div>
+
+
+
+
 

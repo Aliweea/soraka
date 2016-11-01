@@ -94,20 +94,24 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
 
     // 公共安全
     .state('app.publicsecurity',{ 
+      abstract: true,
       url:'/publicsecurity',
       templateUrl:'app/in/publicsecurity/publicsecurityHome.html'
     })
-    .state('app.police',{ 
+    .state('app.publicsecurity.police',{ 
       url:'/police',
-      templateUrl:'app/in/publicsecurity/police/police.html'
+      templateUrl:'app/in/publicsecurity/police/police.html',
+      controller: 'policeCtrl'
     })
-    .state('app.firecontrol',{ 
+    .state('app.publicsecurity.firecontrol',{ 
       url:'/firecontrol',
-      templateUrl:'app/in/publicsecurity/firecontrol/firecontrol.html'
+      templateUrl:'app/in/publicsecurity/firecontrol/firecontrol.html',
+      controller: 'firecontrolCtrl'
     })
-    .state('app.petition',{ 
+    .state('app.publicsecurity.petition',{ 
       url:'/petition',
-      templateUrl:'app/in/publicsecurity/petition/petition.html'
+      templateUrl:'app/in/publicsecurity/petition/petition.html',
+      controller: 'petitionCtrl'
     })
 
 
