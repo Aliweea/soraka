@@ -64,11 +64,10 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       controller:'industryCtrl'
     })
 
-    // 民生
-    .state('app.livehood',{
-      url:'/livehood',
-      templateUrl:'app/in/livehood/LivehoodHome.html'
-    })
+
+
+
+
 
     // 环境
     .state('app.environment',{
@@ -109,6 +108,32 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       url:'/petition',
       templateUrl:'app/in/publicsecurity/petition/petition.html'
     })
+
+
+    // 民生
+    .state('app.livehood',{
+      url:'/livehood',
+      templateUrl:'app/in/livehood/LivehoodHome.html'
+    })
+    //民生之人口结构
+    .state('app.livehood.population',{
+      url:'/livehood/population',
+      templateUrl:'app/in/livehood/population/population.html',
+      controller:'populationCtrl'
+    })
+      //民生之社会保险
+    .state('app.livehood.insurance',{
+      url:'/livehood/insurance',
+      templateUrl:'app/in/livehood/insurance/insurance.html',
+      controller:'insuranceCtrl'
+    })
+      //民生之价格指数
+    .state('app.livehood.price',{
+      url:'/livehood/price',
+     templateUrl:'app/in/livehood/price/price.html',
+      controller:'priceCtrl'
+    })
+
     ;
     
 
