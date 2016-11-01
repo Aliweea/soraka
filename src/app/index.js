@@ -32,6 +32,12 @@ import financeCtrl from './in/Economy/Finance/financeCtrl.js';
 import financialCtrl from './in/Economy/Financial/financial.js';
 import investmentCtrl from './in/Economy/investment/investmentCtrl.js';
 import industryCtrl from './in/Economy/industry/industryCtrl.js';
+//民生模块Controller
+import populationCtrl from './in/livehood/population/populationCtrl.js';
+import insuranceCtrl from './in/livehood/insurance/insuranceCtrl.js';
+import priceCtrl from './in/livehood/price/priceCtrl.js';
+
+
 
 
 angular.module('soraka',
@@ -72,4 +78,8 @@ angular.module('soraka',
   .controller('financialCtrl',financialCtrl)
   .controller('investmentCtrl',investmentCtrl)
   .controller('industryCtrl',industryCtrl)
+  .controller('populationCtrl',populationCtrl)
+  .controller('insuranceCtrl',insuranceCtrl)
+  .controller('priceCtrl',priceCtrl)
+
   ;
