@@ -113,6 +113,16 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       templateUrl:'app/in/publicsecurity/petition/petition.html',
       controller: 'petitionCtrl'
     })
+    .state('app.publicsecurity.accident',{ 
+      url:'/accident',
+      templateUrl:'app/in/publicsecurity/accident/accident.html',
+      controller: 'accidentCtrl'
+    })
+    .state('app.publicsecurity.safety',{ 
+      url:'/safety',
+      templateUrl:'app/in/publicsecurity/safety/safety.html',
+      controller: 'safetyCtrl'
+    })
 
 
     // 民生
