@@ -139,6 +139,33 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       controller:'priceCtrl'
     })
 
+    //公共事业
+    .state('app.publicService',{
+      abstract:true,
+      url:'/publicService',
+      templateUrl:'app/in/publicService/publicServiceHome.html'
+    })
+    .state('app.publicService.education',{
+      url:'/education',
+      templateUrl:'app/in/publicService/education/education.html',
+      controller:'educationCtrl'
+    })
+    .state('app.publicService.healthCare',{
+      url:'/healthCare',
+      templateUrl:'app/in/publicService/healthCare/healthCare.html',
+      controller:'healthCareCtrl'
+    })
+    .state('app.publicService.telecom',{
+      url:'/telecom',
+      templateUrl:'app/in/publicService/telecom/telecom.html',
+      controller:'telecomCtrl'
+    })
+    .state('app.publicService.traffic',{
+      url:'/traffic',
+      templateUrl:'app/in/publicService/traffic/traffic.html',
+      controller:'trafficCtrl'
+    })
+
     ;
     
 
