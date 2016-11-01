@@ -16,7 +16,7 @@ import AuthTool  from './services/auth-tool';
 // resource
 import accountRes from './resources/account-res';
 import ipRes from './resources/ip-res';
-import ipRes from './resources/kpi-res';
+import kpiRes from './resources/kpi-res';
 
 // directive
 import headerDirect from './common/header/headerDirect';
