@@ -16,10 +16,13 @@ import AuthTool  from './services/auth-tool';
 // resource
 import accountRes from './resources/account-res';
 import ipRes from './resources/ip-res';
-import ipRes from './resources/kpi-res';
+import kpiRes from './resources/kpi-res';
 
 // directive
 import headerDirect from './common/header/headerDirect';
+
+//filter
+import economyFilter from './filter/EconomyFilter';
 
 // controller
 import portalCtrl from './auth/portal/portalCtrl';
@@ -74,6 +77,8 @@ angular.module('soraka',
 
   // directive 初始化
   .directive('lcHeader', headerDirect)
+  //filter 初始化
+  .filter('economyFilter',economyFilter)
 
   // controller 初始化
   .controller('portalCtrl', portalCtrl)

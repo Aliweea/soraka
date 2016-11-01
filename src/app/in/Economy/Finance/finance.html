@@ -5,14 +5,14 @@
 <div class="scrollable">
   <div class="scrollable-content" style="margin-top: 80px">
   <!-- 先写出设计模版，之后用ng-repeat改写 -->
-<div class="card">
+<div class="card" ng-repeat="item in FinanceKPI">
     <div class="card-header">
-    {{test}}
-    <label class="label label-success status">可接受</label>
+    {{item.description}}
+    <label  class="{{(item.data.value>item.data.target)?'label label-success status':'label label-danger status'}}">{{(item.data.value>item.data.target)?'可接受':'低于目标'}}</label>
     </div>
     <div class="card-content">
       <button type="button" class="btn btn-success" style="margin-left: 5%;width: 25%">
-        <span class="glyphicon glyphicon-star"></span> 201.9亿元
+        <span class="glyphicon glyphicon-star"></span> {{item.data.value | economyFilter}}{{(item.data.value<=1)?'%':'亿元'}}
      </button>
      <a type="button"  style="margin-left: 40%">
         查看详情>>
