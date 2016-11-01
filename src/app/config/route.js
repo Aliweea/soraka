@@ -94,20 +94,34 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
 
     // 公共安全
     .state('app.publicsecurity',{ 
+      abstract: true,
       url:'/publicsecurity',
       templateUrl:'app/in/publicsecurity/publicsecurityHome.html'
     })
-    .state('app.police',{ 
+    .state('app.publicsecurity.police',{ 
       url:'/police',
-      templateUrl:'app/in/publicsecurity/police/police.html'
+      templateUrl:'app/in/publicsecurity/police/police.html',
+      controller: 'policeCtrl'
     })
-    .state('app.firecontrol',{ 
+    .state('app.publicsecurity.firecontrol',{ 
       url:'/firecontrol',
-      templateUrl:'app/in/publicsecurity/firecontrol/firecontrol.html'
+      templateUrl:'app/in/publicsecurity/firecontrol/firecontrol.html',
+      controller: 'firecontrolCtrl'
     })
-    .state('app.petition',{ 
+    .state('app.publicsecurity.petition',{ 
       url:'/petition',
-      templateUrl:'app/in/publicsecurity/petition/petition.html'
+      templateUrl:'app/in/publicsecurity/petition/petition.html',
+      controller: 'petitionCtrl'
+    })
+    .state('app.publicsecurity.accident',{ 
+      url:'/accident',
+      templateUrl:'app/in/publicsecurity/accident/accident.html',
+      controller: 'accidentCtrl'
+    })
+    .state('app.publicsecurity.safety',{ 
+      url:'/safety',
+      templateUrl:'app/in/publicsecurity/safety/safety.html',
+      controller: 'safetyCtrl'
     })
 
 
@@ -133,6 +147,33 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       url:'/livehood/price',
      templateUrl:'app/in/livehood/price/price.html',
       controller:'priceCtrl'
+    })
+
+    //公共事业
+    .state('app.publicService',{
+      abstract:true,
+      url:'/publicService',
+      templateUrl:'app/in/publicService/publicServiceHome.html'
+    })
+    .state('app.publicService.education',{
+      url:'/education',
+      templateUrl:'app/in/publicService/education/education.html',
+      controller:'educationCtrl'
+    })
+    .state('app.publicService.healthCare',{
+      url:'/healthCare',
+      templateUrl:'app/in/publicService/healthCare/healthCare.html',
+      controller:'healthCareCtrl'
+    })
+    .state('app.publicService.telecom',{
+      url:'/telecom',
+      templateUrl:'app/in/publicService/telecom/telecom.html',
+      controller:'telecomCtrl'
+    })
+    .state('app.publicService.traffic',{
+      url:'/traffic',
+      templateUrl:'app/in/publicService/traffic/traffic.html',
+      controller:'trafficCtrl'
     })
 
     ;

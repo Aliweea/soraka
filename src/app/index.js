@@ -45,6 +45,12 @@ import energyCtrl from './in/Environment/energy/energyCtrl.js';
 import populationCtrl from './in/livehood/population/populationCtrl.js';
 import insuranceCtrl from './in/livehood/insurance/insuranceCtrl.js';
 import priceCtrl from './in/livehood/price/priceCtrl.js';
+//公共安全模块Controller
+import policeCtrl from './in/publicsecurity/police/policeCtrl.js'
+import firecontrolCtrl from './in/publicsecurity/firecontrol/firecontrolCtrl.js'
+import petitionCtrl from './in/publicsecurity/petition/petitionCtrl.js'
+import safetyCtrl from './in/publicsecurity/safety/safetyCtrl.js'
+import accidentCtrl from './in/publicsecurity/accident/accidentCtrl.js'
 
 
 
@@ -97,4 +103,10 @@ angular.module('soraka',
   .controller('populationCtrl',populationCtrl)
   .controller('insuranceCtrl',insuranceCtrl)
   .controller('priceCtrl',priceCtrl)
+  .controller('policeCtrl', policeCtrl)
+  .controller('firecontrolCtrl', firecontrolCtrl)
+  .controller('accidentCtrl', accidentCtrl)
+  .controller('petitionCtrl', petitionCtrl)
+  .controller('safetyCtrl', safetyCtrl)
+
   ;
