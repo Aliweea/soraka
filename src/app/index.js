@@ -23,6 +23,8 @@ import headerDirect from './common/header/headerDirect';
 
 //filter
 import economyFilter from './filter/EconomyFilter';
+import energyFilter from './filter/EnergyFilter';
+import landFilter from './filter/LandFilter';
 
 // controller
 import portalCtrl from './auth/portal/portalCtrl';
@@ -85,6 +87,8 @@ angular.module('soraka',
   .directive('lcHeader', headerDirect)
   //filter 初始化
   .filter('economyFilter',economyFilter)
+  .filter('energyFilter',energyFilter)
+  .filter('landFilter',landFilter)
 
   // controller 初始化
   .controller('portalCtrl', portalCtrl)
