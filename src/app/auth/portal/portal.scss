@@ -16,15 +16,31 @@ $lightgrey: #666666;
     width: 80%;
     margin: 0px auto 0 auto;
     padding: 10px 0 0 0;
-    input {
-      margin: 0 0 0 5px;
-      padding: 0;
-      width: 1em;
-      height: 1em;
-      border: 1px solid #fff !important;
-    }
     #isAutoLogin {
       color: $fontBlack;
+      span {
+        vertical-align: top;
+      }
+      .switch {
+        width: 3em;
+        height: 1.5em;
+        display: inline-block;
+        .switch-handle {
+          width: 1.5em;
+          height: 1.5em;
+        }
+      }
+      .switch.active {
+        background-color: $lightgrey;
+        border: 1px solid $lightgrey;
+        .switch-handle {
+          border-color: #ccc;
+          -webkit-transform: translate(1.5em, 0);
+          -ms-transform: translate(1.5em, 0);
+          -o-transform: translate(1.5em, 0);
+          transform: translate(1.5em, 0);
+        }
+      }
     }
   }
 }

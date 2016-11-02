@@ -53,11 +53,9 @@ export default ($scope, $localStorage, $timeout, $state, $q, $sessionStorage, qS
             'X-Password': $scope.loginPassword
     	};
     	qService.httpPost(accountRes.account, {}, info, {}).then((data) => {
-            let isAutoLogin = $("#isAutoLogin :checkbox").is(":checked");
-
     		if (data.errorCode == "NO_ERROR") {
                 // 如果用户选择自动登录, 则将其用户名和密码存到本地
-                if (isAutoLogin) {
+                if ($scope.isAutoLogin) {
                     AuthTool.saveAutoLoginInfo($scope.loginAccount, $scope.loginPassword);
                     console.log("用户信息已保存, 启用自动登录");
                 }
