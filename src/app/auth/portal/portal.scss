@@ -11,6 +11,22 @@ $lightgrey: #666666;
 .index-module {
   margin-top: auto;
   margin-bottom: auto;
+  .index-checkboxgroup {
+    border: none;
+    width: 80%;
+    margin: 0px auto 0 auto;
+    padding: 10px 0 0 0;
+    input {
+      margin: 0 0 0 5px;
+      padding: 0;
+      width: 1em;
+      height: 1em;
+      border: 1px solid #fff !important;
+    }
+    #isAutoLogin {
+      color: $fontBlack;
+    }
+  }
 }
 .index-title {
   text-align: center;
@@ -37,12 +53,12 @@ $lightgrey: #666666;
 }
 .index-form-btn {
   width: 80%;
-  margin: 16px auto 10px auto;
+  margin: 10px auto 10px auto;
 }
 .index-err-block {
   height: 18px;
   width: 80%;
-  margin: 10px auto 0 auto;
+  margin: 5px auto 0 auto;
   .error {
     color: $errMsg;
   }
