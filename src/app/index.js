@@ -23,6 +23,7 @@ import headerDirect from './common/header/headerDirect';
 
 //filter
 import economyFilter from './filter/EconomyFilter';
+import insuranceFilter from './filter/insuranceFilter';
 
 // controller
 import portalCtrl from './auth/portal/portalCtrl';
@@ -85,6 +86,7 @@ angular.module('soraka',
   .directive('lcHeader', headerDirect)
   //filter 初始化
   .filter('economyFilter',economyFilter)
+  .filter('insuranceFilter',insuranceFilter)
 
   // controller 初始化
   .controller('portalCtrl', portalCtrl)
