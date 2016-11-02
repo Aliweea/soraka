@@ -7,8 +7,21 @@ $wordBlack: #333333;
 // 统一提示颜色
 $errMsg: #FF0033;
 $successMsg: #33CC66;
+$level1: #4ede62; //可接受
+$level2: #f7b85e; // 轻微问题
+$level3: #e85959; // 问题
+.clevel1 {
+  color: $level1 !important;
+}
+.clevel2 {
+  color: $level2 !important;
+}
+.clevel3 {
+  color: $level3 !important;
+}
 
 // 统一背景色
+$bgGreen: rgb(26, 173, 25);
 $bgDarkBlue: #0099CC;
 $bgLightBlue: #F5FAFF;
 $bgLightGrey: rgb(240, 243, 244);
@@ -16,13 +29,16 @@ $bgLightGrey: rgb(240, 243, 244);
 // 统一文字色
 $fontBlack: #666666;
 
+// 统一底部导航条的高度
+$bottomBarH: 40px;
+
 * {
 	margin:0;
 	padding: 0;
 }
 
 html {
-  font-family: 'Lantinghei SC', 'Microsoft Yahei', 'Hiragino Sans GB', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Hiragino Sans GB', 'Lantinghei SC', 'Microsoft Yahei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: $standardFontSize;
 }
 
