@@ -127,6 +127,7 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
 
     // 民生
     .state('app.livehood',{
+      abstract: true,
       url:'/livehood',
       templateUrl:'app/in/livehood/LivehoodHome.html'
     })
