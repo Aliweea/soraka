@@ -10,23 +10,14 @@ export default ($q, $state) => {
 	'ngInject';
 
 	var TOKEN_KEY = 'X-Auth-Token';
-
-	const successHandler = (resolve, value, responseHeaders) => {
-		let headers = responseHeaders ? responseHeaders() : "";
-		if (value.errorCode == "NO_ERROR") {
-			value.headers = headers;
-			resolve(value);
-		} else {
-			$state.go("portal"); // 非正常状态暂时全部跳转登陆
-		}
-	}
-
+	
 	return {
 		httpGet: (resource, parameters, headers) => {
 			return $q((resolve, reject) => {
 				resource(headers).get(parameters,
 				(value, responseHeaders) => {
-					successHandler(resolve, value, responseHeaders);
+					value.headers = responseHeaders ? responseHeaders() : "";
+					resolve(value);
 				}, 
 				(httpResponse) => {
 					reject(httpResponse);
@@ -49,7 +40,8 @@ export default ($q, $state) => {
 				headers["x-auth-token"] = $sessionStorage[TOKEN_KEY];
 				resource(headers).get(parameters,
 				(value, responseHeaders) => {
-					successHandler(resolve, value, responseHeaders);
+					value.headers = responseHeaders ? responseHeaders() : "";
+					resolve(value);
 				}, 
 				(httpResponse) => {
 					reject(httpResponse);
@@ -60,7 +52,8 @@ export default ($q, $state) => {
 			return $q((resolve, reject) => {
 				resource(headers).post(parameters,body,
 				(value, responseHeaders) => {
-					successHandler(resolve, value, responseHeaders);
+					value.headers = responseHeaders ? responseHeaders() : "";
+					resolve(value);
 				}, 
 				(httpResponse) => {
 					reject(httpResponse);

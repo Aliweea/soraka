@@ -7,7 +7,8 @@ export default ($localStorage, $sessionStorage) => {
     var TOKEN_KEY  = 'X-Auth-Token',
         LOGIN_USER = 'Login-User',
         USERNAME   = 'username',
-        PASSWORD   = 'password';
+        PASSWORD   = 'password',
+        AUTOLOGIN     = 'ioc-kpi-autologin';
 
     return {
         // 保存登陆用户的信息
@@ -33,6 +34,8 @@ export default ($localStorage, $sessionStorage) => {
 
             delete $localStorage[USERNAME];
             delete $localStorage[PASSWORD];
+
+            $localStorage[AUTOLOGIN] = false;
         },
 
         // 检查用户是否处于登陆状态
@@ -44,6 +47,7 @@ export default ($localStorage, $sessionStorage) => {
         saveAutoLoginInfo: (username, password) => {
             $localStorage[USERNAME] = username;
             $localStorage[PASSWORD] = password;
+            $localStorage[AUTOLOGIN] = true;
         }
     }
 }
