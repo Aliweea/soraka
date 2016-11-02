@@ -15,13 +15,12 @@ import AuthTool  from './services/auth-tool';
 
 // resource
 import accountRes from './resources/account-res';
-import ipRes from './resources/ip-res';
 import kpiRes from './resources/kpi-res';
 
 // directive
 import headerDirect from './common/header/headerDirect';
 
-//filter
+// filter
 import economyFilter from './filter/EconomyFilter';
 import kpiStatusTextFilter from './filter/publicsecurity/kpiStatusTextFilter';
 import kpiStatusClassFilter from './filter/publicsecurity/kpiStatusClassFilter';
@@ -30,34 +29,36 @@ import populationFilter from './filter/PopulationFilter';
 import energyFilter from './filter/EnergyFilter';
 import landFilter from './filter/LandFilter';
 
-// controller
-import portalCtrl from './auth/portal/portalCtrl';
+// controllers
 import appCtrl from './appCtrl';
+// 登陆及首页Controller
+import portalCtrl from './auth/portal/portalCtrl';
 import inCtrl from './in/inCtrl';
 import homeCtrl from './in/home/homeCtrl';
-
-
+// 经济模块Controller
 import GDPCtrl from './in/Economy/GDP/GDPCtrl.js';
 import financeCtrl from './in/Economy/Finance/financeCtrl.js';
 import financialCtrl from './in/Economy/Financial/financial.js';
 import investmentCtrl from './in/Economy/investment/investmentCtrl.js';
 import industryCtrl from './in/Economy/industry/industryCtrl.js';
-//环境模块Controller
+// 环境模块Controller
 import waterCtrl from './in/Environment/water/waterCtrl.js';
 import airCtrl from './in/Environment/air/airCtrl.js';
 import landCtrl from './in/Environment/land/landCtrl.js';
 import energyCtrl from './in/Environment/energy/energyCtrl.js';
-//民生模块Controller
+// 民生模块Controller
 import populationCtrl from './in/livehood/population/populationCtrl.js';
 import insuranceCtrl from './in/livehood/insurance/insuranceCtrl.js';
 import priceCtrl from './in/livehood/price/priceCtrl.js';
-//公共安全模块Controller
-import policeCtrl from './in/publicsecurity/police/policeCtrl.js'
-import firecontrolCtrl from './in/publicsecurity/firecontrol/firecontrolCtrl.js'
-import petitionCtrl from './in/publicsecurity/petition/petitionCtrl.js'
-import safetyCtrl from './in/publicsecurity/safety/safetyCtrl.js'
-import accidentCtrl from './in/publicsecurity/accident/accidentCtrl.js'
-
+// 公共安全模块Controller
+import policeCtrl from './in/publicsecurity/police/policeCtrl.js';
+import firecontrolCtrl from './in/publicsecurity/firecontrol/firecontrolCtrl.js';
+import petitionCtrl from './in/publicsecurity/petition/petitionCtrl.js';
+import safetyCtrl from './in/publicsecurity/safety/safetyCtrl.js';
+import accidentCtrl from './in/publicsecurity/accident/accidentCtrl.js';
+// 城市管理模块Controller
+import cmCtrl from './in/citymanager/cmCtrl.js';
+import refuseCtrl from './in/citymanager/refuse/refuseCtrl.js';
 
 
 
@@ -84,12 +85,12 @@ angular.module('soraka',
 
   // factory 初始化
   .factory('accountRes', accountRes)
-  .factory('ipRes', ipRes)
   .factory('kpiRes',kpiRes)
 
   // directive 初始化
   .directive('lcHeader', headerDirect)
-  //filter 初始化
+  
+  // filter 初始化
   .filter('economyFilter',economyFilter)
   .filter('kpiStatusTextFilter', kpiStatusTextFilter)
   .filter('kpiStatusClassFilter', kpiStatusClassFilter)
@@ -100,27 +101,35 @@ angular.module('soraka',
 
 
 
-  // controller 初始化
-  .controller('portalCtrl', portalCtrl)
+  // controllers 初始化
   .controller('appCtrl', appCtrl)
+  .controller('portalCtrl', portalCtrl)
   .controller('inCtrl', inCtrl)
   .controller('homeCtrl', homeCtrl)
+  // 经济controllers
   .controller('GDPCtrl',GDPCtrl)
   .controller('financeCtrl',financeCtrl)
   .controller('financialCtrl',financialCtrl)
   .controller('investmentCtrl',investmentCtrl)
   .controller('industryCtrl',industryCtrl)
+  // 环境controllers
   .controller('waterCtrl',waterCtrl)
   .controller('airCtrl',airCtrl)
   .controller('landCtrl',landCtrl)
   .controller('energyCtrl',energyCtrl)
+  // 民生controllers
   .controller('populationCtrl',populationCtrl)
   .controller('insuranceCtrl',insuranceCtrl)
   .controller('priceCtrl',priceCtrl)
+  // 公共安全controllers
   .controller('policeCtrl', policeCtrl)
   .controller('firecontrolCtrl', firecontrolCtrl)
   .controller('accidentCtrl', accidentCtrl)
   .controller('petitionCtrl', petitionCtrl)
   .controller('safetyCtrl', safetyCtrl)
+  // 公共事业controllers
 
+  // 城市管理controllers
+  .controller('cmCtrl', cmCtrl)
+  .controller('refuseCtrl', cmCtrl)
   ;

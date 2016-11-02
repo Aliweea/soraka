@@ -177,6 +177,18 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       controller:'trafficCtrl'
     })
 
+    // 城市管理
+    .state('app.cm', {
+      abstract: true,
+      url: '/cm',
+      templateUrl: 'app/in/citymanager/cm.html', 
+      controller: 'cmCtrl'
+    })
+    .state('app.cm.refuse', {
+      url: '/refuse',
+      templateUrl: 'app/in/citymanager/refuse/refuse.html',
+      controller: 'refuseCtrl'
+    })
     ;
     
 
