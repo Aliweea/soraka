@@ -91,16 +91,14 @@ angular.module('soraka',
   .directive('lcHeader', headerDirect)
   //filter 初始化
   .filter('economyFilter',economyFilter)
-<<<<<<< HEAD
   .filter('kpiStatusTextFilter', kpiStatusTextFilter)
   .filter('kpiStatusClassFilter', kpiStatusClassFilter)
-=======
   .filter('insuranceFilter',insuranceFilter)
   .filter('populationFilter', populationFilter)
   .filter('energyFilter',energyFilter)
   .filter('landFilter',landFilter)
 
->>>>>>> 56b301654fb95e14ea27784892b64ea3d920cc89
+
 
   // controller 初始化
   .controller('portalCtrl', portalCtrl)
