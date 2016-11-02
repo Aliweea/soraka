@@ -23,6 +23,8 @@ import headerDirect from './common/header/headerDirect';
 
 //filter
 import economyFilter from './filter/EconomyFilter';
+import kpiStatusTextFilter from './filter/publicsecurity/kpiStatusTextFilter';
+import kpiStatusClassFilter from './filter/publicsecurity/kpiStatusClassFilter';
 
 // controller
 import portalCtrl from './auth/portal/portalCtrl';
@@ -85,6 +87,8 @@ angular.module('soraka',
   .directive('lcHeader', headerDirect)
   //filter 初始化
   .filter('economyFilter',economyFilter)
+  .filter('kpiStatusTextFilter', kpiStatusTextFilter)
+  .filter('kpiStatusClassFilter', kpiStatusClassFilter)
 
   // controller 初始化
   .controller('portalCtrl', portalCtrl)
