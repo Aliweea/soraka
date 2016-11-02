@@ -1,11 +1,12 @@
 /**
 * 跟登陆状态、权限有关的代码
+* --Mondooo
 */
 export default ($localStorage, $sessionStorage) => {
   'ngInject';
   
-    var TOKEN_KEY  = 'X-Auth-Token',
-        LOGIN_USER = 'Login-User',
+    var TOKEN_KEY  = 'x-auth-token',
+        LOGIN_USER = 'login-user',
         USERNAME   = 'username',
         PASSWORD   = 'password',
         AUTOLOGIN     = 'ioc-kpi-autologin';
