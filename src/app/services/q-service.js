@@ -33,7 +33,7 @@ export default ($q, $state) => {
 		},
 		httpGetWithToken: (resource, parameters, headers) => {
 			return $q((resolve, reject) => {
-				headers[TOKEN_KEY] = $sessionStorage[TOKEN_KEY];
+				headers['X-Auth-Token'] = $sessionStorage[TOKEN_KEY];
 				resource(headers).get(parameters,
 				(value, responseHeaders) => {
 					value.headers = responseHeaders ? responseHeaders() : "";
