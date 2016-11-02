@@ -1,56 +1,53 @@
-// angular.module('soraka')
-//   .service('AuthTool', ['$localStorage', '$sessionStorage', function ($localStorage, $sessionStorage) {
+/**
+* 跟登陆状态、权限有关的代码
+*/
+export default ($localStorage, $sessionStorage) => {
+  'ngInject';
+  
+    var TOKEN_KEY  = 'X-Auth-Token',
+        LOGIN_USER = 'Login-User',
+        USERNAME   = 'username',
+        PASSWORD   = 'password',
+        AUTOLOGIN     = 'ioc-kpi-autologin';
 
-//     //常量
-//     var TOKEN_KEY = 'X-Auth-Token',
-//       LOGIN_USER = 'Login-User',
-//       CURR_WORKSPACE = 'Curr-Workspace',
-//       WORKSPACE_LIST = 'Workspace-List',
-//       USERNAME = 'username',
-//       PASSWORD = 'password',
-//       USER_EMAIL = 'useremail',
-//       USER_ACCOUNT = 'useraccount',
-//       USER_ROLE = 'userrole';
-
-//     this.isLogin = function () {
-//       return $sessionStorage[LOGIN_USER] && $sessionStorage[TOKEN_KEY];
-//     };
-
-//     this.login = function (user, token,username,useremail,useraccount,userrole) {
-      // $sessionStorage[LOGIN_USER] = user;
-      // $sessionStorage[TOKEN_KEY] = token;
-      // $sessionStorage[USERNAME] = username;
-      // $sessionStorage[USER_EMAIL] = useremail;
-      // $sessionStorage[USER_ACCOUNT] = useraccount;
-      // $sessionStorage[USER_ROLE] = userrole;
-//     };
-
-    
-//   }]);
-
-
-  export default ($localStorage,$sessionStorage) => {
-    'ngInject';
-    var TOKEN_KEY = 'X-Auth-Token',
-            LOGIN_USER = 'Login-User',
-            CURR_WORKSPACE = 'Curr-Workspace',
-            WORKSPACE_LIST = 'Workspace-List',
-            USERNAME = 'username',
-            PASSWORD = 'password',
-            USER_EMAIL = 'useremail',
-            USER_ACCOUNT = 'useraccount',
-            USER_ROLE = 'userrole';
-      return{
-        isLogin: () => {
-          return $sessionStorage[LOGIN_USER] && $sessionStorage[TOKEN_KEY];
+    return {
+        // 保存登陆用户的信息
+        saveLoginInfo: (login_user, token_key) => {
+            $sessionStorage[TOKEN_KEY] = token_key;
+            $sessionStorage[LOGIN_USER] = login_user;
         },
-        login: (user, token,username,useremail,useraccount,userrole) => {
-           $sessionStorage[LOGIN_USER] = user;
-           $sessionStorage[TOKEN_KEY] = token;
-           $sessionStorage[USERNAME] = username;
-           $sessionStorage[USER_EMAIL] = useremail;
-           $sessionStorage[USER_ACCOUNT] = useraccount;
-           $sessionStorage[USER_ROLE] = userrole;
+
+        // 获取登陆用户的信息
+        getLoginInfo: () => {
+            return $sessionStorage[LOGIN_USER];
+        },
+
+        // 更新登陆用户的信息
+        updateLoginInfo: (updated_user) => {
+            $sessionStorage[LOGIN_USER] = updated_user;
+        },
+
+        // 删除登陆用户的信息
+        delLoginInfo: () => {
+            delete $sessionStorage[LOGIN_USER];
+            delete $sessionStorage[TOKEN_KEY];
+
+            delete $localStorage[USERNAME];
+            delete $localStorage[PASSWORD];
+
+            $localStorage[AUTOLOGIN] = false;
+        },
+
+        // 检查用户是否处于登陆状态
+        checkLoginState: () => {
+            return $sessionStorage[LOGIN_USER] && $sessionStorage[TOKEN_KEY];
+        },
+
+        // 保存自动登录用户的信息
+        saveAutoLoginInfo: (username, password) => {
+            $localStorage[USERNAME] = username;
+            $localStorage[PASSWORD] = password;
+            $localStorage[AUTOLOGIN] = true;
         }
-      }
-  }
+    }
+}
