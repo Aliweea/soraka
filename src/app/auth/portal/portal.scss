@@ -11,55 +11,71 @@ $lightgrey: #666666;
 .index-module {
   margin-top: auto;
   margin-bottom: auto;
+  .index-title {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .index-title-text {
+    width: 80%;
+    margin: 10px auto 0px auto;
+    color: $lightgrey;
+    text-align: right;
+  }
+  .index-formicon-acc {
+    padding-left: 1em;
+    padding-right: 2em;
+  }
+  .index-formicon-psw {
+    padding-left: 1em;
+    padding-right: 2em;
+  }
+  .index-form-inputarea {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .index-form-btn {
+    width: 80%;
+    margin: 10px auto 10px auto;
+  }
+  .index-err-block {
+    height: 18px;
+    width: 80%;
+    margin: 5px auto 0 auto;
+    .error {
+      color: $errMsg;
+    }
+  }
   .index-checkboxgroup {
     border: none;
     width: 80%;
     margin: 0px auto 0 auto;
     padding: 10px 0 0 0;
-    input {
-      margin: 0 0 0 5px;
-      padding: 0;
-      width: 1em;
-      height: 1em;
-      border: 1px solid #fff !important;
-    }
     #isAutoLogin {
       color: $fontBlack;
+      span {
+        vertical-align: top;
+      }
+      .switch {
+        width: 3em;
+        height: 1.5em;
+        display: inline-block;
+        .switch-handle {
+          width: 1.5em;
+          height: 1.5em;
+        }
+      }
+      .switch.active {
+        background-color: $lightgrey;
+        border: 1px solid $lightgrey;
+        .switch-handle {
+          border-color: #ccc;
+          -webkit-transform: translate(1.5em, 0);
+          -ms-transform: translate(1.5em, 0);
+          -o-transform: translate(1.5em, 0);
+          transform: translate(1.5em, 0);
+        }
+      }
     }
-  }
-}
-.index-title {
-  text-align: center;
-  margin-bottom: 30px;
-}
-.index-title-text {
-  width: 80%;
-  margin: 10px auto 0px auto;
-  color: $lightgrey;
-  text-align: right;
-}
-.index-formicon-acc {
-  padding-left: 1em;
-  padding-right: 2em;
-}
-.index-formicon-psw {
-  padding-left: 1em;
-  padding-right: 2em;
-}
-.index-form-inputarea {
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
-}
-.index-form-btn {
-  width: 80%;
-  margin: 10px auto 10px auto;
-}
-.index-err-block {
-  height: 18px;
-  width: 80%;
-  margin: 5px auto 0 auto;
-  .error {
-    color: $errMsg;
   }
 }
