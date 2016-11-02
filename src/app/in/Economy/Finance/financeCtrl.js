@@ -9,6 +9,6 @@ var token = "eyJhY2NvdW50Ijp7IkBpZCI6IjEiLCJpZCI6MjYsImNyZWF0ZV90aW1lIjoiMjAxNS0
         $scope.FinanceKPI = data.data[0].data[i].data;
       }
     }
-   console.log(data.data[0].data);
+   console.log(data.data[1].data);
     })
 };
