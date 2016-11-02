@@ -83,8 +83,11 @@ export default ($scope, $localStorage, $timeout, $state, $q, $sessionStorage, qS
     $(function() {
         let contentH = 446; // 内容高度
         let clientH = $(window).height(); // 视口高度
-        let marginT = (clientH - contentH) / 2 - 5;
-
-        $(".index-module").css("margin-top", marginT + "px");
+        if (contentH < clientH) {
+            let marginT = (clientH - contentH) / 2;
+            $(".index-module").css("margin-top", marginT + "px");
+        } else{
+            $(".index-module").css({"margin-top":"30px","margin-bottom":"30px"});
+        }
     });
 };
