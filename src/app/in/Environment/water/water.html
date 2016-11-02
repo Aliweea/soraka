@@ -1,59 +1,27 @@
 <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
 <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
 <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+<div style="width: 100%;text-align: center;color: white;background-color: rgb(52,152,219);" >
+  水文 KPI概览  显示时间
+  <input type="text"/>
+</div>
 <div class="scrollable">
   <div class="scrollable-content" style="margin-top: 80px">
-    <div class="card">
+    <div class="card" ng-repeat="item in WaterKPI">
       <div class="card-header">
-        {{test1}}
+        24小时水质达标率
         <label class="label label-danger">问题</label>
       </div>
       <div class="card-content">
         <button type="button" class="btn btn-danger" style="margin-left: 5%;width: 25%">
           59.5%
         </button>
-        <a type="button"  style="margin-left: 40%">
+        <a type="button" style="margin-left: 40%">
           查看详情>>
         </a>
       </div>
       <div class="card-footer">
         <span class="label label-primary">数据来源</span>环保局<span class="label label-primary">时间</span>
-        2016年10月13日
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-header">
-        废水排放检测点达标率
-        <label class="label label-success">可接受</label>
-      </div>
-      <div class="card-content">
-        <button type="button" class="btn btn-success" style="margin-left: 5%;width: 25%">
-          100%
-        </button>
-        <a type="button"  style="margin-left: 40%">
-          查看详情>>
-        </a>
-      </div>
-      <div class="card-footer">
-        <span class="label label-primary">数据来源</span>环保局<span class="label label-primary">时间</span>
-        2016年10月13日
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-header">
-        24小时水位超警戒次数(率)
-        <label class="label label-success status">可接受</label>
-      </div>
-      <div class="card-content">
-        <button type="button" class="btn btn-success" style="margin-left: 5%;width: 25%">
-          100%
-        </button>
-        <a type="button"  style="margin-left: 40%">
-          查看详情>>
-        </a>
-      </div>
-      <div class="card-footer">
-        <span class="label label-primary">数据来源</span>水利局<span class="label label-primary">时间</span>
         2016年10月13日
       </div>
     </div>
