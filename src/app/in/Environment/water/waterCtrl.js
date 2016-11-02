@@ -5,11 +5,11 @@ export default ($scope,qService,kpiRes) => {
 	qService.httpGet(kpiRes.kpi,{"currentDate":"2016-09-08"},{"X-Auth-Token":token}).then((data) =>{
     for (var i = 0; i < data.data[2].data.length; i++) { //data.data[2]代表资源环境
       if (data.data[2].data[i].id == 4001) {
-        $scope.WaterKPI = data.data[2].data[i].data;
+        $scope.WaterKPI = data.data[2].data[i]; //找到的$scope.WaterKPI=data.data[2].data[i]代表水环境
       }
     }
     // console.log($scope.WaterKPI.description);
-    console.log($scope.WaterKPI);
+    $scope.WaterArray=$scope.WaterKPI.data;
 	})
 
 };
