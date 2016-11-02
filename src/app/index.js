@@ -25,6 +25,8 @@ import headerDirect from './common/header/headerDirect';
 import economyFilter from './filter/EconomyFilter';
 import insuranceFilter from './filter/insuranceFilter';
 import populationFilter from './filter/PopulationFilter';
+import energyFilter from './filter/EnergyFilter';
+import landFilter from './filter/LandFilter';
 
 // controller
 import portalCtrl from './auth/portal/portalCtrl';
@@ -89,6 +91,9 @@ angular.module('soraka',
   .filter('economyFilter',economyFilter)
   .filter('insuranceFilter',insuranceFilter)
   .filter('populationFilter', populationFilter)
+  .filter('energyFilter',energyFilter)
+  .filter('landFilter',landFilter)
+
 
   // controller 初始化
   .controller('portalCtrl', portalCtrl)
