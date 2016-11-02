@@ -1,0 +1,67 @@
+.cm-module {
+	background-color: $bgLightGrey;
+	.cm-menu-navbar-top {
+		width: 100%;
+		min-height: $bottomBarH;
+		height: $bottomBarH;
+		color: $fontBlack;
+		background-color: rgba(255, 255, 255, 0.9);
+		.cm-return-home {
+			display: inline-block;
+			width: 30%;
+			margin-top: ($bottomBarH - 28px) / 2;
+			text-align: left;
+			i {
+				font-size: 1.7em;
+				padding-left: 18px;
+			}
+			span {
+				padding-left: 7px;
+				font-size: 18px;
+			}
+		}
+		.cm-kpi-choose {
+			width: 33%;
+			display: inline-block;
+			text-align: center;
+			margin-top: ($bottomBarH - 30px) / 2;
+			i {
+				
+			}
+			span {
+				padding-left: 7px;
+				font-size: 18px;
+			}	
+		}
+		.cm-kpi-status {
+			width: 33%;
+			display: inline-block;
+			text-align: right;
+			margin-top: ($bottomBarH - 30px) / 2;
+			i {
+			}
+			span {
+				padding-left: 7px;
+				padding-right: 18px;
+				font-size: 18px;
+			}	
+		}
+		.cm-dropdown-ul {
+			margin: 0;
+			padding: 0;
+			width: 100%;
+			background-color: rgba(255, 255, 255, 0.9);
+			border-radius: 0 0 4px 4px;
+			border-left: none;
+			border-right: none;
+			text-align: center;
+			li {
+				padding: 0.5em;
+			}
+			li.divider {
+				padding: 0;
+				margin: 0;
+			}
+		}
+	}
+}
