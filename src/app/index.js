@@ -131,5 +131,5 @@ angular.module('soraka',
 
   // 城市管理controllers
   .controller('cmCtrl', cmCtrl)
-  .controller('refuseCtrl', cmCtrl)
+  .controller('refuseCtrl', refuseCtrl)
   ;

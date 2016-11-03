@@ -5,19 +5,19 @@
 		min-height: $bottomBarH;
 		height: $bottomBarH;
 		color: $fontBlack;
-		background-color: rgba(255, 255, 255, 0.9);
+		background-color: rgba(255, 255, 255, 1);
 		.cm-return-home {
 			display: inline-block;
 			width: 30%;
 			margin-top: ($bottomBarH - 28px) / 2;
 			text-align: left;
 			i {
-				font-size: 1.7em;
+				font-size: 21px;
 				padding-left: 18px;
 			}
 			span {
 				padding-left: 7px;
-				font-size: 18px;
+				font-size: 16px;
 			}
 		}
 		.cm-kpi-choose {
@@ -26,11 +26,11 @@
 			text-align: center;
 			margin-top: ($bottomBarH - 30px) / 2;
 			i {
-				
+				font-size: 21px;
 			}
 			span {
 				padding-left: 7px;
-				font-size: 18px;
+				font-size: 16px;
 			}	
 		}
 		.cm-kpi-status {
@@ -39,11 +39,12 @@
 			text-align: right;
 			margin-top: ($bottomBarH - 30px) / 2;
 			i {
+				font-size: 21px;
 			}
 			span {
 				padding-left: 7px;
 				padding-right: 18px;
-				font-size: 18px;
+				font-size: 16px;
 			}	
 		}
 		.cm-dropdown-ul {
