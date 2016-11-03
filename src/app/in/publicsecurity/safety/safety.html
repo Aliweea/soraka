@@ -4,7 +4,7 @@
         <div class="cm-refuse-top">
             <span>{{data.name}}</span><i ng-class="data.data.status">{{data.data.status | kpiStatusTextFilter}}</i>
         </div>
-        <div class="cm-refuse-value clevel1"><i class="fa fa-long-arrow-up" aria-hidden="true"></i>
+        <div class="cm-refuse-value clevel1">
         <span>
         	{{(data.unit == 'tt_rmb')? (data.data.value / 10000).toFixed(2) : data.data.value}}
         	{{data.unit | kpiUnitFilter}}</span></div>
