@@ -1,24 +1,11 @@
-<link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
-<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
-<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
-<div style="width: 100%;text-align: center;color: white;background-color: rgb(52,152,219);" >工业 KPI概览  显示时间<input type="text"></input></div>
-<div class="scrollable">
-  <div class="scrollable-content" style="margin-top: 80px">
-  <!-- 先写出设计模版，之后用ng-repeat改写 -->
-    <div class="card" ng-repeat="item in IndustryKPI">
-    <div class="card-header">
-    {{item.description}}
-    <label  class="{{(item.data.value>item.data.target)?'label label-success status':'label label-danger status'}}">{{(item.data.value>item.data.target)?'可接受':'低于目标'}}</label>
+<div class="cm-refuse-module">
+  <div ng-repeat="item in IndustryKPI" class="cm-refuse-item">
+    <div class="cm-refuse-top">
+      <span>{{item.description}}</span><i ng-class="item.data.status">{{(item.data.status == "GREEN")?"可接受":"问题"}}</i>
     </div>
-    <div class="card-content">
-      <button type="button" class="btn btn-success" style="margin-left: 5%;width: 25%">
-        <span class="glyphicon glyphicon-star"></span> {{item.data.value | economyFilter}}{{(item.data.value<=1)?'%':'亿元'}}
-     </button>
-     <a type="button"  style="margin-left: 40%">
-        查看详情>>
-     </a>
+    <div class="cm-refuse-value clevel1"><i aria-hidden="true" class="{{(item.data.value>item.data.target)?'fa fa-long-arrow-up':'fa fa-long-arrow-down'}}" style="{{(item.data.value>item.data.target)?'':'color:red'}}"></i><span style="{{(item.data.value>item.data.target)?'':'color:red'}}">{{item.data.value | economyFilter}}{{(item.data.value<=1)?'%':'亿元'}}</span></div>
+    <div class="cm-refuse-bottom">
+      <span class="cm-refuse-bottom-s1">经济</span><span class="cm-refuse-bottom-s2">统计局</span><span class="cm-refuse-bottom-s3">{{item.data.applyDate}}</span>
     </div>
-    <div class="card-footer"><span class="label label-primary">数据来源</span>统计局<span class="label label-primary">时间</span>2016</div>
-</div>
-  <div  style="height: 120px"></div>
+  </div>
 </div>
