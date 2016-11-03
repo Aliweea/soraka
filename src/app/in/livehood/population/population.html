@@ -1,31 +1,12 @@
-<link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
-<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
-<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
-<div style="width: 100%;text-align: center;color: white;background-color: rgb(52,152,219);" >财政 KPI概览  显示时间<input type="text" data-toggle='date'></input></div>
-<div class="scrollable">
-  <div class="scrollable-content" style="margin-top: 80px">
-		<div class="card" ng-repeat="item in PopulationKPI">
-			<div class="card-header">
-				{{item.description}}
-				<label  class="{{(item.data.value>item.data.target)?'label label-success status':'label label-danger status'}}">
-				{{(item.data.value>item.data.target)?'可接受':'低于目标'}}</label>
-			</div>
-			<div class="card-content">
-				<button type="button" class="btn btn-success" style="margin-left: 5%;width: 25%">
-        			<span class="glyphicon glyphicon-star"></span> 
-        			{{item.data.value | economyFilter}}{{(item.data.value<=1)?'%':'人'}}
-     			</button>
-     			<a type="button"  style="margin-left: 40%">
-        			查看详情>>
-    			</a>
-    		</div>
-    		<div class="card-footer">
-    			<span class="label label-primary">数据来源</span>
-    			计生委
-    			<span class="label label-primary">时间</span>
-    			2015
-    		</div>
+<!-- 民生-人口结构 -->
+<div class="cm-refuse-module">
+	<div ng-repeat="data in lhPopulationData" class="cm-refuse-item">
+		<div class="cm-refuse-top">
+			<span>{{data.description}}</span><i ng-class="data.data.status">{{data.data.status}}</i>
 		</div>
-		<div style="height: 120px"></div>
+		<div class="cm-refuse-value clevel1"><i class="fa fa-long-arrow-up" aria-hidden="true"></i><span>{{data.data.value}}{{data.unit}}</span></div>
+		<div class="cm-refuse-bottom">
+			<span class="cm-refuse-bottom-s1">民生</span><span class="cm-refuse-bottom-s2">计生委</span><span class="cm-refuse-bottom-s3">{{data.data.applyDate}}</span>
+		</div>
 	</div>
 </div>
