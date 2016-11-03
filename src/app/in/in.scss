@@ -1,7 +1,7 @@
 @mixin font() {
 	font-size: 16px;
 	span {
-		font-size: 25px;	
+		font-size: 20px;	
 	}
 	color: $fontBlack;
 }
@@ -16,7 +16,7 @@
 		display: inline-block;
 		margin-left: 1em;
 		position: relative;
-		top: -0.3em;
+		top: -0.5em;
 	}
 }
 .soraka-menu-module {
@@ -55,6 +55,7 @@
 			}
 			span {
 				display: block;
+				margin-top: 0.2em;
 			}
 		}
 		.sidebar-left-me {
@@ -68,6 +69,7 @@
 			}
 			span {
 				display: block;
+				margin-top: 0.2em;
 			}
 		}
 	}
