@@ -3,9 +3,9 @@
     <div class="cm-refuse-top">
       <span>{{item.name}}</span><i ng-class="item.data.status">{{item.data.status | kpiStatusTextFilter}}</i>
     </div>
-    <div class="cm-refuse-value" style="{{(item.data.status=='GREEN')?'color: #4ede62':((item.data.status=='RED')?'color: #e85959':'color: #f7b85e')}}"><span>{{item.data.value*100}}%</span></div>
+    <div class="cm-refuse-value {{item.data.status | kpiStatusClassFilter}}"><i class="{{(item.data.value>=item.data.target)?'fa fa-long-arrow-up':'fa fa-long-arrow-down'}}" aria-hidden="true"></i><span>{{item.data.value*100}}%</span></div>
     <div class="cm-refuse-bottom">
-      <span class="cm-refuse-bottom-s1">环境</span><span class="cm-refuse-bottom-s2">环保局</span><span class="cm-refuse-bottom-s3">{{item.data.applyDate}}</span>
+      <span class="cm-refuse-bottom-s1">环境</span><span class="cm-refuse-bottom-s2">环保局</span><span class="cm-refuse-bottom-s3">{{item | applyDateFilter}}</span>
     </div>
   </div>
 </div>
