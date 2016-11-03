@@ -2,9 +2,11 @@
 <div class="cm-refuse-module">
   <div ng-repeat="data in cmFixData" class="cm-refuse-item">
     <div class="cm-refuse-top">
-      <span>{{data.name}}</span><i ng-class="data.data.status">{{data.data.status}}</i>
+      <span>{{data.name}}</span><i ng-class="data.data.status">{{data.data.status | kpiStatusTextFilter}}</i>
     </div>
-    <div class="cm-refuse-value clevel1"><i class="fa fa-long-arrow-up" aria-hidden="true"></i><span>{{data.data.value}}{{data.unit}}</span></div>
+    <div class="cm-refuse-value clevel1"><i class="fa fa-long-arrow-up" aria-hidden="true"></i><span>
+    {{(data.unit == 'tt_rmb')? (data.data.value / 10000).toFixed(2) : data.data.value}}
+    {{data.unit | kpiUnitFilter}}</span></div>
     <div class="cm-refuse-bottom">
       <span class="ps-refuse-bottom-s1">公共安全</span><span class="cm-refuse-bottom-s2">公安局</span><span class="cm-refuse-bottom-s3">{{data.data.applyDate}}</span>
     </div>
