@@ -1,28 +1,12 @@
-<link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
-<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
-<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
-<div style="width: 100%;text-align: center;color: white;background-color: rgb(52,152,219);" >
-    公安概览  显示时间<input type="text" data-toggle='date'></input></div>
-<div class="scrollable">
-  <div class="scrollable-content" style="margin-top: 80px">
-  <!-- 先写出设计模版，之后用ng-repeat改写 -->
-<div class="card" ng-repeat="item in policeKPI">
-    <div class="card-header">
-    {{item.name}}
-    <label class="{{(item.data.status=='GREEN')?'label label-success':((item.data.status=='RED')?'label label-danger':'label label-warning')}}">{{(item.data.status=='GREEN')?'可接受':((item.data.status=='RED')?'问题':'轻微问题')}}</label>
+<!-- 公共安全-公安 -->
+<div class="cm-refuse-module">
+  <div ng-repeat="data in cmFixData" class="cm-refuse-item">
+    <div class="cm-refuse-top">
+      <span>{{data.name}}</span><i ng-class="data.data.status">{{data.data.status}}</i>
     </div>
-    <div class="card-content">
-      <button type="button" class="btn btn-success" style="margin-left: 5%;width: 25%">
-      <span class="glyphicon glyphicon-star"></span>
-        {{(item.id == 3001 || item.id == 3002||item.id == 3003)? (item.data.value*100).toFixed(1): item.data.value }}
-        {{(item.id == 3001 || item.id == 3002||item.id == 3003)? '%' : '起'}}
-     </button>
-     <a type="button"  style="margin-left: 40%">
-        查看详情
-     </a>
+    <div class="cm-refuse-value clevel1"><i class="fa fa-long-arrow-up" aria-hidden="true"></i><span>{{data.data.value}}{{data.unit}}</span></div>
+    <div class="cm-refuse-bottom">
+      <span class="ps-refuse-bottom-s1">公共安全</span><span class="cm-refuse-bottom-s2">公安局</span><span class="cm-refuse-bottom-s3">{{data.data.applyDate}}</span>
     </div>
-    <div class="card-footer"><span class="label label-primary">数据来源</span>公安局<span class="label label-primary">时间</span>2016年7月</div>
-</div>
-</div>
-  <div  style="height: 120px"></div>
+  </div>
 </div>
