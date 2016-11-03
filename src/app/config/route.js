@@ -249,6 +249,10 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       templateUrl: 'app/in/citymanager/icm/icm.html',
       controller: 'icmCtrl'
     })
+    .state('publicService',{ 
+      url:'/publicService',
+      templateUrl:'app/in/publicService/publicService.html'
+    })
     ;
     
 
