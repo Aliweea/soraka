@@ -59,8 +59,9 @@ import accidentCtrl from './in/publicsecurity/accident/accidentCtrl.js';
 // 城市管理模块Controller
 import cmCtrl from './in/citymanager/cmCtrl.js';
 import refuseCtrl from './in/citymanager/refuse/refuseCtrl.js';
-
-
+import punishCtrl from './in/citymanager/punish/punishCtrl.js';
+import fixCtrl from './in/citymanager/fix/fixCtrl.js';
+import icmCtrl from './in/citymanager/icm/icmCtrl.js';
 
 angular.module('soraka',
   ['ngAnimate', 'ngCookies', 'ngSanitize', 'ui.router', 'ngResource', 'ngStorage', 'mobile-angular-ui','ui.bootstrap'])
@@ -132,4 +133,7 @@ angular.module('soraka',
   // 城市管理controllers
   .controller('cmCtrl', cmCtrl)
   .controller('refuseCtrl', refuseCtrl)
+  .controller('punishCtrl', punishCtrl)
+  .controller('fixCtrl', fixCtrl)
+  .controller('icmCtrl', icmCtrl)
   ;

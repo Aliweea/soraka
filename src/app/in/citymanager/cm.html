@@ -10,13 +10,13 @@
 			ui-show="kpiChoiceDropdown"
 			ui-state="kpiChoiceDropdown"
 			ui-turn-off="kpiChoiceDropdown">
-			<li><a ui-sref="app.cm.refuse">垃圾清运</a></li>
+			<li><a ui-sref="app.cm.refuse" href="#">垃圾清运</a></li>
 			<li class="divider"></li>
-			<li><a ui-sref="app.cm.refuse">行政处罚</a></li>
+			<li><a ui-sref="app.cm.punish" href="#">行政处罚</a></li>
 			<li class="divider"></li>
-			<li><a ui-sref="app.cm.refuse">违法建设整治</a></li>
+			<li><a ui-sref="app.cm.fix" href="#">违法建设整治</a></li>
 			<li class="divider"></li>
-			<li><a ui-sref="app.cm.refuse">数字城管</a></li>
+			<li><a ui-sref="app.cm.icm" href="#">数字城管</a></li>
 		</ul>
 		<ul class="dropdown-menu cm-dropdown-ul"
 			ui-outer-click="Ui.turnOff('kpiStatusDropdown')"
@@ -32,12 +32,16 @@
 			<li><a ui-sref="app.cm.refuse" class="clevel3">问题</a></li>
 		</ul>
 	</div>
-	<div class="app-body">
+	<div class="app-body" ng-class="{loading: loading}">
 		<div ng-show="loading" class="app-content-loading">
 			<i class="fa fa-spinner fa-spin loading-spinner"></i>
 		</div>
 		<div class="app-content">
-			<div ui-view></div>
+			<div class="scrollable">
+				<div class="scrollable-content">
+					<div ui-view></div>
+				</div>
+			</div>
 		</div>
 	</div>
 	<div class="navbar navbar-app navbar-absolute-bottom cm-menu-navbar-bottom">

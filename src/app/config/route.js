@@ -189,6 +189,21 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       templateUrl: 'app/in/citymanager/refuse/refuse.html',
       controller: 'refuseCtrl'
     })
+    .state('app.cm.punish', {
+      url: '/punish',
+      templateUrl: 'app/in/citymanager/punish/punish.html',
+      controller: 'punishCtrl'
+    })
+    .state('app.cm.fix', {
+      url: '/fix',
+      templateUrl: 'app/in/citymanager/fix/fix.html',
+      controller: 'fixCtrl'
+    })
+    .state('app.cm.icm', {
+      url: '/icm',
+      templateUrl: 'app/in/citymanager/icm/icm.html',
+      controller: 'icmCtrl'
+    })
     ;
     
 
