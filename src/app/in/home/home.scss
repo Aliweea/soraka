@@ -1,5 +1,5 @@
 .home-module {
-	background-color: #fff;
+	background-color: $bgLightGrey;
 	height: 100%;
 	// override
 	.list-group {
@@ -7,21 +7,22 @@
 		margin: 0;
 	}
 	.list-group-item-home {
-	  padding: 10px 6% 10px 6%;
-	  border: none;
-	  margin-bottom: -1px;
+		background-color: $bgLightGrey;
+		padding: 10px 6% 10px 6%;
+		border: none;
+		margin-bottom: -1px;
 	}
 	.feature-icon {
-	  font-size: 44px;
-	  padding: 0;
-	  line-height: 68px;
-	  width: 72px;
-	  text-align: center;
-	  opacity: .8;
-	  border: 3px solid;
-	  border-radius: 200px;
-	  height: 72px;
-	  margin-bottom: 20px;
+		font-size: 44px;
+		padding: 0;
+		line-height: 68px;
+		width: 72px;
+		text-align: center;
+		opacity: .8;
+		border: 3px solid;
+		border-radius: 200px;
+		height: 72px;
+		margin-bottom: 20px;
 	}
 	.soraka-home-list-group-item {
 		width: 49%;
