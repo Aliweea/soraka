@@ -1,36 +1,22 @@
 <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
 <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
 <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+<div style="width: 100%;text-align: center;color: white;background-color: rgb(52,152,219);" >
+  大气 KPI概览  显示时间
+  <input type="text"/>
+</div>
 <div class="scrollable">
   <div class="scrollable-content" style="margin-top: 80px">
-    <div class="card">
+    <div class="card" ng-repeat="item in AirArray">
       <div class="card-header">
-        24小时空气质量达标率
-        <label class="label label-success">可接受</label>
+        {{item.name}}
+        <label class="{{(item.data.status=='GREEN')?'label label-success':((item.data.status=='RED')?'label label-danger':'label label-warning')}}">{{(item.data.status=='GREEN')?'可接受':((item.data.status=='RED')?'问题':'轻微问题')}}</label>
       </div>
       <div class="card-content">
-        <button type="button" class="btn btn-success" style="margin-left: 5%;width: 25%">
-          100%
+        <button type="button" class="{{(item.data.status=='GREEN')?'btn btn-success':((item.data.status=='RED')?'btn btn-danger':'btn btn-warning')}}" style="margin-left: 5%;width: 25%">
+          {{item.data.value*100}}%
         </button>
-        <a type="button"  style="margin-left: 40%">
-          查看详情>>
-        </a>
-      </div>
-      <div class="card-footer">
-        <span class="label label-primary">数据来源</span>环保局<span class="label label-primary">时间</span>
-        2016年10月13日
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-header">
-        废气排放监测点达标率
-        <label class="label label-success">可接受</label>
-      </div>
-      <div class="card-content">
-        <button type="button" class="btn btn-success" style="margin-left: 5%;width: 25%">
-          100%
-        </button>
-        <a type="button"  style="margin-left: 40%">
+        <a type="button" style="margin-left: 40%">
           查看详情>>
         </a>
       </div>

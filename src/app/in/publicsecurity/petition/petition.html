@@ -5,14 +5,18 @@
 <div class="scrollable">
   <div class="scrollable-content" style="margin-top: 80px">
   <!-- 先写出设计模版，之后用ng-repeat改写 -->
-<div class="card">
+<div class="card" ng-repeat="item in petitionKPI">
     <div class="card-header">
-    当月受理信访案件总数
-    <label class="label label-success status">可接受</label>
+    {{item.name}}
+    <label class="label {{item.data.status | kpiStatusClassFilter}} status">
+        {{ item.data.status | kpiStatusTextFilter}}
+    </label>
     </div>
     <div class="card-content">
       <button type="button" class="btn btn-success" style="margin-left: 5%;width: 25%">
-        <span class="glyphicon glyphicon-star"></span> 58起
+        <span class="glyphicon glyphicon-star"></span> 
+        {{(item.id == 3023)? (item.data.value * 100).toFixed(1): item.data.value }}
+        {{(item.id == 3023)? '%' : '起'}}
      </button>
      <a type="button"  style="margin-left: 40%">
         查看详情
@@ -21,33 +25,3 @@
     <div class="card-footer"><span class="label label-primary">数据来源</span>信访局<span class="label label-primary">时间</span>2016年8月</div>
 </div>
 
-<div class="card">
-    <div class="card-header">
-    当月信件结案率
-    <label class="label label-warning status">轻微问题</label>
-    </div>
-    <div class="card-content">
-      <button type="button" class="btn btn-success" style="margin-left: 5%;width: 25%">
-        <span class="glyphicon glyphicon-star"></span> 58.6%
-     </button>
-     <a type="button"  style="margin-left: 40%">
-        查看详情
-     </a>
-    </div>
-    <div class="card-footer"><span class="label label-primary">数据来源</span>信访局<span class="label label-primary">时间</span>2016年8月</div>
-</div>
-<div class="card">
-    <div class="card-header">
-    当月越级上访信件总数
-    <label class="label label-success status">可接受</label>
-    </div>
-    <div class="card-content">
-      <button type="button" class="btn btn-success" style="margin-left: 5%;width: 25%">
-        <span class="glyphicon glyphicon-star"></span> 0起
-     </button>
-     <a type="button"  style="margin-left: 40%">
-        查看详情
-     </a>
-    </div>
-    <div class="card-footer"><span class="label label-primary">数据来源</span>信访局<span class="label label-primary">时间</span>2016年8月</div>
-</div>

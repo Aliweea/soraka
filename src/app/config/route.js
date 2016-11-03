@@ -138,6 +138,7 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
 
     // 民生
     .state('app.livehood',{
+      abstract: true,
       url:'/livehood',
       templateUrl:'app/in/livehood/LivehoodHome.html'
     })
@@ -187,6 +188,38 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       controller:'trafficCtrl'
     })
 
+    // 城市管理
+    .state('app.cm', {
+      abstract: true,
+      name: 'cm',
+      url: '/cm',
+      templateUrl: 'app/in/citymanager/cm.html', 
+      controller: 'cmCtrl'
+    })
+    .state('app.cm.refuse', {
+      url: '/refuse',
+      name: 'refuse',
+      templateUrl: 'app/in/citymanager/refuse/refuse.html',
+      controller: 'refuseCtrl'
+    })
+    .state('app.cm.punish', {
+      url: '/punish',
+      name: 'punish',
+      templateUrl: 'app/in/citymanager/punish/punish.html',
+      controller: 'punishCtrl'
+    })
+    .state('app.cm.fix', {
+      url: '/fix',
+      name: 'fix',
+      templateUrl: 'app/in/citymanager/fix/fix.html',
+      controller: 'fixCtrl'
+    })
+    .state('app.cm.icm', {
+      url: '/icm',
+      name: 'icm',
+      templateUrl: 'app/in/citymanager/icm/icm.html',
+      controller: 'icmCtrl'
+    })
     ;
     
 
