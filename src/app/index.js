@@ -30,6 +30,7 @@ import insuranceFilter from './filter/insuranceFilter';
 import populationFilter from './filter/PopulationFilter';
 import energyFilter from './filter/EnergyFilter';
 import landFilter from './filter/LandFilter';
+import kpiUnitFilter from './filter/publicsecurity/kpiUnitFilter'
 
 // controllers
 
@@ -112,6 +113,7 @@ angular.module('soraka',
   .filter('populationFilter', populationFilter)
   .filter('energyFilter',energyFilter)
   .filter('landFilter',landFilter)
+  .filter('kpiUnitFilter',kpiUnitFilter)
 
 
 
