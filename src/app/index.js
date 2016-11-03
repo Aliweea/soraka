@@ -28,8 +28,8 @@ import kpiStatusTextFilter from './filter/publicsecurity/kpiStatusTextFilter';
 import kpiStatusClassFilter from './filter/publicsecurity/kpiStatusClassFilter';
 import insuranceFilter from './filter/insuranceFilter';
 import populationFilter from './filter/PopulationFilter';
-import energyFilter from './filter/EnergyFilter';
-import landFilter from './filter/LandFilter';
+import energyFilter from './filter/Environment/EnergyFilter';
+import landFilter from './filter/Environment/LandFilter';
 import kpiUnitFilter from './filter/publicsecurity/kpiUnitFilter'
 
 // controllers

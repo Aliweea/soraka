@@ -9,7 +9,7 @@
         	{{(data.unit == 'tt_rmb')? (data.data.value / 10000).toFixed(2) : data.data.value}}
         	{{data.unit | kpiUnitFilter}}</span></div>
         <div class="cm-refuse-bottom">
-            <span class="ps-refuse-bottom-s1">公共安全</span><span class="cm-refuse-bottom-s2">安监局</span><span class="cm-refuse-bottom-s3">{{data.data.applyDate}}</span>
+            <span class="ps-refuse-bottom-s1">公共安全</span><span class="cm-refuse-bottom-s2">安监局</span><span class="cm-refuse-bottom-s3">{{data.data.applyDate | date: 'yyyy年MM月'}}</span>
         </div>
     </div>
 </div>
