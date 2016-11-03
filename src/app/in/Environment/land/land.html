@@ -1,47 +1,9 @@
-<!-- <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
-<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
-<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
-<div style="width: 100%;text-align: center;color: white;background-color: rgb(52,152,219);">
-    土地 KPI概览 显示时间
-    <input type="text"/>
-</div>
-<div class="scrollable">
-    <div class="scrollable-content" style="margin-top: 80px">
-        <div class="card" ng-repeat="item in LandArray">
-            <div class="card-header">
-                {{item.name}}
-                <label class="{{(item.data.status=='GREEN')?'label label-success':(item.data.status=='YELLOW')?'label label-warning':'label label-danger'}}">
-                    {{(item.data.status=='GREEN')?'可接受':(item.data.status=='YELLOW')?'轻微问题':'问题'}}
-                </label>
-            </div>
-            <div class="card-content">
-                <button type="button"
-                        class="{{(item.data.status=='GREEN')?'btn btn-success':((item.data.status=='RED')?'btn btn-danger':'btn btn-warning')}}"
-                        style="margin-left: 5%;width: 30%">
-                    {{(item.data.unit=='b_rmb')?item.data.value/1.0e8:item.data.value | landFilter}}
-                    {{(item.data.unit=='b_rmb')?'亿元':(item.data.unit=='mu')?'亩':'公顷'}}
-                </button>
-                <a type="button" style="margin-left: 40%">
-                    查看详情>>
-                </a>
-            </div>
-            <div class="card-footer">
-                <span class="label label-primary">数据来源</span>
-                国土局
-                <span class="label label-primary">时段</span>
-                {{(item.type=='YEARLY')?(item.data.applyDate|date:'yyyy年'):(item.data.applyDate|date:'yyyy年MM月')}}
-            </div>
-        </div>
-        <div  style="height: 120px"></div>
-    </div>
-</div> -->
-
 <div class="cm-refuse-module">
   <div ng-repeat="item in LandArray" class="cm-refuse-item">
     <div class="cm-refuse-top">
       <span>{{item.name}}</span><i ng-class="item.data.status">{{item.data.status | kpiStatusTextFilter}}</i>
     </div>
-    <div class="cm-refuse-value clevel1"><i class="fa fa-long-arrow-up" aria-hidden="true"></i><span>{{item.data.value}}{{item.unit}}</span></div>
+    <div class="cm-refuse-value clevel1"><i class="fa fa-long-arrow-up" aria-hidden="true"></i><span>{{item.data.value | landFilter}}{{(item.unit=='b_rmb')?'亿元':(item.unit=='mu')?'亩':'公顷'}}</span></div>
     <div class="cm-refuse-bottom">
       <span class="cm-refuse-bottom-s1">资源</span><span class="cm-refuse-bottom-s2">国土局</span><span class="cm-refuse-bottom-s3">{{item.data.applyDate}}</span>
     </div>
