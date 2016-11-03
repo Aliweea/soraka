@@ -8,15 +8,17 @@
   <!-- 先写出设计模版，之后用ng-repeat改写 -->
     <div class="card" ng-repeat="item in firecontrolKPI">
     <div class="card-header">
-    {{item.description}}
-    <label  class="{{(item.data.value>item.data.target)?'label label-success status':'label label-danger status'}}">{{(item.data.value>item.data.target)?'可接受':'低于目标'}}</label>
+    {{item.name}}
+    <label class="{{(item.data.status=='GREEN')?'label label-success':((item.data.status=='RED')?'label label-danger':'label label-warning')}}">{{(item.data.status=='GREEN')?'可接受':((item.data.status=='RED')?'问题':'轻微问题')}}</label>
     </div>
     <div class="card-content">
       <button type="button" class="btn btn-success" style="margin-left: 5%;width: 25%">
-        <span class="glyphicon glyphicon-star"></span>{{item.data.value}}
+        <span class="glyphicon glyphicon-star"></span>
+        {{(item.data.unit=='appeer')?item.data.value:item.data.value}}
+        {{(item.data.unit=='people')?'人':(item.data.unit=='tt_rmb')?'元':'起'}}
      </button>
      <a type="button"  style="margin-left: 40%">
-        查看详情>>
+        查看详情>
      </a>
     </div>
     <div class="card-footer"><span class="label label-primary">数据来源</span>统计局<span class="label label-primary">时间</span>2016</div>
