@@ -1,35 +1,50 @@
 .home-module {
-	background-color: #fff;
+	background-color: $bgLightGrey;
+	height: 100%;
+	// override
+	.list-group {
+		height: 100%;
+		margin: 0;
+	}
 	.list-group-item-home {
-	  padding: 20px 5% 20px 5%;
-	  border: none;
+		background-color: $bgLightGrey;
+		padding: 10px 6% 10px 6%;
+		border: none;
+		margin-bottom: -1px;
 	}
 	.feature-icon {
-	  font-size: 44px;
-	  padding: 0;
-	  line-height: 68px;
-	  width: 72px;
-	  text-align: center;
-	  opacity: .8;
-	  border: 3px solid;
-	  border-radius: 200px;
-	  height: 72px;
-	  margin-bottom: 20px;
-	}
-
-	.feature-icon.fa-gamepad {
-	  line-height: 60px;
+		font-size: 44px;
+		padding: 0;
+		line-height: 68px;
+		width: 72px;
+		text-align: center;
+		opacity: .8;
+		border: 3px solid;
+		border-radius: 200px;
+		height: 72px;
+		margin-bottom: 20px;
 	}
 	.soraka-home-list-group-item {
 		width: 49%;
+		height: 100%;
 		display: inline-block;
-		
-		img {
-			width: 70%;
+		.home-module-imgdiv {
+			height: 80%;
+			img {
+				height: 80%;
+				width: height;
+			}
 		}
-		h3 {
-			font-size: 1.2em;
-			color: $fontBlack;
+		.home-module-h3div {
+			height: 20%;
+			h3 {
+				font-size: 1.2em;
+				color: $fontBlack;
+			}
 		}
+	}
+	// override
+	.feature-icon.fa-gamepad {
+	  line-height: 60px;
 	}
 }

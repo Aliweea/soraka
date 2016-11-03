@@ -1,0 +1,42 @@
+<div class="app">
+
+  <div class="navbar navbar-app navbar-absolute-top" style="background-color: rgb(52,152,219);border-color: rgb(52,152,219);">
+   <div class="btn-group btn-group-justified">
+     <div class="btn-group">
+      <a ui-turn-on='myDropdown' class='btn' style="color: white">
+        公共事业
+      </a>
+      <ul 
+      class="dropdown-menu"
+      ui-outer-click="Ui.turnOff('myDropdown')"
+      ui-outer-click-if="Ui.active('myDropdown')"
+      role="menu"
+      ui-show="myDropdown" 
+      ui-state="myDropdown"
+      ui-turn-off="myDropdown" style="width: 100%">
+
+
+      <li style="text-align: center;"><a ui-sref="app.publicService.education">教育</a></li>
+      <li class="divider"></li>
+      <li style="text-align: center;"><a ui-sref="app.publicService.healthCare">医疗卫生</a></li>
+      <li class="divider"></li>
+      <li style="text-align: center;"><a ui-sref="app.publicService.traffic">交通</a></li>
+      <li class="divider"></li>
+      <li style="text-align: center;"><a ui-sref="app.publicService.teltcom">电信</a></li>
+    </ul>
+  </div>
+
+</div>
+</div>
+
+
+<div class="navbar navbar-app navbar-absolute-bottom" style="background-color: rgb(52,152,219);">
+  <a  class='btn' ui-sref="app.in.home" style="color: white">
+   返回主页
+ </a>
+</div>
+
+<div  style="background-color: white;padding-top: 50px;">
+  <div ui-view></div>
+</div>
+</div>

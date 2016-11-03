@@ -1,42 +1,30 @@
-<div class="water-module" id="container">
-    {{waterContent}}水环境
+<link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+<div style="width: 100%;text-align: center;color: white;background-color: rgb(52,152,219);" >
+  水文 KPI概览  显示时间
+  <input type="text"/>
 </div>
-<div class="app">
-  <div class="navbar navbar-app navbar-absolute-top">
-     <div class="btn-group btn-group-justified">
-     <div class="btn-group">
-  <a ui-turn-on='myDropdown' class='btn'>
-    资源环境
-  </a>
-  <ul 
-    class="dropdown-menu"
-    ui-outer-click="Ui.turnOff('myDropdown')"
-    ui-outer-click-if="Ui.active('myDropdown')"
-    role="menu"
-    ui-show="myDropdown" 
-    ui-state="myDropdown"
-    ui-turn-off="myDropdown" style="width: 100%">
-
-    <li style="text-align: center;"><a ui-sref="water">水环境</a></li>
-    <li class="divider"></li>
-    <li style="text-align: center;"><a ui-sref="air">大气环境</a></li>
-    <li class="divider"></li>
-    <li style="text-align: center;"><a ui-sref="land">土地资源</a></li>
-    <li class="divider"></li>
-    <li style="text-align: center;"><a ui-sref="energy">电力消耗</a></li>
-    <li class="divider"></li>
-    <li style="text-align: center;"><a ui-sref="in.account">首页</a></li>
-  </ul>
-</div>
-      
+<div class="scrollable">
+  <div class="scrollable-content" style="margin-top: 80px">
+    <div class="card" ng-repeat="item in WaterArray">
+      <div class="card-header">
+        {{item.name}}
+        <label class="{{(item.data.status=='GREEN')?'label label-success':((item.data.status=='RED')?'label label-danger':'label label-warning')}}">{{(item.data.status=='GREEN')?'可接受':((item.data.status=='RED')?'问题':'轻微问题')}}</label>
+      </div>
+      <div class="card-content">
+        <button type="button" class="{{(item.data.status=='GREEN')?'btn btn-success':((item.data.status=='RED')?'btn btn-danger':'btn btn-warning')}}" style="margin-left: 5%;width: 25%">
+          {{item.data.value*100}}%
+        </button>
+        <a type="button" style="margin-left: 40%">
+          查看详情>>
+        </a>
+      </div>
+      <div class="card-footer">
+        <span class="label label-primary">数据来源</span>环保局<span class="label label-primary">时间</span>
+        2016年10月13日
+      </div>
     </div>
-  </div>
-
-  <div class="navbar navbar-app navbar-absolute-bottom">
-    <!-- ... -->
-  </div>
-
-  <div class="app-body">
-    <ng-view></ng-view>
+    <div  style="height: 120px"></div>
   </div>
 </div>
