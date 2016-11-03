@@ -14,7 +14,7 @@
       <button type="button" class="btn btn-success" style="margin-left: 5%;width: 25%">
         <span class="glyphicon glyphicon-star"></span> {{item.data.value | economyFilter}}{{(item.data.value<=1)?'%':'亿元'}}
      </button>
-     <a type="button"  style="margin-left: 40%">
+     <a type="button"  style="margin-left: 40%" ui-sref="{{item.id | GDPDetailFilter}}">
         查看详情>>
      </a>
     </div>

@@ -63,6 +63,17 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       templateUrl:'app/in/Economy/industry/industry.html',
       controller:'industryCtrl'
     })
+    .state('app.economydetail',{
+      abstract:true,
+      url:'/economydetail',
+      templateUrl:'app/in/Economy/EconomyDetail/EconomyDetail.html'
+    })
+     .state('app.economydetail.gdp',{
+     
+      url:'/economydetail/GDP',
+      templateUrl:'app/in/Economy/EconomyDetail/GDPDetail/GDPDetail.html',
+      controller:'GDPDetailCtrl'
+    })
 
 
     // 环境

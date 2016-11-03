@@ -23,6 +23,7 @@ import headerDirect from './common/header/headerDirect';
 
 //filter
 import economyFilter from './filter/EconomyFilter';
+import GDPDetailFilter from './filter/GDPDetailFilter'
 
 // controller
 import portalCtrl from './auth/portal/portalCtrl';
@@ -36,6 +37,7 @@ import financeCtrl from './in/Economy/Finance/financeCtrl.js';
 import financialCtrl from './in/Economy/Financial/financial.js';
 import investmentCtrl from './in/Economy/investment/investmentCtrl.js';
 import industryCtrl from './in/Economy/industry/industryCtrl.js';
+import GDPDetailCtrl from './in/Economy/EconomyDetail/GDPDetail/GDPDetailCtrl';
 //环境模块Controller
 import waterCtrl from './in/Environment/water/waterCtrl.js';
 import airCtrl from './in/Environment/air/airCtrl.js';
@@ -56,7 +58,7 @@ import accidentCtrl from './in/publicsecurity/accident/accidentCtrl.js'
 
 
 angular.module('soraka',
-  ['ngAnimate', 'ngCookies', 'ngSanitize', 'ui.router', 'ngResource', 'ngStorage', 'mobile-angular-ui','ui.bootstrap'])
+  ['ngAnimate', 'ngCookies', 'ngSanitize', 'ui.router', 'ngResource', 'ngStorage', 'mobile-angular-ui','ui.bootstrap','highcharts-ng'])
 
   // 配置全局常量
   .constant('lcConfig', config)
@@ -85,6 +87,7 @@ angular.module('soraka',
   .directive('lcHeader', headerDirect)
   //filter 初始化
   .filter('economyFilter',economyFilter)
+  .filter('GDPDetailFilter',GDPDetailFilter)
 
   // controller 初始化
   .controller('portalCtrl', portalCtrl)
@@ -108,5 +111,6 @@ angular.module('soraka',
   .controller('accidentCtrl', accidentCtrl)
   .controller('petitionCtrl', petitionCtrl)
   .controller('safetyCtrl', safetyCtrl)
+  .controller('GDPDetailCtrl',GDPDetailCtrl)
 
   ;
