@@ -69,10 +69,39 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       templateUrl:'app/in/Economy/EconomyDetail/EconomyDetail.html'
     })
      .state('app.economydetail.gdp',{
-     
       url:'/economydetail/GDP',
       templateUrl:'app/in/Economy/EconomyDetail/GDPDetail/GDPDetail.html',
       controller:'GDPDetailCtrl'
+    })
+     .state('app.economydetail.firstgdp',{
+      url:'/economydetail/firstgdp',
+      templateUrl:'app/in/Economy/EconomyDetail/GDPDetail/GDPDetail.html',
+      controller:'FirstDetailCtrl'
+    })
+      .state('app.economydetail.firstgdpindex',{
+      url:'/economydetail/firstgdpindex',
+      templateUrl:'app/in/Economy/EconomyDetail/GDPDetail/GDPDetail.html',
+      controller:'FirstGDPIndexCtrl'
+    })
+     .state('app.economydetail.secondgdp',{
+      url:'/economydetail/secondgdp',
+      templateUrl:'app/in/Economy/EconomyDetail/GDPDetail/GDPDetail.html',
+      controller:'SecondDetailCtrl'
+    })
+     .state('app.economydetail.secondgdpindex',{
+      url:'/economydetail/secondgdpindex',
+      templateUrl:'app/in/Economy/EconomyDetail/GDPDetail/GDPDetail.html',
+      controller:'SecondDetailIndexCtrl'
+    })
+     .state('app.economydetail.thirdgdp',{
+      url:'/economydetail/thirdgdp',
+      templateUrl:'app/in/Economy/EconomyDetail/GDPDetail/GDPDetail.html',
+      controller:'ThirdDetailCtrl'
+    })
+     .state('app.economydetail.thirdgdpindex',{
+      url:'/economydetail/thirdgdp',
+      templateUrl:'app/in/Economy/EconomyDetail/GDPDetail/GDPDetail.html',
+      controller:'ThirdDetailIndexCtrl'
     })
 
 

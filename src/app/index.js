@@ -45,6 +45,12 @@ import financialCtrl from './in/Economy/Financial/financial.js';
 import investmentCtrl from './in/Economy/investment/investmentCtrl.js';
 import industryCtrl from './in/Economy/industry/industryCtrl.js';
 import GDPDetailCtrl from './in/Economy/EconomyDetail/GDPDetail/GDPDetailCtrl';
+import FirstDetailCtrl from './in/Economy/EconomyDetail/FirstGDP/firstgdp';
+import FirstGDPIndexCtrl from './in/Economy/EconomyDetail/FirstGDP/firstgdpindex';
+import SecondDetailCtrl from './in/Economy/EconomyDetail/SecondGDP/secondgdp';
+import SecondDetailIndexCtrl from './in/Economy/EconomyDetail/SecondGDP/secondgdpindex';
+import ThirdDetailCtrl from './in/Economy/EconomyDetail/ThirdGDP/thirdgdp';
+import ThirdDetailIndexCtrl from './in/Economy/EconomyDetail/ThirdGDP/thirdgdpindex';
 //环境模块Controller
 import waterCtrl from './in/Environment/water/waterCtrl.js';
 import airCtrl from './in/Environment/air/airCtrl.js';
@@ -122,6 +128,12 @@ angular.module('soraka',
   .controller('investmentCtrl',investmentCtrl)
   .controller('industryCtrl',industryCtrl)
   .controller('GDPDetailCtrl',GDPDetailCtrl)
+  .controller('FirstDetailCtrl',FirstDetailCtrl)
+  .controller('FirstGDPIndexCtrl',FirstGDPIndexCtrl)
+  .controller('SecondDetailCtrl',SecondDetailCtrl)
+  .controller('SecondDetailIndexCtrl',SecondDetailIndexCtrl)
+  .controller('ThirdDetailCtrl',ThirdDetailCtrl)
+  .controller('ThirdDetailIndexCtrl',ThirdDetailIndexCtrl)
   // 环境controllers
   .controller('waterCtrl',waterCtrl)
   .controller('airCtrl',airCtrl)
