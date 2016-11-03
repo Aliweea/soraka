@@ -11,7 +11,7 @@ export default($scope, qService, kpiRes, $state) => {
 	};
 	qService.httpGet(kpiRes.categorykpi, params,headers).then((data) => {
         if (data.errorCode == "NO_ERROR") {
-            $scope.cmFixData = data.data.data;
+            $scope.cmRefuseData = data.data.data;
             
         } else {
 
