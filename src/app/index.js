@@ -23,6 +23,7 @@ import headerDirect from './common/header/headerDirect';
 
 // filter
 import economyFilter from './filter/EconomyFilter';
+import GDPDetailFilter from './filter/GDPDetailFilter'
 import kpiStatusTextFilter from './filter/publicsecurity/kpiStatusTextFilter';
 import kpiStatusClassFilter from './filter/publicsecurity/kpiStatusClassFilter';
 import insuranceFilter from './filter/insuranceFilter';
@@ -31,6 +32,7 @@ import energyFilter from './filter/EnergyFilter';
 import landFilter from './filter/LandFilter';
 
 // controllers
+
 import appCtrl from './appCtrl';
 // 登陆及首页Controller
 import portalCtrl from './auth/portal/portalCtrl';
@@ -42,7 +44,14 @@ import financeCtrl from './in/Economy/Finance/financeCtrl.js';
 import financialCtrl from './in/Economy/Financial/financial.js';
 import investmentCtrl from './in/Economy/investment/investmentCtrl.js';
 import industryCtrl from './in/Economy/industry/industryCtrl.js';
-// 环境模块Controller
+import GDPDetailCtrl from './in/Economy/EconomyDetail/GDPDetail/GDPDetailCtrl';
+import FirstDetailCtrl from './in/Economy/EconomyDetail/FirstGDP/firstgdp';
+import FirstGDPIndexCtrl from './in/Economy/EconomyDetail/FirstGDP/firstgdpindex';
+import SecondDetailCtrl from './in/Economy/EconomyDetail/SecondGDP/secondgdp';
+import SecondDetailIndexCtrl from './in/Economy/EconomyDetail/SecondGDP/secondgdpindex';
+import ThirdDetailCtrl from './in/Economy/EconomyDetail/ThirdGDP/thirdgdp';
+import ThirdDetailIndexCtrl from './in/Economy/EconomyDetail/ThirdGDP/thirdgdpindex';
+//环境模块Controller
 import waterCtrl from './in/Environment/water/waterCtrl.js';
 import airCtrl from './in/Environment/air/airCtrl.js';
 import landCtrl from './in/Environment/land/landCtrl.js';
@@ -65,7 +74,8 @@ import fixCtrl from './in/citymanager/fix/fixCtrl.js';
 import icmCtrl from './in/citymanager/icm/icmCtrl.js';
 
 angular.module('soraka',
-  ['ngAnimate', 'ngCookies', 'ngSanitize', 'ui.router', 'ngResource', 'ngStorage', 'mobile-angular-ui','ui.bootstrap', "me-pageloading"])
+  ['ngAnimate', 'ngCookies', 'ngSanitize', 'ui.router', 'ngResource', 'ngStorage', 'mobile-angular-ui','ui.bootstrap', "me-pageloading",'highcharts-ng'])
+
 
   // 配置全局常量
   .constant('lcConfig', config)
@@ -95,12 +105,14 @@ angular.module('soraka',
   
   // filter 初始化
   .filter('economyFilter',economyFilter)
+  .filter('GDPDetailFilter',GDPDetailFilter)
   .filter('kpiStatusTextFilter', kpiStatusTextFilter)
   .filter('kpiStatusClassFilter', kpiStatusClassFilter)
   .filter('insuranceFilter',insuranceFilter)
   .filter('populationFilter', populationFilter)
   .filter('energyFilter',energyFilter)
   .filter('landFilter',landFilter)
+
 
 
 
@@ -115,6 +127,13 @@ angular.module('soraka',
   .controller('financialCtrl',financialCtrl)
   .controller('investmentCtrl',investmentCtrl)
   .controller('industryCtrl',industryCtrl)
+  .controller('GDPDetailCtrl',GDPDetailCtrl)
+  .controller('FirstDetailCtrl',FirstDetailCtrl)
+  .controller('FirstGDPIndexCtrl',FirstGDPIndexCtrl)
+  .controller('SecondDetailCtrl',SecondDetailCtrl)
+  .controller('SecondDetailIndexCtrl',SecondDetailIndexCtrl)
+  .controller('ThirdDetailCtrl',ThirdDetailCtrl)
+  .controller('ThirdDetailIndexCtrl',ThirdDetailIndexCtrl)
   // 环境controllers
   .controller('waterCtrl',waterCtrl)
   .controller('airCtrl',airCtrl)
@@ -130,6 +149,7 @@ angular.module('soraka',
   .controller('accidentCtrl', accidentCtrl)
   .controller('petitionCtrl', petitionCtrl)
   .controller('safetyCtrl', safetyCtrl)
+  
   // 公共事业controllers
 
   // 城市管理controllers
