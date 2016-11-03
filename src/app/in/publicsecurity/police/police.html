@@ -8,12 +8,14 @@
   <!-- 先写出设计模版，之后用ng-repeat改写 -->
 <div class="card" ng-repeat="item in policeKPI">
     <div class="card-header">
-    {{item.description}}
-    <label  class="{{(item.data.value>item.data.target)?'label label-success status':'label label-danger status'}}">{{(item.data.value>item.data.target)?'可接受':'低于目标'}}</label>
+    {{item.name}}
+    <label class="{{(item.data.status=='GREEN')?'label label-success':((item.data.status=='RED')?'label label-danger':'label label-warning')}}">{{(item.data.status=='GREEN')?'可接受':((item.data.status=='RED')?'问题':'轻微问题')}}</label>
     </div>
     <div class="card-content">
       <button type="button" class="btn btn-success" style="margin-left: 5%;width: 25%">
-        <span class="glyphicon glyphicon-star"></span> {{item.data.value}}
+      <span class="glyphicon glyphicon-star"></span>
+        {{(item.id == 3001 || item.id == 3002||item.id == 3003)? (item.data.value*100).toFixed(1): item.data.value }}
+        {{(item.id == 3001 || item.id == 3002||item.id == 3003)? '%' : '起'}}
      </button>
      <a type="button"  style="margin-left: 40%">
         查看详情
