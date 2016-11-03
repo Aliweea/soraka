@@ -10,6 +10,7 @@ $successMsg: #33CC66;
 $clevel1: #4ede62; //可接受
 $clevel2: #f7b85e; // 轻微问题
 $clevel3: #e85959; // 问题
+$clevel4: #777777; // 问题
 .clevel1 {
   color: $clevel1 !important;
 }
@@ -19,6 +20,9 @@ $clevel3: #e85959; // 问题
 .clevel3 {
   color: $clevel3 !important;
 }
+.clevel4 {
+  color: $clevel4 !important;
+}
 .GREEN {
   background-color: $clevel1 !important;
 }
@@ -27,6 +31,9 @@ $clevel3: #e85959; // 问题
 }
 .RED {
   background-color: $clevel3 !important;
+}
+.GRAY {
+  background-color: $clevel4 !important;
 }
 
 // 统一背景色
