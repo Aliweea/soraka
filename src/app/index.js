@@ -6,6 +6,7 @@
 import config from './config/config';
 import httpConfig from './config/http';
 import routerConfig from './config/route';
+import loadingConfig from './config/loading';
 import i18nConfig from './i18n/config';
 
 // service
@@ -64,7 +65,7 @@ import fixCtrl from './in/citymanager/fix/fixCtrl.js';
 import icmCtrl from './in/citymanager/icm/icmCtrl.js';
 
 angular.module('soraka',
-  ['ngAnimate', 'ngCookies', 'ngSanitize', 'ui.router', 'ngResource', 'ngStorage', 'mobile-angular-ui','ui.bootstrap'])
+  ['ngAnimate', 'ngCookies', 'ngSanitize', 'ui.router', 'ngResource', 'ngStorage', 'mobile-angular-ui','ui.bootstrap', "me-pageloading"])
 
   // 配置全局常量
   .constant('lcConfig', config)
@@ -75,7 +76,8 @@ angular.module('soraka',
   // 基础配置
   .config(httpConfig)
   .config(routerConfig)
-
+  .config(loadingConfig)
+  
   // 自动执行
   .run(i18nConfig)
 
