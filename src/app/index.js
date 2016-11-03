@@ -31,6 +31,8 @@ import populationFilter from './filter/PopulationFilter';
 import energyFilter from './filter/Environment/EnergyFilter';
 import landFilter from './filter/Environment/LandFilter';
 import kpiUnitFilter from './filter/publicsecurity/kpiUnitFilter'
+import applyDateFilter from './filter/applyDateFilter'
+import unitTransFilter from './filter/unitTransFilter'
 
 // controllers
 
@@ -114,7 +116,8 @@ angular.module('soraka',
   .filter('energyFilter',energyFilter)
   .filter('landFilter',landFilter)
   .filter('kpiUnitFilter',kpiUnitFilter)
-
+  .filter('applyDateFilter',applyDateFilter)
+  .filter('unitTransFilter',unitTransFilter)
 
 
 

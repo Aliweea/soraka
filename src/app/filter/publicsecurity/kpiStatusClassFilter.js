@@ -5,19 +5,19 @@ export default($rootScope) => {
   return (input) => {
     switch (input) {
         case 'GREEN':
-          return 'label-success';
+          return 'clevel1';
           break;
         case 'YELLOW':
-          return 'label-warning';
+          return 'clevel2';
           break;
         case 'RED':
-          return 'label-danger';
+          return 'clevel3';
           break;
         case 'GRAY':
-          return 'label-default';
+          return 'clevel4';
           break;
         default:
-          return 'label-default';
+          return 'clevel4';
       };
     };
 }
