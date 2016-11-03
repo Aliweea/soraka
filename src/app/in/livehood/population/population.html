@@ -6,7 +6,7 @@
 			<span>{{data.description}}</span><i ng-class="data.data.status">{{data.data.status|kpiStatusTextFilter}}</i>
 		</div>
 		<div class="cm-refuse-value clevel1">
-			<i class="{{(data.data.value>data.data.target)?'fa fa-long-arrow-up':'fa fa-long-arrow-down'}}" style="{{(data.data.value>data.data.target)?'':'color:red'}}" aria-hidden="true" ng-show="{{data.data.status!='GRAY'}}"></i>
+			<i class="{{(data.data.value>data.data.target)?'fa fa-long-arrow-up':'fa fa-long-arrow-down tips'}}" style="{{(data.data.value>data.data.target)?'':'color:red'}}" aria-hidden="true" ng-show="{{data.data.status!='GRAY'}}"></i>
 			<span style="{{(data.data.status!='GRAY')?((data.data.value>data.data.target)?'':'color:red'):'color:gray'}}">{{data.data.value|populationFilter}}{{(data.data.status!="GRAY")?(data.unit|populationFilter):''}}</span>
 		</div>
 		<div class="cm-refuse-bottom">
