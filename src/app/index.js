@@ -17,6 +17,8 @@ import AuthTool  from './services/auth-tool';
 // resource
 import accountRes from './resources/account-res';
 import kpiRes from './resources/kpi-res';
+import kpiSpanRes from './resources/SpanKPI-res';
+
 
 // directive
 import headerDirect from './common/header/headerDirect';
@@ -99,6 +101,7 @@ angular.module('soraka',
   // factory 初始化
   .factory('accountRes', accountRes)
   .factory('kpiRes',kpiRes)
+  .factory('kpiSpanRes',kpiSpanRes)
 
   // directive 初始化
   .directive('lcHeader', headerDirect)
