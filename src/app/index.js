@@ -67,6 +67,12 @@ import energyCtrl from './in/Environment/energy/energyCtrl.js';
 import waterQualityCtrl from './in/Environment/EnvironmentDetail/water/waterQuality.js';
 import wasteWaterCtrl from './in/Environment/EnvironmentDetail/water/wasteWater.js';
 import waterConditionCtrl from './in/Environment/EnvironmentDetail/water/waterCondition.js';
+import commercialGrossDetailCtrl from './in/Environment/EnvironmentDetail/land/commercialGrossCtrl.js';
+import commercialAreaDetailCtrl from './in/Environment/EnvironmentDetail/land/commercialAreaCtrl.js';
+import cultivateAreaDetailCtrl from './in/Environment/EnvironmentDetail/land/cultivateAreaCtrl.js';
+import illegalAreaDetailCtrl from './in/Environment/EnvironmentDetail/land/illegalAreaCtrl.js';
+import industryAreaDetailCtrl from './in/Environment/EnvironmentDetail/land/industryAreaCtrl.js';
+import industryGrossDetailCtrl from './in/Environment/EnvironmentDetail/land/industryGrossCtrl.js';
 // 民生模块Controller
 import populationCtrl from './in/livehood/population/populationCtrl.js';
 import insuranceCtrl from './in/livehood/insurance/insuranceCtrl.js';
@@ -157,6 +163,12 @@ angular.module('soraka',
   .controller('airCtrl',airCtrl)
   .controller('landCtrl',landCtrl)
   .controller('energyCtrl',energyCtrl)
+  .controller('commercialGrossDetailCtrl',commercialGrossDetailCtrl)
+  .controller('commercialAreaDetailCtrl',commercialAreaDetailCtrl)
+  .controller('cultivateAreaDetailCtrl',cultivateAreaDetailCtrl)
+  .controller('illegalAreaDetailCtrl',illegalAreaDetailCtrl)
+  .controller('industryAreaDetailCtl',industryAreaDetailCtrl)
+  .controller('industryGrossDetailCtrl',industryGrossDetailCtrl)
   // 民生controllers
   .controller('populationCtrl',populationCtrl)
   .controller('insuranceCtrl',insuranceCtrl)
@@ -167,7 +179,7 @@ angular.module('soraka',
   .controller('accidentCtrl', accidentCtrl)
   .controller('petitionCtrl', petitionCtrl)
   .controller('safetyCtrl', safetyCtrl)
-  
+
   // 公共事业controllers
 
   // 城市管理controllers

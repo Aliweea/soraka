@@ -140,6 +140,41 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       templateUrl:'app/in/Environment/energy/energy.html',
       controller:'energyCtrl'
     })
+    .state('app.environmentdetail',{
+      abstract:true,
+      url:'/environmentdetail',
+      templateUrl:'app/in/Environment/EnvironmentDetail/EnvironmentDetail.html'
+    })
+    .state('app.environmentdetail.commercialLandGross',{
+      url:'/land/commercialGross',
+      templateUrl:'app/in/Environment/EnvironmentDetail/land/LandDetail.html',
+      controller:'commercialGrossDetailCtrl'
+    })
+    .state('app.environmentdetail.commercialLandArea',{
+      url:'/land/commercialArea',
+      templateUrl:'app/in/Environment/EnvironmentDetail/land/LandDetail.html',
+      controller:'commercialAreaDetailCtrl'
+      })
+    .state('app.environmentdetail.industryLandGross',{
+      url:'/land/industryGross',
+      templateUrl:'app/in/Environment/EnvironmentDetail/land/LandDetail.html',
+      controller:'industryGrossDetailCtrl'
+      })
+      .state('app.environmentdetail.industryLandArea',{
+        url:'/land/industryArea',
+        templateUrl:'app/in/Environment/EnvironmentDetail/land/LandDetail.html',
+        controller:'industryAreaDetailCtrl'
+      })
+      .state('app.environmentdetail.illegalLandArea',{
+        url:'/land/illegalArea',
+        templateUrl:'app/in/Environment/EnvironmentDetail/land/LandDetail.html',
+        controller:'illegalAreaDetailCtrl'
+      })
+      .state('app.environmentdetail.cultivateLandArea',{
+        url:'/land/cultivateArea',
+        templateUrl:'app/in/Environment/EnvironmentDetail/land/LandDetail.html',
+        controller:'cultivateAreaDetailCtrl'
+      })
     .state('app.environmentdetail.waterQuality',{
       url:'/waterQuality',
       templateUrl:'app/in/Environment/EnvironmentDetail/water/waterQuality.html',
