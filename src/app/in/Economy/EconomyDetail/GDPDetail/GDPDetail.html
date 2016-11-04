@@ -14,13 +14,13 @@
   </ul>
 
   <div ui-if="activeTab == 1">
-    <h3 class="page-header">GDP KPI详情</h3>
+    <h3 class="page-header">{{kpiText}}KPI详情</h3>
     <highchart config="GDP"  id="gdpchart"></highchart>
   </div>
 
   <div ui-if="activeTab == 2">
-    <h3 class="page-header">全年GDP KPI详情</h3>
-    <highchart config="GDP"  id="gdpchart"></highchart>
+    <h3 class="page-header">全年{{kpiText}}KPI详情</h3>
+    <highchart config="yearchart"  id="yearchart"></highchart>
   </div>
 
   

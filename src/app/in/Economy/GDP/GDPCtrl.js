@@ -1,4 +1,4 @@
-export default ($scope,qService,kpiRes) => {
+export default ($scope,qService,kpiRes,$rootScope) => {
   'ngInject';
  
  
@@ -8,6 +8,18 @@ export default ($scope,qService,kpiRes) => {
   qService.httpGet(kpiRes.categorykpi,{"currentDate":"2016-09-08","categoryId":2},{"X-Auth-Token":token}).then((data) =>{
     // $scope.GDPKPI = data.data[0].data[1].data;
     $scope.GDPKPI = data.data.data;
+    $rootScope.gdpinfo={};
+    $rootScope.firstgdpinfo={};
+    $rootScope.secondgdpinfo={};
+    $rootScope.thirdgdpinfo={};
+    $rootScope.gdpinfo.date = data.data.data[0].data.applyDate;
+    $rootScope.gdpinfo.monthtype = data.data.data[0].type;
+    $rootScope.firstgdpinfo.date = data.data.data[1].data.applyDate;
+    $rootScope.firstgdpinfo.monthtype = data.data.data[1].type;
+    $rootScope.secondgdpinfo.date = data.data.data[3].data.applyDate;
+    $rootScope.secondgdpinfo.monthtype = data.data.data[3].type;
+    $rootScope.thirdgdpinfo.date = data.data.data[5].data.applyDate;
+    $rootScope.thirdgdpinfo.monthtype = data.data.data[5].type;
            console.log(data);
     })
 };
