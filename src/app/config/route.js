@@ -31,7 +31,16 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       templateUrl: 'app/in/home/home.html',
       controller: 'homeCtrl'
     })
-
+    .state('app.in.me', {
+      url: '/me',
+      templateUrl: 'app/in/me/me.html',
+      controller: 'meCtrl'
+    })
+    .state('app.in.datepick', {
+      url: '/datepick',
+      templateUrl: 'app/in/datepick/datepick.html',
+      controller: 'datepickCtrl'
+    })
     // 经济
     .state('app.economy',{
       abstract:true,

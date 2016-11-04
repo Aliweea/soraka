@@ -1,7 +1,7 @@
 @mixin font() {
 	font-size: 16px;
 	span {
-		font-size: 25px;	
+		font-size: 20px;	
 	}
 	color: $fontBlack;
 }
@@ -16,14 +16,21 @@
 		display: inline-block;
 		margin-left: 1em;
 		position: relative;
-		top: -0.3em;
+		top: -0.5em;
 	}
 }
 .soraka-menu-module {
+	background-color: $standardWhite;
 	.soraka-menu-navbar-top {
 		background-color: $bgDarkBlue;
 		span {
 			font-size: 0.9em;
+		}
+		.soraka-menu-navbar-topright {
+			margin-top: 13px;
+			font-size: 17px;
+			margin-right: 0.5em;
+			color: $standardWhite;
 		}
 	}
 	.soraka-menu-navbar-bottom {
@@ -55,6 +62,7 @@
 			}
 			span {
 				display: block;
+				margin-top: 0.2em;
 			}
 		}
 		.sidebar-left-me {
@@ -68,6 +76,7 @@
 			}
 			span {
 				display: block;
+				margin-top: 0.2em;
 			}
 		}
 	}
