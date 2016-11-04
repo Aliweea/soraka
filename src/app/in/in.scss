@@ -20,10 +20,17 @@
 	}
 }
 .soraka-menu-module {
+	background-color: $standardWhite;
 	.soraka-menu-navbar-top {
 		background-color: $bgDarkBlue;
 		span {
 			font-size: 0.9em;
+		}
+		.soraka-menu-navbar-topright {
+			margin-top: 13px;
+			font-size: 17px;
+			margin-right: 0.5em;
+			color: $standardWhite;
 		}
 	}
 	.soraka-menu-navbar-bottom {

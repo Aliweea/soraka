@@ -5,11 +5,11 @@
 			<div class="list-group" ui-turn-off='uiSidebarLeft'>
 				<div class="sidebar-left-d1">
 					<div class="sidebar-left-homepage" ui-sref="app.in.home"><i class="fa fa-home fa-3x" aria-hidden="true"></i><span>首页</span></div>
-					<div class="sidebar-left-me"><i class="fa fa-user fa-3x" aria-hidden="true"></i><span>个人中心</span></div>
+					<div class="sidebar-left-me" ui-sref="app.in.me"><i class="fa fa-user fa-3x" aria-hidden="true"></i><span>个人中心</span></div>
 				</div>
 				<div class="sidebar-left-mesetting"><i class="fa fa-pencil-square-o fa-3x" aria-hidden="true"></i><span>个人设置</span></div>
 				<div class="sidebar-left-timesetting"><i class="fa fa-calendar fa-3x" aria-hidden="true"></i><span>时间设置</span></div>
-				<div class="sidebar-left-logout"><i class="fa fa-sign-out fa-3x" aria-hidden="true"></i><span>退出登录</span></div>
+				<div class="sidebar-left-logout" id="logout"><i class="fa fa-sign-out fa-3x" aria-hidden="true"></i><span>退出登录</span></div>
 			</div>
 		</div>
 	</div>
@@ -19,9 +19,12 @@
 		<div class="navbar-brand navbar-brand-center" ui-yield-to="title">
 			<span class="color-w">太仓市智慧城市运营中心</span>
 		</div>
+		<div class="btn-group pull-right soraka-menu-navbar-topright" id="home_logout">
+			<i class="fa fa-sign-out" aria-hidden="true"></i><span>注销</span>
+		</div>
 		<div class="btn-group pull-left">
 			<div class="btn btn-navbar color-w opacity100" ui-toggle='uiSidebarLeft'>
-			<i class="fa fa-bars"></i>
+				<i class="fa fa-bars"></i>
 				设置
 			</div>
 		</div>
