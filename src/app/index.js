@@ -83,6 +83,11 @@ import refuseCtrl from './in/citymanager/refuse/refuseCtrl.js';
 import punishCtrl from './in/citymanager/punish/punishCtrl.js';
 import fixCtrl from './in/citymanager/fix/fixCtrl.js';
 import icmCtrl from './in/citymanager/icm/icmCtrl.js';
+// 公共事业Controller
+import educationCtrl from './in/publicService/education/educationCtrl.js';
+import healthCareCtrl from './in/publicService/healthCare/healthCareCtrl.js';
+import telecomCtrl from './in/publicService/telecom/telecomCtrl.js';
+import trafficCtrl from './in/publicService/traffic/trafficCtrl.js';
 
 angular.module('soraka',
   ['ngAnimate', 'ngCookies', 'ngSanitize', 'ui.router', 'ngResource', 'ngStorage', 'mobile-angular-ui','ui.bootstrap', "me-pageloading",'highcharts-ng'])
@@ -169,6 +174,10 @@ angular.module('soraka',
   .controller('safetyCtrl', safetyCtrl)
   
   // 公共事业controllers
+  .controller('educationCtrl', educationCtrl)
+  .controller('healthCareCtrl', healthCareCtrl)
+  .controller('telecomCtrl', telecomCtrl)
+  .controller('trafficCtrl', trafficCtrl)
 
   // 城市管理controllers
   .controller('cmCtrl', cmCtrl)
