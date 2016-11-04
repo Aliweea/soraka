@@ -31,6 +31,7 @@ import insuranceFilter from './filter/insuranceFilter';
 import populationFilter from './filter/PopulationFilter';
 import energyFilter from './filter/Environment/EnergyFilter';
 import landFilter from './filter/Environment/LandFilter';
+import environmentDetailFilter from './filter/Environment/EnvironmentDetailFilter';
 import kpiUnitFilter from './filter/publicsecurity/kpiUnitFilter'
 import applyDateFilter from './filter/applyDateFilter'
 import unitTransFilter from './filter/unitTransFilter'
@@ -63,6 +64,9 @@ import waterCtrl from './in/Environment/water/waterCtrl.js';
 import airCtrl from './in/Environment/air/airCtrl.js';
 import landCtrl from './in/Environment/land/landCtrl.js';
 import energyCtrl from './in/Environment/energy/energyCtrl.js';
+import waterQualityCtrl from './in/Environment/EnvironmentDetail/water/waterQuality.js';
+import wasteWaterCtrl from './in/Environment/EnvironmentDetail/water/wasteWater.js';
+import waterConditionCtrl from './in/Environment/EnvironmentDetail/water/waterCondition.js';
 // 民生模块Controller
 import populationCtrl from './in/livehood/population/populationCtrl.js';
 import insuranceCtrl from './in/livehood/insurance/insuranceCtrl.js';
@@ -120,6 +124,7 @@ angular.module('soraka',
   .filter('populationFilter', populationFilter)
   .filter('energyFilter',energyFilter)
   .filter('landFilter',landFilter)
+  .filter('environmentDetailFilter',environmentDetailFilter)
   .filter('kpiUnitFilter',kpiUnitFilter)
   .filter('applyDateFilter',applyDateFilter)
   .filter('unitTransFilter',unitTransFilter)
