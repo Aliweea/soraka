@@ -35,6 +35,15 @@
 	}
 	.soraka-menu-navbar-bottom {
 		background-color: $bgDarkBlue;
+		.soraka-menu-navbar-bottomleft{
+			margin-top: 13px;
+			font-size: 17px;
+			margin-left: 1em;
+			color: $standardWhite;
+			i {
+				margin-right: 0.5em;
+			}
+		}
 	}
 }
 .soraka-sidebar-left {
