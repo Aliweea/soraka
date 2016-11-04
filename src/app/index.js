@@ -43,6 +43,7 @@ import inCtrl from './in/inCtrl';
 import homeCtrl from './in/home/homeCtrl';
 // 侧边栏Controller
 import meCtrl from './in/me/meCtrl';
+import datepickCtrl from './in/datepick/datepickCtrl';
 // 经济模块Controller
 import GDPCtrl from './in/Economy/GDP/GDPCtrl.js';
 import financeCtrl from './in/Economy/Finance/financeCtrl.js';
@@ -130,6 +131,7 @@ angular.module('soraka',
   .controller('homeCtrl', homeCtrl)
   // 侧边栏controllers
   .controller('meCtrl', meCtrl)
+  .controller('datepickCtrl', datepickCtrl)
   // 经济controllers
   .controller('GDPCtrl',GDPCtrl)
   .controller('financeCtrl',financeCtrl)
