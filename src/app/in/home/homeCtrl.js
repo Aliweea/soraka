@@ -1,5 +1,8 @@
 export default ($scope) => {
 	'ngInject';
+	// 隐藏topbar上的logout按钮
+    $('#navTopLogout').show(0);
+    $('#navBottomReturn').hide(0);
 	
 	// 适应屏幕高度
 	const adjustLayout = () => {

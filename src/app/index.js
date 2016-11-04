@@ -12,6 +12,7 @@ import i18nConfig from './i18n/config';
 // service
 import commonSer from './common/commonSer';
 import qService from './services/q-service';
+import dateService from './services/date-service';
 import AuthTool  from './services/auth-tool';
 
 // resource
@@ -30,8 +31,12 @@ import kpiStatusTextFilter from './filter/publicsecurity/kpiStatusTextFilter';
 import kpiStatusClassFilter from './filter/publicsecurity/kpiStatusClassFilter';
 import insuranceFilter from './filter/insuranceFilter';
 import populationFilter from './filter/PopulationFilter';
-import energyFilter from './filter/EnergyFilter';
-import landFilter from './filter/LandFilter';
+import energyFilter from './filter/Environment/EnergyFilter';
+import landFilter from './filter/Environment/LandFilter';
+import environmentDetailFilter from './filter/Environment/EnvironmentDetailFilter';
+import kpiUnitFilter from './filter/publicsecurity/kpiUnitFilter'
+import applyDateFilter from './filter/applyDateFilter'
+import unitTransFilter from './filter/unitTransFilter'
 
 // controllers
 
@@ -40,6 +45,9 @@ import appCtrl from './appCtrl';
 import portalCtrl from './auth/portal/portalCtrl';
 import inCtrl from './in/inCtrl';
 import homeCtrl from './in/home/homeCtrl';
+// 侧边栏Controller
+import meCtrl from './in/me/meCtrl';
+import datepickCtrl from './in/datepick/datepickCtrl';
 // 经济模块Controller
 import GDPCtrl from './in/Economy/GDP/GDPCtrl.js';
 import financeCtrl from './in/Economy/Finance/financeCtrl.js';
@@ -58,6 +66,15 @@ import waterCtrl from './in/Environment/water/waterCtrl.js';
 import airCtrl from './in/Environment/air/airCtrl.js';
 import landCtrl from './in/Environment/land/landCtrl.js';
 import energyCtrl from './in/Environment/energy/energyCtrl.js';
+import waterQualityCtrl from './in/Environment/EnvironmentDetail/water/waterQuality.js';
+import wasteWaterCtrl from './in/Environment/EnvironmentDetail/water/wasteWater.js';
+import waterConditionCtrl from './in/Environment/EnvironmentDetail/water/waterCondition.js';
+import commercialGrossDetailCtrl from './in/Environment/EnvironmentDetail/land/commercialGrossCtrl.js';
+import commercialAreaDetailCtrl from './in/Environment/EnvironmentDetail/land/commercialAreaCtrl.js';
+import cultivateAreaDetailCtrl from './in/Environment/EnvironmentDetail/land/cultivateAreaCtrl.js';
+import illegalAreaDetailCtrl from './in/Environment/EnvironmentDetail/land/illegalAreaCtrl.js';
+import industryAreaDetailCtrl from './in/Environment/EnvironmentDetail/land/industryAreaCtrl.js';
+import industryGrossDetailCtrl from './in/Environment/EnvironmentDetail/land/industryGrossCtrl.js';
 // 民生模块Controller
 import populationCtrl from './in/livehood/population/populationCtrl.js';
 import insuranceCtrl from './in/livehood/insurance/insuranceCtrl.js';
@@ -74,6 +91,11 @@ import refuseCtrl from './in/citymanager/refuse/refuseCtrl.js';
 import punishCtrl from './in/citymanager/punish/punishCtrl.js';
 import fixCtrl from './in/citymanager/fix/fixCtrl.js';
 import icmCtrl from './in/citymanager/icm/icmCtrl.js';
+// 公共事业Controller
+import educationCtrl from './in/publicService/education/educationCtrl.js';
+import healthCareCtrl from './in/publicService/healthCare/healthCareCtrl.js';
+import telecomCtrl from './in/publicService/telecom/telecomCtrl.js';
+import trafficCtrl from './in/publicService/traffic/trafficCtrl.js';
 
 angular.module('soraka',
   ['ngAnimate', 'ngCookies', 'ngSanitize', 'ui.router', 'ngResource', 'ngStorage', 'mobile-angular-ui','ui.bootstrap', "me-pageloading",'highcharts-ng'])
@@ -97,6 +119,7 @@ angular.module('soraka',
   .service('commonSer', commonSer)
   .service('qService', qService)
   .service('AuthTool',AuthTool)
+  .service('dateService',dateService)
 
   // factory 初始化
   .factory('accountRes', accountRes)
@@ -115,7 +138,10 @@ angular.module('soraka',
   .filter('populationFilter', populationFilter)
   .filter('energyFilter',energyFilter)
   .filter('landFilter',landFilter)
-
+  .filter('environmentDetailFilter',environmentDetailFilter)
+  .filter('kpiUnitFilter',kpiUnitFilter)
+  .filter('applyDateFilter',applyDateFilter)
+  .filter('unitTransFilter',unitTransFilter)
 
 
 
@@ -124,6 +150,9 @@ angular.module('soraka',
   .controller('portalCtrl', portalCtrl)
   .controller('inCtrl', inCtrl)
   .controller('homeCtrl', homeCtrl)
+  // 侧边栏controllers
+  .controller('meCtrl', meCtrl)
+  .controller('datepickCtrl', datepickCtrl)
   // 经济controllers
   .controller('GDPCtrl',GDPCtrl)
   .controller('financeCtrl',financeCtrl)
@@ -142,6 +171,15 @@ angular.module('soraka',
   .controller('airCtrl',airCtrl)
   .controller('landCtrl',landCtrl)
   .controller('energyCtrl',energyCtrl)
+  .controller('waterQualityCtrl',waterQualityCtrl)
+  .controller('wasteWaterCtrl',wasteWaterCtrl)
+  .controller('waterConditionCtrl',waterConditionCtrl)
+  .controller('commercialGrossDetailCtrl',commercialGrossDetailCtrl)
+  .controller('commercialAreaDetailCtrl',commercialAreaDetailCtrl)
+  .controller('cultivateAreaDetailCtrl',cultivateAreaDetailCtrl)
+  .controller('illegalAreaDetailCtrl',illegalAreaDetailCtrl)
+  .controller('industryAreaDetailCtl',industryAreaDetailCtrl)
+  .controller('industryGrossDetailCtrl',industryGrossDetailCtrl)
   // 民生controllers
   .controller('populationCtrl',populationCtrl)
   .controller('insuranceCtrl',insuranceCtrl)
@@ -152,8 +190,12 @@ angular.module('soraka',
   .controller('accidentCtrl', accidentCtrl)
   .controller('petitionCtrl', petitionCtrl)
   .controller('safetyCtrl', safetyCtrl)
-  
+
   // 公共事业controllers
+  .controller('educationCtrl', educationCtrl)
+  .controller('healthCareCtrl', healthCareCtrl)
+  .controller('telecomCtrl', telecomCtrl)
+  .controller('trafficCtrl', trafficCtrl)
 
   // 城市管理controllers
   .controller('cmCtrl', cmCtrl)
