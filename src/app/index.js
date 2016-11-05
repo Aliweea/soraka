@@ -34,10 +34,13 @@ import populationFilter from './filter/PopulationFilter';
 import energyFilter from './filter/Environment/EnergyFilter';
 import landFilter from './filter/Environment/LandFilter';
 import environmentDetailFilter from './filter/Environment/EnvironmentDetailFilter';
-import kpiUnitFilter from './filter/publicsecurity/kpiUnitFilter'
-import applyDateFilter from './filter/applyDateFilter'
-import unitTransFilter from './filter/unitTransFilter'
-
+import kpiUnitFilter from './filter/publicsecurity/kpiUnitFilter';
+import applyDateFilter from './filter/applyDateFilter';
+import unitTransFilter from './filter/unitTransFilter';
+import FinanceDetailFilter from './filter/FinanceFilter';
+import FinancialDetailFilter from './filter/FinancialFilter';
+import investmentDetailFilter from './filter/investDetailFilter';
+import industryDetailFilter from './filter/industryFilter';
 // controllers
 
 import appCtrl from './appCtrl';
@@ -61,6 +64,10 @@ import SecondDetailCtrl from './in/Economy/EconomyDetail/SecondGDP/secondgdp';
 import SecondDetailIndexCtrl from './in/Economy/EconomyDetail/SecondGDP/secondgdpindex';
 import ThirdDetailCtrl from './in/Economy/EconomyDetail/ThirdGDP/thirdgdp';
 import ThirdDetailIndexCtrl from './in/Economy/EconomyDetail/ThirdGDP/thirdgdpindex';
+import FinancedetailCtrl from './in/Economy/FinanceDetail/financein.js';
+import FinancialdetailCtrl from './in/Economy/FinancialDetail/financialDetail.js';
+import investmentDetailCtrl from './in/Economy/investmentDetail/investmentDetailCtrl.js';
+import industryDetailCtrl from './in/Economy/industryDetail/industryDetailCtrl';
 //环境模块Controller
 import waterCtrl from './in/Environment/water/waterCtrl.js';
 import airCtrl from './in/Environment/air/airCtrl.js';
@@ -142,7 +149,10 @@ angular.module('soraka',
   .filter('kpiUnitFilter',kpiUnitFilter)
   .filter('applyDateFilter',applyDateFilter)
   .filter('unitTransFilter',unitTransFilter)
-
+  .filter('FinanceDetailFilter',FinanceDetailFilter)
+  .filter('FinancialDetailFilter',FinancialDetailFilter)
+  .filter('investmentDetailFilter',investmentDetailFilter)
+  .filter('industryDetailFilter',industryDetailFilter)
 
 
   // controllers 初始化
@@ -166,6 +176,11 @@ angular.module('soraka',
   .controller('SecondDetailIndexCtrl',SecondDetailIndexCtrl)
   .controller('ThirdDetailCtrl',ThirdDetailCtrl)
   .controller('ThirdDetailIndexCtrl',ThirdDetailIndexCtrl)
+  .controller('FinancedetailCtrl',FinancedetailCtrl)
+  .controller('FinancialdetailCtrl',FinancialdetailCtrl)
+  .controller('investmentDetailCtrl',investmentDetailCtrl)
+  .controller('industryDetailCtrl',industryDetailCtrl)
+
   // 环境controllers
   .controller('waterCtrl',waterCtrl)
   .controller('airCtrl',airCtrl)

@@ -26,7 +26,7 @@ export default ($scope,qService,kpiSpanRes,$rootScope) => {
         */ 
  qService.httpGet(kpiSpanRes.spankpi,{'kpiID':7510,'start':$scope.month[2],'end':$scope.month[0]},{"X-Auth-Token":token}).then((data) => {
         console.log(data);
-        $scope.kpiText = data.data.tag;
+        $scope.kpiText = data.data.name;
         $scope.GDP={
      options: 
     {
