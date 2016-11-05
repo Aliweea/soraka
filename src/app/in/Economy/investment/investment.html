@@ -1,5 +1,5 @@
 <div class="cm-refuse-module">
-  <div ng-repeat="item in InvestmentKPI" class="cm-refuse-item">
+  <div ng-repeat="item in InvestmentKPI" class="cm-refuse-item" ui-sref="{{item.id | investmentDetailFilter}}">
     <div class="cm-refuse-top">
       <span>{{item.description}}</span><i ng-class="item.data.status">{{(item.data.status == "GREEN")?"可接受":"问题"}}</i>
     </div>
