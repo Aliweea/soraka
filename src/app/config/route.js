@@ -394,7 +394,21 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       templateUrl:'app/in/publicsecurity/safety/safety.html',
       controller: 'safetyCtrl'
     })
-
+    .state('app.publicsecuritydetail',{
+        abstract:true,
+        url:'/publicsecuritydetail',
+        templateUrl:'app/in/publicsecurity/publicsecuritydetail/publicsecuritydetail.html'
+    })
+    .state('app.publicsecuritydetail.policecall',{
+        url:'/policecall',
+        templateUrl:'app/in/publicsecurity/publicsecuritydetail/police/policecall.html',
+        controller:'policecallCtrl'
+    })
+    .state('app.publicsecuritydetail.policesafe',{
+        url:'/policesafe',
+        templateUrl:'app/in/publicsecurity/publicsecuritydetail/police/policesafe.html',
+        controller:'policesafeCtrl'
+    })
 
     // 民生
     .state('app.livehood',{
