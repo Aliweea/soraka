@@ -1,11 +1,11 @@
 <div class="cm-refuse-module">
-  <div ng-repeat="item in InvestmentKPI" class="cm-refuse-item">
+  <div ng-repeat="item in InvestmentKPI" class="cm-refuse-item" ui-sref="{{item.id | investmentDetailFilter}}">
     <div class="cm-refuse-top">
       <span>{{item.description}}</span><i ng-class="item.data.status">{{(item.data.status == "GREEN")?"可接受":"问题"}}</i>
     </div>
     <div class="cm-refuse-value clevel1"><i aria-hidden="true" class="{{(item.data.value>item.data.target)?'fa fa-long-arrow-up':'fa fa-long-arrow-down'}}" style="{{(item.data.value>item.data.target)?'':'color:red'}}"></i><span style="{{(item.data.value>item.data.target)?'':'color:red'}}">{{item.data.value | economyFilter}}{{(item.data.value<=1)?'%':'亿元'}}</span></div>
     <div class="cm-refuse-bottom">
-      <span class="cm-refuse-bottom-s1">经济</span><span class="cm-refuse-bottom-s2">统计局</span><span class="cm-refuse-bottom-s3">{{item.data.applyDate}}</span>
+      <span class="cm-refuse-bottom-s1">经济</span><span class="cm-refuse-bottom-s2">统计局</span><span class="cm-refuse-bottom-s3">{{item | applyDateFilter}}</span>
     </div>
   </div>
 </div>

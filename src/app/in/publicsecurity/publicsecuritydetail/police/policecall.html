@@ -1,7 +1,3 @@
-
-<!-- <div style="width: 100%">
-    <highchart config="GDP"  id="gdpchart"></highchart>
-</div> -->
 <div ui-state="activeTab" default="1">
   <ul class="nav nav-tabs">
     <li ui-class="{'active': activeTab == 1}">
@@ -14,13 +10,13 @@
   </ul>
 
   <div ui-if="activeTab == 1">
-    <h3 class="page-header">{{kpiText}}KPI详情</h3>
+    <h3 class="page-header">GDP KPI详情</h3>
     <highchart config="GDP"  id="gdpchart"></highchart>
   </div>
 
   <div ui-if="activeTab == 2">
-    <h3 class="page-header">全年{{kpiText}}KPI详情</h3>
-    <highchart config="yearchart"  id="yearchart"></highchart>
+    <h3 class="page-header">全年GDP KPI详情</h3>
+    <highchart config="GDP"  id="gdpchart"></highchart>
   </div>
 
   
@@ -49,7 +45,7 @@
           <h4 class="modal-title">GDP KPI数据解读</h4>
         </div>
         <div class="modal-body">
-          <p>{{evaluatetime}}月,太仓市{{evaluatename}}为{{evaluatevalue | economyFilter}}{{(evaluatevalue<=1)?'%':'亿元'}}</p><p>KPI状态为{{(evaluatevalue < evaluatetarget)?"低于目标值":"高于目标值"}}</p>
+          <p>还不错</p>
         </div>
         <div class="modal-footer">
           <button ui-turn-off="modal2" class="btn btn-primary">Close</button>

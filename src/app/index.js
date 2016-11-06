@@ -18,6 +18,8 @@ import AuthTool  from './services/auth-tool';
 // resource
 import accountRes from './resources/account-res';
 import kpiRes from './resources/kpi-res';
+import kpiSpanRes from './resources/SpanKPI-res';
+
 
 // directive
 import headerDirect from './common/header/headerDirect';
@@ -32,10 +34,14 @@ import populationFilter from './filter/PopulationFilter';
 import energyFilter from './filter/Environment/EnergyFilter';
 import landFilter from './filter/Environment/LandFilter';
 import environmentDetailFilter from './filter/Environment/EnvironmentDetailFilter';
-import kpiUnitFilter from './filter/publicsecurity/kpiUnitFilter'
-import applyDateFilter from './filter/applyDateFilter'
-import unitTransFilter from './filter/unitTransFilter'
-
+import publicsecuritydetailFilter from './filter/publicsecurity/publicsecuritydetailFilter';
+import kpiUnitFilter from './filter/publicsecurity/kpiUnitFilter';
+import applyDateFilter from './filter/applyDateFilter';
+import unitTransFilter from './filter/unitTransFilter';
+import FinanceDetailFilter from './filter/FinanceFilter';
+import FinancialDetailFilter from './filter/FinancialFilter';
+import investmentDetailFilter from './filter/investDetailFilter';
+import industryDetailFilter from './filter/industryFilter';
 // controllers
 
 import appCtrl from './appCtrl';
@@ -59,11 +65,16 @@ import SecondDetailCtrl from './in/Economy/EconomyDetail/SecondGDP/secondgdp';
 import SecondDetailIndexCtrl from './in/Economy/EconomyDetail/SecondGDP/secondgdpindex';
 import ThirdDetailCtrl from './in/Economy/EconomyDetail/ThirdGDP/thirdgdp';
 import ThirdDetailIndexCtrl from './in/Economy/EconomyDetail/ThirdGDP/thirdgdpindex';
+import FinancedetailCtrl from './in/Economy/FinanceDetail/financein.js';
+import FinancialdetailCtrl from './in/Economy/FinancialDetail/financialDetail.js';
+import investmentDetailCtrl from './in/Economy/investmentDetail/investmentDetailCtrl.js';
+import industryDetailCtrl from './in/Economy/industryDetail/industryDetailCtrl';
 //环境模块Controller
 import waterCtrl from './in/Environment/water/waterCtrl.js';
 import airCtrl from './in/Environment/air/airCtrl.js';
 import landCtrl from './in/Environment/land/landCtrl.js';
 import energyCtrl from './in/Environment/energy/energyCtrl.js';
+import EnvironmentSecondCtrl from './in/Environment/EnvironmentDetail/finance/financein.js';
 import waterQualityCtrl from './in/Environment/EnvironmentDetail/water/waterQuality.js';
 import wasteWaterCtrl from './in/Environment/EnvironmentDetail/water/wasteWater.js';
 import waterConditionCtrl from './in/Environment/EnvironmentDetail/water/waterCondition.js';
@@ -83,6 +94,8 @@ import firecontrolCtrl from './in/publicsecurity/firecontrol/firecontrolCtrl.js'
 import petitionCtrl from './in/publicsecurity/petition/petitionCtrl.js';
 import safetyCtrl from './in/publicsecurity/safety/safetyCtrl.js';
 import accidentCtrl from './in/publicsecurity/accident/accidentCtrl.js';
+import policecallCtrl from './in/publicsecurity/publicsecuritydetail/police/policecall.js';
+import policesafeCtrl from './in/publicsecurity/publicsecuritydetail/police/policesafe.js';
 // 城市管理模块Controller
 import cmCtrl from './in/citymanager/cmCtrl.js';
 import refuseCtrl from './in/citymanager/refuse/refuseCtrl.js';
@@ -122,6 +135,7 @@ angular.module('soraka',
   // factory 初始化
   .factory('accountRes', accountRes)
   .factory('kpiRes',kpiRes)
+  .factory('kpiSpanRes',kpiSpanRes)
 
   // directive 初始化
   .directive('lcHeader', headerDirect)
@@ -136,10 +150,14 @@ angular.module('soraka',
   .filter('energyFilter',energyFilter)
   .filter('landFilter',landFilter)
   .filter('environmentDetailFilter',environmentDetailFilter)
+  .filter('publicsecuritydetailFilter',publicsecuritydetailFilter)
   .filter('kpiUnitFilter',kpiUnitFilter)
   .filter('applyDateFilter',applyDateFilter)
   .filter('unitTransFilter',unitTransFilter)
-
+  .filter('FinanceDetailFilter',FinanceDetailFilter)
+  .filter('FinancialDetailFilter',FinancialDetailFilter)
+  .filter('investmentDetailFilter',investmentDetailFilter)
+  .filter('industryDetailFilter',industryDetailFilter)
 
 
   // controllers 初始化
@@ -163,11 +181,20 @@ angular.module('soraka',
   .controller('SecondDetailIndexCtrl',SecondDetailIndexCtrl)
   .controller('ThirdDetailCtrl',ThirdDetailCtrl)
   .controller('ThirdDetailIndexCtrl',ThirdDetailIndexCtrl)
+  .controller('FinancedetailCtrl',FinancedetailCtrl)
+  .controller('FinancialdetailCtrl',FinancialdetailCtrl)
+  .controller('investmentDetailCtrl',investmentDetailCtrl)
+  .controller('industryDetailCtrl',industryDetailCtrl)
+
   // 环境controllers
   .controller('waterCtrl',waterCtrl)
   .controller('airCtrl',airCtrl)
   .controller('landCtrl',landCtrl)
   .controller('energyCtrl',energyCtrl)
+  .controller('EnvironmentSecondCtrl',EnvironmentSecondCtrl)
+  .controller('waterQualityCtrl',waterQualityCtrl)
+  .controller('wasteWaterCtrl',wasteWaterCtrl)
+  .controller('waterConditionCtrl',waterConditionCtrl)
   .controller('commercialGrossDetailCtrl',commercialGrossDetailCtrl)
   .controller('commercialAreaDetailCtrl',commercialAreaDetailCtrl)
   .controller('cultivateAreaDetailCtrl',cultivateAreaDetailCtrl)
@@ -184,6 +211,8 @@ angular.module('soraka',
   .controller('accidentCtrl', accidentCtrl)
   .controller('petitionCtrl', petitionCtrl)
   .controller('safetyCtrl', safetyCtrl)
+  .controller('policecallCtrl',policecallCtrl)
+  .controller('policesafeCtrl',policesafeCtrl)
 
   // 公共事业controllers
   .controller('educationCtrl', educationCtrl)

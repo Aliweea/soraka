@@ -2,11 +2,13 @@
 <div class="cm-refuse-module">
   <div ng-repeat="data in lhInsuranceData" class="cm-refuse-item">
     <div class="cm-refuse-top">
-      <span>{{data.description}}</span><i ng-class="data.data.status">{{data.data.status | kpiStatusTextFilter}}</i>
+			<span>{{data.description}}</span><i ng-class="data.data.status">{{data.data.status|kpiStatusTextFilter}}</i>
+		</div>
+		<div class="cm-refuse-value {{data.data.status | kpiStatusClassFilter}}">
+			<i class="{{(data.data.value>data.data.target)?'fa fa-long-arrow-up':'fa fa-long-arrow-down tips'}}" aria-hidden="true" ng-show="{{data.data.status!='GRAY'}}"></i>
+    <span>{{data.data.value | insuranceFilter}}{{(data.data.value>500000)?'万元':'人'}}</span>
     </div>
-    <div class="cm-refuse-value clevel1"><i class="{{(data.data.value>data.data.target)?'fa fa-long-arrow-up':'fa fa-long-arrow-down tips'}}" style="{{(data.data.value>data.data.target)?'':'color:red'}}" aria-hidden="true" ng-show="{{data.data.status!='GRAY'}}"></i><span>{{data.data.value | insuranceFilter}}{{(data.data.value>500000)?'万元':'人'}}</span></div>
     <div class="cm-refuse-bottom">
-
       <span class="cm-refuse-bottom-s1">民生</span><span class="cm-refuse-bottom-s2">人社局</span><span class="cm-refuse-bottom-s3">{{data | applyDateFilter}}</span>
     </div>
   </div>
