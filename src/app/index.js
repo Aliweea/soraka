@@ -74,6 +74,7 @@ import waterCtrl from './in/Environment/water/waterCtrl.js';
 import airCtrl from './in/Environment/air/airCtrl.js';
 import landCtrl from './in/Environment/land/landCtrl.js';
 import energyCtrl from './in/Environment/energy/energyCtrl.js';
+import EnvironmentSecondCtrl from './in/Environment/EnvironmentDetail/finance/financein.js';
 import waterQualityCtrl from './in/Environment/EnvironmentDetail/water/waterQuality.js';
 import wasteWaterCtrl from './in/Environment/EnvironmentDetail/water/wasteWater.js';
 import waterConditionCtrl from './in/Environment/EnvironmentDetail/water/waterCondition.js';
@@ -190,6 +191,7 @@ angular.module('soraka',
   .controller('airCtrl',airCtrl)
   .controller('landCtrl',landCtrl)
   .controller('energyCtrl',energyCtrl)
+  .controller('EnvironmentSecondCtrl',EnvironmentSecondCtrl)
   .controller('waterQualityCtrl',waterQualityCtrl)
   .controller('wasteWaterCtrl',wasteWaterCtrl)
   .controller('waterConditionCtrl',waterConditionCtrl)
