@@ -29,6 +29,11 @@ export default ($scope,qService,kpiSpanRes,$rootScope,$stateParams) => {
         */ 
  qService.httpGet(kpiSpanRes.spankpi,{'kpiID':$stateParams.id,'start':$scope.month[2],'end':$scope.month[0]},{"X-Auth-Token":token}).then((data) => {
         console.log(data);
+        $scope.evaluatetime = moment($rootScope.financeinfo.applyDate).format('YYYY-MM');
+         var i = data.data.data.value.length;
+        $scope.evaluatename = data.data.name;
+        $scope.evaluatevalue = data.data.data.value[i-1]; 
+        $scope.evaluatetarget = data.data.data.target[i-1]; 
         $scope.kpiText = data.data.name;
         $scope.GDP={
      options: 
