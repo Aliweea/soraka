@@ -49,7 +49,7 @@
           <h4 class="modal-title">GDP KPI数据解读</h4>
         </div>
         <div class="modal-body">
-          <p>还不错</p>
+          <p>{{evaluatetime}}月,太仓市{{evaluatename}}为{{evaluatevalue | economyFilter}}{{(evaluatevalue<=1)?'%':'亿元'}}</p><p>KPI状态为{{(evaluatevalue < evaluatetarget)?"低于目标值":"高于目标值"}}</p>
         </div>
         <div class="modal-footer">
           <button ui-turn-off="modal2" class="btn btn-primary">Close</button>
