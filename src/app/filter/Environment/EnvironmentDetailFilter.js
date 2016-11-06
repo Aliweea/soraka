@@ -7,7 +7,8 @@ export default($rootScope) => {
     switch (input)
       {
       case 4001:
-        out ="app.environmentdetail.waterQuality";
+        // out ="app.environmentdetail.waterQuality";
+        out ="app.environmentdetail.financein({id:1000})";
         break;
       case 4003:
         out ="app.environmentdetail.wasteWater";
