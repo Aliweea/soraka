@@ -428,6 +428,19 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       templateUrl:'app/in/livehood/insurance/insurance.html',
       controller:'insuranceCtrl'
     })
+    //放置的模板
+    .state('app.insurance2module',{
+          abstract:ture,
+          url:'/insurance2module',
+          templateUrl:'app/in/livehood/insurance/insurance2module.html'
+    })
+     .state('app.insurance2',{
+          abstract:ture,
+          url:'/insurance2',
+          templateUrl:'app/in/livehood/insurance/insurance2.html'
+    })
+
+
       //民生之价格指数
     .state('app.livehood.price',{
       url:'/livehood/price',
