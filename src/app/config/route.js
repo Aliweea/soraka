@@ -317,10 +317,10 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       url:'/environmentdetail',
       templateUrl:'app/in/Environment/EnvironmentDetail/EnvironmentDetail.html'
     })
-    .state('app.environmentdetail.financein',{
-      url:'/environmentdetail/finance/:id',
+    .state('app.environmentdetail.waterSecond',{
+      url:'/environmentdetail/waterSecond/:id',
       templateUrl:'app/in/Environment/EnvironmentDetail/EnvironmentSecond.html',
-      controller:'EnvironmentSecondCtrl'
+      controller:'waterSecondCtrl'
     })
     .state('app.environmentdetail.commercialLandGross',{
       url:'/land/commercialGross',
@@ -352,21 +352,6 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
         templateUrl:'app/in/Environment/EnvironmentDetail/land/LandDetail.html',
         controller:'cultivateAreaDetailCtrl'
       })
-    .state('app.environmentdetail.waterQuality',{
-      url:'/waterQuality',
-      templateUrl:'app/in/Environment/EnvironmentDetail/water/waterQuality.html',
-      controller:'waterQualityCtrl'
-    })
-    .state('app.environmentdetail.wasteWater',{
-      url:'/wasteWater',
-      templateUrl:'app/in/Environment/EnvironmentDetail/water/wasteWater.html',
-      controller:'wasteWaterCtrl'
-    })
-    .state('app.environmentdetail.waterCondition',{
-      url:'/waterCondition',
-      templateUrl:'app/in/Environment/EnvironmentDetail/water/waterCondition.html',
-      controller:'waterConditionCtrl'
-    })
 
     // 公共安全
     .state('app.publicsecurity',{ 

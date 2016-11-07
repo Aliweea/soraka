@@ -8,13 +8,13 @@ export default($rootScope) => {
       {
       case 4001:
         // out ="app.environmentdetail.waterQuality";
-        out ="app.environmentdetail.financein({id:1000})";
+        out ="app.environmentdetail.waterSecond({id:1000})";
         break;
       case 4003:
-        out ="app.environmentdetail.wasteWater";
+        out ="app.environmentdetail.waterSecond({id:1000})";
         break;
       case 4002:
-        out ="app.environmentdetail.waterCondition";
+        out ="app.environmentdetail.waterSecond({id:1000})";
         break;
       case 4007:
         out="app.environmentdetail.commercialLandGross";
