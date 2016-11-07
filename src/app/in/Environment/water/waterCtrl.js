@@ -11,7 +11,6 @@ export default ($scope,qService,kpiRes,$state, dateService, $rootScope) => {
 		"X-Auth-Token":token
 	};
 	qService.httpGet(kpiRes.categorykpi, params,headers).then((data) => {
-        // $rootScope.financeinfo.applyDate = data.data.data[0].data.applyDate;
         $rootScope.waterApplyDate = data.data.data[0].data.applyDate;
         if (data.errorCode == "NO_ERROR") {
             $scope.WaterArray = data.data.data;
