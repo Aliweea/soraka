@@ -98,10 +98,11 @@ import policecallCtrl from './in/publicsecurity/publicsecuritydetail/police/poli
 import policesafeCtrl from './in/publicsecurity/publicsecuritydetail/police/policesafe.js';
 // 城市管理模块Controller
 import cmCtrl from './in/citymanager/cmCtrl.js';
-import refuseCtrl from './in/citymanager/refuse/refuseCtrl.js';
-import punishCtrl from './in/citymanager/punish/punishCtrl.js';
-import fixCtrl from './in/citymanager/fix/fixCtrl.js';
-import icmCtrl from './in/citymanager/icm/icmCtrl.js';
+import refuseCtrl from './in/citymanager/one/refuse/refuseCtrl.js';
+import punishCtrl from './in/citymanager/one/punish/punishCtrl.js';
+import fixCtrl from './in/citymanager/one/fix/fixCtrl.js';
+import icmCtrl from './in/citymanager/one/icm/icmCtrl.js';
+import cmdetailCtrl from './in/citymanager/two/cmdetailCtrl.js';
 // 公共事业Controller
 import educationCtrl from './in/publicService/education/educationCtrl.js';
 import healthCareCtrl from './in/publicService/healthCare/healthCareCtrl.js';
@@ -226,4 +227,5 @@ angular.module('soraka',
   .controller('punishCtrl', punishCtrl)
   .controller('fixCtrl', fixCtrl)
   .controller('icmCtrl', icmCtrl)
+  .controller('cmdetailCtrl', cmdetailCtrl)
   ;
