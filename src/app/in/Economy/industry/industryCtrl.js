@@ -1,4 +1,4 @@
-export default ($scope,qService,kpiRes,dateService) => {
+export default ($scope,qService,kpiRes,dateService,$rootScope) => {
   'ngInject';
  
  
@@ -7,6 +7,8 @@ export default ($scope,qService,kpiRes,dateService) => {
  let dateStr = dateService.formatDate(dateService.getSystemTime());
  qService.httpGet(kpiRes.categorykpi,{"currentDate":dateStr,"categoryId":5},{"X-Auth-Token":token}).then((data) =>{
     $scope.IndustryKPI = data.data.data;
+    $rootScope.industryInfo = {};
+    $rootScope.industryInfo.date = data.data.data[0].data.applyDate;
            console.log(data);
     })
 };

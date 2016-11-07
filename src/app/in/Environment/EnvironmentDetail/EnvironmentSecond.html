@@ -1,3 +1,4 @@
+
 <div ui-state="activeTab" default="1">
   <ul class="nav nav-tabs">
     <li ui-class="{'active': activeTab == 1}">
@@ -10,13 +11,13 @@
   </ul>
 
   <div ui-if="activeTab == 1">
-    <h3 class="page-header">GDP KPI详情</h3>
+    <h3 class="page-header">{{kpiText}}KPI详情</h3>
     <highchart config="GDP"  id="gdpchart"></highchart>
   </div>
 
   <div ui-if="activeTab == 2">
-    <h3 class="page-header">全年GDP KPI详情</h3>
-    <highchart config="GDP"  id="gdpchart"></highchart>
+    <h3 class="page-header">全年{{kpiText}}KPI详情</h3>
+    <highchart config="yearchart"  id="yearchart"></highchart>
   </div>
 
   
@@ -24,7 +25,7 @@
 <div class="navbar navbar-app navbar-absolute-bottom">
    <div class="btn-group btn-group-justified">
   <div class="btn-group">
-    <a type="button" class="btn btn-default" ui-sref="app.economy.gdp">返回上页</a>
+    <a type="button" class="btn btn-default" ui-sref="app.environment.water">返回上页</a>
   </div>
   <div class="btn-group">
     <a type="button" class="btn btn-default" ui-turn-on="modal2">解读数据</a>
@@ -45,7 +46,7 @@
           <h4 class="modal-title">GDP KPI数据解读</h4>
         </div>
         <div class="modal-body">
-          <p>还不错</p>
+          <p>{{evaluatetime}}月,太仓市{{evaluatename}}为{{evaluatevalue | economyFilter}}{{(evaluatevalue<=1)?'%':'亿元'}}</p><p>KPI状态为{{(evaluatevalue < evaluatetarget)?"低于目标值":"高于目标值"}}</p>
         </div>
         <div class="modal-footer">
           <button ui-turn-off="modal2" class="btn btn-primary">Close</button>
