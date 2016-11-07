@@ -317,10 +317,20 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       url:'/environmentdetail',
       templateUrl:'app/in/Environment/EnvironmentDetail/EnvironmentDetail.html'
     })
-    .state('app.environmentdetail.financein',{
-      url:'/environmentdetail/finance/:id',
+    .state('app.environmentdetail.waterSecond',{
+      url:'/environmentdetail/waterSecond/:id',
       templateUrl:'app/in/Environment/EnvironmentDetail/EnvironmentSecond.html',
-      controller:'EnvironmentSecondCtrl'
+      controller:'waterSecondCtrl'
+    })
+    .state('app.environmentdetail.airSecond',{
+      url:'/environmentdetail/airSecond/:id',
+      templateUrl:'app/in/Environment/EnvironmentDetail/EnvironmentSecond.html',
+      controller:'airSecondCtrl'
+    })
+    .state('app.environmentdetail.energySecond',{
+      url:'/environmentdetail/energySecond/:id',
+      templateUrl:'app/in/Environment/EnvironmentDetail/EnvironmentSecond.html',
+      controller:'energySecondCtrl'
     })
     .state('app.environmentdetail.commercialLandGross',{
       url:'/land/commercialGross',
@@ -352,21 +362,6 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
         templateUrl:'app/in/Environment/EnvironmentDetail/land/LandDetail.html',
         controller:'cultivateAreaDetailCtrl'
       })
-    .state('app.environmentdetail.waterQuality',{
-      url:'/waterQuality',
-      templateUrl:'app/in/Environment/EnvironmentDetail/water/waterQuality.html',
-      controller:'waterQualityCtrl'
-    })
-    .state('app.environmentdetail.wasteWater',{
-      url:'/wasteWater',
-      templateUrl:'app/in/Environment/EnvironmentDetail/water/wasteWater.html',
-      controller:'wasteWaterCtrl'
-    })
-    .state('app.environmentdetail.waterCondition',{
-      url:'/waterCondition',
-      templateUrl:'app/in/Environment/EnvironmentDetail/water/waterCondition.html',
-      controller:'waterConditionCtrl'
-    })
 
     // 公共安全
     .state('app.publicsecurity',{ 
@@ -419,26 +414,33 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
     .state('app.livehood',{
       abstract: true,
       url:'/livehood',
-      templateUrl:'app/in/livehood/LivehoodHome.html'
+      templateUrl:'app/in/livehood/one/LivehoodHome.html'
     })
     //民生之人口结构
     .state('app.livehood.population',{
       url:'/livehood/population',
-      templateUrl:'app/in/livehood/population/population.html',
+      templateUrl:'app/in/livehood/one/population/population.html',
       controller:'populationCtrl'
     })
       //民生之社会保险
     .state('app.livehood.insurance',{
       url:'/livehood/insurance',
-      templateUrl:'app/in/livehood/insurance/insurance.html',
+      templateUrl:'app/in/livehood/one/insurance/insurance.html',
       controller:'insuranceCtrl'
     })
       //民生之价格指数
     .state('app.livehood.price',{
       url:'/livehood/price',
-     templateUrl:'app/in/livehood/price/price.html',
+     templateUrl:'app/in/livehood/one/price/price.html',
       controller:'priceCtrl'
     })
+         //民生二级界面
+    .state('app.livehood.detail',{
+      url:'/lvdetail?kpiId',
+     templateUrl:'app/in/livehood/two/lvdetail.html',
+      controller:'lvdetailCtrl'
+    })
+    
 
     //公共事业
     .state('app.publicService',{

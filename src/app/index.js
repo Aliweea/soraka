@@ -75,10 +75,9 @@ import waterCtrl from './in/Environment/water/waterCtrl.js';
 import airCtrl from './in/Environment/air/airCtrl.js';
 import landCtrl from './in/Environment/land/landCtrl.js';
 import energyCtrl from './in/Environment/energy/energyCtrl.js';
-import EnvironmentSecondCtrl from './in/Environment/EnvironmentDetail/finance/financein.js';
-import waterQualityCtrl from './in/Environment/EnvironmentDetail/water/waterQuality.js';
-import wasteWaterCtrl from './in/Environment/EnvironmentDetail/water/wasteWater.js';
-import waterConditionCtrl from './in/Environment/EnvironmentDetail/water/waterCondition.js';
+import waterSecondCtrl from './in/Environment/EnvironmentDetail/water/waterSecond.js';
+import airSecondCtrl from './in/Environment/EnvironmentDetail/air/airSecond.js';
+import energySecondCtrl from './in/Environment/EnvironmentDetail/energy/energySecond.js';
 import commercialGrossDetailCtrl from './in/Environment/EnvironmentDetail/land/commercialGrossCtrl.js';
 import commercialAreaDetailCtrl from './in/Environment/EnvironmentDetail/land/commercialAreaCtrl.js';
 import cultivateAreaDetailCtrl from './in/Environment/EnvironmentDetail/land/cultivateAreaCtrl.js';
@@ -86,9 +85,10 @@ import illegalAreaDetailCtrl from './in/Environment/EnvironmentDetail/land/illeg
 import industryAreaDetailCtrl from './in/Environment/EnvironmentDetail/land/industryAreaCtrl.js';
 import industryGrossDetailCtrl from './in/Environment/EnvironmentDetail/land/industryGrossCtrl.js';
 // 民生模块Controller
-import populationCtrl from './in/livehood/population/populationCtrl.js';
-import insuranceCtrl from './in/livehood/insurance/insuranceCtrl.js';
-import priceCtrl from './in/livehood/price/priceCtrl.js';
+import populationCtrl from './in/livehood/one/population/populationCtrl.js';
+import insuranceCtrl from './in/livehood/one/insurance/insuranceCtrl.js';
+import priceCtrl from './in/livehood/one/price/priceCtrl.js';
+import lvdetailCtrl from './in/livehood/two/lvdetailCtrl.js';
 // 公共安全模块Controller
 import policeCtrl from './in/publicsecurity/police/policeCtrl.js';
 import firecontrolCtrl from './in/publicsecurity/firecontrol/firecontrolCtrl.js';
@@ -194,10 +194,9 @@ angular.module('soraka',
   .controller('airCtrl',airCtrl)
   .controller('landCtrl',landCtrl)
   .controller('energyCtrl',energyCtrl)
-  .controller('EnvironmentSecondCtrl',EnvironmentSecondCtrl)
-  .controller('waterQualityCtrl',waterQualityCtrl)
-  .controller('wasteWaterCtrl',wasteWaterCtrl)
-  .controller('waterConditionCtrl',waterConditionCtrl)
+  .controller('waterSecondCtrl',waterSecondCtrl)
+  .controller('airSecondCtrl',airSecondCtrl)
+  .controller('energySecondCtrl',energySecondCtrl)
   .controller('commercialGrossDetailCtrl',commercialGrossDetailCtrl)
   .controller('commercialAreaDetailCtrl',commercialAreaDetailCtrl)
   .controller('cultivateAreaDetailCtrl',cultivateAreaDetailCtrl)
@@ -208,6 +207,7 @@ angular.module('soraka',
   .controller('populationCtrl',populationCtrl)
   .controller('insuranceCtrl',insuranceCtrl)
   .controller('priceCtrl',priceCtrl)
+  .controller('lvdetailCtrl',lvdetailCtrl)
   // 公共安全controllers
   .controller('policeCtrl', policeCtrl)
   .controller('firecontrolCtrl', firecontrolCtrl)
