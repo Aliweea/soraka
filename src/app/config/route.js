@@ -322,6 +322,16 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       templateUrl:'app/in/Environment/EnvironmentDetail/EnvironmentSecond.html',
       controller:'waterSecondCtrl'
     })
+    .state('app.environmentdetail.airSecond',{
+      url:'/environmentdetail/airSecond/:id',
+      templateUrl:'app/in/Environment/EnvironmentDetail/EnvironmentSecond.html',
+      controller:'airSecondCtrl'
+    })
+    .state('app.environmentdetail.energySecond',{
+      url:'/environmentdetail/energySecond/:id',
+      templateUrl:'app/in/Environment/EnvironmentDetail/EnvironmentSecond.html',
+      controller:'energySecondCtrl'
+    })
     .state('app.environmentdetail.commercialLandGross',{
       url:'/land/commercialGross',
       templateUrl:'app/in/Environment/EnvironmentDetail/land/LandDetail.html',
