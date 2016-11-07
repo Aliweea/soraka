@@ -333,32 +333,32 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       controller:'energySecondCtrl'
     })
     .state('app.environmentdetail.commercialLandGross',{
-      url:'/land/commercialGross',
+      url:'/land/commercialGross/:id',
       templateUrl:'app/in/Environment/EnvironmentDetail/land/LandDetail.html',
       controller:'commercialGrossDetailCtrl'
     })
     .state('app.environmentdetail.commercialLandArea',{
-      url:'/land/commercialArea',
+      url:'/land/commercialArea/:id',
       templateUrl:'app/in/Environment/EnvironmentDetail/land/LandDetail.html',
       controller:'commercialAreaDetailCtrl'
       })
     .state('app.environmentdetail.industryLandGross',{
-      url:'/land/industryGross',
+      url:'/land/industryGross/:id',
       templateUrl:'app/in/Environment/EnvironmentDetail/land/LandDetail.html',
       controller:'industryGrossDetailCtrl'
       })
       .state('app.environmentdetail.industryLandArea',{
-        url:'/land/industryArea',
+        url:'/land/industryArea/:id',
         templateUrl:'app/in/Environment/EnvironmentDetail/land/LandDetail.html',
         controller:'industryAreaDetailCtrl'
       })
       .state('app.environmentdetail.illegalLandArea',{
-        url:'/land/illegalArea',
+        url:'/land/illegalArea/:id',
         templateUrl:'app/in/Environment/EnvironmentDetail/land/LandDetail.html',
         controller:'illegalAreaDetailCtrl'
       })
       .state('app.environmentdetail.cultivateLandArea',{
-        url:'/land/cultivateArea',
+        url:'/land/cultivateArea/:id',
         templateUrl:'app/in/Environment/EnvironmentDetail/land/LandDetail.html',
         controller:'cultivateAreaDetailCtrl'
       })
