@@ -394,12 +394,12 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       templateUrl:'app/in/publicsecurity/one/safety/safety.html',
       controller: 'safetyCtrl'
     })
-    .state('app.publicsecurity.detail'),{
+    .state('app.publicsecurity.detail',{
       url: '/psecuritydetail?kpiId',
-      name: 'psecuritydetail'
+      name: 'psecuritydetail',
       templateUrl: 'app/in/publicsecurity/two/publicsecuritydetail.html',
       controller: 'psecurityDetailCtrl'
-    }
+    })
 
     // 民生
     .state('app.livehood',{
