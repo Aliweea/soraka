@@ -91,5 +91,59 @@ export default ($localStorage) => {
 		formatDate: (date)=> {
 			return (new Date(date)).format("yyyy-MM-dd");
 		},
+
+		// 二级界面highchart横坐标时间设置
+		configX: (type, span, kpiDate) => {
+			var curSelectedTime = kpiDate;
+			var xdata = [];
+			switch (type) {
+				case 'YEARLY':
+					if (span == 'short') {
+						for (var i = 2; i >= 0; i--) {
+							var yearShort = moment(curSelectedTime).subtract(i, 'years').get('year');
+							xdata.push(yearShort.toString());
+						}
+					} else if (span == 'long') {
+						for (var j = 4; j >= 0; j--) {
+							var yearLong = moment(curSelectedTime).subtract(j, 'years').get('year');
+							xdata.push(yearLong.toString());
+						}
+					}
+					break;
+				case 'MONTHLY':
+					if (span == 'short') {
+						for (var i = 2; i >= 0; i--) {
+							var short = moment(curSelectedTime).subtract(i, 'month');
+							var monthStr = moment(short).get('year') + '-' + (moment(short).get('month') + 1);
+							xdata.push(monthStr);
+						}
+					} else if (span == 'long') {
+						var startMonth = moment(curSelectedTime).startOf('year').get('month');
+						var curMonth = moment(curSelectedTime).get('month');
+						while (startMonth <= curMonth) {
+							xdata.push((startMonth + 1).toString());
+							startMonth++;
+						}
+					}
+					break;
+				case 'DAILY':
+					if (span == 'short') {
+						for (var i = 6; i >= 0; i--) {
+							var short = moment(curSelectedTime).subtract(i, 'days');
+							var DateStr = (moment(short).get('month') + 1) + '-' + moment(short).get('date');
+							xdata.push(DateStr);
+						}
+					} else if (span == 'long') {
+						var startDate = moment(curSelectedTime).startOf('month').get('date');
+						var curDate = moment(curSelectedTime).get('date');
+						while (startDate <= curDate) {
+							xdata.push(startDate.toString());
+							startDate++;
+						}
+					}
+					break;
+			}
+			return xdata;
+		}
 	};
 }
