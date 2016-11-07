@@ -423,7 +423,8 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
     .state('app.livehood',{
       abstract: true,
       url:'/livehood',
-      templateUrl:'app/in/livehood/one/LivehoodHome.html'
+      templateUrl:'app/in/livehood/one/LivehoodHome.html',
+      controller:'LivehoodHomeCtrl'
     })
     //民生之人口结构
     .state('app.livehood.population',{
