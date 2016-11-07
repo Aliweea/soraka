@@ -440,35 +440,45 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
      templateUrl:'app/in/livehood/two/lvdetail.html',
       controller:'lvdetailCtrl'
     })
-    
 
     //公共事业
-    .state('app.publicService',{
-      abstract:true,
-      url:'/publicService',
-      templateUrl:'app/in/publicService/publicServiceHome.html'
+    .state('app.publicService', {
+      abstract: true,
+      name: 'publicService',
+      url: '/publicService',
+      templateUrl: 'app/in/publicService/publicServiceHome.html', 
+      controller: 'publicServiceCtrl'
     })
-    .state('app.publicService.education',{
-      url:'/education',
-      templateUrl:'app/in/publicService/education/education.html',
-      controller:'educationCtrl'
+    .state('app.publicService.education', {
+      name: 'education',
+      url: '/education',
+      templateUrl: 'app/in/publicService/one/education/education.html', 
+      controller: 'educationCtrl'
     })
-    .state('app.publicService.healthCare',{
-      url:'/healthCare',
-      templateUrl:'app/in/publicService/healthCare/healthCare.html',
-      controller:'healthCareCtrl'
+    .state('app.publicService.healthCare', {
+      name: 'healthCare',
+      url: '/healthCare',
+      templateUrl: 'app/in/publicService/one/healthCare/healthCare.html', 
+      controller: 'healthCareCtrl'
     })
-    .state('app.publicService.telecom',{
-      url:'/telecom',
-      templateUrl:'app/in/publicService/telecom/telecom.html',
-      controller:'telecomCtrl'
+    .state('app.publicService.telecom', {
+      name: 'telecom',
+      url: '/telecom',
+      templateUrl: 'app/in/publicService/one/telecom/telecom.html', 
+      controller: 'telecomCtrl'
     })
-    .state('app.publicService.traffic',{
-      url:'/traffic',
-      templateUrl:'app/in/publicService/traffic/traffic.html',
-      controller:'trafficCtrl'
+    .state('app.publicService.traffic', {
+      name: 'traffic',
+      url: '/traffic',
+      templateUrl: 'app/in/publicService/one/traffic/traffic.html', 
+      controller: 'trafficCtrl'
     })
-
+    .state('app.publicService.detail', {
+      url: '/detail?kpiId',
+      name: 'publicServiceDetail',
+      templateUrl: 'app/in/publicService/two/publicServiceDetail.html',
+      controller: 'publicServiceDetailCtrl'
+    })
     // 城市管理
     .state('app.cm', {
       abstract: true,

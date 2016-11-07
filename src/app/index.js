@@ -104,10 +104,12 @@ import fixCtrl from './in/citymanager/one/fix/fixCtrl.js';
 import icmCtrl from './in/citymanager/one/icm/icmCtrl.js';
 import cmdetailCtrl from './in/citymanager/two/cmdetailCtrl.js';
 // 公共事业Controller
-import educationCtrl from './in/publicService/education/educationCtrl.js';
-import healthCareCtrl from './in/publicService/healthCare/healthCareCtrl.js';
-import telecomCtrl from './in/publicService/telecom/telecomCtrl.js';
-import trafficCtrl from './in/publicService/traffic/trafficCtrl.js';
+import publicServiceCtrl from './in/publicService/publicServiceHomeCtrl.js';
+import educationCtrl from './in/publicService/one/education/educationCtrl.js';
+import healthCareCtrl from './in/publicService/one/healthCare/healthCareCtrl.js';
+import telecomCtrl from './in/publicService/one/telecom/telecomCtrl.js';
+import trafficCtrl from './in/publicService/one/traffic/trafficCtrl.js';
+import publicServiceDetailCtrl from './in/publicService/two/publicServiceDetailCtrl.js';
 
 angular.module('soraka',
   ['ngAnimate', 'ngCookies', 'ngSanitize', 'ui.router', 'ngResource', 'ngStorage', 'mobile-angular-ui','ui.bootstrap', "me-pageloading",'highcharts-ng'])
@@ -216,10 +218,12 @@ angular.module('soraka',
   .controller('policesafeCtrl',policesafeCtrl)
 
   // 公共事业controllers
+  .controller('publicServiceCtrl', publicServiceCtrl)
   .controller('educationCtrl', educationCtrl)
   .controller('healthCareCtrl', healthCareCtrl)
   .controller('telecomCtrl', telecomCtrl)
   .controller('trafficCtrl', trafficCtrl)
+  .controller('publicServiceDetailCtrl', publicServiceDetailCtrl)
 
   // 城市管理controllers
   .controller('cmCtrl', cmCtrl)
