@@ -478,26 +478,32 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
     .state('app.cm.refuse', {
       url: '/refuse',
       name: 'refuse',
-      templateUrl: 'app/in/citymanager/refuse/refuse.html',
+      templateUrl: 'app/in/citymanager/one/refuse/refuse.html',
       controller: 'refuseCtrl'
     })
     .state('app.cm.punish', {
       url: '/punish',
       name: 'punish',
-      templateUrl: 'app/in/citymanager/punish/punish.html',
+      templateUrl: 'app/in/citymanager/one/punish/punish.html',
       controller: 'punishCtrl'
     })
     .state('app.cm.fix', {
       url: '/fix',
       name: 'fix',
-      templateUrl: 'app/in/citymanager/fix/fix.html',
+      templateUrl: 'app/in/citymanager/one/fix/fix.html',
       controller: 'fixCtrl'
     })
     .state('app.cm.icm', {
       url: '/icm',
       name: 'icm',
-      templateUrl: 'app/in/citymanager/icm/icm.html',
+      templateUrl: 'app/in/citymanager/one/icm/icm.html',
       controller: 'icmCtrl'
+    })
+    .state('app.cm.detail', {
+      url: '/detail?kpiId',
+      name: 'cmdetail',
+      templateUrl: 'app/in/citymanager/two/cmdetail.html',
+      controller: 'cmdetailCtrl'
     })
     ;
     
