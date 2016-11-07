@@ -5,22 +5,22 @@
 <div ui-state="activeTab" default="1">
     <ul class="nav nav-tabs">
         <li ui-class="{'active': activeTab == 1}">
-            <a ui-set="{'activeTab': 1}">三年走势</a>
+            <a ui-set="{'activeTab': 1}">{{shortText}}</a>
         </li>
         <li ui-class="{'active': activeTab == 2}">
-            <a ui-set="{'activeTab': 2}">五年走势</a>
+            <a ui-set="{'activeTab': 2}">{{longText}}</a>
         </li>
 
     </ul>
 
     <div ui-if="activeTab == 1">
-        <h3 class="page-header">三年走势</h3>
-        <highchart config="land"  id="shortChart"></highchart>
+        <h3 class="page-header">{{kpiText}}</h3>
+        <highchart config="shortChart"  id="shortChart"></highchart>
     </div>
 
     <div ui-if="activeTab == 2">
-        <h3 class="page-header">五年走势</h3>
-        <highchart config="land"  id="longChart"></highchart>
+        <h3 class="page-header">{{kpiText}}</h3>
+        <highchart config="longChart"  id="longChart"></highchart>
     </div>
 
 
@@ -46,13 +46,13 @@
                 <div class="modal-header">
                     <button class="close"
                             ui-turn-off="modal2">&times;</button>
-                    <h4 class="modal-title">环境KPI数据解读</h4>
+                    <h4 class="modal-title">土地资源KPI数据解读</h4>
                 </div>
                 <div class="modal-body">
-                    <p>还不错</p>
+                    <p>{{evaluatetime}}{{evaluatename}}KPI值</p>
                 </div>
                 <div class="modal-footer">
-                    <button ui-turn-off="modal2" class="btn btn-primary">Close</button>
+                    <button ui-turn-off="modal2" class="btn btn-primary">关闭</button>
 
                 </div>
             </div>
