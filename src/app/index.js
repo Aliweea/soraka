@@ -75,6 +75,8 @@ import airCtrl from './in/Environment/air/airCtrl.js';
 import landCtrl from './in/Environment/land/landCtrl.js';
 import energyCtrl from './in/Environment/energy/energyCtrl.js';
 import waterSecondCtrl from './in/Environment/EnvironmentDetail/water/waterSecond.js';
+import airSecondCtrl from './in/Environment/EnvironmentDetail/air/airSecond.js';
+import energySecondCtrl from './in/Environment/EnvironmentDetail/energy/energySecond.js';
 import commercialGrossDetailCtrl from './in/Environment/EnvironmentDetail/land/commercialGrossCtrl.js';
 import commercialAreaDetailCtrl from './in/Environment/EnvironmentDetail/land/commercialAreaCtrl.js';
 import cultivateAreaDetailCtrl from './in/Environment/EnvironmentDetail/land/cultivateAreaCtrl.js';
@@ -190,6 +192,8 @@ angular.module('soraka',
   .controller('landCtrl',landCtrl)
   .controller('energyCtrl',energyCtrl)
   .controller('waterSecondCtrl',waterSecondCtrl)
+  .controller('airSecondCtrl',airSecondCtrl)
+  .controller('energySecondCtrl',energySecondCtrl)
   .controller('commercialGrossDetailCtrl',commercialGrossDetailCtrl)
   .controller('commercialAreaDetailCtrl',commercialAreaDetailCtrl)
   .controller('cultivateAreaDetailCtrl',cultivateAreaDetailCtrl)
