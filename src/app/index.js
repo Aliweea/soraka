@@ -12,6 +12,9 @@ import i18nConfig from './i18n/config';
 // service
 import commonSer from './common/commonSer';
 import qService from './services/q-service';
+import dService from './services/d-service';
+import hService from './services/h-service';
+import unitService from './services/unit-service';
 import dateService from './services/date-service';
 import AuthTool  from './services/auth-tool';
 
@@ -132,8 +135,11 @@ angular.module('soraka',
   // services 初始化
   .service('commonSer', commonSer)
   .service('qService', qService)
+  .service('dService', dService)
+  .service('hService', hService)
   .service('AuthTool',AuthTool)
   .service('dateService',dateService)
+  .service('unitService',unitService)
 
   // factory 初始化
   .factory('accountRes', accountRes)
