@@ -89,13 +89,12 @@ import insuranceCtrl from './in/livehood/one/insurance/insuranceCtrl.js';
 import priceCtrl from './in/livehood/one/price/priceCtrl.js';
 import lvdetailCtrl from './in/livehood/two/lvdetailCtrl.js';
 // 公共安全模块Controller
-import policeCtrl from './in/publicsecurity/police/policeCtrl.js';
-import firecontrolCtrl from './in/publicsecurity/firecontrol/firecontrolCtrl.js';
-import petitionCtrl from './in/publicsecurity/petition/petitionCtrl.js';
-import safetyCtrl from './in/publicsecurity/safety/safetyCtrl.js';
-import accidentCtrl from './in/publicsecurity/accident/accidentCtrl.js';
-import policecallCtrl from './in/publicsecurity/publicsecuritydetail/police/policecall.js';
-import policesafeCtrl from './in/publicsecurity/publicsecuritydetail/police/policesafe.js';
+import policeCtrl from './in/publicsecurity/one/police/policeCtrl.js';
+import firecontrolCtrl from './in/publicsecurity/one/firecontrol/firecontrolCtrl.js';
+import petitionCtrl from './in/publicsecurity/one/petition/petitionCtrl.js';
+import safetyCtrl from './in/publicsecurity/one/safety/safetyCtrl.js';
+import accidentCtrl from './in/publicsecurity/one/accident/accidentCtrl.js';
+import psecurityDetailCtrl from './in/publicsecurity/two/psecurityDetailCtrl.js';
 // 城市管理模块Controller
 import cmCtrl from './in/citymanager/cmCtrl.js';
 import refuseCtrl from './in/citymanager/one/refuse/refuseCtrl.js';
@@ -212,8 +211,7 @@ angular.module('soraka',
   .controller('accidentCtrl', accidentCtrl)
   .controller('petitionCtrl', petitionCtrl)
   .controller('safetyCtrl', safetyCtrl)
-  .controller('policecallCtrl',policecallCtrl)
-  .controller('policesafeCtrl',policesafeCtrl)
+  .controller('psecurityDetailCtrl',psecurityDetailCtrl)
 
   // 公共事业controllers
   .controller('educationCtrl', educationCtrl)
