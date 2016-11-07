@@ -82,9 +82,9 @@ import illegalAreaDetailCtrl from './in/Environment/EnvironmentDetail/land/illeg
 import industryAreaDetailCtrl from './in/Environment/EnvironmentDetail/land/industryAreaCtrl.js';
 import industryGrossDetailCtrl from './in/Environment/EnvironmentDetail/land/industryGrossCtrl.js';
 // 民生模块Controller
-import populationCtrl from './in/livehood/population/populationCtrl.js';
-import insuranceCtrl from './in/livehood/insurance/insuranceCtrl.js';
-import priceCtrl from './in/livehood/price/priceCtrl.js';
+import populationCtrl from './in/livehood/one/population/populationCtrl.js';
+import insuranceCtrl from './in/livehood/one/insurance/insuranceCtrl.js';
+import priceCtrl from './in/livehood/one/price/priceCtrl.js';
 // 公共安全模块Controller
 import policeCtrl from './in/publicsecurity/police/policeCtrl.js';
 import firecontrolCtrl from './in/publicsecurity/firecontrol/firecontrolCtrl.js';

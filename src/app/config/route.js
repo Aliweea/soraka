@@ -404,24 +404,24 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
     .state('app.livehood',{
       abstract: true,
       url:'/livehood',
-      templateUrl:'app/in/livehood/LivehoodHome.html'
+      templateUrl:'app/in/livehood/one/LivehoodHome.html'
     })
     //民生之人口结构
     .state('app.livehood.population',{
       url:'/livehood/population',
-      templateUrl:'app/in/livehood/population/population.html',
+      templateUrl:'app/in/livehood/one/population/population.html',
       controller:'populationCtrl'
     })
       //民生之社会保险
     .state('app.livehood.insurance',{
       url:'/livehood/insurance',
-      templateUrl:'app/in/livehood/insurance/insurance.html',
+      templateUrl:'app/in/livehood/one/insurance/insurance.html',
       controller:'insuranceCtrl'
     })
       //民生之价格指数
     .state('app.livehood.price',{
       url:'/livehood/price',
-     templateUrl:'app/in/livehood/price/price.html',
+     templateUrl:'app/in/livehood/one/price/price.html',
       controller:'priceCtrl'
     })
 
