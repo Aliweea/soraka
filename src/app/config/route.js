@@ -434,6 +434,13 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
      templateUrl:'app/in/livehood/one/price/price.html',
       controller:'priceCtrl'
     })
+         //民生二级界面
+    .state('app.livehood.detail',{
+      url:'/lvdetail?kpiId',
+     templateUrl:'app/in/livehood/two/lvdetail.html',
+      controller:'lvdetailCtrl'
+    })
+    
 
     //公共事业
     .state('app.publicService',{

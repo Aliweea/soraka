@@ -1,6 +1,6 @@
 <!-- 民生-人口结构 -->
 <div class="cm-refuse-module">
-  <div ng-repeat="data in lhInsuranceData" class="cm-refuse-item">
+  <div ng-repeat="data in lhInsuranceData" ui-sref="app.livehood.detail({kpiId:data.id})" class="cm-refuse-item">
     <div class="cm-refuse-top">
 			<span>{{data.description}}</span><i ng-class="data.data.status">{{data.data.status|kpiStatusTextFilter}}</i>
 		</div>
