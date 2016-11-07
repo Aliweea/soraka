@@ -1,6 +1,7 @@
+
 <!-- 公共事业-教育 -->
 <div class="cm-refuse-module">
-  <div ng-repeat="data in psEduData" class="cm-refuse-item">
+  <div ng-repeat="data in psEduData" ui-sref="app.publicService.detail({kpiId:data.id})" class="cm-refuse-item">
     <div class="cm-refuse-top">
       <span>{{data.description}}</span><i ng-class="data.data.status">{{data.data.status | kpiStatusTextFilter}}</i>
     </div>

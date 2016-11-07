@@ -2,7 +2,7 @@ export default ($localStorage) => {
 	'ngInject';
 
 	Date.prototype.format = function(format) {
-		var o = {
+		let o = {
 			"M+": this.getMonth() + 1, //month
 			"d+": this.getDate(), //day
 			"h+": this.getHours(), //hour
@@ -12,7 +12,7 @@ export default ($localStorage) => {
 			"S": this.getMilliseconds() //millisecond
 		}
 		if (/(y+)/.test(format)) format = format.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
-		for (var k in o)
+		for (let k in o)
 			if (new RegExp("(" + k + ")").test(format))
 				format = format.replace(RegExp.$1,
 					RegExp.$1.length == 1 ? o[k] :
@@ -71,10 +71,10 @@ export default ($localStorage) => {
 		},
 		// 不知道干哈用的
 		minusOneYearMonth: () => {
-			var date = new Date();
-			var year = date.format('yyyy');
-			var month = date.format('MM');
-			var day = date.format('dd');
+			let date = new Date();
+			let year = date.format('yyyy');
+			let month = date.format('MM');
+			let day = date.format('dd');
 			if (month == 1) {
 				return [year - 1, 12, 31];
 			} else {
@@ -90,60 +90,6 @@ export default ($localStorage) => {
 		// 获取后台数据时需要的日期格式
 		formatDate: (date)=> {
 			return (new Date(date)).format("yyyy-MM-dd");
-		},
-
-		// 二级界面highchart横坐标时间设置
-		configX: (type, span, kpiDate) => {
-			var curSelectedTime = kpiDate;
-			var xdata = [];
-			switch (type) {
-				case 'YEARLY':
-					if (span == 'short') {
-						for (var i = 2; i >= 0; i--) {
-							var yearShort = moment(curSelectedTime).subtract(i, 'years').get('year');
-							xdata.push(yearShort.toString());
-						}
-					} else if (span == 'long') {
-						for (var j = 4; j >= 0; j--) {
-							var yearLong = moment(curSelectedTime).subtract(j, 'years').get('year');
-							xdata.push(yearLong.toString());
-						}
-					}
-					break;
-				case 'MONTHLY':
-					if (span == 'short') {
-						for (var i = 2; i >= 0; i--) {
-							var short = moment(curSelectedTime).subtract(i, 'month');
-							var monthStr = moment(short).get('year') + '-' + (moment(short).get('month') + 1);
-							xdata.push(monthStr);
-						}
-					} else if (span == 'long') {
-						var startMonth = moment(curSelectedTime).startOf('year').get('month');
-						var curMonth = moment(curSelectedTime).get('month');
-						while (startMonth <= curMonth) {
-							xdata.push((startMonth + 1).toString());
-							startMonth++;
-						}
-					}
-					break;
-				case 'DAILY':
-					if (span == 'short') {
-						for (var i = 6; i >= 0; i--) {
-							var short = moment(curSelectedTime).subtract(i, 'days');
-							var DateStr = (moment(short).get('month') + 1) + '-' + moment(short).get('date');
-							xdata.push(DateStr);
-						}
-					} else if (span == 'long') {
-						var startDate = moment(curSelectedTime).startOf('month').get('date');
-						var curDate = moment(curSelectedTime).get('date');
-						while (startDate <= curDate) {
-							xdata.push(startDate.toString());
-							startDate++;
-						}
-					}
-					break;
-			}
-			return xdata;
 		}
 	};
 }
