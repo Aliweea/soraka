@@ -380,43 +380,34 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
     })
     .state('app.publicsecurity.police',{ 
       url:'/police',
-      templateUrl:'app/in/publicsecurity/police/police.html',
+      templateUrl:'app/in/publicsecurity/one/police/police.html',
       controller: 'policeCtrl'
     })
     .state('app.publicsecurity.firecontrol',{ 
       url:'/firecontrol',
-      templateUrl:'app/in/publicsecurity/firecontrol/firecontrol.html',
+      templateUrl:'app/in/publicsecurity/one/firecontrol/firecontrol.html',
       controller: 'firecontrolCtrl'
     })
     .state('app.publicsecurity.petition',{ 
       url:'/petition',
-      templateUrl:'app/in/publicsecurity/petition/petition.html',
+      templateUrl:'app/in/publicsecurity/one/petition/petition.html',
       controller: 'petitionCtrl'
     })
     .state('app.publicsecurity.accident',{ 
       url:'/accident',
-      templateUrl:'app/in/publicsecurity/accident/accident.html',
+      templateUrl:'app/in/publicsecurity/one/accident/accident.html',
       controller: 'accidentCtrl'
     })
     .state('app.publicsecurity.safety',{ 
       url:'/safety',
-      templateUrl:'app/in/publicsecurity/safety/safety.html',
+      templateUrl:'app/in/publicsecurity/one/safety/safety.html',
       controller: 'safetyCtrl'
     })
-    .state('app.publicsecuritydetail',{
-        abstract:true,
-        url:'/publicsecuritydetail',
-        templateUrl:'app/in/publicsecurity/publicsecuritydetail/publicsecuritydetail.html'
-    })
-    .state('app.publicsecuritydetail.policecall',{
-        url:'/policecall',
-        templateUrl:'app/in/publicsecurity/publicsecuritydetail/police/policecall.html',
-        controller:'policecallCtrl'
-    })
-    .state('app.publicsecuritydetail.policesafe',{
-        url:'/policesafe',
-        templateUrl:'app/in/publicsecurity/publicsecuritydetail/police/policesafe.html',
-        controller:'policesafeCtrl'
+    //公共安全二级界面
+    .state('app.publicsecurity.detail',{        
+        url:'/detail?kpiId',
+        templateUrl:'app/in/publicsecurity/two/publicsecuritydetail.html',
+        controller: 'publicsecuritydetailCtrl'
     })
 
     // 民生
