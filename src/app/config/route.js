@@ -293,7 +293,13 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
      })
      .state('app.thirddetail.economy',{
       url:'/economy/third/economy',
-      templateUrl:'app/in/Economy/EconomyThird/thirddetail.html'
+      templateUrl:'app/in/Economy/EconomyThird/thirddetail.html',
+      controller:'thirdgdpcontroller'
+     })
+     .state('app.thirddetail.finance',{
+      url:'/economy/third/fianance',
+      templateUrl:'app/in/Economy/EconomyThird/thirdfinance/thirdfinance.html',
+      controller:'thirdfinancecontroller'
      })
     // 环境
     .state('app.environment',{
