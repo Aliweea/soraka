@@ -327,6 +327,27 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       templateUrl: 'app/in/Environment/two/EnvironmentDetail.html',
       controller: 'EnvironmentDetailCtrl'
     })
+    .state('app.environment.waterThree', {
+      url: '/waterThree',
+      templateUrl: 'app/in/Environment/three/water/waterThree.html',
+      controller: 'waterThreeCtrl'
+    })
+    .state('app.environment.airThree', {
+      url: '/airThree',
+      templateUrl: 'app/in/Environment/three/air/airThree.html',
+      controller: 'airThreeCtrl'
+    })
+    .state('app.environment.landThree', {
+      url: '/landThree',
+      templateUrl: 'app/in/Environment/three/land/landThree.html',
+      controller: 'landThreeCtrl'
+    })
+    .state('app.environment.energyThree', {
+      url: '/energyThree',
+      templateUrl: 'app/in/Environment/three/energy/energyThree.html',
+      controller: 'energyThreeCtrl'
+    })
+
 
     // 公共安全
     .state('app.publicsecurity',{ 
