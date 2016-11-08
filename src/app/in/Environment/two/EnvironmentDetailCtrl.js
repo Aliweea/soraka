@@ -1,5 +1,6 @@
 export default($scope, $rootScope, $stateParams, qService, dService, kpiRes, dateService, kpiSpanRes) => {
 	'ngInject';
+
 	
 	$(".navbar2return").show(0);
 
@@ -9,6 +10,9 @@ export default($scope, $rootScope, $stateParams, qService, dService, kpiRes, dat
 	let headers = {
 		"X-Auth-Token":token
 	};
+
+	//李思特加的
+	$scope.hop=kpiId;
 
 	/**
 	* 模块执行入口

@@ -38,7 +38,7 @@ import insuranceFilter from './filter/insuranceFilter';
 import populationFilter from './filter/PopulationFilter';
 import energyFilter from './filter/Environment/EnergyFilter';
 import landFilter from './filter/Environment/LandFilter';
-import environmentDetailFilter from './filter/Environment/EnvironmentDetailFilter';
+import environmentThreeFilter from './filter/Environment/EnvironmentThreeFilter';
 import publicsecuritydetailFilter from './filter/publicsecurity/publicsecuritydetailFilter';
 import kpiUnitFilter from './filter/publicsecurity/kpiUnitFilter';
 import applyDateFilter from './filter/applyDateFilter';
@@ -81,6 +81,11 @@ import airCtrl from './in/Environment/one/air/airCtrl.js';
 import landCtrl from './in/Environment/one/land/landCtrl.js';
 import energyCtrl from './in/Environment/one/energy/energyCtrl.js';
 import EnvironmentDetailCtrl from './in/Environment/two/EnvironmentDetailCtrl.js';
+import waterThreeCtrl from './in/Environment/three/water/waterThreeCtrl.js';
+import airThreeCtrl from './in/Environment/three/air/airThreeCtrl.js';
+import landThreeCtrl from './in/Environment/three/land/landThreeCtrl.js';
+import energyThreeCtrl from './in/Environment/three/energy/energyThreeCtrl.js';
+
 // 民生模块Controller
 import LivehoodHomeCtrl from './in/livehood/one/LivehoodHomeCtrl.js';
 import populationCtrl from './in/livehood/one/population/populationCtrl.js';
@@ -155,7 +160,7 @@ angular.module('soraka',
   .filter('populationFilter', populationFilter)
   .filter('energyFilter',energyFilter)
   .filter('landFilter',landFilter)
-  .filter('environmentDetailFilter',environmentDetailFilter)
+  .filter('environmentThreeFilter',environmentThreeFilter)
   .filter('publicsecuritydetailFilter',publicsecuritydetailFilter)
   .filter('kpiUnitFilter',kpiUnitFilter)
   .filter('applyDateFilter',applyDateFilter)
@@ -199,6 +204,11 @@ angular.module('soraka',
   .controller('landCtrl',landCtrl)
   .controller('energyCtrl',energyCtrl)
   .controller('EnvironmentDetailCtrl',EnvironmentDetailCtrl)
+  .controller('waterThreeCtrl',waterThreeCtrl)
+  .controller('airThreeCtrl',airThreeCtrl)
+  .controller('landThreeCtrl',landThreeCtrl)
+  .controller('energyThreeCtrl',energyThreeCtrl)
+
   // 民生controllers
   .controller('populationCtrl',populationCtrl)
   .controller('insuranceCtrl',insuranceCtrl)
