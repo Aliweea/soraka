@@ -1,5 +1,5 @@
 <div class="energy-refuse-module">
-  <div ng-repeat="item in EnergyArray" class="energy-refuse-item" ui-sref="{{item.id | environmentDetailFilter}}">
+  <div ng-repeat="item in EnergyArray" class="energy-refuse-item" ui-sref="app.environment.detail({kpiId:item.id})">
     <div class="energy-refuse-top" >
       <span style="width: 70%;">{{item.name}}</span><i ng-class="item.data.status">{{item.data.status | kpiStatusTextFilter}}</i>
     </div>
