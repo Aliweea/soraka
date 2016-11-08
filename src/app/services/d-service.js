@@ -274,7 +274,8 @@ export default (dateService, unitService) => {
 					enabled:false,
 				},
 				title: {
-					text: data.data.name + '(' + get_zn_value(data.data.unit) + ')',
+					text: data.data.name,
+					style: {"fontSize": "15.5px" }
 				},
 				xAxis: {
 					categories: xdata,

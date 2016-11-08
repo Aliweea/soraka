@@ -23,6 +23,8 @@ import accountRes from './resources/account-res';
 import kpiRes from './resources/kpi-res';
 import kpiSpanRes from './resources/SpanKPI-res';
 
+// factories
+import lFactory from './factories/l-factory';
 
 // directive
 import headerDirect from './common/header/headerDirect';
@@ -116,7 +118,7 @@ import trafficCtrl from './in/publicService/one/traffic/trafficCtrl.js';
 import publicServiceDetailCtrl from './in/publicService/two/publicServiceDetailCtrl.js';
 
 angular.module('soraka',
-  ['ngAnimate', 'ngCookies', 'ngSanitize', 'ui.router', 'ngResource', 'ngStorage', 'mobile-angular-ui','ui.bootstrap', "me-pageloading",'highcharts-ng'])
+  ['ngAnimate', 'ngCookies', 'ngSanitize', 'ui.router', 'ngResource', 'ngStorage', 'mobile-angular-ui','ui.bootstrap', 'highcharts-ng'])
 
 
   // 配置全局常量
@@ -146,6 +148,7 @@ angular.module('soraka',
   .factory('accountRes', accountRes)
   .factory('kpiRes',kpiRes)
   .factory('kpiSpanRes',kpiSpanRes)
+  .factory('lFactory',lFactory)
 
   // directive 初始化
   .directive('lcHeader', headerDirect)
