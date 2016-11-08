@@ -93,6 +93,7 @@ import firecontrolCtrl from './in/publicsecurity/one/firecontrol/firecontrolCtrl
 import petitionCtrl from './in/publicsecurity/one/petition/petitionCtrl.js';
 import safetyCtrl from './in/publicsecurity/one/safety/safetyCtrl.js';
 import accidentCtrl from './in/publicsecurity/one/accident/accidentCtrl.js';
+import publicsecurityCtrl from './in/publicsecurity/publicsecurityCtrl'
 import publicsecuritydetailCtrl from './in/publicsecurity/two/publicsecuritydetailCtrl.js';
 // 城市管理模块Controller
 import cmCtrl from './in/citymanager/cmCtrl.js';
@@ -205,6 +206,7 @@ angular.module('soraka',
   .controller('lvdetailCtrl',lvdetailCtrl)
   .controller('LivehoodHomeCtrl',LivehoodHomeCtrl)
   // 公共安全controllers
+  .controller('publicsecurityCtrl', publicsecurityCtrl)
   .controller('policeCtrl', policeCtrl)
   .controller('firecontrolCtrl', firecontrolCtrl)
   .controller('accidentCtrl', accidentCtrl)

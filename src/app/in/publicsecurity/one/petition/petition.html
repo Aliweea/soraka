@@ -1,5 +1,6 @@
 <!-- 城市管理-垃圾清运 -->
 <div class="cm-refuse-module">
+
     <div ng-repeat="data in cmRefuseData" class="cm-refuse-item" ui-sref="app.publicsecurity.detail({kpiId:data.id})">
         <div class="cm-refuse-top">
             <span>{{data.name}}</span><i ng-class="data.data.status">{{data.data.status | kpiStatusTextFilter}}</i>

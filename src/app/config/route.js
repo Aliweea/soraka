@@ -332,6 +332,7 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
     .state('app.publicsecurity',{ 
       abstract: true,
       url:'/publicsecurity',
+      controller: 'publicsecurityCtrl',
       templateUrl:'app/in/publicsecurity/publicsecurityHome.html'
     })
     .state('app.publicsecurity.police',{ 
@@ -364,6 +365,7 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
         url:'/detail?kpiId',
         templateUrl:'app/in/publicsecurity/two/publicsecuritydetail.html',
         controller: 'publicsecuritydetailCtrl'
+
     })
 
     // 民生
