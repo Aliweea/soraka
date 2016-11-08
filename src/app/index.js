@@ -75,10 +75,11 @@ import FinancialdetailCtrl from './in/Economy/FinancialDetail/financialDetail.js
 import investmentDetailCtrl from './in/Economy/investmentDetail/investmentDetailCtrl.js';
 import industryDetailCtrl from './in/Economy/industryDetail/industryDetailCtrl';
 //环境模块Controller
-import waterCtrl from './in/Environment/water/waterCtrl.js';
-import airCtrl from './in/Environment/air/airCtrl.js';
-import landCtrl from './in/Environment/land/landCtrl.js';
-import energyCtrl from './in/Environment/energy/energyCtrl.js';
+import EnvironmentCtrl from './in/Environment/EnvironmentCtrl.js';
+import waterCtrl from './in/Environment/one/water/waterCtrl.js';
+import airCtrl from './in/Environment/one/air/airCtrl.js';
+import landCtrl from './in/Environment/one/land/landCtrl.js';
+import energyCtrl from './in/Environment/one/energy/energyCtrl.js';
 import waterSecondCtrl from './in/Environment/EnvironmentDetail/water/waterSecond.js';
 import airSecondCtrl from './in/Environment/EnvironmentDetail/air/airSecond.js';
 import energySecondCtrl from './in/Environment/EnvironmentDetail/energy/energySecond.js';
@@ -200,6 +201,7 @@ angular.module('soraka',
   .controller('industryDetailCtrl',industryDetailCtrl)
 
   // 环境controllers
+  .controller('EnvironmentCtrl',EnvironmentCtrl)
   .controller('waterCtrl',waterCtrl)
   .controller('airCtrl',airCtrl)
   .controller('landCtrl',landCtrl)
