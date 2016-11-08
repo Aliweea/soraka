@@ -16,6 +16,8 @@ import dService from './services/d-service';
 import hService from './services/h-service';
 import unitService from './services/unit-service';
 import dateService from './services/date-service';
+import dateWaterService from './services/dateWaterService';
+import kpiWaterService from './services/kpiWaterService';
 import AuthTool  from './services/auth-tool';
 
 // resource
@@ -25,6 +27,7 @@ import kpiSpanRes from './resources/SpanKPI-res';
 
 // factories
 import lFactory from './factories/l-factory';
+import dataWaterFactory from './factories/dataWaterFactory';
 
 // directive
 import headerDirect from './common/header/headerDirect';
@@ -140,6 +143,8 @@ angular.module('soraka',
   .service('hService', hService)
   .service('AuthTool',AuthTool)
   .service('dateService',dateService)
+  .service('dateWaterService',dateWaterService)
+  .service('kpiWaterService',kpiWaterService)
   .service('unitService',unitService)
 
   // factory 初始化
@@ -147,6 +152,7 @@ angular.module('soraka',
   .factory('kpiRes',kpiRes)
   .factory('kpiSpanRes',kpiSpanRes)
   .factory('lFactory',lFactory)
+  .factory('dataWaterFactory',dataWaterFactory)
 
   // directive 初始化
   .directive('lcHeader', headerDirect)
