@@ -19,7 +19,6 @@ export default ($httpProvider, lcConfig) => {
     return {
       request: (config) => {
           config.timeout = httpTimeout;
-
           // // 当 url 中没有 http 或者 https 的时候，自动拼接默认的 apiHost
           // if (!/^[http|https]/.test(config.url) && !/\.html$/.test(config.url)) {
           //     config.url = apiHost + config.url;
@@ -38,5 +37,5 @@ export default ($httpProvider, lcConfig) => {
       }
     };
   }]);
-
+  $httpProvider.interceptors.push('lFactory');
 };

@@ -2,7 +2,7 @@ export default ($localStorage) => {
 	'ngInject';
 
 	Date.prototype.format = function(format) {
-		var o = {
+		let o = {
 			"M+": this.getMonth() + 1, //month
 			"d+": this.getDate(), //day
 			"h+": this.getHours(), //hour
@@ -12,7 +12,7 @@ export default ($localStorage) => {
 			"S": this.getMilliseconds() //millisecond
 		}
 		if (/(y+)/.test(format)) format = format.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
-		for (var k in o)
+		for (let k in o)
 			if (new RegExp("(" + k + ")").test(format))
 				format = format.replace(RegExp.$1,
 					RegExp.$1.length == 1 ? o[k] :
@@ -71,10 +71,10 @@ export default ($localStorage) => {
 		},
 		// 不知道干哈用的
 		minusOneYearMonth: () => {
-			var date = new Date();
-			var year = date.format('yyyy');
-			var month = date.format('MM');
-			var day = date.format('dd');
+			let date = new Date();
+			let year = date.format('yyyy');
+			let month = date.format('MM');
+			let day = date.format('dd');
 			if (month == 1) {
 				return [year - 1, 12, 31];
 			} else {
@@ -90,6 +90,6 @@ export default ($localStorage) => {
 		// 获取后台数据时需要的日期格式
 		formatDate: (date)=> {
 			return (new Date(date)).format("yyyy-MM-dd");
-		},
+		}
 	};
 }

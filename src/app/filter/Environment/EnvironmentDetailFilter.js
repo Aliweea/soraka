@@ -71,22 +71,22 @@ export default($rootScope) => {
         out ="app.environmentdetail.energySecond({id:5008})";
         break;
       case 4007:
-        out="app.environmentdetail.commercialLandGross";
+        out="app.environmentdetail.commercialLandGross({id:4007})";
         break;
       case 4008:
-        out="app.environmentdetail.commercialLandArea";
+        out="app.environmentdetail.commercialLandArea({id:4008})";
         break;
       case 4012:
-        out="app.environmentdetail.industryLandGross";
+        out="app.environmentdetail.industryLandGross({id:4012})";
         break;
       case 4013:
-        out="app.environmentdetail.industryLandArea";
+        out="app.environmentdetail.industryLandArea({id:4013})";
         break;
       case 4009:
-        out="app.environmentdetail.illegalLandArea";
+        out="app.environmentdetail.illegalLandArea({id:4009})";
         break;
       case 4011:
-        out="app.environmentdetail.cultivateLandArea";
+        out="app.environmentdetail.cultivateLandArea({id:4011})";
         break;
       }
       return out;

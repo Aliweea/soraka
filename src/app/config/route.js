@@ -286,82 +286,47 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       templateUrl:'app/in/Economy/EconomyDetail/GDPDetail/GDPDetail.html',
       controller:'industryDetailCtrl'
      })
+     .state('app.thirddetail',{
+      abstract:true,
+      url:'/economy/third',
+      templateUrl:'app/in/Economy/EconomyThird/thirdHome.html'
+     })
+     .state('app.thirddetail.economy',{
+      url:'/economy/third/economy',
+      templateUrl:'app/in/Economy/EconomyThird/thirddetail.html'
+     })
     // 环境
     .state('app.environment',{
       abstract:true,
       url:'/environment',
-      templateUrl:'app/in/Environment/EnvironmentHome.html',
+      templateUrl:'app/in/Environment/Environment.html',
+      controller: 'EnvironmentCtrl'
     })
     .state('app.environment.water',{
       url:'/water',
-      templateUrl:'app/in/Environment/water/water.html',
+      templateUrl:'app/in/Environment/one/water/water.html',
       controller:'waterCtrl'
     })
     .state('app.environment.air',{
       url:'/air',
-      templateUrl:'app/in/Environment/air/air.html',
+      templateUrl:'app/in/Environment/one/air/air.html',
       controller:'airCtrl'
     })
     .state('app.environment.land',{
       url:'/land',
-      templateUrl:'app/in/Environment/land/land.html',
+      templateUrl:'app/in/Environment/one/land/land.html',
       controller:'landCtrl'
     })
     .state('app.environment.energy',{
       url:'/energy',
-      templateUrl:'app/in/Environment/energy/energy.html',
+      templateUrl:'app/in/Environment/one/energy/energy.html',
       controller:'energyCtrl'
     })
-    .state('app.environmentdetail',{
-      abstract:true,
-      url:'/environmentdetail',
-      templateUrl:'app/in/Environment/EnvironmentDetail/EnvironmentDetail.html'
+    .state('app.environment.detail', {
+      url: '/detail?kpiId',
+      templateUrl: 'app/in/Environment/two/EnvironmentDetail.html',
+      controller: 'EnvironmentDetailCtrl'
     })
-    .state('app.environmentdetail.waterSecond',{
-      url:'/environmentdetail/waterSecond/:id',
-      templateUrl:'app/in/Environment/EnvironmentDetail/EnvironmentSecond.html',
-      controller:'waterSecondCtrl'
-    })
-    .state('app.environmentdetail.airSecond',{
-      url:'/environmentdetail/airSecond/:id',
-      templateUrl:'app/in/Environment/EnvironmentDetail/EnvironmentSecond.html',
-      controller:'airSecondCtrl'
-    })
-    .state('app.environmentdetail.energySecond',{
-      url:'/environmentdetail/energySecond/:id',
-      templateUrl:'app/in/Environment/EnvironmentDetail/EnvironmentSecond.html',
-      controller:'energySecondCtrl'
-    })
-    .state('app.environmentdetail.commercialLandGross',{
-      url:'/land/commercialGross',
-      templateUrl:'app/in/Environment/EnvironmentDetail/land/LandDetail.html',
-      controller:'commercialGrossDetailCtrl'
-    })
-    .state('app.environmentdetail.commercialLandArea',{
-      url:'/land/commercialArea',
-      templateUrl:'app/in/Environment/EnvironmentDetail/land/LandDetail.html',
-      controller:'commercialAreaDetailCtrl'
-      })
-    .state('app.environmentdetail.industryLandGross',{
-      url:'/land/industryGross',
-      templateUrl:'app/in/Environment/EnvironmentDetail/land/LandDetail.html',
-      controller:'industryGrossDetailCtrl'
-      })
-      .state('app.environmentdetail.industryLandArea',{
-        url:'/land/industryArea',
-        templateUrl:'app/in/Environment/EnvironmentDetail/land/LandDetail.html',
-        controller:'industryAreaDetailCtrl'
-      })
-      .state('app.environmentdetail.illegalLandArea',{
-        url:'/land/illegalArea',
-        templateUrl:'app/in/Environment/EnvironmentDetail/land/LandDetail.html',
-        controller:'illegalAreaDetailCtrl'
-      })
-      .state('app.environmentdetail.cultivateLandArea',{
-        url:'/land/cultivateArea',
-        templateUrl:'app/in/Environment/EnvironmentDetail/land/LandDetail.html',
-        controller:'cultivateAreaDetailCtrl'
-      })
 
     // 公共安全
     .state('app.publicsecurity',{ 
@@ -394,18 +359,20 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       templateUrl:'app/in/publicsecurity/one/safety/safety.html',
       controller: 'safetyCtrl'
     })
-    .state('app.publicsecurity.detail',{
-      url: '/psecuritydetail?kpiId',
-      name: 'psecuritydetail',
-      templateUrl: 'app/in/publicsecurity/two/publicsecuritydetail.html',
-      controller: 'psecurityDetailCtrl'
+    //公共安全二级界面
+    .state('app.publicsecurity.detail',{        
+        url:'/detail?kpiId',
+        templateUrl:'app/in/publicsecurity/two/publicsecuritydetail.html',
+        controller: 'publicsecuritydetailCtrl'
+
     })
 
     // 民生
     .state('app.livehood',{
       abstract: true,
       url:'/livehood',
-      templateUrl:'app/in/livehood/one/LivehoodHome.html'
+      templateUrl:'app/in/livehood/one/LivehoodHome.html',
+      controller:'LivehoodHomeCtrl'
     })
     //民生之人口结构
     .state('app.livehood.population',{
@@ -431,35 +398,45 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
      templateUrl:'app/in/livehood/two/lvdetail.html',
       controller:'lvdetailCtrl'
     })
-    
 
     //公共事业
-    .state('app.publicService',{
-      abstract:true,
-      url:'/publicService',
-      templateUrl:'app/in/publicService/publicServiceHome.html'
+    .state('app.publicService', {
+      abstract: true,
+      name: 'publicService',
+      url: '/publicService',
+      templateUrl: 'app/in/publicService/publicServiceHome.html', 
+      controller: 'publicServiceCtrl'
     })
-    .state('app.publicService.education',{
-      url:'/education',
-      templateUrl:'app/in/publicService/education/education.html',
-      controller:'educationCtrl'
+    .state('app.publicService.education', {
+      name: 'education',
+      url: '/education',
+      templateUrl: 'app/in/publicService/one/education/education.html', 
+      controller: 'educationCtrl'
     })
-    .state('app.publicService.healthCare',{
-      url:'/healthCare',
-      templateUrl:'app/in/publicService/healthCare/healthCare.html',
-      controller:'healthCareCtrl'
+    .state('app.publicService.healthCare', {
+      name: 'healthCare',
+      url: '/healthCare',
+      templateUrl: 'app/in/publicService/one/healthCare/healthCare.html', 
+      controller: 'healthCareCtrl'
     })
-    .state('app.publicService.telecom',{
-      url:'/telecom',
-      templateUrl:'app/in/publicService/telecom/telecom.html',
-      controller:'telecomCtrl'
+    .state('app.publicService.telecom', {
+      name: 'telecom',
+      url: '/telecom',
+      templateUrl: 'app/in/publicService/one/telecom/telecom.html', 
+      controller: 'telecomCtrl'
     })
-    .state('app.publicService.traffic',{
-      url:'/traffic',
-      templateUrl:'app/in/publicService/traffic/traffic.html',
-      controller:'trafficCtrl'
+    .state('app.publicService.traffic', {
+      name: 'traffic',
+      url: '/traffic',
+      templateUrl: 'app/in/publicService/one/traffic/traffic.html', 
+      controller: 'trafficCtrl'
     })
-
+    .state('app.publicService.detail', {
+      url: '/detail?kpiId',
+      name: 'publicServiceDetail',
+      templateUrl: 'app/in/publicService/two/publicServiceDetail.html',
+      controller: 'publicServiceDetailCtrl'
+    })
     // 城市管理
     .state('app.cm', {
       abstract: true,

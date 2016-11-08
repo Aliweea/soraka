@@ -1,7 +1,3 @@
-
-<!-- <div style="width: 100%">
-    <highchart config="GDP"  id="gdpchart"></highchart>
-</div> -->
 <div ui-state="activeTab" default="1">
   <ul class="nav nav-tabs">
     <li ui-class="{'active': activeTab == 1}">
@@ -34,7 +30,7 @@
     <a type="button" class="btn btn-default" ui-turn-on="modal2">解读数据</a>
   </div>
   <div class="btn-group">
-    <a type="button" class="btn btn-default" ui-turn-off="modal2">其它</a>
+    <a type="button" class="btn btn-default" ui-turn-off="modal2" ui-sref="app.thirddetail.economy">查看详情</a>
   </div>
 </div>
   </div>
@@ -49,7 +45,8 @@
           <h4 class="modal-title">GDP KPI数据解读</h4>
         </div>
         <div class="modal-body">
-          <p>{{evaluatetime}}月,太仓市{{evaluatename}}为{{evaluatevalue | economyFilter}}{{(evaluatevalue<=1)?'%':'亿元'}}</p><p>KPI状态为{{(evaluatevalue < evaluatetarget)?"低于目标值":"高于目标值"}}</p>
+          <p>{{evaluatetime}}月,太仓市{{evaluatename}}为{{evaluatevalue | economyFilter}}{{(evaluatevalue<=1)?'%':'亿元'}}</p>
+          <p>KPI状态为{{(evaluatevalue < evaluatetarget)?"低于目标值":"高于目标值"}}</p>
         </div>
         <div class="modal-footer">
           <button ui-turn-off="modal2" class="btn btn-primary">Close</button>
