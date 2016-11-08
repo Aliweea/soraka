@@ -1,8 +1,5 @@
-<<<<<<< HEAD:src/app/in/publicsecurity/one/accident/accidentCtrl.js
-export default ($scope, qService, kpiRes, $state, dateService) => {
-=======
+
 export default ($scope,qService,kpiRes, $state, dateService, hService) => {
->>>>>>> b719ea1966fb7eeea185b8d9e96ccee0bd7f709b:src/app/in/publicsecurity/one/accident/accidentCtrl.js
   'ngInject';
     hService.state("app.publicsecurity.accident");
     $(".navbar2return").hide(0);

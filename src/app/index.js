@@ -93,11 +93,8 @@ import firecontrolCtrl from './in/publicsecurity/one/firecontrol/firecontrolCtrl
 import petitionCtrl from './in/publicsecurity/one/petition/petitionCtrl.js';
 import safetyCtrl from './in/publicsecurity/one/safety/safetyCtrl.js';
 import accidentCtrl from './in/publicsecurity/one/accident/accidentCtrl.js';
-<<<<<<< HEAD
-import psecurityDetailCtrl from './in/publicsecurity/two/psecurityDetailCtrl.js';
-=======
+import publicsecurityCtrl from './in/publicsecurity/publicsecurityCtrl'
 import publicsecuritydetailCtrl from './in/publicsecurity/two/publicsecuritydetailCtrl.js';
->>>>>>> b719ea1966fb7eeea185b8d9e96ccee0bd7f709b
 // 城市管理模块Controller
 import cmCtrl from './in/citymanager/cmCtrl.js';
 import refuseCtrl from './in/citymanager/one/refuse/refuseCtrl.js';
@@ -209,16 +206,13 @@ angular.module('soraka',
   .controller('lvdetailCtrl',lvdetailCtrl)
   .controller('LivehoodHomeCtrl',LivehoodHomeCtrl)
   // 公共安全controllers
+  .controller('publicsecurityCtrl', publicsecurityCtrl)
   .controller('policeCtrl', policeCtrl)
   .controller('firecontrolCtrl', firecontrolCtrl)
   .controller('accidentCtrl', accidentCtrl)
   .controller('petitionCtrl', petitionCtrl)
   .controller('safetyCtrl', safetyCtrl)
-<<<<<<< HEAD
-  .controller('psecurityDetailCtrl',psecurityDetailCtrl)
-=======
   .controller('publicsecuritydetailCtrl',publicsecuritydetailCtrl)
->>>>>>> b719ea1966fb7eeea185b8d9e96ccee0bd7f709b
 
   // 公共事业controllers
   .controller('publicServiceCtrl', publicServiceCtrl)

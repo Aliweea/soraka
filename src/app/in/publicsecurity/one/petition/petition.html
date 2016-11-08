@@ -1,10 +1,7 @@
 <!-- 城市管理-垃圾清运 -->
 <div class="cm-refuse-module">
-<<<<<<< HEAD:src/app/in/publicsecurity/one/petition/petition.html
-    <div ng-repeat="data in cmRefuseData" ui-sref="app.publicsecurity.detail({kpiId:data.id})" class="cm-refuse-item" >
-=======
+
     <div ng-repeat="data in cmRefuseData" class="cm-refuse-item" ui-sref="app.publicsecurity.detail({kpiId:data.id})">
->>>>>>> b719ea1966fb7eeea185b8d9e96ccee0bd7f709b:src/app/in/publicsecurity/one/petition/petition.html
         <div class="cm-refuse-top">
             <span>{{data.name}}</span><i ng-class="data.data.status">{{data.data.status | kpiStatusTextFilter}}</i>
         </div>
