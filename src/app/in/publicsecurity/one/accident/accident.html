@@ -1,0 +1,15 @@
+<!-- 城市管理-垃圾清运 -->
+<div class="cm-refuse-module">
+    <div ng-repeat="data in cmRefuseData" class="cm-refuse-item" ui-sref="app.publicsecurity.detail({kpiId:data.id})">
+        <div class="cm-refuse-top">
+            <span>{{data.name}}</span><i ng-class="data.data.status">{{data.data.status | kpiStatusTextFilter}}</i>
+        </div>
+        <div class="cm-refuse-value  {{data.data.status | kpiStatusClassFilter}}"><i class="{{(item.data.value>item.data.target)?'fa fa-long-arrow-up':'fa fa-long-arrow-down'}}" aria-hidden="true"></i><span>{{data | unitTransFilter}}</span></div>
+        <div class="cm-refuse-bottom">
+            <span class="ps-refuse-bottom-s1">公共安全</span><span class="cm-refuse-bottom-s2">市交警大队</span><span class="cm-refuse-bottom-s3">{{data | applyDateFilter}}</span>
+        </div>
+    </div>
+</div>
+
+
+

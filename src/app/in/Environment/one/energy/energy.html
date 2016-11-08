@@ -1,0 +1,11 @@
+<div class="energy-refuse-module">
+  <div ng-repeat="item in EnergyArray" class="energy-refuse-item" ui-sref="app.environment.detail({kpiId:item.id})">
+    <div class="energy-refuse-top" >
+      <span style="width: 70%;">{{item.name}}</span><i ng-class="item.data.status">{{item.data.status | kpiStatusTextFilter}}</i>
+    </div>
+    <div class="energy-refuse-value {{item.data.status | kpiStatusClassFilter}}" style="padding: 5px 0px 5px 20px;"><i class="{{(item.data.value>=item.data.target)?'fa fa-long-arrow-up':'fa fa-long-arrow-down'}}" aria-hidden="true"></i><span>{{item.data.value | energyFilter}}%</span></div>
+    <div class="energy-refuse-bottom">
+      <span class="energy-refuse-bottom-s1">资源</span><span class="energy-refuse-bottom-s2">统计局</span><span class="energy-refuse-bottom-s3">{{item | applyDateFilter}}</span>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,4 @@
-export default (mePageLoadingProvider) => {
+export default () => {
   'ngInject';
-  mePageLoadingProvider.container = document.body;
+  
 };  

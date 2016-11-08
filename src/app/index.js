@@ -12,6 +12,9 @@ import i18nConfig from './i18n/config';
 // service
 import commonSer from './common/commonSer';
 import qService from './services/q-service';
+import dService from './services/d-service';
+import hService from './services/h-service';
+import unitService from './services/unit-service';
 import dateService from './services/date-service';
 import AuthTool  from './services/auth-tool';
 import generalService from './services/generalService';
@@ -24,6 +27,8 @@ import kpiSpanRes from './resources/SpanKPI-res';
 import dataDetailFactory from './resources/dataDetailFactory';
 import dictFactory from './resources/dictFactory';
 
+// factories
+import lFactory from './factories/l-factory';
 
 // directive
 import headerDirect from './common/header/headerDirect';
@@ -37,7 +42,7 @@ import insuranceFilter from './filter/insuranceFilter';
 import populationFilter from './filter/PopulationFilter';
 import energyFilter from './filter/Environment/EnergyFilter';
 import landFilter from './filter/Environment/LandFilter';
-import environmentDetailFilter from './filter/Environment/EnvironmentDetailFilter';
+import environmentThreeFilter from './filter/Environment/EnvironmentThreeFilter';
 import publicsecuritydetailFilter from './filter/publicsecurity/publicsecuritydetailFilter';
 import kpiUnitFilter from './filter/publicsecurity/kpiUnitFilter';
 import applyDateFilter from './filter/applyDateFilter';
@@ -76,32 +81,31 @@ import industryDetailCtrl from './in/Economy/industryDetail/industryDetailCtrl';
 import thirdgdpcontroller from './in/Economy/EconomyThird/thirdgdpcontroller.js';
 import thirdfinancecontroller from './in/Economy/EconomyThird/thirdfinance/thirdfinance.js';
 //环境模块Controller
-import waterCtrl from './in/Environment/water/waterCtrl.js';
-import airCtrl from './in/Environment/air/airCtrl.js';
-import landCtrl from './in/Environment/land/landCtrl.js';
-import energyCtrl from './in/Environment/energy/energyCtrl.js';
-import waterSecondCtrl from './in/Environment/EnvironmentDetail/water/waterSecond.js';
-import airSecondCtrl from './in/Environment/EnvironmentDetail/air/airSecond.js';
-import energySecondCtrl from './in/Environment/EnvironmentDetail/energy/energySecond.js';
-import commercialGrossDetailCtrl from './in/Environment/EnvironmentDetail/land/commercialGrossCtrl.js';
-import commercialAreaDetailCtrl from './in/Environment/EnvironmentDetail/land/commercialAreaCtrl.js';
-import cultivateAreaDetailCtrl from './in/Environment/EnvironmentDetail/land/cultivateAreaCtrl.js';
-import illegalAreaDetailCtrl from './in/Environment/EnvironmentDetail/land/illegalAreaCtrl.js';
-import industryAreaDetailCtrl from './in/Environment/EnvironmentDetail/land/industryAreaCtrl.js';
-import industryGrossDetailCtrl from './in/Environment/EnvironmentDetail/land/industryGrossCtrl.js';
+import EnvironmentCtrl from './in/Environment/EnvironmentCtrl.js';
+import waterCtrl from './in/Environment/one/water/waterCtrl.js';
+import airCtrl from './in/Environment/one/air/airCtrl.js';
+import landCtrl from './in/Environment/one/land/landCtrl.js';
+import energyCtrl from './in/Environment/one/energy/energyCtrl.js';
+import EnvironmentDetailCtrl from './in/Environment/two/EnvironmentDetailCtrl.js';
+import waterThreeCtrl from './in/Environment/three/water/waterThreeCtrl.js';
+import airThreeCtrl from './in/Environment/three/air/airThreeCtrl.js';
+import landThreeCtrl from './in/Environment/three/land/landThreeCtrl.js';
+import energyThreeCtrl from './in/Environment/three/energy/energyThreeCtrl.js';
+
 // 民生模块Controller
+import LivehoodHomeCtrl from './in/livehood/one/LivehoodHomeCtrl.js';
 import populationCtrl from './in/livehood/one/population/populationCtrl.js';
 import insuranceCtrl from './in/livehood/one/insurance/insuranceCtrl.js';
 import priceCtrl from './in/livehood/one/price/priceCtrl.js';
 import lvdetailCtrl from './in/livehood/two/lvdetailCtrl.js';
 // 公共安全模块Controller
-import policeCtrl from './in/publicsecurity/police/policeCtrl.js';
-import firecontrolCtrl from './in/publicsecurity/firecontrol/firecontrolCtrl.js';
-import petitionCtrl from './in/publicsecurity/petition/petitionCtrl.js';
-import safetyCtrl from './in/publicsecurity/safety/safetyCtrl.js';
-import accidentCtrl from './in/publicsecurity/accident/accidentCtrl.js';
-import policecallCtrl from './in/publicsecurity/publicsecuritydetail/police/policecall.js';
-import policesafeCtrl from './in/publicsecurity/publicsecuritydetail/police/policesafe.js';
+import policeCtrl from './in/publicsecurity/one/police/policeCtrl.js';
+import firecontrolCtrl from './in/publicsecurity/one/firecontrol/firecontrolCtrl.js';
+import petitionCtrl from './in/publicsecurity/one/petition/petitionCtrl.js';
+import safetyCtrl from './in/publicsecurity/one/safety/safetyCtrl.js';
+import accidentCtrl from './in/publicsecurity/one/accident/accidentCtrl.js';
+import publicsecurityCtrl from './in/publicsecurity/publicsecurityCtrl'
+import publicsecuritydetailCtrl from './in/publicsecurity/two/publicsecuritydetailCtrl.js';
 // 城市管理模块Controller
 import cmCtrl from './in/citymanager/cmCtrl.js';
 import refuseCtrl from './in/citymanager/one/refuse/refuseCtrl.js';
@@ -118,7 +122,7 @@ import trafficCtrl from './in/publicService/one/traffic/trafficCtrl.js';
 import publicServiceDetailCtrl from './in/publicService/two/publicServiceDetailCtrl.js';
 
 angular.module('soraka',
-  ['ngAnimate', 'ngCookies', 'ngSanitize', 'ui.router', 'ngResource', 'ngStorage', 'mobile-angular-ui','ui.bootstrap', "me-pageloading",'highcharts-ng'])
+  ['ngAnimate', 'ngCookies', 'ngSanitize', 'ui.router', 'ngResource', 'ngStorage', 'mobile-angular-ui','ui.bootstrap', 'highcharts-ng'])
 
 
   // 配置全局常量
@@ -138,10 +142,14 @@ angular.module('soraka',
   // services 初始化
   .service('commonSer', commonSer)
   .service('qService', qService)
+  .service('dService', dService)
+  .service('hService', hService)
   .service('AuthTool',AuthTool)
   .service('dateService',dateService)
   .service('generalService',generalService)
   .service('dictService',dictService)
+  .service('unitService',unitService)
+
 
   // factory 初始化
   .factory('accountRes', accountRes)
@@ -149,6 +157,7 @@ angular.module('soraka',
   .factory('kpiSpanRes',kpiSpanRes)
   .factory('dataDetailFactory',dataDetailFactory)
   .factory('dictFactory',dictFactory)
+  .factory('lFactory',lFactory)
 
 
   // directive 初始化
@@ -163,7 +172,7 @@ angular.module('soraka',
   .filter('populationFilter', populationFilter)
   .filter('energyFilter',energyFilter)
   .filter('landFilter',landFilter)
-  .filter('environmentDetailFilter',environmentDetailFilter)
+  .filter('environmentThreeFilter',environmentThreeFilter)
   .filter('publicsecuritydetailFilter',publicsecuritydetailFilter)
   .filter('kpiUnitFilter',kpiUnitFilter)
   .filter('applyDateFilter',applyDateFilter)
@@ -203,32 +212,31 @@ angular.module('soraka',
   .controller('thirdfinancecontroller',thirdfinancecontroller)
 
   // 环境controllers
+  .controller('EnvironmentCtrl',EnvironmentCtrl)
   .controller('waterCtrl',waterCtrl)
   .controller('airCtrl',airCtrl)
   .controller('landCtrl',landCtrl)
   .controller('energyCtrl',energyCtrl)
-  .controller('waterSecondCtrl',waterSecondCtrl)
-  .controller('airSecondCtrl',airSecondCtrl)
-  .controller('energySecondCtrl',energySecondCtrl)
-  .controller('commercialGrossDetailCtrl',commercialGrossDetailCtrl)
-  .controller('commercialAreaDetailCtrl',commercialAreaDetailCtrl)
-  .controller('cultivateAreaDetailCtrl',cultivateAreaDetailCtrl)
-  .controller('illegalAreaDetailCtrl',illegalAreaDetailCtrl)
-  .controller('industryAreaDetailCtl',industryAreaDetailCtrl)
-  .controller('industryGrossDetailCtrl',industryGrossDetailCtrl)
+  .controller('EnvironmentDetailCtrl',EnvironmentDetailCtrl)
+  .controller('waterThreeCtrl',waterThreeCtrl)
+  .controller('airThreeCtrl',airThreeCtrl)
+  .controller('landThreeCtrl',landThreeCtrl)
+  .controller('energyThreeCtrl',energyThreeCtrl)
+
   // 民生controllers
   .controller('populationCtrl',populationCtrl)
   .controller('insuranceCtrl',insuranceCtrl)
   .controller('priceCtrl',priceCtrl)
   .controller('lvdetailCtrl',lvdetailCtrl)
+  .controller('LivehoodHomeCtrl',LivehoodHomeCtrl)
   // 公共安全controllers
+  .controller('publicsecurityCtrl', publicsecurityCtrl)
   .controller('policeCtrl', policeCtrl)
   .controller('firecontrolCtrl', firecontrolCtrl)
   .controller('accidentCtrl', accidentCtrl)
   .controller('petitionCtrl', petitionCtrl)
   .controller('safetyCtrl', safetyCtrl)
-  .controller('policecallCtrl',policecallCtrl)
-  .controller('policesafeCtrl',policesafeCtrl)
+  .controller('publicsecuritydetailCtrl',publicsecuritydetailCtrl)
 
   // 公共事业controllers
   .controller('publicServiceCtrl', publicServiceCtrl)

@@ -305,131 +305,102 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
     .state('app.environment',{
       abstract:true,
       url:'/environment',
-      templateUrl:'app/in/Environment/EnvironmentHome.html',
+      templateUrl:'app/in/Environment/Environment.html',
+      controller: 'EnvironmentCtrl'
     })
     .state('app.environment.water',{
       url:'/water',
-      templateUrl:'app/in/Environment/water/water.html',
+      templateUrl:'app/in/Environment/one/water/water.html',
       controller:'waterCtrl'
     })
     .state('app.environment.air',{
       url:'/air',
-      templateUrl:'app/in/Environment/air/air.html',
+      templateUrl:'app/in/Environment/one/air/air.html',
       controller:'airCtrl'
     })
     .state('app.environment.land',{
       url:'/land',
-      templateUrl:'app/in/Environment/land/land.html',
+      templateUrl:'app/in/Environment/one/land/land.html',
       controller:'landCtrl'
     })
     .state('app.environment.energy',{
       url:'/energy',
-      templateUrl:'app/in/Environment/energy/energy.html',
+      templateUrl:'app/in/Environment/one/energy/energy.html',
       controller:'energyCtrl'
     })
-    .state('app.environmentdetail',{
-      abstract:true,
-      url:'/environmentdetail',
-      templateUrl:'app/in/Environment/EnvironmentDetail/EnvironmentDetail.html'
+    .state('app.environment.detail', {
+      url: '/detail?kpiId',
+      templateUrl: 'app/in/Environment/two/EnvironmentDetail.html',
+      controller: 'EnvironmentDetailCtrl'
     })
-    .state('app.environmentdetail.waterSecond',{
-      url:'/environmentdetail/waterSecond/:id',
-      templateUrl:'app/in/Environment/EnvironmentDetail/EnvironmentSecond.html',
-      controller:'waterSecondCtrl'
+    .state('app.environment.waterThree', {
+      url: '/waterThree',
+      templateUrl: 'app/in/Environment/three/water/waterThree.html',
+      controller: 'waterThreeCtrl'
     })
-    .state('app.environmentdetail.airSecond',{
-      url:'/environmentdetail/airSecond/:id',
-      templateUrl:'app/in/Environment/EnvironmentDetail/EnvironmentSecond.html',
-      controller:'airSecondCtrl'
+    .state('app.environment.airThree', {
+      url: '/airThree',
+      templateUrl: 'app/in/Environment/three/air/airThree.html',
+      controller: 'airThreeCtrl'
     })
-    .state('app.environmentdetail.energySecond',{
-      url:'/environmentdetail/energySecond/:id',
-      templateUrl:'app/in/Environment/EnvironmentDetail/EnvironmentSecond.html',
-      controller:'energySecondCtrl'
+    .state('app.environment.landThree', {
+      url: '/landThree',
+      templateUrl: 'app/in/Environment/three/land/landThree.html',
+      controller: 'landThreeCtrl'
     })
-    .state('app.environmentdetail.commercialLandGross',{
-      url:'/land/commercialGross/:id',
-      templateUrl:'app/in/Environment/EnvironmentDetail/land/LandDetail.html',
-      controller:'commercialGrossDetailCtrl'
+    .state('app.environment.energyThree', {
+      url: '/energyThree',
+      templateUrl: 'app/in/Environment/three/energy/energyThree.html',
+      controller: 'energyThreeCtrl'
     })
-    .state('app.environmentdetail.commercialLandArea',{
-      url:'/land/commercialArea/:id',
-      templateUrl:'app/in/Environment/EnvironmentDetail/land/LandDetail.html',
-      controller:'commercialAreaDetailCtrl'
-      })
-    .state('app.environmentdetail.industryLandGross',{
-      url:'/land/industryGross/:id',
-      templateUrl:'app/in/Environment/EnvironmentDetail/land/LandDetail.html',
-      controller:'industryGrossDetailCtrl'
-      })
-      .state('app.environmentdetail.industryLandArea',{
-        url:'/land/industryArea/:id',
-        templateUrl:'app/in/Environment/EnvironmentDetail/land/LandDetail.html',
-        controller:'industryAreaDetailCtrl'
-      })
-      .state('app.environmentdetail.illegalLandArea',{
-        url:'/land/illegalArea/:id',
-        templateUrl:'app/in/Environment/EnvironmentDetail/land/LandDetail.html',
-        controller:'illegalAreaDetailCtrl'
-      })
-      .state('app.environmentdetail.cultivateLandArea',{
-        url:'/land/cultivateArea/:id',
-        templateUrl:'app/in/Environment/EnvironmentDetail/land/LandDetail.html',
-        controller:'cultivateAreaDetailCtrl'
-      })
+
 
     // 公共安全
     .state('app.publicsecurity',{ 
       abstract: true,
       url:'/publicsecurity',
+      controller: 'publicsecurityCtrl',
       templateUrl:'app/in/publicsecurity/publicsecurityHome.html'
     })
     .state('app.publicsecurity.police',{ 
       url:'/police',
-      templateUrl:'app/in/publicsecurity/police/police.html',
+      templateUrl:'app/in/publicsecurity/one/police/police.html',
       controller: 'policeCtrl'
     })
     .state('app.publicsecurity.firecontrol',{ 
       url:'/firecontrol',
-      templateUrl:'app/in/publicsecurity/firecontrol/firecontrol.html',
+      templateUrl:'app/in/publicsecurity/one/firecontrol/firecontrol.html',
       controller: 'firecontrolCtrl'
     })
     .state('app.publicsecurity.petition',{ 
       url:'/petition',
-      templateUrl:'app/in/publicsecurity/petition/petition.html',
+      templateUrl:'app/in/publicsecurity/one/petition/petition.html',
       controller: 'petitionCtrl'
     })
     .state('app.publicsecurity.accident',{ 
       url:'/accident',
-      templateUrl:'app/in/publicsecurity/accident/accident.html',
+      templateUrl:'app/in/publicsecurity/one/accident/accident.html',
       controller: 'accidentCtrl'
     })
     .state('app.publicsecurity.safety',{ 
       url:'/safety',
-      templateUrl:'app/in/publicsecurity/safety/safety.html',
+      templateUrl:'app/in/publicsecurity/one/safety/safety.html',
       controller: 'safetyCtrl'
     })
-    .state('app.publicsecuritydetail',{
-        abstract:true,
-        url:'/publicsecuritydetail',
-        templateUrl:'app/in/publicsecurity/publicsecuritydetail/publicsecuritydetail.html'
-    })
-    .state('app.publicsecuritydetail.policecall',{
-        url:'/policecall',
-        templateUrl:'app/in/publicsecurity/publicsecuritydetail/police/policecall.html',
-        controller:'policecallCtrl'
-    })
-    .state('app.publicsecuritydetail.policesafe',{
-        url:'/policesafe',
-        templateUrl:'app/in/publicsecurity/publicsecuritydetail/police/policesafe.html',
-        controller:'policesafeCtrl'
+    //公共安全二级界面
+    .state('app.publicsecurity.detail',{        
+        url:'/detail?kpiId',
+        templateUrl:'app/in/publicsecurity/two/publicsecuritydetail.html',
+        controller: 'publicsecuritydetailCtrl'
+
     })
 
     // 民生
     .state('app.livehood',{
       abstract: true,
       url:'/livehood',
-      templateUrl:'app/in/livehood/one/LivehoodHome.html'
+      templateUrl:'app/in/livehood/one/LivehoodHome.html',
+      controller:'LivehoodHomeCtrl'
     })
     //民生之人口结构
     .state('app.livehood.population',{
