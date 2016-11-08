@@ -1,4 +1,4 @@
-export default ($scope,qService,kpiRes,$state, dateService,$rootScope,hService) => {
+export default ($scope,qService,kpiRes,$state, dateService,hService) => {
   'ngInject';
   hService.state("app.environment.land");
   $(".navbar2return").hide(0);
@@ -14,10 +14,6 @@ export default ($scope,qService,kpiRes,$state, dateService,$rootScope,hService) 
   qService.httpGet(kpiRes.categorykpi, params,headers).then((data) => {
     if (data.errorCode == "NO_ERROR") {
       $scope.LandArray=data.data.data;
-      $rootScope.LandDetailDate = new Array();
-      for (var i=0;i<$scope.LandArray.length;i++){
-        $rootScope.LandDetailDate['_'+$scope.LandArray[i].id]=$scope.LandArray[i].data.applyDate;
-      }
     } else {
 
     }
