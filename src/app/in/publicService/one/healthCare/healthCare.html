@@ -1,6 +1,6 @@
 <!-- 公共事业-医疗卫生 -->
 <div class="cm-refuse-module">
-  <div ng-repeat="data in psHealthData" class="cm-refuse-item">
+  <div ng-repeat="data in psHealthData" ui-sref="app.publicService.detail({kpiId:data.id})" class="cm-refuse-item">
     <div class="cm-refuse-top">
       <span>{{data.description}}</span><i ng-class="data.data.status">{{data.data.status | kpiStatusTextFilter}}</i>
     </div>
