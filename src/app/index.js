@@ -23,6 +23,8 @@ import accountRes from './resources/account-res';
 import kpiRes from './resources/kpi-res';
 import kpiSpanRes from './resources/SpanKPI-res';
 
+// factories
+import lFactory from './factories/l-factory';
 
 // directive
 import headerDirect from './common/header/headerDirect';
@@ -146,6 +148,7 @@ angular.module('soraka',
   .factory('accountRes', accountRes)
   .factory('kpiRes',kpiRes)
   .factory('kpiSpanRes',kpiSpanRes)
+  .factory('lFactory',lFactory)
 
   // directive 初始化
   .directive('lcHeader', headerDirect)
