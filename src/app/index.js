@@ -116,7 +116,7 @@ import trafficCtrl from './in/publicService/one/traffic/trafficCtrl.js';
 import publicServiceDetailCtrl from './in/publicService/two/publicServiceDetailCtrl.js';
 
 angular.module('soraka',
-  ['ngAnimate', 'ngCookies', 'ngSanitize', 'ui.router', 'ngResource', 'ngStorage', 'mobile-angular-ui','ui.bootstrap', "me-pageloading",'highcharts-ng'])
+  ['ngAnimate', 'ngCookies', 'ngSanitize', 'ui.router', 'ngResource', 'ngStorage', 'mobile-angular-ui','ui.bootstrap', 'highcharts-ng'])
 
 
   // 配置全局常量
