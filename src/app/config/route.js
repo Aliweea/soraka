@@ -299,26 +299,33 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
     .state('app.environment',{
       abstract:true,
       url:'/environment',
-      templateUrl:'app/in/Environment/EnvironmentHome.html',
+      templateUrl:'app/in/Environment/Environment.html',
+      controller: 'EnvironmentCtrl'
     })
+    // .state('app.cm', {
+    //   abstract: true,
+    //   url: '/cm',
+    //   templateUrl: 'app/in/citymanager/cm.html', 
+    //   controller: 'cmCtrl'
+    // })
     .state('app.environment.water',{
       url:'/water',
-      templateUrl:'app/in/Environment/water/water.html',
+      templateUrl:'app/in/Environment/one/water/water.html',
       controller:'waterCtrl'
     })
     .state('app.environment.air',{
       url:'/air',
-      templateUrl:'app/in/Environment/air/air.html',
+      templateUrl:'app/in/Environment/one/air/air.html',
       controller:'airCtrl'
     })
     .state('app.environment.land',{
       url:'/land',
-      templateUrl:'app/in/Environment/land/land.html',
+      templateUrl:'app/in/Environment/one/land/land.html',
       controller:'landCtrl'
     })
     .state('app.environment.energy',{
       url:'/energy',
-      templateUrl:'app/in/Environment/energy/energy.html',
+      templateUrl:'app/in/Environment/one/energy/energy.html',
       controller:'energyCtrl'
     })
     .state('app.environmentdetail',{
