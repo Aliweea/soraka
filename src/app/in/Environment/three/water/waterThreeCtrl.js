@@ -2079,12 +2079,12 @@ export default ($scope, qService, kpiRes, $state, dateService, $rootScope, hServ
   */
 
   //水质量 当天数据模块 初始化
-  kpiDetailService.getLastestObject('WaterQuality', ['date'], function(data) {
+  kpiWaterService.getLastestObject('WaterQuality', ['date'], function(data) {
       var date = data.data.date;
       var datebaseLastestDate = moment(date).subtract(1, 'hours');
       var startTime = getSubstractDate(getCurrentDate(datebaseLastestDate), 23);
       var endTime = getCurrentDate(datebaseLastestDate);
-      kpiDetailService.advancedQuery('WaterQuality', {
+      kpiWaterService.advancedQuery('WaterQuality', {
           date: {
               value1: startTime,
               value2: endTime,
@@ -2115,12 +2115,12 @@ export default ($scope, qService, kpiRes, $state, dateService, $rootScope, hServ
   });
 
   //水情 当天数据模块 初始化
-  kpiDetailService.getLastestObject('WaterCondition', ['date'], function(data) {
+  kpiWaterService.getLastestObject('WaterCondition', ['date'], function(data) {
       var date = data.data.date;
       var datebaseLastestDate = moment(date).subtract(1, 'hours');
       var startTime = getSubstractDate(getCurrentDate(datebaseLastestDate), 11);
       var endTime = getCurrentDate(datebaseLastestDate);
-      kpiDetailService.advancedQuery('WaterCondition', {
+      kpiWaterService.advancedQuery('WaterCondition', {
           date: {
               value1: startTime,
               value2: endTime,
@@ -2148,12 +2148,12 @@ export default ($scope, qService, kpiRes, $state, dateService, $rootScope, hServ
 
 
   //废水排放 当天数据模块 初始化
-  kpiDetailService.getLastestObject('WaterPollution', ['date'], function(data) {
+  kpiWaterService.getLastestObject('WaterPollution', ['date'], function(data) {
       var date = data.data.date;
       var datebaseLastestDate = moment(date);
       var startTime = getSubstractDate(getCurrentDateForDayData(datebaseLastestDate), 24 * 5);
       var endTime = getCurrentDateForDayData(datebaseLastestDate);
-      kpiDetailService.advancedQuery('WaterPollution', {
+      kpiWaterService.advancedQuery('WaterPollution', {
           date: {
               value1: startTime,
               value2: endTime,
