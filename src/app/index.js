@@ -14,11 +14,15 @@ import commonSer from './common/commonSer';
 import qService from './services/q-service';
 import dateService from './services/date-service';
 import AuthTool  from './services/auth-tool';
+import generalService from './services/generalService';
+import dictService from './services/dictService';
 
 // resource
 import accountRes from './resources/account-res';
 import kpiRes from './resources/kpi-res';
 import kpiSpanRes from './resources/SpanKPI-res';
+import dataDetailFactory from './resources/dataDetailFactory';
+import dictFactory from './resources/dictFactory';
 
 
 // directive
@@ -69,6 +73,8 @@ import FinancedetailCtrl from './in/Economy/FinanceDetail/financein.js';
 import FinancialdetailCtrl from './in/Economy/FinancialDetail/financialDetail.js';
 import investmentDetailCtrl from './in/Economy/investmentDetail/investmentDetailCtrl.js';
 import industryDetailCtrl from './in/Economy/industryDetail/industryDetailCtrl';
+import thirdgdpcontroller from './in/Economy/EconomyThird/thirdgdpcontroller.js';
+import thirdfinancecontroller from './in/Economy/EconomyThird/thirdfinance/thirdfinance.js';
 //环境模块Controller
 import waterCtrl from './in/Environment/water/waterCtrl.js';
 import airCtrl from './in/Environment/air/airCtrl.js';
@@ -134,11 +140,16 @@ angular.module('soraka',
   .service('qService', qService)
   .service('AuthTool',AuthTool)
   .service('dateService',dateService)
+  .service('generalService',generalService)
+  .service('dictService',dictService)
 
   // factory 初始化
   .factory('accountRes', accountRes)
   .factory('kpiRes',kpiRes)
   .factory('kpiSpanRes',kpiSpanRes)
+  .factory('dataDetailFactory',dataDetailFactory)
+  .factory('dictFactory',dictFactory)
+
 
   // directive 初始化
   .directive('lcHeader', headerDirect)
@@ -188,6 +199,8 @@ angular.module('soraka',
   .controller('FinancialdetailCtrl',FinancialdetailCtrl)
   .controller('investmentDetailCtrl',investmentDetailCtrl)
   .controller('industryDetailCtrl',industryDetailCtrl)
+  .controller('thirdgdpcontroller',thirdgdpcontroller)
+  .controller('thirdfinancecontroller',thirdfinancecontroller)
 
   // 环境controllers
   .controller('waterCtrl',waterCtrl)

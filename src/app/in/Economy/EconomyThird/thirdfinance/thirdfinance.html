@@ -1,22 +1,26 @@
 <div ui-state="activeTab" default="1">
   <ul class="nav nav-tabs">
     <li ui-class="{'active': activeTab == 1}">
-      <a ui-set="{'activeTab': 1}">三个月走势</a>
+      <a ui-set="{'activeTab': 1}">财政</a>
     </li>
     <li ui-class="{'active': activeTab == 2}">
-      <a ui-set="{'activeTab': 2}">全年走势</a>
+      <a ui-set="{'activeTab': 2}">税收</a>
     </li>
    
   </ul>
 
   <div ui-if="activeTab == 1">
     <h3 class="page-header">{{kpiText}}KPI详情</h3>
-     <highchart config="firstchart"  id="secondchart"></highchart>
+     
   </div>
 
   <div ui-if="activeTab == 2">
+  <div class="scrollable">
     <h3 class="page-header">全年{{kpiText}}KPI详情</h3>
-    <highchart config="secondchart"  id="firstchart"></highchart>
+    <highchart config="secondchart"  id="secondchart"></highchart>
+    <highchart config="firstchart"  id="firstchart"></highchart>
+  </div>
+    
   </div>
 
   
