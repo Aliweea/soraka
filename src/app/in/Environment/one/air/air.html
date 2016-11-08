@@ -1,5 +1,5 @@
 <div class="cm-refuse-module">
-  <div ng-repeat="item in AirArray" class="cm-refuse-item" ui-sref="{{item.id | environmentDetailFilter}}">
+  <div ng-repeat="item in AirArray" class="cm-refuse-item" ui-sref="app.environment.detail({kpiId:item.id})">
     <div class="cm-refuse-top">
       <span>{{item.name}}</span><i ng-class="item.data.status">{{item.data.status | kpiStatusTextFilter}}</i>
     </div>

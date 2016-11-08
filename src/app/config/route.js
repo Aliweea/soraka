@@ -302,12 +302,6 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       templateUrl:'app/in/Environment/Environment.html',
       controller: 'EnvironmentCtrl'
     })
-    // .state('app.cm', {
-    //   abstract: true,
-    //   url: '/cm',
-    //   templateUrl: 'app/in/citymanager/cm.html', 
-    //   controller: 'cmCtrl'
-    // })
     .state('app.environment.water',{
       url:'/water',
       templateUrl:'app/in/Environment/one/water/water.html',
@@ -328,56 +322,11 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       templateUrl:'app/in/Environment/one/energy/energy.html',
       controller:'energyCtrl'
     })
-    .state('app.environmentdetail',{
-      abstract:true,
-      url:'/environmentdetail',
-      templateUrl:'app/in/Environment/EnvironmentDetail/EnvironmentDetail.html'
+    .state('app.environment.detail', {
+      url: '/detail?kpiId',
+      templateUrl: 'app/in/Environment/two/EnvironmentDetail.html',
+      controller: 'EnvironmentDetailCtrl'
     })
-    .state('app.environmentdetail.waterSecond',{
-      url:'/environmentdetail/waterSecond/:id',
-      templateUrl:'app/in/Environment/EnvironmentDetail/EnvironmentSecond.html',
-      controller:'waterSecondCtrl'
-    })
-    .state('app.environmentdetail.airSecond',{
-      url:'/environmentdetail/airSecond/:id',
-      templateUrl:'app/in/Environment/EnvironmentDetail/EnvironmentSecond.html',
-      controller:'airSecondCtrl'
-    })
-    .state('app.environmentdetail.energySecond',{
-      url:'/environmentdetail/energySecond/:id',
-      templateUrl:'app/in/Environment/EnvironmentDetail/EnvironmentSecond.html',
-      controller:'energySecondCtrl'
-    })
-    .state('app.environmentdetail.commercialLandGross',{
-      url:'/land/commercialGross/:id',
-      templateUrl:'app/in/Environment/EnvironmentDetail/land/LandDetail.html',
-      controller:'commercialGrossDetailCtrl'
-    })
-    .state('app.environmentdetail.commercialLandArea',{
-      url:'/land/commercialArea/:id',
-      templateUrl:'app/in/Environment/EnvironmentDetail/land/LandDetail.html',
-      controller:'commercialAreaDetailCtrl'
-      })
-    .state('app.environmentdetail.industryLandGross',{
-      url:'/land/industryGross/:id',
-      templateUrl:'app/in/Environment/EnvironmentDetail/land/LandDetail.html',
-      controller:'industryGrossDetailCtrl'
-      })
-      .state('app.environmentdetail.industryLandArea',{
-        url:'/land/industryArea/:id',
-        templateUrl:'app/in/Environment/EnvironmentDetail/land/LandDetail.html',
-        controller:'industryAreaDetailCtrl'
-      })
-      .state('app.environmentdetail.illegalLandArea',{
-        url:'/land/illegalArea/:id',
-        templateUrl:'app/in/Environment/EnvironmentDetail/land/LandDetail.html',
-        controller:'illegalAreaDetailCtrl'
-      })
-      .state('app.environmentdetail.cultivateLandArea',{
-        url:'/land/cultivateArea/:id',
-        templateUrl:'app/in/Environment/EnvironmentDetail/land/LandDetail.html',
-        controller:'cultivateAreaDetailCtrl'
-      })
 
     // 公共安全
     .state('app.publicsecurity',{ 

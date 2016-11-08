@@ -80,15 +80,7 @@ import waterCtrl from './in/Environment/one/water/waterCtrl.js';
 import airCtrl from './in/Environment/one/air/airCtrl.js';
 import landCtrl from './in/Environment/one/land/landCtrl.js';
 import energyCtrl from './in/Environment/one/energy/energyCtrl.js';
-import waterSecondCtrl from './in/Environment/EnvironmentDetail/water/waterSecond.js';
-import airSecondCtrl from './in/Environment/EnvironmentDetail/air/airSecond.js';
-import energySecondCtrl from './in/Environment/EnvironmentDetail/energy/energySecond.js';
-import commercialGrossDetailCtrl from './in/Environment/EnvironmentDetail/land/commercialGrossCtrl.js';
-import commercialAreaDetailCtrl from './in/Environment/EnvironmentDetail/land/commercialAreaCtrl.js';
-import cultivateAreaDetailCtrl from './in/Environment/EnvironmentDetail/land/cultivateAreaCtrl.js';
-import illegalAreaDetailCtrl from './in/Environment/EnvironmentDetail/land/illegalAreaCtrl.js';
-import industryAreaDetailCtrl from './in/Environment/EnvironmentDetail/land/industryAreaCtrl.js';
-import industryGrossDetailCtrl from './in/Environment/EnvironmentDetail/land/industryGrossCtrl.js';
+import EnvironmentDetailCtrl from './in/Environment/two/EnvironmentDetailCtrl.js';
 // 民生模块Controller
 import LivehoodHomeCtrl from './in/livehood/one/LivehoodHomeCtrl.js';
 import populationCtrl from './in/livehood/one/population/populationCtrl.js';
@@ -205,15 +197,7 @@ angular.module('soraka',
   .controller('airCtrl',airCtrl)
   .controller('landCtrl',landCtrl)
   .controller('energyCtrl',energyCtrl)
-  .controller('waterSecondCtrl',waterSecondCtrl)
-  .controller('airSecondCtrl',airSecondCtrl)
-  .controller('energySecondCtrl',energySecondCtrl)
-  .controller('commercialGrossDetailCtrl',commercialGrossDetailCtrl)
-  .controller('commercialAreaDetailCtrl',commercialAreaDetailCtrl)
-  .controller('cultivateAreaDetailCtrl',cultivateAreaDetailCtrl)
-  .controller('illegalAreaDetailCtrl',illegalAreaDetailCtrl)
-  .controller('industryAreaDetailCtl',industryAreaDetailCtrl)
-  .controller('industryGrossDetailCtrl',industryGrossDetailCtrl)
+  .controller('EnvironmentDetailCtrl',EnvironmentDetailCtrl)
   // 民生controllers
   .controller('populationCtrl',populationCtrl)
   .controller('insuranceCtrl',insuranceCtrl)
