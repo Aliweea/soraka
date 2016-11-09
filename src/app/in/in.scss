@@ -1,7 +1,7 @@
 @mixin font() {
-	font-size: 16px;
+	font-size: 10px;
 	span {
-		font-size: 20px;	
+		font-size: 15px;	
 	}
 	color: $fontBlack;
 }
@@ -10,7 +10,7 @@
 }
 @mixin menurow() {
 	padding: 1em 2em;
-	height: 5em;
+	height: 50px;
 	background: radial-gradient(#eee, #eee, #fff);
 	span {
 		display: inline-block;
@@ -30,7 +30,7 @@
 			margin-top: 13px;
 			font-size: 17px;
 			margin-right: 0.5em;
-			color: $standardWhite;
+			color: #fff;
 		}
 	}
 	.soraka-menu-navbar-bottom {
@@ -44,14 +44,35 @@
 				margin-right: 0.5em;
 			}
 		}
+		#footlabel {
+			display: block;
+			margin: 10px auto 0 auto;
+			font-size: 10px;
+			font-weight: 100;
+			color: #eee;
+			text-align: center;
+		}
 	}
 }
 .soraka-sidebar-left {
 	background-color: $bgLightGrey;
 	@include font();
-	h1 {
-		color: $fontBlack;
-		@include bgc();
+	.soraka-sidebar-header {
+		height: 50px;
+		color: #eee;
+		background-color: $bgDarkBlue;
+		i {
+			position: absolute;
+			font-size: 20px;
+			top: 16px;
+			left: 10px;
+		}
+		span {
+			position: absolute;
+			top: 19px;
+			left: 32px;
+			line-height: 15px;
+		}
 	}
 	.sidebar-left-d1 {
 		background-color: #fff;
@@ -60,7 +81,7 @@
 		border-bottom: 1px solid $cborder;
 		border-top: 1px solid $cborder;
 		.sidebar-left-homepage {
-			background: radial-gradient(5em, #eee, #eee, #fff);
+			background: radial-gradient(6em 5em, #eee, #eee, #fff);
 			width: 49%;
 			height: 100%;
 			text-align: center;
@@ -75,8 +96,8 @@
 			}
 		}
 		.sidebar-left-me {
-			background: radial-gradient(5em, #eee, #eee, #fff);
-			width: 49.5%;
+			background: radial-gradient(6em 5em, #eee, #eee, #fff);
+			width: 45%;
 			height: 100%;
 			text-align: center;
 			display: inline-block;
@@ -93,6 +114,9 @@
 		@include bgc();
 		@include menurow();
 		border-bottom: 1px solid $cborder;
+		&:focus, &:active {
+			background-color: red;
+		}
 	}
 	.sidebar-left-timesetting {
 		@include bgc();

@@ -2,7 +2,8 @@ export default($scope, dateService) => {
     'ngInject';
 
     // 隐藏topbar上的logout按钮
-    $('#navTopLogout').hide(0);
+    $('#home_logout').hide(0);
+    $('#footlabel').hide(0);
     $('#navBottomReturn').show(0);
 
 	$scope.today = function() {
