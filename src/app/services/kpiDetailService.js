@@ -18,7 +18,7 @@ export default (dataDetailFactory) => {
 					end: endDate
 				},
 				function success(data) {
-					successProcess(JSON.parse(JSON.stringify(data)));
+					successProcess(data);
 				},
 				function error(data) {
 					// alert('error');
@@ -32,7 +32,7 @@ export default (dataDetailFactory) => {
 				},
 				advancedQueryConfig,
 				function success(data) {
-					successProcess(JSON.parse(JSON.stringify(data)));
+					successProcess(data);
 				},
 				function error(data) {
 					// alert('error');
@@ -46,7 +46,7 @@ export default (dataDetailFactory) => {
 				},
 				sortArr,
 				function success(data) {
-					successProcess(JSON.parse(JSON.stringify(data)));
+					successProcess(data);
 				},
 				function error(data) {
 					// alert('error');
