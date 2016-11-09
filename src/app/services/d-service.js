@@ -242,6 +242,9 @@ export default (dateService, unitService) => {
 			}
 			// 3. 返回配置对象
 			return {
+				"name": kpiData.name,
+				"departmentName": kpiData.department.name,
+				"categoryname": kpiData.tag,
 				"shortBtnText": shortBtnText,
 				"longBtnText": longBtnText,
 				"startShortStr": startShortStr,
