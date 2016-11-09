@@ -392,12 +392,31 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
         url:'/detail?kpiId',
         templateUrl:'app/in/publicsecurity/two/publicsecuritydetail.html',
         controller: 'publicsecuritydetailCtrl'
-
     })
     .state('app.publicsecurity.policethree', {
       url: '/policethree',
       templateUrl: 'app/in/publicsecurity/three/police/policethree.html',
       controller: 'policethreeCtrl'
+    })
+    .state('app.publicsecurity.accidentthree', {
+      url: '/accidentthree',
+      templateUrl: 'app/in/publicsecurity/three/accident/accidentthree.html',
+      controller: 'accidentthreeCtrl'
+    })
+    .state('app.publicsecurity.firethree', {
+      url: '/firethree',
+      templateUrl: 'app/in/publicsecurity/three/fire/firethree.html',
+      controller: 'firethreeCtrl'
+    })
+    .state('app.publicsecurity.petitionthree', {
+      url: '/petitionthree',
+      templateUrl: 'app/in/publicsecurity/three/petition/petitionthree.html',
+      controller: 'petitionthreeCtrl'
+    })
+    .state('app.publicsecurity.safetythree', {
+      url: '/safetythree',
+      templateUrl: 'app/in/publicsecurity/three/safety/safetythree.html',
+      controller: 'safetythreeCtrl'
     })
 
     // 民生

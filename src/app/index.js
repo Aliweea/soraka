@@ -111,6 +111,10 @@ import accidentCtrl from './in/publicsecurity/one/accident/accidentCtrl.js';
 import publicsecurityCtrl from './in/publicsecurity/publicsecurityCtrl'
 import publicsecuritydetailCtrl from './in/publicsecurity/two/publicsecuritydetailCtrl.js';
 import policethreeCtrl from './in/publicsecurity/three/police/policethreeCtrl.js';
+import accidentthreeCtrl from './in/publicsecurity/three/accident/accidentthreeCtrl.js';
+import firethreeCtrl from './in/publicsecurity/three/fire/firethreeCtrl.js';
+import petitionthreeCtrl from './in/publicsecurity/three/petition/petitionthreeCtrl.js';
+import safetythreeCtrl from './in/publicsecurity/three/safety/safetythreeCtrl.js';
 // 城市管理模块Controller
 import cmCtrl from './in/citymanager/cmCtrl.js';
 import refuseCtrl from './in/citymanager/one/refuse/refuseCtrl.js';
@@ -247,6 +251,10 @@ angular.module('soraka',
   .controller('safetyCtrl', safetyCtrl)
   .controller('publicsecuritydetailCtrl',publicsecuritydetailCtrl)
   .controller('policethreeCtrl',policethreeCtrl)
+  .controller('accidentthreeCtrl',accidentthreeCtrl)
+  .controller('firethreeCtrl',firethreeCtrl)
+  .controller('petitionthreeCtrl',petitionthreeCtrl)
+  .controller('safetythreeCtrl',safetythreeCtrl)
 
   // 公共事业controllers
   .controller('publicServiceCtrl', publicServiceCtrl)
