@@ -49,7 +49,7 @@ export default ($q, $state) => {
 				resource(headers).post(parameters,body,
 				(value, responseHeaders) => {
 					value.headers = responseHeaders ? responseHeaders() : "";
-					resolve(value);
+					resolve(JSOG.parse(JSOG.stringify(value)));
 				}, 
 				(httpResponse) => {
 					reject(httpResponse);
