@@ -13,138 +13,40 @@
   <div class="scrollable"style="margin-top: 100px;height: 500px">
   <div class="scrollable-content" >
     <h3 class="page-header">{{kpiText}}KPI详情</h3>
-    <li>数据名称:月工业总产值</li>
-    <li>时间:{{ai.year}} 年 {{ai.month}} 月</li>
+    <li>数据名称:金融机构存款余额</li>
+    <li>时间:{{lastestObject.year}} 年 {{lastestObject.month}} 月</li>
     <span ng-show="false">{{ai = dataMap.Ivalue.lastestObject}}</span>
     <span ng-show="false"></span>
     <div class="table-responsive" style="padding:5px">
       <table class="table">
         <tr>
-          <td class="info" style="text-align: center;">统计项目</td>
-          <td class="info" style="text-align: center;">统计值</td>
-          <td class="info" style="text-align: center;">同比增长</td>
+          <td class="info" style="text-align: center;">项目</td>
+          <td class="info" style="text-align: center;">月末</td>
+          <td class="info" style="text-align: center;">比年初增加</td>
         </tr>
-         <tr>
-          <td class="active" style="text-align: center;">本年累计额</td>
-          <td class="active" style="text-align: center;">{{ai.accmAmount}} 万元</td>
-          <td class="active" style="text-align: center;">{{ai.accmRate | number:2}} %</td>
-        </tr>
-        <tr>
-          <td class="active" style="text-align: center;">规模以上工业统计额</td>
-          <td class="active" style="text-align: center;">{{ai.uaccmAmount}} 万元</td>
-          <td class="active" style="text-align: center;">{{ai.uaccmRate | number:2}} %</td>
+         <tr ng-repeat="d in tables.rTable">
+          <td class="active" style="text-align: center;">{{d.key}}</td>
+          <td class="active" style="text-align: center;">{{d.remain | number:1}}亿元</td>
+          <td class="active" style="text-align: center;">{{d.rateWithOpen | number:1}} 亿元</td>
         </tr>
       </table>
     </div>
-    <li>数据名称:月规模以上新兴产业产值</li>
-    <li>时间:{{bi.year}} 年 {{bi.month}} 月</li>
-    <span ng-show="false">{{bi = dataMap.NIvalue.lastestObject}}</span>
+     <h3 class="page-header">{{kpiText}}KPI详情</h3>
+    <li>数据名称:金融机构贷款余额情况</li>
+    <li>时间:{{lastestObject.year}} 年 {{lastestObject.month}} 月</li>
+    <span ng-show="false">{{ai = dataMap.Ivalue.lastestObject}}</span>
     <span ng-show="false"></span>
     <div class="table-responsive" style="padding:5px">
       <table class="table">
         <tr>
-          <td class="info" style="text-align: center;">统计项目</td>
-          <td class="info" style="text-align: center;">统计值</td>
-          <td class="info" style="text-align: center;">同比增长</td>
+          <td class="info" style="text-align: center;">项目</td>
+          <td class="info" style="text-align: center;">月末</td>
+          <td class="info" style="text-align: center;">比年初增加</td>
         </tr>
-         <tr>
-          <td class="active" style="text-align: center;">全市</td>
-          <td class="active" style="text-align: center;">{{bi.accmAmount}} 万元</td>
-          <td class="active" style="text-align: center;">{{bi.accmRate | number:2}} %</td>
-        </tr>
-         <tr>
-          <td class="active" style="text-align: center;">新能源</td>
-          <td class="active" style="text-align: center;">{{bi.naccmAmount}} 万元</td>
-          <td class="active" style="text-align: center;">{{bi.naccmRate | number:2}} %</td>
-        </tr>
-         <tr>
-          <td class="active" style="text-align: center;">新材料</td>
-          <td class="active" style="text-align: center;">{{bi.maccmAmount}} 万元</td>
-          <td class="active" style="text-align: center;">{{bi.maccmRate | number:2}} %</td>
-        </tr>
-          <tr>
-          <td class="active" style="text-align: center;">生物技术和新医药</td>
-          <td class="active" style="text-align: center;">{{bi.bioaccmAmount}} 万元</td>
-          <td class="active" style="text-align: center;">{{bi.bioaccmRate | number:2}} %</td>
-        </tr>
-         <tr>
-          <td class="active" style="text-align: center;">节能环保</td>
-          <td class="active" style="text-align: center;">{{bi.eeaccmAmount}} 万元</td>
-          <td class="active" style="text-align: center;">{{bi.eeaccmRate | number:2}} %</td>
-        </tr>
-         <tr>
-          <td class="active" style="text-align: center;">智能电网和物联网</td>
-          <td class="active" style="text-align: center;">{{bi.elcaccmAmount}} 万元</td>
-          <td class="active" style="text-align: center;">{{bi.elcaccmRate | number:2}} %</td>
-        </tr>
-      </table>
-    </div>
-    <li>数据名称:月工业主营业务收入(累计值)</li>
-    <li>时间:{{ci.year}} 年 {{ci.month}} 月</li>
-    <span ng-show="false">{{ci = dataMap.NSvalue.lastestObject}}</span>
-    <span ng-show="false"></span>
-    <div class="table-responsive" style="padding:5px">
-      <table class="table">
-        <tr>
-          <td class="info" style="text-align: center;">统计项目</td>
-          <td class="info" style="text-align: center;">统计值</td>
-          <td class="info" style="text-align: center;">同比增长</td>
-        </tr>
-         <tr>
-          <td class="active" style="text-align: center;">工业销售累计额</td>
-          <td class="active" style="text-align: center;">{{ci.accmAmount}} 万元</td>
-          <td class="active" style="text-align: center;">{{ci.accmRate | number:2}} %</td>
-        </tr>
-         <tr>
-          <td class="active" style="text-align: center;">规模以上工业销售累计额</td>
-          <td class="active" style="text-align: center;">{{ci.uaccmAmount}} 万元</td>
-          <td class="active" style="text-align: center;">{{ci.uaccmRate | number:2}} %</td>
-        </tr>
-      </table>
-    </div>
-     <li>数据名称:月工业利润</li>
-    <li>时间:{{di.year}} 年 {{di.month}} 月</li>
-    <span ng-show="false">{{di = dataMap.NPvalue.lastestObject}}</span>
-    <span ng-show="false"></span>
-    <div class="table-responsive" style="padding:5px">
-      <table class="table">
-        <tr>
-          <td class="info" style="text-align: center;">统计项目</td>
-          <td class="info" style="text-align: center;">统计值</td>
-          <td class="info" style="text-align: center;">同比增长</td>
-        </tr>
-         <tr>
-          <td class="active" style="text-align: center;">工业利润计额</td>
-          <td class="active" style="text-align: center;">{{di.accmAmount}} 万元</td>
-          <td class="active" style="text-align: center;">{{di.accmRate | number:2}} %</td>
-        </tr>
-         <tr>
-          <td class="active" style="text-align: center;">规模以上工业利润累计额</td>
-          <td class="active" style="text-align: center;">{{di.uaccmAmount}} 万元</td>
-          <td class="active" style="text-align: center;">{{di.uaccmRate | number:2}} %</td>
-        </tr>
-      </table>
-    </div>
-      <li>数据名称:月工业利润</li>
-    <li>时间:{{ei.year}} 年 {{ei.month}} 月</li>
-    <span ng-show="false">{{ei = dataMap.NProfitvalue.lastestObject}}</span>
-    <span ng-show="false"></span>
-    <div class="table-responsive" style="padding:5px">
-      <table class="table">
-        <tr>
-          <td class="info" style="text-align: center;">统计项目</td>
-          <td class="info" style="text-align: center;">统计值</td>
-          <td class="info" style="text-align: center;">同比增长</td>
-        </tr>
-         <tr>
-          <td class="active" style="text-align: center;">工业利税累计额</td>
-          <td class="active" style="text-align: center;">{{ei.accmAmount}} 万元</td>
-          <td class="active" style="text-align: center;">{{ei.accmRate | number:2}} %</td>
-        </tr>
-         <tr>
-          <td class="active" style="text-align: center;">规模以上工业利润累计额</td>
-          <td class="active" style="text-align: center;">{{ei.uaccmAmount}} 万元</td>
-          <td class="active" style="text-align: center;">{{ei.uaccmRate | number:2}} %</td>
+         <tr ng-repeat="d in tables.fTable">
+          <td class="active" style="text-align: center;">{{d.key}}</td>
+          <td class="active" style="text-align: center;">{{d.remain | number:1}}亿元</td>
+          <td class="active" style="text-align: center;">{{d.rateWithOpen | number:1}} 亿元</td>
         </tr>
       </table>
     </div>
