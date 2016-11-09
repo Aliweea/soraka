@@ -394,6 +394,11 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
         controller: 'publicsecuritydetailCtrl'
 
     })
+    .state('app.publicsecurity.policethree', {
+      url: '/policethree',
+      templateUrl: 'app/in/publicsecurity/three/police/policethree.html',
+      controller: 'policethreeCtrl'
+    })
 
     // 民生
     .state('app.livehood',{
