@@ -1,10 +1,74 @@
 .soraka-datepick-module {
 	.soraka-datepick-title {
 		display: inline-block;
-		padding: 10px;
+		padding: 10px 0;
+		margin-left: 10%;
 		font-size: 16px;
 	}
-	.datepick-box {
-			
+	.soraka-datepicker {
+		display: block;
+		width: 80%;
+		margin: 5px auto;
+		outline: none;
+		border: 1px solid $cborder;
+		border-radius: 5px;
+		background-color: #fff;
+		padding: 5px 5px;
+		font-size: 15px;
+		&:active {
+			background-color: #eee;
+		}
+	}
+	.datepick-curr {
+		display: block;
+		margin-left: 10%;
+		margin-top: 80px;
+		padding: 2px 0;
+		font-size: 16px;
+		span {
+			color: rgb(100, 197, 119);
+		}
+	}
+	.hint-area {
+		margin-left: 10%;
+		margin-top: 20px;
+		font-size: 16px;
+	}
+	.sbtn {
+		outline: none;
+		border: 1px solid $cborder;
+		border-radius: 2px;
+		background-color: #fff;
+		padding: 2px 5px;
+		&:active {
+			background-color: #eee;
+		}
+	}
+	.cbtn {
+		display: block;
+		width: 80%;
+		margin: 10px auto;
+		outline: none;
+		border: 1px solid $cborder;
+		border-radius: 5px;
+		background-color: #fff;
+		padding: 5px 5px;
+		font-size: 15px;
+		&:active {
+			background-color: #eee;
+		}
+	}
+	._720kb-datepicker-calendar {
+		width: 80%;
+		margin-left: 10%;
+	}
+	.datepicker select, .datepicker select:focus, .datepicker select:hover, [datepicker] select, [datepicker] select:focus, [datepicker] select:hover, datepicker select, datepicker select:focus, datepicker select:hover {
+	    background: rgb(140, 217, 149);
+	}
+	._720kb-datepicker-calendar-header:nth-child(odd) {
+	    background: rgb(100, 197, 119);
+	}
+	._720kb-datepicker-calendar-header:nth-child(even) {
+	    background: rgb(110, 207, 129);
 	}
 }
