@@ -35,11 +35,13 @@
         <br/>
         <div class="col-md-3">
             <h4>土地出让指标选择</h4>
-            <div class="radio" ng-repeat="landUseOne in landUseGrantList">
-                <label>
-                    <input type="radio" ng-model="landUseGrantListSelected" ng-value="landUseOne" name="landUseGrantListRadio" ng-click="landUseGrantListChange(landUseOne)">{{landUseOne}}
-                </label>
-            </div>
+                <ul class="nav nav-tabs">
+                    <li style="width: 50%" ng-repeat="landUseOne in landUseGrantList">
+                        <a ng-model="landUseGrantListSelected"
+                           ng-value="landUseOne" name="landUseGrantListRadio"
+                           ng-click="landUseGrantListChange(landUseOne)">{{landUseOne}}</a>
+                    </li>
+                </ul>
         </div>
         <hr style="height:1px;border:none;border-top:1px solid #555555;" />
         <br/>
@@ -49,11 +51,13 @@
         <br/>
         <div class="col-md-3">
             <h4>土地类型选择</h4>
-            <div class="radio" ng-repeat="landUseOne in landUseDetailList">
-                <label>
-                    <input type="radio" ng-model="landUseOneDetailListSelected" ng-value="landUseOne" name="landUseDetailListRadio" ng-click="landUseDetailListChange(landUseOne)">{{landUseOne}}面积
-                </label>
-            </div>
+            <ul class="nav nav-tabs">
+                <li style="width: 50%" ng-repeat="landUseOne in landUseDetailList">
+                    <a ng-model="landUseOneDetailListSelected"
+                       ng-value="landUseOne" name="landUseDetailListRadio"
+                       ng-click="landUseDetailListChange(landUseOne)">{{landUseOne}}面积</a>
+                </li>
+            </ul>
         </div>
     </div>
     <div ui-if="activeTab==3">
@@ -78,11 +82,13 @@
         <br/>
         <div class="col-md-3">
             <h4>土地执法指标选择</h4>
-            <div class="radio" ng-repeat="landIllegalOne in landIllegalIndexList">
-                <label>
-                    <input type="radio" ng-model="landIllegalIndexListSelected" ng-value="landIllegalOne" name="landIllegalIndexListRadio" ng-click="landIllegalIndexListChange(landIllegalOne)">违法用地{{landIllegalOne}}
-                </label>
-            </div>
+            <ul class="nav nav-tabs">
+                <li style="width: 50%" ng-repeat="landIllegalOne in landIllegalIndexList">
+                    <a ng-model="landIllegalIndexListSelected"
+                       ng-value="landIllegalOne" name="landIllegalIndexListRadio"
+                       ng-click="landIllegalIndexListChange(landIllegalOne)">违法用地{{landIllegalOne}}</a>
+                </li>
+            </ul>
         </div>
     </div>
 </div>
