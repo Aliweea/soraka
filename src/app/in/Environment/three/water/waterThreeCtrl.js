@@ -1,6 +1,5 @@
-export default ($scope, qService, kpiRes, $state, dateService, $rootScope, hService, kpiWaterService, dateWaterService) => {
+export default ($scope, qService, kpiRes, $state, dateService, $rootScope, hService, kpiDetailService) => {
   'ngInject';
-
 
   /**
    * 变量区
@@ -52,7 +51,6 @@ export default ($scope, qService, kpiRes, $state, dateService, $rootScope, hServ
       downLevel: 3.7
   };
 
-
   var mapObj, marker;
   var waterQualityMarkerArr;
   var waterQualityCurrentArr;
@@ -65,7 +63,6 @@ export default ($scope, qService, kpiRes, $state, dateService, $rootScope, hServ
   var wasteWaterMarkerCurrentAllArr;
   var wasteWaterMarkerArrAll;
   var wasteWaterCurrentTimeList;
-
 
   //水质量 highcharts options
   $scope.waterQualityOptions = {
@@ -834,7 +831,7 @@ export default ($scope, qService, kpiRes, $state, dateService, $rootScope, hServ
       }
   };
 
-  //废水排放 highcharts options
+    //废水排放 highcharts options
   $scope.wasteWaterOptions = {
       wasteWaterCurrentOption: {
           options: {
@@ -868,21 +865,18 @@ export default ($scope, qService, kpiRes, $state, dateService, $rootScope, hServ
       }
   };
 
-
-  //首页表格显示状态
+    //首页表格显示状态
   $scope.mapTableStatus = {
       waterQuality: true,
       waterCondition: false,
       wasteWater: false
   };
 
-
   /**
    * 函数区
    *
    */
-
-  //水质量 http请求后处理过程（即http.success(function(data))中的function)
+   //水质量 http请求后处理过程（即http.success(function(data))中的function)
   var waterQualityCurrentSuccess = function(data) {
 
       if (data.data.length == 0) return null;
@@ -1264,7 +1258,7 @@ export default ($scope, qService, kpiRes, $state, dateService, $rootScope, hServ
       }
   };
 
-  //废水排放 http请求后处理过程（即http.success(function(data))中的function)
+    //废水排放 http请求后处理过程（即http.success(function(data))中的function)
   var wasteWaterCurrentSuccess = function(data) {
       if (data.data.length == 0) return null;
       wasteWaterCurrentArr = wasteWaterCurrentFilter(data);
@@ -1825,7 +1819,7 @@ export default ($scope, qService, kpiRes, $state, dateService, $rootScope, hServ
       return countResult;
   };
 
-  //button状态改变标签
+    //button状态改变标签
   $scope.getButtonStatus = function(status) {
       if (status == 'accept')
           return "btn-success";
@@ -1867,7 +1861,7 @@ export default ($scope, qService, kpiRes, $state, dateService, $rootScope, hServ
       });
   };
 
-  //高德地图加点
+    //高德地图加点
   function addMarker(markerArr, type) {
       for (var i = 0; i < markerArr.length; i++) {
           var p0 = markerArr[i].point.split("|")[0];
@@ -2042,10 +2036,10 @@ export default ($scope, qService, kpiRes, $state, dateService, $rootScope, hServ
 
 
   var getCurrentDate = function(databaseDate) {
-      var year = moment(dateService.get_system_time()).get('year');
-      var month = moment(dateService.get_system_time()).get('month') + 1;
-      var day = moment(dateService.get_system_time()).get('date');
-      var hour = moment(dateService.get_system_time()).get('hour');
+      var year = moment(dateService.getSystemTime()).get('year');
+      var month = moment(dateService.getSystemTime()).get('month') + 1;
+      var day = moment(dateService.getSystemTime()).get('date');
+      var hour = moment(dateService.getSystemTime()).get('hour');
       var systemDate = moment(year + '-' + month + '-' + day + ' ' + hour + ':00:00');
       if (moment(databaseDate).toDate() < moment(systemDate).toDate())
           return moment(databaseDate).toDate().getTime();
@@ -2055,9 +2049,9 @@ export default ($scope, qService, kpiRes, $state, dateService, $rootScope, hServ
   };
 
   var getCurrentDateForDayData = function(databaseDate) {
-      var year = moment(dateService.get_system_time()).get('year');
-      var month = moment(dateService.get_system_time()).get('month') + 1;
-      var day = moment(dateService.get_system_time()).subtract(1,'days').get('date');
+      var year = moment(dateService.getSystemTime()).get('year');
+      var month = moment(dateService.getSystemTime()).get('month') + 1;
+      var day = moment(dateService.getSystemTime()).subtract(1,'days').get('date');
       var systemDate = moment(year + '-' + month + '-' + day + ' ' + '00:00:00');
       if (moment(databaseDate).toDate() < moment(systemDate).toDate())
           return moment(databaseDate).toDate().getTime();
@@ -2070,21 +2064,19 @@ export default ($scope, qService, kpiRes, $state, dateService, $rootScope, hServ
       return moment(date).subtract(hours, 'hours').toDate().getTime();
   };
 
-  //alert(moment(getCurrentDate()).toDate().getTime());
-
   /*
   /**
   * 页面初始化区
   * 有些图表的数据是在网页刷新时就请求到的
   */
 
-  //水质量 当天数据模块 初始化
-  kpiWaterService.getLastestObject('WaterQuality', ['date'], function(data) {
+  // 水质量 当天数据模块 初始化
+  kpiDetailService.getLastestObject('WaterQuality', ['date'], function(data) {
       var date = data.data.date;
       var datebaseLastestDate = moment(date).subtract(1, 'hours');
       var startTime = getSubstractDate(getCurrentDate(datebaseLastestDate), 23);
       var endTime = getCurrentDate(datebaseLastestDate);
-      kpiWaterService.advancedQuery('WaterQuality', {
+      kpiDetailService.advancedQuery('WaterQuality', {
           date: {
               value1: startTime,
               value2: endTime,
@@ -2115,12 +2107,12 @@ export default ($scope, qService, kpiRes, $state, dateService, $rootScope, hServ
   });
 
   //水情 当天数据模块 初始化
-  kpiWaterService.getLastestObject('WaterCondition', ['date'], function(data) {
+  kpiDetailService.getLastestObject('WaterCondition', ['date'], function(data) {
       var date = data.data.date;
       var datebaseLastestDate = moment(date).subtract(1, 'hours');
       var startTime = getSubstractDate(getCurrentDate(datebaseLastestDate), 11);
       var endTime = getCurrentDate(datebaseLastestDate);
-      kpiWaterService.advancedQuery('WaterCondition', {
+      kpiDetailService.advancedQuery('WaterCondition', {
           date: {
               value1: startTime,
               value2: endTime,
@@ -2145,15 +2137,13 @@ export default ($scope, qService, kpiRes, $state, dateService, $rootScope, hServ
       $scope.waterConditionCurrentDateTime = waterConditionLastDate;
   });
 
-
-
   //废水排放 当天数据模块 初始化
-  kpiWaterService.getLastestObject('WaterPollution', ['date'], function(data) {
+  kpiDetailService.getLastestObject('WaterPollution', ['date'], function(data) {
       var date = data.data.date;
       var datebaseLastestDate = moment(date);
       var startTime = getSubstractDate(getCurrentDateForDayData(datebaseLastestDate), 24 * 5);
       var endTime = getCurrentDateForDayData(datebaseLastestDate);
-      kpiWaterService.advancedQuery('WaterPollution', {
+      kpiDetailService.advancedQuery('WaterPollution', {
           date: {
               value1: startTime,
               value2: endTime,
@@ -2178,6 +2168,4 @@ export default ($scope, qService, kpiRes, $state, dateService, $rootScope, hServ
       $scope.wasteWaterCurrentDateTime = wasteWaterLastDate;
   });
 
-
 };
-
