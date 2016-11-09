@@ -242,6 +242,9 @@ export default (dateService, unitService) => {
 			}
 			// 3. 返回配置对象
 			return {
+				"name": kpiData.name,
+				"departmentName": kpiData.department.name,
+				"categoryname": kpiData.tag,
 				"shortBtnText": shortBtnText,
 				"longBtnText": longBtnText,
 				"startShortStr": startShortStr,
@@ -274,8 +277,7 @@ export default (dateService, unitService) => {
 					enabled:false,
 				},
 				title: {
-					text: data.data.name,
-					style: {"fontSize": "15.5px" }
+					text: '',
 				},
 				xAxis: {
 					categories: xdata,

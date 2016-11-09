@@ -16,6 +16,8 @@ import dService from './services/d-service';
 import hService from './services/h-service';
 import unitService from './services/unit-service';
 import dateService from './services/date-service';
+import dateWaterService from './services/dateWaterService';
+import kpiWaterService from './services/kpiWaterService';
 import AuthTool  from './services/auth-tool';
 import generalService from './services/generalService';
 import dictService from './services/dictService';
@@ -29,6 +31,7 @@ import dictFactory from './resources/dictFactory';
 
 // factories
 import lFactory from './factories/l-factory';
+import dataWaterFactory from './factories/dataWaterFactory';
 
 // directive
 import headerDirect from './common/header/headerDirect';
@@ -150,6 +153,8 @@ angular.module('soraka',
   .service('dateService',dateService)
   .service('generalService',generalService)
   .service('dictService',dictService)
+  .service('dateWaterService',dateWaterService)
+  .service('kpiWaterService',kpiWaterService)
   .service('unitService',unitService)
 
 
@@ -160,6 +165,7 @@ angular.module('soraka',
   .factory('dataDetailFactory',dataDetailFactory)
   .factory('dictFactory',dictFactory)
   .factory('lFactory',lFactory)
+  .factory('dataWaterFactory',dataWaterFactory)
 
 
   // directive 初始化

@@ -76,5 +76,6 @@ export default($scope, $rootScope, $stateParams, qService, dService, kpiRes, dat
 		    });		
 		}
 		$scope.shortShow();
+		$('#showshort').focus();
 	}
 };
