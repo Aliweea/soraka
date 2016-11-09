@@ -1,24 +1,54 @@
 <div ui-state="activeTab" default="1">
   <ul class="nav nav-tabs">
     <li ui-class="{'active': activeTab == 1}">
-      <a ui-set="{'activeTab': 1}">财政</a>
+      <a ui-set="{'activeTab': 1}">数据详情</a>
     </li>
     <li ui-class="{'active': activeTab == 2}">
-      <a ui-set="{'activeTab': 2}">税收</a>
+      <a ui-set="{'activeTab': 2}">数据走势</a>
     </li>
    
   </ul>
 
   <div ui-if="activeTab == 1">
     <h3 class="page-header">{{kpiText}}KPI详情</h3>
-     
+    <li>数据名称:  财政和税收收支情况</li>
+    <li>时间:  {{datayear}}年{{datamonth}}月</li>
+    <div class="table-responsive" style="padding:5px">
+      <table class="table">
+        <tr>
+          <td class="info" style="text-align: center;">统计项目</td>
+          <td class="info" style="text-align: center;">统计值(万元)</td>
+          <td class="info" style="text-align: center;">比上年同期增长(%)</td>
+        </tr>
+         <tr>
+          <td class="active" style="text-align: center;">财政本年累计收入</td>
+          <td class="active" style="text-align: center;">{{financeIn}}</td>
+          <td class="active" style="text-align: center;">{{financeRate}}</td>
+        </tr>
+         <tr>
+          <td class="active" style="text-align: center;">财政本年累计支出</td>
+          <td class="active" style="text-align: center;">{{financeOut}}</td>
+          <td class="active" style="text-align: center;">{{financeOutRate}}</td>
+        </tr>
+        <tr>
+          <td class="active" style="text-align: center;">税收本年累计收入</td>
+          <td class="active" style="text-align: center;">{{taxAccmAmount}}</td>
+          <td class="active" style="text-align: center;">{{taxAccmRate}}</td>
+        </tr>
+      </table>
+</div>
+
   </div>
 
   <div ui-if="activeTab == 2">
-  <div class="scrollable">
-    <h3 class="page-header">全年{{kpiText}}KPI详情</h3>
+  <div class="scrollable"style="margin-top: 100px;height: 500px">
+  <div class="scrollable-content" >
+     <h3 class="page-header">全年{{kpiText}}KPI详情</h3>
     <highchart config="secondchart"  id="secondchart"></highchart>
     <highchart config="firstchart"  id="firstchart"></highchart>
+    <highchart config="taxChart" id="taxChart"></highchart>
+  </div>
+ 
   </div>
     
   </div>
@@ -31,32 +61,10 @@
     <a type="button" class="btn btn-default" ui-sref="app.economy.gdp">返回上页</a>
   </div>
   <div class="btn-group">
-    <a type="button" class="btn btn-default" ui-turn-on="modal2">解读数据</a>
+    <a type="button" class="btn btn-default" ui-turn-on="modal2"></a>
   </div>
   <div class="btn-group">
-    <a type="button" class="btn btn-default" ui-turn-off="modal2">查看详情</a>
+    <a type="button" class="btn btn-default" ui-turn-off="modal2"></a>
   </div>
 </div>
   </div>
-
-  <div ui-content-for="modals"  >
-  <div class="modal modal-overlay" ui-if='modal2' ui-state='modal2' style="z-index: 1000000">
-    <div class="modal-dialog"style="width: 100%;margin:0;opacity: 0.8" id="modal">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button class="close"
-                  ui-turn-off="modal2">&times;</button>
-          <h4 class="modal-title">GDP KPI数据解读</h4>
-        </div>
-        <div class="modal-body">
-          <p>{{evaluatetime}}月,太仓市{{evaluatename}}为{{evaluatevalue | economyFilter}}{{(evaluatevalue<=1)?'%':'亿元'}}</p>
-          <p>KPI状态为{{(evaluatevalue < evaluatetarget)?"低于目标值":"高于目标值"}}</p>
-        </div>
-        <div class="modal-footer">
-          <button ui-turn-off="modal2" class="btn btn-primary">Close</button>
-          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>

@@ -1,0 +1,149 @@
+<div ui-state="activeTab" default="1">
+  <ul class="nav nav-tabs">
+    <li ui-class="{'active': activeTab == 1}">
+      <a ui-set="{'activeTab': 1}">数据详情</a>
+    </li>
+    <li ui-class="{'active': activeTab == 2}">
+      <a ui-set="{'activeTab': 2}">数据走势</a>
+    </li>
+   
+  </ul>
+
+  <div ui-if="activeTab == 1">
+  <div class="scrollable"style="margin-top: 100px;height: 500px">
+  <div class="scrollable-content" >
+    <h3 class="page-header">{{kpiText}}KPI详情</h3>
+    <li>数据名称:全社会固定资产投资</li>
+    <li>时间: {{gi.year}} 年 {{gi.month}} 月 </li>
+    <span ng-show="false">{{gi = dataMap.InvestData.lastestObject}}</span>
+    <div class="table-responsive" style="padding:5px">
+      <table class="table">
+        <tr>
+          <td class="info" style="text-align: center;">统计项目</td>
+          <td class="info" style="text-align: center;">统计值</td>
+        </tr>
+         <tr>
+          <td class="active" style="text-align: center;">年累计值</td>
+          <td class="active" style="text-align: center;">{{gi.gaccmAmount}}万元</td>
+        </tr>
+         <tr>
+          <td class="active" style="text-align: center;">上年同期值</td>
+          <td class="active" style="text-align: center;">{{gi.glastAccmAmount}}万元</td>
+        </tr>
+         <tr>
+          <td class="active" style="text-align: center;">同比增长</td>
+          <td class="active" style="text-align: center;">{{gi.glastAccmRate| number:2}}％</td>
+        </tr>
+        <tr>
+          <td class="active" style="text-align: center;">本年度目标</td>
+          <td class="active" style="text-align: center;">{{gi.gyearTarget}}万元</td>
+        </tr>
+        <tr>
+          <td class="active" style="text-align: center;">目标完成率</td>
+          <td class="active" style="text-align: center;">{{gi.gyearCompleteRate | number:2}}％</td>
+        </tr>
+      </table>
+    </div>
+    <li>数据名称:主要分类固定资产投资</li>
+    <li>时间:{{gi.year}}年{{gi.month}}月</li>
+    <span ng-show="false">{{gi = dataMap.InvestData.lastestObject}}</span>
+    <div class="table-responsive" style="padding:5px">
+      <table class="table">
+        <tr>
+          <td class="info" style="text-align: center;">统计项目</td>
+          <td class="info" style="text-align: center;">统计值</td>
+          <td class="info" style="text-align: center;">同比增长</td>
+        </tr>
+         <tr>
+          <td class="active" style="text-align: center;">本月工业投资</td>
+          <td class="active" style="text-align: center;">{{gi.giaccmAmount}}万元</td>
+          <td class="active" style="text-align: center;">{{gi.gilastAccmRate | number:2}}%</td>
+        </tr>
+         <tr>
+          <td class="active" style="text-align: center;">本月服务业投资</td>
+          <td class="active" style="text-align: center;">{{gi.gsaccmAmount}}万元</td>
+          <td class="active" style="text-align: center;">{{gi.gslastAccmRate | number:2}}%</td>
+        </tr>
+         <tr>
+          <td class="active" style="text-align: center;">本月房地产投资</td>
+          <td class="active" style="text-align: center;">{{gi.gfaccmAmount}}万元</td>
+          <td class="active" style="text-align: center;">{{gi.gflastAccmRate | number:2}}%</td>
+        </tr>
+         
+      </table>
+    </div>
+     <li>数据名称:引进外资(累计值)</li>
+     <li>时间: {{ci.year}} 年 {{ci.month}} 月</li>
+    <span ng-show="false">{{ci = dataMap.ImportData.lastestObject}}</span>
+    <div class="table-responsive" style="padding:5px">
+      <table class="table">
+        <tr>
+          <td class="info" style="text-align: center;">统计项目</td>
+          <td class="info" style="text-align: center;">统计值</td>
+          <td class="info" style="text-align: center;">同比增长</td>
+        </tr>
+         <tr>
+          <td class="active" style="text-align: center;">注册外资</td>
+          <td class="active" style="text-align: center;">{{ci.rAccm}}万美元</td>
+          <td class="active" style="text-align: center;">{{ci.rAccmRate | number:2}}%</td>
+        </tr>
+         <tr>
+          <td class="active" style="text-align: center;">实际利用外资</td>
+          <td class="active" style="text-align: center;">{{ci.uAccm}}万美元</td>
+          <td class="active" style="text-align: center;">{{ci.uAccmRate | number:2}}%</td>
+        </tr>
+      </table>
+    </div>
+     <li>数据名称:引进内资(累计值)</li>
+     <li>时间: {{ci.year}} 年 {{ci.month}} 月</li>
+    <span ng-show="false">{{ci = dataMap.ImportData.lastestObject}}</span>
+    <div class="table-responsive" style="padding:5px">
+      <table class="table">
+        <tr>
+          <td class="info" style="text-align: center;">统计项目</td>
+          <td class="info" style="text-align: center;">统计值</td>
+        </tr>
+         <tr>
+          <td class="active" style="text-align: center;">新增注册资金</td>
+          <td class="active" style="text-align: center;">{{ci.addFund}} 万元</td>
+        </tr>
+         <tr>
+          <td class="active" style="text-align: center;">到账资金</td>
+          <td class="active" style="text-align: center;">{{ci.inFund}}万元</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+   </div>
+ 
+  </div>
+
+  <div ui-if="activeTab == 2">
+  <div class="scrollable"style="margin-top: 100px;height: 500px">
+  <div class="scrollable-content" >
+     <h3 class="page-header">全年{{kpiText}}KPI详情</h3>
+    <highchart config="InvestValueChart"  id="InvestValueChart"></highchart>
+    <highchart config="ClassInvestValueChart"  id="ClassInvestValueChart"></highchart>
+    <highchart config="CapitalValueChart" id="CapitalValueChart"></highchart>
+    <highchart config="ImportCapitalValueChart" id="ImportCapitalValueChart"></highchart>
+  </div>
+ 
+  </div>
+    
+  </div>
+
+  
+</div>
+<div class="navbar navbar-app navbar-absolute-bottom">
+   <div class="btn-group btn-group-justified">
+  <div class="btn-group">
+    <a type="button" class="btn btn-default" ui-sref="app.economy.gdp">返回上页</a>
+  </div>
+  <div class="btn-group">
+    <a type="button" class="btn btn-default" ui-turn-on="modal2"></a>
+  </div>
+  <div class="btn-group">
+    <a type="button" class="btn btn-default" ui-turn-off="modal2"></a>
+  </div>
+</div>
+  </div>

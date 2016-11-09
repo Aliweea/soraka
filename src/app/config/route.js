@@ -301,6 +301,25 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       templateUrl:'app/in/Economy/EconomyThird/thirdfinance/thirdfinance.html',
       controller:'thirdfinancecontroller'
      })
+     .state('app.thirddetail.thirdinvest',{
+      url:'/economy/third/invest',
+      templateUrl:'app/in/Economy/EconomyThird/thirdinvest/thirdinvest.html',
+      controller:'thirdinvestcontroller'
+     })
+     .state('app.thirddetail.thirdindustry',{
+      url:'/economy/third/industry',
+      templateUrl:'app/in/Economy/EconomyThird/thirdindustry/thirdindustry.html',
+      controller:'thirdindustrycontroller'
+     })
+     .state('app.thirddetail.thirdfisical',{
+      url:'/economy/third/fisical',
+      templateUrl:'app/in/Economy/EconomyThird/thirdfisical/thirdfisical.html',
+      controller:'thirdfisicalcontroller'
+     })
+     .state('app.thirddetail.select',{
+      url:'/economy/third/select',
+      templateUrl:'app/in/Economy/EconomyThird/select.html'
+     })
     // 环境
     .state('app.environment',{
       abstract:true,

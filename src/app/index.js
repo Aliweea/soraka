@@ -80,6 +80,9 @@ import investmentDetailCtrl from './in/Economy/investmentDetail/investmentDetail
 import industryDetailCtrl from './in/Economy/industryDetail/industryDetailCtrl';
 import thirdgdpcontroller from './in/Economy/EconomyThird/thirdgdpcontroller.js';
 import thirdfinancecontroller from './in/Economy/EconomyThird/thirdfinance/thirdfinance.js';
+import thirdinvestcontroller from './in/Economy/EconomyThird/thirdinvest/thirdinvest.js';
+import thirdindustrycontroller from './in/Economy/EconomyThird/thirdindustry/thirdindustry.js';
+import thirdfisicalcontroller from './in/Economy/EconomyThird/thirdfisical/thirdfisical.js';
 //环境模块Controller
 import EnvironmentCtrl from './in/Environment/EnvironmentCtrl.js';
 import waterCtrl from './in/Environment/one/water/waterCtrl.js';
@@ -210,7 +213,9 @@ angular.module('soraka',
   .controller('industryDetailCtrl',industryDetailCtrl)
   .controller('thirdgdpcontroller',thirdgdpcontroller)
   .controller('thirdfinancecontroller',thirdfinancecontroller)
-
+  .controller('thirdinvestcontroller',thirdinvestcontroller)
+  .controller('thirdindustrycontroller',thirdindustrycontroller)
+  .controller('thirdfisicalcontroller',thirdfisicalcontroller)
   // 环境controllers
   .controller('EnvironmentCtrl',EnvironmentCtrl)
   .controller('waterCtrl',waterCtrl)
