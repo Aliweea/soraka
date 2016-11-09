@@ -1,4 +1,4 @@
-export default ($scope, qService, kpiRes, $state, dateService, $rootScope, hService, kpiDetailService) => {
+export default ($scope, kpiDetailService, dateService) => {
   'ngInject';
 
   /**
