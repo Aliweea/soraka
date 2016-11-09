@@ -1,3 +1,21 @@
-<input type="button" name="short" value="{{config.shortBtnText}}" ng-click="shortShow()">
-<input type="button" name="long" value="{{config.longBtnText}}" ng-click="longShow()">
-<highchart config="cmChart"  id="cmChart"></highchart>
+<div class="soraka-d-module">
+	<div class="title-area">
+		<span>{{config.name}}KPI详情</span>
+	</div>
+	<div class="dash-area">
+		<div class="table-area">
+			<div class="table-column first">
+				<span class="table-from-label">民生</span><span class="table-from-value">{{config.departmentName}}</span>
+			</div>
+			<div class="table-column two">{{config.periodDateStr}}</div>
+			<div class="table-column">每{{config.xName}}更新</div>
+		</div>
+		<div class="button-area">
+			<input type="button" id="showshort" name="short" value="{{config.shortBtnText}}" ng-click="shortShow()">
+			<input type="button" id="showlong" value="{{config.longBtnText}}" ng-click="longShow()">
+		</div>
+	</div>
+	<div class="chart-area">
+		<highchart config="cmChart" id="cmChart"></highchart>
+	</div>
+</div>

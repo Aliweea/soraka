@@ -277,8 +277,7 @@ export default (dateService, unitService) => {
 					enabled:false,
 				},
 				title: {
-					text: data.data.name,
-					style: {"fontSize": "15.5px" }
+					text: '',
 				},
 				xAxis: {
 					categories: xdata,
