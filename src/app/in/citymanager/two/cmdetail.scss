@@ -1,0 +1,62 @@
+.soraka-d-module {
+	
+	.title-area {
+		padding-top: 0.5em;
+		text-align: center;
+		font-size: 18px;
+	}
+	.dash-area {
+		.table-area {
+			font-size: 10px;
+			.table-column {
+				display: inline-block;
+				margin-top: 1em;
+				width: 25%;
+				text-align: center;
+				.table-from-label {
+					display: inline-block;
+					text-align: center;
+					width: 5em;
+					height: 1.6em;
+					color: #eee;
+					background-color:  #008AFF;
+					border-radius: 3px;
+					padding-top: 0.2em;
+					margin-right: 5px;
+				}
+				.table-from-value {
+					display: inline-block;
+				}
+			}
+			.first {
+				width: 40%;
+			}
+			.two {
+				width: 30%;	
+			}
+		}
+		.button-area {
+			margin-top: 10px;
+			border-top: 1px solid $cborder;
+			border-bottom: 1px solid $cborder;
+			background-color: #fff;
+			input {
+				margin: 0 0;
+				width: 49%;
+				line-height: 3em;
+				background-color: #fff;
+				outline: none;
+				border: none;
+				&:hover,&:active,&:focus {
+					background: radial-gradient(50% 2.5em, #eff, #eff, #fff);
+				}
+			}
+			#showshort {
+				border-right: 1px solid rgb(234, 234, 234);
+			} 
+		}
+	}
+	.chart-area {
+		border-bottom: 1px solid $cborder;
+	}
+}

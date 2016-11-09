@@ -9,7 +9,8 @@ export default($scope, $rootScope, $stateParams, qService, dService, kpiRes, dat
 	let headers = {
 		"X-Auth-Token":token
 	};
-
+    
+    $scope.hop=kpiId;
 	/**
 	* 模块执行入口
 	* 根据数据的时间粒度设置当前kpi界面的前置数据
@@ -72,5 +73,6 @@ export default($scope, $rootScope, $stateParams, qService, dService, kpiRes, dat
 		    });		
 		}
 		$scope.shortShow();
+		$('#showshort').focus();
 	}
 };
