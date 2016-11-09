@@ -43,6 +43,7 @@ import populationFilter from './filter/PopulationFilter';
 import energyFilter from './filter/Environment/EnergyFilter';
 import landFilter from './filter/Environment/LandFilter';
 import environmentThreeFilter from './filter/Environment/EnvironmentThreeFilter';
+import publicsecuritythreeFilter from './filter/publicsecurity/publicsecuritythreeFilter';
 import publicsecuritydetailFilter from './filter/publicsecurity/publicsecuritydetailFilter';
 import kpiUnitFilter from './filter/publicsecurity/kpiUnitFilter';
 import applyDateFilter from './filter/applyDateFilter';
@@ -106,6 +107,7 @@ import safetyCtrl from './in/publicsecurity/one/safety/safetyCtrl.js';
 import accidentCtrl from './in/publicsecurity/one/accident/accidentCtrl.js';
 import publicsecurityCtrl from './in/publicsecurity/publicsecurityCtrl'
 import publicsecuritydetailCtrl from './in/publicsecurity/two/publicsecuritydetailCtrl.js';
+import policethreeCtrl from './in/publicsecurity/three/police/policethreeCtrl.js';
 // 城市管理模块Controller
 import cmCtrl from './in/citymanager/cmCtrl.js';
 import refuseCtrl from './in/citymanager/one/refuse/refuseCtrl.js';
@@ -173,6 +175,7 @@ angular.module('soraka',
   .filter('energyFilter',energyFilter)
   .filter('landFilter',landFilter)
   .filter('environmentThreeFilter',environmentThreeFilter)
+  .filter('publicsecuritythreeFilter',publicsecuritythreeFilter)
   .filter('publicsecuritydetailFilter',publicsecuritydetailFilter)
   .filter('kpiUnitFilter',kpiUnitFilter)
   .filter('applyDateFilter',applyDateFilter)
@@ -237,6 +240,7 @@ angular.module('soraka',
   .controller('petitionCtrl', petitionCtrl)
   .controller('safetyCtrl', safetyCtrl)
   .controller('publicsecuritydetailCtrl',publicsecuritydetailCtrl)
+  .controller('policethreeCtrl',policethreeCtrl)
 
   // 公共事业controllers
   .controller('publicServiceCtrl', publicServiceCtrl)
