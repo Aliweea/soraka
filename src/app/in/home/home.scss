@@ -1,50 +1,78 @@
+@mixin mid() {
+	margin-top: 30px;
+	i {
+		display: block;
+		font-size: 30px;
+		margin-bottom: 5px;
+	}
+	span {
+		font-size: 13px;
+	}
+}
 .home-module {
-	background-color: $bgLightGrey;
+	@keyframes damnbg {
+		// from {background-position: center left;}
+		// to {background-position: center right;}
+	}
+	background-image: url("/assets/images/home.jpg");
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: 170%;
 	height: 100%;
-	// override
 	.list-group {
-		height: 100%;
-		margin: 0;
-	}
-	.list-group-item-home {
-		background-color: $bgLightGrey;
-		padding: 10px 6% 10px 6%;
-		border: none;
-		margin-bottom: -1px;
-	}
-	.feature-icon {
-		font-size: 44px;
 		padding: 0;
-		line-height: 68px;
-		width: 72px;
-		text-align: center;
-		opacity: .8;
-		border: 3px solid;
-		border-radius: 200px;
-		height: 72px;
-		margin-bottom: 20px;
-	}
-	.soraka-home-list-group-item {
-		width: 49%;
-		height: 100%;
-		display: inline-block;
-		.home-module-imgdiv {
-			height: 80%;
-			img {
-				height: 80%;
-				width: height;
+		margin: 0;
+		.list-group-item {
+			padding: 0;
+			margin: 0;
+			border: none;
+			color: #fff;
+			background-color: rgba(64,64,64,0.3);
+			a {
+				// 覆盖掉a标签默认的样式
+				color: #eee;
+				.item {
+					font-size: 15px;
+					margin-top: 3px;
+					margin-bottom: 3px;
+					display: inline-block;
+					width: 32%;
+					height: 120px;
+					background-color: rgba(0,0,0,0.5);
+					.mid {
+						@include mid();
+					}
+				}
+			}
+			a:hover, a:focus, a:active {
+				// 覆盖掉a标签默认的样式
+				color: #eee;
+				.item {
+					font-size: 15px;
+					margin-top: 5px;
+					display: inline-block;
+					width: 32%;
+					height: 120px;
+					background-color: rgba(0,0,0,0.9);
+					.mid {
+						@include mid();
+					}
+				}
 			}
 		}
-		.home-module-h3div {
-			height: 20%;
-			h3 {
-				font-size: 1.2em;
-				color: $fontBlack;
+		#list-group-middle {
+			background:transparent;
+			#home-title {
+				margin: 0 auto;
+				padding: 20px 0 15px 0;
+				font-size: 25px;
+				color: #333;
+			}
+			#home-subtitle {
+				margin: 0 auto;
+				font-size: 18px;
+				color: #333;
 			}
 		}
-	}
-	// override
-	.feature-icon.fa-gamepad {
-	  line-height: 60px;
 	}
 }

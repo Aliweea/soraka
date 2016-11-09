@@ -30,7 +30,7 @@
 			margin-top: 13px;
 			font-size: 17px;
 			margin-right: 0.5em;
-			color: $standardWhite;
+			color: #fff;
 		}
 	}
 	.soraka-menu-navbar-bottom {
@@ -43,6 +43,14 @@
 			i {
 				margin-right: 0.5em;
 			}
+		}
+		#footlabel {
+			display: block;
+			margin: 10px auto 0 auto;
+			font-size: 10px;
+			font-weight: 100;
+			color: #eee;
+			text-align: center;
 		}
 	}
 }
