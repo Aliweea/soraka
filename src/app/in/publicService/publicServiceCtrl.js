@@ -17,6 +17,6 @@ export default($scope, $state, hService) => {
 			"categoryId": categoryId,
 			"state": state
 		};
-		$state.go("app.publicsecurity.bystate",paramObj);
+		$state.go("app.publicService.bystate",paramObj);
 	}
 };

@@ -19,6 +19,7 @@ export default($scope, $stateParams, qService, kpiRes, dateService, hService, $s
 	qService.httpGet(kpiRes.categorykpi, params,headers).then((data) => {
         if (data.errorCode == "NO_ERROR") {
             let rawData = data.data.data;
+            $scope.deptname = rawData[0].department.name;
             let filtedData = [];
             for (var i = 0; i < rawData.length; i++) {
             	if (rawData[i].data.status == state) {

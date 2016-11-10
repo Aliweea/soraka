@@ -1,6 +1,6 @@
 export default($scope, $state, hService) => {
 	'ngInject';
-	$scope.title = "公共安全";
+	$scope.title = "民生";
 	// 上一级路由
 	$scope.toH = () => {
 		let h = hService.state();
@@ -17,6 +17,6 @@ export default($scope, $state, hService) => {
 			"categoryId": categoryId,
 			"state": state
 		};
-		$state.go("app.publicsecurity.bystate",paramObj);
+		$state.go("app.livehood.bystate",paramObj);
 	}
 };
