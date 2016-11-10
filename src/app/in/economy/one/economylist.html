@@ -1,5 +1,5 @@
 <div class="cm-refuse-module">
-	<div ng-repeat="data in cmRefuseData" ui-sref="app.cm.detail({kpiId:data.id})" class="cm-refuse-item">
+	<div ng-repeat="data in cmRefuseData" ui-sref="app.economy.detail({kpiId:data.id})" class="cm-refuse-item">
 		<div class="cm-refuse-top">
 			<span>{{data.name}}</span><i ng-class="data.data.status">{{data.data.status | kpiStatusTextFilter}}</i>
 		</div>

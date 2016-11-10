@@ -102,36 +102,30 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
      templateUrl:'app/in/economy/EconomyThird/select.html'
     })
     // 环境
-    .state('app.environment',{
-      abstract:true,
-      url:'/environment',
-      templateUrl:'app/in/Environment/Environment.html',
-      controller: 'EnvironmentCtrl'
+    .state('app.environment', {
+      abstract: true,
+      name: 'environment',
+      url: '/environment',
+      templateUrl: 'app/in/Environment/environment.html', 
+      controller: 'environmentCtrl'
     })
-    .state('app.environment.water',{
-      url:'/water',
-      templateUrl:'app/in/Environment/one/water/water.html',
-      controller:'waterCtrl'
+    .state('app.environment.environmentlist', {
+      url: '/environmentlist?categoryId',
+      name: 'environmentlist',
+      templateUrl: 'app/in/Environment/one/environmentlist.html',
+      controller: 'environmentlistCtrl'
     })
-    .state('app.environment.air',{
-      url:'/air',
-      templateUrl:'app/in/Environment/one/air/air.html',
-      controller:'airCtrl'
-    })
-    .state('app.environment.land',{
-      url:'/land',
-      templateUrl:'app/in/Environment/one/land/land.html',
-      controller:'landCtrl'
-    })
-    .state('app.environment.energy',{
-      url:'/energy',
-      templateUrl:'app/in/Environment/one/energy/energy.html',
-      controller:'energyCtrl'
+    .state('app.environment.bystate', {
+      url: '/bystate/?categoryId&state',
+      name: 'bystate',
+      templateUrl: 'app/in/Environment/one/bystate/bystate.html',
+      controller: 'environmentByStateCtrl'
     })
     .state('app.environment.detail', {
       url: '/detail?kpiId',
-      templateUrl: 'app/in/Environment/two/EnvironmentDetail.html',
-      controller: 'EnvironmentDetailCtrl'
+      name: 'environmentdetail',
+      templateUrl: 'app/in/Environment/two/environmentdetail.html',
+      controller: 'environmentdetailCtrl'
     })
     .state('app.environment.waterThree', {
       url: '/waterThree',
@@ -156,42 +150,30 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
 
 
     // 公共安全
-    .state('app.publicsecurity',{ 
+    .state('app.publicsecurity', {
       abstract: true,
-      url:'/publicsecurity',
-      controller: 'publicsecurityCtrl',
-      templateUrl:'app/in/publicsecurity/publicsecurityHome.html'
+      name: 'publicsecurity',
+      url: '/publicsecurity',
+      templateUrl: 'app/in/publicsecurity/publicsecurity.html', 
+      controller: 'publicsecurityCtrl'
     })
-    .state('app.publicsecurity.police',{ 
-      url:'/police',
-      templateUrl:'app/in/publicsecurity/one/police/police.html',
-      controller: 'policeCtrl'
+    .state('app.publicsecurity.publicsecuritylist', {
+      url: '/publicsecuritylist?categoryId',
+      name: 'publicsecuritylist',
+      templateUrl: 'app/in/publicsecurity/one/publicsecuritylist.html',
+      controller: 'publicsecuritylistCtrl'
     })
-    .state('app.publicsecurity.firecontrol',{ 
-      url:'/firecontrol',
-      templateUrl:'app/in/publicsecurity/one/firecontrol/firecontrol.html',
-      controller: 'firecontrolCtrl'
+    .state('app.publicsecurity.bystate', {
+      url: '/bystate/?categoryId&state',
+      name: 'bystate',
+      templateUrl: 'app/in/publicsecurity/one/bystate/bystate.html',
+      controller: 'publicsecurityByStateCtrl'
     })
-    .state('app.publicsecurity.petition',{ 
-      url:'/petition',
-      templateUrl:'app/in/publicsecurity/one/petition/petition.html',
-      controller: 'petitionCtrl'
-    })
-    .state('app.publicsecurity.accident',{ 
-      url:'/accident',
-      templateUrl:'app/in/publicsecurity/one/accident/accident.html',
-      controller: 'accidentCtrl'
-    })
-    .state('app.publicsecurity.safety',{ 
-      url:'/safety',
-      templateUrl:'app/in/publicsecurity/one/safety/safety.html',
-      controller: 'safetyCtrl'
-    })
-    //公共安全二级界面
-    .state('app.publicsecurity.detail',{        
-        url:'/detail?kpiId',
-        templateUrl:'app/in/publicsecurity/two/publicsecuritydetail.html',
-        controller: 'publicsecuritydetailCtrl'
+    .state('app.publicsecurity.detail', {
+      url: '/detail?kpiId',
+      name: 'publicsecuritydetail',
+      templateUrl: 'app/in/publicsecurity/two/publicsecuritydetail.html',
+      controller: 'publicsecuritydetailCtrl'
     })
     .state('app.publicsecurity.policethree', {
       url: '/policethree',

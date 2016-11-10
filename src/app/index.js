@@ -73,12 +73,10 @@ import thirdinvestcontroller from './in/economy/EconomyThird/thirdinvest/thirdin
 import thirdindustrycontroller from './in/economy/EconomyThird/thirdindustry/thirdindustry.js';
 import thirdfisicalcontroller from './in/economy/EconomyThird/thirdfisical/thirdfisical.js';
 //环境模块Controller
-import EnvironmentCtrl from './in/Environment/EnvironmentCtrl.js';
-import waterCtrl from './in/Environment/one/water/waterCtrl.js';
-import airCtrl from './in/Environment/one/air/airCtrl.js';
-import landCtrl from './in/Environment/one/land/landCtrl.js';
-import energyCtrl from './in/Environment/one/energy/energyCtrl.js';
-import EnvironmentDetailCtrl from './in/Environment/two/EnvironmentDetailCtrl.js';
+import environmentCtrl from './in/Environment/environmentCtrl.js';
+import environmentlistCtrl from './in/Environment/one/environmentlistCtrl.js';
+import environmentdetailCtrl from './in/Environment/two/environmentdetailCtrl.js';
+import environmentByStateCtrl from './in/Environment/one/bystate/bystateCtrl.js';
 import waterThreeCtrl from './in/Environment/three/water/waterThreeCtrl.js';
 import airThreeCtrl from './in/Environment/three/air/airThreeCtrl.js';
 import landThreeCtrl from './in/Environment/three/land/landThreeCtrl.js';
@@ -91,13 +89,10 @@ import insuranceCtrl from './in/livehood/one/insurance/insuranceCtrl.js';
 import priceCtrl from './in/livehood/one/price/priceCtrl.js';
 import lvdetailCtrl from './in/livehood/two/lvdetailCtrl.js';
 // 公共安全模块Controller
-import policeCtrl from './in/publicsecurity/one/police/policeCtrl.js';
-import firecontrolCtrl from './in/publicsecurity/one/firecontrol/firecontrolCtrl.js';
-import petitionCtrl from './in/publicsecurity/one/petition/petitionCtrl.js';
-import safetyCtrl from './in/publicsecurity/one/safety/safetyCtrl.js';
-import accidentCtrl from './in/publicsecurity/one/accident/accidentCtrl.js';
-import publicsecurityCtrl from './in/publicsecurity/publicsecurityCtrl'
+import publicsecurityCtrl from './in/publicsecurity/publicsecurityCtrl.js';
+import publicsecuritylistCtrl from './in/publicsecurity/one/publicsecuritylistCtrl.js';
 import publicsecuritydetailCtrl from './in/publicsecurity/two/publicsecuritydetailCtrl.js';
+import publicsecurityByStateCtrl from './in/publicsecurity/one/bystate/bystateCtrl.js';
 import policethreeCtrl from './in/publicsecurity/three/police/policethreeCtrl.js';
 import accidentthreeCtrl from './in/publicsecurity/three/accident/accidentthreeCtrl.js';
 import firethreeCtrl from './in/publicsecurity/three/fire/firethreeCtrl.js';
@@ -199,12 +194,10 @@ angular.module('soraka',
   .controller('thirdindustrycontroller',thirdindustrycontroller)
   .controller('thirdfisicalcontroller',thirdfisicalcontroller)
   // 环境controllers
-  .controller('EnvironmentCtrl',EnvironmentCtrl)
-  .controller('waterCtrl',waterCtrl)
-  .controller('airCtrl',airCtrl)
-  .controller('landCtrl',landCtrl)
-  .controller('energyCtrl',energyCtrl)
-  .controller('EnvironmentDetailCtrl',EnvironmentDetailCtrl)
+  .controller('environmentCtrl', environmentCtrl)
+  .controller('environmentlistCtrl', environmentlistCtrl)
+  .controller('environmentdetailCtrl', environmentdetailCtrl)
+  .controller('environmentByStateCtrl', environmentByStateCtrl)
   .controller('waterThreeCtrl',waterThreeCtrl)
   .controller('airThreeCtrl',airThreeCtrl)
   .controller('landThreeCtrl',landThreeCtrl)
@@ -218,12 +211,9 @@ angular.module('soraka',
   .controller('LivehoodHomeCtrl',LivehoodHomeCtrl)
   // 公共安全controllers
   .controller('publicsecurityCtrl', publicsecurityCtrl)
-  .controller('policeCtrl', policeCtrl)
-  .controller('firecontrolCtrl', firecontrolCtrl)
-  .controller('accidentCtrl', accidentCtrl)
-  .controller('petitionCtrl', petitionCtrl)
-  .controller('safetyCtrl', safetyCtrl)
-  .controller('publicsecuritydetailCtrl',publicsecuritydetailCtrl)
+  .controller('publicsecuritylistCtrl', publicsecuritylistCtrl)
+  .controller('publicsecuritydetailCtrl', publicsecuritydetailCtrl)
+  .controller('publicsecurityByStateCtrl', publicsecurityByStateCtrl)
   .controller('policethreeCtrl',policethreeCtrl)
   .controller('accidentthreeCtrl',accidentthreeCtrl)
   .controller('firethreeCtrl',firethreeCtrl)
