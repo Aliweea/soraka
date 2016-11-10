@@ -12,6 +12,10 @@ export default($scope, $rootScope, $stateParams, qService, dService, kpiRes, dat
 		"X-Auth-Token":token
 	};
 
+
+	//赵成冬加的
+	$scope.lv=kpiId;
+
 	/**
 	* 模块执行入口
 	* 根据数据的时间粒度设置当前kpi界面的前置数据
