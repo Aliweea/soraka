@@ -516,29 +516,17 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       templateUrl: 'app/in/citymanager/cm.html', 
       controller: 'cmCtrl'
     })
-    .state('app.cm.refuse', {
-      url: '/refuse',
-      name: 'refuse',
-      templateUrl: 'app/in/citymanager/one/refuse/refuse.html',
-      controller: 'refuseCtrl'
+    .state('app.cm.cmlist', {
+      url: '/cmlist?categoryId',
+      name: 'cmlist',
+      templateUrl: 'app/in/citymanager/one/cmlist.html',
+      controller: 'cmlistCtrl'
     })
-    .state('app.cm.punish', {
-      url: '/punish',
-      name: 'punish',
-      templateUrl: 'app/in/citymanager/one/punish/punish.html',
-      controller: 'punishCtrl'
-    })
-    .state('app.cm.fix', {
-      url: '/fix',
-      name: 'fix',
-      templateUrl: 'app/in/citymanager/one/fix/fix.html',
-      controller: 'fixCtrl'
-    })
-    .state('app.cm.icm', {
-      url: '/icm',
-      name: 'icm',
-      templateUrl: 'app/in/citymanager/one/icm/icm.html',
-      controller: 'icmCtrl'
+    .state('app.cm.bystate', {
+      url: '/bystate/?categoryId&state',
+      name: 'bystate',
+      templateUrl: 'app/in/citymanager/one/bystate/bystate.html',
+      controller: 'cmByStateCtrl'
     })
     .state('app.cm.detail', {
       url: '/detail?kpiId',

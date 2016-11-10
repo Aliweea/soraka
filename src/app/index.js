@@ -30,7 +30,6 @@ import dictFactory from './resources/dictFactory';
 
 // factories
 import lFactory from './factories/l-factory';
-
 // directive
 import headerDirect from './common/header/headerDirect';
 
@@ -118,11 +117,9 @@ import petitionthreeCtrl from './in/publicsecurity/three/petition/petitionthreeC
 import safetythreeCtrl from './in/publicsecurity/three/safety/safetythreeCtrl.js';
 // 城市管理模块Controller
 import cmCtrl from './in/citymanager/cmCtrl.js';
-import refuseCtrl from './in/citymanager/one/refuse/refuseCtrl.js';
-import punishCtrl from './in/citymanager/one/punish/punishCtrl.js';
-import fixCtrl from './in/citymanager/one/fix/fixCtrl.js';
-import icmCtrl from './in/citymanager/one/icm/icmCtrl.js';
+import cmlistCtrl from './in/citymanager/one/cmlistCtrl.js';
 import cmdetailCtrl from './in/citymanager/two/cmdetailCtrl.js';
+import cmByStateCtrl from './in/citymanager/one/bystate/bystateCtrl.js';
 // 公共事业Controller
 import publicServiceCtrl from './in/publicService/publicServiceHomeCtrl.js';
 import educationCtrl from './in/publicService/one/education/educationCtrl.js';
@@ -132,7 +129,7 @@ import trafficCtrl from './in/publicService/one/traffic/trafficCtrl.js';
 import publicServiceDetailCtrl from './in/publicService/two/publicServiceDetailCtrl.js';
 
 angular.module('soraka',
-  ['ngAnimate', 'ngCookies', 'ngSanitize', 'ui.router', 'ngResource', 'ngStorage', 'mobile-angular-ui','ui.bootstrap', 'highcharts-ng'])
+  ['ngAnimate', 'ngCookies', 'ngSanitize', 'ui.router', 'ngResource', 'ngStorage', 'mobile-angular-ui','ui.bootstrap', 'highcharts-ng', '720kb.datepicker'])
 
 
   // 配置全局常量
@@ -267,9 +264,7 @@ angular.module('soraka',
 
   // 城市管理controllers
   .controller('cmCtrl', cmCtrl)
-  .controller('refuseCtrl', refuseCtrl)
-  .controller('punishCtrl', punishCtrl)
-  .controller('fixCtrl', fixCtrl)
-  .controller('icmCtrl', icmCtrl)
+  .controller('cmlistCtrl', cmlistCtrl)
   .controller('cmdetailCtrl', cmdetailCtrl)
+  .controller('cmByStateCtrl', cmByStateCtrl)
   ;

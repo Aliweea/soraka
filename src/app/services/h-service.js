@@ -1,11 +1,16 @@
 // 记录ui-href跳转记录
 export default() => {
 	'ngInject';
-	let h = "app.in.home";
+	let h = {
+		"name": "app.in.home"
+	};
 	return {
 		state: (history = "") => {
 			if (history !== "") {
-				h = history;
+				h.name = history.current.name;
+				if (!$.isEmptyObject(history.params)) {
+					h.params = history.params;
+				}
 			}
 			return h;
 		}
