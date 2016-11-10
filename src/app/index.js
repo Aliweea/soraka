@@ -63,27 +63,15 @@ import homeCtrl from './in/home/homeCtrl';
 import meCtrl from './in/me/meCtrl';
 import datepickCtrl from './in/datepick/datepickCtrl';
 // 经济模块Controller
-import GDPCtrl from './in/Economy/GDP/GDPCtrl.js';
-import financeCtrl from './in/Economy/Finance/financeCtrl.js';
-import financialCtrl from './in/Economy/Financial/financial.js';
-import investmentCtrl from './in/Economy/investment/investmentCtrl.js';
-import industryCtrl from './in/Economy/industry/industryCtrl.js';
-import GDPDetailCtrl from './in/Economy/EconomyDetail/GDPDetail/GDPDetailCtrl';
-import FirstDetailCtrl from './in/Economy/EconomyDetail/FirstGDP/firstgdp';
-import FirstGDPIndexCtrl from './in/Economy/EconomyDetail/FirstGDP/firstgdpindex';
-import SecondDetailCtrl from './in/Economy/EconomyDetail/SecondGDP/secondgdp';
-import SecondDetailIndexCtrl from './in/Economy/EconomyDetail/SecondGDP/secondgdpindex';
-import ThirdDetailCtrl from './in/Economy/EconomyDetail/ThirdGDP/thirdgdp';
-import ThirdDetailIndexCtrl from './in/Economy/EconomyDetail/ThirdGDP/thirdgdpindex';
-import FinancedetailCtrl from './in/Economy/FinanceDetail/financein.js';
-import FinancialdetailCtrl from './in/Economy/FinancialDetail/financialDetail.js';
-import investmentDetailCtrl from './in/Economy/investmentDetail/investmentDetailCtrl.js';
-import industryDetailCtrl from './in/Economy/industryDetail/industryDetailCtrl';
-import thirdgdpcontroller from './in/Economy/EconomyThird/thirdgdpcontroller.js';
-import thirdfinancecontroller from './in/Economy/EconomyThird/thirdfinance/thirdfinance.js';
-import thirdinvestcontroller from './in/Economy/EconomyThird/thirdinvest/thirdinvest.js';
-import thirdindustrycontroller from './in/Economy/EconomyThird/thirdindustry/thirdindustry.js';
-import thirdfisicalcontroller from './in/Economy/EconomyThird/thirdfisical/thirdfisical.js';
+import economyCtrl from './in/economy/economyCtrl.js';
+import economylistCtrl from './in/economy/one/economylistCtrl.js';
+import economydetailCtrl from './in/economy/two/economydetailCtrl.js';
+import economyByStateCtrl from './in/economy/one/bystate/bystateCtrl.js';
+import thirdgdpcontroller from './in/economy/EconomyThird/thirdgdpcontroller.js';
+import thirdfinancecontroller from './in/economy/EconomyThird/thirdfinance/thirdfinance.js';
+import thirdinvestcontroller from './in/economy/EconomyThird/thirdinvest/thirdinvest.js';
+import thirdindustrycontroller from './in/economy/EconomyThird/thirdindustry/thirdindustry.js';
+import thirdfisicalcontroller from './in/economy/EconomyThird/thirdfisical/thirdfisical.js';
 //环境模块Controller
 import EnvironmentCtrl from './in/Environment/EnvironmentCtrl.js';
 import waterCtrl from './in/Environment/one/water/waterCtrl.js';
@@ -201,22 +189,10 @@ angular.module('soraka',
   .controller('meCtrl', meCtrl)
   .controller('datepickCtrl', datepickCtrl)
   // 经济controllers
-  .controller('GDPCtrl',GDPCtrl)
-  .controller('financeCtrl',financeCtrl)
-  .controller('financialCtrl',financialCtrl)
-  .controller('investmentCtrl',investmentCtrl)
-  .controller('industryCtrl',industryCtrl)
-  .controller('GDPDetailCtrl',GDPDetailCtrl)
-  .controller('FirstDetailCtrl',FirstDetailCtrl)
-  .controller('FirstGDPIndexCtrl',FirstGDPIndexCtrl)
-  .controller('SecondDetailCtrl',SecondDetailCtrl)
-  .controller('SecondDetailIndexCtrl',SecondDetailIndexCtrl)
-  .controller('ThirdDetailCtrl',ThirdDetailCtrl)
-  .controller('ThirdDetailIndexCtrl',ThirdDetailIndexCtrl)
-  .controller('FinancedetailCtrl',FinancedetailCtrl)
-  .controller('FinancialdetailCtrl',FinancialdetailCtrl)
-  .controller('investmentDetailCtrl',investmentDetailCtrl)
-  .controller('industryDetailCtrl',industryDetailCtrl)
+  .controller('economyCtrl', economyCtrl)
+  .controller('economylistCtrl', economylistCtrl)
+  .controller('economydetailCtrl', economydetailCtrl)
+  .controller('economyByStateCtrl', economyByStateCtrl)
   .controller('thirdgdpcontroller',thirdgdpcontroller)
   .controller('thirdfinancecontroller',thirdfinancecontroller)
   .controller('thirdinvestcontroller',thirdinvestcontroller)

@@ -1,19 +1,17 @@
 @mixin cmBox() {
 	width: 100%;
-	padding: 10px 0 10px 20px;
+	padding: 10px 0 10px 16px;
 }
 .cm-refuse-module {
-	padding: 15px;
+	padding: 12px;
 	.cm-refuse-item {
 		width: 100%;
-		
 		border: 1px solid $cborder;
 		border-radius: 4px;
 		background-color: #fff;
 		margin-bottom: 15px;
 		.cm-refuse-top {
 			@include cmBox();
-			
 			span {
 				display: inline-block;
 				color: $wordGray;
@@ -31,8 +29,9 @@
 		}
 		.cm-refuse-value {
 			@include cmBox();
-			height: 30px;
+			height: 28px;
 			font-size: 18px;
+			padding-top: 8px;
 			i {
 				margin-right: 0.5em;
 			}
@@ -42,26 +41,40 @@
 		}
 		.cm-refuse-bottom {
 			@include cmBox();
+			margin-top: 5px;
 			height: 40px;
 			color: $wordGray;
 			.cm-refuse-bottom-s1 {
 				display: inline-block;
 				text-align: center;
-				width: 3em;
-				height: 1.5em;
-				font-size: 0.6em;
+				width: 4em;
+				font-size: 10px;
 				color: #eee;
 				background-color:  #008AFF;
 				border-radius: 3px;
-				padding-top: 0.1em;
+				padding-top: 3px;
 			}
 			.cm-refuse-bottom-s2 {
 				margin-left: 1em;
 				display: inline-block;
+
 			}
 			.cm-refuse-bottom-s3 {
-				margin-left: 2em;
+				margin-left: 1.5em;
 				display: inline-block;
+			}
+			.cm-refuse-bottom-s4 {
+				display: inline-block;
+				float: right;
+				margin-right: 10px;
+				color: #008AFF;
+				span {
+					border-bottom: 1px dashed #008AFF;	
+				}
+				i {
+					margin-right: 2px;
+					color: $wordGray;
+				}
 			}
 		}
 	}
