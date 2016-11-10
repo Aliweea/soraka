@@ -30,7 +30,6 @@ import dictFactory from './resources/dictFactory';
 
 // factories
 import lFactory from './factories/l-factory';
-import scFactory from './factories/statecategory-factory';
 // directive
 import headerDirect from './common/header/headerDirect';
 
@@ -118,10 +117,7 @@ import petitionthreeCtrl from './in/publicsecurity/three/petition/petitionthreeC
 import safetythreeCtrl from './in/publicsecurity/three/safety/safetythreeCtrl.js';
 // 城市管理模块Controller
 import cmCtrl from './in/citymanager/cmCtrl.js';
-import refuseCtrl from './in/citymanager/one/refuse/refuseCtrl.js';
-import punishCtrl from './in/citymanager/one/punish/punishCtrl.js';
-import fixCtrl from './in/citymanager/one/fix/fixCtrl.js';
-import icmCtrl from './in/citymanager/one/icm/icmCtrl.js';
+import cmlistCtrl from './in/citymanager/one/cmlistCtrl.js';
 import cmdetailCtrl from './in/citymanager/two/cmdetailCtrl.js';
 import cmByStateCtrl from './in/citymanager/one/bystate/bystateCtrl.js';
 // 公共事业Controller
@@ -170,7 +166,6 @@ angular.module('soraka',
   .factory('dataDetailFactory',dataDetailFactory)
   .factory('dictFactory',dictFactory)
   .factory('lFactory',lFactory)
-  .factory('scFactory',scFactory)
 
 
   // directive 初始化
@@ -269,10 +264,7 @@ angular.module('soraka',
 
   // 城市管理controllers
   .controller('cmCtrl', cmCtrl)
-  .controller('refuseCtrl', refuseCtrl)
-  .controller('punishCtrl', punishCtrl)
-  .controller('fixCtrl', fixCtrl)
-  .controller('icmCtrl', icmCtrl)
+  .controller('cmlistCtrl', cmlistCtrl)
   .controller('cmdetailCtrl', cmdetailCtrl)
   .controller('cmByStateCtrl', cmByStateCtrl)
   ;
