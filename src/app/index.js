@@ -83,11 +83,10 @@ import landThreeCtrl from './in/Environment/three/land/landThreeCtrl.js';
 import energyThreeCtrl from './in/Environment/three/energy/energyThreeCtrl.js';
 
 // 民生模块Controller
-import LivehoodHomeCtrl from './in/livehood/one/LivehoodHomeCtrl.js';
-import populationCtrl from './in/livehood/one/population/populationCtrl.js';
-import insuranceCtrl from './in/livehood/one/insurance/insuranceCtrl.js';
-import priceCtrl from './in/livehood/one/price/priceCtrl.js';
-import lvdetailCtrl from './in/livehood/two/lvdetailCtrl.js';
+import livehoodCtrl from './in/livehood/livehoodCtrl.js';
+import livehoodlistCtrl from './in/livehood/one/livehoodlistCtrl.js';
+import livehooddetailCtrl from './in/livehood/two/livehooddetailCtrl.js';
+import livehoodByStateCtrl from './in/livehood/one/bystate/bystateCtrl.js';
 // 公共安全模块Controller
 import publicsecurityCtrl from './in/publicsecurity/publicsecurityCtrl.js';
 import publicsecuritylistCtrl from './in/publicsecurity/one/publicsecuritylistCtrl.js';
@@ -204,11 +203,10 @@ angular.module('soraka',
   .controller('energyThreeCtrl',energyThreeCtrl)
 
   // 民生controllers
-  .controller('populationCtrl',populationCtrl)
-  .controller('insuranceCtrl',insuranceCtrl)
-  .controller('priceCtrl',priceCtrl)
-  .controller('lvdetailCtrl',lvdetailCtrl)
-  .controller('LivehoodHomeCtrl',LivehoodHomeCtrl)
+  .controller('livehoodCtrl', livehoodCtrl)
+  .controller('livehoodlistCtrl', livehoodlistCtrl)
+  .controller('livehooddetailCtrl', livehooddetailCtrl)
+  .controller('livehoodByStateCtrl', livehoodByStateCtrl)
   // 公共安全controllers
   .controller('publicsecurityCtrl', publicsecurityCtrl)
   .controller('publicsecuritylistCtrl', publicsecuritylistCtrl)

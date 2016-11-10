@@ -202,35 +202,30 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
     })
 
     // 民生
-    .state('app.livehood',{
+    .state('app.livehood', {
       abstract: true,
-      url:'/livehood',
-      templateUrl:'app/in/livehood/one/LivehoodHome.html',
-      controller:'LivehoodHomeCtrl'
+      name: 'livehood',
+      url: '/livehood',
+      templateUrl: 'app/in/livehood/livehood.html', 
+      controller: 'livehoodCtrl'
     })
-    //民生之人口结构
-    .state('app.livehood.population',{
-      url:'/livehood/population',
-      templateUrl:'app/in/livehood/one/population/population.html',
-      controller:'populationCtrl'
+    .state('app.livehood.livehoodlist', {
+      url: '/livehoodlist?categoryId',
+      name: 'livehoodlist',
+      templateUrl: 'app/in/livehood/one/livehoodlist.html',
+      controller: 'livehoodlistCtrl'
     })
-      //民生之社会保险
-    .state('app.livehood.insurance',{
-      url:'/livehood/insurance',
-      templateUrl:'app/in/livehood/one/insurance/insurance.html',
-      controller:'insuranceCtrl'
+    .state('app.livehood.bystate', {
+      url: '/bystate/?categoryId&state',
+      name: 'bystate',
+      templateUrl: 'app/in/livehood/one/bystate/bystate.html',
+      controller: 'livehoodByStateCtrl'
     })
-      //民生之价格指数
-    .state('app.livehood.price',{
-      url:'/livehood/price',
-     templateUrl:'app/in/livehood/one/price/price.html',
-      controller:'priceCtrl'
-    })
-         //民生二级界面
-    .state('app.livehood.detail',{
-      url:'/lvdetail?kpiId',
-     templateUrl:'app/in/livehood/two/lvdetail.html',
-      controller:'lvdetailCtrl'
+    .state('app.livehood.detail', {
+      url: '/detail?kpiId',
+      name: 'livehooddetail',
+      templateUrl: 'app/in/livehood/two/livehooddetail.html',
+      controller: 'livehooddetailCtrl'
     })
 
     //公共事业
