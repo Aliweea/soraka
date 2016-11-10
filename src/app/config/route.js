@@ -233,38 +233,26 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       abstract: true,
       name: 'publicService',
       url: '/publicService',
-      templateUrl: 'app/in/publicService/publicServiceHome.html', 
+      templateUrl: 'app/in/publicService/publicService.html', 
       controller: 'publicServiceCtrl'
     })
-    .state('app.publicService.education', {
-      name: 'education',
-      url: '/education',
-      templateUrl: 'app/in/publicService/one/education/education.html', 
-      controller: 'educationCtrl'
+    .state('app.publicService.publicServicelist', {
+      url: '/publicServicelist?categoryId',
+      name: 'publicServicelist',
+      templateUrl: 'app/in/publicService/one/publicServicelist.html',
+      controller: 'publicServicelistCtrl'
     })
-    .state('app.publicService.healthCare', {
-      name: 'healthCare',
-      url: '/healthCare',
-      templateUrl: 'app/in/publicService/one/healthCare/healthCare.html', 
-      controller: 'healthCareCtrl'
-    })
-    .state('app.publicService.telecom', {
-      name: 'telecom',
-      url: '/telecom',
-      templateUrl: 'app/in/publicService/one/telecom/telecom.html', 
-      controller: 'telecomCtrl'
-    })
-    .state('app.publicService.traffic', {
-      name: 'traffic',
-      url: '/traffic',
-      templateUrl: 'app/in/publicService/one/traffic/traffic.html', 
-      controller: 'trafficCtrl'
+    .state('app.publicService.bystate', {
+      url: '/bystate/?categoryId&state',
+      name: 'bystate',
+      templateUrl: 'app/in/publicService/one/bystate/bystate.html',
+      controller: 'publicServiceByStateCtrl'
     })
     .state('app.publicService.detail', {
       url: '/detail?kpiId',
-      name: 'publicServiceDetail',
-      templateUrl: 'app/in/publicService/two/publicServiceDetail.html',
-      controller: 'publicServiceDetailCtrl'
+      name: 'publicServicedetail',
+      templateUrl: 'app/in/publicService/two/publicServicedetail.html',
+      controller: 'publicServicedetailCtrl'
     })
     
     // 城市管理
