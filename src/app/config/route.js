@@ -227,7 +227,13 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       templateUrl: 'app/in/livehood/two/livehooddetail.html',
       controller: 'livehooddetailCtrl'
     })
-
+    //社会保险三级界面UBEI
+      .state('app.livehood.UBEI', {
+      url: '/UBEI?kpiId',
+      name: 'UBEI',
+      templateUrl: 'app/in/livehood/three/UBEI/UBEI.html',
+      controller: 'UBEICtrl'
+    })
     //公共事业
     .state('app.publicService', {
       abstract: true,
