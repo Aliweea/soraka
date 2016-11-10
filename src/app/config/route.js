@@ -106,7 +106,7 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       abstract: true,
       name: 'environment',
       url: '/environment',
-      templateUrl: 'app/in/Environment/environment.html', 
+      templateUrl: 'app/in/Environment/Environment.html', 
       controller: 'environmentCtrl'
     })
     .state('app.environment.environmentlist', {

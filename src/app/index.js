@@ -74,7 +74,7 @@ import thirdindustrycontroller from './in/economy/EconomyThird/thirdindustry/thi
 import thirdfisicalcontroller from './in/economy/EconomyThird/thirdfisical/thirdfisical.js';
 //环境模块Controller
 import environmentCtrl from './in/Environment/environmentCtrl.js';
-import environmentlistCtrl from './in/Environment/one/environmentlistCtrl.js';
+import environmentlistCtrl from './in/Environment/one/EnvironmentlistCtrl.js';
 import environmentdetailCtrl from './in/Environment/two/environmentdetailCtrl.js';
 import environmentByStateCtrl from './in/Environment/one/bystate/bystateCtrl.js';
 import waterThreeCtrl from './in/Environment/three/water/waterThreeCtrl.js';
