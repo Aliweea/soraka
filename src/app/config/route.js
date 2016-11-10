@@ -227,6 +227,32 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       templateUrl: 'app/in/livehood/two/livehooddetail.html',
       controller: 'livehooddetailCtrl'
     })
+    //民生人口三级界面
+    .state('app.livehood.PopulationStructure',{
+      url:'/PopulationThree/PopulationStructure',
+      templateUrl:'app/in/livehood/three/population/populationThree.html',
+      controller:'populationThreeCtrl'
+    })
+    .state('app.livehood.TerminalPopulation',{
+      url:'/PopulationThree/TerminalPopulation',
+      templateUrl:'app/in/livehood/three/population/populationThree.html',
+      controller:'populationThreeCtrl'
+    })
+    .state('app.livehood.BornDeath',{
+      url:'/PopulationThree/BornDeath',
+      templateUrl:'app/in/livehood/three/population/populationThree.html',
+      controller:'populationThreeCtrl'
+    })
+    .state('app.livehood.BearingWomen',{
+      url:'/PopulationThree/BearingWomen',
+      templateUrl:'app/in/livehood/three/population/populationThree.html',
+      controller:'populationThreeCtrl'
+    })
+    .state('app.livehood.FirstMarriage',{
+      url:'/PopulationThree/FirstMarriage',
+      templateUrl:'app/in/livehood/three/population/populationThree.html',
+      controller:'populationThreeCtrl'
+    })
 
     //公共事业
     .state('app.publicService', {
