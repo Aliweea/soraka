@@ -73,7 +73,8 @@ export default ($scope, kpiDetailService, dateService) => {
                   plotBackgroundColor: null,
                   plotBackgroundImage: null,
                   plotBorderWidth: 0,
-                  plotShadow: false
+                  plotShadow: false,
+
               },
               pane: {
                   startAngle: -150,
@@ -168,8 +169,8 @@ export default ($scope, kpiDetailService, dateService) => {
               }
           }],
           size: {
-              width: 200,
-              height: 250
+            width: $(window).width()*0.5,
+            height: $(window).width()*0.6
           }
       },
       kmno4Option: {
@@ -181,11 +182,9 @@ export default ($scope, kpiDetailService, dateService) => {
                   plotBorderWidth: 0,
                   plotShadow: false
               },
-
               title: {
                   text: '高锰酸钾浓度'
               },
-
               pane: {
                   startAngle: -150,
                   endAngle: 150,
@@ -228,7 +227,6 @@ export default ($scope, kpiDetailService, dateService) => {
                       innerRadius: '103%'
                   }]
               },
-
               // the value axis
               yAxis: {
                   min: 0,
@@ -278,8 +276,8 @@ export default ($scope, kpiDetailService, dateService) => {
               }
           }],
           size: {
-              width: 200,
-              height: 250
+            width: $(window).width()*0.5,
+            height: $(window).width()*0.6
           }
       },
       nh4nOption: {
@@ -338,18 +336,15 @@ export default ($scope, kpiDetailService, dateService) => {
                       innerRadius: '103%'
                   }]
               },
-
               // the value axis
               yAxis: {
                   min: 0,
                   max: 5,
-
                   minorTickInterval: 'auto',
                   minorTickWidth: 1,
                   minorTickLength: 10,
                   minorTickPosition: 'inside',
                   minorTickColor: '#666',
-
                   tickPixelInterval: 30,
                   tickWidth: 2,
                   tickPosition: 'inside',
@@ -388,8 +383,8 @@ export default ($scope, kpiDetailService, dateService) => {
               }
           }],
           size: {
-              width: 200,
-              height: 250
+            width: $(window).width()*0.5,
+            height: $(window).width()*0.6
           }
       },
       pOption: {
@@ -401,11 +396,9 @@ export default ($scope, kpiDetailService, dateService) => {
                   plotBorderWidth: 0,
                   plotShadow: false
               },
-
               title: {
                   text: '总磷'
               },
-
               pane: {
                   startAngle: -150,
                   endAngle: 150,
@@ -448,7 +441,6 @@ export default ($scope, kpiDetailService, dateService) => {
                       innerRadius: '103%'
                   }]
               },
-
               // the value axis
               yAxis: {
                   min: 0,
@@ -498,8 +490,8 @@ export default ($scope, kpiDetailService, dateService) => {
               }
           }],
           size: {
-              width: 200,
-              height: 250
+            width: $(window).width()*0.5,
+            height: $(window).width()*0.6
           }
       },
       currentO2LineOption: {
@@ -557,8 +549,8 @@ export default ($scope, kpiDetailService, dateService) => {
               data: []
           }],
           size: {
-              width: 500,
-              height: 250
+            width: $(window).width()*0.9,
+            height: $(window).width()*0.4
           }
       },
       currentKmno4LineOption: {
@@ -615,8 +607,8 @@ export default ($scope, kpiDetailService, dateService) => {
               data: []
           }],
           size: {
-              width: 500,
-              height: 250
+            width: $(window).width()*0.9,
+            height: $(window).width()*0.4
           }
       },
       currentNh4nLineOption: {
@@ -673,8 +665,8 @@ export default ($scope, kpiDetailService, dateService) => {
               data: []
           }],
           size: {
-              width: 500,
-              height: 250
+            width: $(window).width()*0.9,
+            height: $(window).width()*0.4
           }
       },
       currentPOption: {
@@ -731,8 +723,8 @@ export default ($scope, kpiDetailService, dateService) => {
               data: []
           }],
           size: {
-              width: 500,
-              height: 250
+            width: $(window).width()*0.9,
+            height: $(window).width()*0.4
           }
       },
       currentTnLineOption: {
@@ -777,8 +769,8 @@ export default ($scope, kpiDetailService, dateService) => {
               data: []
           }],
           size: {
-              width: 500,
-              height: 250
+            width: $(window).width()*0.9,
+            height: $(window).width()*0.4
           }
       }
 
@@ -791,7 +783,8 @@ export default ($scope, kpiDetailService, dateService) => {
               colors: ['#7CADDF', '#195489', '#1FC22B', '#FB9705', '#F26200'],
               chart: {
                   zoomType: 'xy',
-                  margin: [50, 50, 100, 80]
+                  margin: [50, 50, 100, 80],
+                  width: $(window).width()*0.9
               },
               title: {
                   text: '最近12小时水位',
@@ -838,6 +831,7 @@ export default ($scope, kpiDetailService, dateService) => {
               colors: ['#0787C8', '#3795BC', '#1FC22B', '#B5DF15', '#F6CD00', '#FB9705', '#F26200'],
               chart: {
                   type: 'area',
+                  width:$(window).width()*0.9
               },
               title: {
                   text: ''
@@ -2069,7 +2063,6 @@ export default ($scope, kpiDetailService, dateService) => {
   * 页面初始化区
   * 有些图表的数据是在网页刷新时就请求到的
   */
-
   // 水质量 当天数据模块 初始化
   kpiDetailService.getLastestObject('WaterQuality', ['date'], function(data) {
       var date = data.data.date;
@@ -2106,6 +2099,19 @@ export default ($scope, kpiDetailService, dateService) => {
       $scope.waterQualityCurrentDateTime = waterQualityLastDate;
   });
 
+  $scope.tab1=true;
+  $scope.tab2 = false;
+  $scope.show = function(){
+     $scope.tab1= true;
+    $scope.tab2 = false;
+  }
+   $scope.show2 = function(){
+     $scope.tab1= false;
+    $scope.tab2 = true;
+  }
+   
+   
+    
   //水情 当天数据模块 初始化
   kpiDetailService.getLastestObject('WaterCondition', ['date'], function(data) {
       var date = data.data.date;
