@@ -1,6 +1,17 @@
 export default ($scope, kpiDetailService, dateService) => {
   'ngInject';
 
+  $scope.tab1=true;
+  $scope.tab2 = false;
+  $scope.show = function(){
+     $scope.tab1= true;
+    $scope.tab2 = false;
+  }
+   $scope.show2 = function(){
+     $scope.tab1= false;
+    $scope.tab2 = true;
+  }
+
   /**
    * 变量区
    *
@@ -1849,7 +1860,7 @@ export default ($scope, kpiDetailService, dateService) => {
   function mapInit() {
       mapObj = new AMap.Map("map_canvas", { //二维地图显示视口
           view: new AMap.View2D({
-              center: new AMap.LngLat(121.106661, 31.579533), //地图中心点
+              center: new AMap.LngLat(121.106661, 31.579533), //地图中心点，后面还会更改
               zoom: 11 //地图显示的缩放级别
           })
       });
@@ -2098,18 +2109,6 @@ export default ($scope, kpiDetailService, dateService) => {
       };
       $scope.waterQualityCurrentDateTime = waterQualityLastDate;
   });
-
-  $scope.tab1=true;
-  $scope.tab2 = false;
-  $scope.show = function(){
-     $scope.tab1= true;
-    $scope.tab2 = false;
-  }
-   $scope.show2 = function(){
-     $scope.tab1= false;
-    $scope.tab2 = true;
-  }
-   
    
     
   //水情 当天数据模块 初始化
