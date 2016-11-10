@@ -88,6 +88,7 @@ import livehoodCtrl from './in/livehood/livehoodCtrl.js';
 import livehoodlistCtrl from './in/livehood/one/livehoodlistCtrl.js';
 import livehooddetailCtrl from './in/livehood/two/livehooddetailCtrl.js';
 import livehoodByStateCtrl from './in/livehood/one/bystate/bystateCtrl.js';
+import populationThreeCtrl from './in/livehood/three/population/populationThreeCtrl.js';
 // 公共安全模块Controller
 import publicsecurityCtrl from './in/publicsecurity/publicsecurityCtrl.js';
 import publicsecuritylistCtrl from './in/publicsecurity/one/publicsecuritylistCtrl.js';
@@ -207,6 +208,7 @@ angular.module('soraka',
   .controller('livehoodlistCtrl', livehoodlistCtrl)
   .controller('livehooddetailCtrl', livehooddetailCtrl)
   .controller('livehoodByStateCtrl', livehoodByStateCtrl)
+  .controller('populationThreeCtrl',populationThreeCtrl)
   // 公共安全controllers
   .controller('publicsecurityCtrl', publicsecurityCtrl)
   .controller('publicsecuritylistCtrl', publicsecuritylistCtrl)
