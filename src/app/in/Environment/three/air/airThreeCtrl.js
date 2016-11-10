@@ -1,6 +1,17 @@
 export default ($scope, kpiDetailService, dateService) => {
   'ngInject';
 
+  $scope.tab1=true;
+  $scope.tab2 = false;
+  $scope.show = function(){
+     $scope.tab1= true;
+    $scope.tab2 = false;
+  }
+   $scope.show2 = function(){
+     $scope.tab1= false;
+    $scope.tab2 = true;
+  }
+
   /**
 	 * 变量区
 	 *
@@ -185,8 +196,8 @@ export default ($scope, kpiDetailService, dateService) => {
 			}
 		}],
 		size:{
-              width: 200,
-              height: 250
+            width: $(window).width()*0.5,
+            height: $(window).width()*0.6
           }
   	},
   	pm25Option:{
@@ -295,8 +306,8 @@ export default ($scope, kpiDetailService, dateService) => {
 			}
 		}],
 		size:{
-              width: 200,
-              height: 250
+            width: $(window).width()*0.5,
+            height: $(window).width()*0.6
           }
   	},
   	pm10Option:{
@@ -406,8 +417,8 @@ export default ($scope, kpiDetailService, dateService) => {
 			}
 		}],
 		size:{
-              width: 200,
-              height: 250
+            width: $(window).width()*0.5,
+            height: $(window).width()*0.6
           }
   	},
   	so2Option:{
@@ -517,8 +528,8 @@ export default ($scope, kpiDetailService, dateService) => {
 			}
 		}],
 		size:{
-              width: 200,
-              height: 250
+            width: $(window).width()*0.5,
+            height: $(window).width()*0.6
           }
   	},
   	no2Option:{
@@ -628,8 +639,8 @@ export default ($scope, kpiDetailService, dateService) => {
 			}
 		}],
 		size:{
-              width: 200,
-              height: 250
+            width: $(window).width()*0.5,
+            height: $(window).width()*0.6
           }
   	},
   	coOption:{
@@ -739,8 +750,8 @@ export default ($scope, kpiDetailService, dateService) => {
 			}
 		}],
 		size:{
-              width: 200,
-              height: 250
+            width: $(window).width()*0.5,
+            height: $(window).width()*0.6
           }
   	},
   	o3Option:{
@@ -850,8 +861,8 @@ export default ($scope, kpiDetailService, dateService) => {
 			}
 		}],
 		size:{
-              width: 200,
-              height: 250
+            width: $(window).width()*0.5,
+            height: $(window).width()*0.6
           }
   	},
   	currentAqiLineOption:{
@@ -908,8 +919,8 @@ export default ($scope, kpiDetailService, dateService) => {
               data: []
           }],
           size:{
-              width: 500,
-              height: 250
+            width: $(window).width()*0.9,
+            height: $(window).width()*0.4
           }
       },
       currentPm25LineOption:{
@@ -966,8 +977,8 @@ export default ($scope, kpiDetailService, dateService) => {
               data: []
           }],
           size:{
-              width: 500,
-              height: 250
+            width: $(window).width()*0.9,
+            height: $(window).width()*0.4
           }
       },
       currentPm10LineOption:{
@@ -1024,8 +1035,8 @@ export default ($scope, kpiDetailService, dateService) => {
               data: []
           }],
           size:{
-              width: 500,
-              height: 250
+            width: $(window).width()*0.9,
+            height: $(window).width()*0.4
           }
       },
       currentSo2LineOption:{
@@ -1082,8 +1093,8 @@ export default ($scope, kpiDetailService, dateService) => {
               data: []
           }],
           size:{
-              width: 500,
-              height: 250
+            width: $(window).width()*0.9,
+            height: $(window).width()*0.4
           }
       },
       currentNo2LineOption:{
@@ -1140,8 +1151,8 @@ export default ($scope, kpiDetailService, dateService) => {
               data: []
           }],
           size:{
-              width: 500,
-              height: 250
+            width: $(window).width()*0.9,
+            height: $(window).width()*0.4
           }
       },
       currentCoLineOption:{
@@ -1198,8 +1209,8 @@ export default ($scope, kpiDetailService, dateService) => {
               data: []
           }],
           size:{
-              width: 500,
-              height: 250
+            width: $(window).width()*0.9,
+            height: $(window).width()*0.4
           }
       },
       currentO3LineOption:{
@@ -1256,8 +1267,8 @@ export default ($scope, kpiDetailService, dateService) => {
               data: []
           }],
           size:{
-              width: 500,
-              height: 250
+            width: $(window).width()*0.9,
+            height: $(window).width()*0.4
           }
       }
   };
@@ -1312,6 +1323,7 @@ export default ($scope, kpiDetailService, dateService) => {
 				colors: ['#0787C8', '#3795BC', '#1FC22B', '#B5DF15', '#F6CD00', '#FB9705', '#F26200'],
 				chart: {
 					type: 'area',
+					width:$(window).width()*0.9
 				},
 				title: {
 					text: ''
@@ -1498,7 +1510,7 @@ export default ($scope, kpiDetailService, dateService) => {
 		};
 		removeMarker();
 		addMarker(airQualityMarkerArr, 'airQuality');
-		mapObj.setCenter(new AMap.LngLat(121.106661, 31.579533));
+		mapObj.setCenter(new AMap.LngLat(121.106661, 31.479533));
 		mapObj.setZoom(11);
 	};
 
@@ -2392,7 +2404,7 @@ function wasteAirCurrentFilter(data) {
 	function mapInit() {
 		mapObj = new AMap.Map("map_canvas", { //二维地图显示视口
 			view: new AMap.View2D({
-				center: new AMap.LngLat(121.106661, 31.579533), //地图中心点
+				center: new AMap.LngLat(121.106661, 31.579533), //地图中心点，后面还会更改
 				zoom: 11 //地图显示的缩放级别
 			})
 		});
@@ -2652,7 +2664,7 @@ function wasteAirCurrentFilter(data) {
 			airQualityCurrentSuccess(data);
 			mapInit();
 			addMarker(airQualityMarkerArr, 'airQuality');
-			mapObj.setCenter(new AMap.LngLat(121.106661, 31.579533));
+			mapObj.setCenter(new AMap.LngLat(121.106661, 31.479533));
 			mapObj.setZoom(11);
 		});
 		var airQulaityLastDate = {

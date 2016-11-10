@@ -1,12 +1,12 @@
 <ul class="nav nav-tabs">
-    <li id="water_abs" class="active" ng-click="show()">
+    <li class="active" ng-click="show()">
       <a style="font-size: 20px" data-toggle="tab">水环境概况</a>
     </li>
-    <li id="water_analy" ng-click="show2()">
+    <li ng-click="show2()">
       <a style="font-size: 20px" data-toggle="tab">水环境分析</a>
     </li>
 </ul>
-<div id="env_tab1" ng-show="tab1">
+<div ng-show="tab1">
 	<div style="margin-top:10px; margin-bottom: 5px;padding: 0px">
 		<button style="width: 32%; font-size: 13px" class="btn" ng-class="getButtonStatus(waterQualityStatus.status)" ng-click="waterQualityBtn()"><i class="fa fa-hand-o-right" aria-hidden="true"></i>&nbsp江河水质</button>
 		<button style="width: 32%; font-size: 13px" class="btn" ng-click="waterConditionBtn()" ng-class="getButtonStatus(waterConditionStatus.status)"><i class="fa fa-hand-o-right" aria-hidden="true"></i>&nbsp江河水情</button>
@@ -91,17 +91,17 @@
 		</div>
 	</div>
 </div>
-<div id="env_tab2" style=" padding: 0px; width: 100%" ng-show="tab2">
+<div ng-show="tab2">
 	<div class="panel panel-success">
 		<div class="panel-heading">
 			水质分析<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>			
 		</div>
 		<div class="panel-body">
 			<nav class="navbar navbar-default" role="navigation"  du-scroll-container="scroll-container">
-				<a href="#waterQualityAnchor1" style="width: 20%;margin-left: 5%;font-size: 13px" class="btn btn-default navbar-btn"  du-smooth-scroll>溶解氧</a>
-				<a href="#waterQualityAnchor2" style="width: 22%;margin-left: 2%;font-size: 13px" class="btn btn-default navbar-btn"  du-smooth-scroll>高锰酸钾</a>
-				<a href="#waterQualityAnchor3" style="width: 20%;margin-left: 2%;font-size: 13px" class="btn btn-default navbar-btn" du-smooth-scroll>氨氮</a>
-				<a href="#waterQualityAnchor4" style="width: 20%;margin-left: 2%;font-size: 13px" class="btn btn-default navbar-btn"  du-smooth-scroll>总磷</a>
+				<a href="#waterQualityAnchor1" style="margin-left: 5%;font-size: 13px" class="btn btn-default navbar-btn"  du-smooth-scroll>溶解氧</a>
+				<a href="#waterQualityAnchor2" style="margin-left: 3%;font-size: 13px" class="btn btn-default navbar-btn"  du-smooth-scroll>高锰酸钾</a>
+				<a href="#waterQualityAnchor3" style="margin-left: 3%;font-size: 13px" class="btn btn-default navbar-btn" du-smooth-scroll>氨氮</a>
+				<a href="#waterQualityAnchor4" style="margin-left: 3%;font-size: 13px" class="btn btn-default navbar-btn"  du-smooth-scroll>总磷</a>
 			</nav>
 			<span ng-repeat="waterQualityOne in waterQualityCurrentList">
 				<label style="margin-left: 5%">
@@ -131,7 +131,7 @@
 					<highchart config="waterQualityOptions.pOption"></highchart>
 				</div>
 				<div>
-					<highchart config="waterQualityOptions.currentPOption">废水排放</highchart>
+					<highchart config="waterQualityOptions.currentPOption"></highchart>
 				</div>
 			</div>
 		</div>
@@ -146,7 +146,7 @@
 					<input type="radio" ng-model="wasteWaterCurrentListSelected" ng-value="wasteWaterOne" name="wasteWaterCurrentListRadio" ng-click="wasteWaterCurrentChange(wasteWaterOne)">{{wasteWaterOne}}
 				</label>
 			</span>
-			<highchart config="wasteWaterOptions.wasteWaterCurrentOption"></highchart>
+			<highchart config="wasteWaterOptions.wasteWaterCurrentOption">废水排放</highchart>
 		</div>
 	</div>
 	<div class="panel panel-success">
