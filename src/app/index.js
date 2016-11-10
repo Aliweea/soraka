@@ -52,6 +52,7 @@ import FinanceDetailFilter from './filter/FinanceFilter';
 import FinancialDetailFilter from './filter/FinancialFilter';
 import investmentDetailFilter from './filter/investDetailFilter';
 import industryDetailFilter from './filter/industryFilter';
+import lvThreeFilter from './filter/lvThreeFilter';
 // controllers
 
 import appCtrl from './appCtrl';
@@ -170,6 +171,7 @@ angular.module('soraka',
   .filter('FinancialDetailFilter',FinancialDetailFilter)
   .filter('investmentDetailFilter',investmentDetailFilter)
   .filter('industryDetailFilter',industryDetailFilter)
+  .filter('lvThreeFilter',lvThreeFilter)
 
 
   // controllers 初始化
