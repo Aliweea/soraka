@@ -540,6 +540,12 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       templateUrl: 'app/in/citymanager/one/icm/icm.html',
       controller: 'icmCtrl'
     })
+    .state('app.cm.bystate', {
+      url: '/bystate/?categoryId&state',
+      name: 'bystate',
+      templateUrl: 'app/in/citymanager/one/bystate/bystate.html',
+      controller: 'cmByStateCtrl'
+    })
     .state('app.cm.detail', {
       url: '/detail?kpiId',
       name: 'cmdetail',

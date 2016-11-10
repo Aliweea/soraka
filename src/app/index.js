@@ -30,7 +30,7 @@ import dictFactory from './resources/dictFactory';
 
 // factories
 import lFactory from './factories/l-factory';
-
+import scFactory from './factories/statecategory-factory';
 // directive
 import headerDirect from './common/header/headerDirect';
 
@@ -123,6 +123,7 @@ import punishCtrl from './in/citymanager/one/punish/punishCtrl.js';
 import fixCtrl from './in/citymanager/one/fix/fixCtrl.js';
 import icmCtrl from './in/citymanager/one/icm/icmCtrl.js';
 import cmdetailCtrl from './in/citymanager/two/cmdetailCtrl.js';
+import cmByStateCtrl from './in/citymanager/one/bystate/bystateCtrl.js';
 // 公共事业Controller
 import publicServiceCtrl from './in/publicService/publicServiceHomeCtrl.js';
 import educationCtrl from './in/publicService/one/education/educationCtrl.js';
@@ -169,6 +170,7 @@ angular.module('soraka',
   .factory('dataDetailFactory',dataDetailFactory)
   .factory('dictFactory',dictFactory)
   .factory('lFactory',lFactory)
+  .factory('scFactory',scFactory)
 
 
   // directive 初始化
@@ -272,4 +274,5 @@ angular.module('soraka',
   .controller('fixCtrl', fixCtrl)
   .controller('icmCtrl', icmCtrl)
   .controller('cmdetailCtrl', cmdetailCtrl)
+  .controller('cmByStateCtrl', cmByStateCtrl)
   ;
