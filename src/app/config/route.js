@@ -264,6 +264,39 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       templateUrl: 'app/in/livehood/three/insurance/insurance.html',
       controller: 'insuranceCtrl'
     })
+         //社会保险三级界面UI
+      .state('app.livehood.UI', {
+      url: '/InsuranceChart/UnemploymentInsuranceData',
+      name: 'UBEI',
+      templateUrl: 'app/in/livehood/three/insurance/insurance.html',
+      controller: 'insuranceCtrl'
+    })
+         .state('app.livehood.UBMI', {
+      url: '/InsuranceChart/UrbanBasicMedicalInsuranceData',
+      name: 'UBMI',
+      templateUrl: 'app/in/livehood/three/insurance/insurance.html',
+      controller: 'insuranceCtrl'
+    })
+         .state('app.livehood.EII', {
+      url: '/InsuranceChart/EmploymentInjuryInsuranceData',
+      name: 'EII',
+      templateUrl: 'app/in/livehood/three/insurance/insurance.html',
+      controller: 'insuranceCtrl'
+    })
+            .state('app.livehood.MI', {
+      url: '/InsuranceChart/MaternityInsuranceData',
+      name: 'MI',
+      templateUrl: 'app/in/livehood/three/insurance/insurance.html',
+      controller: 'insuranceCtrl'
+    })
+      .state('app.livehood.RBEI', {
+      url: '/InsuranceChart/ResidentsBasicEndowmentInsuranceData',
+      name: 'RBEI',
+      templateUrl: 'app/in/livehood/three/insurance/insurance.html',
+      controller: 'insuranceCtrl'
+    })
+
+
     //公共事业
     .state('app.publicService', {
       abstract: true,
