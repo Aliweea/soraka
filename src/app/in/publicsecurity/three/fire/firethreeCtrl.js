@@ -11,8 +11,8 @@ $scope.barData = {
     ybData:[],
     cate:[],
     title:'',
-    yText:'´¦Àí°¸¼şÊı£¨Æğ£©',
-    valueSuffix:'£¨Æğ£©'
+    yText:'å¤„ç†æ¡ˆä»¶æ•°ï¼ˆèµ·ï¼‰',
+    valueSuffix:'ï¼ˆèµ·ï¼‰'
   };
 $scope.amountData = {
 		thisMonthAmount:0,
@@ -69,9 +69,9 @@ var stationInfo = [];
 $scope.lineChartData = {
     selected:'0',
     title:'',
-    yText:'ÊÜÉËÈËÊı(ÈË)',
-    valueSuffix:'ÈË',
-    name:'ÊÜÉËÈËÊı(ÈË)',
+    yText:'å—ä¼¤äººæ•°(äºº)',
+    valueSuffix:'äºº',
+    name:'å—ä¼¤äººæ•°(äºº)',
     amount:[],
     injury:[],
     dead:[],
@@ -80,7 +80,7 @@ $scope.lineChartData = {
 }
 
 
-//---------------------------********ÏµÍ³Ê±¼ä»ñÈ¡*********------------------------------------------
+//---------------------------********ç³»ç»Ÿæ—¶é—´è·å–*********------------------------------------------
     var  dateTime = new Date(dateService.getSystemTime());console.log(dateTime);
 	//var dateTime = new Date("2014-12-12T14:57:55.091Z");
 	 $scope.getDate = {
@@ -109,7 +109,7 @@ $scope.lineChartData = {
 
         }
 
-    //---------------------------********apiµ÷ÓÃ²ÎÊı*********------------------------------------------
+    //---------------------------********apiè°ƒç”¨å‚æ•°*********------------------------------------------
 
     var tableName='FireData';
 
@@ -120,28 +120,28 @@ $scope.lineChartData = {
         "valueType":"innt"
         }
     }
-//---------------------------********´¦Àíº¯Êı·µ»ØdataµÄº¯Êı*********----------------------------------
+//---------------------------********å¤„ç†å‡½æ•°è¿”å›dataçš„å‡½æ•°*********----------------------------------
     
     var processFunction = function(data){
         console.log(JSON.stringify(data));
-        //³õÊ¼»¯Í¼±íÊı¾İ
+        //åˆå§‹åŒ–å›¾è¡¨æ•°æ®
 
         initChartData(data.data);
 
         // wireBarChartData();
 
-//---------------------------********³õÊ¼»¯Í¼±íÊı¾İ********------------------------------------------
+//---------------------------********åˆå§‹åŒ–å›¾è¡¨æ•°æ®********------------------------------------------
         function initChartData(data){
             if(data == null){
-                alert('ÎŞÊı¾İ £¡');
+                alert('æ— æ•°æ® ï¼');
                 return;
             }
             // else if(columnChartData[0] == 0){
-            //  alert('±¾ÔÂÊı¾İÎ´Â¼Èë £¡');
+            //  alert('æœ¬æœˆæ•°æ®æœªå½•å…¥ ï¼');
             //  return;
             // }
             //wireLineChartData();
-            $scope.lineChartData.title = $scope.getDate.month + "ÔÂ·İÈ«ÊĞ»ğÔÖÊÂ¹ÊÊÜÉËÈËÊı";
+            $scope.lineChartData.title = $scope.getDate.month + "æœˆä»½å…¨å¸‚ç«ç¾äº‹æ•…å—ä¼¤äººæ•°";
 
             wireChartData(data);
 
@@ -150,7 +150,7 @@ $scope.lineChartData = {
         };
 
 
-//---------------------------********º¯Êı¶¨Òå*********------------------------------------------
+//---------------------------********å‡½æ•°å®šä¹‰*********------------------------------------------
     function wireChartData(data){
         for(var i = 0 ; i < data.length ; i ++){
             var month  =  data[i].month;
@@ -168,7 +168,7 @@ $scope.lineChartData = {
 
     function wireLineChartData(){
         for(var i = 0 ; i < $scope.getDate.month ; i++){
-            $scope.lineChartData.categories.push((i+1) + 'ÔÂ');
+            $scope.lineChartData.categories.push((i+1) + 'æœˆ');
             $scope.lineChartData.amount.push(eachMonthData[i][0]);
             $scope.lineChartData.injury.push(eachMonthData[i][1]);
             $scope.lineChartData.dead.push(eachMonthData[i][2]);
@@ -178,7 +178,7 @@ $scope.lineChartData = {
  $scope.columnChart  ={
       options:{
             title: {
-            text: $scope.getDate.year+'ÄêÌ«²ÖÊĞ»ğÔÖÊÂ¹Ê·¢ÉúÊıÇ÷ÊÆÍ¼',
+            text: $scope.getDate.year+'å¹´å¤ªä»“å¸‚ç«ç¾äº‹æ•…å‘ç”Ÿæ•°è¶‹åŠ¿å›¾',
             x: -20 //center
         },
     
@@ -196,7 +196,7 @@ $scope.lineChartData = {
             }]
         },
         tooltip: {
-            valueSuffix: '(Æğ)'
+            valueSuffix: '(èµ·)'
         },
           credits:{
             enabled:false
@@ -210,7 +210,7 @@ $scope.lineChartData = {
       },
     
         series: [{
-            name: '»ğÔÖÊÂ¹ÊÊı',
+            name: 'ç«ç¾äº‹æ•…æ•°',
             data: $scope.lineChartData.amount
         }]
   
@@ -235,7 +235,7 @@ $scope.trendInfoChanged = function(){
  $scope.columnChart  ={
       options:{
             title: {
-            text: $scope.getDate.year+'ÄêÌ«²ÖÊĞ»ğÔÖÊÂ¹Ê·¢ÉúÊıÇ÷ÊÆÍ¼',
+            text: $scope.getDate.year+'å¹´å¤ªä»“å¸‚ç«ç¾äº‹æ•…å‘ç”Ÿæ•°è¶‹åŠ¿å›¾',
             x: -20 //center
         },
     
@@ -253,7 +253,7 @@ $scope.trendInfoChanged = function(){
             }]
         },
         tooltip: {
-            valueSuffix: '(Æğ)'
+            valueSuffix: '(èµ·)'
         },
           credits:{
             enabled:false
@@ -267,7 +267,7 @@ $scope.trendInfoChanged = function(){
       },
     
         series: [{
-            name: '»ğÔÖÊÂ¹ÊÊı',
+            name: 'ç«ç¾äº‹æ•…æ•°',
             data: $scope.lineChartData.amount
         }]
   
@@ -276,7 +276,7 @@ $scope.trendInfoChanged = function(){
              $scope.columnChart  ={
                   options:{
                         title: {
-                        text: $scope.getDate.year+'ÄêÌ«²ÖÊĞ»ğÔÖÊÂ¹ÊÊÜÉËÈËÊıÇ÷ÊÆÍ¼',
+                        text: $scope.getDate.year+'å¹´å¤ªä»“å¸‚ç«ç¾äº‹æ•…å—ä¼¤äººæ•°è¶‹åŠ¿å›¾',
                         x: -20 //center
                     },
                 
@@ -294,7 +294,7 @@ $scope.trendInfoChanged = function(){
                         }]
                     },
                     tooltip: {
-                        valueSuffix: '(ÈË)'
+                        valueSuffix: '(äºº)'
                     },
                       credits:{
                         enabled:false
@@ -308,7 +308,7 @@ $scope.trendInfoChanged = function(){
                   },
                 
                     series: [{
-                        name: 'ÊÜÉËÈËÊı(ÈË)',
+                        name: 'å—ä¼¤äººæ•°(äºº)',
                         data: $scope.lineChartData.injury
                     }]
               
@@ -317,7 +317,7 @@ $scope.trendInfoChanged = function(){
                  $scope.columnChart  ={
                       options:{
                             title: {
-                            text: $scope.getDate.year+'ÄêÌ«²ÖÊĞ»ğÔÖÊÂ¹ÊËÀÍöÈËÊıÇ÷ÊÆÍ¼',
+                            text: $scope.getDate.year+'å¹´å¤ªä»“å¸‚ç«ç¾äº‹æ•…æ­»äº¡äººæ•°è¶‹åŠ¿å›¾',
                             x: -20 //center
                         },
                     
@@ -335,7 +335,7 @@ $scope.trendInfoChanged = function(){
                             }]
                         },
                         tooltip: {
-                            valueSuffix: '(ÈË)'
+                            valueSuffix: '(äºº)'
                         },
                         credits:{
                             enabled:false
@@ -349,7 +349,7 @@ $scope.trendInfoChanged = function(){
                       },
                     
                         series: [{
-                            name: 'ËÀÍöÈËÊı(ÈË)',
+                            name: 'æ­»äº¡äººæ•°(äºº)',
                             data: $scope.lineChartData.dead
                         }]
                   
@@ -358,7 +358,7 @@ $scope.trendInfoChanged = function(){
 $scope.columnChart  ={
       options:{
             title: {
-            text: $scope.getDate.year+'ÄêÌ«²ÖÊĞ»ğÔÖÊÂ¹ÊÖ±½Ó²Æ²úËğÊ§Ç÷ÊÆÍ¼',
+            text: $scope.getDate.year+'å¹´å¤ªä»“å¸‚ç«ç¾äº‹æ•…ç›´æ¥è´¢äº§æŸå¤±è¶‹åŠ¿å›¾',
             x: -20 //center
         },
     
@@ -379,7 +379,7 @@ $scope.columnChart  ={
             enabled:false
         },
         tooltip: {
-            valueSuffix: '(ÍòÔª)'
+            valueSuffix: '(ä¸‡å…ƒ)'
         },
         legend: {
             layout: 'vertical',
@@ -390,7 +390,7 @@ $scope.columnChart  ={
       },
     
         series: [{
-            name: 'Ö±½Ó²Æ²úËğÊ§(ÍòÔª)',
+            name: 'ç›´æ¥è´¢äº§æŸå¤±(ä¸‡å…ƒ)',
             data: $scope.lineChartData.damage
         }]
   
@@ -408,21 +408,21 @@ $scope.columnChart  ={
         xAxis: {                                                           
             categories: eachStationData.categories[0].cateData ,
             title: {                                                       
-                text: 'Ïû·ÀÖĞ¶Ó',
+                text: 'æ¶ˆé˜²ä¸­é˜Ÿ',
                 align: 'high'
             }                                                              
         },                                                                 
         yAxis: {                                                           
             min: 0,                                                        
             title: {                                                       
-                text: 'ÊÜÀí»ğÔÖÊÂ¹ÊÊı(Æğ)'                                            
+                text: 'å—ç†ç«ç¾äº‹æ•…æ•°(èµ·)'                                            
             },                                                             
             labels: {                                                      
                 overflow: 'justify'                                        
             }                                                              
         },                                                                 
         tooltip: {                                                         
-            valueSuffix: 'Æğ'                                       
+            valueSuffix: 'èµ·'                                       
         },                                                                 
         plotOptions: {                                                     
             bar: {                                                         
@@ -439,10 +439,10 @@ $scope.columnChart  ={
         }
     },
     title: {                                                           
-            text: $scope.getDate.month+'ÔÂ·İ¸÷Ïû·ÀÖĞ¶ÓÊÜÀí»ğÔÖÊÂ¹ÊÊı'                    
+            text: $scope.getDate.month+'æœˆä»½å„æ¶ˆé˜²ä¸­é˜Ÿå—ç†ç«ç¾äº‹æ•…æ•°'                    
         }, 
     series: [{                                                         
-            name:'ÊÜÀíÊÂ¹ÊÊı',                                             
+            name:'å—ç†äº‹æ•…æ•°',                                             
             data:eachStationData.data[0]                                 
     }] 
 };
@@ -456,21 +456,21 @@ $scope.barInjury = {
         xAxis: {                                                           
             categories: eachStationData.categories[1].cateData ,
             title: {                                                       
-                text: 'Ïû·ÀÖĞ¶Ó',
+                text: 'æ¶ˆé˜²ä¸­é˜Ÿ',
                 align: 'high'
             }                                                              
         },                                                                 
         yAxis: {                                                           
             min: 0,                                                        
             title: {                                                       
-                text: '»ğÔÖÊÂ¹ÊÊÜÉËÈËÊı(ÈË)'                                            
+                text: 'ç«ç¾äº‹æ•…å—ä¼¤äººæ•°(äºº)'                                            
             },                                                             
             labels: {                                                      
                 overflow: 'justify'                                        
             }                                                              
         },                                                                 
         tooltip: {                                                         
-            valueSuffix: 'ÈË'                                       
+            valueSuffix: 'äºº'                                       
         },                                                                 
         plotOptions: {                                                     
             bar: {                                                         
@@ -487,10 +487,10 @@ $scope.barInjury = {
         }
     },
     title: {                                                           
-            text: $scope.getDate.month+'ÔÂ·İ¸÷Ïû·ÀÖĞ¶Ó»ğÔÖÊÜÉËÈËÊı'                    
+            text: $scope.getDate.month+'æœˆä»½å„æ¶ˆé˜²ä¸­é˜Ÿç«ç¾å—ä¼¤äººæ•°'                    
         }, 
     series: [{                                                         
-            name:'ÊÜÉËÈËÊı',                                             
+            name:'å—ä¼¤äººæ•°',                                             
             data:eachStationData.data[1]                                 
     }] 
 };
@@ -504,21 +504,21 @@ $scope.barDead = {
         xAxis: {                                                           
             categories: eachStationData.categories[2].cateData,
             title: {                                                       
-                text: 'Ïû·ÀÖĞ¶Ó',
+                text: 'æ¶ˆé˜²ä¸­é˜Ÿ',
                 align: 'high'
             }                                                              
         },                                                                 
         yAxis: {                                                           
             min: 0,                                                        
             title: {                                                       
-                text: '»ğÔÖÊÂ¹ÊËÀÍöÈËÊı(ÈË)'                                            
+                text: 'ç«ç¾äº‹æ•…æ­»äº¡äººæ•°(äºº)'                                            
             },                                                             
             labels: {                                                      
                 overflow: 'justify'                                        
             }                                                              
         },                                                                 
         tooltip: {                                                         
-            valueSuffix: 'ÈË'                                       
+            valueSuffix: 'äºº'                                       
         },                                                                 
         plotOptions: {                                                     
             bar: {                                                         
@@ -535,10 +535,10 @@ $scope.barDead = {
         }
     },
     title: {                                                           
-            text: $scope.getDate.month+'ÔÂ·İ¸÷Ïû·ÀÖĞ¶Ó»ğÔÖËÀÍö¹ÊÊı'                    
+            text: $scope.getDate.month+'æœˆä»½å„æ¶ˆé˜²ä¸­é˜Ÿç«ç¾æ­»äº¡æ•…æ•°'                    
         }, 
     series: [{                                                         
-            name:'ËÀÍöÈËÊı',                                             
+            name:'æ­»äº¡äººæ•°',                                             
             data:eachStationData.data[2]
              }] 
 };
@@ -552,21 +552,21 @@ $scope.barDamage = {
         xAxis: {                                                           
             categories: eachStationData.categories[3].cateData ,
             title: {                                                       
-                text: 'Ïû·ÀÖĞ¶Ó',
+                text: 'æ¶ˆé˜²ä¸­é˜Ÿ',
                 align: 'high'
             }                                                              
         },                                                                 
         yAxis: {                                                           
             min: 0,                                                        
             title: {                                                       
-                text: '»ğÔÖÖ±½Ó²Æ²úËğÊ§(Ôª)'                                            
+                text: 'ç«ç¾ç›´æ¥è´¢äº§æŸå¤±(å…ƒ)'                                            
             },                                                             
             labels: {                                                      
                 overflow: 'justify'                                        
             }                                                              
         },                                                                 
         tooltip: {                                                         
-            valueSuffix: 'Ôª'                                       
+            valueSuffix: 'å…ƒ'                                       
         },                                                                 
         plotOptions: {                                                     
             bar: {                                                         
@@ -583,10 +583,10 @@ $scope.barDamage = {
         }
     },
     title: {                                                           
-            text: $scope.getDate.month+'ÔÂ·İ¸÷Ïû·ÀÖĞ¶Ó»ğÔÖÖ±½Ó²Æ²úËğÊ§'                    
+            text: $scope.getDate.month+'æœˆä»½å„æ¶ˆé˜²ä¸­é˜Ÿç«ç¾ç›´æ¥è´¢äº§æŸå¤±'                    
         }, 
     series: [{                                                         
-            name:'Ö±½Ó²Æ²úËğÊ§',                                             
+            name:'ç›´æ¥è´¢äº§æŸå¤±',                                             
             data:eachStationData.data[3]                                 
     }] 
 };
@@ -596,27 +596,27 @@ $scope.barDamage = {
         kpiDetailService.advancedQuery(tableName,advancedQueryConfig,processFunction);
 
     }
-//---------------------------********apiµ÷ÓÃ²ÎÊı*********------------------------------------------
+//---------------------------********apiè°ƒç”¨å‚æ•°*********------------------------------------------
 kpiDetailService.getLastestObject('FireData',["year",'month'],processFunction1);
 
 
 
-//---------------------------********apiµ÷ÓÃ²ÎÊı*********------------------------------------------
+//---------------------------********apiè°ƒç”¨å‚æ•°*********------------------------------------------
 
     var dictTypeID = 3003;
 
     var cashPieChartData = [];
     var casePieChartData = [];
-//---------------------------********´¦Àíº¯Êı·µ»ØdataµÄº¯Êı*********----------------------------------
+//---------------------------********å¤„ç†å‡½æ•°è¿”å›dataçš„å‡½æ•°*********----------------------------------
     
     var processFunction1 = function(data){
         console.log(JSON.stringify(data));
-        //³õÊ¼»¯Í¼±íÊı¾İ
+        //åˆå§‹åŒ–å›¾è¡¨æ•°æ®
         stationInfo = data.data;
 
 
     };
 
-dictService.getDictListByType(dictTypeID,processFunction1);
+dictService.getDictListByType(dictTypeID, processFunction1);
 
 };

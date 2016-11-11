@@ -1,6 +1,21 @@
 export default ($scope, kpiDetailService, dateService) => {
   'ngInject';
 
+  $scope.screenWidth=document.body.clientWidth;
+  $scope.tab1=true;
+	$scope.tab2 = false;
+	$scope.show = function(){
+		$scope.tab1= true;
+		$scope.tab2 = false;
+	}
+	$scope.show2 = function(){
+		$scope.tab1= false;
+		$scope.tab2 = true;
+	}
+
+	// $scope.screenWidth=document.documentElement.clientWidth;
+	// alert(screenWidth);
+
   var processFunction = function(data){
 	//alert(JSON.stringify(data));
 		
@@ -436,6 +451,8 @@ var category_nongcunshenghuo = [];
 	                colors: ['#0787C8','#3795BC','#1FC22B','#B5DF15','#F6CD00','#FB9705','#F26200'],
 	                chart: {
 	                    type: 'area',
+	                    width:$(window).width()*0.9,
+		            			height:$(window).width()*0.8
 	                },
 	                title: {
 	                    text: '城乡生活电力消耗百分比'
@@ -479,7 +496,9 @@ var category_nongcunshenghuo = [];
 				chart: {
 		            plotBackgroundColor: null,
 		            plotBorderWidth: null,
-		            plotShadow: false
+		            plotShadow: false,
+		            width:$(window).width()*0.9,
+		            height:$(window).width()*0.8
 		        },
 		        title: {
 		            text: '分产业电力消耗百分比'
@@ -514,6 +533,8 @@ var category_nongcunshenghuo = [];
 			options:{
 				chart:{
 					type:'column',
+					width:$(window).width()*0.9,
+		      height:$(window).width()*0.8
 				},
 				title:{
 					text:'分产业电力消耗量'
@@ -935,6 +956,8 @@ var category_nongcunshenghuo = [];
 	options:{
 		chart:{
 			type:'line',
+			width:$(window).width()*0.9,
+		  height:$(window).width()*0.8
 		},
 		title:{
 			text:'城镇生活用电量',
@@ -963,6 +986,8 @@ var category_nongcunshenghuo = [];
 	options:{
 		chart:{
 			type:'line',
+			width:$(window).width()*0.9,
+		  height:$(window).width()*0.8
 		},
 		title:{
 			text:'农村生活用电量',

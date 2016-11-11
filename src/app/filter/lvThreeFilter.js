@@ -4,7 +4,7 @@ export default($rootScope) => {
   // Needed for the loading screen
   return (input) => {
     switch (input) {
-         case '2301':
+        case '2301':
         return 'UBEI';
         break;
         case '2302':
@@ -17,95 +17,144 @@ export default($rootScope) => {
         return 'UBEI';
         break;
         case '2311':
-        return 'UBEI';
+        return 'UI';
         break;
         case '2312':
-        return 'UBEI';
+        return 'UI';
         break;
         case '2313':
-        return 'UBEI';
+        return 'UI';
         break;
         case '2315':
-        return 'UBEI';
+        return 'UI';
         break;
         case '2321':
-        return 'UBEI';
+        return 'UBMI';
         break;
         case '2322':
-        return 'UBEI';
+        return 'UBMI';
         break;
         case '2323':
-        return 'UBEI';
+        return 'UBMI';
         break;
         case '2324':
-        return 'UBEI';
+        return 'UBMI';
         break;
           case '2331':
-        return 'UBEI';
+        return 'URMI';
         break;
         case '2332':
-        return 'UBEI';
+        return 'URMI';
         break;
         case '2333':
-        return 'UBEI';
+        return 'URMI';
         break;
         case '2334':
-        return 'UBEI';
+        return 'URMI';
         break;
         case '2341':
-        return 'UBEI';
+        return 'EII';
         break;
         case '2342':
-        return 'UBEI';
+        return 'EII';
         break;
         case '2343':
-        return 'UBEI';
+        return 'EII';
         break;
         case '2344':
-        return 'UBEI';
+        return 'EII';
         break;
         case '2345':
-        return 'UBEI';
+        return 'EII';
         break;
         case '2322':
-        return 'UBEI';
+        return 'UBI';
         break;
         case '2323':
-        return 'UBEI';
+        return 'UBI';
         break;
         case '2324':
-        return 'UBEI';
+        return 'UBI';
         break;
          case '2351':
-        return 'UBEI';
+        return 'MI';
         break;
         case '2352':
-        return 'UBEI';
+        return 'MI';
         break;
         case '2353':
-        return 'UBEI';
+        return 'MI';
         break;
         case '2354':
-        return 'UBEI';
+        return 'MI';
         break;
         case '2355':
-        return 'UBEI';
+        return 'MI';
         break;
         case '2361':
-        return 'UBEI';
+        return 'RBEI';
         break;
         case '2362':
-        return 'UBEI';
+        return 'RBEI';
         break;
         case '2363':
-        return 'UBEI';
+        return 'RBEI';
         break;
         case '2364':
-        return 'UBEI';
+        return 'RBEI';
         break;
         case '2365':
-        return 'UBEI';
+        return 'RBEI';
         break;
+        case '2231':
+        return 'PopulationStructure';
+        break;
+        case '2232':
+        return 'BornDeath';
+        break;
+        case '2233':
+        return 'BornDeath';
+        break;
+        case '2241':
+        return 'TerminalPopulation';
+        break;
+        case '2242':
+        return 'TerminalPopulation';
+        break;
+        case '2243':
+        return 'TerminalPopulation';
+        break;
+        case '2234':
+        return 'FirstMarriage';
+        break;
+        case '2254':
+        return 'FirstMarriage';
+        break; 
+        case '2253':
+        return 'BornDeath';
+        break; 
+          case '2252':
+        return 'BornDeath';
+        break; 
+          case '2251':
+        return 'BornDeath';
+        break; 
+          case '2233':
+        return 'BornDeath';
+        break;////////////////////////////////// 
+          case '2255':
+        return 'BearingWomen';
+        break; 
+        case '2256':
+        return 'BearingWomen';
+        break; 
+          case '2257':
+        return 'BearingWomen';
+        break; 
+          case '2258':
+        return 'BearingWomen';
+        break; 
+       
     };
   };
   
