@@ -48,7 +48,22 @@ var token = "eyJhY2NvdW50Ijp7IkBpZCI6IjEiLCJpZCI6MjYsImNyZWF0ZV90aW1lIjoiMjAxNS0
       function error(data) {
         // alert('error');
       });
+   },
+
+   getDictListByType:() => {
+    dictFactory.getDictListByType({
+      'x-auth-token': token
+    }).get({
+        id: id
+      },
+      function success(data) {
+        successProcess(JSOG.parse(JSOG.stringify(data)));
+      },
+      function error(data) {
+        // alert('error');
+      });
    }
+
    }
    
 }
