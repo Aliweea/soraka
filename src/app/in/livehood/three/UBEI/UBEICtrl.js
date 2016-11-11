@@ -84,6 +84,17 @@ export default ($scope, qService, generalService, dataDetailFactory, $http, $roo
       }
       setChartData(tabName)
     }
+    
+/*******************************************************************************
+                            INIT PART
+*******************************************************************************/
+  var temploc = $location.path().split("/")
+  var thisLoc = temploc[temploc.length - 1]
+  if (thisLoc == undefined) {
+    setTab("UrbanBasicEndowmentInsuranceData")
+  } else {
+    setTab(thisLoc)
+  }
 
 
   }
