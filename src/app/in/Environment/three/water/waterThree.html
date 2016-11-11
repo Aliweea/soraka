@@ -1,165 +1,181 @@
 <ul class="nav nav-tabs">
     <li class="active" ng-click="show()">
-      <a style="font-size: 20px" data-toggle="tab">水环境概况</a>
+        <a style="font-size: 20px" data-toggle="tab">水环境概况</a>
     </li>
     <li ng-click="show2()">
-      <a style="font-size: 20px" data-toggle="tab">水环境分析</a>
+        <a style="font-size: 20px" data-toggle="tab">水环境分析</a>
     </li>
 </ul>
 <div ng-show="tab1">
-	<div style="margin-top:10px; margin-bottom: 5px;padding: 0px">
-		<button style="width: 32%; font-size: 13px" class="btn" ng-class="getButtonStatus(waterQualityStatus.status)" ng-click="waterQualityBtn()"><i class="fa fa-hand-o-right" aria-hidden="true"></i>&nbsp江河水质</button>
-		<button style="width: 32%; font-size: 13px" class="btn" ng-click="waterConditionBtn()" ng-class="getButtonStatus(waterConditionStatus.status)"><i class="fa fa-hand-o-right" aria-hidden="true"></i>&nbsp江河水情</button>
-		<button style="width: 32%; font-size: 13px" class="btn" ng-click="wasteWaterBtn()" ng-class="getButtonStatus(wasteWaterStatus.status)"><i class="fa fa-hand-o-right" aria-hidden="true"></i>&nbsp工业废水</button>
-	</div>
-	<div style="height: 380px; border: #ccc solid 1px;" id="map_canvas"></div>
-	<div style="margin-top: 15px">
-		<div class="panel panel-success">
-			<div ng-show="mapTableStatus.waterQuality">
-				<h5 align="left" style="padding-top: 0px">&nbsp(更新时间:&nbsp{{waterQualityCurrentDateTime.year + '-'
-					+ waterQualityCurrentDateTime.month + '-'
-					+ waterQualityCurrentDateTime.day + ' '
-					+ waterQualityCurrentDateTime.hour + '时'}}&nbsp&nbsp单位：mg/L)</h5>
-				<table class="table table-hover table-responsive" style="font-size:14px;margin-bottom:0px">
-					<tr>
-						<th style="width:20%">监测点</th>
-						<th style="width:20%">溶解氧</th>
-						<th style="width:15%">KMnO4</th>
-						<th style="width:15%">氨氮</th>
-						<th style="width:15%">总磷</th>
-					</tr>
-				</table>
-			</div>
-			<div style="overflow: auto;overflow-x:hidden;height: 240px" ng-show="mapTableStatus.waterQuality">
-				<table class="table table-hover table-responsive" style="font-size:14px">
-					<tr ng-repeat="waterQualityOne in waterQualityMarkerList">
-						<td style="width:20%">{{waterQualityOne.monitor}}</td>
-						<td style="width:20%"><span>{{waterQualityOne.index_o2.toFixed(2)}}</span></td>
-						<td style="width:15%"><span>{{waterQualityOne.index_kmno4.toFixed(2)}}</span></td>
-						<td style="width:15%"><span>{{waterQualityOne.index_nh4n.toFixed(2)}}</span></td>
-						<td style="width:15%"><span>{{waterQualityOne.index_p.toFixed(2)}}</span></td>
-					</tr>
-				</table>
-			</div>
-			<div ng-show="mapTableStatus.waterCondition">
-				<h5 align="更新时间" style="padding-top: 0px">&nbsp(更新时间:&nbsp{{waterConditionCurrentDateTime.year + '-'
-					+ waterConditionCurrentDateTime.month + '-'
-					+ waterConditionCurrentDateTime.day + ' '
-					+ waterConditionCurrentDateTime.hour + '时'}}&nbsp&nbsp单位：m))</h5>
-				<table class="table table-hover table-responsive"  style="font-size:14px;margin-bottom:0px">
-					<tr>
-						<th style="width:30%">监测点</th>
-						<th style="width:35%">闸上水位</th>
-						<th style="width:35%">闸下水位</th>
-					</tr>
-				</table>
-			</div>
-			<div style="overflow: auto;overflow-x:hidden;height: 240px" ng-show="mapTableStatus.waterCondition">
-				<table class="table table-hover table-responsive"  style="font-size:14px">
-					<tr ng-repeat="waterConditionOne in waterConditionMarkerList">
-						<td style="width:30%">{{waterConditionOne.monitor}}</td>
-						<td style="width:35%">{{waterConditionOne.index_levelUp.toFixed(2)}}</td>
-						<td style="width:35%">{{waterConditionOne.index_levelDown.toFixed(2)}}</td>
-					</tr>
-				</table>
-			</div>
-			<div ng-show="mapTableStatus.wasteWater">
-				<h5 align="left" style="padding-top: 0px">&nbsp(更新时间:&nbsp{{wasteWaterCurrentDateTime.year + '-'
-					+ wasteWaterCurrentDateTime.month + '-'
-					+ wasteWaterCurrentDateTime.day}})</h5>
-				<table class="table table-hover table-responsive"  style="font-size:14px;margin-bottom:0px">
-					<tr>
-						<th style="width:30%">企业</th>
-						<th style="width:25%">排放量<br/>(吨)</th>
-						<th style="width:15%">COD<br/>(mg/L)</th>
-						<th style="width:15%">氨氮<br/>(mg/L)</th>
-						<th style="width:15%">总磷<br/>(mg/L)</th>
-					</tr>
-				</table>
-			</div>
-			<div style="overflow: auto; overflow-x:hidden;height:220px" ng-show="mapTableStatus.wasteWater">
-				<table class="table table-hover table-responsive"  style="font-size:14px">
-					<tr ng-repeat="wasteWaterOne in wasteWaterMarkerList">
-						<td style="width:25%">{{wasteWaterOne.monitor}}</td>
-						<td style="width:25%"><span>{{wasteWaterOne.index_discharge[1].toFixed(2)}}</span></td>
-						<td style="width:17%"><span>{{wasteWaterOne.index_cod.toFixed(2)}}</span></td>
-						<td style="width:17%"><span>{{wasteWaterOne.index_nh4n.toFixed(2)}}</span></td>
-						<td style="width:16%"><span>{{wasteWaterOne.index_p.toFixed(2)}}</span></td>
-					</tr>
-				</table>
-			</div>
-		</div>
-	</div>
+    <div style="margin-top:10px; margin-bottom: 5px;padding: 0px">
+        <button style="width: 32%; font-size: 13px" class="btn" ng-class="getButtonStatus(waterQualityStatus.status)"
+                ng-click="waterQualityBtn()"><i class="fa fa-hand-o-right" aria-hidden="true"></i>&nbsp江河水质
+        </button>
+        <button style="width: 32%; font-size: 13px" class="btn" ng-click="waterConditionBtn()"
+                ng-class="getButtonStatus(waterConditionStatus.status)"><i class="fa fa-hand-o-right"
+                                                                           aria-hidden="true"></i>&nbsp江河水情
+        </button>
+        <button style="width: 32%; font-size: 13px" class="btn" ng-click="wasteWaterBtn()"
+                ng-class="getButtonStatus(wasteWaterStatus.status)"><i class="fa fa-hand-o-right"
+                                                                       aria-hidden="true"></i>&nbsp工业废水
+        </button>
+    </div>
+    <div style="height: 380px; border: #ccc solid 1px;" id="map_canvas"></div>
+    <div style="margin-top: 15px">
+        <div class="panel panel-success">
+            <div ng-show="mapTableStatus.waterQuality">
+                <h5 align="left" style="padding-top: 0px">&nbsp(更新时间:&nbsp{{waterQualityCurrentDateTime.year + '-'
+                    + waterQualityCurrentDateTime.month + '-'
+                    + waterQualityCurrentDateTime.day + ' '
+                    + waterQualityCurrentDateTime.hour + '时'}}&nbsp&nbsp单位：mg/L)</h5>
+                <table class="table table-hover table-responsive" style="font-size:14px;margin-bottom:0px">
+                    <tr>
+                        <th style="width:20%">监测点</th>
+                        <th style="width:20%">溶解氧</th>
+                        <th style="width:15%">KMnO4</th>
+                        <th style="width:15%">氨氮</th>
+                        <th style="width:15%">总磷</th>
+                    </tr>
+                </table>
+            </div>
+            <div style="overflow: auto;overflow-x:hidden;height: 240px" ng-show="mapTableStatus.waterQuality">
+                <table class="table table-hover table-responsive" style="font-size:14px">
+                    <tr ng-repeat="waterQualityOne in waterQualityMarkerList">
+                        <td style="width:20%">{{waterQualityOne.monitor}}</td>
+                        <td style="width:20%"><span>{{waterQualityOne.index_o2.toFixed(2)}}</span></td>
+                        <td style="width:15%"><span>{{waterQualityOne.index_kmno4.toFixed(2)}}</span></td>
+                        <td style="width:15%"><span>{{waterQualityOne.index_nh4n.toFixed(2)}}</span></td>
+                        <td style="width:15%"><span>{{waterQualityOne.index_p.toFixed(2)}}</span></td>
+                    </tr>
+                </table>
+            </div>
+            <div ng-show="mapTableStatus.waterCondition">
+                <h5 align="更新时间" style="padding-top: 0px">&nbsp(更新时间:&nbsp{{waterConditionCurrentDateTime.year + '-'
+                    + waterConditionCurrentDateTime.month + '-'
+                    + waterConditionCurrentDateTime.day + ' '
+                    + waterConditionCurrentDateTime.hour + '时'}}&nbsp&nbsp单位：m))</h5>
+                <table class="table table-hover table-responsive" style="font-size:14px;margin-bottom:0px">
+                    <tr>
+                        <th style="width:30%">监测点</th>
+                        <th style="width:35%">闸上水位</th>
+                        <th style="width:35%">闸下水位</th>
+                    </tr>
+                </table>
+            </div>
+            <div style="overflow: auto;overflow-x:hidden;height: 240px" ng-show="mapTableStatus.waterCondition">
+                <table class="table table-hover table-responsive" style="font-size:14px">
+                    <tr ng-repeat="waterConditionOne in waterConditionMarkerList">
+                        <td style="width:30%">{{waterConditionOne.monitor}}</td>
+                        <td style="width:35%">{{waterConditionOne.index_levelUp.toFixed(2)}}</td>
+                        <td style="width:35%">{{waterConditionOne.index_levelDown.toFixed(2)}}</td>
+                    </tr>
+                </table>
+            </div>
+            <div ng-show="mapTableStatus.wasteWater">
+                <h5 align="left" style="padding-top: 0px">&nbsp(更新时间:&nbsp{{wasteWaterCurrentDateTime.year + '-'
+                    + wasteWaterCurrentDateTime.month + '-'
+                    + wasteWaterCurrentDateTime.day}})</h5>
+                <table class="table table-hover table-responsive" style="font-size:14px;margin-bottom:0px">
+                    <tr>
+                        <th style="width:30%">企业</th>
+                        <th style="width:25%">排放量<br/>(吨)</th>
+                        <th style="width:15%">COD<br/>(mg/L)</th>
+                        <th style="width:15%">氨氮<br/>(mg/L)</th>
+                        <th style="width:15%">总磷<br/>(mg/L)</th>
+                    </tr>
+                </table>
+            </div>
+            <div style="overflow: auto; overflow-x:hidden;height:220px" ng-show="mapTableStatus.wasteWater">
+                <table class="table table-hover table-responsive" style="font-size:14px">
+                    <tr ng-repeat="wasteWaterOne in wasteWaterMarkerList">
+                        <td style="width:25%">{{wasteWaterOne.monitor}}</td>
+                        <td style="width:25%"><span>{{wasteWaterOne.index_discharge[1].toFixed(2)}}</span></td>
+                        <td style="width:17%"><span>{{wasteWaterOne.index_cod.toFixed(2)}}</span></td>
+                        <td style="width:17%"><span>{{wasteWaterOne.index_nh4n.toFixed(2)}}</span></td>
+                        <td style="width:16%"><span>{{wasteWaterOne.index_p.toFixed(2)}}</span></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
 <div ng-show="tab2">
-	<div class="panel panel-success">
-		<div class="panel-heading">
-			水质分析<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>			
-		</div>
-		<div class="panel-body">
-			<nav class="navbar navbar-default" role="navigation"  du-scroll-container="scroll-container">
-				<a href="#waterQualityAnchor1" style="margin-left: 5%;font-size: 13px" class="btn btn-default navbar-btn"  du-smooth-scroll>溶解氧</a>
-				<a href="#waterQualityAnchor2" style="margin-left: 3%;font-size: 13px" class="btn btn-default navbar-btn"  du-smooth-scroll>高锰酸钾</a>
-				<a href="#waterQualityAnchor3" style="margin-left: 3%;font-size: 13px" class="btn btn-default navbar-btn" du-smooth-scroll>氨氮</a>
-				<a href="#waterQualityAnchor4" style="margin-left: 3%;font-size: 13px" class="btn btn-default navbar-btn"  du-smooth-scroll>总磷</a>
-			</nav>
-			<span ng-repeat="waterQualityOne in waterQualityCurrentList">
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            水质分析<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
+        </div>
+        <div class="panel-body">
+            <nav class="navbar navbar-default" role="navigation" du-scroll-container="scroll-container">
+                <a href="#waterQualityAnchor1" style="margin-left: 5%;font-size: 13px"
+                   class="btn btn-default navbar-btn" du-smooth-scroll>溶解氧</a>
+                <a href="#waterQualityAnchor2" style="margin-left: 3%;font-size: 13px"
+                   class="btn btn-default navbar-btn" du-smooth-scroll>高锰酸钾</a>
+                <a href="#waterQualityAnchor3" style="margin-left: 3%;font-size: 13px"
+                   class="btn btn-default navbar-btn" du-smooth-scroll>氨氮</a>
+                <a href="#waterQualityAnchor4" style="margin-left: 3%;font-size: 13px"
+                   class="btn btn-default navbar-btn" du-smooth-scroll>总磷</a>
+            </nav>
+            <span ng-repeat="waterQualityOne in waterQualityCurrentList">
 				<label style="margin-left: 5%">
-					<input type="radio" ng-model="waterQualityCurrentListSelected" ng-value="waterQualityOne.monitor" name="waterQualityCurrentListRadio" ng-click="waterQualityCurrentChange(waterQualityOne)">{{waterQualityOne.monitor}}
+					<input type="radio" ng-model="waterQualityCurrentListSelected" ng-value="waterQualityOne.monitor"
+                           name="waterQualityCurrentListRadio" ng-click="waterQualityCurrentChange(waterQualityOne)">{{waterQualityOne.monitor}}
 				</label>
 			</span>
-			<div style="overflow: auto; height: 350px" id="scroll-container">
-				<div id="waterQualityAnchor1" style="margin-left: 25%">
-					<highchart  config="waterQualityOptions.o2Option" ></highchart>
-				</div>
-				<div>
-					<highchart config="waterQualityOptions.currentO2LineOption"></highchart>
-				</div>
-				<div id="waterQualityAnchor2" style="margin-left: 25%">
-					<highchart config="waterQualityOptions.kmno4Option"></highchart>
-				</div>
-				<div>
-					<highchart config="waterQualityOptions.currentKmno4LineOption"></highchart>
-				</div>
-				<div id="waterQualityAnchor3" style="margin-left: 25%">
-					<highchart config="waterQualityOptions.nh4nOption"></highchart>
-				</div>
-				<div>
-					<highchart config="waterQualityOptions.currentNh4nLineOption"></highchart>
-				</div>
-				<div id="waterQualityAnchor4" style="margin-left: 25%">
-					<highchart config="waterQualityOptions.pOption"></highchart>
-				</div>
-				<div>
-					<highchart config="waterQualityOptions.currentPOption"></highchart>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="panel panel-success">
-		<div class="panel-heading">
-			废水排放分析<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>			
-		</div>
-		<div class="panel-body">
+            <div style="overflow: auto; height: 350px" id="scroll-container">
+                <div id="waterQualityAnchor1" style="margin-left: 25%">
+                    <highchart config="waterQualityOptions.o2Option"></highchart>
+                </div>
+                <div>
+                    <highchart config="waterQualityOptions.currentO2LineOption"></highchart>
+                </div>
+                <div id="waterQualityAnchor2" style="margin-left: 25%">
+                    <highchart config="waterQualityOptions.kmno4Option"></highchart>
+                </div>
+                <div>
+                    <highchart config="waterQualityOptions.currentKmno4LineOption"></highchart>
+                </div>
+                <div id="waterQualityAnchor3" style="margin-left: 25%">
+                    <highchart config="waterQualityOptions.nh4nOption"></highchart>
+                </div>
+                <div>
+                    <highchart config="waterQualityOptions.currentNh4nLineOption"></highchart>
+                </div>
+                <div id="waterQualityAnchor4" style="margin-left: 25%">
+                    <highchart config="waterQualityOptions.pOption"></highchart>
+                </div>
+                <div>
+                    <highchart config="waterQualityOptions.currentPOption"></highchart>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            废水排放分析<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
+        </div>
+        <div class="panel-body">
 			<span ng-repeat="wasteWaterOne in wasteWaterCurrentList">
 				<label>
-					<input type="radio" ng-model="wasteWaterCurrentListSelected" ng-value="wasteWaterOne" name="wasteWaterCurrentListRadio" ng-click="wasteWaterCurrentChange(wasteWaterOne)">{{wasteWaterOne}}
+					<input type="radio" ng-model="wasteWaterCurrentListSelected" ng-value="wasteWaterOne"
+                           name="wasteWaterCurrentListRadio" ng-click="wasteWaterCurrentChange(wasteWaterOne)">{{wasteWaterOne}}
 				</label>
 			</span>
-			<highchart config="wasteWaterOptions.wasteWaterCurrentOption">废水排放</highchart>
-		</div>
-	</div>
-	<div class="panel panel-success">
-		<div class="panel-heading">
-			水情分析<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>			
-		</div>
-		<div class="panel-body">
+            <highchart config="wasteWaterOptions.wasteWaterCurrentOption">废水排放</highchart>
+        </div>
+    </div>
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            水情分析<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
+        </div>
+        <div class="panel-body">
 			<span ng-repeat="waterConditionOne in waterConditionCurrentList">
 				<label>
-					<input type="radio" ng-model="waterConditionCurrentListSelected" ng-value="waterConditionOne.monitor" name="waterConditionCurrentListRadio" ng-click="waterConditionCurrentChange(waterConditionOne)">{{waterConditionOne.monitor}}
+					<input type="radio" ng-model="waterConditionCurrentListSelected"
+                           ng-value="waterConditionOne.monitor" name="waterConditionCurrentListRadio"
+                           ng-click="waterConditionCurrentChange(waterConditionOne)">{{waterConditionOne.monitor}}
 				</label>
 			</span>
-			<highchart config="waterConditionOptions.waterConditionCurrentOption">水情</highchart>
-		</div>
-	</div>
+            <highchart config="waterConditionOptions.waterConditionCurrentOption">水情</highchart>
+        </div>
+    </div>
 </div>

@@ -3,195 +3,208 @@
 		<a style="font-size: 20px" data-toggle="tab">全行业用电量</a>
     </li>
     <li ng-click="show2()">
-      <a style="font-size: 20px" data-toggle="tab">生活用电量</a>
+        <a style="font-size: 20px" data-toggle="tab">生活用电量</a>
     </li>
 </ul>
 <div ng-show="tab1">
-	<ui-shared-state id="activeTab" default="1"></ui-shared-state>
-	<div class="btn-group justified nav-tabs">
-		<a ui-set="{'activeTab': 1}" ui-class="{'active': activeTab == 1}" class="btn btn-default">电力消耗-分产业</a>
-		<a ui-set="{'activeTab': 2}" ui-class="{'active': activeTab == 2}" class="btn btn-default active">电力消耗-分行业</a>
+    <ui-shared-state id="activeTab" default="1"></ui-shared-state>
+    <div class="btn-group justified nav-tabs">
+        <a ui-set="{'activeTab': 1}" ui-class="{'active': activeTab == 1}" class="btn btn-default">电力消耗-分产业</a>
+        <a ui-set="{'activeTab': 2}" ui-class="{'active': activeTab == 2}" class="btn btn-default active">电力消耗-分行业</a>
     </div>
     <div ui-if="activeTab == 1" class="ng-scope">
-		<div class="panel panel-success" style="margin-top:20px">
-			<div class="panel-heading">
-				{{nowyear}}{{nowmonth}}电力消耗关键数据<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
-			</div>
-			<div class="panel-body">
-				<div style="display: inline-block;">			
-					<img style="height: 50px;width: 50px;float: left;" src="/assets/images/Environment/dianli.png" />
-					<span>第一产业</span><br>
-					<span>{{diyichanye_value}}</span><br>
-					<span>万千瓦时</span>
-				</div>
-				<div style="display: inline-block;">
-					<img style="height: 50px;width: 50px;float: left;" src="/assets/images/Environment/dianli.png" />
-					<span>第二产业</span><br>
-					<span>{{dierchanye_value}}</span><br>
-					<span>万千瓦时</span>
-				</div>
-				<div style="display: inline-block;">
-					<img style="height: 50px;width: 50px;float: left;" src="/assets/images/Environment/dianli.png" />
-					<span>第三产业</span><br>
-					<span>{{disanchanye_value}}</span><br>
-					<span>万千瓦时</span>
-				</div>
-			</div>
-		</div>
-		<div class="panel panel-success" style="margin-top:20px">
-			<div class="panel-heading">
-				{{nowyear}}{{nowmonth}}电力消耗量-分产业<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
-			</div>
-			<div class="panel-body">
-				<highchart config="energydianli_chanye_option"></highchart>
-				<highchart config="energydianli_chanye_column_option"></highchart>
-			</div>
-		</div>
-		<div class="panel panel-success" style="margin-top:20px">
-			<div class="panel-heading">
-				{{nowyear}}第一产业电力消耗量<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
-			</div>
-			<div class="panel-body">
-				<highchart config="energydianli_diyichanye_option">第一产业电力消耗量</highchart>
-			</div>
-		</div>
-		<div class="panel panel-success" style="margin-top:20px">
-			<div class="panel-heading">
-				{{nowyear}}第二产业电力消耗量<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
-			</div>
-			<div class="panel-body">
-				<highchart config="energydianli_dierchanye_option">第二产业电力消耗量</highchart>
-			</div>
-		</div>
-		<div class="panel panel-success" style="margin-top:20px">
-			<div class="panel-heading">
-				{{nowyear}}第三产业电力消耗量<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
-			</div>
-			<div class="panel-body">
-				<highchart config="energydianli_disanchanye_option">第三产业电力消耗量</highchart>
-			</div>
-		</div>
-	</div>
+        <div class="panel panel-success" style="margin-top:20px">
+            <div class="panel-heading">
+                {{nowyear}}{{nowmonth}}电力消耗关键数据<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
+            </div>
+            <div class="panel-body">
+                <div style="display: inline-block;">
+                    <img style="height: 50px;width: 50px;float: left;" src="/assets/images/Environment/dianli.png"/>
+                    <span>第一产业</span><br>
+                    <span>{{diyichanye_value}}</span><br>
+                    <span>万千瓦时</span>
+                </div>
+                <div style="display: inline-block;">
+                    <img style="height: 50px;width: 50px;float: left;" src="/assets/images/Environment/dianli.png"/>
+                    <span>第二产业</span><br>
+                    <span>{{dierchanye_value}}</span><br>
+                    <span>万千瓦时</span>
+                </div>
+                <div style="display: inline-block;">
+                    <img style="height: 50px;width: 50px;float: left;" src="/assets/images/Environment/dianli.png"/>
+                    <span>第三产业</span><br>
+                    <span>{{disanchanye_value}}</span><br>
+                    <span>万千瓦时</span>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-success" style="margin-top:20px">
+            <div class="panel-heading">
+                {{nowyear}}{{nowmonth}}电力消耗量-分产业<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
+            </div>
+            <div class="panel-body">
+                <highchart style="border-bottom: 1px solid black" config="energydianli_chanye_option"></highchart>
+                <highchart config="energydianli_chanye_column_option"></highchart>
+            </div>
+        </div>
+        <div class="panel panel-success" style="margin-top:20px">
+            <div class="panel-heading">
+                {{nowyear}}第一产业电力消耗量<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
+            </div>
+            <div class="panel-body">
+                <highchart style="border-bottom: 1px solid black" config="energydianli_diyichanye_option">第一产业电力消耗量
+                </highchart>
+                <img style="margin-top: 5px;width: 80px;height: 18px"
+                     src="/assets/images/Environment/one-sentence.png"/>
+                <p style="margin-top: 5px">一.{{nowmonth}}第一产业用电量:{{diyichanye_value}} 万千瓦时</p>
+                <p>二.{{nowmonth}}第一产业用电量累计比上年同期增加:{{diyichanye_rate}}%</p>
+            </div>
+        </div>
+        <div class="panel panel-success" style="margin-top:20px">
+            <div class="panel-heading">
+                {{nowyear}}第二产业电力消耗量<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
+            </div>
+            <div class="panel-body">
+                <highchart style="border-bottom: 1px solid black" config="energydianli_dierchanye_option">第二产业电力消耗量</highchart>
+                <img style="margin-top: 5px;width: 80px;height: 18px"
+                     src="/assets/images/Environment/one-sentence.png"/>
+                <p style="margin-top: 5px">一.{{nowmonth}}第二产业用电量:{{dierchanye_value}} 万千瓦时</p>
+                <p>二.{{nowmonth}}第二产业用电量累计比上年同期增加:{{dierchanye_rate}}%</p>
+            </div>
+        </div>
+        <div class="panel panel-success" style="margin-top:20px">
+            <div class="panel-heading">
+                {{nowyear}}第三产业电力消耗量<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
+            </div>
+            <div class="panel-body">
+                <highchart config="energydianli_disanchanye_option">第三产业电力消耗量</highchart>
+                <img style="margin-top: 5px;width: 80px;height: 18px"
+                     src="/assets/images/Environment/one-sentence.png"/>
+                <p style="margin-top: 5px">一.{{nowmonth}}第三产业用电量:{{disanchanye_value}} 万千瓦时</p>
+                <p>二.{{nowmonth}}第三产业用电量累计比上年同期增加:{{disanchanye_rate}}%</p>
+            </div>
+        </div>
+    </div>
     <div ui-if="activeTab == 2" class="ng-scope">
-		<div class="panel panel-success" style="margin-top:20px">
-			<div class="panel-heading">
-				{{nowyear}}{{nowmonth}}电力消耗量-分行业<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
-			</div>
-			<div class="panel-body">
-				<highchart config="energydianli_hangye_option">第三产业电力消耗量</highchart>
-				<highchart config="energydianli_hangye_column_option">第三产业电力消耗量</highchart>
-			</div>
-		</div>
-	</div>
-	<div ui-if="activeTab == 2" class="ng-scope">
-		<div class="panel panel-success" style="margin-top:20px">
-			<div class="panel-heading">
-				{{nowyear}}农、林、牧、渔业电力消耗量<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
-			</div>
-			<div class="panel-body">
-				<highchart config="energydianli_nonglingmuyuhangye_option">第三产业电力消耗量</highchart>
-			</div>
-		</div>
-		<div class="panel panel-success" style="margin-top:20px">
-			<div class="panel-heading">
-				{{nowyear}}工业电力消耗量<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
-			</div>
-			<div class="panel-body">
-				<highchart config="energydianli_gongyehangye_option">工业电力消耗量</highchart>
-			</div>
-		</div>
-		<div class="panel panel-success" style="margin-top:20px">
-			<div class="panel-heading">
-				{{nowyear}}建筑业电力消耗量<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
-			</div>
-			<div class="panel-body">
-				<highchart config="energydianli_jianzhuyehangye_option">建筑业电力消耗量</highchart>
-			</div>
-		</div>
-		<div class="panel panel-success" style="margin-top:20px">
-			<div class="panel-heading">
-				{{nowyear}}交通运输、仓储和邮政业电力消耗量<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
-			</div>
-			<div class="panel-body">
-				<highchart config="energydianli_jtccyzhangye_option">交通运输、仓储和邮政业</highchart>
-			</div>
-		</div>
-		<div class="panel panel-success" style="margin-top:20px">
-			<div class="panel-heading">
-				{{nowyear}}信息传输、计算机服务和软件业电力消耗量<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
-			</div>
-			<div class="panel-body">
-				<highchart config="energydianli_xxjsjrjhangye_option">信息传输、计算机服务和软件业</highchart>
-			</div>
-		</div>
-		<div class="panel panel-success" style="margin-top:20px">
-			<div class="panel-heading">
-				{{nowyear}}批发和零售、住宿和餐饮业电力消耗量<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
-			</div>
-			<div class="panel-body">
-				<highchart config="energydianli_pflszscyhangye_option">批发和零售、住宿和餐饮业</highchart>
-			</div>
-		</div>
-		<div class="panel panel-success" style="margin-top:20px">
-			<div class="panel-heading">
-				{{nowyear}}金融、房地产、商务及居民服务业电力消耗量<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
-			</div>
-			<div class="panel-body">
-				<highchart config="energydianli_jrfdcswjmfwyhangye_option">金融、房地产、商务及居民服务业</highchart>
-			</div>
-		</div>
-		<div class="panel panel-success" style="margin-top:20px">
-			<div class="panel-heading">
-				{{nowyear}}公共事业及管理组织电力消耗量<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
-			</div>
-			<div class="panel-body">
-				<highchart config="energydianli_ggsyglhangye_option">公共事业及管理组织</highchart>
-			</div>
-		</div>
-	</div>
+        <div class="panel panel-success" style="margin-top:20px">
+            <div class="panel-heading">
+                {{nowyear}}{{nowmonth}}电力消耗量-分行业<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
+            </div>
+            <div class="panel-body">
+                <highchart config="energydianli_hangye_option">第三产业电力消耗量</highchart>
+                <highchart config="energydianli_hangye_column_option">第三产业电力消耗量</highchart>
+            </div>
+        </div>
+    </div>
+    <div ui-if="activeTab == 2" class="ng-scope">
+        <div class="panel panel-success" style="margin-top:20px">
+            <div class="panel-heading">
+                {{nowyear}}农、林、牧、渔业电力消耗量<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
+            </div>
+            <div class="panel-body">
+                <highchart config="energydianli_nonglingmuyuhangye_option">第三产业电力消耗量</highchart>
+            </div>
+        </div>
+        <div class="panel panel-success" style="margin-top:20px">
+            <div class="panel-heading">
+                {{nowyear}}工业电力消耗量<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
+            </div>
+            <div class="panel-body">
+                <highchart config="energydianli_gongyehangye_option">工业电力消耗量</highchart>
+            </div>
+        </div>
+        <div class="panel panel-success" style="margin-top:20px">
+            <div class="panel-heading">
+                {{nowyear}}建筑业电力消耗量<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
+            </div>
+            <div class="panel-body">
+                <highchart config="energydianli_jianzhuyehangye_option">建筑业电力消耗量</highchart>
+            </div>
+        </div>
+        <div class="panel panel-success" style="margin-top:20px">
+            <div class="panel-heading">
+                {{nowyear}}交通运输、仓储和邮政业电力消耗量<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
+            </div>
+            <div class="panel-body">
+                <highchart config="energydianli_jtccyzhangye_option">交通运输、仓储和邮政业</highchart>
+            </div>
+        </div>
+        <div class="panel panel-success" style="margin-top:20px">
+            <div class="panel-heading">
+                {{nowyear}}信息传输、计算机服务和软件业电力消耗量<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
+            </div>
+            <div class="panel-body">
+                <highchart config="energydianli_xxjsjrjhangye_option">信息传输、计算机服务和软件业</highchart>
+            </div>
+        </div>
+        <div class="panel panel-success" style="margin-top:20px">
+            <div class="panel-heading">
+                {{nowyear}}批发和零售、住宿和餐饮业电力消耗量<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
+            </div>
+            <div class="panel-body">
+                <highchart config="energydianli_pflszscyhangye_option">批发和零售、住宿和餐饮业</highchart>
+            </div>
+        </div>
+        <div class="panel panel-success" style="margin-top:20px">
+            <div class="panel-heading">
+                {{nowyear}}金融、房地产、商务及居民服务业电力消耗量<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
+            </div>
+            <div class="panel-body">
+                <highchart config="energydianli_jrfdcswjmfwyhangye_option">金融、房地产、商务及居民服务业</highchart>
+            </div>
+        </div>
+        <div class="panel panel-success" style="margin-top:20px">
+            <div class="panel-heading">
+                {{nowyear}}公共事业及管理组织电力消耗量<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
+            </div>
+            <div class="panel-body">
+                <highchart config="energydianli_ggsyglhangye_option">公共事业及管理组织</highchart>
+            </div>
+        </div>
+    </div>
 </div>
 <div ng-show="tab2">
-	<div class="panel panel-success" style="margin-top:20px">
-		<div class="panel-heading">
-			{{nowyear}}{{nowmonth}}电力消耗关键数据<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
-		</div>
-		<div class="panel-body">
-			<div style="display: inline-block;margin-left: 5%">			
-				<img style="height: 50px;width: 50px;float: left;" src="/assets/images/Environment/dianli.png" />
-				<span>城镇生活电力</span><br>
-				<span>消耗{{chengzhengyongdianliang_value}}</span><br>
-				<span>万千瓦时</span>
-			</div>
-			<div style="display: inline-block;margin-left: 10%">
-				<img style="height: 50px;width: 50px;float: left;" src="/assets/images/Environment/dianli.png" />
-				<span>农村生活电力</span><br>
-				<span>消耗{{nongcunyongdianliang_value}}</span><br>
-				<span>万千瓦时</span>
-			</div>
-		</div>
-	</div>
-	<div class="panel panel-success" style="margin-top:20px">
-		<div class="panel-heading">
-			{{nowyear}}{{nowmonth}}城乡生活电力消耗量<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
-		</div>
-		<div class="panel-body">
-			<highchart config="energydianli_shenghuo_option"></highchart>
-		</div>
-	</div>
-	<div class="panel panel-success" style="margin-top:20px">
-		<div class="panel-heading">
-			{{nowyear}}城镇生活电力消耗量<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
-		</div>
-		<div class="panel-body">
-			<highchart config="energydianli_chengzhenshenghuo_option"></highchart>
-		</div>
-	</div>
-	<div class="panel panel-success" style="margin-top:20px">
-		<div class="panel-heading">
-			{{nowyear}}农村生活电力消耗量<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
-		</div>
-		<div class="panel-body">
-			<highchart config="energydianli_nongcunshenghuo_option"></highchart>
-		</div>
-	</div>
+    <div class="panel panel-success" style="margin-top:20px">
+        <div class="panel-heading">
+            {{nowyear}}{{nowmonth}}电力消耗关键数据<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
+        </div>
+        <div class="panel-body">
+            <div style="display: inline-block;margin-left: 5%">
+                <img style="height: 50px;width: 50px;float: left;" src="/assets/images/Environment/dianli.png"/>
+                <span>城镇生活电力</span><br>
+                <span>消耗{{chengzhengyongdianliang_value}}</span><br>
+                <span>万千瓦时</span>
+            </div>
+            <div style="display: inline-block;margin-left: 10%">
+                <img style="height: 50px;width: 50px;float: left;" src="/assets/images/Environment/dianli.png"/>
+                <span>农村生活电力</span><br>
+                <span>消耗{{nongcunyongdianliang_value}}</span><br>
+                <span>万千瓦时</span>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-success" style="margin-top:20px">
+        <div class="panel-heading">
+            {{nowyear}}{{nowmonth}}城乡生活电力消耗量<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
+        </div>
+        <div class="panel-body">
+            <highchart config="energydianli_shenghuo_option"></highchart>
+        </div>
+    </div>
+    <div class="panel panel-success" style="margin-top:20px">
+        <div class="panel-heading">
+            {{nowyear}}城镇生活电力消耗量<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
+        </div>
+        <div class="panel-body">
+            <highchart config="energydianli_chengzhenshenghuo_option"></highchart>
+        </div>
+    </div>
+    <div class="panel panel-success" style="margin-top:20px">
+        <div class="panel-heading">
+            {{nowyear}}农村生活电力消耗量<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
+        </div>
+        <div class="panel-body">
+            <highchart config="energydianli_nongcunshenghuo_option"></highchart>
+        </div>
+    </div>
 </div>
