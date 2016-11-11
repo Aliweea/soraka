@@ -1,4 +1,4 @@
-<div  ui-state="activeTab" default="1">
+<div ui-state="activeTab" default="1">
     <ul class="nav nav-tabs">
         <li ui-class="{'active':activeTab==1}" style="width: 25%">
             <a ui-set="{'activeTab':1}">土地使用当前数据</a>
@@ -35,15 +35,15 @@
         <br/>
         <div class="col-md-3">
             <h4>土地出让指标选择</h4>
-                <ul class="nav nav-tabs">
-                    <li style="width: 50%" ng-repeat="landUseOne in landUseGrantList">
-                        <a ng-model="landUseGrantListSelected"
-                           ng-value="landUseOne" name="landUseGrantListRadio"
-                           ng-click="landUseGrantListChange(landUseOne)">{{landUseOne}}</a>
-                    </li>
-                </ul>
+            <ul class="nav nav-tabs">
+                <li style="width: 50%" ng-repeat="landUseOne in landUseGrantList">
+                    <a ng-model="landUseGrantListSelected"
+                       ng-value="landUseOne" name="landUseGrantListRadio"
+                       ng-click="landUseGrantListChange(landUseOne)">{{landUseOne}}</a>
+                </li>
+            </ul>
         </div>
-        <hr style="height:1px;border:none;border-top:1px solid #555555;" />
+        <hr style="height:1px;border:none;border-top:1px solid #555555;"/>
         <br/>
         <div class="col-md-4">
             <highchart config="landUseOption.detailOption"></highchart>

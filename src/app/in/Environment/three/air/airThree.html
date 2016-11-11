@@ -1,24 +1,28 @@
 <ul class="nav nav-tabs">
     <li class="active" ng-click="show()">
-      <a style="font-size: 20px" data-toggle="tab">大气环境概况</a>
+        <a style="font-size: 20px" data-toggle="tab">大气环境概况</a>
     </li>
     <li ng-click="show2()">
-      <a style="font-size: 20px" data-toggle="tab">大气环境分析</a>
+        <a style="font-size: 20px" data-toggle="tab">大气环境分析</a>
     </li>
 </ul>
 <div ng-show="tab1">
     <div style="margin-top:5px;font-size:16px">
-        <button style="width: 32%; font-size: 13px" class="btn" ng-class="getButtonStatus(airQualityStatus.status)" ng-click="airQualityBtn()"><i class="fa fa-hand-o-right" aria-hidden="true"></i>&nbsp城区空气质量</button>
-        <button style="width: 32%; font-size: 13px" class="btn" ng-class="getButtonStatus(wasteAirStatus.status)" ng-click="wasteAirBtn()"><i class="fa fa-hand-o-right" aria-hidden="true"></i>&nbsp工业废气排放</button>
+        <button style="width: 32%; font-size: 13px" class="btn" ng-class="getButtonStatus(airQualityStatus.status)"
+                ng-click="airQualityBtn()"><i class="fa fa-hand-o-right" aria-hidden="true"></i>&nbsp城区空气质量
+        </button>
+        <button style="width: 32%; font-size: 13px" class="btn" ng-class="getButtonStatus(wasteAirStatus.status)"
+                ng-click="wasteAirBtn()"><i class="fa fa-hand-o-right" aria-hidden="true"></i>&nbsp工业废气排放
+        </button>
     </div>
     <div style="height: 380px; border: #ccc solid 1px;" id="map_canvas"></div>
     <div style="margin-top: 15px">
         <div class="panel panel-success">
             <div ng-show="mapTableStatus.airQuality">
                 <h5 align="left" style="padding-top: 0px">&nbsp(更新时间:&nbsp{{airQualityCurrentDateTime.year + '-'
-                        + airQualityCurrentDateTime.month + '-'
-                        + airQualityCurrentDateTime.day + ' '
-                        + airQualityCurrentDateTime.hour + '时'}}&nbsp&nbsp单位：μg/m³)</h5>
+                    + airQualityCurrentDateTime.month + '-'
+                    + airQualityCurrentDateTime.day + ' '
+                    + airQualityCurrentDateTime.hour + '时'}}&nbsp&nbsp单位：μg/m³)</h5>
                 <table class="table table-hover table-responsive" style="font-size:14px;margin-bottom:0px">
                     <tr>
                         <th style="width:30%">监测点</th>
@@ -60,7 +64,8 @@
                 <table class="table table-hover table-responsive" style="font-size:14px">
                     <tr ng-repeat="wasteAirOne in wasteAirMarkerList">
                         <td style="width:20%">{{wasteAirOne.monitor.slice(0,6)}}</td>
-                        <td style="width:20%"><span>{{(wasteAirOne.index_discharge[1]/100000000).toFixed(2)}}亿</span></td>
+                        <td style="width:20%"><span>{{(wasteAirOne.index_discharge[1]/100000000).toFixed(2)}}亿</span>
+                        </td>
                         <td style="width:20%"><span>{{wasteAirOne.index_smoke.toFixed(2)}}</span></td>
                         <td style="width:20%"><span>{{wasteAirOne.index_so2.toFixed(2)}}</span></td>
                         <td style="width:20%"><span>{{wasteAirOne.index_no.toFixed(2)}}</span></td>
@@ -73,21 +78,29 @@
 <div ng-show="tab2">
     <div class="panel panel-success">
         <div class="panel-heading">
-            空气质量分析<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>           
+            空气质量分析<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
         </div>
         <div class="panel-body">
             <nav class="navbar navbar-default" role="navigation" du-scroll-container="scroll-container">
-                <a href="#airQualityAnchor1"  style="margin-left: 3%;font-size: 13px" class="btn btn-default navbar-btn" du-smooth-scroll>AQI</a>
-                <a href="#airQualityAnchor2" style="margin-left: 3%;font-size: 13px" class="btn btn-default navbar-btn" du-smooth-scroll>PM2.5</a>
-                <a href="#airQualityAnchor3" style="margin-left: 3%;font-size: 13px" class="btn btn-default navbar-btn " du-smooth-scroll>PM10</a>
-                <a href="#airQualityAnchor4" style="margin-left: 3%;font-size: 13px" class="btn btn-default navbar-btn " du-smooth-scroll>二氧化硫</a>
-                <a href="#airQualityAnchor5" style="margin-left: 3%;font-size: 13px" class="btn btn-default navbar-btn " du-smooth-scroll>二氧化氮</a>
-                <a href="#airQualityAnchor6" style="margin-left: 3%;font-size: 13px" class="btn btn-default navbar-btn " du-smooth-scroll>一氧化碳</a>
-                <a href="#airQualityAnchor7" style="margin-left: 3%;font-size: 13px" class="btn btn-default navbar-btn " du-smooth-scroll>臭氧</a>
+                <a href="#airQualityAnchor1" style="margin-left: 3%;font-size: 13px" class="btn btn-default navbar-btn"
+                   du-smooth-scroll>AQI</a>
+                <a href="#airQualityAnchor2" style="margin-left: 3%;font-size: 13px" class="btn btn-default navbar-btn"
+                   du-smooth-scroll>PM2.5</a>
+                <a href="#airQualityAnchor3" style="margin-left: 3%;font-size: 13px" class="btn btn-default navbar-btn "
+                   du-smooth-scroll>PM10</a>
+                <a href="#airQualityAnchor4" style="margin-left: 3%;font-size: 13px" class="btn btn-default navbar-btn "
+                   du-smooth-scroll>二氧化硫</a>
+                <a href="#airQualityAnchor5" style="margin-left: 3%;font-size: 13px" class="btn btn-default navbar-btn "
+                   du-smooth-scroll>二氧化氮</a>
+                <a href="#airQualityAnchor6" style="margin-left: 3%;font-size: 13px" class="btn btn-default navbar-btn "
+                   du-smooth-scroll>一氧化碳</a>
+                <a href="#airQualityAnchor7" style="margin-left: 3%;font-size: 13px" class="btn btn-default navbar-btn "
+                   du-smooth-scroll>臭氧</a>
             </nav>
             <span ng-repeat="airQualityOne in airQualityCurrentList">
                 <label style="margin-left: 5%">
-                    <input type="radio" ng-model="airQualityCurrentListSelected" ng-value="airQualityOne.monitor" name="airQualityCurrentListRadio" ng-click="airQualityCurrentChange(airQualityOne)">{{airQualityOne.monitor}}
+                    <input type="radio" ng-model="airQualityCurrentListSelected" ng-value="airQualityOne.monitor"
+                           name="airQualityCurrentListRadio" ng-click="airQualityCurrentChange(airQualityOne)">{{airQualityOne.monitor}}
                 </label>
             </span>
             <div style="overflow: auto; height: 300px" id="scroll-container">
@@ -138,12 +151,13 @@
     </div>
     <div class="panel panel-success">
         <div class="panel-heading">
-            废气排放分析<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>           
+            废气排放分析<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
         </div>
         <div class="panel-body">
             <span ng-repeat="wasteAirOne in wasteAirCurrentList">
                 <label style="margin-left: 2%">
-                    <input type="radio" ng-model="wasteAirCurrentListSelected" ng-value="wasteAirOne" name="wasteAirCurrentListRadio" ng-click="wasteAirCurrentChange(wasteAirOne)">{{wasteAirOne}}
+                    <input type="radio" ng-model="wasteAirCurrentListSelected" ng-value="wasteAirOne"
+                           name="wasteAirCurrentListRadio" ng-click="wasteAirCurrentChange(wasteAirOne)">{{wasteAirOne}}
                 </label>
             </span>
             <highchart config="wasteAirOptions.wasteAirCurrentOption">废气排放</highchart>
