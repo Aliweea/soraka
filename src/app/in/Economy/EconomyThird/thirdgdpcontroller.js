@@ -146,17 +146,20 @@ export default ($scope,$rootScope,$stateParams,dateService,generalService,dataDe
       options: {
         colors: generalService.columnColors(),
         chart: {
-          type: 'column'
+          type: 'column',
+          backgroundColor: 'rgb( 122,181,175)'
         }
       },
       series: [{
         name: '国内生产总值(累计值)',
+        color:'white',
         tooltip: {
           pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f} 亿元</b> '
         }
 
       }, {
         name: '国内生产总值(各季度)',
+        color:'gray',
         tooltip: {
           pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f} 亿元</b> '
         }
@@ -164,12 +167,23 @@ export default ($scope,$rootScope,$stateParams,dateService,generalService,dataDe
       xAxis: {
         title: {
           text: '季度',
-          align: 'high'
+          align: 'high',
+          style:{
+            color:'white'
+          }
         }
       },
       yAxis: {
+        labels: {
+          style:{
+            color:'white'
+          }
+        },
         title: {
-          text: '值（亿元）'
+          text: '值（亿元）',
+          style:{
+            color:'white'
+          }
         }
       },
       title: {
@@ -183,34 +197,56 @@ export default ($scope,$rootScope,$stateParams,dateService,generalService,dataDe
       options: {
         colors: generalService.columnColors(),
         chart: {
-          type: 'column'
+          type: 'column',
+          backgroundColor: 'rgb( 122,181,175)'
         }
       },
       series: [{
         name: '国内生产总值(第一产业)',
+        color:'white',
         tooltip: {
           pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f} 亿元</b> '
         }
       }, {
         name: '国内生产总值(第二产业)',
+        color:'gray',
         tooltip: {
           pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f} 亿元</b> '
         }
       }, {
         name: '国内生产总值(第三产业)',
+        color:'black',
         tooltip: {
           pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f} 亿元</b> '
         }
       }],
       xAxis: {
+        labels: {
+          rotation: -45,
+          align: 'right',
+          style:{
+            color:'white'
+          }
+        },
         title: {
           text: '季度',
-          align: 'high'
+          align: 'high',
+         style:{
+            color:'white'
+          }
         }
       },
       yAxis: {
+         labels: {
+          style:{
+            color:'white'
+          }
+        },
         title: {
-          text: '值（亿元）'
+          text: '值（亿元）',
+          style:{
+            color:'white'
+          }
         }
       },
       title: {
@@ -218,5 +254,24 @@ export default ($scope,$rootScope,$stateParams,dateService,generalService,dataDe
       },
       loading: false
     };
+    var x = 0;
+    $scope.show1 = true;
+    $scope.show = function(){ 
+        x=x+1;
+        if (x>1) {
+          x=0;
+        }
+        switch(x){
+          case 0:
+          $scope.show1 = true;
+           $scope.show2 = false;
+          break;
+          case 1:
+           $scope.show1 = false;
+           $scope.show2 = true;
+          break;
+        }
+       
+    }
  
 };

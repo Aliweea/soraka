@@ -155,13 +155,23 @@
 
   <div ui-if="activeTab == 2">
   <div class="scrollable"style="margin-top: 100px;height: 500px">
-  <div class="scrollable-content" >
-     <h3 class="page-header">全年{{kpiText}}KPI详情</h3>
-    <highchart config="IndustryValueChart"  id="IndustryValueChart"></highchart>
-    <highchart config="NewIndustryValueChart"  id="NewIndustryValueChart"></highchart>
-    <highchart config="industryIncomeValueChart" id="industryIncomeValueChart"></highchart>
-    <highchart config="industryProfitValueChart" id="industryProfitValueChart"></highchart>
-     <highchart config="industryTaxValueChart" id="industryTaxValueChart"></highchart>
+  <div class="scrollable-content" ng-click="show()">
+     <div style="height: 30px; display: flex;display: -webkit-flex;flex-direction: row;justify-content: center;align-items: center;">
+      <div style="width: 100%;height: 30px;box-shadow: 3px 3px 6px -4px white;border-radius: 5px;display: flex;display: -webkit-flex;flex-direction: row;justify-content: center;align-items: center;">
+      <span style="font-size: 2em">工业数据全年走势</span>
+      </div>
+      </div>
+     <div style="height: 40px;display: flex;display: -webkit-flex;flex-direction: row;justify-content: center;align-items: center;">
+      <span ng-show="false">{{ei = dataMap.NProfitvalue.lastestObject}}</span>
+       <span class="label label-primary">统计局</span>
+        <span class="label" style="color: black;margin-left: 5px">时间:{{ei.year}} 年 {{ei.month}} 月</span>
+         <span class="label" style="color: black">每月更新</span>
+     </div>
+    <highchart config="IndustryValueChart"  id="IndustryValueChart" style="height: 450px" ng-if="show1" class="economyfade"></highchart>
+    <highchart config="NewIndustryValueChart"  id="NewIndustryValueChart" style="height: 450px" ng-if="show2" class="economyfade"></highchart>
+    <highchart config="industryIncomeValueChart" id="industryIncomeValueChart" style="height: 450px" ng-if="show3" class="economyfade"></highchart>
+    <highchart config="industryProfitValueChart" id="industryProfitValueChart" style="height: 450px" ng-if="show4" class="economyfade"></highchart>
+     <highchart config="industryTaxValueChart" id="industryTaxValueChart" style="height: 450px" ng-if="show5" class="economyfade"></highchart>
   </div>
  
   </div>
