@@ -50,11 +50,11 @@ var token = "eyJhY2NvdW50Ijp7IkBpZCI6IjEiLCJpZCI6MjYsImNyZWF0ZV90aW1lIjoiMjAxNS0
       });
    },
 
-   getDictListByType:() => {
+   getDictListByType:(typeId) => {
     dictFactory.getDictListByType({
       'x-auth-token': token
     }).get({
-        id: id
+        id: typeId
       },
       function success(data) {
         successProcess(JSOG.parse(JSOG.stringify(data)));
