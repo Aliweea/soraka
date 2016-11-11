@@ -96,5 +96,300 @@ export default ($scope, qService, generalService, dataDetailFactory, $http, $roo
     setTab(thisLoc)
   }
 
+/*******************************************************************************
+                HIGHCHARG CONFIGURATION AREA
+*******************************************************************************/
+  function splineHighChart(height, categories) {
+    this.options = {
+        colors: generalService.lineColors(),
+        chart: {
+          type: 'spline',
+        },
+        title: {
+          text: ""
+        },
+        subtitle: {
+          text: ''
+        },
+        credits: {
+          enabled: false
+        },
+        xAxis: {
+          categories: categories,
+          tickmarkPlacement: 'on'
+        },
+        yAxis: {
+          title: {
+            text: '单位：万元'
+          },
+          labels: {
+            formatter: function() {
+              return this.value
+            }
+          },
+          min: 0
+        },
+        legend: {
+          align: 'right',
+          x: -70,
+          verticalAlign: 'top',
+          y: 20,
+          floating: true,
+          backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColorSolid) || 'white',
+          borderColor: '#CCC',
+          borderWidth: 1,
+          shadow: false
+        },
+        tooltip: {
+          crosshairs: true,
+          shared: true,
+          pointFormat: '<b>{point.series.name}</b> {point.y:,.2f}万元<br>'
+        },
+        plotOptions: {
+          spline: {
+            marker: {
+              radius: 4,
+              lineColor: '#666666',
+              lineWidth: 1
+            },
+            cursor: 'pointer',
+            events: {
+              click: function(event) {
+                var query_year = event.point.category.substr(0, 4);
+                $scope.$apply(clickEventOfIncomeSpline(thisLoc, query_year))
+              }
+            }
+          }
+        },
+    }
+    this.series = []
+    this.size = {
+      // width: 200,
+      height: height
+    }
+  }
+
+  function columnstackHighChart(height, categories) {
+    this.options = {
+      colors: generalService.columnColors(),
+      chart: {
+        type: 'column',
+      },
+      credits: {
+        enabled: false
+      },
+      title: {
+        text: ""
+      },
+      xAxis: {
+        categories: categories,
+        tickmarkPlacement: 'on'
+      },
+      yAxis: {
+        min: 0,
+        title: {
+          text: '单位：人'
+        },
+        labels: {
+          formatter: function() {
+            return this.value
+          }
+        }
+      },
+      legend: {
+        align: 'right',
+        x: -70,
+        verticalAlign: 'top',
+        y: 20,
+        floating: true,
+        backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColorSolid) || 'white',
+        borderColor: '#CCC',
+        borderWidth: 1,
+        shadow: false
+      },
+      tooltip: {
+        formatter: function() {
+          return '<b>' + this.x + '</b><br/>' + this.series.name + ': ' + this.y + '人<br/>' + '总数: ' + this.point.stackTotal + '人';
+        }
+      },
+      plotOptions: {
+        column: {
+          stacking: 'normal',
+          cursor: 'pointer',
+          events: {
+            click: function(event) {
+              var query_year = event.point.category.substr(0, 4);
+              $scope.$apply(clickEventOfEngageStackColumn(thisLoc, query_year))
+            }
+          }
+        }
+      },
+    }
+    this.series = []
+    this.size = {
+      // width: 200,
+      height: height
+    }
+  }
+
+  function columnHighChart(height) {
+    this.options = {
+      colors: generalService.columnColors().slice(0,3),
+      chart: {
+        type: 'column',
+      },
+      title: {
+        text: ""
+      },
+      credits: {
+        enabled: false
+      },
+      xAxis: {
+        categories: []
+      },
+      yAxis: {
+        title: {
+          text: '单位：万元'
+        },
+        labels: {
+          formatter: function() {
+            return this.value
+          }
+        }
+      },
+      legend: {
+        enabled: true,
+        align: 'right',
+        x: 0,
+        verticalAlign: 'top',
+        y: 20,
+        floating: true,
+        backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColorSolid) || 'white',
+        borderColor: '#CCC',
+        borderWidth: 1,
+        shadow: false
+      },
+      tooltip: {
+        enabled: true,
+        pointFormat: '{series.name}：{point.y:.2f} 万元'
+      },
+      plotOptions: {
+        series: {
+          dataLabels: {
+            enabled: false,
+            rotation: -90,
+            color: '#FFFFFF',
+            align: 'right',
+            x: 4,
+            y: 10,
+            style: {
+              fontSize: '13px',
+              fontFamily: 'Verdana, sans-serif',
+              textShadow: '0 0 3px black'
+            },
+            formatter: function() {
+              return Number(this.y / 10000).toFixed(2)
+            }
+          }
+        }
+      }
+    }
+    this.series = []
+    this.size = {
+      // width: 200,
+      height: height
+    }
+  }
+
+  function pieHighchart() {
+    this.options = {
+      colors: generalService.pieColors(),
+      credits: {
+        enabled: false
+      },
+      chart: {
+        type: 'pie',
+      },
+      title: {
+        text: ""
+      },
+      legend: {
+        align: 'right',
+        x: 0,
+        verticalAlign: 'top',
+        y: 20,
+        floating: true,
+        backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColorSolid) || 'white',
+        borderColor: '#CCC',
+        borderWidth: 1,
+        shadow: false
+      },
+      plotOptions: {
+        pie: {
+          allowPointSelect: true,
+          cursor: 'pointer',
+          dataLabels: {
+            enabled: false,
+            color: '#000000',
+            connectorColor: '#000000',
+            format: '{point.percentage:.2f}%'
+          },
+          showInLegend: true
+        }
+      },
+      tooltip: {
+        enabled: true,
+        pointFormat: '{series.name}: <b>{point.percentage:.2f}%</b>'
+      }
+    }
+    this.series = [{
+       type: 'pie',
+       name: '占比',
+       data: []
+    }]
+  }
+
+/*******************************************************************************
+                              OBJECT AREA
+*******************************************************************************/
+  function splineDataObject(name, symbol, size) {
+    var temp = new Array(size)
+    for (var i=0; i<size; i++) {
+      temp[i] = null
+    }
+    this.data = temp
+    this.name = name
+    this.marker ={symbol: symbol}
+  }
+
+  function splineListObject(size) {
+    this.data = [new splineDataObject("收入", "triangle", size), new splineDataObject("支出", "triangle-down", size)]
+  }
+
+  function columnDataObject(name) {
+    this.data = [null]
+    this.name = name
+  }
+
+  function listObject(itemList, dataObject) {
+    var temp = []
+    for (var i=0; i<itemList.length; i++) {
+      temp.push(new dataObject(itemList[i]))
+    }
+    this.data = temp;
+  }
+
+  function detailListObject(size, itemList) {
+    var temp = new Array()
+    for (var i=0; i < size; i++) {
+      temp.push(new listObject(itemList, columnDataObject))
+    }
+    this.data = temp
+  }
+
+  function pieDataObject(name) {
+    this.name = name
+    this.y = null
+  }
 
   }
