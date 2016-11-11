@@ -84,7 +84,7 @@ export default ($scope, qService, generalService, dataDetailFactory, $http, $roo
       }
       setChartData(tabName)
     }
-    
+
 /*******************************************************************************
                             INIT PART
 *******************************************************************************/
@@ -392,4 +392,214 @@ export default ($scope, qService, generalService, dataDetailFactory, $http, $roo
     this.y = null
   }
 
+/*******************************************************************************
+                          FUNCTION AREA
+*******************************************************************************/
+  $scope.tabChangeFunction = function(parmeter) {
+    $location.path("/InsuranceChart/"+parmeter)
   }
+
+  function setChartData(entityName) {
+    qService.httpPost(dataDetailFactory.lastestObject, {tableName: entityName
+    }, {"X-Auth-Token":token},['year']).then(function(lastObjRaw) {
+      console.log(lastObjRaw);
+      if (lastObjRaw.errorCode != "NO_ERROR") {
+        $location.path("/main");
+      }
+      var latestObj = JSOG.parse(JSOG.stringify(lastObjRaw.data))
+      $scope.LATESTYEAR = latestObj.year
+
+      var yearList = new Array()
+      for (var i=$scope.LATESTYEAR-4; i <= $scope.LATESTYEAR; i++) {
+        yearList.push(i+"年")
+      }
+
+      $scope.ALLOPTION = {
+        INCOMESPLINE: new splineHighChart(500, yearList),
+        BALANCECOLUMN: new columnHighChart(250),
+        ENGAGESTACKCOLUMN: new columnstackHighChart(650, yearList),
+        ENGAGEPIE: new pieHighchart(),
+      }
+
+      // $scope.ALLOPTION.CURRENTOPTIONS = $scope.ALLOPTION[entityName]
+
+      $scope.ALLDATA[entityName] = {
+        INCOMESPLINEDATA: new splineListObject(5),
+        BALANCEDATA: new Array(5),
+        BALANCECOLUMNDATALIST: new detailListObject(5, ["收入", "支出", "结余"])
+      }
+
+      getDataAll(entityName, $scope.LATESTYEAR)
+    })
+  }
+
+
+function getDataAll(entityName, year) {
+    var queryMap = {
+      year: generalService.advanceQueryObj('bt', 'innt', [(year-4), year]),
+      sort1: {
+        key: 'year',
+        sortType: 'asc'
+      }
+    }
+    var tempData = $scope.ALLDATA[entityName]
+    var INSURANCEDATA = qService.httpPost(dataDetailFactory.advancedQuery, {
+      tableName: entityName
+    },  {"X-Auth-Token":token},queryMap)
+
+    INSURANCEDATA.then(function(data) {
+      if (data.errorCode != "NO_ERROR") {
+        $location.path("/main");
+      }
+      var dataList = data.data
+      var currentObj, tempYear, income, outcome, lastBalance, tempIndex, tempBalance, columnNameList, lastYear, tempColumn, tempPie, lastYearDetailData, curYearDetailData, incORdecString, pieNameList
+      for (var i=0; i<dataList.length; i++) {
+        currentObj = dataList[i]
+        tempYear = currentObj.year
+        lastYear = tempYear - 1
+        tempIndex = 4 - (year - tempYear)
+        income = currentObj.income
+        outcome = currentObj.outcome
+        tempBalance = income-outcome
+        lastBalance = currentObj.lastBalance
+        tempData.BALANCEDATA[tempIndex] = [income, outcome, tempBalance, lastBalance]
+        tempData.INCOMESPLINEDATA.data[0].data[tempIndex] = income
+        tempData.INCOMESPLINEDATA.data[1].data[tempIndex] = outcome
+        tempData.BALANCECOLUMNDATALIST.data[tempIndex].data[0].data[0] = income
+        tempData.BALANCECOLUMNDATALIST.data[tempIndex].data[1].data[0] = outcome
+        tempData.BALANCECOLUMNDATALIST.data[tempIndex].data[2].data[0] = tempBalance
+
+        columnNameList =  ["参保人员"]
+        tempColumn = []
+        tempPie = []
+        var tempDetail
+        var detailNameList
+
+        tempColumn = [currentObj.participatedPopulation]
+        switch ($scope.CURRENTINSURANCE) {
+          case "城镇基本养老保险": // 城镇基本养老保险
+            columnNameList = ["在职职工", "离退人员"]
+            detailNameList = [(tempYear%1000)+"年在职职工参保人数", (tempYear%1000)+"年离退人员参保人数", (tempYear%1000)+"年总参保人数"]
+            tempColumn = [currentObj.employeesParticipatedPopulation, currentObj.participatedPopulation-currentObj.employeesParticipatedPopulation]
+            tempDetail = [currentObj.employeesParticipatedPopulation, currentObj.participatedPopulation-currentObj.employeesParticipatedPopulation, currentObj.participatedPopulation]
+            tempPie = [currentObj.employeesParticipatedPopulation, currentObj.participatedPopulation-currentObj.employeesParticipatedPopulation]
+            pieNameList = ["在职职工", "离退人员"]
+            break;
+          case "失业保险": // 失业保险
+            curYearDetailData = currentObj.benefitedPopulation
+            incORdecString = "新增"
+            pieNameList = [lastYear+"年在职参保人数", tempYear+"年"+incORdecString+"在职参保人数"]
+            if (i === 0) {
+              lastYearDetailData = 0
+              tempPie = [lastYearDetailData, Math.abs(lastYearDetailData-curYearDetailData)]
+            } else {
+              lastYearDetailData = dataList[i-1].benefitedPopulation
+              tempPie = [lastYearDetailData, Math.abs(lastYearDetailData-curYearDetailData)]
+              if (lastYearDetailData > curYearDetailData) {
+                incORdecString = "减少"
+                tempPie = [curYearDetailData, Math.abs(lastYearDetailData-curYearDetailData)]
+              }
+            }
+            columnNameList =  ["失业金领取人员"]
+            detailNameList = [(lastYear%1000)+"年失业金领取人数", (tempYear%1000)+"年"+incORdecString+"失业金领取人数", (tempYear%1000)+"年失业金领取人数"]
+            tempColumn = [curYearDetailData]
+            tempDetail = [lastYearDetailData, Math.abs(lastYearDetailData-curYearDetailData), curYearDetailData]
+            break;
+          case "城镇基本医疗保险": // 城镇基本医疗保险
+          case "城镇居民医疗保险": // 城镇居民医疗保险
+            curYearDetailData = currentObj.participatedPopulation
+            incORdecString = "新增"
+            pieNameList = [lastYear+"年在职参保人数", tempYear+"年"+incORdecString+"在职参保人数"]
+            if (i === 0) {
+              lastYearDetailData = 0
+              tempPie = [lastYearDetailData, Math.abs(lastYearDetailData-curYearDetailData)]
+            } else {
+              lastYearDetailData = dataList[i-1].participatedPopulation
+              tempPie = [lastYearDetailData, Math.abs(lastYearDetailData-curYearDetailData)]
+              if (lastYearDetailData > curYearDetailData) {
+                incORdecString = "减少"
+                pieNameList = [tempYear+"年在职参保人数", tempYear+"年"+incORdecString+"在职参保人数"]
+                tempPie = [curYearDetailData, Math.abs(lastYearDetailData-curYearDetailData)]
+              }
+            }
+            tempDetail = [lastYearDetailData, Math.abs(lastYearDetailData-curYearDetailData), curYearDetailData]
+            detailNameList = [(lastYear%1000)+"年在职参保人数", (tempYear%1000)+"年"+incORdecString+"在职参保人数", (tempYear%1000)+"年在职参保人数"]
+            break;
+          case "工伤保险": // 工伤保险
+          case "生育保险": // 生育保险
+          case "居民基本养老保险": // 居民基本养老保险
+            tempDetail = [currentObj.participatedPopulation, currentObj.benefitedPopulation, Number(currentObj.benefitedPopulation*100/(currentObj.benefitedPopulation+currentObj.participatedPopulation)).toFixed(2)]
+            detailNameList = [(tempYear%1000)+"年在职人员参保人数", (tempYear%1000)+"年享受待遇人员数量", (tempYear%1000)+"年享受待遇人数占比"]
+            pieNameList = ["在职人员","享受待遇人员"]
+            tempPie = [currentObj.participatedPopulation, currentObj.benefitedPopulation]
+            break;
+          }
+        if (tempData.ENGAGESTACKCOLUMNDATALIST  == undefined) {
+          tempData.ENGAGESTACKCOLUMNDATALIST = new listObject(columnNameList, columnDataObject)
+          tempData.yearParticipatedTitle = new Array(5)
+          tempData.insuranceDetailParticipated = new Array(5)
+          tempData.ENGAGEPIELIST = new Array(5)
+          tempData.ENGAGEPIELIST[0] = null
+        }
+
+        tempData.ENGAGEPIELIST[tempIndex] = new listObject(pieNameList, pieDataObject)
+        for(var j=0; j < tempColumn.length; j++) {
+          tempData.ENGAGESTACKCOLUMNDATALIST.data[j].data[tempIndex] = tempColumn[j]
+        }
+        tempData.yearParticipatedTitle[tempIndex] = detailNameList
+        tempData.insuranceDetailParticipated[tempIndex] = tempDetail
+        for(var j=0; j < tempPie.length; j++) {
+          tempData.ENGAGEPIELIST[tempIndex].data[j].y = tempPie[j]
+        }
+      }
+
+      $scope.ALLOPTION.INCOMESPLINE.options.title.text = "太仓市近5年" + $scope.CURRENTINSURANCE + "收支情况"
+      $scope.ALLOPTION.INCOMESPLINE.series = $scope.ALLDATA[entityName].INCOMESPLINEDATA.data
+      clickEventOfIncomeSpline(entityName, year)
+
+      $scope.chartSuffix =  "参保人员"
+      if ($scope.CURRENTINSURANCE === "失业保险") {
+        $scope.chartSuffix = "失业金领取人员"
+      }
+      $scope.ALLOPTION.ENGAGESTACKCOLUMN.options.title.text = "太仓市近5年" + $scope.CURRENTINSURANCE + $scope.chartSuffix + "情况",
+      $scope.ALLOPTION.ENGAGESTACKCOLUMN.series = $scope.ALLDATA[entityName].ENGAGESTACKCOLUMNDATALIST.data
+      clickEventOfEngageStackColumn(entityName, year)
+    })
+  }
+
+  function clickEventOfIncomeSpline(entityName, year) {
+    var index = year - $scope.LATESTYEAR + 4
+    $scope.ALLOPTION.BALANCECOLUMN.options.title.text = "收入支出"
+    $scope.ALLOPTION.BALANCECOLUMN.series = $scope.ALLDATA[entityName].BALANCECOLUMNDATALIST.data[index].data
+    $scope.ALLOPTION.BALANCECOLUMN.options.xAxis.categories = [$scope.CURRENTINSURANCE]
+    $scope.yearBalance = $scope.ALLDATA[entityName].BALANCEDATA[index]
+    $scope.balance = $scope.ALLDATA[entityName].BALANCEDATA[index]
+    $scope.balanceSelectYear = year
+  }
+
+  function clickEventOfEngageStackColumn(entityName, year) {
+    var index = year - $scope.LATESTYEAR + 4
+    $scope.ALLOPTION.ENGAGEPIE.options.title.text = $scope.CURRENTINSURANCE + $scope.chartSuffix + "组成"
+    $scope.ALLOPTION.ENGAGEPIE.series[0].data = $scope.ALLDATA[entityName].ENGAGEPIELIST[index].data
+    $scope.insuranceParticapted = $scope.ALLDATA[entityName].insuranceDetailParticipated[index]
+    $scope.insuranceDetailParticipated = $scope.ALLDATA[entityName].insuranceDetailParticipated[index]
+    $scope.yearParticipatedTitle = $scope.ALLDATA[entityName].yearParticipatedTitle[index]
+    $scope.participatedTitle = $scope.ALLDATA[entityName].yearParticipatedTitle[index]
+    $scope.engageSelectYear = year
+  }
+
+
+
+}
+
+
+
+
+
+
+
+
+ 
+
+
+  
