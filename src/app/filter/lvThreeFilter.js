@@ -4,7 +4,7 @@ export default($rootScope) => {
   // Needed for the loading screen
   return (input) => {
     switch (input) {
-         case '2301':
+        case '2301':
         return 'UBEI';
         break;
         case '2302':
@@ -105,7 +105,10 @@ export default($rootScope) => {
         break;
         case '2365':
         return 'UBEI';
-        break;
+        break;//////////////////////////////////////
+        case '2231':
+        return 'PopulationStructure';
+        break;     
     };
   };
   
