@@ -108,7 +108,53 @@ export default($rootScope) => {
         break;
         case '2231':
         return 'PopulationStructure';
-        break;     
+        break;
+        case '2232':
+        return 'BornDeath';
+        break;
+        case '2233':
+        return 'BornDeath';
+        break;
+        case '2241':
+        return 'TerminalPopulation';
+        break;
+        case '2242':
+        return 'TerminalPopulation';
+        break;
+        case '2243':
+        return 'TerminalPopulation';
+        break;
+        case '2234':
+        return 'FirstMarriage';
+        break;
+        case '2254':
+        return 'FirstMarriage';
+        break; 
+        case '2253':
+        return 'BornDeath';
+        break; 
+          case '2252':
+        return 'BornDeath';
+        break; 
+          case '2251':
+        return 'BornDeath';
+        break; 
+          case '2233':
+        return 'BornDeath';
+        break;////////////////////////////////// 
+          case '2255':
+        return 'BearingWomen';
+        break; 
+        case '2256':
+        return 'BearingWomen';
+        break; 
+          case '2257':
+        return 'BearingWomen';
+        break; 
+          case '2258':
+        return 'BearingWomen';
+        break; 
+       
     };
   };
   
