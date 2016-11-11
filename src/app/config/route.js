@@ -148,7 +148,7 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       controller: 'energyThreeCtrl'
     })
 
-
+    
     // 公共安全
     .state('app.publicsecurity', {
       abstract: true,
