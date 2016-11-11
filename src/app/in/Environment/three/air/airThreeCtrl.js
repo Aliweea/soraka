@@ -83,9 +83,6 @@ export default ($scope, kpiDetailService, dateService) => {
     var airQualityMarkerArr;
     var airQualityCurrentArr;
     var airQualityCurrentTimeList;
-    /*var airConditionMarkerArr;
-     var airConditionCurrentArr;
-     var airConditionCurrentTimeList*/
     var wasteAirMarkerArr;
     var wasteAirCurrentArr;
     var wasteAirCurrentTimeList;
@@ -101,6 +98,9 @@ export default ($scope, kpiDetailService, dateService) => {
                     plotBackgroundImage: null,
                     plotBorderWidth: 0,
                     plotShadow: false
+                },
+                exporting: {
+                    enabled: false
                 },
                 title: {
                     text: 'AQI'
@@ -209,7 +209,9 @@ export default ($scope, kpiDetailService, dateService) => {
                     plotBorderWidth: 0,
                     plotShadow: false
                 },
-
+                exporting: {
+                    enabled: false
+                },
                 title: {
                     text: 'PM2.5'
                 },
@@ -319,11 +321,12 @@ export default ($scope, kpiDetailService, dateService) => {
                     plotBorderWidth: 0,
                     plotShadow: false
                 },
-
+                exporting: {
+                    enabled: false
+                },
                 title: {
                     text: 'PM10'
                 },
-
                 pane: {
                     startAngle: -150,
                     endAngle: 150,
@@ -430,11 +433,12 @@ export default ($scope, kpiDetailService, dateService) => {
                     plotBorderWidth: 0,
                     plotShadow: false
                 },
-
                 title: {
                     text: '二氧化硫'
                 },
-
+                exporting: {
+                    enabled: false
+                },
                 pane: {
                     startAngle: -150,
                     endAngle: 150,
@@ -545,7 +549,9 @@ export default ($scope, kpiDetailService, dateService) => {
                 title: {
                     text: '二氧化氮'
                 },
-
+                exporting: {
+                    enabled: false
+                },
                 pane: {
                     startAngle: -150,
                     endAngle: 150,
@@ -652,11 +658,12 @@ export default ($scope, kpiDetailService, dateService) => {
                     plotBorderWidth: 0,
                     plotShadow: false
                 },
-
+                exporting: {
+                    enabled: false
+                },
                 title: {
                     text: '一氧化碳'
                 },
-
                 pane: {
                     startAngle: -150,
                     endAngle: 150,
@@ -710,7 +717,6 @@ export default ($scope, kpiDetailService, dateService) => {
                     minorTickLength: 10,
                     minorTickPosition: 'inside',
                     minorTickColor: '#666',
-
                     tickPixelInterval: 30,
                     tickWidth: 2,
                     tickPosition: 'inside',
@@ -737,7 +743,6 @@ export default ($scope, kpiDetailService, dateService) => {
                         color: '#DF5353' // red
                     }]
                 },
-
                 credits: {
                     enabled: false
                 }
@@ -763,11 +768,12 @@ export default ($scope, kpiDetailService, dateService) => {
                     plotBorderWidth: 0,
                     plotShadow: false
                 },
-
+                exporting: {
+                    enabled: false
+                },
                 title: {
                     text: '臭氧'
                 },
-
                 pane: {
                     startAngle: -150,
                     endAngle: 150,
@@ -870,6 +876,9 @@ export default ($scope, kpiDetailService, dateService) => {
                 title: {
                     text: null,
                 },
+                exporting: {
+                    enabled: false
+                },
                 xAxis: {
                     categories: [],
                     tickmarkPlacement: 'on'
@@ -927,6 +936,9 @@ export default ($scope, kpiDetailService, dateService) => {
             options: {
                 title: {
                     text: null,
+                },
+                exporting: {
+                    enabled: false
                 },
                 xAxis: {
                     categories: [],
@@ -986,6 +998,9 @@ export default ($scope, kpiDetailService, dateService) => {
                 title: {
                     text: null,
                 },
+                exporting: {
+                    enabled: false
+                },
                 xAxis: {
                     categories: [],
                     tickmarkPlacement: 'on'
@@ -1043,6 +1058,9 @@ export default ($scope, kpiDetailService, dateService) => {
             options: {
                 title: {
                     text: null,
+                },
+                exporting: {
+                    enabled: false
                 },
                 xAxis: {
                     categories: [],
@@ -1102,6 +1120,9 @@ export default ($scope, kpiDetailService, dateService) => {
                 title: {
                     text: null,
                 },
+                exporting: {
+                    enabled: false
+                },
                 xAxis: {
                     categories: [],
                     tickmarkPlacement: 'on'
@@ -1159,6 +1180,9 @@ export default ($scope, kpiDetailService, dateService) => {
             options: {
                 title: {
                     text: null,
+                },
+                exporting: {
+                    enabled: false
                 },
                 xAxis: {
                     categories: [],
@@ -1218,6 +1242,9 @@ export default ($scope, kpiDetailService, dateService) => {
                 title: {
                     text: null,
                 },
+                exporting: {
+                    enabled: false
+                },
                 xAxis: {
                     categories: [],
                     tickmarkPlacement: 'on'
@@ -1273,49 +1300,6 @@ export default ($scope, kpiDetailService, dateService) => {
         }
     };
 
-
-    //气象 highcharts options
-    /*$scope.airConditionOptions = {
-     airConditionCurrentOption: {
-     options: {
-     colors: ['#7CADDF', '#7CADDF', '#195489', '#1FC22B', '#FB9705', '#F26200'],
-     chart: {
-     type: 'line',
-     },
-     tooltip: {},
-     xAxis: {
-     categories: [],
-     tickmarkPlacement: 'on'
-     },
-     plotOptions: {
-     column: {
-     dataLabels: {
-     enabled: true,
-     },
-     pointPadding: 0.2,
-     borderWidth: 0
-     }
-     },
-     credits: {
-     enabled: false
-     }
-     },
-     title: {
-     text: ''
-     },
-     yAxis: {
-     min: 0,
-     title: {
-     text: ''
-     }
-     },
-     series: [{
-     name: '',
-     data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-     }]
-     }
-     };*/
-
     //废气排放 highcharts options
     $scope.wasteAirOptions = {
         wasteAirCurrentOption: {
@@ -1324,6 +1308,9 @@ export default ($scope, kpiDetailService, dateService) => {
                 chart: {
                     type: 'area',
                     width: $(window).width() * 0.9
+                },
+                exporting: {
+                    enabled: false
                 },
                 title: {
                     text: ''
@@ -1619,223 +1606,6 @@ export default ($scope, kpiDetailService, dateService) => {
     }
 
 
-    // //气象 http请求后处理过程（即http.success(function(data))中的function)
-    // var airConditionCurrentSuccess = function(data) {
-    // 	var data = eval("(" + data.data + ')');
-    // 	if (data.data.length == 0) return null;
-    // 	airConditionCurrentArr = [];
-    // 	airConditionMarkerArr = [];
-
-    // 	var hourOne = data.data[0].hour
-    // 	airConditionCurrentTimeList = [];
-    // 	for (var i = 0; i < 12; i++) {
-    // 		airConditionCurrentTimeList.push(hourOne + '时');
-    // 		hourOne++
-    // 		if (hourOne == 24) hourOne = 0;
-    // 	}
-    // 	for (var i = 0; i < data.data.length / 12; i++) {
-
-    // 		var index_temperatureList = [];
-    // 		var index_windLevelList = [];
-    // 		var index_humidityList = [];
-    // 		var index_windDireList = [];
-
-    // 		for (var j = 0; j < 12; j++) {
-    // 			index_temperatureList.push(parseInt(data.data[i * 12 + j].temperature));
-    // 			index_windLevelList.push(parseInt(data.data[i * 12 + j].flowLevel));
-    // 			index_humidityList.push(parseInt(data.data[i * 12 + j].humidity));
-    // 			index_windDireList.push(data.data[i * 12 + j].flowDirection);
-    // 		}
-
-    // 		airConditionCurrentArr.push({
-    // 			monitor: data.data[i * 12].airMonitorName,
-    // 			index_temperatureList: index_temperatureList,
-    // 			index_windLevelList: index_windLevelList,
-    // 			index_humidityList: index_humidityList,
-    // 			index_windDireList: index_windDireList
-    // 		});
-    // 		airConditionMarkerArr.push({
-    // 			monitor: data.data[i * 12].airMonitorName,
-    // 			point: data.data[i * 12].description,
-    // 			abbr: data.data[i * 12].abbr,
-    // 			color: getStatusColor(getAirConditionMonitorStatus(data.data[i * 12 + 11])),
-    // 			monitor_status: getAirConditionMonitorStatus(data.data[i * 12 + 11]),
-    // 			index_temperature: index_temperatureList[11],
-    // 			index_windLevel: index_windLevelList[11],
-    // 			index_humidity: index_humidityList[11],
-    // 			index_windDire: index_windDireList[11]
-    // 		});
-    // 	}
-    // 	//气象表格列表数据
-    // 	$scope.airConditionMarkerList = airConditionMarkerArr;
-
-    // 	//气象模块整体状态初始化
-    // 	$scope.airConditionStatus = getAirConditionStatus(airConditionMarkerArr);
-
-    // 	//Radio列表选择状态
-    // 	$scope.airConditionCurrentList = ['气温', '风级', '相对湿度'];
-    // 	$scope.airConditionCurrentListSelected = '气温';
-
-    // 	//一句话初始化
-    // 	$scope.airConditionOneSentence = {
-    // 		monitor: airConditionCurrentArr[0].monitor,
-    // 		index_temperature: AirConditionStatusTemperature(airConditionCurrentArr[0].index_temperatureList[5]),
-    // 		index_windLevel: AirConditionStatusWindlevel(airConditionCurrentArr[0].index_windLevelList[5]),
-    // 		index_humidity: AirConditionStatusHumidity(airConditionCurrentArr[0].index_humidityList[5]),
-    // 	};
-
-    // 	$scope.airConditionOptions.airConditionCurrentOption.options.xAxis.categories = airConditionCurrentTimeList;
-    // 	$scope.airConditionOptions.airConditionCurrentOption.title.text = '气温';
-    // 	$scope.airConditionOptions.airConditionCurrentOption.yAxis.title.text = ' ℃';
-    // 	$scope.airConditionOptions.airConditionCurrentOption.options.tooltip = {
-    // 		shared: true,
-    // 		valueSuffix: ' ℃'
-    // 	};
-    // 	$scope.airConditionOptions.airConditionCurrentOption.series[0].name = '气温';
-    // 	$scope.airConditionOptions.airConditionCurrentOption.series[0].data = airConditionCurrentArr[0].index_temperatureList;
-    // };
-
-    // //气象 Button点击事件
-    // $scope.airConditionBtn = function() {
-    // 	$scope.mapTableStatus = {
-    // 		airQuality: false,
-    // 		airCondition: true,
-    // 		wasteAir: false
-    // 	};
-    // 	removeMarker();
-    // 	addMarker(airConditionMarkerArr, 'airCondition');
-    // 	mapObj.setCenter(new AMap.LngLat(121.106661, 31.579533));
-    // 	mapObj.setZoom(11);
-    // };
-
-    // //气象 列表点击事件
-    // $scope.airConditionCurrentChange = function(airConditionOne) {
-
-    // 	if (airConditionOne == '气温') {
-    // 		$scope.airConditionOptions.airConditionCurrentOption.title.text = '气温';
-    // 		$scope.airConditionOptions.airConditionCurrentOption.yAxis.title.text = ' ℃';
-    // 		$scope.airConditionOptions.airConditionCurrentOption.series[0].name = '气温';
-    // 		$scope.airConditionOptions.airConditionCurrentOption.options.tooltip = {
-    // 			shared: true,
-    // 			valueSuffix: ' ℃'
-    // 		};
-    // 		$scope.airConditionOptions.airConditionCurrentOption.series[0].data = airConditionCurrentArr[0].index_temperatureList;
-    // 	} else if (airConditionOne == '风级') {
-    // 		$scope.airConditionOptions.airConditionCurrentOption.title.text = '风级';
-    // 		$scope.airConditionOptions.airConditionCurrentOption.yAxis.title.text = ' 风级';
-    // 		$scope.airConditionOptions.airConditionCurrentOption.series[0].name = '风级';
-    // 		$scope.airConditionOptions.airConditionCurrentOption.options.tooltip = {
-    // 			shared: true,
-    // 			valueSuffix: ' 级'
-    // 		};
-    // 		$scope.airConditionOptions.airConditionCurrentOption.series[0].data = airConditionCurrentArr[0].index_windLevelList;
-    // 	} else if (airConditionOne == '相对湿度') {
-    // 		$scope.airConditionOptions.airConditionCurrentOption.title.text = '相对湿度';
-    // 		$scope.airConditionOptions.airConditionCurrentOption.yAxis.title.text = ' %';
-    // 		$scope.airConditionOptions.airConditionCurrentOption.options.tooltip = {
-    // 			shared: true,
-    // 			valueSuffix: '  %'
-    // 		};
-    // 		$scope.airConditionOptions.airConditionCurrentOption.series[0].name = '相对湿度';
-    // 		$scope.airConditionOptions.airConditionCurrentOption.series[0].data = airConditionCurrentArr[0].index_humidityList;
-    // 	}
-    // };
-
-    // //气象 模块整体状态获取
-    // function getAirConditionStatus(airConditionMarkerArr) {
-    // 	var countResult = {
-    // 		accept: 0,
-    // 		caution: 0,
-    // 		invalid: 0
-    // 	}
-    // 	for (var i = 0; i < airConditionMarkerArr.length; i++) {
-    // 		if (airConditionMarkerArr[i].monitor_status == 'caution') countResult.caution += 1;
-    // 		else if (airConditionMarkerArr[i].monitor_status == 'accept') countResult.accept += 1;
-    // 		else countResult.invalid += 1;
-    // 	}
-
-    // 	$scope.airConditionQualified = countResult.accept + '/' + airConditionMarkerArr.length;
-
-    // 	if (countResult.caution >= 1) return {
-    // 		status: 'caution',
-    // 		sentence: '存在' + countResult.caution + '个监测点气象情况有问题'
-    // 	} else if (countResult.accept == airConditionMarkerArr.length) return {
-    // 		status: 'accept',
-    // 		sentence: '所有监测点气象情况均正常'
-    // 	} else return {
-    // 		status: 'invalid',
-    // 		sentence: '存在' + countResult.invalid + '个监测点数据未更新'
-    // 	}
-    // };
-
-    // //气象 监测站状态获取
-    // function getAirConditionMonitorStatus(airConditionMarkerOne) {
-    // 	var indexStatusList = {
-    // 		index_temperature: AirConditionStatusTemperature(airConditionMarkerOne.temperature).status,
-    // 		index_windLevel: AirConditionStatusWindlevel(airConditionMarkerOne.flowLevel).status,
-    // 		index_humidity: AirConditionStatusHumidity(airConditionMarkerOne.humidity).status,
-    // 	};
-    // 	var statusList = [];
-    // 	angular.forEach(indexStatusList, function(value, key) {
-    // 		this.push(value);
-    // 	}, statusList);
-    // 	var countResult = {
-    // 		accept: 0,
-    // 		caution: 0,
-    // 		invalid: 0
-    // 	}
-    // 	for (var i = 0; i < statusList.length; i++) {
-    // 		if (statusList[i] == 'caution') countResult.caution += 1;
-    // 		else if (statusList[i] == 'accept') countResult.accept += 1;
-    // 		else countResult.invalid += 1;
-    // 	}
-    // 	if (countResult.caution >= 1) return 'caution';
-    // 	else if (countResult.accept == statusList.length) return 'accept';
-    // 	else return 'invalid';
-    // }
-
-    // //气象 指标状态获取
-    // function AirConditionStatusTemperature(data) {
-    // 	if (data <= airConditionScan.temperature[0] && data >= airConditionScan.temperature[1]) {
-    // 		return {
-    // 			status: "accept",
-    // 			sentence: "气温，正常"
-    // 		}
-    // 	} else {
-    // 		return {
-    // 			status: "caution",
-    // 			sentence: "气温，异常"
-    // 		}
-    // 	}
-    // };
-
-    // function AirConditionStatusWindlevel(data) {
-    // 	if (data <= airConditionScan.wind) {
-    // 		return {
-    // 			status: "accept",
-    // 			sentence: "风级，正常"
-    // 		}
-    // 	} else {
-    // 		return {
-    // 			status: "caution",
-    // 			sentence: "风级，异常"
-    // 		}
-    // 	}
-    // };
-
-    // function AirConditionStatusHumidity(data) {
-    // 	if (data <= airConditionScan.humidity[0] && data >= airConditionScan.humidity[1]) {
-    // 		return {
-    // 			status: "accept",
-    // 			sentence: "湿度，正常"
-    // 		}
-    // 	} else {
-    // 		return {
-    // 			status: "caution",
-    // 			sentence: "湿度，异常"
-    // 		}
-    // 	}
-    // };
 
 //废气排放 http请求后处理过程（即http.success(function(data))中的function)
     var wasteAirCurrentSuccess = function (data) {
@@ -1965,23 +1735,7 @@ export default ($scope, kpiDetailService, dateService) => {
             return resultList;
         }
 
-        /*function numberListToFixed2(list){
-         for(var i=0;i<list.length;i++){
-         list[i] = parseFloat(list[i].toFixed(2));
-         }
-         return list;
-         }*/
         if (wasteAirTemp.length <= 5) {
-            /*for(var i=0;i<wasteAirTemp.length;i++){
-             wasteAirCurrentArrTemp.push({
-             wasteSource: wasteAirTemp[i].wasteSource,
-             point: wasteAirTemp[i].point,
-             index_discharge: wasteAirTemp[i].index_discharge,
-             index_smoke: numberListToFixed2(wasteAirTemp[i].index_smoke),
-             index_so2: numberListToFixed2(wasteAirTemp[i].index_so2),
-             index_no: numberListToFixed2(wasteAirTemp[i].index_no)
-             })
-             }*/
             wasteAirCurrentArrTemp = wasteAirTemp;
         } else {
             for (var i = 0; i < 5; i++) {

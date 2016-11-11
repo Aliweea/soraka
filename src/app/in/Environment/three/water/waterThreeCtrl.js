@@ -87,6 +87,9 @@ export default ($scope, kpiDetailService, dateService) => {
                     plotShadow: false,
 
                 },
+                exporting: {
+                    enabled: false
+                },
                 pane: {
                     startAngle: -150,
                     endAngle: 150,
@@ -192,6 +195,9 @@ export default ($scope, kpiDetailService, dateService) => {
                     plotBackgroundImage: null,
                     plotBorderWidth: 0,
                     plotShadow: false
+                },
+                exporting: {
+                    enabled: false
                 },
                 title: {
                     text: '高锰酸钾浓度'
@@ -300,11 +306,12 @@ export default ($scope, kpiDetailService, dateService) => {
                     plotBorderWidth: 0,
                     plotShadow: false
                 },
-
+                exporting: {
+                    enabled: false
+                },
                 title: {
                     text: '氨氮'
                 },
-
                 pane: {
                     startAngle: -150,
                     endAngle: 150,
@@ -406,6 +413,9 @@ export default ($scope, kpiDetailService, dateService) => {
                     plotBackgroundImage: null,
                     plotBorderWidth: 0,
                     plotShadow: false
+                },
+                exporting: {
+                    enabled: false
                 },
                 title: {
                     text: '总磷'
@@ -797,6 +807,9 @@ export default ($scope, kpiDetailService, dateService) => {
                     margin: [50, 50, 100, 80],
                     width: $(window).width() * 0.9
                 },
+                exporting: {
+                    enabled: false
+                },
                 title: {
                     text: '最近12小时水位',
                     x: -20 //center
@@ -843,6 +856,9 @@ export default ($scope, kpiDetailService, dateService) => {
                 chart: {
                     type: 'area',
                     width: $(window).width() * 0.9
+                },
+                exporting: {
+                    enabled: false
                 },
                 title: {
                     text: ''

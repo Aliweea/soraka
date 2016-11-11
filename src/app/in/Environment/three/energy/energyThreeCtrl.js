@@ -265,10 +265,7 @@ export default ($scope, kpiDetailService, dateService) => {
             var ddd = dd.getDate();
 
             kpiDetailService.query("EnergydianliData", yy + "-01-01", yy + "-12-31", function (data) {
-                /*if(data.error=="No_Rights_Error"){
-                 $location.path("/login");}*/
                 kpiDetailService.query("EnergydianliData", datat.data.year + "-01-01", datat.data.year + "-12-31", function (datamax) {
-                    console.log(data.data);
                     if (data.data.length == 0) {
                         data = datamax;
                     }
@@ -448,6 +445,9 @@ export default ($scope, kpiDetailService, dateService) => {
                             width: $(window).width() * 0.9,
                             height: $(window).width() * 0.8
                         },
+                        exporting: {
+                            enabled: false
+                        },
                         title: {
                             text: '城乡生活电力消耗百分比'
                         },
@@ -494,6 +494,9 @@ export default ($scope, kpiDetailService, dateService) => {
                             width: $(window).width() * 0.9,
                             height: $(window).width() * 0.8
                         },
+                        exporting: {
+                            enabled: false
+                        },
                         title: {
                             text: '分产业电力消耗百分比'
                         },
@@ -530,6 +533,9 @@ export default ($scope, kpiDetailService, dateService) => {
                             width: $(window).width() * 0.9,
                             height: $(window).width() * 0.8
                         },
+                        exporting: {
+                            enabled: false
+                        },
                         title: {
                             text: '分产业电力消耗量'
                         },
@@ -561,6 +567,9 @@ export default ($scope, kpiDetailService, dateService) => {
                             plotBorderWidth: null,
                             plotShadow: false,
                             margin: [60, 50, 100, 80]
+                        },
+                        exporting: {
+                            enabled: false
                         },
                         title: {
                             text: '分行业电力消耗百分比(除工业)'
@@ -599,6 +608,9 @@ export default ($scope, kpiDetailService, dateService) => {
                         chart: {
                             type: 'column',
                             margin: [60, 50, 100, 80]
+                        },
+                        exporting: {
+                            enabled: false
                         },
                         title: {
                             text: '分行业电力消耗量(除工业)'
@@ -644,6 +656,9 @@ export default ($scope, kpiDetailService, dateService) => {
                         chart: {
                             type: 'line',
                         },
+                        exporting: {
+                            enabled: false
+                        },
                         title: {
                             text: '第一产业电力消耗量'
                         },
@@ -673,6 +688,9 @@ export default ($scope, kpiDetailService, dateService) => {
                     options: {
                         chart: {
                             type: 'line',
+                        },
+                        exporting: {
+                            enabled: false
                         },
                         title: {
                             text: '第二产业电力消耗量'
@@ -707,6 +725,9 @@ export default ($scope, kpiDetailService, dateService) => {
                         title: {
                             text: '第三产业电力消耗量',
                         },
+                        exporting: {
+                            enabled: false
+                        },
                         yAxis: [{
                             title: {
                                 text: '电力消耗量(万千瓦时)'
@@ -734,6 +755,9 @@ export default ($scope, kpiDetailService, dateService) => {
                         chart: {
                             type: 'line',
 
+                        },
+                        exporting: {
+                            enabled: false
                         },
                         title: {
                             text: '农、林、牧、渔业电力消耗量',
@@ -765,6 +789,9 @@ export default ($scope, kpiDetailService, dateService) => {
                         chart: {
                             type: 'line',
                         },
+                        exporting: {
+                            enabled: false
+                        },
                         title: {
                             text: '工业电力消耗量',
                         },
@@ -794,6 +821,9 @@ export default ($scope, kpiDetailService, dateService) => {
                     options: {
                         chart: {
                             type: 'line',
+                        },
+                        exporting: {
+                            enabled: false
                         },
                         title: {
                             text: '建筑业电力消耗量',
@@ -825,6 +855,9 @@ export default ($scope, kpiDetailService, dateService) => {
                         chart: {
                             type: 'line',
                         },
+                        exporting: {
+                            enabled: false
+                        },
                         title: {
                             text: '交通运输、仓储和邮政业电力消耗量',
                         },
@@ -854,6 +887,9 @@ export default ($scope, kpiDetailService, dateService) => {
                     options: {
                         chart: {
                             type: 'line',
+                        },
+                        exporting: {
+                            enabled: false
                         },
                         title: {
                             text: '信息传输、计算机服务和软件业电力消耗量',
@@ -885,6 +921,9 @@ export default ($scope, kpiDetailService, dateService) => {
                         chart: {
                             type: 'line',
                         },
+                        exporting: {
+                            enabled: false
+                        },
                         title: {
                             text: '批发和零售、住宿和餐饮业电力消耗量',
                         },
@@ -915,6 +954,9 @@ export default ($scope, kpiDetailService, dateService) => {
                         chart: {
                             type: 'line',
                         },
+                        exporting: {
+                            enabled: false
+                        },
                         title: {
                             text: '金融、房地产、商务及居民服务业电力消耗量',
                         },
@@ -944,6 +986,9 @@ export default ($scope, kpiDetailService, dateService) => {
                     options: {
                         chart: {
                             type: 'line',
+                        },
+                        exporting: {
+                            enabled: false
                         },
                         title: {
                             text: '公共事业及管理组织电力消耗量',
@@ -977,6 +1022,9 @@ export default ($scope, kpiDetailService, dateService) => {
                             width: $(window).width() * 0.9,
                             height: $(window).width() * 0.8
                         },
+                        exporting: {
+                            enabled: false
+                        },
                         title: {
                             text: '城镇生活用电量',
                         },
@@ -1008,6 +1056,9 @@ export default ($scope, kpiDetailService, dateService) => {
                             type: 'line',
                             width: $(window).width() * 0.9,
                             height: $(window).width() * 0.8
+                        },
+                        exporting: {
+                            enabled: false
                         },
                         title: {
                             text: '农村生活用电量',
