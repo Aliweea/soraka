@@ -124,7 +124,7 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
     .state('app.environment.detail', {
       url: '/detail?kpiId',
       name: 'environmentdetail',
-      templateUrl: 'app/in/Environment/two/environmentdetail.html',
+      templateUrl: 'app/in/Environment/two/EnvironmentDetail.html',
       controller: 'environmentdetailCtrl'
     })
     .state('app.environment.waterThree', {

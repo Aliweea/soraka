@@ -39,6 +39,11 @@ export default ($scope,dateService,dictService,generalService,dataDetailFactory,
         }
       },
       yAxis: {
+        labels: {
+          style:{
+            color:'white'
+          }
+        },
         title: {
           text: '值（万元）',
           style:{
@@ -65,16 +70,19 @@ export default ($scope,dateService,dictService,generalService,dataDetailFactory,
       },
       series: [{
         name: '工业投资',
+        color:'white',
         tooltip: {
           pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f} 万元</b> '
         }
       }, {
         name: '服务业投资',
+        color:'gray',
         tooltip: {
           pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f} 万元</b> '
         }
       }, {
         name: '房地产投资',
+        color:'black',
         tooltip: {
           pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f} 万元</b> '
         }
@@ -89,10 +97,18 @@ export default ($scope,dateService,dictService,generalService,dataDetailFactory,
         },
         title: {
           text: '月份',
-          align: 'high'
+          align: 'high',
+          style:{
+            color:'white'
+          }
         }
       },
       yAxis: {
+        labels: {
+          style:{
+            color:'white'
+          }
+        },
         title: {
           text: '值（万元）',
           style:{
@@ -119,12 +135,14 @@ export default ($scope,dateService,dictService,generalService,dataDetailFactory,
       },
       series: [{
         name: '注册外资',
+        color:'white',
         tooltip: {
           pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f} 万美元</b> '
         }
 
       }, {
         name: '实际利用外资',
+        color:'gray',
         tooltip: {
           pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f} 万美元</b> '
         }
@@ -139,10 +157,18 @@ export default ($scope,dateService,dictService,generalService,dataDetailFactory,
         },
         title: {
           text: '月份',
-          align: 'high'
+          align: 'high',
+          style:{
+            color:'white'
+          }
         }
       },
       yAxis: {
+        labels: {
+          style:{
+            color:'white'
+          }
+        },
         title: {
           text: '值（万美元）',
            style:{
@@ -151,7 +177,10 @@ export default ($scope,dateService,dictService,generalService,dataDetailFactory,
         }
       },
       title: {
-        text: '引进外资(累计值)'
+        text: '引进外资(累计值)',
+        style:{
+          color:'white'
+        }
       },
       loading: false
     };
@@ -167,12 +196,14 @@ export default ($scope,dateService,dictService,generalService,dataDetailFactory,
       },
       series: [{
         name: '新增注册资金',
+        color:'white',
         tooltip: {
           pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f} 万元</b> '
         }
 
       }, {
         name: '到账资金',
+        color:'gray',
         tooltip: {
           pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f} 万元</b> '
         }
@@ -187,10 +218,18 @@ export default ($scope,dateService,dictService,generalService,dataDetailFactory,
         },
         title: {
           text: '月份',
-          align: 'high'
+          align: 'high',
+          style:{
+            color:'white'
+          }
         }
       },
       yAxis: {
+        labels: {
+          style:{
+            color:'white'
+          }
+        },
         title: {
           text: '值（万元）',
            style:{
@@ -334,8 +373,9 @@ export default ($scope,dateService,dictService,generalService,dataDetailFactory,
         $scope.initData(keys[i]);
       };
     };
-    var x = 0;
+    
     $scope.loadAllData();
+    var x = 0;
     $scope.show1 = true;
     $scope.show = function(){ 
         x=x+1;

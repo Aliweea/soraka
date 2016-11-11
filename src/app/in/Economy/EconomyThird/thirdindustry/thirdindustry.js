@@ -10,17 +10,20 @@ export default ($scope,dateService,dictService,generalService,dataDetailFactory,
       options: {
         colors: generalService.columnColors(),
         chart: {
-          type: 'column'
+          type: 'column',
+           backgroundColor: 'rgb( 122,181,175)'
         }
       },
       series: [{
         name: '工业总产值',
+         color:'white',
         tooltip: {
           pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f} 万元</b> '
         }
 
       }, {
         name: '规模以上工业总产值',
+         color:'gray',
         tooltip: {
           pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f} 万元</b> '
         }
@@ -28,20 +31,37 @@ export default ($scope,dateService,dictService,generalService,dataDetailFactory,
       xAxis: {
         labels: {
           rotation: -45,
-          align: 'right'
+          align: 'right',
+           style:{
+            color:'white'
+          }
         },
         title: {
           text: '月份',
-          align: 'high'
+          align: 'high',
+           style:{
+            color:'white'
+          }
         }
       },
       yAxis: {
+        labels: {
+          style:{
+            color:'white'
+          }
+        },
         title: {
-          text: '值（万元）'
+          text: '值（万元）',
+           style:{
+            color:'white'
+          }
         }
       },
       title: {
-        text: '工业总产值(累计值)'
+        text: '工业总产值(累计值)',
+         style:{
+            color:'white'
+          }
       },
       loading: false
     };
@@ -50,11 +70,13 @@ export default ($scope,dateService,dictService,generalService,dataDetailFactory,
       options: {
         colors: generalService.columnColors(),
         chart: {
-          type: 'column'
+          type: 'spline',
+           backgroundColor: 'rgb( 122,181,175)'
         }
       },
       series: [{
         name: '规模以上新兴工业总产值',
+         color:'white',
         tooltip: {
           pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f} 万元</b> '
         }
@@ -62,20 +84,37 @@ export default ($scope,dateService,dictService,generalService,dataDetailFactory,
       xAxis: {
         labels: {
           rotation: -45,
-          align: 'right'
+          align: 'right',
+           style:{
+            color:'white'
+          }
         },
         title: {
           text: '月份',
-          align: 'high'
+          align: 'high',
+           style:{
+            color:'white'
+          }
         }
       },
       yAxis: {
+        labels: {
+          style:{
+            color:'white'
+          }
+        },
         title: {
-          text: '值（万元）'
+          text: '值（万元）',
+           style:{
+            color:'white'
+          }
         }
       },
       title: {
-        text: '规模以上新兴产业工业的总产值(累计值)'
+        text: '规模以上新兴产业工业的总产值(累计值)',
+         style:{
+            color:'white'
+          }
       },
       loading: false
     }
@@ -85,16 +124,19 @@ export default ($scope,dateService,dictService,generalService,dataDetailFactory,
         colors: generalService.columnColors(),
         chart: {
           type: 'column',
-          margin: [50, 50, 90, 70]
+          margin: [50, 50, 90, 70],
+           backgroundColor: 'rgb( 122,181,175)'
         }
       },
       series: [{
         name: '工业主营业务收入',
+         color:'white',
         tooltip: {
           pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f} 万元</b> '
         }
       }, {
         name: '规模以上工业主营业务收入',
+         color:'gray',
         tooltip: {
           pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f} 万元</b> '
         }
@@ -102,20 +144,37 @@ export default ($scope,dateService,dictService,generalService,dataDetailFactory,
       xAxis: {
         labels: {
           rotation: -45,
-          align: 'right'
+          align: 'right',
+           style:{
+            color:'white'
+          }
         },
         title: {
           text: '月份',
-          align: 'high'
+          align: 'high',
+           style:{
+            color:'white'
+          }
         }
       },
       yAxis: {
+        labels: {
+          style:{
+            color:'white'
+          }
+        },
         title: {
-          text: '值（万元）'
+          text: '值（万元）',
+           style:{
+            color:'white'
+          }
         }
       },
       title: {
-        text: '工业主营业务收入(累计值)'
+        text: '工业主营业务收入(累计值)',
+         style:{
+            color:'white'
+          }
       },
       loading: false
     }
@@ -125,16 +184,19 @@ export default ($scope,dateService,dictService,generalService,dataDetailFactory,
         colors: generalService.columnColors(),
         chart: {
           type: 'column',
-          margin: [50, 50, 90, 70]
+          margin: [50, 50, 90, 70],
+           backgroundColor: 'rgb( 122,181,175)'
         }
       },
       series: [{
         name: '工业利润',
+         color:'white',
         tooltip: {
           pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f} 万元</b> '
         }
       }, {
         name: '规模以上工业利润',
+         color:'gray',
         tooltip: {
           pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f} 万元</b> '
         }
@@ -142,20 +204,37 @@ export default ($scope,dateService,dictService,generalService,dataDetailFactory,
       xAxis: {
         labels: {
           rotation: -45,
-          align: 'right'
+          align: 'right',
+           style:{
+            color:'white'
+          }
         },
         title: {
           text: '月份',
-          align: 'high'
+          align: 'high',
+           style:{
+            color:'white'
+          }
         }
       },
       yAxis: {
+        labels: {
+          style:{
+            color:'white'
+          }
+        },
         title: {
-          text: '值（万元）'
+          text: '值（万元）',
+           style:{
+            color:'white'
+          }
         }
       },
       title: {
-        text: '工业利润(累计值)'
+        text: '工业利润(累计值)',
+         style:{
+            color:'white'
+          }
       },
       loading: false
     }
@@ -165,16 +244,19 @@ export default ($scope,dateService,dictService,generalService,dataDetailFactory,
         colors: generalService.columnColors(),
         chart: {
           type: 'column',
-          margin: [50, 50, 90, 80]
+          margin: [50, 50, 90, 80],
+           backgroundColor: 'rgb( 122,181,175)'
         }
       },
       series: [{
         name: '工业利税',
+         color:'white',
         tooltip: {
           pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f} 万元</b> '
         }
       }, {
         name: '规模以上工业利税',
+         color:'gray',
         tooltip: {
           pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f} 万元</b> '
         }
@@ -182,20 +264,34 @@ export default ($scope,dateService,dictService,generalService,dataDetailFactory,
       xAxis: {
         labels: {
           rotation: -45,
-          align: 'right'
+          align: 'right',
+           style:{
+            color:'white'
+          }
         },
         title: {
           text: '月份',
-          align: 'high'
+          align: 'high',
+           style:{
+            color:'white'
+          }
         }
       },
       yAxis: {
+        abels: {
+          style:{
+            color:'white'
+          }
+        },
         title: {
           text: '值（万元）'
         }
       },
       title: {
-        text: '工业利税(累计值)'
+        text: '工业利税(累计值)',
+         style:{
+            color:'white'
+          }
       },
       loading: false
     }
@@ -347,6 +443,53 @@ export default ($scope,dateService,dictService,generalService,dataDetailFactory,
       };
     };
     $scope.loadAllData();
+     var x = 0;
+    $scope.show1 = true;
+    $scope.show = function(){ 
+        x=x+1;
+        if (x>4) {
+          x=0;
+        }
+        switch(x){
+          case 0:
+          $scope.show1 = true;
+           $scope.show2 = false;
+           $scope.show3 = false;
+           $scope.show4 = false;
+           $scope.show5 = false;
+          break;
+          case 1:
+           $scope.show1 = false;
+           $scope.show2 = true;
+           $scope.show3 = false;
+           $scope.show4 = false;
+           $scope.show5 = false;
+          break;
+          case 2:
+           $scope.show1 = false;
+           $scope.show2 = false;
+           $scope.show3 = true;
+           $scope.show4 = false;
+           $scope.show5 = false;
+          break;
+          case 3:
+          $scope.show1 = false;
+           $scope.show2 = false;
+           $scope.show3 = false;
+           $scope.show4 = true;
+           $scope.show5 = false;
+          break;
+          case 4:
+          $scope.show1 = false;
+           $scope.show2 = false;
+           $scope.show3 = false;
+           $scope.show4 = false;
+           $scope.show5 = true;
+          break;
+        }
+       
+    }
+
 
 
  

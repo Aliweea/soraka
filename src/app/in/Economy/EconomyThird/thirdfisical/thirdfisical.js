@@ -130,17 +130,20 @@ export default ($scope,dateService,dictService,generalService,dataDetailFactory,
       options: {
         colors: generalService.columnColors(),
         chart: {
-          type: 'column'
+          type: 'column',
+           backgroundColor: 'rgb( 122,181,175)'
         }
       },
       series: [{
         name: '金融机构存款余额(人民币)',
+        color:'white',
         tooltip: {
           pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f} 亿元</b> '
         }
 
       }, {
         name: '金融机构存款余额(本外币)',
+        color:'gray',
         tooltip: {
           pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f} 亿元</b> '
         }
@@ -148,20 +151,32 @@ export default ($scope,dateService,dictService,generalService,dataDetailFactory,
       xAxis: {
         labels: {
           rotation: -45,
-          align: 'right'
+          align: 'right',
+          style:{
+            color:'white'
+          }
         },
         title: {
           text: '月份',
-          align: 'high'
+          align: 'high',
+          style:{
+            color:'white'
+          }
         }
       },
       yAxis: {
         title: {
-          text: '值（亿元）'
+          text: '值（亿元）',
+          style:{
+            color:'white'
+          }
         }
       },
       title: {
-        text: '金融机构存款余额'
+        text: '金融机构存款余额',
+        style:{
+            color:'white'
+          }
       },
       loading: false
     };
@@ -171,16 +186,19 @@ export default ($scope,dateService,dictService,generalService,dataDetailFactory,
       options: {
         colors: generalService.columnColors(),
         chart: {
-          type: 'column'
+          type: 'column',
+          backgroundColor: 'rgb( 122,181,175)'
         }
       },
       series: [{
         name: '金融机构贷款余额(人民币)',
+        color:'white',
         tooltip: {
           pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f} 亿元</b> '
         }
       }, {
         name: '金融机构贷款余额(本外币)',
+        color:'gray',
         tooltip: {
           pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f} 亿元</b> '
         }
@@ -188,22 +206,58 @@ export default ($scope,dateService,dictService,generalService,dataDetailFactory,
       xAxis: {
         labels: {
           rotation: -45,
-          align: 'right'
+          align: 'right',
+          style:{
+            color:'white'
+          }
         },
         title: {
           text: '月份',
-          align: 'high'
+          align: 'high',
+           style:{
+            color:'white'
+          }
         }
       },
       yAxis: {
+        labels: {
+          style:{
+            color:'white'
+          }
+        },
         title: {
-          text: '值（亿元）'
+          text: '值（亿元）',
+           style:{
+            color:'white'
+          }
         }
       },
       title: {
-        text: '金融机构贷款余额'
+        text: '金融机构贷款余额',
+         style:{
+            color:'white'
+          }
       },
       loading: false
     };
+    var x = 0;
+    $scope.show1 = true;
+    $scope.show = function(){ 
+        x=x+1;
+        if (x>1) {
+          x=0;
+        }
+        switch(x){
+          case 0:
+          $scope.show1 = true;
+           $scope.show2 = false;
+          break;
+          case 1:
+           $scope.show1 = false;
+           $scope.show2 = true;
+          break;
+        }
+       
+    }
  
 };
