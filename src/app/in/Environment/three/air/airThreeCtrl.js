@@ -8,9 +8,10 @@ export default ($scope, kpiDetailService, dateService) => {
     $scope.tab2 = false;
   }
    $scope.show2 = function(){
-     $scope.tab1= false;
+    $scope.tab1= false;
     $scope.tab2 = true;
   }
+
 
   /**
 	 * 变量区

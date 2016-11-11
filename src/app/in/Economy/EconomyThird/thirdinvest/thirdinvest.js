@@ -5,17 +5,19 @@ export default ($scope,dateService,dictService,generalService,dataDetailFactory,
       options: {
         colors: generalService.columnColors(),
         chart: {
-          type: 'column'
+          type: 'spline',
+          backgroundColor: 'rgb( 122,181,175)'
         }
       },
       series: [{
         name: '全社会固定资产投资',
+        color:'white',
         tooltip: {
           pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f} 万元</b> '
-        }
-
+        },
       }, {
         name: '去年同期值',
+        color:'gray',
         tooltip: {
           pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f} 万元</b> '
         }
@@ -23,20 +25,32 @@ export default ($scope,dateService,dictService,generalService,dataDetailFactory,
       xAxis: {
         labels: {
           rotation: -45,
-          align: 'right'
+          align: 'right',
+          style:{
+            color:'white'
+          }
         },
         title: {
           text: '月份',
-          align: 'high'
+          align: 'high',
+          style:{
+            color:'white'
+          }
         }
       },
       yAxis: {
         title: {
-          text: '值（万元）'
+          text: '值（万元）',
+          style:{
+            color:'white'
+          }
         }
       },
       title: {
-        text: '全社会固定资产投资(累计值)'
+        text: '全社会固定资产投资(累计值)',
+        style:{
+          color:'white'
+        }
       },
       loading: false
     };
@@ -45,7 +59,8 @@ export default ($scope,dateService,dictService,generalService,dataDetailFactory,
       options: {
         colors: generalService.columnColors(),
         chart: {
-          type: 'column'
+          type: 'column',
+          backgroundColor: 'rgb( 122,181,175)'
         }
       },
       series: [{
@@ -67,7 +82,10 @@ export default ($scope,dateService,dictService,generalService,dataDetailFactory,
       xAxis: {
         labels: {
           rotation: -45,
-          align: 'right'
+          align: 'right',
+          style:{
+            color:'white'
+          }
         },
         title: {
           text: '月份',
@@ -76,11 +94,17 @@ export default ($scope,dateService,dictService,generalService,dataDetailFactory,
       },
       yAxis: {
         title: {
-          text: '值（万元）'
+          text: '值（万元）',
+          style:{
+            color:'white'
+          }
         }
       },
       title: {
-        text: '主要分类固定资产投资(累计值)'
+        text: '主要分类固定资产投资(累计值)',
+        style:{
+          color:'white'
+        }
       },
       loading: false
     };
@@ -90,7 +114,7 @@ export default ($scope,dateService,dictService,generalService,dataDetailFactory,
         colors: generalService.columnColors(),
         chart: {
           type: 'column',
-          margin: [50, 50, 90, 80]
+         backgroundColor: 'rgb( 122,181,175)'
         }
       },
       series: [{
@@ -108,7 +132,10 @@ export default ($scope,dateService,dictService,generalService,dataDetailFactory,
       xAxis: {
         labels: {
           rotation: -45,
-          align: 'right'
+          align: 'right',
+           style:{
+            color:'white'
+          }
         },
         title: {
           text: '月份',
@@ -117,7 +144,10 @@ export default ($scope,dateService,dictService,generalService,dataDetailFactory,
       },
       yAxis: {
         title: {
-          text: '值（万美元）'
+          text: '值（万美元）',
+           style:{
+            color:'white'
+          }
         }
       },
       title: {
@@ -131,7 +161,8 @@ export default ($scope,dateService,dictService,generalService,dataDetailFactory,
         colors: generalService.columnColors(),
         chart: {
           type: 'column',
-          margin: [50, 50, 90, 80]
+          margin: [50, 50, 90, 80],
+          backgroundColor: 'rgb( 122,181,175)'
         }
       },
       series: [{
@@ -149,7 +180,10 @@ export default ($scope,dateService,dictService,generalService,dataDetailFactory,
       xAxis: {
         labels: {
           rotation: -45,
-          align: 'right'
+          align: 'right',
+           style:{
+            color:'white'
+          }
         },
         title: {
           text: '月份',
@@ -158,11 +192,17 @@ export default ($scope,dateService,dictService,generalService,dataDetailFactory,
       },
       yAxis: {
         title: {
-          text: '值（万元）'
+          text: '值（万元）',
+           style:{
+            color:'white'
+          }
         }
       },
       title: {
-        text: '引进内资(累计值)'
+        text: '引进内资(累计值)',
+         style:{
+            color:'white'
+          }
       },
       loading: false
     };
@@ -294,8 +334,42 @@ export default ($scope,dateService,dictService,generalService,dataDetailFactory,
         $scope.initData(keys[i]);
       };
     };
+    var x = 0;
     $scope.loadAllData();
-
+    $scope.show1 = true;
+    $scope.show = function(){ 
+        x=x+1;
+        if (x>3) {
+          x=0;
+        }
+        switch(x){
+          case 0:
+          $scope.show1 = true;
+           $scope.show2 = false;
+           $scope.show3 = false;
+           $scope.show4 = false;
+          break;
+          case 1:
+           $scope.show1 = false;
+           $scope.show2 = true;
+           $scope.show3 = false;
+           $scope.show4 = false;
+          break;
+          case 2:
+           $scope.show1 = false;
+           $scope.show2 = false;
+           $scope.show3 = true;
+           $scope.show4 = false;
+          break;
+          case 3:
+          $scope.show1 = false;
+           $scope.show2 = false;
+           $scope.show3 = false;
+           $scope.show4 = true;
+          break;
+        }
+       
+    }
 
  
 };
