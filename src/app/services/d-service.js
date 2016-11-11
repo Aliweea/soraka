@@ -305,10 +305,7 @@ export default (dateService, unitService) => {
                     y: 100,
                     borderWidth: 0
 				},
-				series:ydata,
-				credits: {
-                    enabled: false
-                }
+				series:ydata
 			};
 		}
 	};

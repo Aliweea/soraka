@@ -1,7 +1,8 @@
 export default($scope, qService, accountRes, AuthTool, $state) => {
     'ngInject';
     // 隐藏topbar上的logout按钮
-    $('#navTopLogout').hide(0);
+    $('#home_logout').hide(0);
+    $('#footlabel').hide(0);
     $('#navBottomReturn').show(0);
 
     let userid = AuthTool.getLoginInfo().data.id;

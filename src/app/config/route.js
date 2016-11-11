@@ -42,315 +42,90 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       controller: 'datepickCtrl'
     })
     // 经济
-    .state('app.economy',{
-      abstract:true,
-      url:'/economy',
-      templateUrl:'app/in/Economy/EconomyHome.html'
+    .state('app.economy', {
+      abstract: true,
+      name: 'economy',
+      url: '/economy',
+      templateUrl: 'app/in/economy/economy.html', 
+      controller: 'economyCtrl'
     })
-    .state('app.economy.gdp',{
-      url:'/gdp',
-      templateUrl:'app/in/Economy/GDP/GDP.html',
-      controller:'GDPCtrl'
+    .state('app.economy.economylist', {
+      url: '/economylist?categoryId',
+      name: 'economylist',
+      templateUrl: 'app/in/economy/one/economylist.html',
+      controller: 'economylistCtrl'
     })
-    .state('app.economy.finance',{
-      url:'/finance',
-      templateUrl:'app/in/Economy/Finance/finance.html',
-      controller:'financeCtrl'
+    .state('app.economy.bystate', {
+      url: '/bystate/?categoryId&state',
+      name: 'bystate',
+      templateUrl: 'app/in/economy/one/bystate/bystate.html',
+      controller: 'economyByStateCtrl'
     })
-    .state('app.economy.financial',{
-      url:'/financial',
-      templateUrl:'app/in/Economy/Financial/financial.html',
-      controller:'financialCtrl'
+    .state('app.economy.detail', {
+      url: '/detail?kpiId',
+      name: 'economydetail',
+      templateUrl: 'app/in/economy/two/economydetail.html',
+      controller: 'economydetailCtrl'
     })
-    .state('app.economy.investment',{
-      url:'/investment',
-      templateUrl:'app/in/Economy/investment/investment.html',
-      controller:'investmentCtrl'
+    .state('app.thirddetail',{
+     abstract:true,
+     url:'/economy/third',
+     templateUrl:'app/in/economy/EconomyThird/thirdHome.html'
     })
-    .state('app.economy.industry',{
-      url:'/industry',
-      templateUrl:'app/in/Economy/industry/industry.html',
-      controller:'industryCtrl'
+    .state('app.thirddetail.economy',{
+     url:'/economy/third/economy',
+     templateUrl:'app/in/economy/EconomyThird/thirddetail.html',
+     controller:'thirdgdpcontroller'
     })
-    .state('app.economydetail',{
-      abstract:true,
-      url:'/economydetail',
-      templateUrl:'app/in/Economy/EconomyDetail/EconomyDetail.html'
+    .state('app.thirddetail.finance',{
+     url:'/economy/third/fianance',
+     templateUrl:'app/in/economy/EconomyThird/thirdfinance/thirdfinance.html',
+     controller:'thirdfinancecontroller'
     })
-     .state('app.economydetail.gdp',{
-      url:'/economydetail/GDP',
-      templateUrl:'app/in/Economy/EconomyDetail/GDPDetail/GDPDetail.html',
-      controller:'GDPDetailCtrl'
+    .state('app.thirddetail.thirdinvest',{
+     url:'/economy/third/invest',
+     templateUrl:'app/in/economy/EconomyThird/thirdinvest/thirdinvest.html',
+     controller:'thirdinvestcontroller'
     })
-     .state('app.economydetail.firstgdp',{
-      url:'/economydetail/firstgdp',
-      templateUrl:'app/in/Economy/EconomyDetail/GDPDetail/GDPDetail.html',
-      controller:'FirstDetailCtrl'
+    .state('app.thirddetail.thirdindustry',{
+     url:'/economy/third/industry',
+     templateUrl:'app/in/economy/EconomyThird/thirdindustry/thirdindustry.html',
+     controller:'thirdindustrycontroller'
     })
-      .state('app.economydetail.firstgdpindex',{
-      url:'/economydetail/firstgdpindex',
-      templateUrl:'app/in/Economy/EconomyDetail/GDPDetail/GDPDetail.html',
-      controller:'FirstGDPIndexCtrl'
+    .state('app.thirddetail.thirdfisical',{
+     url:'/economy/third/fisical',
+     templateUrl:'app/in/economy/EconomyThird/thirdfisical/thirdfisical.html',
+     controller:'thirdfisicalcontroller'
     })
-     .state('app.economydetail.secondgdp',{
-      url:'/economydetail/secondgdp',
-      templateUrl:'app/in/Economy/EconomyDetail/GDPDetail/GDPDetail.html',
-      controller:'SecondDetailCtrl'
+    .state('app.thirddetail.select',{
+     url:'/economy/third/select',
+     templateUrl:'app/in/economy/EconomyThird/select.html'
     })
-     .state('app.economydetail.secondgdpindex',{
-      url:'/economydetail/secondgdpindex',
-      templateUrl:'app/in/Economy/EconomyDetail/GDPDetail/GDPDetail.html',
-      controller:'SecondDetailIndexCtrl'
-    })
-     .state('app.economydetail.thirdgdp',{
-      url:'/economydetail/thirdgdp',
-      templateUrl:'app/in/Economy/EconomyDetail/GDPDetail/GDPDetail.html',
-      controller:'ThirdDetailCtrl'
-    })
-     .state('app.economydetail.thirdgdpindex',{
-      url:'/economydetail/thirdgdp',
-      templateUrl:'app/in/Economy/EconomyDetail/GDPDetail/GDPDetail.html',
-      controller:'ThirdDetailIndexCtrl'
-    })
-     .state('app.economydetail.financein',{
-      url:'/fianancedetail/finance/:id',
-      templateUrl:'app/in/Economy/EconomyDetail/GDPDetail/GDPDetail.html',
-      controller:'FinancedetailCtrl'
-     })
-     .state('app.economydetail.financeinIndex',{
-      url:'/fianancedetail/financeinIndex/:id',
-      templateUrl:'app/in/Economy/EconomyDetail/GDPDetail/GDPDetail.html',
-      controller:'FinancedetailCtrl'
-     })
-     .state('app.economydetail.localfinancein',{
-      url:'/fianancedetail/localfinancein/:id',
-      templateUrl:'app/in/Economy/EconomyDetail/GDPDetail/GDPDetail.html',
-      controller:'FinancedetailCtrl'
-     })
-     .state('app.economydetail.localfinanceinIndex',{
-      url:'/fianancedetail/localfinanceinIndex/:id',
-      templateUrl:'app/in/Economy/EconomyDetail/GDPDetail/GDPDetail.html',
-      controller:'FinancedetailCtrl'
-     })
-     .state('app.economydetail.monthfinancein',{
-      url:'/fianancedetail/monthfinancein/:id',
-      templateUrl:'app/in/Economy/EconomyDetail/GDPDetail/GDPDetail.html',
-      controller:'FinancedetailCtrl'
-     })
-     .state('app.economydetail.monthfinanceinIndex',{
-      url:'/fianancedetail/monthfinancein/:id',
-      templateUrl:'app/in/Economy/EconomyDetail/GDPDetail/GDPDetail.html',
-      controller:'FinancedetailCtrl'
-     })
-     .state('app.economydetail.monthaccumfinance',{
-      url:'/fianancedetail/monthaccumfinance/:id',
-      templateUrl:'app/in/Economy/EconomyDetail/GDPDetail/GDPDetail.html',
-      controller:'FinancedetailCtrl'
-     })
-     
-     .state('app.economydetail.monthaccumfinanceIndex',{
-      url:'/fianancedetail/monthaccumfinanceIndex/:id',
-      templateUrl:'app/in/Economy/EconomyDetail/GDPDetail/GDPDetail.html',
-      controller:'FinancedetailCtrl'
-     })
-     .state('app.economydetail.yearfinanceincomplete',{
-      url:'/fianancedetail/yearfinanceincomplete/:id',
-      templateUrl:'app/in/Economy/EconomyDetail/GDPDetail/GDPDetail.html',
-      controller:'FinancedetailCtrl'
-     })
-     .state('app.economydetail.financeout',{
-      url:'/fianancedetail/financeout/:id',
-      templateUrl:'app/in/Economy/EconomyDetail/GDPDetail/GDPDetail.html',
-      controller:'FinancedetailCtrl'
-     })
-     .state('app.economydetail.financeoutIndex',{
-      url:'/fianancedetail/financeoutIndex/:id',
-      templateUrl:'app/in/Economy/EconomyDetail/GDPDetail/GDPDetail.html',
-      controller:'FinancedetailCtrl'
-     })
-     .state('app.economydetail.monthfinanceout',{
-      url:'/fianancedetail/monthfinanceout/:id',
-      templateUrl:'app/in/Economy/EconomyDetail/GDPDetail/GDPDetail.html',
-      controller:'FinancedetailCtrl'
-     })
-     .state('app.economydetail.monthfinanceoutIndex',{
-      url:'/fianancedetail/monthfinanceoutIndex/:id',
-      templateUrl:'app/in/Economy/EconomyDetail/GDPDetail/GDPDetail.html',
-      controller:'FinancedetailCtrl'
-     })
-     .state('app.economydetail.yearfiananceoutcomplete',{
-      url:'/fianancedetail/yearfiananceoutcomplete/:id',
-      templateUrl:'app/in/Economy/EconomyDetail/GDPDetail/GDPDetail.html',
-      controller:'FinancedetailCtrl'
-     })
-     .state('app.economydetail.fixedInvestment',{
-      url:'/fianancialdetail/fixedInvestment/:id',
-      templateUrl:'app/in/Economy/EconomyDetail/GDPDetail/GDPDetail.html',
-      controller:'FinancialdetailCtrl'
-     })
-
-     .state('app.economydetail.fixedInvestmentcomplete',{
-      url:'/fianancialdetail/fixedInvestmentcomplete/:id',
-      templateUrl:'app/in/Economy/EconomyDetail/GDPDetail/GDPDetail.html',
-      controller:'FinancialdetailCtrl'
-     })
-     .state('app.economydetail.industryInvestment',{
-      url:'/fianancialdetail/industryInvestment/:id',
-      templateUrl:'app/in/Economy/EconomyDetail/GDPDetail/GDPDetail.html',
-      controller:'FinancialdetailCtrl'
-     })
-     .state('app.economydetail.serveInvestment',{
-      url:'/fianancialdetail/serveInvestment/:id',
-      templateUrl:'app/in/Economy/EconomyDetail/GDPDetail/GDPDetail.html',
-      controller:'FinancialdetailCtrl'
-     })
-     .state('app.economydetail.realtyInvestment',{
-      url:'/fianancialdetail/realtyInvestment/:id',
-      templateUrl:'app/in/Economy/EconomyDetail/GDPDetail/GDPDetail.html',
-      controller:'FinancialdetailCtrl'
-     })
-    
-     .state('app.economydetail.realforeigncapitaluse',{
-      url:'/fianancialdetail/realforeigncapitaluse/:id',
-      templateUrl:'app/in/Economy/EconomyDetail/GDPDetail/GDPDetail.html',
-      controller:'FinancialdetailCtrl'
-     })
-      .state('app.economydetail.importnewinnercapital',{
-      url:'/fianancialdetail/importnewinnercapital/:id',
-      templateUrl:'app/in/Economy/EconomyDetail/GDPDetail/GDPDetail.html',
-      controller:'FinancialdetailCtrl'
-     })
-       .state('app.economydetail.accumimexport',{
-      url:'/fianancialdetail/accumimexport/:id',
-      templateUrl:'app/in/Economy/EconomyDetail/GDPDetail/GDPDetail.html',
-      controller:'FinancialdetailCtrl'
-     })
-        .state('app.economydetail.yearaccumimexportcomplete',{
-      url:'/fianancialdetail/yearaccumimexportcomplete/:id',
-      templateUrl:'app/in/Economy/EconomyDetail/GDPDetail/GDPDetail.html',
-      controller:'FinancialdetailCtrl'
-     })
-         .state('app.economydetail.accumexport',{
-      url:'/fianancialdetail/accumexport/:id',
-      templateUrl:'app/in/Economy/EconomyDetail/GDPDetail/GDPDetail.html',
-      controller:'FinancialdetailCtrl'
-     })
-          .state('app.economydetail.exportcomplete',{
-      url:'/fianancialdetail/exportcomplete/:id',
-      templateUrl:'app/in/Economy/EconomyDetail/GDPDetail/GDPDetail.html',
-      controller:'FinancialdetailCtrl'
-     })
-
-      .state('app.economydetail.savemoneyRMB',{
-      url:'/investment/savemoneyRMB/:id',
-      templateUrl:'app/in/Economy/EconomyDetail/GDPDetail/GDPDetail.html',
-      controller:'investmentDetailCtrl'
-     })
-      .state('app.economydetail.loanmoneyRMB',{
-      url:'/investment/loanmoneyRMB/:id',
-      templateUrl:'app/in/Economy/EconomyDetail/GDPDetail/GDPDetail.html',
-      controller:'investmentDetailCtrl'
-     })
-      .state('app.economydetail.savemoney',{
-      url:'/investment/savemoney/:id',
-      templateUrl:'app/in/Economy/EconomyDetail/GDPDetail/GDPDetail.html',
-      controller:'investmentDetailCtrl'
-     })
-     .state('app.economydetail.loanmoney',{
-      url:'/investment/loanmoney/:id',
-      templateUrl:'app/in/Economy/EconomyDetail/GDPDetail/GDPDetail.html',
-      controller:'investmentDetailCtrl'
-     })
-     .state('app.economydetail.industryvalue',{
-      url:'/industry/industryvalue/:id',
-      templateUrl:'app/in/Economy/EconomyDetail/GDPDetail/GDPDetail.html',
-      controller:'industryDetailCtrl'
-     })
-     .state('app.economydetail.newindustryvalue',{
-      url:'/industry/newindustryvalue/:id',
-      templateUrl:'app/in/Economy/EconomyDetail/GDPDetail/GDPDetail.html',
-      controller:'industryDetailCtrl'
-     })
-     .state('app.economydetail.industryprofit',{
-      url:'/industry/industryprofit/:id',
-      templateUrl:'app/in/Economy/EconomyDetail/GDPDetail/GDPDetail.html',
-      controller:'industryDetailCtrl'
-     })
-     .state('app.economydetail.industrytax',{
-      url:'/industry/industrytax/:id',
-      templateUrl:'app/in/Economy/EconomyDetail/GDPDetail/GDPDetail.html',
-      controller:'industryDetailCtrl'
-     })
-     .state('app.economydetail.industrysale',{
-      url:'/industry/industrysale/:id',
-      templateUrl:'app/in/Economy/EconomyDetail/GDPDetail/GDPDetail.html',
-      controller:'industryDetailCtrl'
-     })
-     .state('app.thirddetail',{
-      abstract:true,
-      url:'/economy/third',
-      templateUrl:'app/in/Economy/EconomyThird/thirdHome.html'
-     })
-     .state('app.thirddetail.economy',{
-      url:'/economy/third/economy',
-      templateUrl:'app/in/Economy/EconomyThird/thirddetail.html',
-      controller:'thirdgdpcontroller'
-     })
-     .state('app.thirddetail.finance',{
-      url:'/economy/third/fianance',
-      templateUrl:'app/in/Economy/EconomyThird/thirdfinance/thirdfinance.html',
-      controller:'thirdfinancecontroller'
-     })
-     .state('app.thirddetail.thirdinvest',{
-      url:'/economy/third/invest',
-      templateUrl:'app/in/Economy/EconomyThird/thirdinvest/thirdinvest.html',
-      controller:'thirdinvestcontroller'
-     })
-     .state('app.thirddetail.thirdindustry',{
-      url:'/economy/third/industry',
-      templateUrl:'app/in/Economy/EconomyThird/thirdindustry/thirdindustry.html',
-      controller:'thirdindustrycontroller'
-     })
-     .state('app.thirddetail.thirdfisical',{
-      url:'/economy/third/fisical',
-      templateUrl:'app/in/Economy/EconomyThird/thirdfisical/thirdfisical.html',
-      controller:'thirdfisicalcontroller'
-     })
-     .state('app.thirddetail.select',{
-      url:'/economy/third/select',
-      templateUrl:'app/in/Economy/EconomyThird/select.html'
-     })
     // 环境
-    .state('app.environment',{
-      abstract:true,
-      url:'/environment',
-      templateUrl:'app/in/Environment/Environment.html',
-      controller: 'EnvironmentCtrl'
+    .state('app.environment', {
+      abstract: true,
+      name: 'environment',
+      url: '/environment',
+      templateUrl: 'app/in/Environment/Environment.html', 
+      controller: 'environmentCtrl'
     })
-    .state('app.environment.water',{
-      url:'/water',
-      templateUrl:'app/in/Environment/one/water/water.html',
-      controller:'waterCtrl'
+    .state('app.environment.environmentlist', {
+      url: '/environmentlist?categoryId',
+      name: 'environmentlist',
+      templateUrl: 'app/in/Environment/one/environmentlist.html',
+      controller: 'environmentlistCtrl'
     })
-    .state('app.environment.air',{
-      url:'/air',
-      templateUrl:'app/in/Environment/one/air/air.html',
-      controller:'airCtrl'
-    })
-    .state('app.environment.land',{
-      url:'/land',
-      templateUrl:'app/in/Environment/one/land/land.html',
-      controller:'landCtrl'
-    })
-    .state('app.environment.energy',{
-      url:'/energy',
-      templateUrl:'app/in/Environment/one/energy/energy.html',
-      controller:'energyCtrl'
+    .state('app.environment.bystate', {
+      url: '/bystate/?categoryId&state',
+      name: 'bystate',
+      templateUrl: 'app/in/Environment/one/bystate/bystate.html',
+      controller: 'environmentByStateCtrl'
     })
     .state('app.environment.detail', {
       url: '/detail?kpiId',
-      templateUrl: 'app/in/Environment/two/EnvironmentDetail.html',
-      controller: 'EnvironmentDetailCtrl'
+      name: 'environmentdetail',
+      templateUrl: 'app/in/Environment/two/environmentdetail.html',
+      controller: 'environmentdetailCtrl'
     })
     .state('app.environment.waterThree', {
       url: '/waterThree',
@@ -373,44 +148,32 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       controller: 'energyThreeCtrl'
     })
 
-
+    
     // 公共安全
-    .state('app.publicsecurity',{ 
+    .state('app.publicsecurity', {
       abstract: true,
-      url:'/publicsecurity',
-      controller: 'publicsecurityCtrl',
-      templateUrl:'app/in/publicsecurity/publicsecurityHome.html'
+      name: 'publicsecurity',
+      url: '/publicsecurity',
+      templateUrl: 'app/in/publicsecurity/publicsecurity.html', 
+      controller: 'publicsecurityCtrl'
     })
-    .state('app.publicsecurity.police',{ 
-      url:'/police',
-      templateUrl:'app/in/publicsecurity/one/police/police.html',
-      controller: 'policeCtrl'
+    .state('app.publicsecurity.publicsecuritylist', {
+      url: '/publicsecuritylist?categoryId',
+      name: 'publicsecuritylist',
+      templateUrl: 'app/in/publicsecurity/one/publicsecuritylist.html',
+      controller: 'publicsecuritylistCtrl'
     })
-    .state('app.publicsecurity.firecontrol',{ 
-      url:'/firecontrol',
-      templateUrl:'app/in/publicsecurity/one/firecontrol/firecontrol.html',
-      controller: 'firecontrolCtrl'
+    .state('app.publicsecurity.bystate', {
+      url: '/bystate/?categoryId&state',
+      name: 'bystate',
+      templateUrl: 'app/in/publicsecurity/one/bystate/bystate.html',
+      controller: 'publicsecurityByStateCtrl'
     })
-    .state('app.publicsecurity.petition',{ 
-      url:'/petition',
-      templateUrl:'app/in/publicsecurity/one/petition/petition.html',
-      controller: 'petitionCtrl'
-    })
-    .state('app.publicsecurity.accident',{ 
-      url:'/accident',
-      templateUrl:'app/in/publicsecurity/one/accident/accident.html',
-      controller: 'accidentCtrl'
-    })
-    .state('app.publicsecurity.safety',{ 
-      url:'/safety',
-      templateUrl:'app/in/publicsecurity/one/safety/safety.html',
-      controller: 'safetyCtrl'
-    })
-    //公共安全二级界面
-    .state('app.publicsecurity.detail',{        
-        url:'/detail?kpiId',
-        templateUrl:'app/in/publicsecurity/two/publicsecuritydetail.html',
-        controller: 'publicsecuritydetailCtrl'
+    .state('app.publicsecurity.detail', {
+      url: '/detail?kpiId',
+      name: 'publicsecuritydetail',
+      templateUrl: 'app/in/publicsecurity/two/publicsecuritydetail.html',
+      controller: 'publicsecuritydetailCtrl'
     })
     .state('app.publicsecurity.policethree', {
       url: '/policethree',
@@ -437,77 +200,97 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       templateUrl: 'app/in/publicsecurity/three/safety/safetythree.html',
       controller: 'safetythreeCtrl'
     })
+    .state('app.publicsecurity.psthirdselect', {
+      url: '/psthirdselect',
+      templateUrl: 'app/in/publicsecurity/three/psthirdselect.html'
+    })
 
     // 民生
-    .state('app.livehood',{
+    .state('app.livehood', {
       abstract: true,
-      url:'/livehood',
-      templateUrl:'app/in/livehood/one/LivehoodHome.html',
-      controller:'LivehoodHomeCtrl'
+      name: 'livehood',
+      url: '/livehood',
+      templateUrl: 'app/in/livehood/livehood.html', 
+      controller: 'livehoodCtrl'
     })
-    //民生之人口结构
-    .state('app.livehood.population',{
-      url:'/livehood/population',
-      templateUrl:'app/in/livehood/one/population/population.html',
-      controller:'populationCtrl'
+    .state('app.livehood.livehoodlist', {
+      url: '/livehoodlist?categoryId',
+      name: 'livehoodlist',
+      templateUrl: 'app/in/livehood/one/livehoodlist.html',
+      controller: 'livehoodlistCtrl'
     })
-      //民生之社会保险
-    .state('app.livehood.insurance',{
-      url:'/livehood/insurance',
-      templateUrl:'app/in/livehood/one/insurance/insurance.html',
-      controller:'insuranceCtrl'
+    .state('app.livehood.bystate', {
+      url: '/bystate/?categoryId&state',
+      name: 'bystate',
+      templateUrl: 'app/in/livehood/one/bystate/bystate.html',
+      controller: 'livehoodByStateCtrl'
     })
-      //民生之价格指数
-    .state('app.livehood.price',{
-      url:'/livehood/price',
-     templateUrl:'app/in/livehood/one/price/price.html',
-      controller:'priceCtrl'
+    .state('app.livehood.detail', {
+      url: '/detail?kpiId',
+      name: 'livehooddetail',
+      templateUrl: 'app/in/livehood/two/livehooddetail.html',
+      controller: 'livehooddetailCtrl'
     })
-         //民生二级界面
-    .state('app.livehood.detail',{
-      url:'/lvdetail?kpiId',
-     templateUrl:'app/in/livehood/two/lvdetail.html',
-      controller:'lvdetailCtrl'
+    //民生人口三级界面
+    .state('app.livehood.PopulationStructure',{
+      url:'/PopulationThree/PopulationStructure',
+      templateUrl:'app/in/livehood/three/population/populationThree.html',
+      controller:'populationThreeCtrl'
     })
-
+    .state('app.livehood.TerminalPopulation',{
+      url:'/PopulationThree/TerminalPopulation',
+      templateUrl:'app/in/livehood/three/population/populationThree.html',
+      controller:'populationThreeCtrl'
+    })
+    .state('app.livehood.BornDeath',{
+      url:'/PopulationThree/BornDeath',
+      templateUrl:'app/in/livehood/three/population/populationThree.html',
+      controller:'populationThreeCtrl'
+    })
+    .state('app.livehood.BearingWomen',{
+      url:'/PopulationThree/BearingWomen',
+      templateUrl:'app/in/livehood/three/population/populationThree.html',
+      controller:'populationThreeCtrl'
+    })
+    .state('app.livehood.FirstMarriage',{
+      url:'/PopulationThree/FirstMarriage',
+      templateUrl:'app/in/livehood/three/population/populationThree.html',
+      controller:'populationThreeCtrl'
+    })
+    //社会保险三级界面UBEI
+      .state('app.livehood.UBEI', {
+      url: '/InsuranceChart/UrbanBasicEndowmentInsuranceData',
+      name: 'UBEI',
+      templateUrl: 'app/in/livehood/three/UBEI/UBEI.html',
+      controller: 'UBEICtrl'
+    })
     //公共事业
     .state('app.publicService', {
       abstract: true,
       name: 'publicService',
       url: '/publicService',
-      templateUrl: 'app/in/publicService/publicServiceHome.html', 
+      templateUrl: 'app/in/publicService/publicService.html', 
       controller: 'publicServiceCtrl'
     })
-    .state('app.publicService.education', {
-      name: 'education',
-      url: '/education',
-      templateUrl: 'app/in/publicService/one/education/education.html', 
-      controller: 'educationCtrl'
+    .state('app.publicService.publicServicelist', {
+      url: '/publicServicelist?categoryId',
+      name: 'publicServicelist',
+      templateUrl: 'app/in/publicService/one/publicServicelist.html',
+      controller: 'publicServicelistCtrl'
     })
-    .state('app.publicService.healthCare', {
-      name: 'healthCare',
-      url: '/healthCare',
-      templateUrl: 'app/in/publicService/one/healthCare/healthCare.html', 
-      controller: 'healthCareCtrl'
-    })
-    .state('app.publicService.telecom', {
-      name: 'telecom',
-      url: '/telecom',
-      templateUrl: 'app/in/publicService/one/telecom/telecom.html', 
-      controller: 'telecomCtrl'
-    })
-    .state('app.publicService.traffic', {
-      name: 'traffic',
-      url: '/traffic',
-      templateUrl: 'app/in/publicService/one/traffic/traffic.html', 
-      controller: 'trafficCtrl'
+    .state('app.publicService.bystate', {
+      url: '/bystate/?categoryId&state',
+      name: 'bystate',
+      templateUrl: 'app/in/publicService/one/bystate/bystate.html',
+      controller: 'publicServiceByStateCtrl'
     })
     .state('app.publicService.detail', {
       url: '/detail?kpiId',
-      name: 'publicServiceDetail',
-      templateUrl: 'app/in/publicService/two/publicServiceDetail.html',
-      controller: 'publicServiceDetailCtrl'
+      name: 'publicServicedetail',
+      templateUrl: 'app/in/publicService/two/publicServicedetail.html',
+      controller: 'publicServicedetailCtrl'
     })
+    
     // 城市管理
     .state('app.cm', {
       abstract: true,
@@ -516,29 +299,17 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       templateUrl: 'app/in/citymanager/cm.html', 
       controller: 'cmCtrl'
     })
-    .state('app.cm.refuse', {
-      url: '/refuse',
-      name: 'refuse',
-      templateUrl: 'app/in/citymanager/one/refuse/refuse.html',
-      controller: 'refuseCtrl'
+    .state('app.cm.cmlist', {
+      url: '/cmlist?categoryId',
+      name: 'cmlist',
+      templateUrl: 'app/in/citymanager/one/cmlist.html',
+      controller: 'cmlistCtrl'
     })
-    .state('app.cm.punish', {
-      url: '/punish',
-      name: 'punish',
-      templateUrl: 'app/in/citymanager/one/punish/punish.html',
-      controller: 'punishCtrl'
-    })
-    .state('app.cm.fix', {
-      url: '/fix',
-      name: 'fix',
-      templateUrl: 'app/in/citymanager/one/fix/fix.html',
-      controller: 'fixCtrl'
-    })
-    .state('app.cm.icm', {
-      url: '/icm',
-      name: 'icm',
-      templateUrl: 'app/in/citymanager/one/icm/icm.html',
-      controller: 'icmCtrl'
+    .state('app.cm.bystate', {
+      url: '/bystate/?categoryId&state',
+      name: 'bystate',
+      templateUrl: 'app/in/citymanager/one/bystate/bystate.html',
+      controller: 'cmByStateCtrl'
     })
     .state('app.cm.detail', {
       url: '/detail?kpiId',

@@ -1,9 +1,16 @@
 <div class="soraka-datepick-module">
 	<span class="soraka-datepick-title">请选择数据显示日期：</span>
+	<button type="button" class="sbtn" ng-click="today()">选择今天</button>
 	<div class="datepick-box">
-      <div uib-datepicker ng-model="dt" class="well well-sm" datepicker-options="options"></div>
+    	<datepicker datepicker-show="true">
+		  <input ng-model="dt" class="soraka-datepicker" placeholder="点击选择日期" type="text"/>
+		</datepicker>
     </div>
-	<span>当前选择的日期是: {{dt | date:"yyyy 年 MM 月 dd 日"}}</span>
-	<button type="button" class="btn btn-sm btn-info" ng-click="today()">Today</button>
-	<button type="button" class="btn btn-md btn-info" ng-click="confirm()">确定</button>
+	<span class="datepick-curr">当前选择的日期是: <span>{{formatedDate | date:"yyyy 年 MM 月 dd 日"}}</span></span>
+	<div class="btn-area">
+		<button type="button" class="cbtn" ng-click="confirm()">确定</button>
+	</div>
+	<div class="hint-area">
+		{{changeState}}
+	</div>
 </div>

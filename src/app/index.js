@@ -30,7 +30,6 @@ import dictFactory from './resources/dictFactory';
 
 // factories
 import lFactory from './factories/l-factory';
-
 // directive
 import headerDirect from './common/header/headerDirect';
 
@@ -53,6 +52,7 @@ import FinanceDetailFilter from './filter/FinanceFilter';
 import FinancialDetailFilter from './filter/FinancialFilter';
 import investmentDetailFilter from './filter/investDetailFilter';
 import industryDetailFilter from './filter/industryFilter';
+import lvThreeFilter from './filter/lvThreeFilter';
 // controllers
 
 import appCtrl from './appCtrl';
@@ -64,53 +64,38 @@ import homeCtrl from './in/home/homeCtrl';
 import meCtrl from './in/me/meCtrl';
 import datepickCtrl from './in/datepick/datepickCtrl';
 // 经济模块Controller
-import GDPCtrl from './in/Economy/GDP/GDPCtrl.js';
-import financeCtrl from './in/Economy/Finance/financeCtrl.js';
-import financialCtrl from './in/Economy/Financial/financial.js';
-import investmentCtrl from './in/Economy/investment/investmentCtrl.js';
-import industryCtrl from './in/Economy/industry/industryCtrl.js';
-import GDPDetailCtrl from './in/Economy/EconomyDetail/GDPDetail/GDPDetailCtrl';
-import FirstDetailCtrl from './in/Economy/EconomyDetail/FirstGDP/firstgdp';
-import FirstGDPIndexCtrl from './in/Economy/EconomyDetail/FirstGDP/firstgdpindex';
-import SecondDetailCtrl from './in/Economy/EconomyDetail/SecondGDP/secondgdp';
-import SecondDetailIndexCtrl from './in/Economy/EconomyDetail/SecondGDP/secondgdpindex';
-import ThirdDetailCtrl from './in/Economy/EconomyDetail/ThirdGDP/thirdgdp';
-import ThirdDetailIndexCtrl from './in/Economy/EconomyDetail/ThirdGDP/thirdgdpindex';
-import FinancedetailCtrl from './in/Economy/FinanceDetail/financein.js';
-import FinancialdetailCtrl from './in/Economy/FinancialDetail/financialDetail.js';
-import investmentDetailCtrl from './in/Economy/investmentDetail/investmentDetailCtrl.js';
-import industryDetailCtrl from './in/Economy/industryDetail/industryDetailCtrl';
-import thirdgdpcontroller from './in/Economy/EconomyThird/thirdgdpcontroller.js';
-import thirdfinancecontroller from './in/Economy/EconomyThird/thirdfinance/thirdfinance.js';
-import thirdinvestcontroller from './in/Economy/EconomyThird/thirdinvest/thirdinvest.js';
-import thirdindustrycontroller from './in/Economy/EconomyThird/thirdindustry/thirdindustry.js';
-import thirdfisicalcontroller from './in/Economy/EconomyThird/thirdfisical/thirdfisical.js';
+import economyCtrl from './in/economy/economyCtrl.js';
+import economylistCtrl from './in/economy/one/economylistCtrl.js';
+import economydetailCtrl from './in/economy/two/economydetailCtrl.js';
+import economyByStateCtrl from './in/economy/one/bystate/bystateCtrl.js';
+import thirdgdpcontroller from './in/economy/EconomyThird/thirdgdpcontroller.js';
+import thirdfinancecontroller from './in/economy/EconomyThird/thirdfinance/thirdfinance.js';
+import thirdinvestcontroller from './in/economy/EconomyThird/thirdinvest/thirdinvest.js';
+import thirdindustrycontroller from './in/economy/EconomyThird/thirdindustry/thirdindustry.js';
+import thirdfisicalcontroller from './in/economy/EconomyThird/thirdfisical/thirdfisical.js';
 //环境模块Controller
-import EnvironmentCtrl from './in/Environment/EnvironmentCtrl.js';
-import waterCtrl from './in/Environment/one/water/waterCtrl.js';
-import airCtrl from './in/Environment/one/air/airCtrl.js';
-import landCtrl from './in/Environment/one/land/landCtrl.js';
-import energyCtrl from './in/Environment/one/energy/energyCtrl.js';
-import EnvironmentDetailCtrl from './in/Environment/two/EnvironmentDetailCtrl.js';
+import environmentCtrl from './in/Environment/environmentCtrl.js';
+import environmentlistCtrl from './in/Environment/one/EnvironmentlistCtrl.js';
+import environmentdetailCtrl from './in/Environment/two/environmentdetailCtrl.js';
+import environmentByStateCtrl from './in/Environment/one/bystate/bystateCtrl.js';
 import waterThreeCtrl from './in/Environment/three/water/waterThreeCtrl.js';
 import airThreeCtrl from './in/Environment/three/air/airThreeCtrl.js';
 import landThreeCtrl from './in/Environment/three/land/landThreeCtrl.js';
 import energyThreeCtrl from './in/Environment/three/energy/energyThreeCtrl.js';
 
 // 民生模块Controller
-import LivehoodHomeCtrl from './in/livehood/one/LivehoodHomeCtrl.js';
-import populationCtrl from './in/livehood/one/population/populationCtrl.js';
-import insuranceCtrl from './in/livehood/one/insurance/insuranceCtrl.js';
-import priceCtrl from './in/livehood/one/price/priceCtrl.js';
-import lvdetailCtrl from './in/livehood/two/lvdetailCtrl.js';
+import livehoodCtrl from './in/livehood/livehoodCtrl.js';
+import livehoodlistCtrl from './in/livehood/one/livehoodlistCtrl.js';
+import livehooddetailCtrl from './in/livehood/two/livehooddetailCtrl.js';
+import livehoodByStateCtrl from './in/livehood/one/bystate/bystateCtrl.js';
+import populationThreeCtrl from './in/livehood/three/population/populationThreeCtrl.js';
+import UBEICtrl from './in/livehood/three/UBEI/UBEICtrl.js';
+
 // 公共安全模块Controller
-import policeCtrl from './in/publicsecurity/one/police/policeCtrl.js';
-import firecontrolCtrl from './in/publicsecurity/one/firecontrol/firecontrolCtrl.js';
-import petitionCtrl from './in/publicsecurity/one/petition/petitionCtrl.js';
-import safetyCtrl from './in/publicsecurity/one/safety/safetyCtrl.js';
-import accidentCtrl from './in/publicsecurity/one/accident/accidentCtrl.js';
-import publicsecurityCtrl from './in/publicsecurity/publicsecurityCtrl'
+import publicsecurityCtrl from './in/publicsecurity/publicsecurityCtrl.js';
+import publicsecuritylistCtrl from './in/publicsecurity/one/publicsecuritylistCtrl.js';
 import publicsecuritydetailCtrl from './in/publicsecurity/two/publicsecuritydetailCtrl.js';
+import publicsecurityByStateCtrl from './in/publicsecurity/one/bystate/bystateCtrl.js';
 import policethreeCtrl from './in/publicsecurity/three/police/policethreeCtrl.js';
 import accidentthreeCtrl from './in/publicsecurity/three/accident/accidentthreeCtrl.js';
 import firethreeCtrl from './in/publicsecurity/three/fire/firethreeCtrl.js';
@@ -118,21 +103,18 @@ import petitionthreeCtrl from './in/publicsecurity/three/petition/petitionthreeC
 import safetythreeCtrl from './in/publicsecurity/three/safety/safetythreeCtrl.js';
 // 城市管理模块Controller
 import cmCtrl from './in/citymanager/cmCtrl.js';
-import refuseCtrl from './in/citymanager/one/refuse/refuseCtrl.js';
-import punishCtrl from './in/citymanager/one/punish/punishCtrl.js';
-import fixCtrl from './in/citymanager/one/fix/fixCtrl.js';
-import icmCtrl from './in/citymanager/one/icm/icmCtrl.js';
+import cmlistCtrl from './in/citymanager/one/cmlistCtrl.js';
 import cmdetailCtrl from './in/citymanager/two/cmdetailCtrl.js';
+import cmByStateCtrl from './in/citymanager/one/bystate/bystateCtrl.js';
 // 公共事业Controller
-import publicServiceCtrl from './in/publicService/publicServiceHomeCtrl.js';
-import educationCtrl from './in/publicService/one/education/educationCtrl.js';
-import healthCareCtrl from './in/publicService/one/healthCare/healthCareCtrl.js';
-import telecomCtrl from './in/publicService/one/telecom/telecomCtrl.js';
-import trafficCtrl from './in/publicService/one/traffic/trafficCtrl.js';
-import publicServiceDetailCtrl from './in/publicService/two/publicServiceDetailCtrl.js';
+import publicServiceCtrl from './in/publicService/publicServiceCtrl.js';
+import publicServicelistCtrl from './in/publicService/one/publicServicelistCtrl.js';
+import publicServicedetailCtrl from './in/publicService/two/publicServicedetailCtrl.js';
+import publicServiceByStateCtrl from './in/publicService/one/bystate/bystateCtrl.js';
 
 angular.module('soraka',
-  ['ngAnimate', 'ngCookies', 'ngSanitize', 'ui.router', 'ngResource', 'ngStorage', 'mobile-angular-ui','ui.bootstrap', 'highcharts-ng','mobile-angular-ui.gestures'])
+  ['ngAnimate', 'ngCookies', 'ngSanitize', 'ui.router', 'ngResource', 'ngStorage', 'mobile-angular-ui','ui.bootstrap', 'highcharts-ng', '720kb.datepicker','mobile-angular-ui.gestures'])
+
 
 
   // 配置全局常量
@@ -193,6 +175,7 @@ angular.module('soraka',
   .filter('FinancialDetailFilter',FinancialDetailFilter)
   .filter('investmentDetailFilter',investmentDetailFilter)
   .filter('industryDetailFilter',industryDetailFilter)
+  .filter('lvThreeFilter',lvThreeFilter)
 
 
   // controllers 初始化
@@ -204,53 +187,37 @@ angular.module('soraka',
   .controller('meCtrl', meCtrl)
   .controller('datepickCtrl', datepickCtrl)
   // 经济controllers
-  .controller('GDPCtrl',GDPCtrl)
-  .controller('financeCtrl',financeCtrl)
-  .controller('financialCtrl',financialCtrl)
-  .controller('investmentCtrl',investmentCtrl)
-  .controller('industryCtrl',industryCtrl)
-  .controller('GDPDetailCtrl',GDPDetailCtrl)
-  .controller('FirstDetailCtrl',FirstDetailCtrl)
-  .controller('FirstGDPIndexCtrl',FirstGDPIndexCtrl)
-  .controller('SecondDetailCtrl',SecondDetailCtrl)
-  .controller('SecondDetailIndexCtrl',SecondDetailIndexCtrl)
-  .controller('ThirdDetailCtrl',ThirdDetailCtrl)
-  .controller('ThirdDetailIndexCtrl',ThirdDetailIndexCtrl)
-  .controller('FinancedetailCtrl',FinancedetailCtrl)
-  .controller('FinancialdetailCtrl',FinancialdetailCtrl)
-  .controller('investmentDetailCtrl',investmentDetailCtrl)
-  .controller('industryDetailCtrl',industryDetailCtrl)
+  .controller('economyCtrl', economyCtrl)
+  .controller('economylistCtrl', economylistCtrl)
+  .controller('economydetailCtrl', economydetailCtrl)
+  .controller('economyByStateCtrl', economyByStateCtrl)
   .controller('thirdgdpcontroller',thirdgdpcontroller)
   .controller('thirdfinancecontroller',thirdfinancecontroller)
   .controller('thirdinvestcontroller',thirdinvestcontroller)
   .controller('thirdindustrycontroller',thirdindustrycontroller)
   .controller('thirdfisicalcontroller',thirdfisicalcontroller)
   // 环境controllers
-  .controller('EnvironmentCtrl',EnvironmentCtrl)
-  .controller('waterCtrl',waterCtrl)
-  .controller('airCtrl',airCtrl)
-  .controller('landCtrl',landCtrl)
-  .controller('energyCtrl',energyCtrl)
-  .controller('EnvironmentDetailCtrl',EnvironmentDetailCtrl)
+  .controller('environmentCtrl', environmentCtrl)
+  .controller('environmentlistCtrl', environmentlistCtrl)
+  .controller('environmentdetailCtrl', environmentdetailCtrl)
+  .controller('environmentByStateCtrl', environmentByStateCtrl)
   .controller('waterThreeCtrl',waterThreeCtrl)
   .controller('airThreeCtrl',airThreeCtrl)
   .controller('landThreeCtrl',landThreeCtrl)
   .controller('energyThreeCtrl',energyThreeCtrl)
 
   // 民生controllers
-  .controller('populationCtrl',populationCtrl)
-  .controller('insuranceCtrl',insuranceCtrl)
-  .controller('priceCtrl',priceCtrl)
-  .controller('lvdetailCtrl',lvdetailCtrl)
-  .controller('LivehoodHomeCtrl',LivehoodHomeCtrl)
+  .controller('livehoodCtrl', livehoodCtrl)
+  .controller('livehoodlistCtrl', livehoodlistCtrl)
+  .controller('livehooddetailCtrl', livehooddetailCtrl)
+  .controller('livehoodByStateCtrl', livehoodByStateCtrl)
+  .controller('populationThreeCtrl',populationThreeCtrl)
+  .controller('UBEICtrl',UBEICtrl)
   // 公共安全controllers
   .controller('publicsecurityCtrl', publicsecurityCtrl)
-  .controller('policeCtrl', policeCtrl)
-  .controller('firecontrolCtrl', firecontrolCtrl)
-  .controller('accidentCtrl', accidentCtrl)
-  .controller('petitionCtrl', petitionCtrl)
-  .controller('safetyCtrl', safetyCtrl)
-  .controller('publicsecuritydetailCtrl',publicsecuritydetailCtrl)
+  .controller('publicsecuritylistCtrl', publicsecuritylistCtrl)
+  .controller('publicsecuritydetailCtrl', publicsecuritydetailCtrl)
+  .controller('publicsecurityByStateCtrl', publicsecurityByStateCtrl)
   .controller('policethreeCtrl',policethreeCtrl)
   .controller('accidentthreeCtrl',accidentthreeCtrl)
   .controller('firethreeCtrl',firethreeCtrl)
@@ -259,17 +226,13 @@ angular.module('soraka',
 
   // 公共事业controllers
   .controller('publicServiceCtrl', publicServiceCtrl)
-  .controller('educationCtrl', educationCtrl)
-  .controller('healthCareCtrl', healthCareCtrl)
-  .controller('telecomCtrl', telecomCtrl)
-  .controller('trafficCtrl', trafficCtrl)
-  .controller('publicServiceDetailCtrl', publicServiceDetailCtrl)
+  .controller('publicServicelistCtrl', publicServicelistCtrl)
+  .controller('publicServicedetailCtrl', publicServicedetailCtrl)
+  .controller('publicServiceByStateCtrl', publicServiceByStateCtrl)
 
   // 城市管理controllers
   .controller('cmCtrl', cmCtrl)
-  .controller('refuseCtrl', refuseCtrl)
-  .controller('punishCtrl', punishCtrl)
-  .controller('fixCtrl', fixCtrl)
-  .controller('icmCtrl', icmCtrl)
+  .controller('cmlistCtrl', cmlistCtrl)
   .controller('cmdetailCtrl', cmdetailCtrl)
+  .controller('cmByStateCtrl', cmByStateCtrl)
   ;
