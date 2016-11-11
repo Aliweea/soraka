@@ -1,1 +1,65 @@
-police
+<div>
+ <div ui-state="activeTab" default="1">
+  <ul class="nav nav-tabs">
+    <li ui-class="{'active': activeTab == 1}">
+      <a ui-set="{'activeTab': 1}">太仓市警情动态</a>
+    </li>
+    <li ui-class="{'active': activeTab == 2}">
+      <a ui-set="{'activeTab': 2}">各单位接警信息</a>
+    </li>
+    <li ui-class="{'active': activeTab ==3 }">
+    	<a ui-set="{'activeTab': 3}">全年接警趋势分析</a>
+    </li>
+    <li ui-class="{'active': activeTab ==4 }">
+    	<a ui-set="{'activeTab': 4}">各类报警案件总数</a>
+    </li>
+   </ul>
+
+  <div ui-if="activeTab == 1">
+  	<div class="col-md-3 ">
+  		<div class="scrollable" style="margin-top: 0px;height: 500px">
+  			<div class="scrollable-content" >
+     			<h3 class="page-header">当月KPI详情</h3>
+    			<highchart  id="kpiPieChart" config="kpiPieChart" ></highchart>
+  	</div> 
+  </div>		
+	</div>
+  </div>
+
+  <div ui-if="activeTab == 2">
+  	<div class="col-md-3 ">
+  		<div class="scrollable" style="margin-top: 0px;height: 500px">
+  			<div class="scrollable-content" >
+     			<h3 class="page-header">当月KPI详情</h3>
+    			<highchart  id="kpiBarChart"  config="kpiBarChart"  style="height:400px"></highchart>
+  	</div> 
+  </div>		
+	</div>
+  </div>
+   <div ui-if="activeTab == 3">
+  	<div class="col-md-3 ">
+  		<div class="scrollable" style="margin-top: 0px;height: 500px">
+  			<div class="scrollable-content" >
+     			<h3 class="page-header">当月KPI详情</h3>
+    			<highchart  id="lineChart"  config="lineChart"  style="height:400px"></highchart>
+  	</div> 
+  </div>		
+	</div>
+  </div>
+  
+<div ui-if="activeTab == 4">
+  	<div class="col-md-3 ">
+  		<div class="scrollable" style="margin-top: 0px;height: 500px">
+  			<div class="scrollable-content" >
+     			<h3 class="page-header">当月KPI详情</h3>
+    			<highchart  id="barTypeChart"  config="barTypeChart"  style="height:400px"></highchart>
+  	</div> 
+  </div>		
+	</div>
+  </div>
+</div>
+</div>
+
+
+
+
