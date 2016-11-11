@@ -237,6 +237,11 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       templateUrl:'app/in/livehood/three/population/populationThree.html',
       controller:'populationThreeCtrl'
     })
+      .state('app.livehood.priceThree',{
+          url:'/priceThree/priceThree',
+          templateUrl:'app/in/livehood/three/price/priceThree.html',
+          controller:'priceThreeCtrl'
+      })
     .state('app.livehood.TerminalPopulation',{
       url:'/PopulationThree/TerminalPopulation',
       templateUrl:'app/in/livehood/three/population/populationThree.html',
