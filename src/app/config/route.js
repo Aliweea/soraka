@@ -200,6 +200,10 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       templateUrl: 'app/in/publicsecurity/three/safety/safetythree.html',
       controller: 'safetythreeCtrl'
     })
+    .state('app.publicsecurity.psthirdselect', {
+      url: '/psthirdselect',
+      templateUrl: 'app/in/publicsecurity/three/psthirdselect.html'
+    })
 
     // 民生
     .state('app.livehood', {
