@@ -261,8 +261,8 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       .state('app.livehood.UBEI', {
       url: '/InsuranceChart/UrbanBasicEndowmentInsuranceData',
       name: 'UBEI',
-      templateUrl: 'app/in/livehood/three/UBEI/UBEI.html',
-      controller: 'UBEICtrl'
+      templateUrl: 'app/in/livehood/three/insurance/insurance.html',
+      controller: 'insuranceCtrl'
     })
     //公共事业
     .state('app.publicService', {
