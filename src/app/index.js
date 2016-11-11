@@ -52,6 +52,7 @@ import FinanceDetailFilter from './filter/FinanceFilter';
 import FinancialDetailFilter from './filter/FinancialFilter';
 import investmentDetailFilter from './filter/investDetailFilter';
 import industryDetailFilter from './filter/industryFilter';
+import lvThreeFilter from './filter/lvThreeFilter';
 // controllers
 
 import appCtrl from './appCtrl';
@@ -87,6 +88,9 @@ import livehoodCtrl from './in/livehood/livehoodCtrl.js';
 import livehoodlistCtrl from './in/livehood/one/livehoodlistCtrl.js';
 import livehooddetailCtrl from './in/livehood/two/livehooddetailCtrl.js';
 import livehoodByStateCtrl from './in/livehood/one/bystate/bystateCtrl.js';
+import populationThreeCtrl from './in/livehood/three/population/populationThreeCtrl.js';
+import UBEICtrl from './in/livehood/three/UBEI/UBEICtrl.js';
+
 // 公共安全模块Controller
 import publicsecurityCtrl from './in/publicsecurity/publicsecurityCtrl.js';
 import publicsecuritylistCtrl from './in/publicsecurity/one/publicsecuritylistCtrl.js';
@@ -170,6 +174,7 @@ angular.module('soraka',
   .filter('FinancialDetailFilter',FinancialDetailFilter)
   .filter('investmentDetailFilter',investmentDetailFilter)
   .filter('industryDetailFilter',industryDetailFilter)
+  .filter('lvThreeFilter',lvThreeFilter)
 
 
   // controllers 初始化
@@ -205,6 +210,8 @@ angular.module('soraka',
   .controller('livehoodlistCtrl', livehoodlistCtrl)
   .controller('livehooddetailCtrl', livehooddetailCtrl)
   .controller('livehoodByStateCtrl', livehoodByStateCtrl)
+  .controller('populationThreeCtrl',populationThreeCtrl)
+  .controller('UBEICtrl',UBEICtrl)
   // 公共安全controllers
   .controller('publicsecurityCtrl', publicsecurityCtrl)
   .controller('publicsecuritylistCtrl', publicsecuritylistCtrl)
