@@ -1,9 +1,9 @@
-<div ui-state="activeTab" default="1">
-  <ul class="nav nav-tabs">
-    <li ui-class="{'active': activeTab == 1}">
+<div ui-state="activeTab" default="1" >
+  <ul class="nav nav-tabs" >
+    <li ui-class="{'active': activeTab == 1}" style="width: 50%;">
       <a ui-set="{'activeTab': 1}">数据详情</a>
     </li>
-    <li ui-class="{'active': activeTab == 2}">
+    <li ui-class="{'active': activeTab == 2}" style="width: 50%;">
       <a ui-set="{'activeTab': 2}">数据走势</a>
     </li>
    
@@ -12,7 +12,7 @@
   <div ui-if="activeTab == 1">
   <div class="scrollable"style="margin-top: 100px;height: 500px">
   <div class="scrollable-content" >
-    <h3 class="page-header">{{kpiText}}KPI详情</h3>
+    
     <li>数据名称:全社会固定资产投资</li>
     <li>时间: {{gi.year}} 年 {{gi.month}} 月 </li>
     <span ng-show="false">{{gi = dataMap.InvestData.lastestObject}}</span>
@@ -119,10 +119,21 @@
   </div>
 
   <div ui-if="activeTab == 2">
-  <div class="scrollable"style="margin-top: 100px;height: 500px">
-  <div class="scrollable-content" >
-     <h3 class="page-header">全年{{kpiText}}KPI详情</h3>
-    <highchart config="InvestValueChart"  id="InvestValueChart"></highchart>
+  <div class="scrollable"style="margin-top: 110px;height: 545px">
+  <div class="scrollable-content" ng-click="show()">
+      <div style="height: 30px; display: flex;display: -webkit-flex;flex-direction: row;justify-content: center;align-items: center;">
+      <div style="width: 100%;height: 30px;box-shadow: 3px 3px 6px -4px white;border-radius: 5px;display: flex;display: -webkit-flex;flex-direction: row;justify-content: center;align-items: center;">
+      <span style="font-size: 2em">投资数据全年走势</span>
+      </div>
+      </div>
+     <div style="height: 40px;display: flex;display: -webkit-flex;flex-direction: row;justify-content: center;align-items: center;">
+      <span ng-show="false">{{ci = dataMap.ImportData.lastestObject}}</span>
+       <span class="label label-primary">统计局</span>
+        <span class="label" style="color: black;margin-left: 5px">时间:{{ci.year}} 年 {{ci.month}} 月</span>
+         <span class="label" style="color: black">每月更新</span>
+     </div>
+ 
+    <highchart config="InvestValueChart"  id="InvestValueChart" style="height: 450px" ng-if="show1" class="economyfade"></highchart>
     <highchart config="ClassInvestValueChart"  id="ClassInvestValueChart"></highchart>
     <highchart config="CapitalValueChart" id="CapitalValueChart"></highchart>
     <highchart config="ImportCapitalValueChart" id="ImportCapitalValueChart"></highchart>
@@ -146,4 +157,13 @@
     <a type="button" class="btn btn-default" ui-turn-off="modal2"></a>
   </div>
 </div>
+<script>
+function animationIn(i){
+console.log(i,'i\'m in')
+}
+
+function animationOut(i){
+console.log(i,'i\'m out')
+}
+</script>
   </div>
