@@ -89,7 +89,7 @@ import livehoodlistCtrl from './in/livehood/one/livehoodlistCtrl.js';
 import livehooddetailCtrl from './in/livehood/two/livehooddetailCtrl.js';
 import livehoodByStateCtrl from './in/livehood/one/bystate/bystateCtrl.js';
 import populationThreeCtrl from './in/livehood/three/population/populationThreeCtrl.js';
-import UBEICtrl from './in/livehood/three/UBEI/UBEICtrl.js';
+import insuranceCtrl from './in/livehood/three/insurance/insuranceCtrl.js';
 
 // 公共安全模块Controller
 import publicsecurityCtrl from './in/publicsecurity/publicsecurityCtrl.js';
@@ -113,7 +113,8 @@ import publicServicedetailCtrl from './in/publicService/two/publicServicedetailC
 import publicServiceByStateCtrl from './in/publicService/one/bystate/bystateCtrl.js';
 
 angular.module('soraka',
-  ['ngAnimate', 'ngCookies', 'ngSanitize', 'ui.router', 'ngResource', 'ngStorage', 'mobile-angular-ui','ui.bootstrap', 'highcharts-ng', '720kb.datepicker'])
+  ['ngAnimate', 'ngCookies', 'ngSanitize', 'ui.router', 'ngResource', 'ngStorage', 'mobile-angular-ui','ui.bootstrap', 'highcharts-ng', '720kb.datepicker','mobile-angular-ui.gestures'])
+
 
 
   // 配置全局常量
@@ -211,7 +212,7 @@ angular.module('soraka',
   .controller('livehooddetailCtrl', livehooddetailCtrl)
   .controller('livehoodByStateCtrl', livehoodByStateCtrl)
   .controller('populationThreeCtrl',populationThreeCtrl)
-  .controller('UBEICtrl',UBEICtrl)
+  .controller('insuranceCtrl',insuranceCtrl)
   // 公共安全controllers
   .controller('publicsecurityCtrl', publicsecurityCtrl)
   .controller('publicsecuritylistCtrl', publicsecuritylistCtrl)
