@@ -96,7 +96,9 @@ import publicsecurityCtrl from './in/publicsecurity/publicsecurityCtrl.js';
 import publicsecuritylistCtrl from './in/publicsecurity/one/publicsecuritylistCtrl.js';
 import publicsecuritydetailCtrl from './in/publicsecurity/two/publicsecuritydetailCtrl.js';
 import publicsecurityByStateCtrl from './in/publicsecurity/one/bystate/bystateCtrl.js';
-import policethreeCtrl from './in/publicsecurity/three/police/policethreeCtrl.js';
+import policeCtrl from './in/publicsecurity/three/police/policeCtrl.js';
+import policeCallCtrl from './in/publicsecurity/three/police/policeCallCtrl.js';
+import criminalCtrl from './in/publicsecurity/three/police/criminalCtrl.js';
 import accidentthreeCtrl from './in/publicsecurity/three/accident/accidentthreeCtrl.js';
 import firethreeCtrl from './in/publicsecurity/three/fire/firethreeCtrl.js';
 import petitionthreeCtrl from './in/publicsecurity/three/petition/petitionthreeCtrl.js';
@@ -115,6 +117,10 @@ import publicServiceCtrl from './in/publicService/publicServiceCtrl.js';
 import publicServicelistCtrl from './in/publicService/one/publicServicelistCtrl.js';
 import publicServicedetailCtrl from './in/publicService/two/publicServicedetailCtrl.js';
 import publicServiceByStateCtrl from './in/publicService/one/bystate/bystateCtrl.js';
+import peducationCtrl from './in/publicService/three/education/peducationCtrl.js';
+import phealthCareCtrl from './in/publicService/three/healthCare/phealthCareCtrl.js';
+import ptelecomCtrl from './in/publicService/three/telecom/ptelecomCtrl.js';
+import ptrafficCtrl from './in/publicService/three/traffic/ptrafficCtrl.js';
 
 angular.module('soraka',
   ['ngAnimate', 'ngCookies', 'ngSanitize', 'ui.router', 'ngResource', 'ngStorage', 'mobile-angular-ui','ui.bootstrap', 'highcharts-ng', '720kb.datepicker','mobile-angular-ui.gestures'])
@@ -222,7 +228,9 @@ angular.module('soraka',
   .controller('publicsecuritylistCtrl', publicsecuritylistCtrl)
   .controller('publicsecuritydetailCtrl', publicsecuritydetailCtrl)
   .controller('publicsecurityByStateCtrl', publicsecurityByStateCtrl)
-  .controller('policethreeCtrl',policethreeCtrl)
+  .controller('policeCtrl',policeCtrl)
+  .controller('policeCallCtrl',policeCallCtrl)
+  .controller('criminalCtrl',criminalCtrl)
   .controller('accidentthreeCtrl',accidentthreeCtrl)
   .controller('firethreeCtrl',firethreeCtrl)
   .controller('petitionthreeCtrl',petitionthreeCtrl)
@@ -233,6 +241,10 @@ angular.module('soraka',
   .controller('publicServicelistCtrl', publicServicelistCtrl)
   .controller('publicServicedetailCtrl', publicServicedetailCtrl)
   .controller('publicServiceByStateCtrl', publicServiceByStateCtrl)
+  .controller('peducationCtrl', peducationCtrl)
+  .controller('phealthCareCtrl', phealthCareCtrl)
+  .controller('ptelecomCtrl', ptelecomCtrl)
+  .controller('ptrafficCtrl', ptrafficCtrl)
 
   // 城市管理controllers
   .controller('cmCtrl', cmCtrl)

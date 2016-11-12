@@ -2,6 +2,9 @@ export default($scope, $state, hService) => {
 	'ngInject';
 	$scope.title = "民生";
 
+	const jQueryDOMToDos = () => {
+		$('.navTopShowPopulation').hide(0);
+	}();
 	// 上一级路由
 	$scope.toH = () => {
 		let h = hService.state();
