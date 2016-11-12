@@ -1,4 +1,4 @@
-export default($scope, $stateParams, qService, kpiRes, dateService, hService, $state) => {
+export default($scope, $rootScope, $stateParams, qService, kpiRes, dateService, hService, $state) => {
 	'ngInject';
     hService.state($state);
 
@@ -19,6 +19,7 @@ export default($scope, $stateParams, qService, kpiRes, dateService, hService, $s
 	let headers = {
 		"X-Auth-Token":token
 	};
+    $rootScope.loading = true;
 	qService.httpGet(kpiRes.categorykpi, params,headers).then((data) => {
         if (data.errorCode == "NO_ERROR") {
             let rawData = data.data.data;
@@ -39,5 +40,7 @@ export default($scope, $stateParams, qService, kpiRes, dateService, hService, $s
         } else {
 
         }
+    }).finally(() => {
+        $rootScope.loading = false;
     });
 };
