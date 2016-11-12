@@ -1,6 +1,13 @@
 export default ($scope, kpiDetailService, dateService) => {
     'ngInject';
 
+    const jQueryDOMToDos = () => {
+        $(".navbar2position").hide(0); // 显示当前位置
+        $(".navbar2return").show(0); // 显示返回按钮
+        $(".navTopShowMark").hide(0); // 隐藏KPI状态 KPI分类
+        $('#showshort').focus(); // 获取默认焦点
+    }();
+
     $scope.screenWidth = document.body.clientWidth;
     $scope.tab1 = true;
     $scope.tab2 = false;
