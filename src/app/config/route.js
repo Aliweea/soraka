@@ -242,8 +242,9 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
           templateUrl:'app/in/livehood/three/price/priceThree.html',
           controller:'priceThreeCtrl'
       })    
+      
     //社会保险三级界面UBEI
-      .state('app.livehood.UBEI', {
+      .state('app.inThDetail', {
       url: '/InsuranceChart/UrbanBasicEndowmentInsuranceData',
       name: 'UBEI',
       templateUrl: 'app/in/livehood/three/insurance/insurance.html',

@@ -1,6 +1,7 @@
 export default($scope, $state, hService) => {
 	'ngInject';
 	$scope.title = "民生";
+
 	// 上一级路由
 	$scope.toH = () => {
 		let h = hService.state();
@@ -32,7 +33,7 @@ export default($scope, $state, hService) => {
 				$state.go("app.livehood.PopulationStructure");
 				break;
 			case "社会保险":
-				$state.go("app.livehood.UBEI");
+				$state.go("app.inThDetail");
 				break;
 			case "价格指数":
 				$state.go("app.livehood.priceThree");
