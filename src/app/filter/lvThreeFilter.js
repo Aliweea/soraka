@@ -154,7 +154,9 @@ export default($rootScope) => {
           case '2258':
         return 'BearingWomen';
         break; 
-       
+          case '2101':
+            return 'priceThree';
+            break;
     };
   };
   
