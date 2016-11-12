@@ -1,1 +1,16 @@
-punish
+<div class="cmpunish-module">
+	<div class="tabs">
+		<input ng-click="changeTo('time');" type="button" class="s1" id="cmrefuse-s1" value="按案件数">
+		<input ng-click="changeTo('money');" type="button" class="s2" id="cmrefuse-s2" value="按处罚金额">
+	</div>
+	<div class="key-value-area">
+		<div class="title-area">
+			<i class="fa fa-lightbulb-o" aria-hidden="true"></i>
+			<span class="title">关键数据解读</span><br>
+		</div>
+		<span class="value">{{status}}</span>
+	</div>
+	<div class="chart-area1">
+		<highchart config="pieChart"></highchart>
+	</div>
+</div>

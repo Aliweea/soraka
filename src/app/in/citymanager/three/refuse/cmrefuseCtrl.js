@@ -173,7 +173,6 @@ export default($scope, $state, qService, dataDetailFactory, dateService) => {
 			}
 			qService.httpGetbyJSOG(dataDetailFactory.query, params, headers).then((data) => {
 				if (data.errorCode == "NO_ERROR") {
-					console.log(data);
 					let timeDataMap = {
 						7001: [],7002: [],7003: [],7004: [],7005: [],7006: [],7007: [],	7008: [],7009: [],
 						7010: [],7011: [],7012: [], 7013: [],7014: [],7015: [],7016: [],7017: [],7018: [],7019: []
