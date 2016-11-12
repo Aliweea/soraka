@@ -276,6 +276,27 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       templateUrl: 'app/in/publicService/two/publicServicedetail.html',
       controller: 'publicServicedetailCtrl'
     })
+    .state('app.publicService.peducation', {
+      url: '/detail/education',
+      templateUrl: 'app/in/publicService/three/education/peducation.html',
+      controller: 'peducationCtrl'
+    })
+    .state('app.publicService.phealthCare', {
+      url: '/detail/healthCare',
+      templateUrl: 'app/in/publicService/three/healthCare/phealthCare.html',
+      controller: 'phealthCareCtrl'
+    })
+    .state('app.publicService.ptelecom', {
+      url: '/detail/telecom',
+      templateUrl: 'app/in/publicService/three/telecom/ptelecom.html',
+      controller: 'ptelecomCtrl'
+    })
+    .state('app.publicService.ptraffic', {
+      url: '/detail/traffic',
+      templateUrl: 'app/in/publicService/three/traffic/ptraffic.html',
+      controller: 'ptrafficCtrl'
+    })
+    
     
     // 城市管理
     .state('app.cm', {

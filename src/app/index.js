@@ -115,6 +115,10 @@ import publicServiceCtrl from './in/publicService/publicServiceCtrl.js';
 import publicServicelistCtrl from './in/publicService/one/publicServicelistCtrl.js';
 import publicServicedetailCtrl from './in/publicService/two/publicServicedetailCtrl.js';
 import publicServiceByStateCtrl from './in/publicService/one/bystate/bystateCtrl.js';
+import peducationCtrl from './in/publicService/three/education/peducationCtrl.js';
+import phealthCareCtrl from './in/publicService/three/healthCare/phealthCareCtrl.js';
+import ptelecomCtrl from './in/publicService/three/telecom/ptelecomCtrl.js';
+import ptrafficCtrl from './in/publicService/three/traffic/ptrafficCtrl.js';
 
 angular.module('soraka',
   ['ngAnimate', 'ngCookies', 'ngSanitize', 'ui.router', 'ngResource', 'ngStorage', 'mobile-angular-ui','ui.bootstrap', 'highcharts-ng', '720kb.datepicker','mobile-angular-ui.gestures'])
@@ -233,6 +237,10 @@ angular.module('soraka',
   .controller('publicServicelistCtrl', publicServicelistCtrl)
   .controller('publicServicedetailCtrl', publicServicedetailCtrl)
   .controller('publicServiceByStateCtrl', publicServiceByStateCtrl)
+  .controller('peducationCtrl', peducationCtrl)
+  .controller('phealthCareCtrl', phealthCareCtrl)
+  .controller('ptelecomCtrl', ptelecomCtrl)
+  .controller('ptrafficCtrl', ptrafficCtrl)
 
   // 城市管理controllers
   .controller('cmCtrl', cmCtrl)
