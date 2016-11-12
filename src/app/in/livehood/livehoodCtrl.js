@@ -19,4 +19,24 @@ export default($scope, $state, hService) => {
 		};
 		$state.go("app.livehood.bystate",paramObj);
 	}
+
+	// 用于底部bar的当前位置
+	$scope.currentCategoryName = "人口结构"; // default value
+	$scope.changeCategory = (name) => {
+		$scope.currentCategoryName = name;
+	}
+
+	$scope.toDetail = () => {
+		switch($scope.currentCategoryName) {
+			case "人口结构":
+				$state.go("app.livehood.PopulationStructure");
+				break;
+			case "社会保险":
+				$state.go("app.livehood.UBEI");
+				break;
+			case "价格指数":
+				$state.go("app.environment.landThree");
+				break;
+		}
+	}
 };
