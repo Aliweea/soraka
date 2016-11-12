@@ -42,7 +42,6 @@ import insuranceFilter from './filter/insuranceFilter';
 import populationFilter from './filter/PopulationFilter';
 import energyFilter from './filter/Environment/EnergyFilter';
 import landFilter from './filter/Environment/LandFilter';
-import environmentThreeFilter from './filter/Environment/EnvironmentThreeFilter';
 import publicsecuritythreeFilter from './filter/publicsecurity/publicsecuritythreeFilter';
 import publicsecuritydetailFilter from './filter/publicsecurity/publicsecuritydetailFilter';
 import kpiUnitFilter from './filter/publicsecurity/kpiUnitFilter';
@@ -170,7 +169,6 @@ angular.module('soraka',
   .filter('populationFilter', populationFilter)
   .filter('energyFilter',energyFilter)
   .filter('landFilter',landFilter)
-  .filter('environmentThreeFilter',environmentThreeFilter)
   .filter('publicsecuritythreeFilter',publicsecuritythreeFilter)
   .filter('publicsecuritydetailFilter',publicsecuritydetailFilter)
   .filter('kpiUnitFilter',kpiUnitFilter)
