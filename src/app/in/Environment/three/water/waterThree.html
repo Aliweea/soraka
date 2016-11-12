@@ -153,29 +153,29 @@
                            name="waterQualityCurrentListRadio" ng-click="waterQualityCurrentChange(waterQualityOne)">{{waterQualityOne.monitor}}
                 </label>
             </div>
-            <div style="margin-left: 75%;width: 20%" class="ioc-panel-desc-title">
+            <div style="margin-left: 75%;width: 20%">
                 <img src="/assets/images/Environment/one-sentence.png" />
             </div>
             <div style="margin-left: 75%;margin-top: 3px">{{waterQualityCurrentDateTime.year}}年{{waterQualityCurrentDateTime.month}}月{{waterQualityCurrentDateTime.day}}日{{waterQualityCurrentDateTime.hour}}时</div>
             <div style="margin-left: 75%;">{{waterQualityOneSentence.monitor}}</div>
             <div style="margin-left: 75%">
-                <span class="glyphicon" ng-class="getOneSentenceStatus(waterQualityOneSentence.o2Status.status)"></span>
+                <span ng-class="getOneSentenceStatus(waterQualityOneSentence.o2Status.status)"></span>
                 &nbsp{{waterQualityOneSentence.o2Status.sentence}}
             </div>
             <div style="margin-left: 75%">
-                <span class="glyphicon" ng-class="getOneSentenceStatus(waterQualityOneSentence.kmno4Status.status)"></span>
+                <span ng-class="getOneSentenceStatus(waterQualityOneSentence.kmno4Status.status)"></span>
                 &nbsp{{waterQualityOneSentence.kmno4Status.sentence}}
             </div>
             <div style="margin-left: 75%">
-                <span class="glyphicon" ng-class="getOneSentenceStatus(waterQualityOneSentence.nh4nStatus.status)"></span>
+                <span ng-class="getOneSentenceStatus(waterQualityOneSentence.nh4nStatus.status)"></span>
                 &nbsp{{waterQualityOneSentence.nh4nStatus.sentence}}
             </div>
             <div style="margin-left: 75%">
-                <span class="glyphicon" ng-class="getOneSentenceStatus(waterQualityOneSentence.pStatus.status)"></span>
+                <span ng-class="getOneSentenceStatus(waterQualityOneSentence.pStatus.status)"></span>
                 &nbsp{{waterQualityOneSentence.pStatus.sentence}}
             </div>
             <div style="margin-left: 75%">
-                <span class="glyphicon" ng-class="getOneSentenceStatus(waterQualityOneSentence.tnStatus.status)"></span>
+                <span ng-class="getOneSentenceStatus(waterQualityOneSentence.tnStatus.status)"></span>
                 &nbsp{{waterQualityOneSentence.tnStatus.sentence}}
             </div>
             <div style="margin-left: 75%;margin-top:3px">

@@ -104,7 +104,9 @@ export default ($scope, kpiDetailService, dateService) => {
                     plotBackgroundColor: null,
                     plotBackgroundImage: null,
                     plotBorderWidth: 0,
-                    plotShadow: false
+                    plotShadow: false,
+                    width: $(window).width() * 0.5,
+                    height: $(window).width() * 0.6
                 },
                 exporting: {
                     enabled: false
@@ -202,10 +204,6 @@ export default ($scope, kpiDetailService, dateService) => {
                     valueSuffix: ''
                 }
             }],
-            size: {
-                width: $(window).width() * 0.5,
-                height: $(window).width() * 0.6
-            }
         },
         pm25Option: {
             options: {
@@ -214,7 +212,9 @@ export default ($scope, kpiDetailService, dateService) => {
                     plotBackgroundColor: null,
                     plotBackgroundImage: null,
                     plotBorderWidth: 0,
-                    plotShadow: false
+                    plotShadow: false,
+                    width: $(window).width() * 0.5,
+                    height: $(window).width() * 0.6
                 },
                 exporting: {
                     enabled: false
@@ -265,7 +265,6 @@ export default ($scope, kpiDetailService, dateService) => {
                         innerRadius: '103%'
                     }]
                 },
-
                 // the value axis
                 yAxis: {
                     min: 0,
@@ -314,10 +313,6 @@ export default ($scope, kpiDetailService, dateService) => {
                     valueSuffix: 'μg/m³'
                 }
             }],
-            size: {
-                width: $(window).width() * 0.5,
-                height: $(window).width() * 0.6
-            }
         },
         pm10Option: {
             options: {
@@ -326,7 +321,9 @@ export default ($scope, kpiDetailService, dateService) => {
                     plotBackgroundColor: null,
                     plotBackgroundImage: null,
                     plotBorderWidth: 0,
-                    plotShadow: false
+                    plotShadow: false,
+                    width: $(window).width() * 0.5,
+                    height: $(window).width() * 0.6
                 },
                 exporting: {
                     enabled: false
@@ -376,7 +373,6 @@ export default ($scope, kpiDetailService, dateService) => {
                         innerRadius: '103%'
                     }]
                 },
-
                 // the value axis
                 yAxis: {
                     min: 0,
@@ -414,7 +410,6 @@ export default ($scope, kpiDetailService, dateService) => {
                         color: '#DF5353' // red
                     }]
                 },
-
                 credits: {
                     enabled: false
                 }
@@ -426,10 +421,6 @@ export default ($scope, kpiDetailService, dateService) => {
                     valueSuffix: 'μg/m³'
                 }
             }],
-            size: {
-                width: $(window).width() * 0.5,
-                height: $(window).width() * 0.6
-            }
         },
         so2Option: {
             options: {
@@ -438,7 +429,9 @@ export default ($scope, kpiDetailService, dateService) => {
                     plotBackgroundColor: null,
                     plotBackgroundImage: null,
                     plotBorderWidth: 0,
-                    plotShadow: false
+                    plotShadow: false,
+                    width: $(window).width() * 0.5,
+                    height: $(window).width() * 0.6
                 },
                 title: {
                     text: '二氧化硫'
@@ -488,7 +481,6 @@ export default ($scope, kpiDetailService, dateService) => {
                         innerRadius: '103%'
                     }]
                 },
-
                 // the value axis
                 yAxis: {
                     min: 0,
@@ -526,7 +518,6 @@ export default ($scope, kpiDetailService, dateService) => {
                         color: '#DF5353' // red
                     }]
                 },
-
                 credits: {
                     enabled: false
                 }
@@ -538,10 +529,6 @@ export default ($scope, kpiDetailService, dateService) => {
                     valueSuffix: 'μg/m³'
                 }
             }],
-            size: {
-                width: $(window).width() * 0.5,
-                height: $(window).width() * 0.6
-            }
         },
         no2Option: {
             options: {
@@ -550,7 +537,9 @@ export default ($scope, kpiDetailService, dateService) => {
                     plotBackgroundColor: null,
                     plotBackgroundImage: null,
                     plotBorderWidth: 0,
-                    plotShadow: false
+                    plotShadow: false,
+                    width: $(window).width() * 0.5,
+                    height: $(window).width() * 0.6
                 },
 
                 title: {
@@ -601,18 +590,15 @@ export default ($scope, kpiDetailService, dateService) => {
                         innerRadius: '103%'
                     }]
                 },
-
                 // the value axis
                 yAxis: {
                     min: 0,
                     max: 400,
-
                     minorTickInterval: 'auto',
                     minorTickWidth: 1,
                     minorTickLength: 10,
                     minorTickPosition: 'inside',
                     minorTickColor: '#666',
-
                     tickPixelInterval: 30,
                     tickWidth: 2,
                     tickPosition: 'inside',
@@ -639,7 +625,6 @@ export default ($scope, kpiDetailService, dateService) => {
                         color: '#DF5353' // red
                     }]
                 },
-
                 credits: {
                     enabled: false
                 }
@@ -651,10 +636,6 @@ export default ($scope, kpiDetailService, dateService) => {
                     valueSuffix: 'μg/m³'
                 }
             }],
-            size: {
-                width: $(window).width() * 0.5,
-                height: $(window).width() * 0.6
-            }
         },
         coOption: {
             options: {
@@ -663,7 +644,9 @@ export default ($scope, kpiDetailService, dateService) => {
                     plotBackgroundColor: null,
                     plotBackgroundImage: null,
                     plotBorderWidth: 0,
-                    plotShadow: false
+                    plotShadow: false,
+                    width: $(window).width() * 0.5,
+                    height: $(window).width() * 0.6
                 },
                 exporting: {
                     enabled: false
@@ -713,12 +696,10 @@ export default ($scope, kpiDetailService, dateService) => {
                         innerRadius: '103%'
                     }]
                 },
-
                 // the value axis
                 yAxis: {
                     min: 0,
                     max: 20,
-
                     minorTickInterval: 'auto',
                     minorTickWidth: 1,
                     minorTickLength: 10,
@@ -761,10 +742,6 @@ export default ($scope, kpiDetailService, dateService) => {
                     valueSuffix: 'mg/m³'
                 }
             }],
-            size: {
-                width: $(window).width() * 0.5,
-                height: $(window).width() * 0.6
-            }
         },
         o3Option: {
             options: {
@@ -773,7 +750,9 @@ export default ($scope, kpiDetailService, dateService) => {
                     plotBackgroundColor: null,
                     plotBackgroundImage: null,
                     plotBorderWidth: 0,
-                    plotShadow: false
+                    plotShadow: false,
+                    width: $(window).width() * 0.5,
+                    height: $(window).width() * 0.6
                 },
                 exporting: {
                     enabled: false
@@ -823,18 +802,15 @@ export default ($scope, kpiDetailService, dateService) => {
                         innerRadius: '103%'
                     }]
                 },
-
                 // the value axis
                 yAxis: {
                     min: 0,
                     max: 300,
-
                     minorTickInterval: 'auto',
                     minorTickWidth: 1,
                     minorTickLength: 10,
                     minorTickPosition: 'inside',
                     minorTickColor: '#666',
-
                     tickPixelInterval: 30,
                     tickWidth: 2,
                     tickPosition: 'inside',
@@ -861,7 +837,6 @@ export default ($scope, kpiDetailService, dateService) => {
                         color: '#DF5353' // red
                     }]
                 },
-
                 credits: {
                     enabled: false
                 }
@@ -873,13 +848,13 @@ export default ($scope, kpiDetailService, dateService) => {
                     valueSuffix: 'μg/m³'
                 }
             }],
-            size: {
-                width: $(window).width() * 0.5,
-                height: $(window).width() * 0.6
-            }
         },
         currentAqiLineOption: {
             options: {
+                chart: {
+                    width: $(window).width() * 0.65,
+                    height: $(window).width() * 0.5
+                },
                 title: {
                     text: null,
                 },
@@ -934,13 +909,13 @@ export default ($scope, kpiDetailService, dateService) => {
                 name: 'AQI',
                 data: []
             }],
-            size: {
-                width: $(window).width() * 0.9,
-                height: $(window).width() * 0.4
-            }
         },
         currentPm25LineOption: {
             options: {
+                chart: {
+                    width: $(window).width() * 0.65,
+                    height: $(window).width() * 0.5
+                },
                 title: {
                     text: null,
                 },
@@ -995,13 +970,13 @@ export default ($scope, kpiDetailService, dateService) => {
                 name: 'PM2.5',
                 data: []
             }],
-            size: {
-                width: $(window).width() * 0.9,
-                height: $(window).width() * 0.4
-            }
         },
         currentPm10LineOption: {
             options: {
+                chart: {
+                    width: $(window).width() * 0.65,
+                    height: $(window).width() * 0.5
+                },
                 title: {
                     text: null,
                 },
@@ -1056,13 +1031,13 @@ export default ($scope, kpiDetailService, dateService) => {
                 name: 'PM10',
                 data: []
             }],
-            size: {
-                width: $(window).width() * 0.9,
-                height: $(window).width() * 0.4
-            }
         },
         currentSo2LineOption: {
             options: {
+                chart: {
+                    width: $(window).width() * 0.65,
+                    height: $(window).width() * 0.5
+                },
                 title: {
                     text: null,
                 },
@@ -1117,13 +1092,13 @@ export default ($scope, kpiDetailService, dateService) => {
                 name: '二氧化硫',
                 data: []
             }],
-            size: {
-                width: $(window).width() * 0.9,
-                height: $(window).width() * 0.4
-            }
         },
         currentNo2LineOption: {
             options: {
+                chart: {
+                    width: $(window).width() * 0.65,
+                    height: $(window).width() * 0.5
+                },
                 title: {
                     text: null,
                 },
@@ -1178,13 +1153,13 @@ export default ($scope, kpiDetailService, dateService) => {
                 name: '二氧化氮',
                 data: []
             }],
-            size: {
-                width: $(window).width() * 0.9,
-                height: $(window).width() * 0.4
-            }
         },
         currentCoLineOption: {
             options: {
+                chart: {
+                    width: $(window).width() * 0.65,
+                    height: $(window).width() * 0.5
+                },
                 title: {
                     text: null,
                 },
@@ -1239,13 +1214,13 @@ export default ($scope, kpiDetailService, dateService) => {
                 name: '一氧化碳',
                 data: []
             }],
-            size: {
-                width: $(window).width() * 0.9,
-                height: $(window).width() * 0.4
-            }
         },
         currentO3LineOption: {
             options: {
+                chart: {
+                    width: $(window).width() * 0.65,
+                    height: $(window).width() * 0.5
+                },
                 title: {
                     text: null,
                 },
@@ -1300,10 +1275,6 @@ export default ($scope, kpiDetailService, dateService) => {
                 name: '臭氧',
                 data: []
             }],
-            size: {
-                width: $(window).width() * 0.9,
-                height: $(window).width() * 0.4
-            }
         }
     };
 
