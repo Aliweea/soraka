@@ -965,7 +965,7 @@ export default ($scope, kpiDetailService, dateService) => {
                             enabled: false
                         },
                         title: {
-                            text: '金融、房地产、商务及居民服务业电力消耗量',
+                            text: '金融、地产、商务及居民服务业电力消耗',
                         },
                         yAxis: [{
                             title: {
