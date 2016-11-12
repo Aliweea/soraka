@@ -35,7 +35,7 @@ export default($scope, $state, hService) => {
 				$state.go("app.livehood.UBEI");
 				break;
 			case "价格指数":
-				$state.go("app.environment.landThree");
+				$state.go("app.livehood.priceThree");
 				break;
 		}
 	}
