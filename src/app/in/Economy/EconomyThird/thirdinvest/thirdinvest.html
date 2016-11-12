@@ -12,114 +12,118 @@
   <div ui-if="activeTab == 1">
   <div class="scrollable"style="margin-top: 100px;height: 500px">
   <div class="scrollable-content" >
-    
-    <li>数据名称:全社会固定资产投资</li>
-    <li>时间: {{gi.year}} 年 {{gi.month}} 月 </li>
-    <span ng-show="false">{{gi = dataMap.InvestData.lastestObject}}</span>
-    <div class="table-responsive" style="padding:5px">
-      <table class="table">
-        <tr>
-          <td class="info" style="text-align: center;">统计项目</td>
-          <td class="info" style="text-align: center;">统计值</td>
-        </tr>
-         <tr>
-          <td class="active" style="text-align: center;">年累计值</td>
-          <td class="active" style="text-align: center;">{{gi.gaccmAmount}}万元</td>
-        </tr>
-         <tr>
-          <td class="active" style="text-align: center;">上年同期值</td>
-          <td class="active" style="text-align: center;">{{gi.glastAccmAmount}}万元</td>
-        </tr>
-         <tr>
-          <td class="active" style="text-align: center;">同比增长</td>
-          <td class="active" style="text-align: center;">{{gi.glastAccmRate| number:2}}％</td>
-        </tr>
-        <tr>
-          <td class="active" style="text-align: center;">本年度目标</td>
-          <td class="active" style="text-align: center;">{{gi.gyearTarget}}万元</td>
-        </tr>
-        <tr>
-          <td class="active" style="text-align: center;">目标完成率</td>
-          <td class="active" style="text-align: center;">{{gi.gyearCompleteRate | number:2}}％</td>
-        </tr>
-      </table>
-    </div>
-    <li>数据名称:主要分类固定资产投资</li>
-    <li>时间:{{gi.year}}年{{gi.month}}月</li>
-    <span ng-show="false">{{gi = dataMap.InvestData.lastestObject}}</span>
-    <div class="table-responsive" style="padding:5px">
-      <table class="table">
-        <tr>
-          <td class="info" style="text-align: center;">统计项目</td>
-          <td class="info" style="text-align: center;">统计值</td>
-          <td class="info" style="text-align: center;">同比增长</td>
-        </tr>
-         <tr>
-          <td class="active" style="text-align: center;">本月工业投资</td>
-          <td class="active" style="text-align: center;">{{gi.giaccmAmount}}万元</td>
-          <td class="active" style="text-align: center;">{{gi.gilastAccmRate | number:2}}%</td>
-        </tr>
-         <tr>
-          <td class="active" style="text-align: center;">本月服务业投资</td>
-          <td class="active" style="text-align: center;">{{gi.gsaccmAmount}}万元</td>
-          <td class="active" style="text-align: center;">{{gi.gslastAccmRate | number:2}}%</td>
-        </tr>
-         <tr>
-          <td class="active" style="text-align: center;">本月房地产投资</td>
-          <td class="active" style="text-align: center;">{{gi.gfaccmAmount}}万元</td>
-          <td class="active" style="text-align: center;">{{gi.gflastAccmRate | number:2}}%</td>
-        </tr>
-         
-      </table>
-    </div>
-     <li>数据名称:引进外资(累计值)</li>
-     <li>时间: {{ci.year}} 年 {{ci.month}} 月</li>
-    <span ng-show="false">{{ci = dataMap.ImportData.lastestObject}}</span>
-    <div class="table-responsive" style="padding:5px">
-      <table class="table">
-        <tr>
-          <td class="info" style="text-align: center;">统计项目</td>
-          <td class="info" style="text-align: center;">统计值</td>
-          <td class="info" style="text-align: center;">同比增长</td>
-        </tr>
-         <tr>
-          <td class="active" style="text-align: center;">注册外资</td>
-          <td class="active" style="text-align: center;">{{ci.rAccm}}万美元</td>
-          <td class="active" style="text-align: center;">{{ci.rAccmRate | number:2}}%</td>
-        </tr>
-         <tr>
-          <td class="active" style="text-align: center;">实际利用外资</td>
-          <td class="active" style="text-align: center;">{{ci.uAccm}}万美元</td>
-          <td class="active" style="text-align: center;">{{ci.uAccmRate | number:2}}%</td>
-        </tr>
-      </table>
-    </div>
-     <li>数据名称:引进内资(累计值)</li>
-     <li>时间: {{ci.year}} 年 {{ci.month}} 月</li>
-    <span ng-show="false">{{ci = dataMap.ImportData.lastestObject}}</span>
-    <div class="table-responsive" style="padding:5px">
-      <table class="table">
-        <tr>
-          <td class="info" style="text-align: center;">统计项目</td>
-          <td class="info" style="text-align: center;">统计值</td>
-        </tr>
-         <tr>
-          <td class="active" style="text-align: center;">新增注册资金</td>
-          <td class="active" style="text-align: center;">{{ci.addFund}} 万元</td>
-        </tr>
-         <tr>
-          <td class="active" style="text-align: center;">到账资金</td>
-          <td class="active" style="text-align: center;">{{ci.inFund}}万元</td>
-        </tr>
-      </table>
-    </div>
+      <div style="height: 30px; display: flex;display: -webkit-flex;flex-direction: row;justify-content: center;align-items: center;">
+      <div style="width: 100%;height: 30px;box-shadow: 3px 3px 6px -4px white;border-radius: 5px;display: flex;display: -webkit-flex;flex-direction: row;justify-content: center;align-items: center;">
+      <span style="font-size: 2em">投资数据详情</span>
+      </div>
+      </div>
+     <div style="height: 40px;display: flex;display: -webkit-flex;flex-direction: row;justify-content: center;align-items: center;">
+       <span class="label label-primary">统计局</span>
+        <span class="label" style="color: black;margin-left: 5px">时间: {{gi.year}} 年 {{gi.month}} 月 </span>
+         <span class="label" style="color: black">每月更新</span>
+     </div>
+
+
+      <div class="panel-group" ui-state="myAccordion" ui-default="2">
+    <div class="panel panel-default">
+        <div class="panel-heading" ui-set="{'myAccordion': 2}">        
+          <h4 class="panel-title">
+             全社会固定资产投资
+          </h4>
+          <span ng-show="false">{{gi = dataMap.InvestData.lastestObject}}</span>
+        </div>
+        <div ui-if="myAccordion == 2">
+          <div class="panel-body" >
+             <div style="width: 100%;height: 450px;display: flex;display: -webkit-flex;flex-direction: row;justify-content: center;align-items: center;">
+              <div style="width: 80%;height: 400px;display: flex;display:-webkit-flex;flex-direction: row;justify-content: center;align-items: flex-start;flex-wrap: wrap;">
+                <div style="width: 50%;height: 200px;display: flex;display: -webkit-flex;flex-direction: column;justify-content: center;align-items: center;background-color: rgba(127,196,197,.7);color: white" class="economyclick" ng-click="click()" ui-set="{'activeTab': 2}" >
+                  <span>本年累计额</span>
+                  <span style="font-size: 2em;margin-top: 30px">{{gi.gaccmAmount}}万元</span>
+                  <span style="font-size: 1.5em;margin-top: 40px"><i class="fa fa-level-up" aria-hidden="true" style="color: green"></i>{{gi.glastAccmRate| number:2}}％</span>
+                </div>
+               <div style="width: 50%;height: 200px;display: flex;display: -webkit-flex;flex-direction: column;justify-content: center;align-items: center;background-color: rgba(92,95,105,.7);color: white">
+                  <span>本年度目标</span>
+                  <span style="font-size: 2em;margin-top: 30px">{{gi.gyearTarget}}万元</span>
+                  <span style="font-size: 1.5em;margin-top: 40px">完成:{{gi.gyearCompleteRate | number:2}}％</span>
+                </div>
+              </div>
+           </div>
+          </div>
+        </div>
+      </div>
+       <div class="panel panel-default">
+        <div class="panel-heading" ui-set="{'myAccordion': 1}">        
+          <h4 class="panel-title">
+             主要分类固定资产投资
+          </h4>
+           <span ng-show="false">{{gi = dataMap.InvestData.lastestObject}}</span>
+        </div>
+        <div ui-if="myAccordion == 1">
+          <div class="panel-body" >
+             <div style="width: 100%;height: 450px;display: flex;display: -webkit-flex;flex-direction: row;justify-content: center;align-items: center;">
+              <div style="width: 80%;height: 400px;display: flex;display:-webkit-flex;flex-direction: row;justify-content: center;align-items: flex-start;flex-wrap: wrap;">
+                <div style="width: 50%;height: 200px;display: flex;display: -webkit-flex;flex-direction: column;justify-content: center;align-items: center;background-color: rgba(116,140,146,.7);color: white" class="economyclick" ng-click="click()" ui-set="{'activeTab': 2}" >
+                  <span>本年累计额</span>
+                  <span style="font-size: 2em;margin-top: 30px">{{gi.giaccmAmount}}万元</span>
+                  <span style="font-size: 1.5em;margin-top: 40px"><i class="fa fa-level-up" aria-hidden="true" style="color: green"></i>{{gi.gilastAccmRate | number:2}}%</span>
+                </div>
+               <div style="width: 50%;height: 200px;display: flex;display: -webkit-flex;flex-direction: column;justify-content: center;align-items: center;background-color: rgba(151,87,89,.7);color: white">
+                  <span>本月服务业投资</span>
+                  <span style="font-size: 2em;margin-top: 30px">{{gi.gsaccmAmount}}万元</span>
+                  <span style="font-size: 1.5em;margin-top: 40px"><i class="fa fa-level-up" aria-hidden="true" style="color: green"></i>{{gi.gslastAccmRate | number:2}}%</span>
+                </div>
+                <div style="width: 50%;height: 200px;display: flex;display: -webkit-flex;flex-direction: column;justify-content: center;align-items: center;background-color: rgba(83,54,68,.7);color: white">
+                 <span>本月房地产投资</span>
+                 <span style="font-size: 2em;margin-top: 30px">{{gi.gfaccmAmount}}万元</span>
+                <span style="font-size: 1.5em;margin-top: 40px"><i class="fa fa-level-up" aria-hidden="true" style="color: green"></i>{{gi.gflastAccmRate | number:2}}%</span>
+                </div>
+              </div>
+           </div>
+          </div>
+        </div>
+      </div>
+         <div class="panel panel-default">
+        <div class="panel-heading" ui-set="{'myAccordion': 3}">        
+          <h4 class="panel-title">
+             数据名称:引进内外资(累计值)
+          </h4>
+          <span ng-show="false">{{ci = dataMap.ImportData.lastestObject}}</span>
+        </div>
+        <div ui-if="myAccordion == 3">
+          <div class="panel-body" >
+             <div style="width: 100%;height: 450px;display: flex;display: -webkit-flex;flex-direction: row;justify-content: center;align-items: center;">
+              <div style="width: 80%;height: 400px;display: flex;display:-webkit-flex;flex-direction: row;justify-content: center;align-items: flex-start;flex-wrap: wrap;">
+                <div style="width: 50%;height: 200px;display: flex;display: -webkit-flex;flex-direction: column;justify-content: center;align-items: center;background-color: rgba(116,140,146,.7);color: white" class="economyclick" ng-click="click()" ui-set="{'activeTab': 2}" >
+                  <span>注册外资</span>
+                  <span style="font-size: 2em;margin-top: 30px">{{ci.rAccm}}万美元</span>
+                  <span style="font-size: 1.5em;margin-top: 40px"><i class="fa fa-level-up" aria-hidden="true" style="color: green"></i>{{ci.rAccmRate | number:2}}%</span>
+                </div>
+               <div style="width: 50%;height: 200px;display: flex;display: -webkit-flex;flex-direction: column;justify-content: center;align-items: center;background-color: rgba(151,87,89,.7);color: white">
+                  <span>实际利用外资</span>
+                  <span style="font-size: 2em;margin-top: 30px">{{ci.uAccm}}万美元</span>
+                  <span style="font-size: 1.5em;margin-top: 40px"><i class="fa fa-level-up" aria-hidden="true" style="color: green"></i>{{ci.uAccmRate | number:2}}%</span>
+                </div>
+                <div style="width: 50%;height: 200px;display: flex;display: -webkit-flex;flex-direction: column;justify-content: center;align-items: center;background-color: rgba(83,54,68,.7);color: white">
+                 <span>新增注册资金</span>
+                 <span style="font-size: 2em;margin-top: 30px">{{ci.addFund}} 万元</span>
+                </div>
+                <div style="width: 50%;height: 200px;display: flex;display: -webkit-flex;flex-direction: column;justify-content: center;align-items: center;background-color: rgba(127,196,197,.7);color: white">
+                  <span>到账资金</span>
+                  <span style="font-size: 2em;margin-top: 30px">{{ci.inFund}}万元</span>
+                </div> 
+              </div>
+           </div>
+          </div>
+        </div>
+      </div>
   </div>
    </div>
  
   </div>
+  </div>
 
   <div ui-if="activeTab == 2">
-  <div class="scrollable"style="margin-top: 110px;height: 545px">
+  <div class="scrollable" style="margin-top: 110px;height: 545px">
   <div class="scrollable-content" ng-click="show()">
       <div style="height: 30px; display: flex;display: -webkit-flex;flex-direction: row;justify-content: center;align-items: center;">
       <div style="width: 100%;height: 30px;box-shadow: 3px 3px 6px -4px white;border-radius: 5px;display: flex;display: -webkit-flex;flex-direction: row;justify-content: center;align-items: center;">
@@ -132,11 +136,60 @@
         <span class="label" style="color: black;margin-left: 5px">时间:{{ci.year}} 年 {{ci.month}} 月</span>
          <span class="label" style="color: black">每月更新</span>
      </div>
- 
-    <highchart config="InvestValueChart"  id="InvestValueChart" style="height: 450px" ng-if="show1" class="economyfade"></highchart>
+           <div class="panel-group" ui-state="myAccordion" ui-default="2">
+    <div class="panel panel-default">
+        <div class="panel-heading" ui-set="{'myAccordion': 2}">        
+          <h4 class="panel-title">
+              全社会固定资产投资(累计值)
+          </h4>
+        </div>
+        <div ui-if="myAccordion == 2">
+          <div class="panel-body">
+             <highchart config="InvestValueChart"  id="InvestValueChart" style="height: 450px"></highchart>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+    <div class="panel-heading" ui-set="{'myAccordion': 1}">        
+      <h4 class="panel-title">
+          主要分类固定资产投资(累计值)
+      </h4>
+    </div>
+    <div ui-if="myAccordion == 1">
+      <div class="panel-body">
+       <highchart config="ClassInvestValueChart"  id="ClassInvestValueChart" style="height: 450px"></highchart>
+      </div>
+    </div>
+  </div>
+   <div class="panel panel-default">
+    <div class="panel-heading" ui-set="{'myAccordion': 3}">        
+      <h4 class="panel-title">
+          引进外资(累计值)
+      </h4>
+    </div>
+    <div ui-if="myAccordion == 3">
+      <div class="panel-body">
+       <highchart config="CapitalValueChart" id="CapitalValueChart" style="height: 450px"></highchart>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" ui-set="{'myAccordion': 4}">        
+      <h4 class="panel-title">
+          引进内资(累计值)
+      </h4>
+    </div>
+    <div ui-if="myAccordion == 4">
+      <div class="panel-body">
+       <highchart config="ImportCapitalValueChart" id="ImportCapitalValueChart" style="height: 450px" ></highchart>
+      </div>
+    </div>
+  </div>
+    </div>
+    <!-- <highchart config="InvestValueChart"  id="InvestValueChart" style="height: 450px" ng-if="show1" class="economyfade"></highchart>
     <highchart config="ClassInvestValueChart"  id="ClassInvestValueChart" style="height: 450px" ng-if="show2" class="economyfade"></highchart>
     <highchart config="CapitalValueChart" id="CapitalValueChart" style="height: 450px" ng-if="show3" class="economyfade"></highchart>
-    <highchart config="ImportCapitalValueChart" id="ImportCapitalValueChart" style="height: 450px" ng-if="show4" class="economyfade"></highchart>
+    <highchart config="ImportCapitalValueChart" id="ImportCapitalValueChart" style="height: 450px" ng-if="show4" class="economyfade"></highchart> -->
   </div>
  
   </div>
