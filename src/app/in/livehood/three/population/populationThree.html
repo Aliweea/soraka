@@ -1,8 +1,99 @@
+
 <div class="population-three-module">
-  <div ng-show="">
+  <div ng-show="thisloc == 'PopulationStructure'">
+    
+    <div class="panel-group" ui-state="myAccordion1" ui-default="1">
+
+  <div class="panel panel-default">
+    <div class="panel-heading" ui-set="{'myAccordion1': 1}"> 
+      <h4 class="panel-title">
+        {{ALLDATA.tableName}}
+      </h4>
+    </div>
+    <div ui-if="myAccordion1 == 1">
+      <div class="panel-body">  
+          <div>
+            <table class="table" style="font-size:16px">
+              <tr ng-repeat="tableData in ALLDATA.tableData">
+                <td>{{tableData.name}}</td>
+                <td align="right">{{tableData.value}}</td>
+              </tr>
+            </table>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading" ui-set="{'myAccordion1': 2}"> 
+      <h4 class="panel-title">
+        {{ALLDATA.detailTableName}}
+      </h4>
+    </div>
+    <div ui-if="myAccordion1 == 2">
+      <div class="panel-body">
+        <table class="table" style="font-size:16px;">
+          <tr ng-repeat="tableData in ALLDATA.detailTableData">
+            <td>{{tableData.name}}</td>
+            <td align="right">{{tableData.value}}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading" ui-set="{'myAccordion1': 3}"> 
+      <h4 class="panel-title">
+        {{ALLOPTION.POPULATIONCHART.options.title.text}}
+      </h4>
+    </div>
+    <div ui-if="myAccordion1 == 3">
+      <div class="panel-body">
+        <highchart config="ALLOPTION.POPULATIONCHART" id=""></highchart>
+      </div>
+    </div>
+  </div>
+
+</div>
     
   </div>
-  <div ng-show="">
-    
+
+
+  <div ng-show="thisloc != 'PopulationStructure'">   
+    <div class="panel-group" ui-state="myAccordion2" ui-default="1">
+      <div class="panel panel-default">
+        <div class="panel-heading" ui-set="{'myAccordion2': 1}">
+          <h4>{{panel_heading[0]}}</h4>
+        </div>
+        <div ui-if="myAccordion2 == 1">
+          <div class="panel-body">
+            <div class="chart-area">
+              <highchart config="ALLOPTION.POPULATIONCHART"></highchart>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading" ui-set="{'myAccordion2': 2}">
+          <h4>{{panel_heading[1]}}</h4>
+        </div>
+        <div ui-if="myAccordion2 == 2">
+          <div class="panel-body">
+            <div class="chart-area">
+              <highchart config="ALLOPTION.POPULATIONTOWNCHART"></highchart>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+
+
+
+
+
+
+
+

@@ -6,6 +6,7 @@ export default($scope, $state, hService) => {
 	}();
 	// 上一级路由
 	$scope.toH = () => {
+		$('.navTopShowPopulation').hide(0);
 		let h = hService.state();
 		if (h.params == null) {
 			$state.go(h.name);
