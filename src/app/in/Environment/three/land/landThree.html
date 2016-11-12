@@ -1,15 +1,15 @@
 <div ui-state="activeTab" default="1">
     <ul class="nav nav-tabs">
-        <li ui-class="{'active':activeTab==1}" style="width: 25%">
+        <li ui-class="{'active':activeTab==1}" ng-click="landUseFunction()" style="width: 25%">
             <a ui-set="{'activeTab':1}">土地使用当前数据</a>
         </li>
-        <li ui-class="{'active':activeTab==2}" style="width: 25%">
+        <li ui-class="{'active':activeTab==2}" ng-click="landUseFunction()" style="width: 25%">
             <a ui-set="{'activeTab':2}">土地使用历史数据</a>
         </li>
-        <li ui-class="{'active':activeTab==3}" style="width: 25%">
+        <li ui-class="{'active':activeTab==3}" ng-click="landIllegalFunction()" style="width: 25%">
             <a ui-set="{'activeTab':3}">土地执法当前数据</a>
         </li>
-        <li ui-class="{'active':activeTab==4}" style="width: 25%">
+        <li ui-class="{'active':activeTab==4}" ng-click="landIllegalFunction()" style="width: 25%">
             <a ui-set="{'activeTab':4}">土地执法历史数据</a>
         </li>
     </ul>
