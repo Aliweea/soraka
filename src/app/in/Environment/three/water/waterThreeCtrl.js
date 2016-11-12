@@ -520,6 +520,9 @@ export default ($scope, kpiDetailService, dateService) => {
                 title: {
                     text: null,
                 },
+                exporting: {
+                    enabled: false
+                },
                 xAxis: {
                     categories: [],
 
@@ -579,6 +582,9 @@ export default ($scope, kpiDetailService, dateService) => {
                 title: {
                     text: null,
                 },
+                exporting: {
+                    enabled: false
+                },
                 xAxis: {
                     categories: [],
 
@@ -636,6 +642,9 @@ export default ($scope, kpiDetailService, dateService) => {
             options: {
                 title: {
                     text: null,
+                },
+                exporting: {
+                    enabled: false
                 },
                 xAxis: {
                     categories: [],
@@ -695,6 +704,9 @@ export default ($scope, kpiDetailService, dateService) => {
                 title: {
                     text: null,
                 },
+                exporting: {
+                    enabled: false
+                },
                 xAxis: {
                     categories: [],
 
@@ -752,6 +764,9 @@ export default ($scope, kpiDetailService, dateService) => {
             options: {
                 title: {
                     text: null,
+                },
+                exporting: {
+                    enabled: false
                 },
                 xAxis: {
                     categories: [],
