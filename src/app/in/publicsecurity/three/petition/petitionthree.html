@@ -1,71 +1,47 @@
 <div>
-	<div ui-state="activeTab" default="1">
-  <ul class="nav nav-tabs">
-    <li ui-class="{'active': activeTab == 1}">
-      <a ui-set="{'activeTab': 1}">信件数量</a>
-    </li>
-    <li ui-class="{'active': activeTab == 2}">
-      <a ui-set="{'activeTab': 2}">结案率</a>
-    </li>
-    <li ui-class="{'active': activeTab ==3 }">
-    	<a ui-set="{'activeTab': 3}">越级上访动态</a>
-    </li>
-    <li ui-class="{'active': activeTab ==4 }">
-    	<a ui-set="{'activeTab': 4}">全年越级信件趋势</a>
-    </li>
-    <li ui-class="{'active': activeTab ==5 }">
-    	<a ui-set="{'activeTab': 5}">全年群众上访趋势</a>
-    </li>
-   
-  </ul>
-
-  <div ui-if="activeTab == 1">
-  	<div class="col-md-3 ">
-  		<div class="scrollable" style="margin-top: 0px;height: 500px">
-  			<div class="scrollable-content" >
-     			<h3 class="page-header">当月KPI详情</h3>
-    			<highchart  id="columnChart2" config="columnChart2" ></highchart>
-  	</div> 
-  </div>		
-	</div>
-  </div>
-
-  <div ui-if="activeTab == 2">
-  	<div class="col-md-3 ">
-  		<div class="scrollable" style="margin-top: 0px;height: 500px">
-  			<div class="scrollable-content" >
-     			<h3 class="page-header">当月KPI详情</h3>
-    			<highchart  id="PieChart"  config="PieChart"  style="height:400px"></highchart>
-  	</div> 
-  </div>		
-	</div>
-  </div>
-
+    <div class="panel panel-primary" style="margin-top: 20px;">
+        <div class="panel-heading">
+            信访信件统计
+            <span class="glyphicon glyphicon-question-sign pull-right"></span>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-12 ">
+                    <tabset>
+                        <tab heading="信件数量">
+                            <div class="col-md-12 ">
+                                <highchart id="columnChart2" config="columnChart2" style="height:550px"></highchart>
+                            </div>
+                        </tab>
+                        <hr>
+                        <tab heading="结案率">
+                            <div class="col-md-9 chart-panel" style="margin-top: 50px">
+                                <highchart id="PieChart" config="PieChart" style="height:400px"></highchart>
+                                <hr>
+                            </div>
+                        </tab>
+                    </tabset>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            越级上访动态
+            <span class="glyphicon glyphicon-question-sign pull-right"></span>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-9 chart-panel">
+                    <highchart config="columnChart1"></highchart>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <highchart id="lineChart" config="lineChart"></highchart>
+    </div>
+    <div style="margin-top: 50px">
+        <highchart id="lineChart1" config="lineChart1"></highchart>
+    </div>
 </div>
-</div>
-
-
-<div ui-if="activeTab == 3">
-	<div class="panel panel-primary" >
-		<div class="panel-heading">
-			越级上访动态
-			<span class="glyphicon glyphicon-question-sign pull-right"></span>
-			</div>
-			<div class="panel-body">
-			<div class="row">
-			<div class="col-md-9 chart-panel">
-				<highchart    config="columnChart1" ></highchart>		
-			</div>
-			 </div>
-		</div>
-		</div>
-		</div>
-
-<div ui-if="activeTab == 4">
-	<highchart  id="lineChart" config="lineChart" ></highchart>
-</div>
-
-<div ui-if="activeTab == 5">
-	<highchart  id="lineChart1" config="lineChart1" ></highchart>
-</div>
-		
