@@ -10,13 +10,13 @@
 			ui-show="kpiChoiceDropdown"
 			ui-state="kpiChoiceDropdown"
 			ui-turn-off="kpiChoiceDropdown">
-			<li><a ui-sref="app.cm.cmlist({categoryId:7001})" href="#">垃圾清运</a></li>
+			<li><a ui-sref="app.cm.cmlist({categoryId:7001})" ng-click="changeCategory('垃圾清运')" href="#">垃圾清运</a></li>
 			<li class="divider"></li>
-			<li><a ui-sref="app.cm.cmlist({categoryId:7003})" href="#">行政处罚</a></li>
+			<li><a ui-sref="app.cm.cmlist({categoryId:7003})" ng-click="changeCategory('行政处罚')" href="#">行政处罚</a></li>
 			<li class="divider"></li>
-			<li><a ui-sref="app.cm.cmlist({categoryId:7005})" href="#">违法建设整治</a></li>
+			<li><a ui-sref="app.cm.cmlist({categoryId:7005})" ng-click="changeCategory('违法建设整治')" href="#">违法建设整治</a></li>
 			<li class="divider"></li>
-			<li><a ui-sref="app.cm.cmlist({categoryId:7006})" href="#">数字城管</a></li>
+			<li><a ui-sref="app.cm.cmlist({categoryId:7006})" ng-click="changeCategory('数字城管')" href="#">数字城管</a></li>
 		</ul>
 		<ul class="dropdown-menu cm-dropdown-ul"
 			ui-outer-click="Ui.turnOff('kpiStatusDropdown')"
@@ -47,6 +47,11 @@
 	<div class="navbar navbar-app navbar-absolute-bottom cm-menu-navbar-bottom">
 		<div class="btn-group pull-left cm-menu-navbar-bottomleft navbar2return" ng-click="toH()">
 			<i class="fa fa-chevron-left" aria-hidden="true"></i><span>返回</span>
+		</div>
+		<div class="btn-group pull-left cm-menu-navbar-bottomleft navbar2position">
+			<span class="s1">当前位置:</span>
+			<span class="s2">城市管理<i class="fa fa-angle-right" aria-hidden="true"></i>{{currentCategoryName}}</span>
+			<span class="s3" ng-click="toDetail()"><i class="fa fa-hand-o-right" aria-hidden="true"></i><span>查看KPI详情</span></span>
 		</div>
 	</div>
 </div>
