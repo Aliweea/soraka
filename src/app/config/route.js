@@ -175,28 +175,28 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       templateUrl: 'app/in/publicsecurity/two/publicsecuritydetail.html',
       controller: 'publicsecuritydetailCtrl'
     })
-    .state('app.publicsecurity.policethree', {
-      url: '/policethree',
+    .state('app.publicsecurity.police', {
+      url: '/detail/police',
       templateUrl: 'app/in/publicsecurity/three/police/policethree.html',
       controller: 'policethreeCtrl'
     })
-    .state('app.publicsecurity.accidentthree', {
-      url: '/accidentthree',
+    .state('app.publicsecurity.accident', {
+      url: '/detail/accident',
       templateUrl: 'app/in/publicsecurity/three/accident/accidentthree.html',
       controller: 'accidentthreeCtrl'
     })
-    .state('app.publicsecurity.firethree', {
-      url: '/firethree',
+    .state('app.publicsecurity.fire', {
+      url: '/detail/fire',
       templateUrl: 'app/in/publicsecurity/three/fire/firethree.html',
       controller: 'firethreeCtrl'
     })
-    .state('app.publicsecurity.petitionthree', {
-      url: '/petitionthree',
+    .state('app.publicsecurity.petition', {
+      url: '/detail/petition',
       templateUrl: 'app/in/publicsecurity/three/petition/petitionthree.html',
       controller: 'petitionthreeCtrl'
     })
-    .state('app.publicsecurity.safetythree', {
-      url: '/safetythree',
+    .state('app.publicsecurity.safety', {
+      url: '/detail/safety',
       templateUrl: 'app/in/publicsecurity/three/safety/safetythree.html',
       controller: 'safetythreeCtrl'
     })
