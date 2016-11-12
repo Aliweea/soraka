@@ -106,6 +106,10 @@ import cmCtrl from './in/citymanager/cmCtrl.js';
 import cmlistCtrl from './in/citymanager/one/cmlistCtrl.js';
 import cmdetailCtrl from './in/citymanager/two/cmdetailCtrl.js';
 import cmByStateCtrl from './in/citymanager/one/bystate/bystateCtrl.js';
+import cmrefuseCtrl from './in/citymanager/three/refuse/cmrefuseCtrl.js';
+import cmpunishCtrl from './in/citymanager/three/punish/cmpunishCtrl.js';
+import cmfixCtrl from './in/citymanager/three/fix/cmfixCtrl.js';
+import cmicmCtrl from './in/citymanager/three/icm/cmicmCtrl.js';
 // 公共事业Controller
 import publicServiceCtrl from './in/publicService/publicServiceCtrl.js';
 import publicServicelistCtrl from './in/publicService/one/publicServicelistCtrl.js';
@@ -235,4 +239,8 @@ angular.module('soraka',
   .controller('cmlistCtrl', cmlistCtrl)
   .controller('cmdetailCtrl', cmdetailCtrl)
   .controller('cmByStateCtrl', cmByStateCtrl)
+  .controller('cmrefuseCtrl', cmrefuseCtrl)
+  .controller('cmpunishCtrl', cmpunishCtrl)
+  .controller('cmfixCtrl', cmfixCtrl)
+  .controller('cmicmCtrl', cmicmCtrl)
   ;

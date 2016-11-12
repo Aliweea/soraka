@@ -1,9 +1,12 @@
 export default($scope, $stateParams, qService, kpiRes, dateService, hService, $state) => {
 	'ngInject';
     hService.state($state);
-    
-    $(".navbar2return").hide(0); // 隐藏返回按钮
-    $(".navTopShowMark").show(0); // 显示KPI状态 KPI分类
+
+    const jQueryDOMToDos = () => {
+        $(".navbar2return").hide(0); // 隐藏返回按钮
+        $(".navbar2position").show(0); // 显示当前位置
+        $(".navTopShowMark").show(0); // 显示KPI状态 KPI分类
+    }();
     
 	let categoryId = $stateParams.categoryId;
 	let state = $stateParams.state;

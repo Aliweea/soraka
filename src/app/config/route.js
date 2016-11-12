@@ -350,6 +350,26 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       templateUrl: 'app/in/citymanager/two/cmdetail.html',
       controller: 'cmdetailCtrl'
     })
+    .state('app.cm.cmrefuse', {
+      url: '/detail/refuse',
+      templateUrl: 'app/in/citymanager/three/refuse/cmrefuse.html',
+      controller: 'cmrefuseCtrl'
+    })
+    .state('app.cm.cmpunish', {
+      url: '/detail/punish',
+      templateUrl: 'app/in/citymanager/three/punish/cmpunish.html',
+      controller: 'cmpunishCtrl'
+    })
+    .state('app.cm.cmfix', {
+      url: '/detail/fix',
+      templateUrl: 'app/in/citymanager/three/fix/cmfix.html',
+      controller: 'cmfixCtrl'
+    })
+    .state('app.cm.cmicm', {
+      url: '/detail/icm',
+      templateUrl: 'app/in/citymanager/three/icm/cmicm.html',
+      controller: 'cmicmCtrl'
+    })
     ;
     
 
