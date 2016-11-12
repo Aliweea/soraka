@@ -92,7 +92,8 @@ export default ($scope, kpiDetailService, dateService) => {
                     plotBackgroundImage: null,
                     plotBorderWidth: 0,
                     plotShadow: false,
-
+                    width: $(window).width() * 0.5,
+                    height: $(window).width() * 0.6
                 },
                 exporting: {
                     enabled: false
@@ -154,7 +155,6 @@ export default ($scope, kpiDetailService, dateService) => {
                     minorTickLength: 10,
                     minorTickPosition: 'inside',
                     minorTickColor: '#666',
-
                     tickPixelInterval: 30,
                     tickWidth: 2,
                     tickPosition: 'inside',
@@ -189,10 +189,6 @@ export default ($scope, kpiDetailService, dateService) => {
                     valueSuffix: ' '
                 }
             }],
-            size: {
-                width: $(window).width() * 0.5,
-                height: $(window).width() * 0.6
-            }
         },
         kmno4Option: {
             options: {
@@ -201,7 +197,9 @@ export default ($scope, kpiDetailService, dateService) => {
                     plotBackgroundColor: null,
                     plotBackgroundImage: null,
                     plotBorderWidth: 0,
-                    plotShadow: false
+                    plotShadow: false,
+                    width: $(window).width() * 0.5,
+                    height: $(window).width() * 0.6
                 },
                 exporting: {
                     enabled: false
@@ -255,13 +253,11 @@ export default ($scope, kpiDetailService, dateService) => {
                 yAxis: {
                     min: 0,
                     max: 30,
-
                     minorTickInterval: 'auto',
                     minorTickWidth: 1,
                     minorTickLength: 10,
                     minorTickPosition: 'inside',
                     minorTickColor: '#666',
-
                     tickPixelInterval: 30,
                     tickWidth: 2,
                     tickPosition: 'inside',
@@ -299,10 +295,6 @@ export default ($scope, kpiDetailService, dateService) => {
                     valueSuffix: 'mg/L'
                 }
             }],
-            size: {
-                width: $(window).width() * 0.5,
-                height: $(window).width() * 0.6
-            }
         },
         nh4nOption: {
             options: {
@@ -311,7 +303,9 @@ export default ($scope, kpiDetailService, dateService) => {
                     plotBackgroundColor: null,
                     plotBackgroundImage: null,
                     plotBorderWidth: 0,
-                    plotShadow: false
+                    plotShadow: false,
+                    width: $(window).width() * 0.5,
+                    height: $(window).width() * 0.6
                 },
                 exporting: {
                     enabled: false
@@ -407,10 +401,6 @@ export default ($scope, kpiDetailService, dateService) => {
                     valueSuffix: 'mg/L'
                 }
             }],
-            size: {
-                width: $(window).width() * 0.5,
-                height: $(window).width() * 0.6
-            }
         },
         pOption: {
             options: {
@@ -419,7 +409,9 @@ export default ($scope, kpiDetailService, dateService) => {
                     plotBackgroundColor: null,
                     plotBackgroundImage: null,
                     plotBorderWidth: 0,
-                    plotShadow: false
+                    plotShadow: false,
+                    width: $(window).width() * 0.5,
+                    height: $(window).width() * 0.6
                 },
                 exporting: {
                     enabled: false
@@ -473,13 +465,11 @@ export default ($scope, kpiDetailService, dateService) => {
                 yAxis: {
                     min: 0,
                     max: 0.6,
-
                     minorTickInterval: 'auto',
                     minorTickWidth: 1,
                     minorTickLength: 10,
                     minorTickPosition: 'inside',
                     minorTickColor: '#666',
-
                     tickPixelInterval: 30,
                     tickWidth: 2,
                     tickPosition: 'inside',
@@ -517,13 +507,13 @@ export default ($scope, kpiDetailService, dateService) => {
                     valueSuffix: 'mg/L'
                 }
             }],
-            size: {
-                width: $(window).width() * 0.5,
-                height: $(window).width() * 0.6
-            }
         },
         currentO2LineOption: {
             options: {
+                chart: {
+                    width: $(window).width() * 0.65,
+                    height: $(window).width() * 0.5
+                },
                 title: {
                     text: null,
                 },
@@ -539,7 +529,7 @@ export default ($scope, kpiDetailService, dateService) => {
                     title: {
                         text: 'mg/L'
                     },
-                    max: 15,
+                    max: 10,
                     min: 0,
                     plotLines: [{
                         color: '#DDDF0D',
@@ -579,13 +569,13 @@ export default ($scope, kpiDetailService, dateService) => {
                 name: '溶解氧',
                 data: []
             }],
-            size: {
-                width: $(window).width() * 0.9,
-                height: $(window).width() * 0.4
-            }
         },
         currentKmno4LineOption: {
             options: {
+                chart: {
+                    width: $(window).width() * 0.65,
+                    height: $(window).width() * 0.5
+                },
                 title: {
                     text: null,
                 },
@@ -601,7 +591,7 @@ export default ($scope, kpiDetailService, dateService) => {
                     title: {
                         text: 'mg/L'
                     },
-                    max: 25,
+                    max: 20,
                     plotLines: [{
                         color: '#DDDF0D',
                         width: 2,
@@ -640,13 +630,13 @@ export default ($scope, kpiDetailService, dateService) => {
                 name: '高锰酸钾',
                 data: []
             }],
-            size: {
-                width: $(window).width() * 0.9,
-                height: $(window).width() * 0.4
-            }
         },
         currentNh4nLineOption: {
             options: {
+                chart: {
+                    width: $(window).width() * 0.65,
+                    height: $(window).width() * 0.5
+                },
                 title: {
                     text: null,
                 },
@@ -662,7 +652,7 @@ export default ($scope, kpiDetailService, dateService) => {
                     title: {
                         text: 'mg/L'
                     },
-                    max: 5,
+                    max: 4,
                     plotLines: [{
                         color: '#DDDF0D',
                         width: 2,
@@ -701,13 +691,13 @@ export default ($scope, kpiDetailService, dateService) => {
                 name: '氨氮',
                 data: []
             }],
-            size: {
-                width: $(window).width() * 0.9,
-                height: $(window).width() * 0.4
-            }
         },
         currentPOption: {
             options: {
+                chart: {
+                    width: $(window).width() * 0.65,
+                    height: $(window).width() * 0.5
+                },
                 title: {
                     text: null,
                 },
@@ -723,7 +713,7 @@ export default ($scope, kpiDetailService, dateService) => {
                     title: {
                         text: 'mg/L'
                     },
-                    max: 1,
+                    max: 0.75,
                     plotLines: [{
                         color: '#DDDF0D',
                         width: 2,
@@ -762,61 +752,7 @@ export default ($scope, kpiDetailService, dateService) => {
                 name: '总磷',
                 data: []
             }],
-            size: {
-                width: $(window).width() * 0.9,
-                height: $(window).width() * 0.4
-            }
-        },
-        currentTnLineOption: {
-            options: {
-                title: {
-                    text: null,
-                },
-                exporting: {
-                    enabled: false
-                },
-                xAxis: {
-                    categories: [],
-
-                    tickmarkPlacement: 'on'
-                },
-                yAxis: {
-                    title: {
-                        text: 'mg/L'
-                    }
-                },
-                tooltip: {
-                    valueSuffix: 'mg/L'
-                },
-                legend: {
-                    enabled: false
-                },
-                plotOptions: {
-                    series: {
-                        cursor: 'pointer',
-                        events: {
-                            click: function (event) {
-                                $scope.$apply(function () {
-                                    $scope.waterQualityOptions.tnOption.series[0].data = [event.point.y];
-                                });
-                            }
-                        }
-                    }
-                },
-                credits: {
-                    enabled: false
-                }
-            },
-            series: [{
-                name: '总氮',
-                data: []
-            }],
-            size: {
-                width: $(window).width() * 0.9,
-                height: $(window).width() * 0.4
-            }
         }
-
     };
 
     //水情 highcharts options
