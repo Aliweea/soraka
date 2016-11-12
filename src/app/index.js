@@ -6,7 +6,6 @@
 import config from './config/config';
 import httpConfig from './config/http';
 import routerConfig from './config/route';
-import loadingConfig from './config/loading';
 import i18nConfig from './i18n/config';
 
 // service
@@ -28,8 +27,6 @@ import kpiSpanRes from './resources/SpanKPI-res';
 import dataDetailFactory from './resources/dataDetailFactory';
 import dictFactory from './resources/dictFactory';
 
-// factories
-import lFactory from './factories/l-factory';
 // directive
 import headerDirect from './common/header/headerDirect';
 
@@ -130,7 +127,6 @@ angular.module('soraka',
   // 基础配置
   .config(httpConfig)
   .config(routerConfig)
-  .config(loadingConfig)
   
   // 自动执行
   .run(i18nConfig)
@@ -154,7 +150,6 @@ angular.module('soraka',
   .factory('kpiSpanRes',kpiSpanRes)
   .factory('dataDetailFactory',dataDetailFactory)
   .factory('dictFactory',dictFactory)
-  .factory('lFactory',lFactory)
 
 
   // directive 初始化

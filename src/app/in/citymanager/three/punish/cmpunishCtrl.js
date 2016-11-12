@@ -129,6 +129,7 @@ export default($scope, $state, qService, dataDetailFactory, dateService) => {
 		tableName: "AdministrativePenaltyData"
 	};
 	let body = ["year",'month'];
+	$rootScope.loading = true;
 	qService.httpPost(dataDetailFactory.lastestObject, params, headers, body).then((data) => {
 		if (data.errorCode == "NO_ERROR") {
 			/* 最外层: 获取最新垃圾清运数据的时间
@@ -157,6 +158,7 @@ export default($scope, $state, qService, dataDetailFactory, dateService) => {
 		        }
 			}
 			// 行政处罚案由汇总reasons
+			$rootScope.loading = true;
 			qService.httpPost(dataDetailFactory.advancedQuery, params, headers, body).then((data) => {
 				if (data.errorCode == "NO_ERROR") {
 					let reasons = [], // 所有案由
@@ -284,11 +286,15 @@ export default($scope, $state, qService, dataDetailFactory, dateService) => {
 				if (err.errorCode == "UNAUTHORIZED") {
 					$state.go('portal');
 				} else {}
-			});	
+			}).finally(() => {
+		        $rootScope.loading = false;
+		    });	
 		} else {}
 	}, (err) => {
 		if (err.errorCode == "UNAUTHORIZED") {
 			$state.go('portal');
 		} else {}
-	});		
+	}).finally(() => {
+        $rootScope.loading = false;
+    });		
 };

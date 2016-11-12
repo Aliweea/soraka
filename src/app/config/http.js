@@ -37,5 +37,4 @@ export default ($httpProvider, lcConfig) => {
       }
     };
   }]);
-  $httpProvider.interceptors.push('lFactory');
 };
