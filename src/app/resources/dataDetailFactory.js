@@ -11,18 +11,6 @@ export default ($resource, BASE_URL) => {
       }
     });
     },
-    pageQuery:(headers) => {
-     return $resource(BASE_URL+'/data/:tableName/list/:pageSize/:pageNumber', {
-      tableName: '@tableName',
-      pageSize: '@pageSize',
-      pageNumber: '@pageNumber'
-    }, {
-      'get': {
-        method: 'GET',
-        headers: headers
-      }
-    });
-    },
     advancedQuery:(headers) => {
       return $resource(BASE_URL+'/data/:tableName/query/advanceQuery', {
       tableName: '@tableName'
@@ -64,18 +52,6 @@ export default ($resource, BASE_URL) => {
       },
       'put': {
         method: 'PUT',
-        headers: headers
-      }
-    });
-    },
-    pageAdvancedQuery:(headers) => {
-      return $resource(BASE_URL+'/data/:tableName/query/advanceQuery/page/:pageSize/:pageNumber', {
-      tableName: '@tableName',
-      pageSize: '@pageSize',
-      pageNumber: '@pageNumber'
-    }, {
-      'post': {
-        method: 'POST',
         headers: headers
       }
     });
