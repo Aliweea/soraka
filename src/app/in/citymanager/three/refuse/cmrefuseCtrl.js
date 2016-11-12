@@ -1,4 +1,4 @@
-export default($scope, $state, qService, dataDetailFactory, dateService) => {
+export default($scope, $rootScope, $state, qService, dataDetailFactory, dateService) => {
 	'ngInject';
 
 	let townMap = {
@@ -107,6 +107,7 @@ export default($scope, $state, qService, dataDetailFactory, dateService) => {
 		tableName: "CityManagerLajiData"
 	};
 	let body = ['applyTime'];
+	$rootScope.loading = true;
 	qService.httpPost(dataDetailFactory.lastestObject, params, headers, body).then((data) => {
 		if (data.errorCode == "NO_ERROR") {
 			/* 最外层: 获取最新垃圾清运数据的时间
@@ -126,6 +127,7 @@ export default($scope, $state, qService, dataDetailFactory, dateService) => {
 			}
 			let currentType = "time"; // 标记当前处于车次还是吨数状态
 			$scope.currentTownName = "全市";
+			$rootScope.loading = true;
 			qService.httpGetbyJSOG(dataDetailFactory.query, params, headers).then((data) => {
 				if (data.errorCode == "NO_ERROR") {
 					let towns = [], times = [], tons = [],
@@ -164,16 +166,18 @@ export default($scope, $state, qService, dataDetailFactory, dateService) => {
 				if (err.errorCode == "UNAUTHORIZED") {
 					$state.go('portal');
 				} else {}
-			});
+			}).finally(() => {
+		        $rootScope.loading = false;
+		    });
 			// 最近七天数据
 			params = {
 				tableName: "CityManagerLajiData",
 				start: startTime,
 				end: lastTime
 			}
+			$rootScope.loading = true;
 			qService.httpGetbyJSOG(dataDetailFactory.query, params, headers).then((data) => {
 				if (data.errorCode == "NO_ERROR") {
-					console.log(data);
 					let timeDataMap = {
 						7001: [],7002: [],7003: [],7004: [],7005: [],7006: [],7007: [],	7008: [],7009: [],
 						7010: [],7011: [],7012: [], 7013: [],7014: [],7015: [],7016: [],7017: [],7018: [],7019: []
@@ -218,11 +222,15 @@ export default($scope, $state, qService, dataDetailFactory, dateService) => {
 				if (err.errorCode == "UNAUTHORIZED") {
 					$state.go('portal');
 				} else {}
-			});	
+			}).finally(() => {
+		        $rootScope.loading = false;
+		    });	
 		} else {}
 	}, (err) => {
 		if (err.errorCode == "UNAUTHORIZED") {
 			$state.go('portal');
 		} else {}
-	});		
+	}).finally(() => {
+        $rootScope.loading = false;
+    });		
 };

@@ -5,24 +5,26 @@ var token = "eyJhY2NvdW50Ijp7IkBpZCI6IjEiLCJpZCI6MjYsImNyZWF0ZV90aW1lIjoiMjAxNS0
      * 图表定义
      */
     //工业总产值
+    $scope.touch = function(){
+      $scope.test = 3;
+      console.log($scope.test);
+    }
     $scope.IndustryValueChart = {
       options: {
         colors: generalService.columnColors(),
         chart: {
           type: 'column',
-           backgroundColor: 'rgb( 122,181,175)'
+           
         }
       },
       series: [{
         name: '工业总产值',
-         color:'white',
         tooltip: {
           pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f} 万元</b> '
         }
 
       }, {
         name: '规模以上工业总产值',
-         color:'gray',
         tooltip: {
           pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f} 万元</b> '
         }
@@ -31,36 +33,26 @@ var token = "eyJhY2NvdW50Ijp7IkBpZCI6IjEiLCJpZCI6MjYsImNyZWF0ZV90aW1lIjoiMjAxNS0
         labels: {
           rotation: -45,
           align: 'right',
-           style:{
-            color:'white'
-          }
+           
         },
         title: {
           text: '月份',
           align: 'high',
-           style:{
-            color:'white'
-          }
+           
         }
       },
       yAxis: {
         labels: {
-          style:{
-            color:'white'
-          }
+          
         },
         title: {
           text: '值（万元）',
-           style:{
-            color:'white'
-          }
+           
         }
       },
       title: {
         text: '工业总产值(累计值)',
-         style:{
-            color:'white'
-          }
+         
       },
       loading: false
     };
@@ -70,12 +62,11 @@ var token = "eyJhY2NvdW50Ijp7IkBpZCI6IjEiLCJpZCI6MjYsImNyZWF0ZV90aW1lIjoiMjAxNS0
         colors: generalService.columnColors(),
         chart: {
           type: 'spline',
-           backgroundColor: 'rgb( 122,181,175)'
+           
         }
       },
       series: [{
         name: '规模以上新兴工业总产值',
-         color:'white',
         tooltip: {
           pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f} 万元</b> '
         }
@@ -84,36 +75,26 @@ var token = "eyJhY2NvdW50Ijp7IkBpZCI6IjEiLCJpZCI6MjYsImNyZWF0ZV90aW1lIjoiMjAxNS0
         labels: {
           rotation: -45,
           align: 'right',
-           style:{
-            color:'white'
-          }
+           
         },
         title: {
           text: '月份',
           align: 'high',
-           style:{
-            color:'white'
-          }
+           
         }
       },
       yAxis: {
         labels: {
-          style:{
-            color:'white'
-          }
+          
         },
         title: {
           text: '值（万元）',
-           style:{
-            color:'white'
-          }
+           
         }
       },
       title: {
         text: '规模以上新兴产业工业的总产值(累计值)',
-         style:{
-            color:'white'
-          }
+         
       },
       loading: false
     }
@@ -124,18 +105,16 @@ var token = "eyJhY2NvdW50Ijp7IkBpZCI6IjEiLCJpZCI6MjYsImNyZWF0ZV90aW1lIjoiMjAxNS0
         chart: {
           type: 'column',
           margin: [50, 50, 90, 70],
-           backgroundColor: 'rgb( 122,181,175)'
+           
         }
       },
       series: [{
         name: '工业主营业务收入',
-         color:'white',
         tooltip: {
           pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f} 万元</b> '
         }
       }, {
         name: '规模以上工业主营业务收入',
-         color:'gray',
         tooltip: {
           pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f} 万元</b> '
         }
@@ -144,36 +123,26 @@ var token = "eyJhY2NvdW50Ijp7IkBpZCI6IjEiLCJpZCI6MjYsImNyZWF0ZV90aW1lIjoiMjAxNS0
         labels: {
           rotation: -45,
           align: 'right',
-           style:{
-            color:'white'
-          }
+           
         },
         title: {
           text: '月份',
           align: 'high',
-           style:{
-            color:'white'
-          }
+           
         }
       },
       yAxis: {
         labels: {
-          style:{
-            color:'white'
-          }
+          
         },
         title: {
           text: '值（万元）',
-           style:{
-            color:'white'
-          }
+           
         }
       },
       title: {
         text: '工业主营业务收入(累计值)',
-         style:{
-            color:'white'
-          }
+         
       },
       loading: false
     }
@@ -184,18 +153,16 @@ var token = "eyJhY2NvdW50Ijp7IkBpZCI6IjEiLCJpZCI6MjYsImNyZWF0ZV90aW1lIjoiMjAxNS0
         chart: {
           type: 'column',
           margin: [50, 50, 90, 70],
-           backgroundColor: 'rgb( 122,181,175)'
+           
         }
       },
       series: [{
         name: '工业利润',
-         color:'white',
         tooltip: {
           pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f} 万元</b> '
         }
       }, {
         name: '规模以上工业利润',
-         color:'gray',
         tooltip: {
           pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f} 万元</b> '
         }
@@ -204,36 +171,26 @@ var token = "eyJhY2NvdW50Ijp7IkBpZCI6IjEiLCJpZCI6MjYsImNyZWF0ZV90aW1lIjoiMjAxNS0
         labels: {
           rotation: -45,
           align: 'right',
-           style:{
-            color:'white'
-          }
+           
         },
         title: {
           text: '月份',
           align: 'high',
-           style:{
-            color:'white'
-          }
+           
         }
       },
       yAxis: {
         labels: {
-          style:{
-            color:'white'
-          }
+          
         },
         title: {
           text: '值（万元）',
-           style:{
-            color:'white'
-          }
+           
         }
       },
       title: {
         text: '工业利润(累计值)',
-         style:{
-            color:'white'
-          }
+         
       },
       loading: false
     }
@@ -244,18 +201,16 @@ var token = "eyJhY2NvdW50Ijp7IkBpZCI6IjEiLCJpZCI6MjYsImNyZWF0ZV90aW1lIjoiMjAxNS0
         chart: {
           type: 'column',
           margin: [50, 50, 90, 80],
-           backgroundColor: 'rgb( 122,181,175)'
+           
         }
       },
       series: [{
         name: '工业利税',
-         color:'white',
         tooltip: {
           pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f} 万元</b> '
         }
       }, {
         name: '规模以上工业利税',
-         color:'gray',
         tooltip: {
           pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f} 万元</b> '
         }
@@ -264,23 +219,17 @@ var token = "eyJhY2NvdW50Ijp7IkBpZCI6IjEiLCJpZCI6MjYsImNyZWF0ZV90aW1lIjoiMjAxNS0
         labels: {
           rotation: -45,
           align: 'right',
-           style:{
-            color:'white'
-          }
+           
         },
         title: {
           text: '月份',
           align: 'high',
-           style:{
-            color:'white'
-          }
+           
         }
       },
       yAxis: {
         abels: {
-          style:{
-            color:'white'
-          }
+          
         },
         title: {
           text: '值（万元）'
@@ -288,9 +237,7 @@ var token = "eyJhY2NvdW50Ijp7IkBpZCI6IjEiLCJpZCI6MjYsImNyZWF0ZV90aW1lIjoiMjAxNS0
       },
       title: {
         text: '工业利税(累计值)',
-         style:{
-            color:'white'
-          }
+         
       },
       loading: false
     }

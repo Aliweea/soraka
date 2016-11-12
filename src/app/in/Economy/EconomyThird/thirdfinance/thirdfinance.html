@@ -1,16 +1,18 @@
 <div ui-state="activeTab" default="1">
   <ul class="nav nav-tabs">
-    <li ui-class="{'active': activeTab == 1}">
+    <li ui-class="{'active': activeTab == 1}" style="width: 50%">
       <a ui-set="{'activeTab': 1}">数据详情</a>
     </li>
-    <li ui-class="{'active': activeTab == 2}">
+    <li ui-class="{'active': activeTab == 2}" style="width: 50%">
       <a ui-set="{'activeTab': 2}">数据走势</a>
     </li>
    
   </ul>
 
   <div ui-if="activeTab == 1">
-    <h3 class="page-header">{{kpiText}}KPI详情</h3>
+  <div class="scrollable"style="margin-top: 100px;height: 500px">
+  <div class="scrollable-content" >
+<!--     <h3 class="page-header">{{kpiText}}KPI详情</h3>
     <li>数据名称:  财政和税收收支情况</li>
     <li>时间:  {{datayear}}年{{datamonth}}月</li>
     <div class="table-responsive" style="padding:5px">
@@ -36,17 +38,112 @@
           <td class="active" style="text-align: center;">{{taxAccmRate}}</td>
         </tr>
       </table>
-</div>
+</div> -->
+  <div style="height: 30px; display: flex;display: -webkit-flex;flex-direction: row;justify-content: center;align-items: center;">
+      <div style="width: 100%;height: 30px;box-shadow: 3px 3px 6px -4px white;border-radius: 5px;display: flex;display: -webkit-flex;flex-direction: row;justify-content: center;align-items: center;">
+      <span style="font-size: 2em">投资数据详情</span>
+      </div>
+      </div>
+     <div style="height: 40px;display: flex;display: -webkit-flex;flex-direction: row;justify-content: center;align-items: center;">
+       <span class="label label-primary">统计局</span>
+        <span class="label" style="color: black;margin-left: 5px">时间: {{datayear}}年{{datamonth}}月 </span>
+         <span class="label" style="color: black">每月更新</span>
+     </div>
 
+
+      <div class="panel-group" ui-state="myAccordion" ui-default="2">
+       <div class="panel panel-default">
+        <div class="panel-heading" ui-set="{'myAccordion': 2}">        
+          <h4 class="panel-title">
+             财政和税收收支情况
+          </h4>
+           <span ng-show="false">{{gi = dataMap.InvestData.lastestObject}}</span>
+        </div>
+        <div ui-if="myAccordion == 2">
+          <div class="panel-body" >
+             <div style="width: 100%;height: 450px;display: flex;display: -webkit-flex;flex-direction: row;justify-content: center;align-items: center;">
+              <div style="width: 80%;height: 400px;display: flex;display:-webkit-flex;flex-direction: row;justify-content: center;align-items: flex-start;flex-wrap: wrap;">
+                <div style="width: 50%;height: 200px;display: flex;display: -webkit-flex;flex-direction: column;justify-content: center;align-items: center;background-color: rgba(92,95,105,.7);color: white" class="economyclick" ng-click="click()" ui-set="{'activeTab': 2}" >
+                  <span>财政本年累计收入</span>
+                  <span style="font-size: 2em;margin-top: 30px">{{financeIn}}万元</span>
+                  <span style="font-size: 1.5em;margin-top: 40px"><i class="fa fa-level-up" aria-hidden="true" style="color: green"></i>{{financeRate}}%</span>
+                </div>
+               <div style="width: 50%;height: 200px;display: flex;display: -webkit-flex;flex-direction: column;justify-content: center;align-items: center;background-color: rgba(116,140,146,.7);color: white">
+                  <span>财政本年累计支出</span>
+                  <span style="font-size: 2em;margin-top: 30px">{{financeOut}}万元</span>
+                  <span style="font-size: 1.5em;margin-top: 40px"><i class="fa fa-level-up" aria-hidden="true" style="color: green"></i>{{financeOutRate}}%</span>
+                </div>
+                <div style="width: 50%;height: 200px;display: flex;display: -webkit-flex;flex-direction: column;justify-content: center;align-items: center;background-color: rgba(151,87,89,.7);color: white">
+                 <span>税收本年累计收入</span>
+                 <span style="font-size: 2em;margin-top: 30px">{{taxAccmAmount}}万元</span>
+                <span style="font-size: 1.5em;margin-top: 40px"><i class="fa fa-level-up" aria-hidden="true" style="color: green"></i>{{taxAccmRate}}%</span>
+                </div>
+              </div>
+           </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+</div>
   </div>
 
   <div ui-if="activeTab == 2">
   <div class="scrollable"style="margin-top: 100px;height: 500px">
   <div class="scrollable-content" >
-     <h3 class="page-header">全年{{kpiText}}KPI详情</h3>
+    <div style="height: 30px; display: flex;display: -webkit-flex;flex-direction: row;justify-content: center;align-items: center;">
+      <div style="width: 100%;height: 30px;box-shadow: 3px 3px 6px -4px white;border-radius: 5px;display: flex;display: -webkit-flex;flex-direction: row;justify-content: center;align-items: center;">
+      <span style="font-size: 2em">投资数据全年走势</span>
+      </div>
+      </div>
+     <div style="height: 40px;display: flex;display: -webkit-flex;flex-direction: row;justify-content: center;align-items: center;">
+      <span ng-show="false">{{ci = dataMap.ImportData.lastestObject}}</span>
+       <span class="label label-primary">统计局</span>
+        <span class="label" style="color: black;margin-left: 5px">时间:{{ci.year}} 年 {{ci.month}} 月</span>
+         <span class="label" style="color: black">每月更新</span>
+     </div>
+           <div class="panel-group" ui-state="myAccordion" ui-default="2">
+    <div class="panel panel-default">
+        <div class="panel-heading" ui-set="{'myAccordion': 2}">        
+          <h4 class="panel-title">
+             财政收入额(当年累计)
+          </h4>
+        </div>
+        <div ui-if="myAccordion == 2">
+          <div class="panel-body">
+             <highchart config="secondchart"  id="secondchart" style="height: 450px"></highchart>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+    <div class="panel-heading" ui-set="{'myAccordion': 1}">        
+      <h4 class="panel-title">
+          财政支出额(当年累计)
+      </h4>
+    </div>
+    <div ui-if="myAccordion == 1">
+      <div class="panel-body">
+       <highchart config="secondchart"  id="firstchart" style="height: 450px"></highchart>
+      </div>
+    </div>
+  </div>
+   <div class="panel panel-default">
+    <div class="panel-heading" ui-set="{'myAccordion': 3}">        
+      <h4 class="panel-title">
+          税收额(当年累计)
+      </h4>
+    </div>
+    <div ui-if="myAccordion == 3">
+      <div class="panel-body">
+      <highchart config="taxChart" style="height: 450px"></highchart>
+      </div>
+    </div>
+  </div>
+    </div>
+     <!-- <h3 class="page-header">全年{{kpiText}}KPI详情</h3>
     <highchart config="secondchart"  id="secondchart"></highchart>
     <highchart config="firstchart"  id="firstchart"></highchart>
-    <highchart config="taxChart" id="taxChart"></highchart>
+    <highchart config="taxChart" id="taxChart"></highchart> -->
   </div>
  
   </div>

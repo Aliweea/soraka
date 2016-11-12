@@ -25,7 +25,7 @@ export default($scope, qService, kpiRes, $state, dateService, hService) => {
         if (err.errorCode == "UNAUTHORIZED") {
             $state.go('portal');
         } else {
-
-        }
+        }    
     });
+  
 }

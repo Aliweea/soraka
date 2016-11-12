@@ -147,19 +147,16 @@ export default ($scope,$rootScope,$stateParams,dateService,generalService,dataDe
         colors: generalService.columnColors(),
         chart: {
           type: 'column',
-          backgroundColor: 'rgb( 122,181,175)'
         }
       },
       series: [{
         name: '国内生产总值(累计值)',
-        color:'white',
         tooltip: {
           pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f} 亿元</b> '
         }
 
       }, {
         name: '国内生产总值(各季度)',
-        color:'gray',
         tooltip: {
           pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f} 亿元</b> '
         }
@@ -168,17 +165,9 @@ export default ($scope,$rootScope,$stateParams,dateService,generalService,dataDe
         title: {
           text: '季度',
           align: 'high',
-          style:{
-            color:'white'
-          }
         }
       },
       yAxis: {
-        labels: {
-          style:{
-            color:'white'
-          }
-        },
         title: {
           text: '值（亿元）',
           style:{
@@ -198,24 +187,20 @@ export default ($scope,$rootScope,$stateParams,dateService,generalService,dataDe
         colors: generalService.columnColors(),
         chart: {
           type: 'column',
-          backgroundColor: 'rgb( 122,181,175)'
         }
       },
       series: [{
         name: '国内生产总值(第一产业)',
-        color:'white',
         tooltip: {
           pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f} 亿元</b> '
         }
       }, {
         name: '国内生产总值(第二产业)',
-        color:'gray',
         tooltip: {
           pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f} 亿元</b> '
         }
       }, {
         name: '国内生产总值(第三产业)',
-        color:'black',
         tooltip: {
           pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f} 亿元</b> '
         }
@@ -237,11 +222,6 @@ export default ($scope,$rootScope,$stateParams,dateService,generalService,dataDe
         }
       },
       yAxis: {
-         labels: {
-          style:{
-            color:'white'
-          }
-        },
         title: {
           text: '值（亿元）',
           style:{
@@ -272,6 +252,12 @@ export default ($scope,$rootScope,$stateParams,dateService,generalService,dataDe
           break;
         }
        
+    }
+    $scope.showtest = false;
+    $scope.showtest1 = true;
+    $scope.showtest = function(){
+      $scope.showtest = !$scope.showtest;
+      $scope.showtest1 = !$scope.showtest1;
     }
  
 };
