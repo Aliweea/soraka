@@ -47,17 +47,84 @@
 			}
 		}
 		.value {
-			background: linear-gradient($bgLightGrey, #fff);
 			display: block;
 			padding: 5px 10px;
 			font-size: 13px;
 		}
 	}
-	.key-value-area {
+	.key-value-area1 {
 		padding:60px 0 0 0;
+		background: linear-gradient($bgLightGrey, #fff);
 		@include cmTa();
 	}
+	.key-value-area2 {
+		padding:25px 0 12px 0;
+		background: linear-gradient($bgLightGrey, #fff);
+		@include cmTa();
+		.i-label {
+			margin-left: 10px;
+			font-size: 13px;
+		}
+		.toggle-button {
+			width: 8em;
+			height: 30px;
+			outline: none;
+			border: none;
+			color: #008AFF;
+			background: radial-gradient(3em 40%, #ddd, #ddd, rgba(255,255,255,0));
+			text-align: left;
+			font-size: 13px;
+		}
+	}
+	.key-value-area3 {
+		padding:25px 0 12px 0;
+		background: linear-gradient($bgLightGrey, #fff);
+		@include cmTa();
+	}
+	.reasons-toggle-area {
+		position: relative;
+		.toggle-bar {
+			position: absolute;
+			z-index: 1999;
+			height: 20px;
+			width: 50%;
+			margin: -5px 25%;
+			border: 2px solid #bbb;
+			border-radius: 15px 15px 0 0;
+			border-bottom: none;
+			background: linear-gradient(#bbb, #fff, #bbb);
+		}
+		.toggle-panel {
+			width: 80%;
+			box-shadow: 5px 10px 5px #999999;
+			border: 1px solid $cborder;
+			border-radius: 8px;
+			position: absolute;
+			z-index: 2000;
+			padding: 5px 5px;
+			margin: 10px 10%;
+			background-color: rgba(255,255,255,0.8);
+			.item {
+				display: block;
+				padding: 2px 5px;
+				border-bottom: 1px inset #444; 
+				span {
+					display: inline-block;
+					margin-left: 2px;
+					font-weight: bold;
+				}
+			}
+		}
+	}
 	.chart-area1 {
+		border-top: 1px dashed $cborder;
+		border-bottom: 1px solid $cborder;
+	}
+	.chart-area2 {
+		border-top: 1px dashed $cborder;
+		border-bottom: 1px solid $cborder;
+	}
+	.chart-area3 {
 		border-top: 1px dashed $cborder;
 		border-bottom: 1px solid $cborder;
 	}
