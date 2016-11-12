@@ -1,1 +1,117 @@
-这是price三级界面
+<div ui-state="activeTab" default="1" >
+    <ul class="nav nav-tabs" >
+        <li ui-class="{'active': activeTab == 1}" style="width: 50%;">
+            <a ui-set="{'activeTab': 1}">数据详情</a>
+        </li>
+        <li ui-class="{'active': activeTab == 2}" style="width: 50%;">
+            <a ui-set="{'activeTab': 2}">数据走势</a>
+        </li>
+    </ul>
+    <div ui-if="activeTab == 1">
+        <div class="scrollable"style="margin-top: 100px;height: 500px">
+            <div class="scrollable-content" >
+                <li>CPI趋势</li>
+                <li>时间: {{gi.year}} 年 {{gi.month}} 月 </li>
+                <span ng-show="false">{{gi = dataMap.InvestData.lastestObject}}</span>
+                <div class="table-responsive" style="padding:5px">
+                    <table class="table">
+                        <tr>
+                            <td class="info" style="text-align: center;">时间</td>
+                            <td class="info" style="text-align: center;">同比</td>
+                            <td class="info" style="text-align: center;">累计比</td>
+                        </tr>
+                        <tr ng-repeat="index in cpiDetailIndexList">
+                            <td>{{cpiDetailHeaderList[index]}}</td>
+                            <td class="t-right">{{cpiDetailDataList[0].data[index] | number:2}}</td>
+                            <td class="t-right">{{cpiDetailDataList[1].data[index] | number:2}}</td>
+                        </tr>
+                    </table>
+                </div>
+                <li>CPI类别同比累计比</li>
+                <li>时间:{{gi.year}}年{{gi.month}}月</li>
+                <span ng-show="false">{{gi = dataMap.InvestData.lastestObject}}</span>
+                <div class="table-responsive" style="padding:5px">
+                    <table class="table">
+                        <tr>
+                            <td class="info" style="text-align: center;">价格指数</td>
+                            <td class="info" style="text-align: center;">同比</td>
+                            <td class="info" style="text-align: center;">累计比</td>
+                        </tr>
+                        <tr ng-repeat="index in [0,1,2,3,4,5,6,7]">
+                            <td>{{CPIDATA.columnXAxis[index]}}</td>
+                            <td class="t-right">{{cpiDataList[0].data[index] | number:2}}</td>
+                            <td class="t-right">{{cpiDataList[1].data[index] | number:2}}</td>
+                        </tr>
+                    </table>
+                </div>
+                <li>{{currentCategory}}CPI趋势</li>
+                <li>时间: {{ci.year}} 年 {{ci.month}} 月</li>
+                <span ng-show="false">{{ci = dataMap.ImportData.lastestObject}}</span>
+                <div class="table-responsive" style="padding:5px">
+                    <table class="table">
+                        <tr>
+                            <td class="info" style="text-align: center;">时间</td>
+                            <td class="info" style="text-align: center;">同比</td>
+                            <td class="info" style="text-align: center;">累计比</td>
+                        </tr>
+                        <tr ng-repeat="index in detailTrendIndexList">
+                            <td>{{detailTrendHeaderList[index]}}</td>
+                            <td class="t-right">{{detailTrendDataList[0].data[index] | number:2}}</td>
+                            <td class="t-right">{{detailTrendDataList[1].data[index] | number:2}}</td>
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div ui-if="activeTab == 2">
+        <div class="scrollable"style="margin-top: 110px;height: 545px">
+            <div class="scrollable-content" ng-click="show()">
+                <div style="height: 30px; display: flex;display: -webkit-flex;flex-direction: row;justify-content: center;align-items: center;">
+                    <div style="width: 100%;height: 30px;box-shadow: 3px 3px 6px -4px white;border-radius: 5px;display: flex;display: -webkit-flex;flex-direction: row;justify-content: center;align-items: center;">
+                        <span style="font-size: 2em">CPI</span>
+                    </div>
+                </div>
+                <div style="height: 40px;display: flex;display: -webkit-flex;flex-direction: row;justify-content: center;align-items: center;">
+                    <span ng-show="false">{{ci = dataMap.ImportData.lastestObject}}</span>
+                    <span class="label label-primary">物价局</span>
+                    <span class="label" style="color: black;margin-left: 5px">时间:{{ci.year}} 年 {{ci.month}} 月</span>
+                    <span class="label" style="color: black">每月更新</span>
+                </div>
+                <highchart config="cpiHighChartOptions.cpiTrendOption"  id="InvestValueChart" style="height: 450px"  class="pricefade"></highchart>
+                <highchart config="cpiHighChartOptions.categoryDetailOption"  id="ClassInvestValueChart" style="height: 450px"  class="pricefade"></highchart>
+                <highchart config="cpiHighChartOptions.detailTrendOption" id="CapitalValueChart" style="height: 450px"  class="pricefade"></highchart>
+                <highchart config="foodPriceHighChartOption" id="foodPriceHighChart" style="height: 450px"  class="pricefade"></highchart>
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>
+<div class="navbar navbar-app navbar-absolute-bottom">
+    <div class="btn-group btn-group-justified">
+        <div class="btn-group">
+            <a type="button" class="btn btn-default" ui-sref="app.livehood.priceThree">返回上页</a>
+        </div>
+        <div class="btn-group">
+            <a type="button" class="btn btn-default" ui-turn-on="modal2"></a>
+        </div>
+        <div class="btn-group">
+            <a type="button" class="btn btn-default" ui-turn-off="modal2"></a>
+        </div>
+    </div>
+    <script>
+        function animationIn(i){
+            console.log(i,'i\'m in')
+        }
+
+        function animationOut(i){
+            console.log(i,'i\'m out')
+        }
+    </script>
+</div>
