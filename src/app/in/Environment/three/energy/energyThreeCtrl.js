@@ -499,13 +499,14 @@ export default ($scope, kpiDetailService, dateService) => {
                             plotBorderWidth: null,
                             plotShadow: false,
                             width: $(window).width() * 0.9,
-                            height: $(window).width() * 0.8
+                            height: $(window).width() * 0.8,
+                            margin: [20,0,40,0]
                         },
                         exporting: {
                             enabled: false
                         },
                         title: {
-                            text: '分产业电力消耗百分比'
+                            text: '分产业电力消耗百分比',
                         },
                         tooltip: {
                             pointFormat: '<b>{point.percentage:.1f}%</b>'
@@ -573,7 +574,7 @@ export default ($scope, kpiDetailService, dateService) => {
                             plotBackgroundColor: null,
                             plotBorderWidth: null,
                             plotShadow: false,
-                            margin: [60, 50, 100, 80]
+                            margin: [0, 0, 50, 0]
                         },
                         exporting: {
                             enabled: false
