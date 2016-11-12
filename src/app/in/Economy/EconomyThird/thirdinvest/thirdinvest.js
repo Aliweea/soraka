@@ -5,18 +5,15 @@ var token = "eyJhY2NvdW50Ijp7IkBpZCI6IjEiLCJpZCI6MjYsImNyZWF0ZV90aW1lIjoiMjAxNS0
         colors: generalService.columnColors(),
         chart: {
           type: 'spline',
-          backgroundColor: 'rgb( 122,181,175)'
         }
       },
       series: [{
         name: '全社会固定资产投资',
-        color:'white',
         tooltip: {
           pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f} 万元</b> '
         },
       }, {
         name: '去年同期值',
-        color:'gray',
         tooltip: {
           pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f} 万元</b> '
         }
@@ -25,29 +22,17 @@ var token = "eyJhY2NvdW50Ijp7IkBpZCI6IjEiLCJpZCI6MjYsImNyZWF0ZV90aW1lIjoiMjAxNS0
         labels: {
           rotation: -45,
           align: 'right',
-          style:{
-            color:'white'
-          }
         },
         title: {
           text: '月份',
           align: 'high',
-          style:{
-            color:'white'
-          }
         }
       },
       yAxis: {
         labels: {
-          style:{
-            color:'white'
-          }
         },
         title: {
           text: '值（万元）',
-          style:{
-            color:'white'
-          }
         }
       },
       title: {
@@ -64,18 +49,15 @@ var token = "eyJhY2NvdW50Ijp7IkBpZCI6IjEiLCJpZCI6MjYsImNyZWF0ZV90aW1lIjoiMjAxNS0
         colors: generalService.columnColors(),
         chart: {
           type: 'column',
-          backgroundColor: 'rgb( 122,181,175)'
         }
       },
       series: [{
         name: '工业投资',
-        color:'white',
         tooltip: {
           pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f} 万元</b> '
         }
       }, {
         name: '服务业投资',
-        color:'gray',
         tooltip: {
           pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f} 万元</b> '
         }
@@ -90,29 +72,17 @@ var token = "eyJhY2NvdW50Ijp7IkBpZCI6IjEiLCJpZCI6MjYsImNyZWF0ZV90aW1lIjoiMjAxNS0
         labels: {
           rotation: -45,
           align: 'right',
-          style:{
-            color:'white'
-          }
         },
         title: {
           text: '月份',
           align: 'high',
-          style:{
-            color:'white'
-          }
         }
       },
       yAxis: {
         labels: {
-          style:{
-            color:'white'
-          }
         },
         title: {
           text: '值（万元）',
-          style:{
-            color:'white'
-          }
         }
       },
       title: {
@@ -129,19 +99,16 @@ var token = "eyJhY2NvdW50Ijp7IkBpZCI6IjEiLCJpZCI6MjYsImNyZWF0ZV90aW1lIjoiMjAxNS0
         colors: generalService.columnColors(),
         chart: {
           type: 'column',
-         backgroundColor: 'rgb( 122,181,175)'
         }
       },
       series: [{
         name: '注册外资',
-        color:'white',
         tooltip: {
           pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f} 万美元</b> '
         }
 
       }, {
         name: '实际利用外资',
-        color:'gray',
         tooltip: {
           pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f} 万美元</b> '
         }
@@ -150,29 +117,19 @@ var token = "eyJhY2NvdW50Ijp7IkBpZCI6IjEiLCJpZCI6MjYsImNyZWF0ZV90aW1lIjoiMjAxNS0
         labels: {
           rotation: -45,
           align: 'right',
-           style:{
-            color:'white'
-          }
+
         },
         title: {
           text: '月份',
           align: 'high',
-          style:{
-            color:'white'
-          }
         }
       },
       yAxis: {
         labels: {
-          style:{
-            color:'white'
-          }
         },
         title: {
           text: '值（万美元）',
-           style:{
-            color:'white'
-          }
+
         }
       },
       title: {
@@ -190,19 +147,16 @@ var token = "eyJhY2NvdW50Ijp7IkBpZCI6IjEiLCJpZCI6MjYsImNyZWF0ZV90aW1lIjoiMjAxNS0
         chart: {
           type: 'column',
           margin: [50, 50, 90, 80],
-          backgroundColor: 'rgb( 122,181,175)'
         }
       },
       series: [{
         name: '新增注册资金',
-        color:'white',
         tooltip: {
           pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f} 万元</b> '
         }
 
       }, {
         name: '到账资金',
-        color:'gray',
         tooltip: {
           pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f} 万元</b> '
         }
@@ -211,36 +165,23 @@ var token = "eyJhY2NvdW50Ijp7IkBpZCI6IjEiLCJpZCI6MjYsImNyZWF0ZV90aW1lIjoiMjAxNS0
         labels: {
           rotation: -45,
           align: 'right',
-           style:{
-            color:'white'
-          }
+
         },
         title: {
           text: '月份',
           align: 'high',
-          style:{
-            color:'white'
-          }
         }
       },
       yAxis: {
         labels: {
-          style:{
-            color:'white'
-          }
         },
         title: {
           text: '值（万元）',
-           style:{
-            color:'white'
-          }
+
         }
       },
       title: {
         text: '引进内资(累计值)',
-         style:{
-            color:'white'
-          }
       },
       loading: false
     };
