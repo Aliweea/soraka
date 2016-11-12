@@ -177,8 +177,18 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
     })
     .state('app.publicsecurity.police', {
       url: '/detail/police',
-      templateUrl: 'app/in/publicsecurity/three/police/policethree.html',
-      controller: 'policethreeCtrl'
+      templateUrl: 'app/in/publicsecurity/three/police/police.html',
+      controller: 'policeCtrl'
+    })
+    .state('app.publicsecurity.criminal', {
+      url: '/detail/criminal',
+      templateUrl: 'app/in/publicsecurity/three/police/criminal.html',
+      controller: 'criminalCtrl'
+    })
+    .state('app.publicsecurity.policecall', {
+      url: '/detail/policecall',
+      templateUrl: 'app/in/publicsecurity/three/police/policeCall.html',
+      controller: 'policeCallCtrl'
     })
     .state('app.publicsecurity.accident', {
       url: '/detail/accident',

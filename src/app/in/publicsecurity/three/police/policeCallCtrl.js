@@ -1,7 +1,7 @@
 export default ($scope, $state, dateService, dataDetailFactory, qService, kpiDetailService) => {
     'ngInject';
     const jQueryDOMToDos = () => {
-        $(".navbar2position").hide(0); // 显示当前位置
+        $(".navbar2position").hide(0); // 隐藏当前位置
         $(".navbar2return").show(0); // 显示返回按钮
         $(".navTopShowMark").hide(0); // 隐藏KPI状态 KPI分类
         $('.navTopShowPolice').show(0); // 显示公安类型

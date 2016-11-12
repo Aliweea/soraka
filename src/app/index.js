@@ -96,7 +96,9 @@ import publicsecurityCtrl from './in/publicsecurity/publicsecurityCtrl.js';
 import publicsecuritylistCtrl from './in/publicsecurity/one/publicsecuritylistCtrl.js';
 import publicsecuritydetailCtrl from './in/publicsecurity/two/publicsecuritydetailCtrl.js';
 import publicsecurityByStateCtrl from './in/publicsecurity/one/bystate/bystateCtrl.js';
-import policethreeCtrl from './in/publicsecurity/three/police/policethreeCtrl.js';
+import policeCtrl from './in/publicsecurity/three/police/policeCtrl.js';
+import policeCallCtrl from './in/publicsecurity/three/police/policeCallCtrl.js';
+import criminalCtrl from './in/publicsecurity/three/police/criminalCtrl.js';
 import accidentthreeCtrl from './in/publicsecurity/three/accident/accidentthreeCtrl.js';
 import firethreeCtrl from './in/publicsecurity/three/fire/firethreeCtrl.js';
 import petitionthreeCtrl from './in/publicsecurity/three/petition/petitionthreeCtrl.js';
@@ -222,7 +224,9 @@ angular.module('soraka',
   .controller('publicsecuritylistCtrl', publicsecuritylistCtrl)
   .controller('publicsecuritydetailCtrl', publicsecuritydetailCtrl)
   .controller('publicsecurityByStateCtrl', publicsecurityByStateCtrl)
-  .controller('policethreeCtrl',policethreeCtrl)
+  .controller('policeCtrl',policeCtrl)
+  .controller('policeCallCtrl',policeCallCtrl)
+  .controller('criminalCtrl',criminalCtrl)
   .controller('accidentthreeCtrl',accidentthreeCtrl)
   .controller('firethreeCtrl',firethreeCtrl)
   .controller('petitionthreeCtrl',petitionthreeCtrl)
