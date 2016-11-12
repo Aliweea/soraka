@@ -5,7 +5,7 @@
 export default ($q, $state) => {
 	'ngInject';
 
-	var TOKEN_KEY = 'x-auth-token';
+	let TOKEN_KEY = 'x-auth-token';
 	
 	return {
 		httpGet: (resource, parameters, headers) => {
@@ -30,6 +30,18 @@ export default ($q, $state) => {
 			* 	});
 			* return deferred.promise;
 			*/
+		},
+		httpGetbyJSOG: (resource, parameters, headers) => {
+			return $q((resolve, reject) => {
+				resource(headers).get(parameters,
+				(value, responseHeaders) => {
+					value.headers = responseHeaders ? responseHeaders() : "";
+					resolve(JSOG.parse(JSOG.stringify(value)));
+				}, 
+				(httpResponse) => {
+					reject(httpResponse);
+				});
+			});
 		},
 		httpGetWithToken: (resource, parameters, headers) => {
 			return $q((resolve, reject) => {

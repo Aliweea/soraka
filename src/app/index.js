@@ -42,7 +42,6 @@ import insuranceFilter from './filter/insuranceFilter';
 import populationFilter from './filter/PopulationFilter';
 import energyFilter from './filter/Environment/EnergyFilter';
 import landFilter from './filter/Environment/LandFilter';
-import environmentThreeFilter from './filter/Environment/EnvironmentThreeFilter';
 import publicsecuritythreeFilter from './filter/publicsecurity/publicsecuritythreeFilter';
 import publicsecuritydetailFilter from './filter/publicsecurity/publicsecuritydetailFilter';
 import kpiUnitFilter from './filter/publicsecurity/kpiUnitFilter';
@@ -90,6 +89,7 @@ import livehooddetailCtrl from './in/livehood/two/livehooddetailCtrl.js';
 import livehoodByStateCtrl from './in/livehood/one/bystate/bystateCtrl.js';
 import populationThreeCtrl from './in/livehood/three/population/populationThreeCtrl.js';
 import insuranceCtrl from './in/livehood/three/insurance/insuranceCtrl.js';
+import priceThreeCtrl from './in/livehood/three/price/priceThreeCtrl.js';
 
 // 公共安全模块Controller
 import publicsecurityCtrl from './in/publicsecurity/publicsecurityCtrl.js';
@@ -106,6 +106,10 @@ import cmCtrl from './in/citymanager/cmCtrl.js';
 import cmlistCtrl from './in/citymanager/one/cmlistCtrl.js';
 import cmdetailCtrl from './in/citymanager/two/cmdetailCtrl.js';
 import cmByStateCtrl from './in/citymanager/one/bystate/bystateCtrl.js';
+import cmrefuseCtrl from './in/citymanager/three/refuse/cmrefuseCtrl.js';
+import cmpunishCtrl from './in/citymanager/three/punish/cmpunishCtrl.js';
+import cmfixCtrl from './in/citymanager/three/fix/cmfixCtrl.js';
+import cmicmCtrl from './in/citymanager/three/icm/cmicmCtrl.js';
 // 公共事业Controller
 import publicServiceCtrl from './in/publicService/publicServiceCtrl.js';
 import publicServicelistCtrl from './in/publicService/one/publicServicelistCtrl.js';
@@ -165,7 +169,6 @@ angular.module('soraka',
   .filter('populationFilter', populationFilter)
   .filter('energyFilter',energyFilter)
   .filter('landFilter',landFilter)
-  .filter('environmentThreeFilter',environmentThreeFilter)
   .filter('publicsecuritythreeFilter',publicsecuritythreeFilter)
   .filter('publicsecuritydetailFilter',publicsecuritydetailFilter)
   .filter('kpiUnitFilter',kpiUnitFilter)
@@ -213,6 +216,7 @@ angular.module('soraka',
   .controller('livehoodByStateCtrl', livehoodByStateCtrl)
   .controller('populationThreeCtrl',populationThreeCtrl)
   .controller('insuranceCtrl',insuranceCtrl)
+  .controller('priceThreeCtrl',priceThreeCtrl)
   // 公共安全controllers
   .controller('publicsecurityCtrl', publicsecurityCtrl)
   .controller('publicsecuritylistCtrl', publicsecuritylistCtrl)
@@ -235,4 +239,8 @@ angular.module('soraka',
   .controller('cmlistCtrl', cmlistCtrl)
   .controller('cmdetailCtrl', cmdetailCtrl)
   .controller('cmByStateCtrl', cmByStateCtrl)
+  .controller('cmrefuseCtrl', cmrefuseCtrl)
+  .controller('cmpunishCtrl', cmpunishCtrl)
+  .controller('cmfixCtrl', cmfixCtrl)
+  .controller('cmicmCtrl', cmicmCtrl)
   ;

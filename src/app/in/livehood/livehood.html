@@ -10,11 +10,11 @@
 			ui-show="kpiChoiceDropdown"
 			ui-state="kpiChoiceDropdown"
 			ui-turn-off="kpiChoiceDropdown">
-			<li><a ui-sref="app.livehood.livehoodlist({categoryId:2003})" href="#">人口结构</a></li>
+			<li><a ui-sref="app.livehood.livehoodlist({categoryId:2003})" ng-click="changeCategory('人口结构')" href="#">人口结构</a></li>
 			<li class="divider"></li>
-			<li><a ui-sref="app.livehood.livehoodlist({categoryId:2004})" href="#">社会保险</a></li>
+			<li><a ui-sref="app.livehood.livehoodlist({categoryId:2004})" ng-click="changeCategory('社会保险')"  href="#">社会保险</a></li>
 			<li class="divider"></li>
-			<li><a ui-sref="app.livehood.livehoodlist({categoryId:2001})" href="#">价格指数</a></li>
+			<li><a ui-sref="app.livehood.livehoodlist({categoryId:2001})" ng-click="changeCategory('价格指数')" href="#">价格指数</a></li>
 		</ul>
 		<ul class="dropdown-menu cm-dropdown-ul"
 			ui-outer-click="Ui.turnOff('kpiStatusDropdown')"
@@ -42,10 +42,22 @@
 			</div>
 		</div>
 	</div>
+	<!--
 	<div class="navbar navbar-app navbar-absolute-bottom cm-menu-navbar-bottom">
 		<div class="btn-group pull-left cm-menu-navbar-bottomleft navbar2return" ng-click="toH()">
 			<i class="fa fa-chevron-left" aria-hidden="true"></i><span>返回</span>
 		</div>
 		<a style="margin-left: 100px;display: inline-block;margin-top: 15px;" ui-sref="app.thirddetail.select">临时跳转点</a>
+	</div>
+	-->
+	<div class="navbar navbar-app navbar-absolute-bottom cm-menu-navbar-bottom">
+		<div class="btn-group pull-left cm-menu-navbar-bottomleft navbar2return" ng-click="toH()">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i><span>返回</span>
+		</div>
+		<div class="btn-group pull-left cm-menu-navbar-bottomleft navbar2position">
+			<span class="s1">当前位置:</span>
+			<span class="s2">人口结构<i class="fa fa-angle-right" aria-hidden="true"></i>{{currentCategoryName}}</span>
+			<span class="s3" ng-click="toDetail()"><i class="fa fa-hand-o-right" aria-hidden="true"></i><span>查看KPI详情</span></span>
+		</div>
 	</div>
 </div>

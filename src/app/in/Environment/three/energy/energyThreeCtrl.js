@@ -1,6 +1,13 @@
 export default ($scope, kpiDetailService, dateService) => {
     'ngInject';
 
+    const jQueryDOMToDos = () => {
+        $(".navbar2position").hide(0); // 显示当前位置
+        $(".navbar2return").show(0); // 显示返回按钮
+        $(".navTopShowMark").hide(0); // 隐藏KPI状态 KPI分类
+        $('#showshort').focus(); // 获取默认焦点
+    }();
+
     $scope.screenWidth = document.body.clientWidth;
     $scope.tab1 = true;
     $scope.tab2 = false;
@@ -492,13 +499,14 @@ export default ($scope, kpiDetailService, dateService) => {
                             plotBorderWidth: null,
                             plotShadow: false,
                             width: $(window).width() * 0.9,
-                            height: $(window).width() * 0.8
+                            height: $(window).width() * 0.8,
+                            margin: [20,0,40,0]
                         },
                         exporting: {
                             enabled: false
                         },
                         title: {
-                            text: '分产业电力消耗百分比'
+                            text: '分产业电力消耗百分比',
                         },
                         tooltip: {
                             pointFormat: '<b>{point.percentage:.1f}%</b>'
@@ -566,7 +574,7 @@ export default ($scope, kpiDetailService, dateService) => {
                             plotBackgroundColor: null,
                             plotBorderWidth: null,
                             plotShadow: false,
-                            margin: [60, 50, 100, 80]
+                            margin: [0, 0, 50, 0]
                         },
                         exporting: {
                             enabled: false
@@ -958,7 +966,7 @@ export default ($scope, kpiDetailService, dateService) => {
                             enabled: false
                         },
                         title: {
-                            text: '金融、房地产、商务及居民服务业电力消耗量',
+                            text: '金融、地产、商务及居民服务业电力消耗',
                         },
                         yAxis: [{
                             title: {
