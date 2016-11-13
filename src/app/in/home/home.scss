@@ -10,16 +10,10 @@
 	}
 }
 .home-module {
-	@keyframes damnbg {
-		0% {background-position: center left;}
-		50% {background-position: center right;}
-		100% {background-position: center left;}
-	}
 	background-image: url("/assets/images/home.jpg");
-	// background-position: center center;
 	background-repeat: no-repeat;
 	background-size: 170%;
-	animation: damnbg 15s linear infinite;
+	background-position: center center;
 	height: 100%;
 	.list-group {
 		padding: 0;

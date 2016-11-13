@@ -1,9 +1,9 @@
 <div ui-state="activeTab" default="1">
   <ul class="nav nav-tabs">
-    <li ui-class="{'active': activeTab == 1}">
+    <li ui-class="{'active': activeTab == 1}" style="width: 50%">
       <a ui-set="{'activeTab': 1}">数据详情</a>
     </li>
-    <li ui-class="{'active': activeTab == 2}">
+    <li ui-class="{'active': activeTab == 2}" style="width: 50%">
       <a ui-set="{'activeTab': 2}">数据走势</a>
     </li>
    
@@ -11,11 +11,12 @@
 
   <div ui-if="activeTab == 1">
   <div class="scrollable"style="margin-top: 100px;height: 500px">
-  <div class="scrollable-content" >
-    <h3 class="page-header">{{kpiText}}KPI详情</h3>
+  <div class="scrollable-content" > 
+  <span ng-show="false">{{ai = dataMap.Ivalue.lastestObject}}</span>
+   <!--  <h3 class="page-header">{{kpiText}}KPI详情</h3>
     <li>数据名称:月工业总产值</li>
     <li>时间:{{ai.year}} 年 {{ai.month}} 月</li>
-    <span ng-show="false">{{ai = dataMap.Ivalue.lastestObject}}</span>
+   
     <span ng-show="false"></span>
     <div class="table-responsive" style="padding:5px">
       <table class="table">
@@ -147,7 +148,204 @@
           <td class="active" style="text-align: center;">{{ei.uaccmRate | number:2}} %</td>
         </tr>
       </table>
+    </div> -->
+    <div style="height: 30px; display: flex;display: -webkit-flex;flex-direction: row;justify-content: center;align-items: center;">
+      <div style="width: 100%;height: 30px;box-shadow: 3px 3px 6px -4px white;border-radius: 5px;display: flex;display: -webkit-flex;flex-direction: row;justify-content: center;align-items: center;">
+      <span style="font-size: 2em">工业数据详情</span>
+      </div>
+      </div>
+     <div style="height: 40px;display: flex;display: -webkit-flex;flex-direction: row;justify-content: center;align-items: center;">
+       <span class="label label-primary">统计局</span>
+        <span class="label" style="color: black;margin-left: 5px">时间:{{ai.year}} 年 {{ai.month}} 月</span>
+         <span class="label" style="color: black">每月更新</span>
+     </div>
+
+
+      <div class="panel-group" ui-state="myAccordion" ui-default="2">
+    <div class="panel panel-default">
+        <div class="panel-heading" ui-set="{'myAccordion': 2}">        
+          <h4 class="panel-title">
+             月工业总产值数据
+          </h4>
+        </div>
+        <div ui-if="myAccordion == 2">
+          <div class="panel-body" >
+             <div style="width: 100%;height: 450px;display: flex;display: -webkit-flex;flex-direction: row;justify-content: center;align-items: center;">
+  <div style="width: 80%;height: 400px;display: flex;display:-webkit-flex;flex-direction: row;justify-content: center;align-items: flex-start;flex-wrap: wrap;">
+    <div style="width: 50%;height: 200px;display: flex;display: -webkit-flex;flex-direction: column;justify-content: center;align-items: center;background-color: rgba(92,95,105,.7);color: white" class="economyclick" ng-click="click()" ui-set="{'activeTab': 2}" >
+      <span>本年累计额</span>
+      <span style="font-size: 2em;margin-top: 30px">{{ai.accmAmount}} 万元</span>
+      <span style="font-size: 1.5em;margin-top: 40px"><i class="fa fa-level-up" aria-hidden="true" style="color: green"></i>{{ai.accmRate | number:2}} %</span>
     </div>
+   <div style="width: 50%;height: 200px;display: flex;display: -webkit-flex;flex-direction: column;justify-content: center;align-items: center;background-color: rgba(116,140,146,.7);color: white">
+      <span>规模以上工业统计额</span>
+      <span style="font-size: 2em;margin-top: 30px">{{ai.uaccmAmount}} 万元</span>
+      <span style="font-size: 1.5em;margin-top: 40px"><i class="fa fa-level-up" aria-hidden="true" style="color: green"></i>{{ai.uaccmRate | number:2}} %</span>
+    </div>
+   <!--  <div style="width: 50%;height: 200px;display: flex;display: -webkit-flex;flex-direction: column;justify-content: center;align-items: center;background-color: rgba(242,152,133,.7);color: white">
+      <span>第二产业GDP累计额</span>
+      <span style="font-size: 2em;margin-top: 30px">{{gdptable.TWO_GDP.chartData[0].accmAmount}}亿元</span>
+       <span style="font-size: 1.5em;margin-top: 40px"><i class="fa fa-level-up" aria-hidden="true" style="color: green"></i>{{gdptable.TWO_GDP.chartData[0].accmRate}}%</span>
+    </div>
+     <div style="width: 50%;height: 200px;display: flex;display: -webkit-flex;flex-direction: column;justify-content: center;align-items: center;background-color: rgba(164,168,164,.7);color: white">
+      <span>第三产业GDP累计额</span>
+      <span style="font-size: 2em;margin-top: 30px">{{gdptable.THREE_GDP.chartData[0].accmAmount}}亿元</span>
+      <span style="font-size: 1.5em;margin-top: 40px"><i class="fa fa-level-up" aria-hidden="true" style="color: green"></i>{{gdptable.THREE_GDP.chartData[0].accmRate}}%</span>
+    </div> -->
+  </div>
+</div>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+    <div class="panel-heading" ui-set="{'myAccordion': 1}">        
+      <h4 class="panel-title">
+          月规模以上新兴产业产值
+      </h4>
+      <span ng-show="false">{{bi = dataMap.NIvalue.lastestObject}}</span>
+    </div>
+    <div ui-if="myAccordion == 1">
+      <div class="panel-body" >
+          <div style="width: 100%;height: 500px;display: flex;display: -webkit-flex;flex-direction: row;justify-content: center;align-items: center;">
+  <div style="width: 80%;height: 400px;display: flex;display:-webkit-flex;flex-direction: row;justify-content: center;align-items: flex-start;flex-wrap: wrap;">
+    <div style="width: 50%;height: 150px;display: flex;display: -webkit-flex;flex-direction: column;justify-content: center;align-items: center;background-color: rgba(92,95,105,.7);color: white">
+      <span>全市</span>
+      <span style="font-size: 2em;margin-top: 30px">{{bi.accmAmount}} 万元</span>
+      <span style="font-size: 1.5em;margin-top: 40px"><i class="fa fa-level-up" aria-hidden="true" style="color: green"></i>{{bi.accmRate | number:2}} %</span>
+    </div>
+   <div style="width: 50%;height: 150px;display: flex;display: -webkit-flex;flex-direction: column;justify-content: center;align-items: center;background-color: rgba(116,140,146,.7);color: white">
+      <span>新能源</span>
+      <span style="font-size: 2em;margin-top: 30px">{{bi.naccmAmount}} 万元</span>
+      <span style="font-size: 1.5em;margin-top: 40px"><i class="fa fa-level-up" aria-hidden="true" style="color: green"></i>{{bi.naccmRate | number:2}} %</span>
+    </div>
+    <div style="width: 50%;height: 150px;display: flex;display: -webkit-flex;flex-direction: column;justify-content: center;align-items: center;background-color: rgba(151,87,89,.7);color: white">
+      <span>新材料</span>
+      <span style="font-size: 2em;margin-top: 30px">{{bi.maccmAmount}} 万元</span>
+       <span style="font-size: 1.5em;margin-top: 40px"><i class="fa fa-level-up" aria-hidden="true" style="color: green"></i>{{bi.maccmRate | number:2}} %</span>
+    </div>
+     <div style="width: 50%;height: 150px;display: flex;display: -webkit-flex;flex-direction: column;justify-content: center;align-items: center;background-color: rgba(83,54,68,.7);color: white">
+      <span>生物技术和新医药</span>
+      <span style="font-size: 2em;margin-top: 30px">{{bi.bioaccmAmount}} 万元</span>
+      <span style="font-size: 1.5em;margin-top: 40px"><i class="fa fa-level-up" aria-hidden="true" style="color: green"></i>{{bi.bioaccmRate | number:2}} %</span>
+    </div>
+     <div style="width: 50%;height: 150px;display: flex;display: -webkit-flex;flex-direction: column;justify-content: center;align-items: center;background-color: rgba(127,196,197,.7);color: white">
+      <span>节能环保</span>
+      <span style="font-size: 2em;margin-top: 30px">{{bi.eeaccmAmount}} 万元</span>
+      <span style="font-size: 1.5em;margin-top: 40px"><i class="fa fa-level-up" aria-hidden="true" style="color: green"></i>{{bi.eeaccmRate | number:2}} %</span>
+    </div>
+     <div style="width: 50%;height: 150px;display: flex;display: -webkit-flex;flex-direction: column;justify-content: center;align-items: center;background-color: rgba(92,95,105,.7);color: white">
+      <span>智能电网和物联网</span>
+      <span style="font-size: 2em;margin-top: 30px">{{bi.elcaccmAmount}} 万元</span>
+      <span style="font-size: 1.5em;margin-top: 40px"><i class="fa fa-level-up" aria-hidden="true" style="color: green"></i>{{bi.elcaccmRate | number:2}} %</span>
+    </div>
+  </div>
+</div>
+      </div>
+    </div>
+  </div>
+   <div class="panel panel-default">
+    <div class="panel-heading" ui-set="{'myAccordion': 3}">        
+      <h4 class="panel-title">
+          月工业主营业务收入(累计值)
+      </h4>
+  <span ng-show="false">{{ci = dataMap.NSvalue.lastestObject}}</span>
+    </div>
+    <div ui-if="myAccordion == 3">
+      <div class="panel-body" >
+          <div style="width: 100%;height: 500px;display: flex;display: -webkit-flex;flex-direction: row;justify-content: center;align-items: center;">
+  <div style="width: 80%;height: 400px;display: flex;display:-webkit-flex;flex-direction: row;justify-content: center;align-items: flex-start;flex-wrap: wrap;">
+    <div style="width: 50%;height: 150px;display: flex;display: -webkit-flex;flex-direction: column;justify-content: center;align-items: center;background-color: rgba(127,196,197,.7);color: white">
+      <span>工业累计销售额</span>
+      <span style="font-size: 2em;margin-top: 30px">{{ci.accmAmount}} 万元</span>
+      <span style="font-size: 1.5em;margin-top: 40px"><i class="fa fa-level-up" aria-hidden="true" style="color: green"></i>{{ci.accmRate | number:2}} %</span>
+    </div>
+   <div style="width: 50%;height: 150px;display: flex;display: -webkit-flex;flex-direction: column;justify-content: center;align-items: center;background-color: rgba(83,54,68,.7);color: white">
+      <span>规模以上工业销售累计额</span>
+      <span style="font-size: 2em;margin-top: 30px">{{ci.uaccmAmount}} 万元</span>
+      <span style="font-size: 1.5em;margin-top: 40px"><i class="fa fa-level-up" aria-hidden="true" style="color: green"></i>{{ci.uaccmRate | number:2}} %</span>
+    </div>
+  </div>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" ui-set="{'myAccordion': 4}">        
+      <h4 class="panel-title">
+          月工业利润
+      </h4>
+<span ng-show="false">{{di = dataMap.NPvalue.lastestObject}}</span>
+    </div>
+    <div ui-if="myAccordion == 4">
+      <div class="panel-body" >
+          <div style="width: 100%;height: 500px;display: flex;display: -webkit-flex;flex-direction: row;justify-content: center;align-items: center;">
+  <div style="width: 80%;height: 400px;display: flex;display:-webkit-flex;flex-direction: row;justify-content: center;align-items: flex-start;flex-wrap: wrap;">
+    <div style="width: 50%;height: 150px;display: flex;display: -webkit-flex;flex-direction: column;justify-content: center;align-items: center;background-color: rgba(92,95,105,.7);color: white">
+      <span>工业利润累计额</span>
+      <span style="font-size: 2em;margin-top: 30px">{{di.accmAmount}} 万元</span>
+      <span style="font-size: 1.5em;margin-top: 40px"><i class="fa fa-level-up" aria-hidden="true" style="color: green"></i>{{di.accmRate | number:2}} %</span>
+    </div>
+   <div style="width: 50%;height: 150px;display: flex;display: -webkit-flex;flex-direction: column;justify-content: center;align-items: center;background-color: rgba(116,140,146,.7);color: white">
+      <span>规模以上工业利润累计额</span>
+      <span style="font-size: 2em;margin-top: 30px">{{di.uaccmAmount}} 万元</span>
+      <span style="font-size: 1.5em;margin-top: 40px"><i class="fa fa-level-up" aria-hidden="true" style="color: green"></i>{{di.uaccmRate | number:2}} %</span>
+    </div>
+  </div>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" ui-set="{'myAccordion': 5}">        
+      <h4 class="panel-title">
+          月工业利税
+      </h4>
+<span ng-show="false">{{ei = dataMap.NProfitvalue.lastestObject}}</span>
+    </div>
+    <div ui-if="myAccordion == 5">
+      <div class="panel-body" >
+          <div style="width: 100%;height: 500px;display: flex;display: -webkit-flex;flex-direction: row;justify-content: center;align-items: center;">
+  <div style="width: 80%;height: 400px;display: flex;display:-webkit-flex;flex-direction: row;justify-content: center;align-items: flex-start;flex-wrap: wrap;">
+    <div style="width: 50%;height: 150px;display: flex;display: -webkit-flex;flex-direction: column;justify-content: center;align-items: center;background-color: rgba(127,196,197,.7);color: white">
+      <span>工业利税累计额</span>
+      <span style="font-size: 2em;margin-top: 30px">{{ei.accmAmount}} 万元</span>
+      <span style="font-size: 1.5em;margin-top: 40px"><i class="fa fa-level-up" aria-hidden="true" style="color: green"></i>{{ei.accmRate | number:2}} %</span>
+    </div>
+   <div style="width: 50%;height: 150px;display: flex;display: -webkit-flex;flex-direction: column;justify-content: center;align-items: center;background-color: rgba(116,140,146,.7);color: white">
+      <span>规模以上工业利润累计额</span>
+      <span style="font-size: 2em;margin-top: 30px">{{ei.uaccmAmount}} 万元</span>
+      <span style="font-size: 1.5em;margin-top: 40px"><i class="fa fa-level-up" aria-hidden="true" style="color: green"></i>{{ei.uaccmRate | number:2}} %</span>
+    </div>
+  </div>
+</div>
+      </div>
+    </div>
+  </div>
+    </div>
+<!-- <div style="width: 100%;height: 450px;display: flex;display: -webkit-flex;flex-direction: row;justify-content: center;align-items: center;">
+  <div style="width: 80%;height: 400px;display: flex;display:-webkit-flex;flex-direction: row;justify-content: center;align-items: flex-start;flex-wrap: wrap;">
+    <div style="width: 50%;height: 200px;display: flex;display: -webkit-flex;flex-direction: column;justify-content: center;align-items: center;background-color: rgba(172,223,210,.7);color: white">
+      <span>GDP本年累计额</span>
+      <span style="font-size: 2em;margin-top: 30px">{{GDPaccm}}亿元</span>
+      <span style="font-size: 1.5em;margin-top: 40px"><i class="fa fa-level-up" aria-hidden="true" style="color: green"></i>{{GDPaccmRate}}%</span>
+    </div>
+   <div style="width: 50%;height: 200px;display: flex;display: -webkit-flex;flex-direction: column;justify-content: center;align-items: center;background-color: rgba(220,218,152,.7);color: white">
+      <span>第一产业GDP累计额</span>
+      <span style="font-size: 2em;margin-top: 30px">{{gdptable.ONE_GDP.chartData[0].accmAmount}}亿元</span>
+      <span style="font-size: 1.5em;margin-top: 40px"><i class="fa fa-level-up" aria-hidden="true" style="color: green"></i>{{gdptable.ONE_GDP.chartData[0].accmRate}}%</span>
+    </div>
+    <div style="width: 50%;height: 200px;display: flex;display: -webkit-flex;flex-direction: column;justify-content: center;align-items: center;background-color: rgba(242,152,133,.7);color: white">
+      <span>第二产业GDP累计额</span>
+      <span style="font-size: 2em;margin-top: 30px">{{gdptable.TWO_GDP.chartData[0].accmAmount}}亿元</span>
+       <span style="font-size: 1.5em;margin-top: 40px"><i class="fa fa-level-up" aria-hidden="true" style="color: green"></i>{{gdptable.TWO_GDP.chartData[0].accmRate}}%</span>
+    </div>
+     <div style="width: 50%;height: 200px;display: flex;display: -webkit-flex;flex-direction: column;justify-content: center;align-items: center;background-color: rgba(164,168,164,.7);color: white">
+      <span>第三产业GDP累计额</span>
+      <span style="font-size: 2em;margin-top: 30px">{{gdptable.THREE_GDP.chartData[0].accmAmount}}亿元</span>
+      <span style="font-size: 1.5em;margin-top: 40px"><i class="fa fa-level-up" aria-hidden="true" style="color: green"></i>{{gdptable.THREE_GDP.chartData[0].accmRate}}%</span>
+    </div>
+  </div>
+</div> -->
   </div>
    </div>
  
@@ -167,11 +365,73 @@
         <span class="label" style="color: black;margin-left: 5px">时间:{{ei.year}} 年 {{ei.month}} 月</span>
          <span class="label" style="color: black">每月更新</span>
      </div>
-    <highchart config="IndustryValueChart"  id="IndustryValueChart" style="height: 450px" ng-if="show1" class="economyfade"></highchart>
+       <div class="panel-group" ui-state="myAccordion" ui-default="2">
+    <div class="panel panel-default">
+        <div class="panel-heading" ui-set="{'myAccordion': 2}">        
+          <h4 class="panel-title">
+              工业总产值(累计值)
+          </h4>
+        </div>
+        <div ui-if="myAccordion == 2">
+          <div class="panel-body">
+             <highchart config="IndustryValueChart"  id="IndustryValueChart" style="height: 450px"></highchart>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+    <div class="panel-heading" ui-set="{'myAccordion': 1}">        
+      <h4 class="panel-title">
+          规模以上新兴产业工业的总产值(累计值)
+      </h4>
+    </div>
+    <div ui-if="myAccordion == 1">
+      <div class="panel-body">
+       <highchart config="NewIndustryValueChart"  id="NewIndustryValueChart" style="height: 450px"></highchart>
+      </div>
+    </div>
+  </div>
+   <div class="panel panel-default">
+    <div class="panel-heading" ui-set="{'myAccordion': 3}">        
+      <h4 class="panel-title">
+          工业主营业务收入(累计值)
+      </h4>
+    </div>
+    <div ui-if="myAccordion == 3">
+      <div class="panel-body">
+       <highchart config="industryIncomeValueChart" id="industryIncomeValueChart" style="height: 450px"></highchart>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" ui-set="{'myAccordion': 4}">        
+      <h4 class="panel-title">
+          规模以上工业利润
+      </h4>
+    </div>
+    <div ui-if="myAccordion == 4">
+      <div class="panel-body">
+       <highchart config="industryProfitValueChart" id="industryProfitValueChart" style="height: 450px"></highchart>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" ui-set="{'myAccordion': 5}">        
+      <h4 class="panel-title">
+          工业利税(累计值)
+      </h4>
+    </div>
+    <div ui-if="myAccordion == 5">
+      <div class="panel-body">
+       <highchart config="industryTaxValueChart" id="industryTaxValueChart" style="height: 450px"></highchart>
+      </div>
+    </div>
+  </div>
+    </div>
+   <!--  <highchart config="IndustryValueChart"  id="IndustryValueChart" style="height: 450px" ng-if="show1" class="economyfade"></highchart>
     <highchart config="NewIndustryValueChart"  id="NewIndustryValueChart" style="height: 450px" ng-if="show2" class="economyfade"></highchart>
     <highchart config="industryIncomeValueChart" id="industryIncomeValueChart" style="height: 450px" ng-if="show3" class="economyfade"></highchart>
     <highchart config="industryProfitValueChart" id="industryProfitValueChart" style="height: 450px" ng-if="show4" class="economyfade"></highchart>
-     <highchart config="industryTaxValueChart" id="industryTaxValueChart" style="height: 450px" ng-if="show5" class="economyfade"></highchart>
+     <highchart config="industryTaxValueChart" id="industryTaxValueChart" style="height: 450px" ng-if="show5" class="economyfade"></highchart> -->
   </div>
  
   </div>
