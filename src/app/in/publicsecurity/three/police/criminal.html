@@ -1,100 +1,91 @@
-
-	<style type="text/css">
-      #criminalMap {height: 500px;overflow: hidden;margin:0;font-family:"微软雅黑";}
-       .anchorBL{  
-       display:none;  }
+<style type="text/css">
+	#criminalMap {height: 500px;overflow: hidden;margin:0;font-family:"微软雅黑";}
+	.anchorBL{  
+		display:none;  }
 	</style>
 
-<div class="details-content">
-	<div class="container" >
 
-		<tabset>
-			<tab heading="刑事案件详情">
-				<div class="row" style="margin-top: 20px;">
-					<div class="col-md-11">
-								<div class="panel panel-primary" style="margin-top: 20px;">
-									<div class="panel-heading">
-										刑事案件警情动态
-										<span class="glyphicon glyphicon-question-sign pull-right"></span>
-									</div>
-									<div class="panel-body">
-											<div class="row">
-											<div class="col-md-12" >		
-													<h4><span class="label label-info">太仓市{{getDate.year}}年{{getDate.month}}月各地区刑事案件形势图</span></h4>
-													<div id="criminalMap"></div>
-											</div>
+	<tab heading="刑事案件详情">
+		<div class="row" style="margin-top: 0px;">
+			<div class="col-md-11">
+			<div class="panel panel-primary">
+					<div class="panel-heading">
+						刑事案件警情动态
+						<span class="glyphicon glyphicon-question-sign pull-right"></span>
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-md-12" >		
+								<h4><span class="label label-info">太仓市{{getDate.year}}年{{getDate.month}}月各地区刑事案件形势图</span></h4>
+								<div id="criminalMap"></div>
+							</div>
 
-										</div>
-										<hr>
-																		<div class="col-md-12" >
-	
-                                            		 <p class="ioc-panel-desc-title">
-													<img src="/images/common/titles/one-sentence.png"/>
-													</p>
-													<div class="well">
-													<p class="ioc-panel-desc-body">{{getDate.year}}年{{getDate.month}}月全市发生各类刑事案件总数 {{totalData.month}} 起。</p>
-													</div>
-											</div>
-													<div class="col-md-12 ">
-									<highchart  id="pieChart"  config="pieChart"  style="height:350px"></highchart>
-										<hr>
-								</div>
+						</div>
+						<hr>
+						<div class="col-md-12" >
 
-											<div class="col-md-12 ">
-									<highchart  id="kpiBarChart"  config="kpiBarChart"  style="height:650px"></highchart>
-								</div>
+							<p class="ioc-panel-desc-title">
 								
-									</div>
-								</div>
-						
-					
-								</div>
-								</div>
-						</tab>
-						<tab heading="全年刑事案件发案情况趋势分析">
-							<div class="row" style="margin-top: 20px;">
-					            <div class="col-md-11">
-								<div class="panel panel-primary" style="margin-top: 20px;">
-									<div class="panel-heading">
-										本年度刑事案件趋势图
-										<span class="glyphicon glyphicon-question-sign pull-right"></span>
-									</div>
-									<div class="panel-body">
-								<div class="row">
-										<div class="col-md-12" >
-	
-                                            		 <p class="ioc-panel-desc-title">
-													<img src="/images/common/titles/one-sentence.png"/>
-													</p>
-													<div class="well">
-													<p class="ioc-panel-desc-body">{{getDate.year}}年截止{{getDate.month}}月末全市发生各类刑事案件总数 {{totalData.year}} 起。
+							</p>
+							<div class="well">
+								<p class="ioc-panel-desc-body">{{getDate.year}}年{{getDate.month}}月全市发生各类刑事案件总数 {{totalData.month}} 起。</p>
+							</div>
+						</div>
+						<div class="col-md-12 ">
+							<highchart  id="pieChart"  config="pieChart"></highchart>
+							<hr>
+						</div>
 
-													</p>
-													</div>
-											</div>
-								<div class="col-md-12 ">
-									<highchart  id="columnChart" config="columnChart" style=""></highchart>
-									<hr>
+						<div class="col-md-12 ">
+							<highchart  id="kpiBarChart"  config="kpiBarChart"></highchart>
+						</div>
+
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+	</tab>
+	
+		
+		
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						本年度刑事案件趋势图
+						<span class="glyphicon glyphicon-question-sign pull-right"></span>
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-md-12" >
+
+								<p class="ioc-panel-desc-title">
+									
+								</p>
+								<div class="well">
+									<p class="ioc-panel-desc-body">{{getDate.year}}年截止{{getDate.month}}月末全市发生各类刑事案件总数 {{totalData.year}} 起。
+
+									</p>
 								</div>
+							</div>
+							<div class="col-md-12 ">
+								<highchart  id="columnChart" config="columnChart" style="width:108%"></highchart>
 								
+							</div>
+
 							
+						</div>
+						<div class="row">
+							<div class="col-md-12" style="width:108%">
+								<highchart  id="columnChart" config="mainCaseColumnChart"></highchart>
 							</div>
-										<div class="row">
-								<div class="col-md-12 ">
-									<highchart  id="columnChart" config="mainCaseColumnChart" style=""></highchart>
-								</div>
 
-							</div>
-							<div>
-
-							</div>
+						</div>
 						
-									</div>
-								</div>
-										</div>
-								</div>
-						</tab>
-					</tabset>
+						
+					</div>
+				</div>
+		
+		
 
-	</div></div>
 
