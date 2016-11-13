@@ -183,7 +183,7 @@ export default ($scope, $state, dateService, qService, kpiDetailService, dictSer
                                 enabled: false
                             },
                             title: {
-                                text: $scope.getDate.year + '年太仓市火灾事故发生数趋势图',
+                                text: $scope.getDate.year + '年太仓市火灾事故数趋势图',
                                 x: -20 //center
                             },
 
@@ -243,7 +243,7 @@ export default ($scope, $state, dateService, qService, kpiDetailService, dictSer
                                     enabled: false
                                 },
                                 title: {
-                                    text: $scope.getDate.year + '年太仓市火灾事故发生数趋势图',
+                                    text: $scope.getDate.year + '年太仓市火灾事故数趋势图',
                                     x: -20 //center
                                 },
 
@@ -275,7 +275,7 @@ export default ($scope, $state, dateService, qService, kpiDetailService, dictSer
                             },
 
                             series: [{
-                                name: '火灾事故数',
+                                
                                 data: $scope.lineChartData.amount
                             }]
 
@@ -319,7 +319,7 @@ export default ($scope, $state, dateService, qService, kpiDetailService, dictSer
                             },
 
                             series: [{
-                                name: '受伤人数(人)',
+                                
                                 data: $scope.lineChartData.injury
                             }]
 
@@ -363,7 +363,7 @@ export default ($scope, $state, dateService, qService, kpiDetailService, dictSer
                             },
 
                             series: [{
-                                name: '死亡人数(人)',
+                               
                                 data: $scope.lineChartData.dead
                             }]
 
@@ -407,7 +407,7 @@ export default ($scope, $state, dateService, qService, kpiDetailService, dictSer
                             },
 
                             series: [{
-                                name: '直接财产损失(万元)',
+                               
                                 data: $scope.lineChartData.damage
                             }]
 
@@ -510,7 +510,7 @@ export default ($scope, $state, dateService, qService, kpiDetailService, dictSer
                         }
                     },
                     title: {
-                        text: $scope.getDate.month + '月份各消防中队火灾受伤人数'
+                        text: $scope.getDate.month + '月各消防中队火灾受伤人数'
                     },
                     series: [{
                         name: '受伤人数',
@@ -561,7 +561,7 @@ export default ($scope, $state, dateService, qService, kpiDetailService, dictSer
                         }
                     },
                     title: {
-                        text: $scope.getDate.month + '月份各消防中队火灾死亡故数'
+                        text: $scope.getDate.month + '月各消防中队火灾死亡故数'
                     },
                     series: [{
                         name: '死亡人数',
@@ -612,7 +612,7 @@ export default ($scope, $state, dateService, qService, kpiDetailService, dictSer
                         }
                     },
                     title: {
-                        text: $scope.getDate.month + '月份各消防中队火灾直接财产损失'
+                        text: $scope.getDate.month + '月各消防中队火灾直接财产损失'
                     },
                     series: [{
                         name: '直接财产损失',
