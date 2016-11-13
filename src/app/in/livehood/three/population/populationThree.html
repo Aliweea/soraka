@@ -67,11 +67,19 @@
           <h4>{{panel_heading[0]}}</h4>
         </div>
         <div ui-if="myAccordion2 == 1">
+          <h>{{ALLDATA.tableName}}</h>
+          <table class="table" style="font-size:16px">
+            <tr ng-repeat="tableData in ALLDATA.tableData">
+              <td>{{tableData.name}}</td>
+              <td align="right">{{tableData.value}}</td>
+            </tr>
+          </table>
           <div class="panel-body">
             <div class="chart-area">
               <highchart config="ALLOPTION.POPULATIONCHART"></highchart>
             </div>
           </div>
+
         </div>
       </div>
       <div class="panel panel-default">
@@ -80,6 +88,13 @@
         </div>
         <div ui-if="myAccordion2 == 2">
           <div class="panel-body">
+            <h>{{ALLDATA.townTableName}}</h>
+            <table class="table" style="font-size:16px">
+              <tr ng-repeat="tableData in ALLDATA.townTableData">
+                <td>{{tableData.name}}</td>
+                <td align="right">{{tableData.value}}</td>
+              </tr>
+            </table>
             <div class="chart-area">
               <highchart config="ALLOPTION.POPULATIONTOWNCHART"></highchart>
             </div>
