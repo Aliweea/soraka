@@ -1,1 +1,44 @@
-punish
+<div class="cmpunish-module">
+	<div class="tabs">
+		<input ng-click="change3To('time');" type="button" class="s1" id="cmrefuse-s1" value="按案件数">
+		<input ng-click="change3To('money');" type="button" class="s2" id="cmrefuse-s2" value="按处罚金额">
+	</div>
+	<div class="key-value-area1">
+		<div class="title-area">
+			<i class="fa fa-lightbulb-o" aria-hidden="true"></i>
+			<span class="title">关键数据解读</span><br>
+		</div>
+		<span class="value">{{oneword1}}</span>
+	</div>
+	<div class="chart-area1">
+		<highchart config="totalChart"></highchart>
+	</div>
+	<div class="key-value-area2">
+		<div class="title-area">
+			<i class="fa fa-pie-chart" aria-hidden="true"></i>
+			<span class="title">行政处罚案由统计</span><br>
+		</div>
+		<i class="fa fa-hand-o-right i-label i-label" aria-hidden="true"></i>
+		<span name="" id="cmPunishTownToogleButton" class="toggle-button">查看数据详情</span>
+	</div>
+	<div class="reasons-toggle-area">
+		<div class=""  id="cmPunishTownTooglePanel">
+			<div class="toggle-bar"></div>
+			<div class="toggle-panel">
+				<span ng-repeat="reason in reasonsShowData" class="item">{{reason[0]}}:<span>{{reason[1]}}{{reasonsDataUnit}}</span></span>
+			</div>
+		</div>
+	</div>
+	<div class="chart-area2">
+		<highchart config="pieChart"></highchart>
+	</div>
+	<div class="key-value-area3">
+		<div class="title-area">
+			<i class="fa fa-bar-chart" aria-hidden="true"></i>
+			<span class="title">各城管执法中队处理案件详情</span><br>
+		</div>
+	</div>
+	<div class="chart-area3">
+		<highchart config="lochusChart"></highchart>
+	</div>
+</div>

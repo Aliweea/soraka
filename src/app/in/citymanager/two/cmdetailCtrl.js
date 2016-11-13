@@ -20,6 +20,7 @@ export default($scope, $rootScope, $stateParams, qService, dService, kpiRes, dat
 	* 根据数据的时间粒度设置当前kpi界面的前置数据
 	*/
 	const cmConfig = () => {
+		$rootScope.loading = true;
 		qService.httpGet(kpiRes.singlekpi, {
 			"currentDate": dateStr,
 			"kpiId": kpiId
@@ -33,6 +34,8 @@ export default($scope, $rootScope, $stateParams, qService, dService, kpiRes, dat
 	        if (err.errorCode == "UNAUTHORIZED") {
 	            $state.go('portal');
 	        } else {}
+	    }).finally(() => {
+	        $rootScope.loading = false;
 	    });
 	}();
 	
@@ -41,6 +44,7 @@ export default($scope, $rootScope, $stateParams, qService, dService, kpiRes, dat
 		$scope.config = config;
 		// 短走势
 		$scope.shortShow = () => {
+			$rootScope.loading = true;
 			qService.httpGet(kpiSpanRes.spankpi,{
 				'kpiID': kpiId,
 				'start': config.startShortStr,
@@ -58,9 +62,12 @@ export default($scope, $rootScope, $stateParams, qService, dService, kpiRes, dat
 		        } else {
 
 		        }
+		    }).finally(() => {
+		        $rootScope.loading = false;
 		    });		
 		};
 		// 长走势
+		$rootScope.loading = true;
 		$scope.longShow = () => {
 			qService.httpGet(kpiSpanRes.spankpi,{
 				'kpiID': kpiId,
@@ -74,6 +81,8 @@ export default($scope, $rootScope, $stateParams, qService, dService, kpiRes, dat
 		        if (err.errorCode == "UNAUTHORIZED") {
 		            $state.go('portal');
 		        } else {}
+		    }).finally(() => {
+		        $rootScope.loading = false;
 		    });		
 		}
 		$scope.shortShow();
