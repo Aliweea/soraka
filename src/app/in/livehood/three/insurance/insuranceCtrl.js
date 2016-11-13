@@ -10,7 +10,20 @@ export default ($scope, qService, generalService, dataDetailFactory, $http, $roo
   $scope.PARTICAPTEDUNIT = "人"
   $scope.ALLOPTION = {}
   $scope.ALLDATA = {}
+//收支详情展开
+$scope.isLink = true;
+  $scope.hideLink = () => {
+    $scope.isLink = false;
+    $scope.isConceal = true;
+  }
+//收缩
 
+  $scope.concealDetail = () => {
+    $scope.isConceal = false;
+     $scope.isLink = true;
+  }
+
+//上面切换模块的隐藏与显示
 $scope.isShow = true;
   $scope.hideBtn = () => {
     $scope.isShow = false;
@@ -128,6 +141,9 @@ $scope.isShow = true;
         credits: {
           enabled: false
         },
+        exporting: {
+          enabled: false, // 取消打印menu
+        },
         xAxis: {
           categories: categories,
           tickmarkPlacement: 'on'
@@ -166,6 +182,9 @@ $scope.isShow = true;
               lineColor: '#666666',
               lineWidth: 1
             },
+               exporting: {
+          enabled: false, // 取消打印menu
+        },
             cursor: 'pointer',
             events: {
               click: function(event) {
@@ -185,6 +204,9 @@ $scope.isShow = true;
 
   function columnstackHighChart(height, categories) {
     this.options = {
+         exporting: {
+          enabled: false, // 取消打印menu
+        },
       colors: generalService.columnColors(),
       chart: {
         type: 'column',
@@ -248,6 +270,9 @@ $scope.isShow = true;
 
   function columnHighChart(height) {
     this.options = {
+         exporting: {
+          enabled: false, // 取消打印menu
+        },
       colors: generalService.columnColors().slice(0,3),
       chart: {
         type: 'column',
@@ -288,6 +313,9 @@ $scope.isShow = true;
         pointFormat: '{series.name}：{point.y:.2f} 万元'
       },
       plotOptions: {
+           exporting: {
+          enabled: false, // 取消打印menu
+        },
         series: {
           dataLabels: {
             enabled: false,
@@ -317,6 +345,9 @@ $scope.isShow = true;
 
   function pieHighchart() {
     this.options = {
+         exporting: {
+          enabled: false, // 取消打印menu
+        },
       colors: generalService.pieColors(),
       credits: {
         enabled: false
