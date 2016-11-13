@@ -149,6 +149,7 @@ export default ($scope, kpiDetailService, dateService) => {
                         outerRadius: '107%'
                     }, {
                         // default background
+                        backgroundColor: '#FFF'
                     }, {
                         backgroundColor: '#DDD',
                         borderWidth: 0,
@@ -160,13 +161,11 @@ export default ($scope, kpiDetailService, dateService) => {
                 yAxis: {
                     min: 0,
                     max: 400,
-
                     minorTickInterval: 'auto',
                     minorTickWidth: 1,
                     minorTickLength: 10,
                     minorTickPosition: 'inside',
                     minorTickColor: '#666',
-
                     tickPixelInterval: 30,
                     tickWidth: 2,
                     tickPosition: 'inside',
@@ -258,6 +257,7 @@ export default ($scope, kpiDetailService, dateService) => {
                         outerRadius: '107%'
                     }, {
                         // default background
+                        backgroundColor: '#FFF'
                     }, {
                         backgroundColor: '#DDD',
                         borderWidth: 0,
@@ -269,13 +269,11 @@ export default ($scope, kpiDetailService, dateService) => {
                 yAxis: {
                     min: 0,
                     max: 250,
-
                     minorTickInterval: 'auto',
                     minorTickWidth: 1,
                     minorTickLength: 10,
                     minorTickPosition: 'inside',
                     minorTickColor: '#666',
-
                     tickPixelInterval: 30,
                     tickWidth: 2,
                     tickPosition: 'inside',
@@ -366,6 +364,7 @@ export default ($scope, kpiDetailService, dateService) => {
                         outerRadius: '107%'
                     }, {
                         // default background
+                        backgroundColor: '#FFF'
                     }, {
                         backgroundColor: '#DDD',
                         borderWidth: 0,
@@ -474,6 +473,7 @@ export default ($scope, kpiDetailService, dateService) => {
                         outerRadius: '107%'
                     }, {
                         // default background
+                        backgroundColor: '#FFF'
                     }, {
                         backgroundColor: '#DDD',
                         borderWidth: 0,
@@ -485,13 +485,11 @@ export default ($scope, kpiDetailService, dateService) => {
                 yAxis: {
                     min: 0,
                     max: 700,
-
                     minorTickInterval: 'auto',
                     minorTickWidth: 1,
                     minorTickLength: 10,
                     minorTickPosition: 'inside',
                     minorTickColor: '#666',
-
                     tickPixelInterval: 30,
                     tickWidth: 2,
                     tickPosition: 'inside',
@@ -583,6 +581,7 @@ export default ($scope, kpiDetailService, dateService) => {
                         outerRadius: '107%'
                     }, {
                         // default background
+                        backgroundColor: '#FFF'
                     }, {
                         backgroundColor: '#DDD',
                         borderWidth: 0,
@@ -630,7 +629,7 @@ export default ($scope, kpiDetailService, dateService) => {
                 }
             },
             series: [{
-                name: '二氧化碳',
+                name: '二氧化氮',
                 data: [0],
                 tooltip: {
                     valueSuffix: 'μg/m³'
@@ -689,6 +688,7 @@ export default ($scope, kpiDetailService, dateService) => {
                         outerRadius: '107%'
                     }, {
                         // default background
+                        backgroundColor: '#FFF'
                     }, {
                         backgroundColor: '#DDD',
                         borderWidth: 0,
@@ -795,6 +795,7 @@ export default ($scope, kpiDetailService, dateService) => {
                         outerRadius: '107%'
                     }, {
                         // default background
+                        backgroundColor: '#FFF'
                     }, {
                         backgroundColor: '#DDD',
                         borderWidth: 0,
