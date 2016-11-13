@@ -1,47 +1,85 @@
 <div>
-    <div class="panel panel-primary" style="margin-top: 20px;">
-        <div class="panel-heading">
-            信访信件统计
-            <span class="glyphicon glyphicon-question-sign pull-right"></span>
-        </div>
-        <div class="panel-body">
-            <div class="row">
-                <div class="col-md-12 ">
-                    <tabset>
-                        <tab heading="信件数量">
+    <div class="panel-group" ui-state="petitionAccordion" ui-default="1">
+        <div class="panel panel-primary" style="margin-top: 10px;">
+            <div class="panel-heading" ui-set="{'petitionAccordion': 1}">
+                信访信件统计
+                <span class="glyphicon glyphicon-question-sign pull-right"></span>
+            </div>
+            <div ui-if="petitionAccordion == 1">
+                <div ui-state="activeTab" default="1">
+                    <div class="panel-body">
+                        <div class="btn-group justified nav-tabs">
+                            <a ui-set="{'activeTab': 1}" ui-class="{'active':activeTab==1}" class="btn btn-default">信件数量</a>
+                            <a ui-set="{'activeTab': 2}" ui-class="{'active':activeTab==2}" class="btn btn-default">结案率</a>
+                        </div>
+                        <div class="row">
                             <div class="col-md-12 ">
-                                <highchart id="columnChart2" config="columnChart2" style="height:550px"></highchart>
+                                <tabset>
+                                        <tab heading="信件数量" ui-if="activeTab==1">
+                                            <div class="col-md-12 " style="margin-top: 10px">
+                                                <highchart id="columnChart2" config="columnChart2" style=""></highchart>
+                                            </div>
+                                        </tab>
+                                    <hr>
+                                    <tab heading="结案率" ui-if="activeTab==2">
+                                        <div class="col-md-9 chart-panel" style="margin-top: 10px">
+                                            <highchart id="PieChart" config="PieChart" style=""></highchart>
+                                            <hr>
+                                        </div>
+                                    </tab>
+                                </tabset>
                             </div>
-                        </tab>
-                        <hr>
-                        <tab heading="结案率">
-                            <div class="col-md-9 chart-panel" style="margin-top: 50px">
-                                <highchart id="PieChart" config="PieChart" style="height:400px"></highchart>
-                                <hr>
-                            </div>
-                        </tab>
-                    </tabset>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            越级上访动态
-            <span class="glyphicon glyphicon-question-sign pull-right"></span>
-        </div>
-        <div class="panel-body">
-            <div class="row">
-                <div class="col-md-9 chart-panel">
-                    <highchart config="columnChart1"></highchart>
+        <div class="panel panel-primary">
+            <div class="panel-heading" ui-set="{'petitionAccordion': 2}">
+                越级上访动态
+                <span class="glyphicon glyphicon-question-sign pull-right"></span>
+            </div>
+            <div ui-if="petitionAccordion == 2">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-9 chart-panel">
+                            <highchart config="columnChart1"></highchart>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div>
-        <highchart id="lineChart" config="lineChart"></highchart>
-    </div>
-    <div style="margin-top: 30px">
-        <highchart id="lineChart1" config="lineChart1"></highchart>
+        <div class="panel panel-primary">
+            <div class="panel-heading" ui-set="{'petitionAccordion': 3}">
+                全年上访信件趋势
+                <span class="glyphicon glyphicon-question-sign pull-right"></span>
+            </div>
+            <div ui-if="petitionAccordion == 3">
+                <div ui-state="activeTab1" default="3">
+                    <div class="panel-body">
+                        <div class="btn-group justified nav-tabs">
+                            <a ui-set="{'activeTab1': 3}" ui-class="{'active':activeTab1==3}" class="btn btn-default">越级上访信件趋势</a>
+                            <a ui-set="{'activeTab1': 4}" ui-class="{'active':activeTab1==4}" class="btn btn-default">群众上访信件趋势</a>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-9 chart-panel" ui-if="activeTab1==3">
+                                <highchart id="lineChart" config="lineChart"></highchart>
+                            </div>
+                            <hr>
+                            <div style="margin-top: 10px" ui-if="activeTab1==4">
+                                <highchart id="lineChart1" config="lineChart1"></highchart>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--
+        <div>
+            <highchart id="lineChart" config="lineChart"></highchart>
+        </div>
+        <div style="margin-top: 30px">
+            <highchart id="lineChart1" config="lineChart1"></highchart>
+        </div>  -->
     </div>
 </div>
