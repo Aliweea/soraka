@@ -8,11 +8,19 @@
         </li>
     </ul>
     <div ui-if="activeTab == 1">
-        <div class="scrollable"style="margin-top: 100px;height: 500px">
+        <div class="scrollable"style="margin-top: 50px;height: 500px">
             <div class="scrollable-content" >
+                <div style="height: 30px; display: flex;display: -webkit-flex;flex-direction: row;justify-content: center;align-items: center;">
+                    <div style="width: 100%;height: 30px;box-shadow: 3px 3px 6px -4px white;border-radius: 5px;display: flex;display: -webkit-flex;flex-direction: row;justify-content: center;align-items: center;">
+                        <span style="font-size: 2em">CPI详情</span>
+                    </div>
+                </div>
+                <div style="height: 40px;display: flex;display: -webkit-flex;flex-direction: row;justify-content: center;align-items: center;">
+                    <span class="label label-primary">物价局</span>
+                    <span class="label" style="color: black">每月更新</span>
+
+                </div>
                 <li>CPI趋势</li>
-                <li>时间: {{gi.year}} 年 {{gi.month}} 月 </li>
-                <span ng-show="false">{{gi = dataMap.InvestData.lastestObject}}</span>
                 <div class="table-responsive" style="padding:5px">
                     <table class="table">
                         <tr>
@@ -28,8 +36,6 @@
                     </table>
                 </div>
                 <li>CPI类别同比累计比</li>
-                <li>时间:{{gi.year}}年{{gi.month}}月</li>
-                <span ng-show="false">{{gi = dataMap.InvestData.lastestObject}}</span>
                 <div class="table-responsive" style="padding:5px">
                     <table class="table">
                         <tr>
@@ -45,8 +51,6 @@
                     </table>
                 </div>
                 <li>{{currentCategory}}CPI趋势</li>
-                <li>时间: {{ci.year}} 年 {{ci.month}} 月</li>
-                <span ng-show="false">{{ci = dataMap.ImportData.lastestObject}}</span>
                 <div class="table-responsive" style="padding:5px">
                     <table class="table">
                         <tr>
@@ -68,23 +72,92 @@
     </div>
 
     <div ui-if="activeTab == 2">
-        <div class="scrollable"style="margin-top: 110px;height: 545px">
+        <div class="scrollable" style="margin-top: 50px;height: 500px">
             <div class="scrollable-content" ng-click="show()">
                 <div style="height: 30px; display: flex;display: -webkit-flex;flex-direction: row;justify-content: center;align-items: center;">
                     <div style="width: 100%;height: 30px;box-shadow: 3px 3px 6px -4px white;border-radius: 5px;display: flex;display: -webkit-flex;flex-direction: row;justify-content: center;align-items: center;">
-                        <span style="font-size: 2em">CPI</span>
+                        <span style="font-size: 2em">CPI详情</span>
                     </div>
                 </div>
-                <div style="height: 40px;display: flex;display: -webkit-flex;flex-direction: row;justify-content: center;align-items: center;">
-                    <span ng-show="false">{{ci = dataMap.ImportData.lastestObject}}</span>
-                    <span class="label label-primary">物价局</span>
-                    <span class="label" style="color: black;margin-left: 5px">时间:{{ci.year}} 年 {{ci.month}} 月</span>
-                    <span class="label" style="color: black">每月更新</span>
+                <div class="panel-group" ui-state="myAccordion" ui-default="2">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" ui-set="{'myAccordion': 2}">
+                            <h4 class="panel-title">
+                                CPI趋势
+                            </h4>
+                        </div>
+                        <div ui-if="myAccordion == 2">
+                            <div class="panel-body">
+                                <highchart config="cpiHighChartOptions.cpiTrendOption"  id="InvestValueChart"  style="height: 450px"></highchart>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" ui-set="{'myAccordion': 1}">
+                            <h4 class="panel-title">
+                                居民消费价格指数类别同比累计比
+                            </h4>
+                        </div>
+                        <div ui-if="myAccordion == 1">
+                            <div class="panel-body">
+                                <highchart config="cpiHighChartOptions.categoryDetailOption"  id="ClassInvestValueChart" style="height: 450px"></highchart>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" ui-set="{'myAccordion': 3}">
+                            <h4 class="panel-title">
+                                {{currentCategory}}居民消费价格指数趋势
+                            </h4>
+                        </div>
+                        <div ui-if="myAccordion == 3">
+                            <div class="panel-body">
+                                <highchart config="cpiHighChartOptions.detailTrendOption" id="CapitalValueChart" style="height: 450px"></highchart>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" ui-set="{'myAccordion': 4}">
+                            <h4 class="panel-title">
+                                太仓市农副产品市场价格走势
+                            </h4>
+                        </div>
+                        <div ui-if="myAccordion == 4">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="span9 col-md-9 chart-panel">
+                                        <highchart id="foodPriceHighChart" config="foodPriceHighChartOption"></highchart>
+                                    </div>
+                                    <div class="span3 col-md-3">
+                                        <button class="btn btn-default btn-block" ng-click="initFoodPriceHighChart()" style="background-color:lightgreen">恢复图表至默认</button>
+                                        <hr>
+                                        <h4 style="padding-left:60px">农副产品种类</h4>
+                                        <p style="padding-left:30px;font-size:14px">
+                                            请选择您想查看的副食品种类
+                                        </p>
+                                        <div class="row">
+                                            <div ng-repeat="tempFoodType in PRICEDATA" style="margin-bottom: 10px">
+                                                <button class="btn btn-default btn-block" ng-click="tempFoodType.isCollapsed = !tempFoodType.isCollapsed">{{tempFoodType.name}}</button>
+                                                <div collapse="!tempFoodType.isCollapsed" style="border: 1px solid black; background-color:skyblue">
+                                                    <div class="row">
+                                                        <div class="col-md-6" ng-repeat="tempFood in tempFoodType.data" style="font-size: 14px">
+                                                            <label class="col-md-10">{{tempFood.name}}</label>
+                                                            <input class="col-md-2" type="checkbox" ng-model="tempFood.model" ng-change="checkBoxChange(tempFood)">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <highchart config="cpiHighChartOptions.cpiTrendOption"  id="InvestValueChart" style="height: 450px"  class="pricefade"></highchart>
-                <highchart config="cpiHighChartOptions.categoryDetailOption"  id="ClassInvestValueChart" style="height: 450px"  class="pricefade"></highchart>
-                <highchart config="cpiHighChartOptions.detailTrendOption" id="CapitalValueChart" style="height: 450px"  class="pricefade"></highchart>
-                <highchart config="foodPriceHighChartOption" id="foodPriceHighChart" style="height: 450px"  class="pricefade"></highchart>
+                <!-- <highchart config="InvestValueChart"  id="InvestValueChart" style="height: 450px" ng-if="show1" class="economyfade"></highchart>
+                <highchart config="ClassInvestValueChart"  id="ClassInvestValueChart" style="height: 450px" ng-if="show2" class="economyfade"></highchart>
+                <highchart config="CapitalValueChart" id="CapitalValueChart" style="height: 450px" ng-if="show3" class="economyfade"></highchart>
+                <highchart config="ImportCapitalValueChart" id="ImportCapitalValueChart" style="height: 450px" ng-if="show4" class="economyfade"></highchart> -->
             </div>
 
         </div>
@@ -92,26 +165,4 @@
     </div>
 
 
-</div>
-<div class="navbar navbar-app navbar-absolute-bottom">
-    <div class="btn-group btn-group-justified">
-        <div class="btn-group">
-            <a type="button" class="btn btn-default" ui-sref="app.livehood.priceThree">返回上页</a>
-        </div>
-        <div class="btn-group">
-            <a type="button" class="btn btn-default" ui-turn-on="modal2"></a>
-        </div>
-        <div class="btn-group">
-            <a type="button" class="btn btn-default" ui-turn-off="modal2"></a>
-        </div>
-    </div>
-    <script>
-        function animationIn(i){
-            console.log(i,'i\'m in')
-        }
-
-        function animationOut(i){
-            console.log(i,'i\'m out')
-        }
-    </script>
 </div>
