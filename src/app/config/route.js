@@ -273,13 +273,57 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       templateUrl:'app/in/livehood/three/price/priceThree.html',
       controller:'priceThreeCtrl'
     })    
-    //社会保险三级界面UBEI
+    //社会保险三级界面
       .state('app.inThDetail', {
       url: '/InsuranceChart/UrbanBasicEndowmentInsuranceData',
       name: 'UBEI',
       templateUrl: 'app/in/livehood/three/insurance/insurance.html',
       controller: 'insuranceCtrl'
     })
+      //社保三级子界面
+ .state('app.inThDetail.UBEI', {
+      url: '/InsuranceChart/UrbanBasicEndowmentInsuranceData',
+      name: 'UBEI',
+      templateUrl: 'app/in/livehood/three/insurance/inThDetail/inThDetail.html',
+      controller: 'insuranceCtrl'
+    })
+      .state('app.inThDetail.UI', {
+      url: '/InsuranceChart/UnemploymentInsuranceData',
+      name: 'UBEI',
+      templateUrl: 'app/in/livehood/three/insurance/inThDetail/inThDetail.html',
+      controller: 'insuranceCtrl'
+    })
+         .state('app.inThDetail.UBMI', {
+      url: '/InsuranceChart/UrbanBasicMedicalInsuranceData',
+      name: 'UBMI',
+      templateUrl: 'app/in/livehood/three/insurance/inThDetail/inThDetail.html',
+      controller: 'insuranceCtrl'
+    })
+         .state('app.inThDetail.URMI', {
+      url: '/InsuranceChart/UrbanResidentsMedicalInsuranceData',
+      name: 'URMI',
+      templateUrl: 'app/in/livehood/three/insurance/inThDetail/inThDetail.html',
+      controller: 'insuranceCtrl'
+    })
+         .state('app.inThDetail.EII', {
+      url: '/InsuranceChart/EmploymentInjuryInsuranceData',
+      name: 'EII',
+      templateUrl: 'app/in/livehood/three/insurance/inThDetail/inThDetail.html',
+      controller: 'insuranceCtrl'
+    })
+            .state('app.inThDetail.MI', {
+      url: '/InsuranceChart/MaternityInsuranceData',
+      name: 'MI',
+      templateUrl: 'app/in/livehood/three/insurance/inThDetail/inThDetail.html',
+      controller: 'insuranceCtrl'
+    })
+      .state('app.inThDetail.RBEI', {
+      url: '/InsuranceChart/ResidentsBasicEndowmentInsuranceData',
+      name: 'RBEI',
+      templateUrl: 'app/in/livehood/three/insurance/inThDetail/inThDetail.html',
+      controller: 'insuranceCtrl'
+    })
+
         
     //公共事业
     .state('app.publicService', {
