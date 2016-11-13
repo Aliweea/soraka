@@ -20,7 +20,6 @@ export default ($scope, kpiDetailService, dateService) => {
         $scope.tab2 = true;
     }
 
-
     var processFunction = function (data) {
 
         var dataall = {data: []};
@@ -57,15 +56,13 @@ export default ($scope, kpiDetailService, dateService) => {
             "yAxis": 0,
             "type": 'column',
             "tooltip": {valueSuffix: '万千瓦时'}
-        },
-
-            {
-                "name": "用电量累计比上年同期增加%",
-                "data": [],
-                "yAxis": 1,
-                "type": 'spline',
-                "tooltip": {valueSuffix: '%'}
-            }];
+        }, {
+            "name": "用电量累计比上年同期增加%",
+            "data": [],
+            "yAxis": 1,
+            "type": 'spline',
+            "tooltip": {valueSuffix: '%'}
+        }];
         //第二产业数据
         var category_dierchanye = [];
         var dier_data = [{
@@ -74,14 +71,13 @@ export default ($scope, kpiDetailService, dateService) => {
             "yAxis": 0,
             "type": 'column',
             "tooltip": {valueSuffix: '万千瓦时'}
-        },
-            {
-                "name": "用电量累计比上年同期增加%",
-                "data": [],
-                "yAxis": 1,
-                "type": 'spline',
-                "tooltip": {valueSuffix: '%'}
-            }];
+        }, {
+            "name": "用电量累计比上年同期增加%",
+            "data": [],
+            "yAxis": 1,
+            "type": 'spline',
+            "tooltip": {valueSuffix: '%'}
+        }];
         //第三产业数据
         var category_disanchanye = [];
         var disan_data = [{
@@ -90,14 +86,13 @@ export default ($scope, kpiDetailService, dateService) => {
             "yAxis": 0,
             "type": 'column',
             "tooltip": {valueSuffix: '万千瓦时'}
-        },
-            {
-                "name": "用电量累计比上年同期增加%",
-                "data": [],
-                "yAxis": 1,
-                "type": 'spline',
-                "tooltip": {valueSuffix: '%'}
-            }];
+        }, {
+            "name": "用电量累计比上年同期增加%",
+            "data": [],
+            "yAxis": 1,
+            "type": 'spline',
+            "tooltip": {valueSuffix: '%'}
+        }];
         //农林牧渔业电力消耗
         var category_nonglingmuyuhangye = [];
         var nonglingmuyuhangye_data = [{
@@ -106,14 +101,13 @@ export default ($scope, kpiDetailService, dateService) => {
             "yAxis": 0,
             "type": 'column',
             "tooltip": {valueSuffix: '万千瓦时'}
-        },
-            {
-                "name": "用电量累计比上年同期增加%",
-                "data": [],
-                "yAxis": 1,
-                "type": 'spline',
-                "tooltip": {valueSuffix: '%'}
-            }];
+        }, {
+            "name": "用电量累计比上年同期增加%",
+            "data": [],
+            "yAxis": 1,
+            "type": 'spline',
+            "tooltip": {valueSuffix: '%'}
+        }];
 
         var category_gongyehangye = [];
         var gongyehangye_data = [{
@@ -122,14 +116,13 @@ export default ($scope, kpiDetailService, dateService) => {
             "yAxis": 0,
             "type": 'column',
             "tooltip": {valueSuffix: '万千瓦时'}
-        },
-            {
-                "name": "用电量累计比上年同期增加%",
-                "data": [],
-                "yAxis": 1,
-                "type": 'spline',
-                "tooltip": {valueSuffix: '%'}
-            }];
+        }, {
+            "name": "用电量累计比上年同期增加%",
+            "data": [],
+            "yAxis": 1,
+            "type": 'spline',
+            "tooltip": {valueSuffix: '%'}
+        }];
 
         var category_jianzhuyehangye = [];
         var jianzhuyehangye_data = [{
@@ -138,14 +131,13 @@ export default ($scope, kpiDetailService, dateService) => {
             "yAxis": 0,
             "type": 'column',
             "tooltip": {valueSuffix: '万千瓦时'}
-        },
-            {
-                "name": "用电量累计比上年同期增加%",
-                "data": [],
-                "yAxis": 1,
-                "type": 'spline',
-                "tooltip": {valueSuffix: '%'}
-            }];
+        }, {
+            "name": "用电量累计比上年同期增加%",
+            "data": [],
+            "yAxis": 1,
+            "type": 'spline',
+            "tooltip": {valueSuffix: '%'}
+        }];
         var category_jtccyzhangye = [];
         var jtccyzhangye_data = [{
             "name": "交通运输、仓储和邮政业电力消耗量",
@@ -153,14 +145,13 @@ export default ($scope, kpiDetailService, dateService) => {
             "yAxis": 0,
             "type": 'column',
             "tooltip": {valueSuffix: '万千瓦时'}
-        },
-            {
-                "name": "用电量累计比上年同期增加%",
-                "data": [],
-                "yAxis": 1,
-                "type": 'spline',
-                "tooltip": {valueSuffix: '%'}
-            }];
+        }, {
+            "name": "用电量累计比上年同期增加%",
+            "data": [],
+            "yAxis": 1,
+            "type": 'spline',
+            "tooltip": {valueSuffix: '%'}
+        }];
         var category_xxjsjrjhangye = [];
         var xxjsjrjhangye_data = [{
             "name": "信息传输、计算机服务和软件业电力消耗量",
@@ -168,14 +159,13 @@ export default ($scope, kpiDetailService, dateService) => {
             "yAxis": 0,
             "type": 'column',
             "tooltip": {valueSuffix: '万千瓦时'}
-        },
-            {
-                "name": "用电量累计比上年同期增加%",
-                "data": [],
-                "yAxis": 1,
-                "type": 'spline',
-                "tooltip": {valueSuffix: '%'}
-            }];
+        }, {
+            "name": "用电量累计比上年同期增加%",
+            "data": [],
+            "yAxis": 1,
+            "type": 'spline',
+            "tooltip": {valueSuffix: '%'}
+        }];
         var category_pflszscyhangye = [];
         var pflszscyhangye_data = [{
             "name": "批发和零售、住宿和餐饮业电力消耗量",
@@ -183,14 +173,13 @@ export default ($scope, kpiDetailService, dateService) => {
             "yAxis": 0,
             "type": 'column',
             "tooltip": {valueSuffix: '万千瓦时'}
-        },
-            {
-                "name": "用电量累计比上年同期增加%",
-                "data": [],
-                "yAxis": 1,
-                "type": 'spline',
-                "tooltip": {valueSuffix: '%'}
-            }];
+        }, {
+            "name": "用电量累计比上年同期增加%",
+            "data": [],
+            "yAxis": 1,
+            "type": 'spline',
+            "tooltip": {valueSuffix: '%'}
+        }];
         var category_jrfdcswjmfwyhangye = [];
         var jrfdcswjmfwyhangye_data = [{
             "name": "金融、房地产、商务及居民服务业电力消耗量",
@@ -198,14 +187,13 @@ export default ($scope, kpiDetailService, dateService) => {
             "yAxis": 0,
             "type": 'column',
             "tooltip": {valueSuffix: '万千瓦时'}
-        },
-            {
-                "name": "用电量累计比上年同期增加%",
-                "data": [],
-                "yAxis": 1,
-                "type": 'spline',
-                "tooltip": {valueSuffix: '%'}
-            }];
+        }, {
+            "name": "用电量累计比上年同期增加%",
+            "data": [],
+            "yAxis": 1,
+            "type": 'spline',
+            "tooltip": {valueSuffix: '%'}
+        }];
         var category_ggsyglhangye = [];
         var ggsyglhangye_data = [{
             "name": "公共事业及管理组织电力消耗量",
@@ -213,14 +201,13 @@ export default ($scope, kpiDetailService, dateService) => {
             "yAxis": 0,
             "type": 'column',
             "tooltip": {valueSuffix: '万千瓦时'}
-        },
-            {
-                "name": "用电量累计比上年同期增加%",
-                "data": [],
-                "yAxis": 1,
-                "type": 'spline',
-                "tooltip": {valueSuffix: '%'}
-            }];
+        }, {
+            "name": "用电量累计比上年同期增加%",
+            "data": [],
+            "yAxis": 1,
+            "type": 'spline',
+            "tooltip": {valueSuffix: '%'}
+        }];
         var category_chengzhenshenghuo = [];
         var chengzhenshenghuo_data = [{
             "name": "城镇生活电力消耗量",
@@ -228,14 +215,13 @@ export default ($scope, kpiDetailService, dateService) => {
             "yAxis": 0,
             "type": 'column',
             "tooltip": {valueSuffix: '万千瓦时'}
-        },
-            {
-                "name": "用电量累计比上年同期增加%",
-                "data": [],
-                "yAxis": 1,
-                "type": 'spline',
-                "tooltip": {valueSuffix: '%'}
-            }];
+        }, {
+            "name": "用电量累计比上年同期增加%",
+            "data": [],
+            "yAxis": 1,
+            "type": 'spline',
+            "tooltip": {valueSuffix: '%'}
+        }];
         var category_nongcunshenghuo = [];
         var nongcunshenghuo_data = [{
             "name": "农村生活电力消耗量",
@@ -243,34 +229,30 @@ export default ($scope, kpiDetailService, dateService) => {
             "yAxis": 0,
             "type": 'column',
             "tooltip": {valueSuffix: '万千瓦时'}
-        },
-            {
-                "name": "用电量累计比上年同期增加%",
-                "data": [],
-                "yAxis": 1,
-                "type": 'spline',
-                "tooltip": {valueSuffix: '%'}
-            }];
+        }, {
+            "name": "用电量累计比上年同期增加%",
+            "data": [],
+            "yAxis": 1,
+            "type": 'spline',
+            "tooltip": {valueSuffix: '%'}
+        }];
         var category_shenghuo = [];
         var shenghuodianli_data = [{
             "name": "农村生活电力消耗量",
             "data": [],
             "tooltip": {valueSuffix: '万千瓦时'}
-        },
-            {
-                "name": "城镇生活电力消耗量",
-                "data": [],
-                "tooltip": {valueSuffix: '万千瓦时'}
-            }];
+        }, {
+            "name": "城镇生活电力消耗量",
+            "data": [],
+            "tooltip": {valueSuffix: '万千瓦时'}
+        }];
 
         kpiDetailService.getLastestObject('EnergydianliData', ['applyTime'], function (datat) {
-
             var dtime = dateService.getSystemTime();
             var dd = new Date(dtime);
             var yy = dd.getFullYear();
             var mm = dd.getMonth() + 1;//获取当前月份的日期
             var ddd = dd.getDate();
-
             kpiDetailService.query("EnergydianliData", yy + "-01-01", yy + "-12-31", function (data) {
                 kpiDetailService.query("EnergydianliData", datat.data.year + "-01-01", datat.data.year + "-12-31", function (datamax) {
                     if (data.data.length == 0) {
@@ -500,7 +482,7 @@ export default ($scope, kpiDetailService, dateService) => {
                             plotShadow: false,
                             width: $(window).width() * 0.9,
                             height: $(window).width() * 0.8,
-                            margin: [20,0,40,0]
+                            margin: [20, 0, 40, 0]
                         },
                         exporting: {
                             enabled: false
@@ -1094,6 +1076,6 @@ export default ($scope, kpiDetailService, dateService) => {
             });
         });
     }
-
     kpiDetailService.query("EnergydianliData", "2014-01-01", "2014-12-31", processFunction);
-};
+}
+;

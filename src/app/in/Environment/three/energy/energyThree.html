@@ -18,24 +18,16 @@
                 {{nowyear}}{{nowmonth}}电力消耗关键数据<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
             </div>
             <div class="panel-body">
-                <div style="display: inline-block;">
-                    <img style="height: 50px;width: 50px;float: left;" src="/assets/images/Environment/dianli.png"/>
-                    <span>第一产业</span><br>
-                    <span>{{diyichanye_value}}</span><br>
-                    <span>万千瓦时</span>
-                </div>
-                <div style="display: inline-block;">
-                    <img style="height: 50px;width: 50px;float: left;" src="/assets/images/Environment/dianli.png"/>
-                    <span>第二产业</span><br>
-                    <span>{{dierchanye_value}}</span><br>
-                    <span>万千瓦时</span>
-                </div>
-                <div style="display: inline-block;">
-                    <img style="height: 50px;width: 50px;float: left;" src="/assets/images/Environment/dianli.png"/>
-                    <span>第三产业</span><br>
-                    <span>{{disanchanye_value}}</span><br>
-                    <span>万千瓦时</span>
-                </div>
+                <table style="width: 100%">
+                    <tr>
+                        <td rowspan="2"><img src="/assets/images/Environment/dianli.png"/></td>
+                        <td>第一产业电力消耗量{{diyichanye_value}}万千瓦时</td>
+                        <td rowspan="2"><img src="/assets/images/Environment/dianli.png"/></td>
+                        <td>第二产业电力消耗量{{dierchanye_value}}万千瓦时</td>
+                        <td rowspan="2"><img src="/assets/images/Environment/dianli.png"/></td>
+                        <td>第三产业电力消耗量{{disanchanye_value}}万千瓦时</td>
+                    </tr>
+                </table>
             </div>
         </div>
         <div class="panel panel-success" style="margin-top:20px">
@@ -201,18 +193,14 @@
             {{nowyear}}{{nowmonth}}电力消耗关键数据<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
         </div>
         <div class="panel-body">
-            <div style="display: inline-block;margin-left: 5%">
-                <img style="height: 50px;width: 50px;float: left;" src="/assets/images/Environment/dianli.png"/>
-                <span>城镇生活电力</span><br>
-                <span>消耗{{chengzhengyongdianliang_value}}</span><br>
-                <span>万千瓦时</span>
-            </div>
-            <div style="display: inline-block;margin-left: 10%">
-                <img style="height: 50px;width: 50px;float: left;" src="/assets/images/Environment/dianli.png"/>
-                <span>农村生活电力</span><br>
-                <span>消耗{{nongcunyongdianliang_value}}</span><br>
-                <span>万千瓦时</span>
-            </div>
+            <table style="width: 100%">
+                <tr>
+                    <td rowspan="2"><img src="/assets/images/Environment/dianli.png"/></td>
+                    <td>城镇生活电力消耗量{{chengzhengyongdianliang_value}}万千瓦时</td>
+                    <td rowspan="2"><img src="/assets/images/Environment/dianli.png"/></td>
+                    <td>农村生活电力消耗量{{nongcunyongdianliang_value}}万千瓦时</td>
+                </tr>
+            </table>
         </div>
     </div>
     <div class="panel panel-success" style="margin-top:20px">
