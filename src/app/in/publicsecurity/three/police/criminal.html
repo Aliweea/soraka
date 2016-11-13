@@ -10,8 +10,8 @@
 	</div> 
 
 
-	<div class="col-md-12" >		
-		<h4><span class="label label-info">太仓市{{getDate.year}}年{{getDate.month}}月各地区刑事案件形势图</span></h4>
+	<div style="margin-top:5px;margin-bottom:0;"> 		
+		<h4><span class="label label-info" style="padding-left:0;">太仓市{{getDate.year}}年{{getDate.month}}月各地区刑事案件形势图</span></h4>
 		<div id="criminalMap"></div>
 	</div>
 	
@@ -21,8 +21,8 @@
 	</div>
 	<div>
 		<highchart  id="pieChart"  config="pieChart"></highchart>
-		<hr>
 	</div>
+	<br>
 	<div>
 		<highchart  id="kpiBarChart"  config="kpiBarChart"></highchart>
 	</div>				
@@ -32,7 +32,7 @@
 	</div> 				
 	
 	
-	<div class="well" style="padding-left:0;margin-top:10px;margin-bottom:0px;height:10px">
+	<div class="well" style="padding-left:0;margin-top:5px;margin-bottom:0px;height:10px">
 		<p class="ioc-panel-desc-body">截止{{getDate.year}}年{{getDate.month}}月末全市发生各类刑事案件总数 {{totalData.year}}起。</p>
 	</div>
 	<highchart  id="columnChart" config="columnChart"></highchart>
