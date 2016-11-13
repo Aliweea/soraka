@@ -23,8 +23,7 @@ export default ($scope, kpiDetailService, dateService) => {
      * 变量区
      *
      */
-
-        //基本变量
+    //基本变量
     var dateTime = new Date();
 
     var year = dateTime.getFullYear();
@@ -1123,7 +1122,6 @@ export default ($scope, kpiDetailService, dateService) => {
         $scope.waterConditionOptions.waterConditionCurrentOption.series[1].data = waterConditionCurrentArr[0].index_levelDown;
 
     };
-
     //水情 Button点击事件
     $scope.waterConditionBtn = function () {
         $scope.mapTableStatus = {
@@ -1135,20 +1133,16 @@ export default ($scope, kpiDetailService, dateService) => {
         addMarker(waterConditionMarkerArr, 'waterCondition');
         mapObj.setFitView();
     };
-
     //水情 列表点击事件
     $scope.waterConditionCurrentChange = function (waterConditionOne) {
-
         $scope.waterConditionOneSentence = {
             monitor: waterConditionOne.monitor,
             flowStatus: WaterConditionStatusUpLevel(waterConditionOne.index_levelUp[5]),
             levelStatus: WaterConditionStatusDownLevel(waterConditionOne.index_levelDown[5]),
         };
-
         $scope.waterConditionOptions.waterConditionCurrentOption.series[0].data = waterConditionOne.index_levelUp;
         $scope.waterConditionOptions.waterConditionCurrentOption.series[1].data = waterConditionOne.index_levelDown;
     };
-
     //水情 模块整体状态获取
     function getWaterConditionStatus(waterConditionMarker) {
         var countResult = {
@@ -1161,7 +1155,6 @@ export default ($scope, kpiDetailService, dateService) => {
             else if (waterConditionMarker[i].monitor_status == 'accept') countResult.accept += 1;
             else countResult.invalid += 1;
         }
-
         $scope.waterConditionQualified = countResult.accept + '/' + waterConditionMarker.length;
 
         if (countResult.caution >= 1)
@@ -1178,7 +1171,6 @@ export default ($scope, kpiDetailService, dateService) => {
                 sentence: '存在' + countResult.invalid + '监测点数据未更新'
             };
     };
-
     //水情 监测站状态获取
     function getWaterConditionMonitorStatus(waterConditionMarkerOne) {
         var indexStatusList = {
@@ -1203,7 +1195,6 @@ export default ($scope, kpiDetailService, dateService) => {
         else if (countResult.accept == statusList.length) return 'accept';
         else return 'invalid';
     }
-
     //水情 指标状态获取
     function WaterConditionStatusUpLevel(data) {
         if (data <= waterConditionScan.upLevel) {
@@ -1218,7 +1209,6 @@ export default ($scope, kpiDetailService, dateService) => {
             }
         }
     };
-
     function WaterConditionStatusDownLevel(data) {
         if (data <= waterConditionScan.downLevel) {
             return {
@@ -1232,7 +1222,6 @@ export default ($scope, kpiDetailService, dateService) => {
             }
         }
     };
-
     //废水排放 http请求后处理过程（即http.success(function(data))中的function)
     var wasteWaterCurrentSuccess = function (data) {
         if (data.data.length == 0) return null;
@@ -1257,7 +1246,6 @@ export default ($scope, kpiDetailService, dateService) => {
             });
         }
         wasteWaterMarkerArr = wasteWaterMarkerTemp;
-
         var wasteWaterMarkerAllTemp = [];
         wasteWaterMarkerCurrentAllArr = wasteWaterCurrentAllGet(data);
         for (var i = 0; i < wasteWaterMarkerCurrentAllArr.length; i++) {
@@ -1273,26 +1261,19 @@ export default ($scope, kpiDetailService, dateService) => {
                 index_p: wasteWaterMarkerCurrentAllArr[i].index_p[5]
             });
         }
-
         wasteWaterMarkerArrAll = wasteWaterMarkerAllTemp;
-
         //废水排放表格列表数据
         $scope.wasteWaterMarkerList = wasteWaterMarkerArrAll;
-
         //废水排放模块整体状态初始化
         $scope.wasteWaterStatus = getWasteWaterStatus(wasteWaterMarkerArrAll);
-
         //Radio列表选择状态
         $scope.wasteWaterCurrentList = ['废水排放量', 'COD浓度', '氨氮浓度', '总磷浓度'];
         $scope.wasteWaterCurrentListSelected = '废水排放量';
-
         //一句话初始化
         $scope.wasteWaterOneSentence = {
             index: '废水排放量',
             countResult: null
         };
-
-
         $scope.wasteWaterOptions.wasteWaterCurrentOption.options.chart.type = 'area';
         $scope.wasteWaterOptions.wasteWaterCurrentOption.options.title.text = '废水排放总量';
         $scope.wasteWaterOptions.wasteWaterCurrentOption.options.xAxis = {
@@ -1322,7 +1303,6 @@ export default ($scope, kpiDetailService, dateService) => {
             }
         };
         var wasteWaterSeriesTemp = [];
-
         for (var i = 0; i < wasteWaterCurrentArr.length; i++) {
             wasteWaterSeriesTemp.push({
                 name: wasteWaterCurrentArr[i].wasteSource,
@@ -1331,7 +1311,6 @@ export default ($scope, kpiDetailService, dateService) => {
         }
         $scope.wasteWaterOptions.wasteWaterCurrentOption.series = wasteWaterSeriesTemp;
     };
-
     //废水排放抽出所有污染源最近一天的数据
     function wasteWaterCurrentAllGet(data) {
         var wasteWaterTemp = [];
@@ -1346,7 +1325,6 @@ export default ($scope, kpiDetailService, dateService) => {
                 index_nh4nList.push(parseFloat(data.data[i * 6 + j].nh4n));
                 index_pList.push(parseFloat(data.data[i * 6 + j].p));
             }
-
             wasteWaterTemp.push({
                 wasteSource: data.data[i * 6].waterPollutionSource.name,
                 point: data.data[i * 6].waterPollutionSource.description,
@@ -1357,15 +1335,12 @@ export default ($scope, kpiDetailService, dateService) => {
                 index_p: index_pList
             });
         }
-
         function sortWaterPollution(a, b) {
             return b.index_discharge[5] - a.index_discharge[5];
         }
-
         wasteWaterTemp.sort(sortWaterPollution);
         return wasteWaterTemp;
     }
-
     //废水排放抽出前五的数据和其他数据平均值或总和
     function wasteWaterCurrentFilter(data) {
         var wasteWaterTemp = [];
@@ -1381,7 +1356,6 @@ export default ($scope, kpiDetailService, dateService) => {
                 index_nh4nList.push(parseFloat(data.data[i * 6 + j].nh4n));
                 index_pList.push(parseFloat(data.data[i * 6 + j].p));
             }
-
             wasteWaterTemp.push({
                 wasteSource: data.data[i * 6].waterPollutionSource.name,
                 point: data.data[i * 6].waterPollutionSource.description,
@@ -1392,16 +1366,13 @@ export default ($scope, kpiDetailService, dateService) => {
                 index_p: index_pList
             });
         }
-
         wasteWaterCurrentTimeList = [];
         for (var k = 0; k < 6; k++) {
             wasteWaterCurrentTimeList.push(data.data[k].month + '月' + data.data[k].day + '日');
         }
-
         function sortWaterPollution(a, b) {
             return b.index_discharge[5] - a.index_discharge[5];
         }
-
         wasteWaterTemp.sort(sortWaterPollution);
 
         function averageCal(dischargeList, indexList) {
@@ -1412,7 +1383,6 @@ export default ($scope, kpiDetailService, dateService) => {
             }
             return resultList;
         }
-
         if (wasteWaterTemp.length <= 5) {
             wasteWaterCurrentArrTemp = wasteWaterTemp;
         } else {
@@ -1436,7 +1406,6 @@ export default ($scope, kpiDetailService, dateService) => {
                 nh4nOtherSum[i] = parseFloat(nh4nOtherSum[i].toFixed(2));
                 pOtherSum[i] = parseFloat(pOtherSum[i].toFixed(2));
             }
-
             wasteWaterCurrentArrTemp.push({
                 wasteSource: '其他污染源',
                 index_discharge: dischargeOtherSum,
@@ -1447,7 +1416,6 @@ export default ($scope, kpiDetailService, dateService) => {
         }
         return wasteWaterCurrentArrTemp;
     }
-
     //废水排放 Button点击事件
     $scope.wasteWaterBtn = function () {
         $scope.mapTableStatus = {
@@ -1459,7 +1427,6 @@ export default ($scope, kpiDetailService, dateService) => {
         addMarker(wasteWaterMarkerArrAll, 'waterPollution');
         mapObj.setFitView();
     };
-
     //废水排放 列表点击事件
     $scope.wasteWaterDischargeOneSentenceStatus = true;
     $scope.wasteWaterCurrentChange = function (wasteWaterOne) {
@@ -1681,7 +1648,6 @@ export default ($scope, kpiDetailService, dateService) => {
             }];
         }
     };
-
     //废水排放 模块整体状态获取
     function getWasteWaterStatus(wasteWaterMarkerArr) {
         var countResult = {
@@ -1690,14 +1656,12 @@ export default ($scope, kpiDetailService, dateService) => {
             take_action: 0,
             invalid: 0
         }
-
         for (var i = 0; i < wasteWaterMarkerArr.length; i++) {
             if (wasteWaterMarkerArr[i].monitor_status == 'caution') countResult.caution += 1;
             else if (wasteWaterMarkerArr[i].monitor_status == 'take_action') countResult.take_action += 1;
             else if (wasteWaterMarkerArr[i].monitor_status == 'accept') countResult.accept += 1;
             else countResult.invalid += 1;
         }
-
         //侧边栏，关键数初始化
         $scope.waterPollutionQualified = countResult.accept + '/' + wasteWaterMarkerArr.length;
 
@@ -1718,7 +1682,6 @@ export default ($scope, kpiDetailService, dateService) => {
                 sentence: '存在' + countResult.invalid + '个监测点数据未更新'
             };
     };
-
     //废水排放 监测点状态获取
     function getWasteWaterMonitorStatus(wasteWaterMarkerArrOne) {
         var indexStatusList = {
@@ -1794,7 +1757,6 @@ export default ($scope, kpiDetailService, dateService) => {
         }
         return countResult;
     };
-
     //button状态改变标签
     $scope.getButtonStatus = function (status) {
         if (status == 'accept')
@@ -1806,7 +1768,6 @@ export default ($scope, kpiDetailService, dateService) => {
         else if (status == 'invalid')
             return "";
     };
-
     //一句话状态改变标签
     $scope.getOneSentenceStatus = function (status) {
         if (status == 'accept')
@@ -1818,7 +1779,6 @@ export default ($scope, kpiDetailService, dateService) => {
         else if (status == 'invalid')
             return "glyphicon-info-sign";
     };
-
     //获取颜色
     function getStatusColor(status) {
         if (status == 'accept') return '#66CC66';
@@ -1826,7 +1786,6 @@ export default ($scope, kpiDetailService, dateService) => {
         else if (status == 'take_action') return '#CC0033';
         else return '#AAAAAA';
     };
-
     //高德地图初始化
     function mapInit() {
         mapObj = new AMap.Map("map_canvas", { //二维地图显示视口
@@ -1846,12 +1805,10 @@ export default ($scope, kpiDetailService, dateService) => {
             var markerContent = document.createElement("div");
             markerContent.className = "markerContentStyle";
             markerContent.style.color = markerArr[i].color;
-
             //点标记中的图标
             var markerImg = document.createElement("img");
             markerImg.src = "http://webapi.amap.com/images/marker_sprite.png";
             markerContent.appendChild(markerImg);
-
             //点标记中的文本
             var markerSpan = document.createElement("span");
             markerSpan.innerHTML = markerArr[i].abbr;
@@ -1865,7 +1822,6 @@ export default ($scope, kpiDetailService, dateService) => {
                 topWhenMouseOver: true,
                 position: new AMap.LngLat(p0, p1)
             });
-
             (function (markerTemp) {
                 //构建信息窗体中显示的内容
                 var info = [];
@@ -1895,7 +1851,6 @@ export default ($scope, kpiDetailService, dateService) => {
                     info.push("<tr><td>监测站状态</td><td><span class=\"label " + getLabelCss(markerArr[i].monitor_status) + "\">" + getChineseStatus(markerArr[i].monitor_status) + "</span></td></tr>");
                     info.push("</table></div></div>");
                 }
-
                 var infoWindow = new AMap.InfoWindow({
                     content: info.join(""), //使用默认信息窗体框样式，显示信息内容
                     offset: new AMap.Pixel(16, -45)
@@ -1907,12 +1862,10 @@ export default ($scope, kpiDetailService, dateService) => {
             marker.setMap(mapObj); //在地图上添加点
         }
     };
-
     //高德地图去点
     function removeMarker() {
         mapObj.clearMap();
     };
-
     //根据是否达到目标值获取颜色
     function getTargetColor(num, scan) {
         if (num <= scan[1])
@@ -1920,7 +1873,6 @@ export default ($scope, kpiDetailService, dateService) => {
         else
             return '#CC0000'
     }
-
     //获取标签颜色
     function getLabelCss(status) {
         if (status == 'accept') {
@@ -1932,9 +1884,7 @@ export default ($scope, kpiDetailService, dateService) => {
         } else {
             return 'label-default';
         }
-
     }
-
     //数据为0的转化为null
     function formatDataArr(data) {
         var result = data;
@@ -1944,7 +1894,6 @@ export default ($scope, kpiDetailService, dateService) => {
         }
         return result;
     }
-
 
     //数值越大，越严重
     function getStatusAsc(data1, scan, indexName) {
@@ -1971,7 +1920,6 @@ export default ($scope, kpiDetailService, dateService) => {
             }
         }
     }
-
     //数值越小，越严重
     function getStatusDesc(data1, scan, indexName) {
         var data = parseFloat(data1);
@@ -1997,7 +1945,6 @@ export default ($scope, kpiDetailService, dateService) => {
             }
         }
     }
-
     //得到中文状态名称
     function getChineseStatus(status) {
         if (status == 'accept') {
@@ -2010,8 +1957,6 @@ export default ($scope, kpiDetailService, dateService) => {
             return '无数据';
         }
     }
-
-
     var getCurrentDate = function (databaseDate) {
         var year = moment(dateService.getSystemTime()).get('year');
         var month = moment(dateService.getSystemTime()).get('month') + 1;
@@ -2024,7 +1969,6 @@ export default ($scope, kpiDetailService, dateService) => {
             return moment(systemDate).toDate().getTime();
 
     };
-
     var getCurrentDateForDayData = function (databaseDate) {
         var year = moment(dateService.getSystemTime()).get('year');
         var month = moment(dateService.getSystemTime()).get('month') + 1;
@@ -2034,9 +1978,7 @@ export default ($scope, kpiDetailService, dateService) => {
             return moment(databaseDate).toDate().getTime();
         else
             return moment(systemDate).toDate().getTime();
-
     };
-
     var getSubstractDate = function (date, hours) {
         return moment(date).subtract(hours, 'hours').toDate().getTime();
     };
@@ -2081,8 +2023,6 @@ export default ($scope, kpiDetailService, dateService) => {
         };
         $scope.waterQualityCurrentDateTime = waterQualityLastDate;
     });
-
-
     //水情 当天数据模块 初始化
     kpiDetailService.getLastestObject('WaterCondition', ['date'], function (data) {
         var date = data.data.date;
@@ -2113,7 +2053,6 @@ export default ($scope, kpiDetailService, dateService) => {
         };
         $scope.waterConditionCurrentDateTime = waterConditionLastDate;
     });
-
     //废水排放 当天数据模块 初始化
     kpiDetailService.getLastestObject('WaterPollution', ['date'], function (data) {
         var date = data.data.date;
@@ -2144,5 +2083,4 @@ export default ($scope, kpiDetailService, dateService) => {
         };
         $scope.wasteWaterCurrentDateTime = wasteWaterLastDate;
     });
-
 };
