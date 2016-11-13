@@ -1,5 +1,5 @@
 <!-- 上面的表格开始 -->
-<div class="soraka-d-module">
+<div class="soraka-d-module .insurance-width">
   <div class="title-area">
     <span>{{balanceSelectYear}}年{{CURRENTINSURANCE}}关键指标</span>
   </div>
@@ -13,89 +13,141 @@
     </div>
   </div>
   <div class="chart-area">
- <table class="table table-striped table-bordered">
-        <thead>
-          <tr>
-           <th class="col-md-4">基金收入</th>
-           <th class="col-md-4">基金支出</th>
-           <th class="col-md-4">基金累计结余</th>
-         </tr>
-       </thead>
-       <tbody>
-        <tr>
-          <td>{{balance[0]}}{{BALANCEUNIT}}</td>
-          <td>{{balance[1]}}{{BALANCEUNIT}}</td>
-          <td>{{balance[3]}}{{BALANCEUNIT}}</td>
-        </tr>
-        <thead>
-          <th class="col-md-4" ng-repeat="title in participatedTitle">{{title}}</th>
-        </thead>
-        <tr align="center">
-          <td>{{insuranceParticapted[0]}}{{PARTICAPTEDUNIT}}</td>
-          <td>{{insuranceParticapted[1]}}{{PARTICAPTEDUNIT}}</td>
-          <td>{{insuranceParticapted[2]}}{{PARTICAPTEDUNITNEW}}</td>
-        </tr>
-      </tbody>
-    </table>  </div>
+   <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+       <th class="col-md-4">基金收入</th>
+       <th class="col-md-4">基金支出</th>
+       <th class="col-md-4">基金累计结余</th>
+     </tr>
+   </thead>
+   <tbody>
+    <tr>
+      <td>{{balance[0]}}{{BALANCEUNIT}}</td>
+      <td>{{balance[1]}}{{BALANCEUNIT}}</td>
+      <td>{{balance[3]}}{{BALANCEUNIT}}</td>
+    </tr>
+    <thead>
+      <th class="col-md-4" ng-repeat="title in participatedTitle">{{title}}</th>
+    </thead>
+    <tr align="center">
+      <td>{{insuranceParticapted[0]}}{{PARTICAPTEDUNIT}}</td>
+      <td>{{insuranceParticapted[1]}}{{PARTICAPTEDUNIT}}</td>
+      <td>{{insuranceParticapted[2]}}{{PARTICAPTEDUNITNEW}}</td>
+    </tr>
+  </tbody>
+</table> 
+</div>
 </div>
 <!-- 上面的表格结束 -->
 
-
-
 <!-- 第一个图开始 -->
-<div class="row">
-<div class="col-md-12">
-<!--  <div class="panel-heading"><center><strong> {{CURRENTINSURANCE}}收支情况</strong></center></div>
- -->    <highchart config="ALLOPTION.INCOMESPLINE"></highchart>
-    <div class="span4 col-md-4"></div>
-    <img src="/assets/images/common/titles/click-to-chart-detail.png" alt="点击图标可以查看详情" />
-    <div class="ioc-panel-desc">
-      <p class="ioc-panel-desc-title">
-        <img src="/assets/images/common/titles/data_details.png" style="margin-left:30%" />
-      </p>
-      <p class="ioc-panel-desc-body"></p>
-      <table class="table">
-        <caption class="ioc-thead">
-          {{balanceSelectYear}}年{{CURRENTINSURANCE}}收支
-        </caption>
-        <tr align="right">
-          <th class="col-md-6">基金收入</th>
-          <td class="col-md-6">{{yearBalance[0]}}{{BALANCEUNIT}}</td>
-        </tr>
-        <tr align="right">
-          <th class="col-md-6">基金支出</th>
-          <td class="col-md-6">{{yearBalance[1]}}{{BALANCEUNIT}}</td>
-        </tr>
-        <tr align="right">
-          <th class="col-md-6">该年基金结余</th>
-          <td class="col-md-6">{{yearBalance[2]}}{{BALANCEUNIT}}</td>
-        </tr>
-        <tr align="right">
-          <th class="col-md-6">基金累计结余</th>
-          <td class="col-md-6">{{yearBalance[3]}}{{BALANCEUNIT}}</td>
-        </tr>
-      </table>
-      <highchart config="ALLOPTION.BALANCECOLUMN"></highchart>
-  </div>
+<div class="panel-heading"><center><strong>太仓市近5年{{CURRENTINSURANCE}}收支情况</strong></center></div>
+<highchart config="ALLOPTION.INCOMESPLINE"></highchart>
+<a ng-show="isLink" ng-click="hideLink()">点击展开数据详情>></a>
+<div ng-hide="isLink">
+ <div class="cm-return-home"><i class="fa fa-chevron-up"></i>
+   <span><a ng-show="isConceal" ng-click="concealDetail()">收起详情页</a></span>
+ </div>
+ <div class="panel-heading"><center><strong>{{balanceSelectYear}}年{{CURRENTINSURANCE}}收支详情</strong></center></div>
+ <table class="table table-striped table-bordered">     
+   <thead>
+    <tr>
+     <th class="col-md-6">基金收入</th>
+     <th class="col-md-6">基金支出</th>
+   </tr>
+ </thead>
+ <tbody>
+  <tr>
+    <td>{{balance[0]}}{{BALANCEUNIT}}</td>
+    <td>{{balance[1]}}{{BALANCEUNIT}}</td>
+  </tr>
+  <thead>
+    <tr>
+     <th class="col-md-6">该年基金结余</th>
+     <th class="col-md-6">累计基金结余</th>
+   </tr>
+ </thead>
+ <tr>
+  <td>{{yearBalance[2]}}{{BALANCEUNIT}}</td>
+  <td>{{yearBalance[3]}}{{BALANCEUNIT}}</td>
+</tr>
+</tbody>
+</table>
+<div class="panel-heading"><center><strong>{{balanceSelectYear}}年{{CURRENTINSURANCE}}收支对比</strong></center></div>
+<highchart  class="insurance-width" config="ALLOPTION.BALANCECOLUMN"></highchart>
 </div>
 <!-- 第一个图结束 -->
 
 
 <!-- 第二个图开始-->
-            <div class="row in-margin">
-              <div class="span8 col-md-8 chart-panel">
-                <highchart config="ALLOPTION.ENGAGESTACKCOLUMN"></highchart>
-                <div class="span4 col-md-4"></div>
-                <img src="/assets/images/common/titles/click-to-chart-detail.png" alt="点击图标可以查看详情" />
-              </div>
-              <p class="fill-margin"></p>
-              <div class="col-md-4">
-                <div class="ioc-panel-desc">
-                  <p class="ioc-panel-desc-title">
-                    <img src="/assets/images/common/titles/data_details.png" style="margin-left:30%" />
-                  </p>
-                  <p class="ioc-panel-desc-body"></p>
-                  <table class="table">
+<div class="panel-heading"><center><strong>太仓市近5年{{CURRENTINSURANCE}}参保人员情况</strong></center></div>
+<highchart config="ALLOPTION.ENGAGESTACKCOLUMN"></highchart>
+<a ng-show="isLink" ng-click="hideLink()">点击展开数据详情>></a>
+<div ng-hide="isLink">
+ <div class="cm-return-home"><i class="fa fa-chevron-up"></i>
+   <span><a ng-show="isConceal" ng-click="concealDetail()">收起详情页</a></span>
+ </div>
+ <div class="panel-heading"><center><strong>{{balanceSelectYear}}年{{CURRENTINSURANCE}}参保人员表</strong></center></div>
+ <table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+     <th class="col-md-4">{{yearParticipatedTitle[0]}}</th>
+     <th class="col-md-4">{{yearParticipatedTitle[1]}}</th>
+     <th class="col-md-4">{{yearParticipatedTitle[2]}}</th>
+   </tr>
+ </thead>
+ <tbody>
+  <tr>
+    <td>{{balance[0]}}{{BALANCEUNIT}}</td>
+    <td>{{balance[1]}}{{BALANCEUNIT}}</td>
+    <td>{{balance[3]}}{{BALANCEUNIT}}</td>
+  </tr>
+</tbody>
+</table> 
+<div class="panel-heading"><center><strong>{{CURRENTINSURANCE}}新老参保人员比例</strong></center></div>
+<highchart class="insurance-width" config="ALLOPTION.ENGAGEPIE"></highchart>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 第二个图结束--> 
+
+                 <!--  <table class="table">
                     <caption class="ioc-thead">
                       {{engageSelectYear}}年{{CURRENTINSURANCE}}{{PARTICAPTEDNAME}}组成
                     </caption>
@@ -111,15 +163,6 @@
                       <th class="col-md-8">{{yearParticipatedTitle[2]}}</th>
                       <td class="col-md-4">{{insuranceDetailParticipated[2]}}{{PARTICAPTEDUNITNEW}}</td>
                     </tr>
-                  </table>
-                  <highchart config="ALLOPTION.ENGAGEPIE"></highchart>
-                </div>
-              </div>
-            </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-<!-- 第二个图开始-->
+                  </table> -->
+                  <!-- 第二个图结束--> 
 
