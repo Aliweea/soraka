@@ -4,31 +4,7 @@
              .anchorBL{  
        display:none;  }
 	</style>
-	<div class="banner details-banner">
-
-	<div class="container" style="background-image: url(../images/banner/police_banner.png);">
-
-
-		<ol class="breadcrumb">
-			<li>
-				<a href="/">首页</a>
-			</li>
-			<li>
-				<a ui-sref="app.kpicategory({categoryId:3001})">公安</a>
-			</li>
-			<li>
-				<a ui-sref="app.kpicategory({categoryId:3001})">公安</a>
-			</li>
-			<li>
-				<a>治安案件KPI详情</a>
-			</li>
-
-		</ol>
-		<h2>治安案件KPI详情</h2>
-
-	</div>
-</div>
-
+	
 <div class="details-content">
 	<div class="container" >
 
@@ -44,8 +20,8 @@
 									<div class="panel-body">
 											<div class="row">
 											<div class="col-md-12 " >
-													<h4><span class="label label-info">太仓市{{getDate.year}}年{{getDate.month}}月份各地区治安形势图</span></h4>
-													<div id="criminalMap"></div>
+													<h4><span class="label label-info">太仓市{{getDate.year}}年{{getDate.month}}月各地区治安形势图</span></h4>
+													<div id="criminalMap" style="width:100%"></div>
 											</div>
 
 										</div>
@@ -57,7 +33,7 @@
 													<img src="/images/common/titles/one-sentence.png"/>
 													</p>
 													<div class="well">
-													<p class="ioc-panel-desc-body">{{getDate.year}}年{{getDate.month}}月份全市发生各类治安案件总数 {{totalData.month}} 起。</p>
+													<p class="ioc-panel-desc-body">{{getDate.year}}年{{getDate.month}}月全市各类治安案件总数 {{totalData.month}} 起。</p>
 													各类治安案件详情如下:
 													</div>
 
