@@ -525,7 +525,7 @@ export default ($scope, $state, dateService, dataDetailFactory, qService, kpiDet
                                 enabled: false
                             },
                             title: {
-                                text: $scope.getDate.year + "年" + $scope.getDate.month + "月份太仓市各接警单位接处警案件数"
+                                text: $scope.getDate.year + "年" + $scope.getDate.month + "月太仓市各接警单位接处警案件数"
                             },
                         },
 
@@ -546,7 +546,7 @@ export default ($scope, $state, dateService, dataDetailFactory, qService, kpiDet
                             type: 'bar'
                         },
                         title: {
-                            text: "各类报警案件总数"
+                            text: $scope.getDate.year + "年" + $scope.getDate.month + "月太仓市各类报警案件总数"
                         },
                         subtitle: {
                             text: ''
@@ -600,7 +600,7 @@ export default ($scope, $state, dateService, dataDetailFactory, qService, kpiDet
                         },
 
                         title: {
-                            text: $scope.getDate.year + "年太仓市公安局各类报警案件趋势图",
+                            text: $scope.getDate.year + "年太仓市各类报警案件趋势图",
                             x: -20 //center
                         },
                         subtitle: {
@@ -654,7 +654,7 @@ export default ($scope, $state, dateService, dataDetailFactory, qService, kpiDet
                             enabled: false
                         },
                         title: {
-                            text: $scope.getDate.year + "年" + $scope.getDate.month + "月份太仓市公安局各类报警案件统计分析"
+                            text: $scope.getDate.year + "年" + $scope.getDate.month + "月太仓市各类报警案件比例图"
                         },
                         tooltip: {
                             pointFormat: '<b>接警数</b>:{point.y:1.f}(起)</b>'
@@ -724,7 +724,7 @@ export default ($scope, $state, dateService, dataDetailFactory, qService, kpiDet
                             enabled: false
                         },
                         title: {
-                            text: $scope.getDate.year + "年" + $scope.getDate.month + "月份太仓市各接警单位接处警案件数"
+                            text: $scope.getDate.year + "年" + $scope.getDate.month + "月太仓市各接警单位接警数"
                         },
                     },
 
