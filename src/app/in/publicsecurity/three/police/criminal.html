@@ -2,90 +2,49 @@
 	#criminalMap {height: 500px;overflow: hidden;margin:0;font-family:"微软雅黑";}
 	.anchorBL{  
 		display:none;  }
-	</style>
-
-
-	<tab heading="刑事案件详情">
-		<div class="row" style="margin-top: 0px;">
-			<div class="col-md-11">
-			<div class="panel panel-primary">
-					<div class="panel-heading">
-						刑事案件警情动态
-						<span class="glyphicon glyphicon-question-sign pull-right"></span>
-					</div>
-					<div class="panel-body">
-						<div class="row">
-							<div class="col-md-12" >		
-								<h4><span class="label label-info">太仓市{{getDate.year}}年{{getDate.month}}月各地区刑事案件形势图</span></h4>
-								<div id="criminalMap"></div>
-							</div>
-
-						</div>
-						<hr>
-						<div class="col-md-12" >
-
-							<p class="ioc-panel-desc-title">
-								
-							</p>
-							<div class="well">
-								<p class="ioc-panel-desc-body">{{getDate.year}}年{{getDate.month}}月全市发生各类刑事案件总数 {{totalData.month}} 起。</p>
-							</div>
-						</div>
-						<div class="col-md-12 ">
-							<highchart  id="pieChart"  config="pieChart"></highchart>
-							<hr>
-						</div>
-
-						<div class="col-md-12 ">
-							<highchart  id="kpiBarChart"  config="kpiBarChart"></highchart>
-						</div>
-
-					</div>
-				</div>
-
-
-			</div>
-		</div>
-	</tab>
+	</style>	
 	
-		
-		
-				<div class="panel panel-primary">
-					<div class="panel-heading">
-						本年度刑事案件趋势图
-						<span class="glyphicon glyphicon-question-sign pull-right"></span>
-					</div>
-					<div class="panel-body">
-						<div class="row">
-							<div class="col-md-12" >
+	<div class="panel-heading" style="border:black 1px solid">
+		<center>{{getDate.year}}年太仓市刑事案件警情动态</center>
+		<span class="glyphicon glyphicon-question-sign pull-right"></span>
+	</div> 
 
-								<p class="ioc-panel-desc-title">
-									
-								</p>
-								<div class="well">
-									<p class="ioc-panel-desc-body">{{getDate.year}}年截止{{getDate.month}}月末全市发生各类刑事案件总数 {{totalData.year}} 起。
 
-									</p>
-								</div>
-							</div>
-							<div class="col-md-12 ">
-								<highchart  id="columnChart" config="columnChart" style="width:108%"></highchart>
-								
-							</div>
+	<div style="margin-top:5px;margin-bottom:0;"> 		
+		<h4><span class="label label-info" style="padding-left:0;">太仓市{{getDate.year}}年{{getDate.month}}月各地区刑事案件形势图</span></h4>
+		<div id="criminalMap"></div>
+	</div>
+	
+	<hr>
+	<div class="well" style="margin-top:10px;margin-bottom:0px;height:10px">
+		<p class="ioc-panel-desc-body">{{getDate.year}}年{{getDate.month}}月全市发生各类刑事案件总数 {{totalData.month}} 起。</p>
+	</div>
+	<div>
+		<highchart  id="pieChart"  config="pieChart"></highchart>
+	</div>
+	<br>
+	<div>
+		<highchart  id="kpiBarChart"  config="kpiBarChart"></highchart>
+	</div>				
+	<div class="panel-heading" style="border:black 1px solid">
+		<center>{{getDate.year}}年太仓市刑事案件趋势</center>
+		<span class="glyphicon glyphicon-question-sign pull-right"></span>
+	</div> 				
+	
+	
+	<div class="well" style="padding-left:0;margin-top:5px;margin-bottom:0px;height:10px">
+		<p class="ioc-panel-desc-body">截止{{getDate.year}}年{{getDate.month}}月末全市发生各类刑事案件总数 {{totalData.year}}起。</p>
+	</div>
+	<highchart  id="columnChart" config="columnChart"></highchart>
+	<br>
+    <highchart  id="columnChart" config="mainCaseColumnChart"></highchart>
 
-							
-						</div>
-						<div class="row">
-							<div class="col-md-12" style="width:108%">
-								<highchart  id="columnChart" config="mainCaseColumnChart"></highchart>
-							</div>
+	
 
-						</div>
-						
-						
-					</div>
-				</div>
-		
-		
+
+
+
+
+
 
 
