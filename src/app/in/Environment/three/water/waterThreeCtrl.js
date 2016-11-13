@@ -132,6 +132,7 @@ export default ($scope, kpiDetailService, dateService) => {
                         outerRadius: '107%'
                     }, {
                         // default background
+                        backgroundColor: '#FFF'
                     }, {
                         backgroundColor: '#DDD',
                         borderWidth: 0,
@@ -241,6 +242,7 @@ export default ($scope, kpiDetailService, dateService) => {
                         outerRadius: '107%'
                     }, {
                         // default background
+                        backgroundColor: '#FFF'
                     }, {
                         backgroundColor: '#DDD',
                         borderWidth: 0,
@@ -347,6 +349,7 @@ export default ($scope, kpiDetailService, dateService) => {
                         outerRadius: '107%'
                     }, {
                         // default background
+                        backgroundColor: '#FFF'
                     }, {
                         backgroundColor: '#DDD',
                         borderWidth: 0,
@@ -453,6 +456,7 @@ export default ($scope, kpiDetailService, dateService) => {
                         outerRadius: '107%'
                     }, {
                         // default background
+                        backgroundColor: '#FFF'
                     }, {
                         backgroundColor: '#DDD',
                         borderWidth: 0,

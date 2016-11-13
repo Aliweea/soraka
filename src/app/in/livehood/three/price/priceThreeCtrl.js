@@ -49,13 +49,12 @@ export default ($scope, qService, generalService, dataDetailFactory, $http, $roo
      *******************************************************************************/
     function splineHighChart(height, categories, callFunc) {
         this.options = {
-            colors: generalService.columnColors(),
+            colors: generalService.lineColors(),
             credits: {
                 enabled: false
             },
             chart: {
                 type: 'spline',
-                backgroundColor: 'rgb( 122,181,175)'
             },
             title: {
                 text: ""
@@ -66,7 +65,9 @@ export default ($scope, qService, generalService, dataDetailFactory, $http, $roo
                     rotation: -45,
                     align: 'right',
                     style: {
-                        color:'white'
+              //          color:'white',
+                        fontSize: '13px',
+                        fontFamily: 'Verdana, sans-serif'
                     }
                 },
                 tickmarkPlacement: 'on'
@@ -242,7 +243,7 @@ export default ($scope, qService, generalService, dataDetailFactory, $http, $roo
                 },
             },
             tooltip: {
-                valueSuffix: ' 元/500克'
+                valueSuffix: '元/500克'
             },
             legend: {
                 enabled: true
@@ -534,7 +535,7 @@ export default ($scope, qService, generalService, dataDetailFactory, $http, $roo
             var chart=$("#foodPriceHighChart").highcharts();
             if (chart.hasData()) {
                 chart.hideNoData();
-                chart.showNoData("未选中任何农副食品种类<br/>请在右侧选择您想查看的农副食品种类");
+                chart.showNoData("未选中任何农副食品种类<br/>");
             }
         }
     };
@@ -636,14 +637,14 @@ export default ($scope, qService, generalService, dataDetailFactory, $http, $roo
             splineXAxis: yearMonthList,
             columnXAxis: new Array(),
             detailColumnXAxisList: monthList,
-            CPIList: new splineListObject("CPI指数"),
+            CPIList: new splineListObject("居民消费价格指数"),
             FPIList: new splineListObject("食品类"),
-            TLPIList: new splineListObject("烟酒类"),
+            TLPIList: new splineListObject("烟酒及用品类"),
             UPIList: new splineListObject("衣着类"),
-            HAPIList: new splineListObject("家庭类"),
-            MPIList: new splineListObject("医疗类"),
-            TPIList: new splineListObject("交通通信类"),
-            EPIList: new splineListObject("文娱类"),
+            HAPIList: new splineListObject("家庭设备用品及维修服务类"),
+            MPIList: new splineListObject("医疗保健和个人用品类"),
+            TPIList: new splineListObject("交通和通讯类"),
+            EPIList: new splineListObject("娱乐教育文化用品及服务类"),
             RPIList: new splineListObject("居住类"),
             CPIDetailList: new detailListObject(0),
             FPIDetailList: new detailListObject(0),
@@ -686,7 +687,7 @@ export default ($scope, qService, generalService, dataDetailFactory, $http, $roo
         if (step % 2 == 0) {
             step += 1;
         }
-        var chartTile = year + "年" + month + "月太仓市中心农贸市场农副产品市场价格走势详情";
+        var chartTile = year + "年" + month + "月中心农贸市场农副产品价格走势";
         $scope.foodPriceHighChartOption = new lineHighChart(chartTile, dayList, step, 450);
         $scope.PRICEDATA = {
             a_riceDataList: new subsidiaryFoodGroupObject("粮食类"),              // 粮食       2650

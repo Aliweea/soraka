@@ -11,6 +11,17 @@ export default ($scope, qService, generalService, dataDetailFactory, $http, $roo
   $scope.ALLOPTION = {}
   $scope.ALLDATA = {}
 
+$scope.isShow = true;
+  $scope.hideBtn = () => {
+    $scope.isShow = false;
+  }
+
+  // 顶部切换
+  $scope.currentCategoryName = ""; // default value
+  $scope.changeCategory = (name) => {
+    $scope.currentCategoryName = name;
+  }
+
   $scope.tabMap = [{
       id: "tab_UBEI",
       label: "城镇基本养老保险",

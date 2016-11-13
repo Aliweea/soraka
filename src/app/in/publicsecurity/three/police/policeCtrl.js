@@ -801,7 +801,7 @@ function initMapData(mapData){
                                     enabled:false
                                     },
                                 title: {
-                                    text: $scope.getDate.year+"年"+$scope.getDate.month+"月份发生各类治安案件详情"
+                                    text: $scope.getDate.year+"年"+$scope.getDate.month+"月各类治安案件"
                                 },
                                 tooltip: {
                                     pointFormat: '<b>处理数</b>:{point.y:1.f}(起)</b>'
@@ -868,7 +868,7 @@ function initMapData(mapData){
                         enabled: false                                                 
                     },
                     title: {                                                           
-                        text:$scope.getDate.year+"年"+$scope.getDate.month + "月份各派出所治安案件数"                   
+                        text:$scope.getDate.year+"年"+$scope.getDate.month + "月各派出所治安案件数"                   
                     },
                 },
                  
