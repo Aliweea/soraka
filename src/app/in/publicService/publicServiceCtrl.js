@@ -31,19 +31,15 @@ export default($scope, $state, hService) => {
 		switch($scope.currentCategoryName) {	
 			case "教育":
 				$state.go("app.publicService.peducation");
-				console.log($scope.currentCategoryName);
 				break;
 			case "医疗卫生":
 				$state.go("app.publicService.phealthCare");
-				console.log($scope.currentCategoryName);
 				break;
 			case "电信":
 				$state.go("app.publicService.ptelecom");
-				console.log($scope.currentCategoryName);
 				break;
 			case "交通":
 				$state.go("app.publicService.ptraffic");
-				console.log($scope.currentCategoryName);
 				break;
 
 		}
