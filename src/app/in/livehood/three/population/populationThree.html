@@ -1,4 +1,4 @@
-
+<!-- 
 <div class="population-three-module">
   <div ng-show="thisloc == 'PopulationStructure'">
     
@@ -103,12 +103,48 @@
       </div>
     </div>
   </div>
+</div> -->
+
+
+
+
+<div class="population-three-module">
+  <div ng-show="thisloc == 'PopulationStructure'">
+    <div class="tabs">
+      <input ng-click="populationSwitch('total')" type="button" class="s1" id="lhpopulation-s1" value="人口总量">
+      <input ng-click="populationSwitch('structure')" type="button" class="s2" id="lhpopulation-s2" value="人口结构">
+    </div>
+    <div class="key-value-area" ng-if="choice">
+      <h4 style="text-align: center;">{{ALLDATA.tableName}}</h4>
+      <table class="table" style="font-size:16px">
+        <tr ng-repeat="tableData in ALLDATA.tableData">
+          <td>{{tableData.name}}</td>
+          <td align="right">{{tableData.value}}</td>
+        </tr>
+      </table>
+    </div>
+    <div class="key-value-area" ng-if="!choice">
+      <h4 style="text-align: center;">
+        {{ALLDATA.detailTableName}}
+        <span name="" id="chooseAge" class="toggle-button">
+          <img src="/assets/images/dropdown.png" alt="选择年龄" style="width: 30px;height: 30px;" />
+        </span>
+      </h4>
+      <table class="table" style="font-size:16px;">
+        <tr ng-repeat="tableData in ALLDATA.detailTableData">
+          <td>{{tableData.name}}</td>
+          <td align="right">{{tableData.value}}</td>
+        </tr>
+      </table>
+    </div>
+    <div class="chart-area">
+      <highchart config="ALLOPTION.POPULATIONCHART"></highchart>
+    </div>
+  </div>
+  <div ng-show="thisloc != 'PopulationStructure'">  
+
+  </div>
 </div>
-
-
-
-
-
 
 
 

@@ -9,6 +9,28 @@ export default ($scope, $state, $location, qService, dataDetailFactory, generalS
 		$('.navTopShowPopulation').show(0); //显示人口结构下拉框
 	}();
 
+	$scope.divice = {
+		width: $(window).width(),
+		height: $(window).height(),
+		d_width: $(document).width(),
+		d_height: $(document).height()
+	};
+
+	$scope.populationSwitch = (choices) => {
+		switch (choices) {
+			case 'total':
+				$scope.choice = true;
+				$('#lhpopulation-s1').addClass('activeTab');
+				$('#lhpopulation-s2').removeClass('activeTab');
+				break;
+			case 'structure':
+				$scope.choice = false;
+				$('#lhpopulation-s2').addClass('activeTab');
+				$('#lhpopulation-s1').removeClass('activeTab');
+				break;
+		}
+	}
+	$scope.populationSwitch("total");
 
 	$scope.tabMap = [{
 		id: "tab_populationStructure",
@@ -65,10 +87,10 @@ export default ($scope, $state, $location, qService, dataDetailFactory, generalS
 
 	let barHighChart = function(height, categories) {
 		this.options = {
-			colors: generalService.compareColors(),
+			colors: ['#7CADDF','#195489'],
 			chart: {
 				type: 'bar',
-				width: $(window).width() * 0.9
+				//width: $(window).width() * 0.9
 			},
 			credits: {
 				enabled: false
@@ -348,7 +370,7 @@ export default ($scope, $state, $location, qService, dataDetailFactory, generalS
 			switch (tabName) {
 				case $scope.tabMap[0].name:
 					$scope.ALLOPTION = {
-						POPULATIONCHART: new barHighChart(700, ageList)
+						POPULATIONCHART: new barHighChart(600, ageList)
 					};
 					$scope.ALLDATA = {
 						POPULATIONCHARTDATA: new DataList(["男性", "女性"], ageList.length, chartDataObject),
