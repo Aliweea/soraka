@@ -16,6 +16,23 @@
 			}
 		}
 	}
+	.key-value-area0 {
+		padding:15px 0 5px 0;
+		border-bottom: 1px solid $cborder;
+		background: linear-gradient($bgLightGrey, #fff);
+		@include cmTa();
+		.keyvalue-area {
+			margin-top: 5px;
+			.keyvalue {
+				font-size: 13px;
+				padding-left: 10px;
+				padding-top: 3px;
+				span {
+					font-weight: bold;
+				}
+			}
+		}
+	}
 	.key-value-area1 {
 		padding:15px 0 5px 0;
 		background: linear-gradient($bgLightGrey, #fff);
@@ -48,7 +65,7 @@
 			width: 80%;
 			box-shadow: 5px 10px 5px #999999;
 			border: 1px solid $cborder;
-			border-radius: 8px;
+			border-radius: 5px;
 			position: absolute;
 			z-index: 2000;
 			padding: 10px 5px;
@@ -58,7 +75,7 @@
 				width: 48%;
 				background: radial-gradient(50% 50%, #eee, #eee, #fff);
 				border: 1px solid $cborder;
-				border-radius: 5px;
+				border-radius: 3px;
 				padding: 3px 3px;
 				margin: 2px;
 				outline: none;
@@ -75,6 +92,22 @@
 		.value {
 			display: block;
 			padding: 8px 10px;
+			font-size: 13px;
+		}
+		.i-label {
+			margin-top: 10px;
+			margin-left: 10px;
+			font-size: 13px;
+		}
+		.toggle-button {
+			width: 8em;
+			height: 30px;
+			outline: none;
+			border: none;
+			border-bottom: 1px dashed #008AFF;
+			color: #008AFF;
+			background: radial-gradient(3em 40%, #ddd, #ddd, rgba(255,255,255,0));
+			text-align: left;
 			font-size: 13px;
 		}
 	}

@@ -48,7 +48,7 @@ export default($scope, $rootScope, $state, qService, dataDetailFactory, dateServ
 			title: {
 				text: title,
 				style: {
-					fontSize: "15px"
+					fontSize: "13px"
 				}
 			},
 			xAxis: {

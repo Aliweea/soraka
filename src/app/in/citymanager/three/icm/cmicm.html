@@ -1,4 +1,15 @@
 <div class="cmicm-module">
+	<div class="key-value-area0">
+		<div class="title-area">
+			<i class="fa fa-lightbulb-o" aria-hidden="true"></i>
+			<span class="title">关键指标详情</span>
+		</div>
+		<div class="keyvalue-area">
+			<div class="keyvalue">全市数字城管案件立案数: <span>{{keyValue1}}</span>起</div>
+			<div class="keyvalue">全市数字城管案件应处置数: <span>{{keyValue2}}</span>起</div>
+			<div class="keyvalue">全市数字城管案件处置数: <span>{{keyValue3}}</span>起</div>
+		</div>
+	</div>
 	<div class="key-value-area1">
 		<div class="title-area">
 			<i class="fa fa-bar-chart" aria-hidden="true"></i>
@@ -19,11 +30,18 @@
 	<div class="key-value-area2">
 		<div class="title-area">
 			<i class="fa fa-bar-chart" aria-hidden="true"></i>
-			<span class="title">各类拆除方式详情</span><br>
+			<span class="title">各单位处理数字城管案件累计情况详情</span><br>
 		</div>
-		<span class="value">{{oneword2}}</span>
+		<br>
+		<i class="fa fa-hand-o-right i-label i-label" aria-hidden="true"></i>
+		<span name="" id="cmIcmIndexAccToggleButton" class="toggle-button">切换指标</span>
+	</div>
+	<div class="index-toggle-area">
+		<div class="toggle-panel"  id="cmIcmIndexAccTogglePanel">
+			<input class="toggle-item" type="button" ng-repeat="(name, abbr) in indexs" ng-click="changeIndex2(name, abbr)" value="{{name}}" name="">
+		</div>
 	</div>
 	<div class="chart-area2">
-		<highchart config="chart1"></highchart>
+		<highchart config="chart2"></highchart>
 	</div>
 </div>
