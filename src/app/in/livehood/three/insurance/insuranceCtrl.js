@@ -36,10 +36,21 @@ $scope.hideLink = () => {
   $scope.isConceal = true;
 }
 //收缩
-
 $scope.concealDetail = () => {
   $scope.isConceal = false;
   $scope.isLink = true;
+}
+
+//收支详情展开1
+$scope.isLink1 = true;
+$scope.hideLink1 = () => {
+  $scope.isLink1 = false;
+  $scope.isConceal1 = true;
+}
+//收缩
+$scope.concealDetail1 = () => {
+  $scope.isConceal1 = false;
+  $scope.isLink1 = true;
 }
 
 
