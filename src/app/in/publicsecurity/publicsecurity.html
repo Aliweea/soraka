@@ -2,6 +2,9 @@
   <div class="navbar navbar-app navbar-absolute-top cm-menu-navbar-top">
     <div class="cm-return-home" ui-sref="app.in.home"><i class="fa fa-home" aria-hidden="true"></i><span>主页</span></div>
     <div class="cm-kpi-choose navTopShowMark" ui-turn-on='kpiChoiceDropdown'><i class="fa fa-angle-down fa-2x" aria-hidden="true"></i><span>KPI分类</span></div>
+
+    <div class="ps-police-choose navTopShowPolice" ui-turn-on='policeChoiceDropdown'><i class="fa fa-angle-down fa-2x" aria-hidden="true"></i><span>案件分类</span></div>
+
     <div class="cm-kpi-status navTopShowMark" ui-turn-on='kpiStatusDropdown'><i class="fa fa-angle-down fa-2x" aria-hidden="true"></i><span>KPI状态</span></div>
     <ul class="dropdown-menu cm-dropdown-ul"
       ui-outer-click="Ui.turnOff('kpiChoiceDropdown')"
@@ -10,15 +13,29 @@
       ui-show="kpiChoiceDropdown"
       ui-state="kpiChoiceDropdown"
       ui-turn-off="kpiChoiceDropdown">
-      <li><a ui-sref="app.publicsecurity.publicsecuritylist({categoryId:3001})" href="#">公安</a></li>
+      <li><a ui-sref="app.publicsecurity.publicsecuritylist({categoryId:3001})" ng-click="changeCategory('公安')" href="#">公安</a></li>
       <li class="divider"></li>
-      <li><a ui-sref="app.publicsecurity.publicsecuritylist({categoryId:3002})" href="#">消防</a></li>
+      <li><a ui-sref="app.publicsecurity.publicsecuritylist({categoryId:3002})" ng-click="changeCategory('消防')" href="#">消防</a></li>
       <li class="divider"></li>
-      <li><a ui-sref="app.publicsecurity.publicsecuritylist({categoryId:3004})" href="#">信访</a></li>
+      <li><a ui-sref="app.publicsecurity.publicsecuritylist({categoryId:3004})" ng-click="changeCategory('信访')" href="#">信访</a></li>
       <li class="divider"></li>
-      <li><a ui-sref="app.publicsecurity.publicsecuritylist({categoryId:3003})" href="#">交通事故</a></li>
+      <li><a ui-sref="app.publicsecurity.publicsecuritylist({categoryId:3003})" ng-click="changeCategory('交通事故')" href="#">交通事故</a></li>
       <li class="divider"></li>
-      <li><a ui-sref="app.publicsecurity.publicsecuritylist({categoryId:3005})" href="#">生产安全</a></li>
+      <li><a ui-sref="app.publicsecurity.publicsecuritylist({categoryId:3005})" ng-click="changeCategory('生产安全')" href="#">生产安全</a></li>
+    </ul>
+
+    <ul class="dropdown-menu cm-dropdown-ul"
+      ui-outer-click="Ui.turnOff('policeChoiceDropdown')"
+      ui-outer-click-if="Ui.active('policeChoiceDropdown')"
+      role="menu"
+      ui-show="policeChoiceDropdown"
+      ui-state="policeChoiceDropdown"
+      ui-turn-off="policeChoiceDropdown">
+      <li><a ui-sref="app.publicsecurity.policecall" href="#">报警数</a></li>
+      <li class="divider"></li>
+      <li><a ui-sref="app.publicsecurity.police" href="#">治安案件</a></li>
+      <li class="divider"></li>
+      <li><a ui-sref="app.publicsecurity.criminal" href="#">刑事案件</a></li>
     </ul>
     <ul class="dropdown-menu cm-dropdown-ul"
       ui-outer-click="Ui.turnOff('kpiStatusDropdown')"
@@ -50,6 +67,11 @@
     <div class="btn-group pull-left cm-menu-navbar-bottomleft navbar2return" ng-click="toH()">
       <i class="fa fa-chevron-left" aria-hidden="true"></i><span>返回</span>
     </div>
-    <a style="margin-left: 100px;display: inline-block;margin-top: 15px;" ui-sref="app.publicsecurity.psthirdselect">临时跳转点</a>
+    <div class="btn-group pull-left cm-menu-navbar-bottomleft navbar2position">
+      <span class="s1">当前位置:</span>
+      <span class="s2">公共安全<i class="fa fa-angle-right" aria-hidden="true"></i>{{currentCategoryName}}</span>
+      <span class="s3" ng-click="toDetail()"><i class="fa fa-hand-o-right" aria-hidden="true"></i><span>查看KPI详情</span></span>
+    </div>
+    <!--<a style="margin-left: 100px;display: inline-block;margin-top: 15px;" ui-sref="app.publicsecurity.psthirdselect">临时跳转点</a>  -->
   </div>
 </div>

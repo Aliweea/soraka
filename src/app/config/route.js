@@ -175,28 +175,38 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       templateUrl: 'app/in/publicsecurity/two/publicsecuritydetail.html',
       controller: 'publicsecuritydetailCtrl'
     })
-    .state('app.publicsecurity.policethree', {
-      url: '/policethree',
-      templateUrl: 'app/in/publicsecurity/three/police/policethree.html',
-      controller: 'policethreeCtrl'
+    .state('app.publicsecurity.police', {
+      url: '/detail/police',
+      templateUrl: 'app/in/publicsecurity/three/police/police.html',
+      controller: 'policeCtrl'
     })
-    .state('app.publicsecurity.accidentthree', {
-      url: '/accidentthree',
+    .state('app.publicsecurity.criminal', {
+      url: '/detail/criminal',
+      templateUrl: 'app/in/publicsecurity/three/police/criminal.html',
+      controller: 'criminalCtrl'
+    })
+    .state('app.publicsecurity.policecall', {
+      url: '/detail/policecall',
+      templateUrl: 'app/in/publicsecurity/three/police/policeCall.html',
+      controller: 'policeCallCtrl'
+    })
+    .state('app.publicsecurity.accident', {
+      url: '/detail/accident',
       templateUrl: 'app/in/publicsecurity/three/accident/accidentthree.html',
       controller: 'accidentthreeCtrl'
     })
-    .state('app.publicsecurity.firethree', {
-      url: '/firethree',
+    .state('app.publicsecurity.fire', {
+      url: '/detail/fire',
       templateUrl: 'app/in/publicsecurity/three/fire/firethree.html',
       controller: 'firethreeCtrl'
     })
-    .state('app.publicsecurity.petitionthree', {
-      url: '/petitionthree',
+    .state('app.publicsecurity.petition', {
+      url: '/detail/petition',
       templateUrl: 'app/in/publicsecurity/three/petition/petitionthree.html',
       controller: 'petitionthreeCtrl'
     })
-    .state('app.publicsecurity.safetythree', {
-      url: '/safetythree',
+    .state('app.publicsecurity.safety', {
+      url: '/detail/safety',
       templateUrl: 'app/in/publicsecurity/three/safety/safetythree.html',
       controller: 'safetythreeCtrl'
     })
@@ -237,11 +247,6 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       templateUrl:'app/in/livehood/three/population/populationThree.html',
       controller:'populationThreeCtrl'
     })
-      .state('app.livehood.priceThree',{
-          url:'/priceThree/priceThree',
-          templateUrl:'app/in/livehood/three/price/priceThree.html',
-          controller:'priceThreeCtrl'
-      })
     .state('app.livehood.TerminalPopulation',{
       url:'/PopulationThree/TerminalPopulation',
       templateUrl:'app/in/livehood/three/population/populationThree.html',
@@ -262,46 +267,64 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       templateUrl:'app/in/livehood/three/population/populationThree.html',
       controller:'populationThreeCtrl'
     })
-    //社会保险三级界面UBEI
-      .state('app.livehood.UBEI', {
+    //价格指数三级界面
+    .state('app.livehood.priceThree',{
+      url:'/priceThree/priceThree',
+      templateUrl:'app/in/livehood/three/price/priceThree.html',
+      controller:'priceThreeCtrl'
+    })    
+    //社会保险三级界面
+      .state('app.inThDetail', {
       url: '/InsuranceChart/UrbanBasicEndowmentInsuranceData',
       name: 'UBEI',
       templateUrl: 'app/in/livehood/three/insurance/insurance.html',
       controller: 'insuranceCtrl'
     })
-         //社会保险三级界面UI
-      .state('app.livehood.UI', {
+      //社保三级子界面
+ .state('app.inThDetail.UBEI', {
+      url: '/InsuranceChart/UrbanBasicEndowmentInsuranceData',
+      name: 'UBEI',
+      templateUrl: 'app/in/livehood/three/insurance/inThDetail/inThDetail.html',
+      controller: 'insuranceCtrl'
+    })
+      .state('app.inThDetail.UI', {
       url: '/InsuranceChart/UnemploymentInsuranceData',
       name: 'UBEI',
-      templateUrl: 'app/in/livehood/three/insurance/insurance.html',
+      templateUrl: 'app/in/livehood/three/insurance/inThDetail/inThDetail.html',
       controller: 'insuranceCtrl'
     })
-         .state('app.livehood.UBMI', {
+         .state('app.inThDetail.UBMI', {
       url: '/InsuranceChart/UrbanBasicMedicalInsuranceData',
       name: 'UBMI',
-      templateUrl: 'app/in/livehood/three/insurance/insurance.html',
+      templateUrl: 'app/in/livehood/three/insurance/inThDetail/inThDetail.html',
       controller: 'insuranceCtrl'
     })
-         .state('app.livehood.EII', {
+         .state('app.inThDetail.URMI', {
+      url: '/InsuranceChart/UrbanResidentsMedicalInsuranceData',
+      name: 'URMI',
+      templateUrl: 'app/in/livehood/three/insurance/inThDetail/inThDetail.html',
+      controller: 'insuranceCtrl'
+    })
+         .state('app.inThDetail.EII', {
       url: '/InsuranceChart/EmploymentInjuryInsuranceData',
       name: 'EII',
-      templateUrl: 'app/in/livehood/three/insurance/insurance.html',
+      templateUrl: 'app/in/livehood/three/insurance/inThDetail/inThDetail.html',
       controller: 'insuranceCtrl'
     })
-            .state('app.livehood.MI', {
+            .state('app.inThDetail.MI', {
       url: '/InsuranceChart/MaternityInsuranceData',
       name: 'MI',
-      templateUrl: 'app/in/livehood/three/insurance/insurance.html',
+      templateUrl: 'app/in/livehood/three/insurance/inThDetail/inThDetail.html',
       controller: 'insuranceCtrl'
     })
-      .state('app.livehood.RBEI', {
+      .state('app.inThDetail.RBEI', {
       url: '/InsuranceChart/ResidentsBasicEndowmentInsuranceData',
       name: 'RBEI',
-      templateUrl: 'app/in/livehood/three/insurance/insurance.html',
+      templateUrl: 'app/in/livehood/three/insurance/inThDetail/inThDetail.html',
       controller: 'insuranceCtrl'
     })
 
-
+        
     //公共事业
     .state('app.publicService', {
       abstract: true,
@@ -328,6 +351,27 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       templateUrl: 'app/in/publicService/two/publicServicedetail.html',
       controller: 'publicServicedetailCtrl'
     })
+    .state('app.publicService.peducation', {
+      url: '/detail/education',
+      templateUrl: 'app/in/publicService/three/education/peducation.html',
+      controller: 'peducationCtrl'
+    })
+    .state('app.publicService.phealthCare', {
+      url: '/detail/healthCare',
+      templateUrl: 'app/in/publicService/three/healthCare/phealthCare.html',
+      controller: 'phealthCareCtrl'
+    })
+    .state('app.publicService.ptelecom', {
+      url: '/detail/telecom',
+      templateUrl: 'app/in/publicService/three/telecom/ptelecom.html',
+      controller: 'ptelecomCtrl'
+    })
+    .state('app.publicService.ptraffic', {
+      url: '/detail/traffic',
+      templateUrl: 'app/in/publicService/three/traffic/ptraffic.html',
+      controller: 'ptrafficCtrl'
+    })
+    
     
     // 城市管理
     .state('app.cm', {

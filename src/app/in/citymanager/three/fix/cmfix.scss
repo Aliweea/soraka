@@ -1,0 +1,47 @@
+.cmfix-module {
+	width: 100%;
+	@mixin cmTa() {
+		font-size: 15px;
+		.title-area {
+			display: inline-block;
+			padding: 0 10px;
+			border: 1px dashed #abb;
+			background-color: rgba(208,224,224,0.5);
+			border-left: none;
+			i {
+
+			}
+			.title {
+				font-size: 15px;
+			}
+		}
+	}
+	.key-value-area1 {
+		padding:15px 0 5px 0;
+		background: linear-gradient($bgLightGrey, #fff);
+		@include cmTa();
+		.value {
+			display: block;
+			padding: 8px 10px;
+			font-size: 13px;
+		}
+	}
+	.key-value-area2 {
+		padding:25px 0 5px 0;
+		background: linear-gradient($bgLightGrey, #fff);
+		@include cmTa();
+		.value {
+			display: block;
+			padding: 8px 10px;
+			font-size: 13px;
+		}
+	}
+	.chart-area1 {
+		border-top: 1px dashed $cborder;
+		border-bottom: 1px solid $cborder;
+	}
+	.chart-area2 {
+		border-top: 1px dashed $cborder;
+		border-bottom: 1px solid $cborder;
+	}
+}

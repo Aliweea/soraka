@@ -1,8 +1,13 @@
 export default($scope, $state, hService) => {
 	'ngInject';
 	$scope.title = "民生";
+
+	const jQueryDOMToDos = () => {
+		$('.navTopShowPopulation').hide(0);
+	}();
 	// 上一级路由
 	$scope.toH = () => {
+		$('.navTopShowPopulation').hide(0);
 		let h = hService.state();
 		if (h.params == null) {
 			$state.go(h.name);
@@ -32,7 +37,7 @@ export default($scope, $state, hService) => {
 				$state.go("app.livehood.PopulationStructure");
 				break;
 			case "社会保险":
-				$state.go("app.livehood.UBEI");
+				$state.go("app.inThDetail.UBEI");
 				break;
 			case "价格指数":
 				$state.go("app.livehood.priceThree");

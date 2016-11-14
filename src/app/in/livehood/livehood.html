@@ -3,6 +3,7 @@
 		<div class="cm-return-home" ui-sref="app.in.home"><i class="fa fa-home" aria-hidden="true"></i><span>主页</span></div>
 		<div class="cm-kpi-choose navTopShowMark" ui-turn-on='kpiChoiceDropdown'><i class="fa fa-angle-down fa-2x" aria-hidden="true"></i><span>KPI分类</span></div>
 		<div class="cm-kpi-status navTopShowMark" ui-turn-on='kpiStatusDropdown'><i class="fa fa-angle-down fa-2x" aria-hidden="true"></i><span>KPI状态</span></div>
+		<div class="lh-population-choose navTopShowPopulation" ui-turn-on='populationChoiceDropdown'><i class="fa fa-angle-down fa-2x" aria-hidden="true"></i><span>人口结构KPI状态</span></div>
 		<ul class="dropdown-menu cm-dropdown-ul"
 			ui-outer-click="Ui.turnOff('kpiChoiceDropdown')"
 			ui-outer-click-if="Ui.active('kpiChoiceDropdown')"
@@ -10,11 +11,28 @@
 			ui-show="kpiChoiceDropdown"
 			ui-state="kpiChoiceDropdown"
 			ui-turn-off="kpiChoiceDropdown">
-			<li><a ui-sref="app.livehood.livehoodlist({categoryId:2003})" href="#" ng-click="changeCategory('人口结构')">人口结构</a></li>
+			<li><a ui-sref="app.livehood.livehoodlist({categoryId:2003})" ng-click="changeCategory('人口结构')" href="#">人口结构</a></li>
 			<li class="divider"></li>
-			<li><a ui-sref="app.livehood.livehoodlist({categoryId:2004})" href="#" ng-click="changeCategory('社会保险')">社会保险</a></li>
+			<li><a ui-sref="app.livehood.livehoodlist({categoryId:2004})" ng-click="changeCategory('社会保险')"  href="#">社会保险</a></li>
 			<li class="divider"></li>
-			<li><a ui-sref="app.livehood.livehoodlist({categoryId:2001})" href="#" ng-click="changeCategory('价格指数')">价格指数</a></li>
+			<li><a ui-sref="app.livehood.livehoodlist({categoryId:2001})" ng-click="changeCategory('价格指数')" href="#">价格指数</a></li>
+		</ul>
+		<ul class="dropdown-menu cm-dropdown-ul"
+			ui-outer-click="Ui.turnOff('populationChoiceDropdown')"
+			ui-outer-click-if="Ui.active('populationChoiceDropdown')"
+			role="menu"
+			ui-show="populationChoiceDropdown"
+			ui-state="populationChoiceDropdown"
+			ui-turn-off="populationChoiceDropdown">
+			<li><a ui-sref="app.livehood.PopulationStructure" href="#">人口结构图</a></li>
+			<li class="divider"></li>
+			<li><a ui-sref="app.livehood.TerminalPopulation" href="#">期末户籍人口数</a></li>
+			<li class="divider"></li>
+			<li><a ui-sref="app.livehood.BornDeath" href="#">出生人口与死亡人口详情</a></li>
+			<li class="divider"></li>
+			<li><a ui-sref="app.livehood.BearingWomen" href="#">户籍育龄妇女详情</a></li>
+			<li class="divider"></li>
+			<li><a ui-sref="app.livehood.FirstMarriage" href="#">初婚女性详情</a></li>
 		</ul>
 		<ul class="dropdown-menu cm-dropdown-ul"
 			ui-outer-click="Ui.turnOff('kpiStatusDropdown')"
@@ -56,7 +74,7 @@
 		</div>
 		<div class="btn-group pull-left cm-menu-navbar-bottomleft navbar2position">
 			<span class="s1">当前位置:</span>
-			<span class="s2">人口结构<i class="fa fa-angle-right" aria-hidden="true"></i>{{currentCategoryName}}</span>
+			<span class="s2">民生<i class="fa fa-angle-right" aria-hidden="true"></i>{{currentCategoryName}}</span>
 			<span class="s3" ng-click="toDetail()"><i class="fa fa-hand-o-right" aria-hidden="true"></i><span>查看KPI详情</span></span>
 		</div>
 	</div>

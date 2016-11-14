@@ -19,4 +19,29 @@ export default($scope, $state, hService) => {
 		};
 		$state.go("app.publicService.bystate",paramObj);
 	}
+
+	// 用于底部bar的当前位置
+	$scope.currentCategoryName = "教育"; // default value
+	$scope.changeCategory = (name) => {
+		$scope.currentCategoryName = name;
+		console.log(currentCategoryName);
+	}
+
+	$scope.toDetail = () => {
+		switch($scope.currentCategoryName) {	
+			case "教育":
+				$state.go("app.publicService.peducation");
+				break;
+			case "医疗卫生":
+				$state.go("app.publicService.phealthCare");
+				break;
+			case "电信":
+				$state.go("app.publicService.ptelecom");
+				break;
+			case "交通":
+				$state.go("app.publicService.ptraffic");
+				break;
+
+		}
+	}
 };

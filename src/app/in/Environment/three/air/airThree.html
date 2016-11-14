@@ -35,7 +35,7 @@
                 </table>
             </div>
             <div style="overflow: auto; overflow-x:hidden;height: 180px" ng-show="mapTableStatus.airQuality">
-                <table class="table table-hover table-responsive" style="font-size:14px">
+                <table class="table table-striped" style="font-size:14px">
                     <tr ng-repeat="airQualityOne in airQualityMarkerList">
                         <td style="width:30%">{{airQualityOne.monitor}}</td>
                         <td style="width:14%"><span>{{airQualityOne.index_aqi}}</span></td>
@@ -61,7 +61,7 @@
                 </table>
             </div>
             <div style="overflow: auto; overflow-x:hidden;height: 180px" ng-show="mapTableStatus.wasteAir">
-                <table class="table table-hover table-responsive" style="font-size:14px">
+                <table class="table table-striped" style="font-size:14px">
                     <tr ng-repeat="wasteAirOne in wasteAirMarkerList">
                         <td style="width:20%">{{wasteAirOne.monitor.slice(0,6)}}</td>
                         <td style="width:20%"><span>{{(wasteAirOne.index_discharge[1]/100000000).toFixed(2)}}亿</span>
@@ -82,6 +82,7 @@
         </div>
         <div class="panel-body">
             <nav class="navbar navbar-default" role="navigation" du-scroll-container="scroll-container">
+                <a style="font-size: 15px;margin-left: 3px" href="#airQualityAnchorTop" du-smooth-scroll>空气质量指标</a>
                 <a href="#airQualityAnchor1" style="margin-left: 3%;font-size: 13px" class="btn btn-default navbar-btn"
                    du-smooth-scroll>AQI</a>
                 <a href="#airQualityAnchor2" style="margin-left: 3%;font-size: 13px" class="btn btn-default navbar-btn"
@@ -97,55 +98,92 @@
                 <a href="#airQualityAnchor7" style="margin-left: 3%;font-size: 13px" class="btn btn-default navbar-btn "
                    du-smooth-scroll>臭氧</a>
             </nav>
-            <span ng-repeat="airQualityOne in airQualityCurrentList">
-                <label style="margin-left: 5%">
-                    <input type="radio" ng-model="airQualityCurrentListSelected" ng-value="airQualityOne.monitor"
-                           name="airQualityCurrentListRadio" ng-click="airQualityCurrentChange(airQualityOne)">{{airQualityOne.monitor}}
-                </label>
-            </span>
-            <div style="overflow: auto; height: 300px" id="scroll-container">
-                <div id="airQualityAnchor1" style="margin-left: 25%">
+            <div style="border-right: 0.5px solid black; overflow: auto; height: 500px; display: inline-block; float: left" id="scroll-container">
+                <p id="airQualityAnchorTop"></p>
+                <div id="airQualityAnchor1" style="margin-left: 10%">
                     <highchart config="airQualityOptions.aqiOption"></highchart>
                 </div>
                 <div>
                     <highchart config="airQualityOptions.currentAqiLineOption"></highchart>
                 </div>
-                <div id="airQualityAnchor2" style="margin-left: 25%">
+                <div id="airQualityAnchor2" style="margin-left: 10%">
                     <highchart config="airQualityOptions.pm25Option"></highchart>
                 </div>
                 <div>
                     <highchart config="airQualityOptions.currentPm25LineOption"></highchart>
                 </div>
-                <div id="airQualityAnchor3" style="margin-left: 25%">
+                <div id="airQualityAnchor3" style="margin-left: 10%">
                     <highchart config="airQualityOptions.pm10Option"></highchart>
                 </div>
                 <div>
                     <highchart config="airQualityOptions.currentPm10LineOption"></highchart>
                 </div>
-                <div id="airQualityAnchor4" style="margin-left: 25%">
+                <div id="airQualityAnchor4" style="margin-left: 10%">
                     <highchart config="airQualityOptions.so2Option"></highchart>
                 </div>
                 <div>
                     <highchart config="airQualityOptions.currentSo2LineOption"></highchart>
                 </div>
-                <div id="airQualityAnchor5" style="margin-left: 25%">
+                <div id="airQualityAnchor5" style="margin-left: 10%">
                     <highchart config="airQualityOptions.no2Option"></highchart>
                 </div>
                 <div>
                     <highchart config="airQualityOptions.currentNo2LineOption"></highchart>
                 </div>
-                <div id="airQualityAnchor6" style="margin-left: 25%">
+                <div id="airQualityAnchor6" style="margin-left: 10%">
                     <highchart config="airQualityOptions.coOption"></highchart>
                 </div>
                 <div>
                     <highchart config="airQualityOptions.currentCoLineOption"></highchart>
                 </div>
-                <div id="airQualityAnchor7" style="margin-left: 25%">
+                <div id="airQualityAnchor7" style="margin-left: 10%">
                     <highchart config="airQualityOptions.o3Option"></highchart>
                 </div>
                 <div>
                     <highchart config="airQualityOptions.currentO3LineOption"></highchart>
                 </div>
+            </div>
+            <p style="font-size: 15px;margin-left: 75%">空气质量监测点</p>
+            <div style="margin-left: 75%" class="radio" ng-repeat="airQualityOne in airQualityCurrentList">
+                <label style="margin-left: 5%">
+                    <input type="radio" ng-model="airQualityCurrentListSelected" ng-value="airQualityOne.monitor"
+                           name="airQualityCurrentListRadio" ng-click="airQualityCurrentChange(airQualityOne)">{{airQualityOne.monitor}}
+                </label>
+            </div>
+            <div style="margin-left: 75%;width: 20%">
+                <img src="/assets/images/Environment/one-sentence.png" />
+            </div>
+            <div style="margin-left: 75%;margin-top: 3px">{{airQualityCurrentDateTime.year}}年{{airQualityCurrentDateTime.month}}月{{airQualityCurrentDateTime.day}}日{{airQualityCurrentDateTime.hour}}时</div>
+            <div style="margin-left: 75%;">{{airQualityOneSentence.monitor}}</div>
+            <div style="margin-left: 75%">空气质量等级:&nbsp{{airQualityOneSentence.level}} 级</div>
+            <div style="margin-left: 75%">首要污染物:&nbsp{{airQualityOneSentence.firstElement}}</div>
+            <div style="margin-left: 75%">
+                <span ng-class="getOneSentenceStatus(airQualityOneSentence.aqiStatus.status)"></span>
+                &nbsp{{airQualityOneSentence.aqiStatus.sentence}}
+            </div>
+            <div style="margin-left: 75%">
+                <span ng-class="getOneSentenceStatus(airQualityOneSentence.pm25Status.status)"></span>
+                &nbsp{{airQualityOneSentence.pm25Status.sentence}}
+            </div>
+            <div style="margin-left: 75%">
+                <span ng-class="getOneSentenceStatus(airQualityOneSentence.pm10Status.status)"></span>
+                &nbsp{{airQualityOneSentence.pm10Status.sentence}}
+            </div>
+            <div style="margin-left: 75%">
+                <span ng-class="getOneSentenceStatus(airQualityOneSentence.so2Status.status)"></span>
+                &nbsp{{airQualityOneSentence.so2Status.sentence}}
+            </div>
+            <div style="margin-left: 75%">
+                <span ng-class="getOneSentenceStatus(airQualityOneSentence.no2Status.status)"></span>
+                &nbsp{{airQualityOneSentence.no2Status.sentence}}
+            </div>
+            <div style="margin-left: 75%">
+                <span ng-class="getOneSentenceStatus(airQualityOneSentence.coStatus.status)"></span>
+                &nbsp{{airQualityOneSentence.coStatus.sentence}}
+            </div>
+            <div style="margin-left: 75%">
+                <span ng-class="getOneSentenceStatus(airQualityOneSentence.o3Status.status)"></span>
+                &nbsp{{airQualityOneSentence.o3Status.sentence}}
             </div>
         </div>
     </div>
