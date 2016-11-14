@@ -2,7 +2,7 @@
 * 功能: 异步方式封装http调用
 * --Mondooo
 */
-export default ($q, $state) => {
+export default ($q, $state, $sessionStorage) => {
 	'ngInject';
 
 	let TOKEN_KEY = 'x-auth-token';
@@ -33,6 +33,7 @@ export default ($q, $state) => {
 		},
 		httpGetbyJSOG: (resource, parameters, headers) => {
 			return $q((resolve, reject) => {
+				headers['X-Auth-Token'] = $sessionStorage[TOKEN_KEY];
 				resource(headers).get(parameters,
 				(value, responseHeaders) => {
 					value.headers = responseHeaders ? responseHeaders() : "";
@@ -58,6 +59,19 @@ export default ($q, $state) => {
 		},
 		httpPost: (resource, parameters, headers, body) => {
 			return $q((resolve, reject) => {
+				resource(headers).post(parameters,body,
+				(value, responseHeaders) => {
+					value.headers = responseHeaders ? responseHeaders() : "";
+					resolve(JSOG.parse(JSOG.stringify(value)));
+				}, 
+				(httpResponse) => {
+					reject(httpResponse);
+				});
+			});
+		},
+		httpPostWithToken: (resource, parameters, headers, body) => {
+			return $q((resolve, reject) => {
+				headers['X-Auth-Token'] = $sessionStorage[TOKEN_KEY];
 				resource(headers).post(parameters,body,
 				(value, responseHeaders) => {
 					value.headers = responseHeaders ? responseHeaders() : "";
