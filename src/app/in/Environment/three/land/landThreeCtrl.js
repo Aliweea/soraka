@@ -137,9 +137,6 @@ export default ($scope, $state, dateService, dataDetailFactory, qService) => {
                 },
                 exporting: {
                     enabled: false
-                },
-                exporting: {
-                    enabled: false
                 }
             },
             series: [{
