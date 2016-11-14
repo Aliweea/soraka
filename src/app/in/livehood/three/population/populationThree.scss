@@ -56,7 +56,9 @@
             border-left: none;
             i {
 
-            }
+
+}
+
             .title {
                 font-size: 15px;
             }
@@ -121,4 +123,25 @@
             }
         }
     }
+
 }
+/*.fadein.ng-enter{
+    animation:priceenter 3s linear;
+    background-color: red;
+    border: 1px solid red;
+}*/
+.fadein.ng-enter {
+ animation: priceenter 1s linear;
+}
+.fadeout.ng-leave{
+    animation: priceleave 1s linear;
+}
+@keyframes priceenter{
+    from {transform:translateX(-100px);}
+    to  {transform:translateX(0px);}
+}
+@keyframes priceleave{
+    from {transform:translateX(0px);}
+    to  {transform:translateX(-200px);}
+
+            }
