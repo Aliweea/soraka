@@ -1,18 +1,17 @@
-	<div class="panel-heading" style="border:black 1px solid">
-		<center>火灾事故警情动态</center>
-		<span class="glyphicon glyphicon-question-sign pull-right"></span>
-	</div>
-	<div class="well" style="margin-top:8px;margin-bottom:0px;height:8px">
+	<div class="panel-heading" style="border:#63B8FF 1px solid;background-color:#63B8FF;height:30px;">
+   		<h4><center>{{getDate.year}}年太仓市火灾事故警情动态</center></h4>
+   	</div> 
+	<div class="well" style="margin-top:6px;margin-bottom:0px;height:6px">
 		<p class="ioc-panel-desc-body">{{getDate.year}}年{{getDate.month}}月太仓市各类火灾事故总数 {{amountData.thisMonthAmount}}起</p>
 	</div>						
 	<highchart  id="barCount"  config="barCount"></highchart>	
 	<highchart  id="barInjury"  config="barInjury"></highchart>		
 	<highchart  id="barDead"  config="barDead"></highchart>	
 	<highchart  id="barDamage"  config="barDamage"></highchart>			
-	<div class="panel-heading" style="border:black 1px solid;margin-top:10px;">
-		<center>{{getDate.year}}年太仓市火灾事故趋势</center>
-		<span class="glyphicon glyphicon-question-sign pull-right"></span>
-	</div>
+	<div class="panel-heading" style="border:#63B8FF 1px solid;background-color:#63B8FF;height:30px;">
+   		<h4><center>{{getDate.year}}年太仓市火灾事故趋势</center></h4>
+   	</div>
+   	<div>
 	<span class="glyphicon glyphicon-question-sign pull-right"></span>	
 	<label class="">
 		<input type="radio"  value="0" checked ng-model="lineChartData.selected" ng-change ='trendInfoChanged()'>
@@ -31,3 +30,4 @@
 		查看直接财产损失
 	</label>				
 	<highchart  id="columnChart" config="columnChart" style="height:450px"></highchart>			
+    </div>
