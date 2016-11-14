@@ -7,6 +7,10 @@ export default ($scope, $state, $location, qService, dataDetailFactory, generalS
 		$(".navTopShowMark").hide(0); // 隐藏KPI状态 KPI分类
 		$('#showshort').focus(); // 获取默认焦点
 		$('.navTopShowPopulation').show(0); //显示人口结构下拉框
+		$('#cmRefuseTownTooglePanel').hide(0);
+		$('#chooseAge').click(() => {
+			$('#chooseAgePanel').toggle(0);
+		})
 	}();
 
 	$scope.divice = {
@@ -22,11 +26,15 @@ export default ($scope, $state, $location, qService, dataDetailFactory, generalS
 				$scope.choice = true;
 				$('#lhpopulation-s1').addClass('activeTab');
 				$('#lhpopulation-s2').removeClass('activeTab');
+				$('#lhpopulation2-s1').addClass('activeTab');
+				$('#lhpopulation2-s2').removeClass('activeTab');
 				break;
 			case 'structure':
 				$scope.choice = false;
 				$('#lhpopulation-s2').addClass('activeTab');
 				$('#lhpopulation-s1').removeClass('activeTab');
+				$('#lhpopulation2-s2').addClass('activeTab');
+				$('#lhpopulation2-s1').removeClass('activeTab');
 				break;
 		}
 	}
@@ -80,7 +88,7 @@ export default ($scope, $state, $location, qService, dataDetailFactory, generalS
 	// qService.httpPost(dataDetailFactory.lastestObject, params, headers, body).then((data) => {
 	// 	console.log(data);
 	// }, (err) => {
-	// 	if (err.errorCode == "UNAUTHORIZED") {
+	// 	if (err.errorCode == "UNAUTHORIZED") r
 	// 		console.log(err);
 	// 	} else {}
 	// });
@@ -96,19 +104,28 @@ export default ($scope, $state, $location, qService, dataDetailFactory, generalS
 				enabled: false
 			},
 			title: {
-				text: ""
+				text: "",
+				style: {
+					fontSize: 15
+				}
 			},
 			subtitle: {
 				text: ''
 			},
 			xAxis: [{
 				categories: categories,
-				reversed: false
+				reversed: false,
+				labels: {
+					rotation: 0
+				}
 			}, { // mirror axis on right side
 				opposite: true,
 				reversed: false,
 				categories: categories,
-				linkedTo: 0
+				linkedTo: 0,
+				labels: {
+					rotation: 0
+				}
 			}],
 			yAxis: {
 				title: {
@@ -117,7 +134,8 @@ export default ($scope, $state, $location, qService, dataDetailFactory, generalS
 				labels: {
 					formatter: function() {
 						return Math.abs(this.value);
-					}
+					},
+					rotation: -50
 				},
 				min: -15000,
 				max: 15000
@@ -163,11 +181,14 @@ export default ($scope, $state, $location, qService, dataDetailFactory, generalS
 			colors: colors,
 			chart: {
 				type: 'column',
-				width: $(window).width() * 0.9,
+				//width: $(window).width() * 0.9,
 				//marginBottom: marginBottom
 			},
 			title: {
-				text: ""
+				text: "",
+				style: {
+					fontSize: 15
+				}
 			},
 			credits: {
 				enabled: false
@@ -257,11 +278,14 @@ export default ($scope, $state, $location, qService, dataDetailFactory, generalS
 		this.options = {
 			chart: {
 				type: 'column',
-				width: $(window).width() * 0.9,
+				//width: $(window).width() * 0.9,
 				//marginBottom: marginBottom
 			},
 			title: {
-				text: ""
+				text: "",
+				style: {
+					fontSize: 15
+				}
 			},
 			subtitle: {
 				text: ''
@@ -370,7 +394,7 @@ export default ($scope, $state, $location, qService, dataDetailFactory, generalS
 			switch (tabName) {
 				case $scope.tabMap[0].name:
 					$scope.ALLOPTION = {
-						POPULATIONCHART: new barHighChart(600, ageList)
+						POPULATIONCHART: new barHighChart(500, ageList)
 					};
 					$scope.ALLDATA = {
 						POPULATIONCHARTDATA: new DataList(["男性", "女性"], ageList.length, chartDataObject),

@@ -1,113 +1,3 @@
-<!-- 
-<div class="population-three-module">
-  <div ng-show="thisloc == 'PopulationStructure'">
-    
-    <div class="panel-group" ui-state="myAccordion1" ui-default="1">
-
-  <div class="panel panel-default">
-    <div class="panel-heading" ui-set="{'myAccordion1': 1}"> 
-      <h4 class="panel-title">
-        {{ALLDATA.tableName}}
-      </h4>
-    </div>
-    <div ui-if="myAccordion1 == 1">
-      <div class="panel-body">  
-          <div>
-            <table class="table" style="font-size:16px">
-              <tr ng-repeat="tableData in ALLDATA.tableData">
-                <td>{{tableData.name}}</td>
-                <td align="right">{{tableData.value}}</td>
-              </tr>
-            </table>
-          </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="panel panel-default">
-    <div class="panel-heading" ui-set="{'myAccordion1': 2}"> 
-      <h4 class="panel-title">
-        {{ALLDATA.detailTableName}}
-      </h4>
-    </div>
-    <div ui-if="myAccordion1 == 2">
-      <div class="panel-body">
-        <table class="table" style="font-size:16px;">
-          <tr ng-repeat="tableData in ALLDATA.detailTableData">
-            <td>{{tableData.name}}</td>
-            <td align="right">{{tableData.value}}</td>
-          </tr>
-        </table>
-      </div>
-    </div>
-  </div>
-
-  <div class="panel panel-default">
-    <div class="panel-heading" ui-set="{'myAccordion1': 3}"> 
-      <h4 class="panel-title">
-        {{ALLOPTION.POPULATIONCHART.options.title.text}}
-      </h4>
-    </div>
-    <div ui-if="myAccordion1 == 3">
-      <div class="panel-body">
-        <highchart config="ALLOPTION.POPULATIONCHART" id=""></highchart>
-      </div>
-    </div>
-  </div>
-
-</div>
-    
-  </div>
-
-
-  <div ng-show="thisloc != 'PopulationStructure'">   
-    <div class="panel-group" ui-state="myAccordion2" ui-default="1">
-      <div class="panel panel-default">
-        <div class="panel-heading" ui-set="{'myAccordion2': 1}">
-          <h4>{{panel_heading[0]}}</h4>
-        </div>
-        <div ui-if="myAccordion2 == 1">
-          <h>{{ALLDATA.tableName}}</h>
-          <table class="table" style="font-size:16px">
-            <tr ng-repeat="tableData in ALLDATA.tableData">
-              <td>{{tableData.name}}</td>
-              <td align="right">{{tableData.value}}</td>
-            </tr>
-          </table>
-          <div class="panel-body">
-            <div class="chart-area">
-              <highchart config="ALLOPTION.POPULATIONCHART"></highchart>
-            </div>
-          </div>
-
-        </div>
-      </div>
-      <div class="panel panel-default">
-        <div class="panel-heading" ui-set="{'myAccordion2': 2}">
-          <h4>{{panel_heading[1]}}</h4>
-        </div>
-        <div ui-if="myAccordion2 == 2">
-          <div class="panel-body">
-            <h>{{ALLDATA.townTableName}}</h>
-            <table class="table" style="font-size:16px">
-              <tr ng-repeat="tableData in ALLDATA.townTableData">
-                <td>{{tableData.name}}</td>
-                <td align="right">{{tableData.value}}</td>
-              </tr>
-            </table>
-            <div class="chart-area">
-              <highchart config="ALLOPTION.POPULATIONTOWNCHART"></highchart>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
-
-
-
-
 <div class="population-three-module">
   <div ng-show="thisloc == 'PopulationStructure'">
     <div class="tabs">
@@ -115,8 +5,10 @@
       <input ng-click="populationSwitch('structure')" type="button" class="s2" id="lhpopulation-s2" value="人口结构">
     </div>
     <div class="key-value-area" ng-if="choice">
-      <h4 style="text-align: center;">{{ALLDATA.tableName}}</h4>
-      <table class="table" style="font-size:16px">
+      <div style="text-align: center;line-height: 15px;">
+        <span style="font-size: 15px;">{{ALLDATA.tableName}}</span>
+      </div>
+      <table class="table population-table">
         <tr ng-repeat="tableData in ALLDATA.tableData">
           <td>{{tableData.name}}</td>
           <td align="right">{{tableData.value}}</td>
@@ -124,13 +16,13 @@
       </table>
     </div>
     <div class="key-value-area" ng-if="!choice">
-      <h4 style="text-align: center;">
-        {{ALLDATA.detailTableName}}
+      <div style="text-align: center;">
+        <span style="font-size: 15px;">{{ALLDATA.detailTableName}}</span>
         <span name="" id="chooseAge" class="toggle-button">
-          <img src="/assets/images/dropdown.png" alt="选择年龄" style="width: 30px;height: 30px;" />
+          <img src="/assets/images/dropdown.png" alt="选择年龄" style="width: 20px;height: 20px;" />
         </span>
-      </h4>
-      <table class="table" style="font-size:16px;">
+      </div>
+      <table class="table population-table">
         <tr ng-repeat="tableData in ALLDATA.detailTableData">
           <td>{{tableData.name}}</td>
           <td align="right">{{tableData.value}}</td>
@@ -141,8 +33,47 @@
       <highchart config="ALLOPTION.POPULATIONCHART"></highchart>
     </div>
   </div>
-  <div ng-show="thisloc != 'PopulationStructure'">  
 
+  <div ng-show="thisloc != 'PopulationStructure'">  
+    <div class="tabs">
+      <input ng-click="populationSwitch('total')" type="button" class="s1" id="lhpopulation2-s1" value="按年份">
+      <input ng-click="populationSwitch('structure')" type="button" class="s2" id="lhpopulation2-s2" value="按城镇">
+    </div>
+    <div class="key-value-area" ng-if="choice">
+      <div style="text-align: center;">
+        <span style="font-size: 15px;">{{ALLDATA.tableName}}</span>
+        <span name="" id="chooseYear" class="toggle-button">
+          <img src="/assets/images/dropdown.png" alt="选择年份" style="width: 20px;height: 20px;" />
+        </span>
+      </div>
+      <table class="table population-table">
+        <tr ng-repeat="tableData in ALLDATA.tableData">
+          <td>{{tableData.name}}</td>
+          <td align="right">{{tableData.value}}</td>
+        </tr>
+      </table>
+      <div class="chart-area">
+        <highchart config="ALLOPTION.POPULATIONCHART"></highchart>
+      </div>
+    </div>
+    <div class="key-value-area" ng-if="!choice">
+      <div style="text-align: center;">
+        <span style="font-size: 15px;">{{ALLDATA.townTableName}}</span>
+        <span name="" id="chooseTown" class="toggle-button">
+          <img src="/assets/images/dropdown.png" alt="选择城镇" style="width: 20px;height: 20px;" />
+        </span>
+      </div>
+      <table class="table population-table">
+        <tr ng-repeat="tableData in ALLDATA.townTableData">
+          <td>{{tableData.name}}</td>
+          <td align="right">{{tableData.value}}</td>
+        </tr>
+      </table>
+      <div class="chart-area">
+        <highchart config="ALLOPTION.POPULATIONTOWNCHART"></highchart>
+      </div>
+    </div>
+    
   </div>
 </div>
 

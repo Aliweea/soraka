@@ -17,7 +17,7 @@
     width: 100%;
     .tabs {
         position: fixed;
-        /*z-index: 1000;*/
+        z-index: 100;
         width: 100%;
         font-size: 15px;
         background-color: #fff;
@@ -68,8 +68,13 @@
             font-size: 13px;
         }
     }
+    .population-table {
+        font-size: 13px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
     .key-value-area {
-        padding:60px 0 0 0;
+        padding:54px 0 0 0;
         @include cmTa();
         /*.toggle-button {
             width: 8em;
@@ -89,5 +94,31 @@
     .chart-area {
         border-top: 1px dashed $cborder;
         border-bottom: 1px solid $cborder;
+    }
+    .age-toggle-area {
+        position: relative;
+        .toggle-panel {
+            width: 80%;
+            box-shadow: 5px 10px 5px #999999;
+            border: 1px solid $cborder;
+            border-radius: 8px;
+            position: absolute;
+            z-index: 2000;
+            padding: 10px 5px;
+            margin: 5px 10%;
+            background-color: rgba(255,255,255,0.8);
+            .toggle-item {
+                width: 48%;
+                background: radial-gradient(50% 50%, #eee, #eee, #fff);
+                border: 1px solid $cborder;
+                border-radius: 5px;
+                padding: 3px 3px;
+                margin: 2px;
+                outline: none;
+                &:hover, &:active, &:focus {
+                    background: radial-gradient(50% 50%, #dee, #dee, #fff);
+                }
+            }
+        }
     }
 }
