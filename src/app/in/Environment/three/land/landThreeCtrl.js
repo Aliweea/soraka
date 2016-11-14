@@ -1,4 +1,4 @@
-export default ($scope, $state, dateService, dataDetailFactory, qService,$location, $anchorScroll) => {
+export default ($scope, $state, dateService, dataDetailFactory, qService) => {
     'ngInject';
 
     const jQueryDOMToDos = () => {
@@ -427,6 +427,7 @@ export default ($scope, $state, dateService, dataDetailFactory, qService,$locati
 
     //土地使用 列表点击事件
     $scope.landUseDetailListChange = function (landUseOne) {
+        $('#useDetailSelectPanel').hide(0);
         for (var i = 0; i < landUseHistoryArr.length; i++) {
             if (landUseHistoryArr[i].index == landUseOne) {
                 $scope.landUseOption.detailOption.options.title.text = landUseHistoryArr[i].index + '面积';
@@ -434,13 +435,11 @@ export default ($scope, $state, dateService, dataDetailFactory, qService,$locati
                 $scope.landUseOption.detailOption.series[0].data = landUseHistoryArr[i].dataList;
             }
         }
-        //滚动到图
-        $location.hash('useDetailChart');
-        $anchorScroll();
     };
 
     //土地出让 列表点击事件
     $scope.landUseGrantListChange = function (landUseOne) {
+        $('#useGrantSelectPanel').hide(0);
         for (var i = 0; i < landGrantHistoryArr.length; i++) {
             if (landGrantHistoryArr[i].index == landUseOne) {
                 $scope.landUseOption.grantOption.options.title.text = landGrantHistoryArr[i].index;
@@ -458,9 +457,6 @@ export default ($scope, $state, dateService, dataDetailFactory, qService,$locati
                 }
             }
         }
-        //滚动到图
-        $location.hash('useGrantChart');
-        $anchorScroll();
     };
 
     //土地使用数据获取
@@ -672,6 +668,7 @@ export default ($scope, $state, dateService, dataDetailFactory, qService,$locati
 
     //土地执法 列表点击事件
     $scope.landIllegalIndexListChange = function (landIllegalOne) {
+        $('#illegalDetailSelectPanel').hide(0);
         if (landIllegalOne == '总宗数') {
             $scope.landIllegalOption.detailOption.options.title.text = '违法用地' + '总宗数';
             $scope.landIllegalOption.detailOption.options.yAxis.title.text = '件';
@@ -733,8 +730,6 @@ export default ($scope, $state, dateService, dataDetailFactory, qService,$locati
                 });
             }
         }
-        $location.hash('illegalDetailChart');
-        $anchorScroll();
     };
 
     //土地执法数据获取
@@ -866,12 +861,24 @@ export default ($scope, $state, dateService, dataDetailFactory, qService,$locati
 
     //土地使用
     $scope.landUseFunction=function () {
+        $('#useGrantSelectPanel').hide(0);
+        $('#useDetailSelectPanel').hide(0);
         if (!landUseFlag){
             landUseFun();
         }
     };
+    $scope.useGantSelectFun=function () {
+        $('#useGrantSelectPanel').toggle(0);
+    };
+    $scope.useDetailSelectFun=function () {
+        $('#useDetailSelectPanel').toggle(0);
+    };
+    $scope.illegalDetailSelectFun=function () {
+        $('#illegalDetailSelectPanel').toggle(0);
+    };
     //土地执法
     $scope.landIllegalFunction = function () {
+        $('#illegalDetailSelectPanel').hide(0);
         if (!landIllegalFlag){
             landIllegalFun();
         }

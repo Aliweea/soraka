@@ -1,7 +1,7 @@
 <div class="app cm-module">
   <div class="navbar navbar-app navbar-absolute-top cm-menu-navbar-top">
-    <div class="cm-return-home" ui-sref="app.livehood.livehoodlist({categoryId:2004})"><i class="fa fa-chevron-left insurance-kpi-hight" aria-hidden="true"></i><span>返回</span></div>
-    <div class="insurance-kpi-top navTopShowMark" ui-turn-on='kpiChoiceDropdown'><i class="fa fa-angle-down fa-2x" aria-hidden="true"></i><span ng-show="isShow" ng-click="hideBtn()" >社保种类</span><span>{{currentCategoryName}}</span></div>
+    <div class="cm-return-home" ui-sref="app.livehood.livehoodlist({categoryId:2004})"><span>返回</span></div>
+    <div class="insurance-kpi-top navTopShowMark" ui-turn-on='kpiChoiceDropdown' ><i class="fa fa-angle-down fa-2x" aria-hidden="true"></i><span style="margin-left: auto;margin-right: auto;">{{currentCategoryName}}</span></div>
     <ul class="dropdown-menu cm-dropdown-ul"
       ui-outer-click="Ui.turnOff('kpiChoiceDropdown')"
       ui-outer-click-if="Ui.active('kpiChoiceDropdown')"
@@ -24,7 +24,7 @@
       <li><a ui-sref="app.inThDetail.RBEI" ng-click="changeCategory('居民基本养老保险')" href="#">居民基本养老保险</a></li>
     </ul>
   </div>
-  <div class="app-body" ng-class="{loading: loading}">
+  <div class="app-body" ng-class="{loading: loading}" style="padding-bottom: 0;">
     <div ng-show="loading" class="app-content-loading">
           <i class="fa fa-spinner fa-spin loading-spinner"></i>
         </div>
@@ -37,10 +37,10 @@
     </div>
   </div>
 
-  <div class="navbar navbar-app navbar-absolute-bottom cm-menu-navbar-bottom">
+ <!--  <div class="navbar navbar-app navbar-absolute-bottom cm-menu-navbar-bottom">
     <div class="btn-group pull-left cm-menu-navbar-bottomleft navbar2position">
       <span class="insurance-bottom">民生</span>
    
     </div>
-  </div>
+  </div> -->
 </div>

@@ -58,10 +58,11 @@
 		@include cmTa();
 	}
 	.town-area {
-		padding: 20px 0 12px 0;
+		padding: 20px 0 10px 0;
 		background: linear-gradient($bgLightGrey, #fff);
 		@include cmTa();
 		.i-label {
+			margin-top: 10px;
 			margin-left: 10px;
 			font-size: 13px;
 		}
@@ -70,6 +71,7 @@
 			height: 30px;
 			outline: none;
 			border: none;
+			border-bottom: 1px dashed #008AFF;
 			color: #008AFF;
 			background: radial-gradient(3em 40%, #ddd, #ddd, rgba(255,255,255,0));
 			text-align: left;
@@ -90,7 +92,7 @@
 			position: absolute;
 			z-index: 2000;
 			padding: 10px 5px;
-			margin: 5px 10%;
+			margin: 0 10%;
 			background-color: rgba(255,255,255,0.8);
 			.toggle-item {
 				width: 48%;
