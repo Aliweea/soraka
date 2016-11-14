@@ -1,7 +1,7 @@
 export default($scope, $rootScope, $state, qService, dataDetailFactory, dateService) => {
 	'ngInject';
 
-	const chartStore = (type, title, yTitle, xTitle, data, xData) => {
+	const chartStore = (type, title, yTitle, xTitle, unit, data, xData) => {
 		return {
 			options: {
 				chart: {
@@ -12,7 +12,7 @@ export default($scope, $rootScope, $state, qService, dataDetailFactory, dateServ
                     useHTML: true,
                     headerFormat: '<small>{point.key}'+ xTitle+'</small><table>',
                     pointFormat: '<tr><td style="color: {series.color}">{series.name}: </td>' +
-                        '<td style="text-align: right"><b>{point.y} '+ yTitle+'</b></td></tr>',
+                        '<td style="text-align: right"><b>{point.y:,0.f} '+ unit+'</b></td></tr>',
                     footerFormat: '</table>',
                     valueDecimals: 2
                 },
@@ -133,7 +133,6 @@ export default($scope, $rootScope, $state, qService, dataDetailFactory, dateServ
 			/* 最外层: 获取最新垃圾清运数据的时间
 			* 目的: 当数据更新落后于当前系统选择时间时, 按最后更新时间来显示数据
 			*/
-			console.log(data);
 			let sysTime = dateService.getSystemTime(); // 获取到系统设置的时间
 			let lastYear = data.data.year, 
 				lastMonth = data.data.month;
@@ -151,10 +150,10 @@ export default($scope, $rootScope, $state, qService, dataDetailFactory, dateServ
 			let columnData = [data.data.qcs, data.data.zccs];
 			let totalCount = data.data.qcs + data.data.zccs;
 			$scope.pieChart = pieStore(lastYear+"年"+lastMonth+"月份太仓市分区域拆除详情",
-									'<b>拆除数</b>:{point.y:1.f}(起)</b>',
+									'<b>拆除数</b>:{point.y:0.f}起</b>',
 									pieData,
 									'{point.percentage:.1f} %');
-			$scope.columnChart = chartStore('column', lastYear+"年"+lastMonth+"月份各类拆除数详情", '拆除数(起)', '', columnData, columnName);
+			$scope.columnChart = chartStore('column', lastYear+"年"+lastMonth+"月份各类拆除数详情", '拆除数(起)', '', "起", columnData, columnName);
 			$scope.oneword1 = lastYear+"年"+lastMonth+"月份全市违法建设整治共拆除"+totalCount+"起, 拆除面积"+data.data.ccmj+"平方米。";
 			$scope.oneword2 = lastYear+"年"+lastMonth+"月份全市违法建设整治强拆数"+data.data.qcs+"起, 自拆除数"+data.data.zccs+"起。";
 		} else {}

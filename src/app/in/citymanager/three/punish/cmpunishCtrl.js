@@ -1,18 +1,19 @@
 export default($scope, $rootScope, $state, qService, dataDetailFactory, dateService) => {
 	'ngInject';
 
-	const chartStore = (type, title, yTitle, xTitle, simpleData, normalData, xData) => {
+	const chartStore = (height, type, title, yTitle, xTitle, simpleData, normalData, xData) => {
 		return {
 			options: {
 				chart: {
+					height: height,
 					type: type
 				},
 				tooltip: {
                     shared: true,
                     useHTML: true,
-                    headerFormat: '<small>{point.key}'+ xTitle+'</small><table>',
+                    headerFormat: '<small>{point.key}'+ xTitle+yTitle+'</small><table>',
                     pointFormat: '<tr><td style="color: {series.color}">{series.name}: </td>' +
-                        '<td style="text-align: right"><b>{point.y} '+ yTitle+'</b></td></tr>',
+                        '<td style="text-align: right"><b>{point.y:,0f}</b></td></tr>',
                     footerFormat: '</table>',
                     valueDecimals: 2
                 },
@@ -74,6 +75,7 @@ export default($scope, $rootScope, $state, qService, dataDetailFactory, dateServ
 		return {
 			options: {
 				chart: {
+					height: 600,
 					plotBackgroundColor: null,
 					plotBorderWidth: null,
 					plotShadow: false
@@ -200,7 +202,7 @@ export default($scope, $rootScope, $state, qService, dataDetailFactory, dateServ
 								$('#cmrefuse-s1').addClass('activeTab');
 								$('#cmrefuse-s2').removeClass('activeTab');
 								$scope.pieChart = pieStore(lastYear+"年"+lastMonth+"月份行政处罚案由汇总(案件数量)",
-									'<b>案件数量</b>:{point.y:1.f}(起)</b>',
+									'<b>案件数量</b>:{point.y:1.f}起</b>',
 									timesByReasonList,
 									'{point.percentage:.1f} %');
 							break;
@@ -210,7 +212,7 @@ export default($scope, $rootScope, $state, qService, dataDetailFactory, dateServ
 								$('#cmrefuse-s2').addClass('activeTab');
 								$('#cmrefuse-s1').removeClass('activeTab');
 								$scope.pieChart = pieStore(lastYear+"年"+lastMonth+"月份行政处罚案由汇总(处罚金额)",
-									'<b>处罚金额</b>:{point.y:1.f}(元)</b>',
+									'<b>处罚金额</b>:{point.y:1.f}元</b>',
 									moneyByReasonList,
 									'{point.percentage:.1f} %');
 							break;
@@ -258,29 +260,29 @@ export default($scope, $rootScope, $state, qService, dataDetailFactory, dateServ
 						switch(type) {
 							case "time":
 								// (type, title, yTitle, xTitle, simpleData, normalData, xData)
-								$scope.lochusChart = chartStore("bar", lastYear+"年"+lastMonth+"月份各中队行政处罚案件数",
+								$scope.lochusChart = chartStore(500, "bar", lastYear+"年"+lastMonth+"月份各中队行政处罚案件数",
 									'案件数量(起)',
 									'中队',
 									simpletimes,
 									normaltimes,
 									lochus);
-								$scope.totalChart = chartStore("column", lastYear+"年"+lastMonth+"月份城管执法行政处罚案件数",
+								$scope.totalChart = chartStore(350, "column", lastYear+"年"+lastMonth+"月份城管执法行政处罚案件数",
 									'案件数量(起)',
-									'中队',
+									'',
 									[simpletimesSum],
 									[normaltimesSum],
 									["总计"]);
 							break;
 							case "money":
-								$scope.lochusChart = chartStore("bar", lastYear+"年"+lastMonth+"月份各中队行政处罚金额",
+								$scope.lochusChart = chartStore(500, "bar", lastYear+"年"+lastMonth+"月份各中队行政处罚金额",
 									'处罚金额(元)',
 									'中队',
 									simplemoney,
 									normalmoney,
 									lochus);
-								$scope.totalChart = chartStore("column", lastYear+"年"+lastMonth+"月份城管执法行政处罚金额",
+								$scope.totalChart = chartStore(350, "column", lastYear+"年"+lastMonth+"月份城管执法行政处罚金额",
 									'处罚金额(元)',
-									'中队',
+									'',
 									[simplemoneySum],
 									[normalmoneySum],
 									["总计"]);
