@@ -4,31 +4,36 @@
    	.anchorBL{  
    		display:none;  }
    	</style>
-   				<center>{{getDate.year}}年太仓市治安案件警情动态</center>
-   				<span class="glyphicon glyphicon-question-sign pull-right"></span>
-   						<h4><span class="label label-info">太仓市{{getDate.year}}年{{getDate.month}}月各地区治安形势图</span></h4>
-   						<div id="criminalMap" style="width:100%"></div>
-   				<div class="well" style="margin-top:10px;margin-bottom:0px;height:10px">
-   					<p class="ioc-panel-desc-body">{{getDate.year}}年{{getDate.month}}月全市各类治安案件总数 {{totalData.month}} 起。</p>
-   				</div>
-   				<div>
-   				<highchart  id="pieChart"  config="pieChart" style="width:100%"></highchart>
-   				</div>
-   				<hr>
-   				<highchart  id="kpiBarChart"  config="kpiBarChart"></highchart>
-   			 			
-   			<div class="panel-heading" style="border:black 1px solid">
-   				<center>{{getDate.year}}年太仓市治安案件趋势</center>
-   				<span class="glyphicon glyphicon-question-sign pull-right"></span>
-   			</div>   			
-   			<div class="well" style="height:30px;margin-top:0px;">
-   				<p class="ioc-panel-desc-body">{{getDate.year}}年截止{{getDate.month}}月末受理治安案件总数 {{totalData.year}} 起。
 
-   				</p>
-   			</div>
+   	<div class="panel-heading" style="border:#63B8FF 1px solid;background-color:#63B8FF;height:30px;">
+   		<h4><center>{{getDate.year}}年太仓市治安案件警情动态</center></h4>
 
-   			<div style="margin-top:0px;">
-   				<highchart  id="columnChart" config="columnChart"></highchart>
-   			</div>
+   	</div> 
+
+   	<span class="glyphicon glyphicon-question-sign pull-right"></span>
+   	<h5><span class="label label-info">太仓市{{getDate.year}}年{{getDate.month}}月各地区治安形势图</span></h5>
+   	<div id="criminalMap" style="width:100%"></div>
+   	<div class="well" style="margin-top:10px;margin-bottom:0px;height:10px">
+   		<p class="ioc-panel-desc-body">{{getDate.year}}年{{getDate.month}}月全市各类治安案件总数 {{totalData.month}} 起。</p>
+   	</div>
+   	<div>
+   		<highchart  id="pieChart"  config="pieChart" style="width:100%"></highchart>
+   	</div>
+   	<hr>
+   	<highchart  id="kpiBarChart"  config="kpiBarChart"></highchart>
+
+   	<div class="panel-heading" style="border:#63B8FF 1px solid;background-color:#63B8FF;height:30px;">
+   		<h4><center>{{getDate.year}}年太仓市治安案件趋势</center></h4>
+   		
+   	</div>    			
+   	<div class="well" style="height:30px;margin-top:0px;">
+   		<p class="ioc-panel-desc-body">{{getDate.year}}年截止{{getDate.month}}月末受理治安案件总数 {{totalData.year}} 起。
+
+   		</p>
+   	</div>
+
+   	<div style="margin-top:0px;">
+   		<highchart  id="columnChart" config="columnChart"></highchart>
+   	</div>
 
 
