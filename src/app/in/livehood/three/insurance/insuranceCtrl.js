@@ -154,7 +154,11 @@ $scope.concealDetail1 = () => {
                       type: 'spline',
                     },
                     title: {
-                      text: ""
+                      text: "",
+                          style:{
+         fontWeight:"bold",
+         fontSize:15
+    }
                     },
                     credits: {
                       enabled: false
@@ -235,7 +239,12 @@ $scope.concealDetail1 = () => {
           enabled: false
         },
         title: {
-          text: ""
+          text: "",
+          style:{
+            fontWeight:"bold",
+            fontSize:15
+          }
+
         },
         xAxis: {
           categories: categories,
@@ -482,7 +491,7 @@ function setChartData(entityName) {
       //第一张大图
       INCOMESPLINE: new splineHighChart(345, yearList),
       //第一张小图
-      BALANCECOLUMN: new columnHighChart(350),
+      BALANCECOLUMN: new columnHighChart(370),
       //第二张大图
       ENGAGESTACKCOLUMN: new columnstackHighChart(345, yearList),
             //第二张小图，即饼图
