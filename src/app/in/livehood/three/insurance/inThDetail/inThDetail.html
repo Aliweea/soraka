@@ -41,7 +41,15 @@
 </div>
 <!-- 上面的表格结束 -->
 
+<!--导航条开始-->
+  <ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" ng-click="show1()" class="{{isActive1}} insurace-nav-width"><a href="#">收入支出情况</a></li>
+  <li role="presentation" ng-click="show2()" class="{{isActive2}} insurace-nav-width"><a href="#">参保人员情况</a></li>
+  </ul>
+<!--导航条结束-->
+
 <!-- 第一个图开始 -->
+<div ng-show="isToggle">
 <div class="panel-heading"><center><strong>太仓市近5年{{CURRENTINSURANCE}}收支情况</strong></center></div>
 <highchart config="ALLOPTION.INCOMESPLINE"></highchart>
 <a ng-show="isLink" ng-click="hideLink()">点击展开数据详情>></a>
@@ -77,12 +85,14 @@
 <div class="panel-heading"><center><strong>{{balanceSelectYear}}年{{CURRENTINSURANCE}}收支对比</strong></center></div>
 <highchart  class="insurance-width" config="ALLOPTION.BALANCECOLUMN"></highchart>
 </div>
+</div>
 <!-- 第一个图结束 -->
 
 
 <!-- 第二个图开始-->
+<div  ng-hide="isToggle">
 <div class="panel-heading"><center><strong>太仓市近5年{{CURRENTINSURANCE}}参保人员情况</strong></center></div>
-<highchart config="ALLOPTION.ENGAGESTACKCOLUMN"></highchart>
+<highchart class="insurance-width" config="ALLOPTION.ENGAGESTACKCOLUMN"></highchart>
 <a ng-show="isLink" ng-click="hideLink()">点击展开数据详情>></a>
 <div ng-hide="isLink">
  <div class="cm-return-home"><i class="fa fa-chevron-up"></i>
@@ -108,6 +118,10 @@
 <div class="panel-heading"><center><strong>{{CURRENTINSURANCE}}新老参保人员比例</strong></center></div>
 <highchart class="insurance-width" config="ALLOPTION.ENGAGEPIE"></highchart>
 </div>
+</div>
+
+
+
 
 
 
