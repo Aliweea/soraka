@@ -24,7 +24,6 @@ export default($scope, $state, hService) => {
 	$scope.currentCategoryName = "教育"; // default value
 	$scope.changeCategory = (name) => {
 		$scope.currentCategoryName = name;
-		console.log(currentCategoryName);
 	}
 
 	$scope.toDetail = () => {

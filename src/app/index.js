@@ -120,7 +120,7 @@ import ptelecomCtrl from './in/publicService/three/telecom/ptelecomCtrl.js';
 import ptrafficCtrl from './in/publicService/three/traffic/ptrafficCtrl.js';
 
 angular.module('soraka',
-  ['ngAnimate', 'ngCookies', 'ngSanitize', 'ui.router', 'ngResource', 'ngStorage', 'mobile-angular-ui','ui.bootstrap', 'highcharts-ng', '720kb.datepicker','mobile-angular-ui.gestures'])
+  ['ngAnimate', 'ngCookies', 'ngSanitize', 'ui.router', 'ngResource', 'ngStorage', 'mobile-angular-ui','ui.bootstrap', 'highcharts-ng', '720kb.datepicker','mobile-angular-ui.gestures','angular-svg-round-progressbar'])
 
 
 
