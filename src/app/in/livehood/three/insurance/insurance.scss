@@ -1,8 +1,8 @@
 /*人口保险切样式*/
 
 .insurance-d-module {
-
 .table {
+font-size: 18px !important;
   width: 100%;
   max-width: 100%;
   margin-bottom: 20px;
@@ -178,7 +178,7 @@
   }
 .insurance-width{
   width: 100%;
-   height:920px;
+  
 }
 
 .table-header-insurance{
@@ -216,4 +216,15 @@
 .insurance-height{
   height: 10px;
 }
+   .insurance-blue {
+          display: inline-block;
+          text-align: center;
+          width: 5em;
+          height: 1.6em;
+          color: #eee;
+          background-color:  #008AFF;
+          border-radius: 3px;
+          padding-top: 0.2em;
+          margin-right: 5px;
+        }
 
