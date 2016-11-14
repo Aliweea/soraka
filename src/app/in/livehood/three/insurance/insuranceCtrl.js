@@ -643,7 +643,7 @@ function clickEventOfIncomeSpline(entityName, year) {
 //饼状图
 function clickEventOfEngageStackColumn(entityName, year) {
   var index = year - $scope.LATESTYEAR + 4
-  // $scope.ALLOPTION.ENGAGEPIE.options.title.text = $scope.CURRENTINSURANCE + $scope.chartSuffix + "组成"
+  $scope.ALLOPTION.ENGAGEPIE.options.title.text = ""
   $scope.ALLOPTION.ENGAGEPIE.series[0].data = $scope.ALLDATA[entityName].ENGAGEPIELIST[index].data
   $scope.insuranceParticapted = $scope.ALLDATA[entityName].insuranceDetailParticipated[index]
   $scope.insuranceDetailParticipated = $scope.ALLDATA[entityName].insuranceDetailParticipated[index]
