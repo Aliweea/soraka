@@ -272,7 +272,22 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       url:'/priceThree/priceThree',
       templateUrl:'app/in/livehood/three/price/priceThree.html',
       controller:'priceThreeCtrl'
-    })    
+    })
+    .state('app.pricehome.citizen',{
+      url:'/pricehome',
+      templateUrl:'app/in/livehood/three/price/priceThreeNewOne.html',
+      controller:'priceThreeCtrl'
+    })
+    .state('app.pricehome',{
+      abstract: true,
+      url:'/pricehome',
+      templateUrl:'app/in/livehood/pricehome.html'
+    }) 
+    .state('app.pricehome.agriculture',{
+      url:'/pricehome',
+      templateUrl:'app/in/livehood/three/price/priceThreeNewTwo.html',
+      controller:'priceThreeCtrl'
+    })   
     //社会保险三级界面
       .state('app.inThDetail', {
       url: '/InsuranceChart/UrbanBasicEndowmentInsuranceData',
