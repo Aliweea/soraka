@@ -6,19 +6,40 @@
   border: solid #ccc 1px;
   font-size: medium;
 }
-.land-three-select{
-  width: 50%;
-  font-size: 10px;
-}
-.land-three-select-left{
-  width: 55%;
-  font-size: 10px;
-}
-.land-three-select-right{
-  width: 45%;
-  font-size: 10px;
-}
-.land-select-btn{
-  color: #008AFF;
-  font-size: 15px;
+.land-select-area{
+  position: relative;
+  .land-select-btn{
+    color: #008AFF;
+    font-size: 15px;
+  }
+  .land-select-panel{
+    width: 90%;
+    margin: auto;
+    left: 0;
+    right: 0;
+    box-shadow: 5px 10px 5px #999999;
+    border: 1px solid $cborder;
+    border-radius: 8px;
+    position: absolute;
+    z-index: 2000;
+    background-color: rgba(255,255,255,0.8);
+  }
+  .land-select-item{
+    width: 50%;
+    text-align: center;
+  }
+  .land-select-item-left{
+    width: 55%;
+    text-align: center;
+  }
+  .land-select-item-right{
+    width: 45%;
+    text-align: center;
+  }
+  .land-select-span{
+    font-size: 13px;
+    border-radius: 8px;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
 }
