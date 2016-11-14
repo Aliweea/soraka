@@ -5,6 +5,8 @@ var token = "eyJhY2NvdW50Ijp7IkBpZCI6IjEiLCJpZCI6MjYsImNyZWF0ZV90aW1lIjoiMjAxNS0
      * 图表定义
      */
     //工业总产值
+    var height = $(window).height();
+$scope.newheight = height*0.78;
     $scope.touch = function(){
       $scope.test = 3;
       console.log($scope.test);
