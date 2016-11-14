@@ -1,0 +1,236 @@
+.cmicm-module {
+	width: 100%;
+	@mixin cmTa() {
+		font-size: 15px;
+		.title-area {
+			display: inline-block;
+			padding: 0 10px;
+			border: 1px dashed #abb;
+			background-color: rgba(208,224,224,0.5);
+			border-left: none;
+			i {
+
+			}
+			.title {
+				font-size: 15px;
+			}
+		}
+	}
+	.key-value-area0 {
+		padding:15px 0 5px 0;
+		border-bottom: 1px solid $cborder;
+		background: linear-gradient($bgLightGrey, #fff);
+		@include cmTa();
+		.keyvalue-area {
+			margin-top: 5px;
+			.keyvalue {
+				font-size: 13px;
+				padding-left: 10px;
+				padding-top: 3px;
+				span {
+					font-weight: bold;
+				}
+			}
+		}
+	}
+	.key-value-area1 {
+		padding:15px 0 5px 0;
+		background: linear-gradient($bgLightGrey, #fff);
+		@include cmTa();
+		.value {
+			display: block;
+			padding: 8px 10px;
+			font-size: 13px;
+		}
+		.i-label {
+			margin-top: 10px;
+			margin-left: 10px;
+			font-size: 13px;
+		}
+		.toggle-button {
+			width: 8em;
+			height: 30px;
+			outline: none;
+			border: none;
+			border-bottom: 1px dashed #008AFF;
+			color: #008AFF;
+			background: radial-gradient(3em 40%, #ddd, #ddd, rgba(255,255,255,0));
+			text-align: left;
+			font-size: 13px;
+		}
+	}
+	.index-toggle-area {
+		position: relative;
+		.toggle-panel {
+			width: 80%;
+			box-shadow: 5px 10px 5px #999999;
+			border: 1px solid $cborder;
+			border-radius: 5px;
+			position: absolute;
+			z-index: 2000;
+			padding: 10px 5px;
+			margin: 0 10%;
+			background-color: rgba(255,255,255,0.8);
+			.toggle-item {
+				width: 48%;
+				background: radial-gradient(50% 50%, #eee, #eee, #fff);
+				border: 1px solid $cborder;
+				border-radius: 3px;
+				padding: 3px 3px;
+				margin: 2px;
+				outline: none;
+				&:hover, &:active, &:focus {
+					background: radial-gradient(50% 50%, #dee, #dee, #fff);
+				}
+			}
+		}
+	}
+	.key-value-area2 {
+		padding:25px 0 5px 0;
+		background: linear-gradient($bgLightGrey, #fff);
+		@include cmTa();
+		.value {
+			display: block;
+			padding: 8px 10px;
+			font-size: 13px;
+		}
+		.i-label {
+			margin-top: 10px;
+			margin-left: 10px;
+			font-size: 13px;
+		}
+		.toggle-button {
+			width: 8em;
+			height: 30px;
+			outline: none;
+			border: none;
+			border-bottom: 1px dashed #008AFF;
+			color: #008AFF;
+			background: radial-gradient(3em 40%, #ddd, #ddd, rgba(255,255,255,0));
+			text-align: left;
+			font-size: 13px;
+		}
+	}
+	.key-value-area3 {
+		padding:15px 0 5px 0;
+		background: linear-gradient($bgLightGrey, #fff);
+		@include cmTa();
+		.value {
+			display: block;
+			padding: 8px 10px;
+			font-size: 13px;
+		}
+		.i-label {
+			margin-top: 10px;
+			margin-left: 10px;
+			font-size: 13px;
+		}
+		.toggle-button {
+			width: 8em;
+			height: 30px;
+			outline: none;
+			border: none;
+			border-bottom: 1px dashed #008AFF;
+			color: #008AFF;
+			background: radial-gradient(3em 40%, #ddd, #ddd, rgba(255,255,255,0));
+			text-align: left;
+			font-size: 13px;
+		}
+	}
+	.dept-toggle-area {
+		position: relative;
+		.toggle-panel {
+			width: 80%;
+			box-shadow: 5px 10px 5px #999999;
+			border: 1px solid $cborder;
+			border-radius: 5px;
+			position: absolute;
+			z-index: 2000;
+			padding: 10px 5px;
+			margin: 0 10%;
+			background-color: rgba(255,255,255,0.8);
+			.toggle-item {
+				width: 48%;
+				background: radial-gradient(50% 50%, #eee, #eee, #fff);
+				border: 1px solid $cborder;
+				border-radius: 3px;
+				padding: 3px 3px;
+				margin: 2px;
+				outline: none;
+				&:hover, &:active, &:focus {
+					background: radial-gradient(50% 50%, #dee, #dee, #fff);
+				}
+			}
+		}
+	}
+	.key-value-area4 {
+		padding:15px 0 5px 0;
+		background: linear-gradient($bgLightGrey, #fff);
+		@include cmTa();
+		.value {
+			display: block;
+			padding: 8px 10px;
+			font-size: 13px;
+		}
+		.i-label {
+			margin-top: 10px;
+			margin-left: 10px;
+			font-size: 13px;
+		}
+		.toggle-button {
+			width: 8em;
+			height: 30px;
+			outline: none;
+			border: none;
+			border-bottom: 1px dashed #008AFF;
+			color: #008AFF;
+			background: radial-gradient(3em 40%, #ddd, #ddd, rgba(255,255,255,0));
+			text-align: left;
+			font-size: 13px;
+		}
+	}
+	.his-toggle-area {
+		position: relative;
+		.toggle-panel {
+			width: 80%;
+			box-shadow: 5px 10px 5px #999999;
+			border: 1px solid $cborder;
+			border-radius: 5px;
+			position: absolute;
+			z-index: 2000;
+			padding: 10px 5px;
+			margin: 0 10%;
+			background-color: rgba(255,255,255,0.8);
+			.toggle-item {
+				width: 48%;
+				background: radial-gradient(50% 50%, #eee, #eee, #fff);
+				border: 1px solid $cborder;
+				border-radius: 3px;
+				padding: 3px 3px;
+				margin: 2px;
+				outline: none;
+				&:hover, &:active, &:focus {
+					background: radial-gradient(50% 50%, #dee, #dee, #fff);
+				}
+			}
+		}
+	}
+	.chart-area1 {
+		border-top: 1px dashed $cborder;
+		border-bottom: 1px solid $cborder;
+	}
+	.chart-area2 {
+		border-top: 1px dashed $cborder;
+		border-bottom: 1px solid $cborder;
+	}
+	.first{
+		border-top: 1px dashed $cborder;
+	}
+	.last {
+		border-top: 1px dashed $cborder;	
+		border-bottom: 1px solid $cborder;	
+	}
+	.mid {
+		border-top: 1px dashed $cborder;	
+	}
+}

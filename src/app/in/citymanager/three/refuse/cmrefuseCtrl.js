@@ -23,7 +23,7 @@ export default($scope, $rootScope, $state, qService, dataDetailFactory, dateServ
 		7019: "直塘",
 	}
 	$scope.townList = ["全市","城厢","浮桥","璜泾","金浪","开发区","陆渡","浏河","刘家港","鹿河","牌楼","双凤","沙溪","太仓","新湖","新毛","新塘","岳王","直塘"];
-	const chartStore = (type, title, yTitle, xTitle, xData, yData) => {
+	const chartStore = (type, title, yTitle, xTitle, unit, xData, yData) => {
 		return {
 			options: {
 				chart: {
@@ -34,7 +34,7 @@ export default($scope, $rootScope, $state, qService, dataDetailFactory, dateServ
                     useHTML: true,
                     headerFormat: '<small>{point.key}'+ xTitle+'</small><table>',
                     pointFormat: '<tr><td style="color: {series.color}">{series.name}: </td>' +
-                        '<td style="text-align: right"><b>{point.y} '+ yTitle+'</b></td></tr>',
+                        '<td style="text-align: right"><b>{point.y:,0f} '+ unit+'</b></td></tr>',
                     footerFormat: '</table>',
                     valueDecimals: 2
                 },
@@ -48,7 +48,7 @@ export default($scope, $rootScope, $state, qService, dataDetailFactory, dateServ
 			title: {
 				text: title,
 				style: {
-					fontSize: "15px"
+					fontSize: "13px"
 				}
 			},
 			xAxis: {
@@ -145,14 +145,14 @@ export default($scope, $rootScope, $state, qService, dataDetailFactory, dateServ
 					$scope.changeChart = (type) => {
 						switch (type) {
 							case "time":
-								$scope.oChart = chartStore("column", lastTime+"垃圾清运车次", "车次", "垃圾清运点", towns, times);
+								$scope.oChart = chartStore("column", lastTime+"垃圾清运车次", "车次", "垃圾清运点", "次", towns, times);
 								$scope.status = timeStatus;
 								$('#cmrefuse-s1').addClass('activeTab');
 								$('#cmrefuse-s2').removeClass('activeTab');
 								currentType = "time";
 								break;
 							case "ton":
-								$scope.oChart = chartStore("column", lastTime+"垃圾清运吨数", "吨数", "垃圾清运点", towns, tons);
+								$scope.oChart = chartStore("column", lastTime+"垃圾清运吨数", "吨数", "垃圾清运点", "吨", towns, tons);
 								$scope.status = tonStatus;
 								$('#cmrefuse-s2').addClass('activeTab');
 								$('#cmrefuse-s1').removeClass('activeTab');
@@ -209,10 +209,10 @@ export default($scope, $rootScope, $state, qService, dataDetailFactory, dateServ
 						}
 						switch (currentType) {
 							case "time":
-								$scope.townChart = chartStore("spline", "近七天"+townMap[id]+"地区垃圾清运车数", "车数", "日期", timeLines, timeDataMap[id]);
+								$scope.townChart = chartStore("spline", "近七天"+townMap[id]+"地区垃圾清运车数", "车数", "日期", "次", timeLines, timeDataMap[id]);
 								break;
 							case "ton":
-								$scope.townChart = chartStore("spline", "近七天"+townMap[id]+"地区垃圾清运吨数", "吨数", "日期", timeLines, tonDataMap[id]);		
+								$scope.townChart = chartStore("spline", "近七天"+townMap[id]+"地区垃圾清运吨数", "吨数", "日期", "吨", timeLines, tonDataMap[id]);		
 								break;
 						}
 					}
