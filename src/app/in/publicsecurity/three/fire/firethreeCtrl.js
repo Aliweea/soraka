@@ -275,7 +275,7 @@ export default ($scope, $state, dateService, qService, kpiDetailService, dictSer
                             },
 
                             series: [{
-                                
+                                name:'事故发生数（起）',
                                 data: $scope.lineChartData.amount
                             }]
 
@@ -319,7 +319,7 @@ export default ($scope, $state, dateService, qService, kpiDetailService, dictSer
                             },
 
                             series: [{
-                                
+                                name:'受伤人数（人）',
                                 data: $scope.lineChartData.injury
                             }]
 
@@ -363,7 +363,7 @@ export default ($scope, $state, dateService, qService, kpiDetailService, dictSer
                             },
 
                             series: [{
-                               
+                                name:'死亡人数（人）',
                                 data: $scope.lineChartData.dead
                             }]
 
@@ -407,7 +407,7 @@ export default ($scope, $state, dateService, qService, kpiDetailService, dictSer
                             },
 
                             series: [{
-                               
+                                name:'财产损失（万元）',
                                 data: $scope.lineChartData.damage
                             }]
 

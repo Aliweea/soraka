@@ -5,12 +5,11 @@ export default ($scope, qService, generalService, dataDetailFactory, $http, $roo
 
  /*******************************************************************************
                               VARIABLE AREA
-                              *******************************************************************************/
-                              $scope.BALANCEUNIT = "万元"
-                              $scope.PARTICAPTEDUNIT = "人"
-                              $scope.ALLOPTION = {}
-                              $scope.ALLDATA = {}
-
+  *******************************************************************************/
+  $scope.BALANCEUNIT = "万元"
+  $scope.PARTICAPTEDUNIT = "人"
+  $scope.ALLOPTION = {}
+  $scope.ALLDATA = {}
 
   //控制导航条
   $scope.isActive1="active";
@@ -27,8 +26,6 @@ export default ($scope, qService, generalService, dataDetailFactory, $http, $roo
    $scope.isToggle=false;
 
  }
-
-
 //收支详情展开
 $scope.isLink = true;
 $scope.hideLink = () => {
@@ -52,15 +49,11 @@ $scope.concealDetail1 = () => {
   $scope.isConceal1 = false;
   $scope.isLink1 = true;
 }
-
-
-
   // 顶部切换
   $scope.currentCategoryName = "城镇基本养老保险"; // default value
   $scope.changeCategory = (name) => {
     $scope.currentCategoryName = name;
   }
-
   $scope.tabMap = [{
     id: "tab_UBEI",
     label: "城镇基本养老保险",
@@ -98,8 +91,9 @@ $scope.concealDetail1 = () => {
     active: false
   }]
 
-  function setTab(tabName) {
+
       // 取消选中当前选中tab，并且选中对应的tab
+  function setTab(tabName) {
       for (var i = 0; i < $scope.tabMap.length; i++) {
         if ($scope.tabMap[i].active == true && $scope.tabMap[i].name != tabName)
           $scope.tabMap[i].active = false
@@ -140,7 +134,7 @@ $scope.concealDetail1 = () => {
 
 /*******************************************************************************
                             INIT PART
-                            *******************************************************************************/
+*******************************************************************************/
                             var temploc = $location.path().split("/")
                             var thisLoc = temploc[temploc.length - 1]
                             if (thisLoc == undefined) {
@@ -148,11 +142,12 @@ $scope.concealDetail1 = () => {
                             } else {
                               setTab(thisLoc)
                             }
-
 /*******************************************************************************
                 HIGHCHARG CONFIGURATION AREA
-                *******************************************************************************/
-                function splineHighChart(height, categories) {
+*******************************************************************************/
+
+   function splineHighChart(height, categories)
+    {
                   this.options = {
                     colors: generalService.lineColors(),
                     chart: {
@@ -161,17 +156,11 @@ $scope.concealDetail1 = () => {
                     title: {
                       text: ""
                     },
-                    subtitle: {
-                      text: ''
-                    },
                     credits: {
                       enabled: false
                     },
-                    exporting: {
-          enabled: false, // 取消打印menu
-        },
         xAxis: {
-          categories: categories,
+          categories: categories,//设置x轴标签的显示，这里是传进来的一个数组
           tickmarkPlacement: 'on'
         },
         yAxis: {
@@ -185,7 +174,10 @@ $scope.concealDetail1 = () => {
           },
           min: 0
         },
-        legend: {
+                    exporting: {
+                    enabled: false // 设置导出按钮不可用
+                     },
+        legend: {//设置图例
           align: 'right',
           x: -70,
           verticalAlign: 'top',
@@ -196,11 +188,13 @@ $scope.concealDetail1 = () => {
           borderWidth: 1,
           shadow: false
         },
+       //当鼠标悬置数据点时的提示框   
         tooltip: {
           crosshairs: true,
           shared: true,
           pointFormat: '<b>{point.series.name}</b> {point.y:,.2f}万元<br>'
         },
+        //设置数据点   
         plotOptions: {
           spline: {
             marker: {
@@ -227,7 +221,7 @@ $scope.concealDetail1 = () => {
       height: height
     }
   }
-
+//第二张大图
   function columnstackHighChart(height, categories) {
     this.options = {
      exporting: {
@@ -327,7 +321,7 @@ $scope.concealDetail1 = () => {
           align: 'right',
           x: 0,
           verticalAlign: 'top',
-          y: 20,
+          y: 0,
           floating: true,
           backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColorSolid) || 'white',
           borderColor: '#CCC',
@@ -388,7 +382,7 @@ $scope.concealDetail1 = () => {
           align: 'right',
           x: 0,
           verticalAlign: 'top',
-          y: 20,
+          y: -10,
           floating: true,
           backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColorSolid) || 'white',
           borderColor: '#CCC',
@@ -422,7 +416,7 @@ $scope.concealDetail1 = () => {
 
 /*******************************************************************************
                               OBJECT AREA
-                              *******************************************************************************/
+ *******************************************************************************/
                               function splineDataObject(name, symbol, size) {
                                 var temp = new Array(size)
                                 for (var i=0; i<size; i++) {
@@ -470,7 +464,7 @@ $scope.concealDetail1 = () => {
 $scope.tabChangeFunction = function(parmeter) {
   $location.path("/InsuranceChart/"+parmeter)
 }
-
+//第一张大图
 function setChartData(entityName) {
   qService.httpPost(dataDetailFactory.lastestObject, {tableName: entityName
   }, {"X-Auth-Token":token},['year']).then(function(lastObjRaw) {
@@ -480,32 +474,30 @@ function setChartData(entityName) {
     }
     var latestObj = JSOG.parse(JSOG.stringify(lastObjRaw.data))
     $scope.LATESTYEAR = latestObj.year
-
     var yearList = new Array()
     for (var i=$scope.LATESTYEAR-4; i <= $scope.LATESTYEAR; i++) {
       yearList.push(i+"年")
     }
-
     $scope.ALLOPTION = {
-      INCOMESPLINE: new splineHighChart(500, yearList),
-      BALANCECOLUMN: new columnHighChart(250),
-      ENGAGESTACKCOLUMN: new columnstackHighChart(650, yearList),
+      //第一张大图
+      INCOMESPLINE: new splineHighChart(345, yearList),
+      //第一张小图
+      BALANCECOLUMN: new columnHighChart(350),
+      //第二张大图
+      ENGAGESTACKCOLUMN: new columnstackHighChart(345, yearList),
+            //第二张小图，即饼图
       ENGAGEPIE: new pieHighchart(),
     }
-
-      // $scope.ALLOPTION.CURRENTOPTIONS = $scope.ALLOPTION[entityName]
-
-      $scope.ALLDATA[entityName] = {
-        INCOMESPLINEDATA: new splineListObject(5),
-        BALANCEDATA: new Array(5),
-        BALANCECOLUMNDATALIST: new detailListObject(5, ["收入", "支出", "结余"])
-      }
-
-      getDataAll(entityName, $scope.LATESTYEAR)
-    })
+    $scope.ALLDATA[entityName] = {
+      INCOMESPLINEDATA: new splineListObject(5),
+      BALANCEDATA: new Array(5),
+      BALANCECOLUMNDATALIST: new detailListObject(5, ["收入", "支出", "结余"])
+    }
+    getDataAll(entityName, $scope.LATESTYEAR)
+  })
 }
 
-
+//获取数据
 function getDataAll(entityName, year) {
   var queryMap = {
     year: generalService.advanceQueryObj('bt', 'innt', [(year-4), year]),
@@ -638,20 +630,20 @@ function getDataAll(entityName, year) {
       clickEventOfEngageStackColumn(entityName, year)
     })
 }
-
+//第一张图的小下面小图
 function clickEventOfIncomeSpline(entityName, year) {
   var index = year - $scope.LATESTYEAR + 4
-  $scope.ALLOPTION.BALANCECOLUMN.options.title.text = "收入支出"
+  // $scope.ALLOPTION.BALANCECOLUMN.options.title.text = "收入支出"
   $scope.ALLOPTION.BALANCECOLUMN.series = $scope.ALLDATA[entityName].BALANCECOLUMNDATALIST.data[index].data
   $scope.ALLOPTION.BALANCECOLUMN.options.xAxis.categories = [$scope.CURRENTINSURANCE]
   $scope.yearBalance = $scope.ALLDATA[entityName].BALANCEDATA[index]
   $scope.balance = $scope.ALLDATA[entityName].BALANCEDATA[index]
   $scope.balanceSelectYear = year
 }
-
+//饼状图
 function clickEventOfEngageStackColumn(entityName, year) {
   var index = year - $scope.LATESTYEAR + 4
-  $scope.ALLOPTION.ENGAGEPIE.options.title.text = $scope.CURRENTINSURANCE + $scope.chartSuffix + "组成"
+  $scope.ALLOPTION.ENGAGEPIE.options.title.text = ""
   $scope.ALLOPTION.ENGAGEPIE.series[0].data = $scope.ALLDATA[entityName].ENGAGEPIELIST[index].data
   $scope.insuranceParticapted = $scope.ALLDATA[entityName].insuranceDetailParticipated[index]
   $scope.insuranceDetailParticipated = $scope.ALLDATA[entityName].insuranceDetailParticipated[index]

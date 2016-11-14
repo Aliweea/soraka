@@ -1,6 +1,7 @@
 <!-- 上面的表格开始 -->
-<div class="soraka-d-module .insurance-width">
-  <div class="title-area">
+<div class="insurace-d-module">
+<div>  
+<div class="title-area">
     <span>{{balanceSelectYear}}年{{CURRENTINSURANCE}}关键指标</span>
   </div>
   <div class="dash-area insuranc-text">
@@ -109,14 +110,15 @@
  </thead>
  <tbody>
   <tr>
-    <td>{{balance[0]}}{{BALANCEUNIT}}</td>
-    <td>{{balance[1]}}{{BALANCEUNIT}}</td>
-    <td>{{balance[3]}}{{BALANCEUNIT}}</td>
+   <td>{{insuranceParticapted[0]}}{{PARTICAPTEDUNIT}}</td>
+      <td>{{insuranceParticapted[1]}}{{PARTICAPTEDUNIT}}</td>
+      <td>{{insuranceParticapted[2]}}{{PARTICAPTEDUNITNEW}}</td>
   </tr>
 </tbody>
 </table> 
 <div class="panel-heading"><center><strong>{{CURRENTINSURANCE}}新老参保人员比例</strong></center></div>
-<highchart class="insurance-width" config="ALLOPTION.ENGAGEPIE"></highchart>
+<highchart  config="ALLOPTION.ENGAGEPIE"></highchart>
+</div>
 </div>
 </div>
 

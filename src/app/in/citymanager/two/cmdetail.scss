@@ -6,7 +6,9 @@
 		font-size: 18px;
 	}
 	.dash-area {
+		background-color: #fff;
 		.table-area {
+			background: linear-gradient($bgLightGrey, $bgLightGrey, #fff);
 			font-size: 10px;
 			.table-column {
 				display: inline-block;

@@ -7,8 +7,38 @@ export default ($scope, $state, $location, qService, dataDetailFactory, generalS
 		$(".navTopShowMark").hide(0); // 隐藏KPI状态 KPI分类
 		$('#showshort').focus(); // 获取默认焦点
 		$('.navTopShowPopulation').show(0); //显示人口结构下拉框
+		$('#cmRefuseTownTooglePanel').hide(0);
+		$('#chooseAge').click(() => {
+			$('#chooseAgePanel').toggle(0);
+		})
 	}();
 
+	$scope.divice = {
+		width: $(window).width(),
+		height: $(window).height(),
+		d_width: $(document).width(),
+		d_height: $(document).height()
+	};
+
+	$scope.populationSwitch = (choices) => {
+		switch (choices) {
+			case 'total':
+				$scope.choice = true;
+				$('#lhpopulation-s1').addClass('activeTab');
+				$('#lhpopulation-s2').removeClass('activeTab');
+				$('#lhpopulation2-s1').addClass('activeTab');
+				$('#lhpopulation2-s2').removeClass('activeTab');
+				break;
+			case 'structure':
+				$scope.choice = false;
+				$('#lhpopulation-s2').addClass('activeTab');
+				$('#lhpopulation-s1').removeClass('activeTab');
+				$('#lhpopulation2-s2').addClass('activeTab');
+				$('#lhpopulation2-s1').removeClass('activeTab');
+				break;
+		}
+	}
+	$scope.populationSwitch("total");
 
 	$scope.tabMap = [{
 		id: "tab_populationStructure",
@@ -58,35 +88,44 @@ export default ($scope, $state, $location, qService, dataDetailFactory, generalS
 	// qService.httpPost(dataDetailFactory.lastestObject, params, headers, body).then((data) => {
 	// 	console.log(data);
 	// }, (err) => {
-	// 	if (err.errorCode == "UNAUTHORIZED") {
+	// 	if (err.errorCode == "UNAUTHORIZED") r
 	// 		console.log(err);
 	// 	} else {}
 	// });
 
 	let barHighChart = function(height, categories) {
 		this.options = {
-			colors: generalService.compareColors(),
+			colors: ['#7CADDF','#195489'],
 			chart: {
 				type: 'bar',
-				width: $(window).width() * 0.9
+				//width: $(window).width() * 0.9
 			},
 			credits: {
 				enabled: false
 			},
 			title: {
-				text: ""
+				text: "",
+				style: {
+					fontSize: 15
+				}
 			},
 			subtitle: {
 				text: ''
 			},
 			xAxis: [{
 				categories: categories,
-				reversed: false
+				reversed: false,
+				labels: {
+					rotation: 0
+				}
 			}, { // mirror axis on right side
 				opposite: true,
 				reversed: false,
 				categories: categories,
-				linkedTo: 0
+				linkedTo: 0,
+				labels: {
+					rotation: 0
+				}
 			}],
 			yAxis: {
 				title: {
@@ -95,7 +134,8 @@ export default ($scope, $state, $location, qService, dataDetailFactory, generalS
 				labels: {
 					formatter: function() {
 						return Math.abs(this.value);
-					}
+					},
+					rotation: -50
 				},
 				min: -15000,
 				max: 15000
@@ -134,17 +174,21 @@ export default ($scope, $state, $location, qService, dataDetailFactory, generalS
 		};
 	};
 
-	let STACKCOLUMNHIGHCHART = function(height, categories, yAxisTitle, callFunc1, callFunc2) {
+	let STACKCOLUMNHIGHCHART = function(height, marginBottom, categories, yAxisTitle, callFunc1, callFunc2) {
 		let colors = generalService.columnColors()
 		colors.splice(3, 0, '#606060')
 		this.options = {
 			colors: colors,
 			chart: {
 				type: 'column',
-				width: $(window).width() * 0.9
+				//width: $(window).width() * 0.9,
+				//marginBottom: marginBottom
 			},
 			title: {
-				text: ""
+				text: "",
+				style: {
+					fontSize: 15
+				}
 			},
 			credits: {
 				enabled: false
@@ -174,17 +218,17 @@ export default ($scope, $state, $location, qService, dataDetailFactory, generalS
 					}
 				},
 			},
-			legend: {
-				align: 'center',
-				//x: -30,
-				verticalAlign: 'bottom',
-				//y: 25,
-				floating: true,
-				backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
-				borderColor: '#CCC',
-				borderWidth: 1,
-				shadow: false
-			},
+			// legend: {
+			// 	align: 'center',
+			// 	//x: -30,
+			// 	verticalAlign: 'bottom',
+			// 	y: 15,
+			// 	floating: true,
+			// 	backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
+			// 	borderColor: '#CCC',
+			// 	borderWidth: 1,
+			// 	shadow: false
+			// },
 			tooltip: {
 				formatter: function() {
 					return '<b>' + this.x + '</b><br/>' +
@@ -230,14 +274,18 @@ export default ($scope, $state, $location, qService, dataDetailFactory, generalS
 		};
 	};
 
-	let COLUMNHIGHCHART = function(height, categories, yAxisTitle, callFunc1, callFunc2) {
+	let COLUMNHIGHCHART = function(height, marginBottom, categories, yAxisTitle, callFunc1, callFunc2) {
 		this.options = {
 			chart: {
 				type: 'column',
-				width: $(window).width() * 0.9
+				//width: $(window).width() * 0.9,
+				//marginBottom: marginBottom
 			},
 			title: {
-				text: ""
+				text: "",
+				style: {
+					fontSize: 15
+				}
 			},
 			subtitle: {
 				text: ''
@@ -263,18 +311,18 @@ export default ($scope, $state, $location, qService, dataDetailFactory, generalS
 					}
 				}
 			},
-			legend: {
-				enabled: true,
-				align: 'center',
-				//x: -50,
-				verticalAlign: 'bottom',
-				y: 26,
-				floating: true,
-				backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
-				borderColor: '#CCC',
-				borderWidth: 1,
-				shadow: false
-			},
+			// legend: {
+			// 	//enabled: true,
+			// 	//align: 'center',
+			// 	//x: -50,
+			// 	//verticalAlign: 'bottom',
+			// 	//y: 15,
+			// 	//floating: true,
+			// 	//backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
+			// 	//borderColor: '#CCC',
+			// 	//: 1,
+			// 	//shadow: false
+			// },
 			tooltip: {
 				formatter: function() {
 					return '<b>' + this.x + '</b><br/>' +
@@ -346,7 +394,7 @@ export default ($scope, $state, $location, qService, dataDetailFactory, generalS
 			switch (tabName) {
 				case $scope.tabMap[0].name:
 					$scope.ALLOPTION = {
-						POPULATIONCHART: new barHighChart(700, ageList)
+						POPULATIONCHART: new barHighChart(500, ageList)
 					};
 					$scope.ALLDATA = {
 						POPULATIONCHARTDATA: new DataList(["男性", "女性"], ageList.length, chartDataObject),
@@ -362,8 +410,8 @@ export default ($scope, $state, $location, qService, dataDetailFactory, generalS
 					$scope.tableNameStr = "期末户籍人口";
 					$scope.panel_heading = ["太仓市期末户籍人口数量", "各乡镇期末户籍人口详情"];
 					$scope.ALLOPTION = {
-						POPULATIONCHART: new COLUMNHIGHCHART(450, yearList, "期末户籍人口数", callFunctionOfPopulationTownChart, callFunctionOfPopulationChart),
-						POPULATIONTOWNCHART: new COLUMNHIGHCHART(400, [], "期末户籍人口数", callFunctionOfPopulationTownChart, null)
+						POPULATIONCHART: new COLUMNHIGHCHART(400, 55, yearList, "期末户籍人口数", callFunctionOfPopulationTownChart, callFunctionOfPopulationChart),
+						POPULATIONTOWNCHART: new COLUMNHIGHCHART(400, 73, [], "期末户籍人口数", callFunctionOfPopulationTownChart, null)
 					};
 					$scope.ALLDATA = {
 						POPULATIONCHARTDATA: new DataList(["期末户籍人口数"], yearList.length, chartDataObject),
@@ -382,8 +430,8 @@ export default ($scope, $state, $location, qService, dataDetailFactory, generalS
 					$scope.tableNameStr = "户籍人口出生死亡";
 					$scope.panel_heading = ["太仓市户籍人口出生死亡情况", "各乡镇户籍人口出生死亡详情"];
 					$scope.ALLOPTION = {
-						POPULATIONCHART: new STACKCOLUMNHIGHCHART(450, yearList, "出生/死亡人数", callFunctionOfPopulationTownChart, callFunctionOfPopulationChart),
-						POPULATIONTOWNCHART: new STACKCOLUMNHIGHCHART(400, [], "出生/死亡人数", callFunctionOfPopulationTownChart, null)
+						POPULATIONCHART: new STACKCOLUMNHIGHCHART(400, 75, yearList, "出生/死亡人数", callFunctionOfPopulationTownChart, callFunctionOfPopulationChart),
+						POPULATIONTOWNCHART: new STACKCOLUMNHIGHCHART(400, 95, [], "出生/死亡人数", callFunctionOfPopulationTownChart, null)
 					};
 					$scope.ALLDATA = {
 						POPULATIONCHARTDATA: new DataList([
@@ -407,8 +455,8 @@ export default ($scope, $state, $location, qService, dataDetailFactory, generalS
 					$scope.tableNameStr = "育龄妇女";
 					$scope.panel_heading = ["太仓市育龄妇女情况", "各乡镇育龄妇女数据详情"];
 					$scope.ALLOPTION = {
-						POPULATIONCHART: new STACKCOLUMNHIGHCHART(450, yearList, "育龄妇女数量", callFunctionOfPopulationTownChart, callFunctionOfPopulationChart),
-						POPULATIONTOWNCHART: new STACKCOLUMNHIGHCHART(400, [], "育龄妇女数量", callFunctionOfPopulationTownChart, null)
+						POPULATIONCHART: new STACKCOLUMNHIGHCHART(400, 58, yearList, "育龄妇女数量", callFunctionOfPopulationTownChart, callFunctionOfPopulationChart),
+						POPULATIONTOWNCHART: new STACKCOLUMNHIGHCHART(400, 78, [], "育龄妇女数量", callFunctionOfPopulationTownChart, null)
 					};
 					$scope.ALLDATA = {
 						POPULATIONCHARTDATA: new DataList([
@@ -430,8 +478,8 @@ export default ($scope, $state, $location, qService, dataDetailFactory, generalS
 					$scope.tableNameStr = "初婚女性";
 					$scope.panel_heading = ["太仓市初婚女性情况", "各乡镇初婚女性数据详情"];
 					$scope.ALLOPTION = {
-						POPULATIONCHART: new STACKCOLUMNHIGHCHART(450, yearList, "初婚女性数量", callFunctionOfPopulationTownChart, callFunctionOfPopulationChart),
-						POPULATIONTOWNCHART: new STACKCOLUMNHIGHCHART(400, [], "初婚女性数量", callFunctionOfPopulationTownChart, null)
+						POPULATIONCHART: new STACKCOLUMNHIGHCHART(400, 72, yearList, "初婚女性数量", callFunctionOfPopulationTownChart, callFunctionOfPopulationChart),
+						POPULATIONTOWNCHART: new STACKCOLUMNHIGHCHART(400, 95, [], "初婚女性数量", callFunctionOfPopulationTownChart, null)
 					};
 					$scope.ALLDATA = {
 						POPULATIONCHARTDATA: new DataList([
