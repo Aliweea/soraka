@@ -623,6 +623,10 @@ export default ($scope, $state, dateService, dataDetailFactory, qService, kpiDet
                         }
                     },
                     title: {
+                        style: {
+                            fontSize: '12px',
+                            fontWeight: 'bold'
+            },
                         text: $scope.getDate.year + "年" + $scope.getDate.month + '月份各交警中队受理交通事故数'
                     },
                     series: [{
@@ -693,10 +697,10 @@ export default ($scope, $state, dateService, dataDetailFactory, qService, kpiDet
                                 enabled: false
                             },
                             legend: {
-                                layout: 'vertical',
-                                align: 'right',
-                                verticalAlign: 'middle',
-                                borderWidth: 0
+                                align: 'center', //水平方向位置
+            verticalAlign: 'bottom', //垂直方向位置
+            x: 0, //距离x轴的距离
+            y: 0 //距离Y轴的距离
                             }
                         },
                         series: [{
@@ -749,8 +753,8 @@ export default ($scope, $state, dateService, dataDetailFactory, qService, kpiDet
                         },
                         legend: {
                             layout: 'vertical',
-                            align: 'right',
-                            verticalAlign: 'middle',
+                            align: 'center',
+                            verticalAlign: 'bottom',
                             borderWidth: 0
                         }
                     },
