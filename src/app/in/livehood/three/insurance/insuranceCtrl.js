@@ -391,7 +391,7 @@ $scope.concealDetail1 = () => {
           align: 'right',
           x: 0,
           verticalAlign: 'top',
-          y: -10,
+          y: 10,
           floating: true,
           backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColorSolid) || 'white',
           borderColor: '#CCC',
