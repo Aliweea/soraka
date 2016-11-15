@@ -1,8 +1,108 @@
 /*人口保险切样式*/
+.insurance-module {
+  background-color: $bgLightGrey;
+  .cm-menu-navbar-top {
+    width: 100%;
+    min-height: $bottomBarH;
+    height: $bottomBarH;
+    color: $fontBlack;
+    background-color: rgba(255, 255, 255, 1);
+    .cm-return-home {
+      display: inline-block;
+      width: 23%;
+      margin-top: ($bottomBarH - 23px) / 2;
+      text-align: left;
+      i {
+        font-size: 21px;
+        padding-left: 18px;
+      }
+      span {
+        padding-left: 7px;
+        font-size: 16px;
+      }
+    }
+    .cm-kpi-choose {
+      width: 33%;
+      display: inline-block;
+      text-align: center;
+      margin-top: ($bottomBarH - 30px) / 2;
+      i {
+        font-size: 21px;
+      }
+      span {
+        padding-left: 7px;
+        font-size: 16px;
+      } 
+    }
+    .cm-kpi-status {
+      width: 33%;
+      display: inline-block;
+      text-align: right;
+      margin-top: ($bottomBarH - 30px) / 2;
+      i {
+        font-size: 21px;
+      }
+      span {
+        padding-left: 7px;
+        padding-right: 18px;
+        font-size: 16px;
+      } 
+    }
+    .cm-dropdown-ul {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 0 0 4px 4px;
+      border-left: none;
+      border-right: none;
+      text-align: center;
+      li {
+        padding: 0.5em;
+      }
+      li.divider {
+        padding: 0;
+        margin: 0;
+      }
+    }
+  }
+  .cm-menu-navbar-bottom {
+    .cm-menu-navbar-bottomleft{
+      margin-top: 13px;
+      font-size: 17px;
+      margin-left: 1em;
+      color: $wordGray;
+      i {
+        margin-right: 0.5em;
+      }
+      .s1 {
+        font-size: 13px;
+      }
+      .s2 {
+        font-size: 13px;
+        margin-left: 1px;
+        border-bottom: 1px dashed $wordGray;
+        i {
+          margin-left: 2px;
+          margin-right: 2px;
+        }
+      }
+      .s3 {
+        margin-left: 10px;
+        font-size: 13px;
+        color: #008AFF;
+        span {
+          border-bottom: 1px dashed #008AFF;  
+        }
+      }
+    }
+  }
+}
 
 .insurance-d-module {
-
 .table {
+font-weight:normal !important;
+font-size: 18px !important;
   width: 100%;
   max-width: 100%;
   margin-bottom: 20px;
@@ -178,7 +278,7 @@
   }
 .insurance-width{
   width: 100%;
-   height:920px;
+  
 }
 
 .table-header-insurance{
@@ -216,4 +316,15 @@
 .insurance-height{
   height: 10px;
 }
+   .insurance-blue {
+          display: inline-block;
+          text-align: center;
+          width: 5em;
+          height: 1.6em;
+          color: #eee;
+          background-color:  #008AFF;
+          border-radius: 3px;
+          padding-top: 0.2em;
+          margin-right: 5px;
+        }
 

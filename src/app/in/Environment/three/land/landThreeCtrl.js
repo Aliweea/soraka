@@ -52,6 +52,9 @@ export default ($scope, $state, dateService, dataDetailFactory, qService) => {
                 credits: {
                     enabled: false
                 },
+                exporting: {
+                    enabled: false
+                }
             },
             series: [{
                 type: 'pie',
@@ -83,6 +86,9 @@ export default ($scope, $state, dateService, dataDetailFactory, qService) => {
                 credits: {
                     enabled: false
                 },
+                exporting: {
+                    enabled: false
+                }
             },
             series: [{
                 name: '',
@@ -127,6 +133,9 @@ export default ($scope, $state, dateService, dataDetailFactory, qService) => {
                     }
                 },
                 credits: {
+                    enabled: false
+                },
+                exporting: {
                     enabled: false
                 }
             },
@@ -174,6 +183,9 @@ export default ($scope, $state, dateService, dataDetailFactory, qService) => {
                 },
                 credits: {
                     enabled: false
+                },
+                exporting: {
+                    enabled: false
                 }
             },
             series: [{
@@ -207,6 +219,9 @@ export default ($scope, $state, dateService, dataDetailFactory, qService) => {
                 credits: {
                     enabled: false
                 },
+                exporting: {
+                    enabled: false
+                }
             },
             series: [{
                 name: '',
@@ -248,6 +263,9 @@ export default ($scope, $state, dateService, dataDetailFactory, qService) => {
                     },
                 },
                 credits: {
+                    enabled: false
+                },
+                exporting: {
                     enabled: false
                 }
             },
@@ -295,6 +313,9 @@ export default ($scope, $state, dateService, dataDetailFactory, qService) => {
                 },
                 credits: {
                     enabled: false
+                },
+                exporting: {
+                    enabled: false
                 }
             },
             series: [{
@@ -340,6 +361,9 @@ export default ($scope, $state, dateService, dataDetailFactory, qService) => {
                     }
                 },
                 credits: {
+                    enabled: false
+                },
+                exporting: {
                     enabled: false
                 }
             },
@@ -388,6 +412,9 @@ export default ($scope, $state, dateService, dataDetailFactory, qService) => {
                 credits: {
                     enabled: false
                 },
+                exporting: {
+                    enabled: false
+                }
             },
             series: []
         },
