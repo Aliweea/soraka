@@ -465,7 +465,7 @@ function lineHighChart(title, xAxis, step, height) {
 
     var SUBSIDIARYFOODPRICEDATA = qService.httpPost(dataDetailFactory.advancedQuery, {
       tableName: 'SubsidiaryFoodPriceData'
-    }, {"X-Auth-Token":token},queryMap)
+    }, {"X-Auth-Token":token},queryMap);
 
     SUBSIDIARYFOODPRICEDATA.then(function(data) {
       if (data.errorCode != "NO_ERROR") {
@@ -475,35 +475,35 @@ function lineHighChart(title, xAxis, step, height) {
       console.log(data.data);
       var dataObject, SFArray, objectIndex, itemName, dataItem;
       for (var i=0; i<dataList.length; i++) {
-        dataObject = dataList[i]
+        dataObject = dataList[i];
         switch(dataObject.subsidiaryFoodTypeName) {
           case "粮食":
-            SFArray = $scope.PRICEDATA.a_riceDataList
-            break
+            SFArray = $scope.PRICEDATA.a_riceDataList;
+            break;
           case "油脂":
-            SFArray = $scope.PRICEDATA.b_oilDataList
-            break
+            SFArray = $scope.PRICEDATA.b_oilDataList;
+            break;
           case "肉禽及制品":
-            SFArray = $scope.PRICEDATA.c_meatDataList
-            break
+            SFArray = $scope.PRICEDATA.c_meatDataList;
+            break;
           case "蛋":
-            SFArray = $scope.PRICEDATA.d_eggDataList
-            break
+            SFArray = $scope.PRICEDATA.d_eggDataList;
+            break;
           case "水产品":
-            SFArray = $scope.PRICEDATA.e_aquaticProductDataList
-            break
+            SFArray = $scope.PRICEDATA.e_aquaticProductDataList;
+            break;
           case "蔬菜":
-            SFArray = $scope.PRICEDATA.f_vegetableDataList
-            break
+            SFArray = $scope.PRICEDATA.f_vegetableDataList;
+            break;
           case "干鲜瓜果":
-            SFArray = $scope.PRICEDATA.g_fruitDataList
-            break
+            SFArray = $scope.PRICEDATA.g_fruitDataList;
+            break;
           case "其他":
-            SFArray = $scope.PRICEDATA.h_othersDataList
-            break
+            SFArray = $scope.PRICEDATA.h_othersDataList;
+            break;
         }
         itemName = dataObject.subsidiaryFoodName;
-        objectIndex = SFArray.nameList.indexOf(itemName)
+        objectIndex = SFArray.nameList.indexOf(itemName);
         if (objectIndex === -1) {
           dataItem = new subsidiaryFoodDataObject(itemName, day);
           SFArray.nameList.push(itemName);
@@ -517,16 +517,16 @@ function lineHighChart(title, xAxis, step, height) {
   }
 
   $scope.initFoodPriceHighChart = function() {
-    resetPRICEDATA();
-
+     // resetPriceData();
     $scope.PRICEDATA.a_riceDataList.isCollapsed = true;
     $scope.PRICEDATA.a_riceDataList.data[0].model = true;
     $scope.foodPriceHighChartOption.series=[];
     $scope.foodPriceHighChartOption.series.push($scope.PRICEDATA.a_riceDataList.data[0]);
-  }
+  };
 
   $scope.checkBoxChange = function(item) {
     if (item.model) { // 选中的情况
+        $scope.foodPriceHighChartOption.series=[];
       $scope.foodPriceHighChartOption.series.push(item);
       console.log($scope.foodPriceHighChartOption.series);
       console.log($scope.foodPriceHighChartOption);
@@ -537,15 +537,15 @@ function lineHighChart(title, xAxis, step, height) {
       }
       console.log(index);
       console.log($scope.foodPriceHighChartOption.series);
-      var chart=$("#foodPriceHighChart").highcharts()
+      var chart=$("#foodPriceHighChart").highcharts();
       if (chart.hasData()) {
         chart.hideNoData();
         chart.showNoData("未选中任何农副食品种类<br/>请在右侧选择您想查看的农副食品种类");
       }
     }
-  }
+  };
 
-  function resetPRICEDATA() {
+  function resetPriceData(){
     var tempFoodType;
     for (tempFoodType in $scope.PRICEDATA) {
       $scope.PRICEDATA[tempFoodType].isCollapsed = false;
@@ -554,6 +554,8 @@ function lineHighChart(title, xAxis, step, height) {
       }
     }
   }
+
+
 /*******************************************************************************
                               OBJECT AREA
 *******************************************************************************/
@@ -620,7 +622,7 @@ function lineHighChart(title, xAxis, step, height) {
     if (lastObjRaw.errorCode != "NO_ERROR") {
       $location.path("/main");
     }
-    var latestObj = JSOG.parse(JSOG.stringify(lastObjRaw.data))
+    var latestObj = JSOG.parse(JSOG.stringify(lastObjRaw.data));
     CURRENT_YEAR = latestObj.year;
     LAST_YEAR = CURRENT_YEAR - 1;
 
@@ -628,7 +630,7 @@ function lineHighChart(title, xAxis, step, height) {
     $scope.thisMonth = latestObj.month;
 
     for (var i = 1; i <= 12; i++) {
-      var item = LAST_YEAR + "年" + pad(i, 2) + "月"
+      var item = LAST_YEAR + "年" + pad(i, 2) + "月";
       yearMonthList.push(item);
       monthList[i-1] = new Array();
       monthList[i-1].push(item);
@@ -697,7 +699,7 @@ function lineHighChart(title, xAxis, step, height) {
     if (step % 2 == 0) {
       step += 1;
     }
-    var chartTile = year + "年" + month + "月太仓市中心农贸市场农副产品市场价格走势详情";
+    var chartTile = year + "年" + month + "月农贸市场农副产品价格走势详情";
     $scope.foodPriceHighChartOption = new lineHighChart(chartTile, dayList, step, 450);
     $scope.PRICEDATA = {
       a_riceDataList: new subsidiaryFoodGroupObject("粮食类"),              // 粮食       2650

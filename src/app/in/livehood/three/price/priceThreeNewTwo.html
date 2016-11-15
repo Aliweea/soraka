@@ -8,7 +8,7 @@
                             <a href="#" style="display: inline-block;color: gray;margin-left: 30%" ng-click="showfour()">设置图表</a>
                         </div>
                         <div style="position: relative;">
-                            <div class="panel-body" style="position: absolute;z-index: 1;width: 99%" >
+                            <div class="span9 col-md-9 chart-panel" style="position: absolute;z-index: 1;width: 99%" >
                                <highchart id="foodPriceHighChart" config="foodPriceHighChartOption"></highchart>
                             </div>
                             <div style="width: 70%;height: 500px;position: absolute;z-index: 2" class="fadein fadeout" ng-if="show4">
@@ -36,7 +36,7 @@
 <div class="navbar navbar-app navbar-absolute-bottom">
    <div class="btn-group btn-group-justified">
   <div class="btn-group">
-    <a type="button" class="btn btn-default" ui-sref="app.economy.economylist" style="color: gray">返回上页</a>
+    <a type="button" class="btn btn-default" ui-sref="app.livehood.priceThree" style="color: gray">返回上页</a>
   </div>
   <div class="btn-group">
     <a type="button" class="btn btn-default" ui-turn-on="modal2"></a>
