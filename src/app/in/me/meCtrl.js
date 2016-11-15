@@ -5,9 +5,10 @@ export default($scope, qService, accountRes, AuthTool, $state, $rootScope) => {
     $('#footlabel').hide(0);
     $('#navBottomReturn').show(0);
 
+    let userid = AuthTool.getLoginInfo().id;
     let params = {
-        
-    }
+        "userid": userid
+    };
     let headers = {
         
     };
