@@ -18,8 +18,8 @@
                 <div ui-state="activeTab" default="1">
                     <div class="panel-body" >
                         <div class="btn-group justified nav-tabs">
-                            <a ui-set="{'activeTab': 1}" ui-class="{'active':activeTab==1}" class="btn btn-default">各乡镇受理生产安全事故</a>
-                            <a ui-set="{'activeTab': 2}" ui-class="{'active':activeTab==2}" class="btn btn-default">全市受理各类生产安全事故</a>
+                            <a ui-set="{'activeTab': 1}" ui-class="{'active':activeTab==1}" class="btn btn-default">各乡镇生产安全事故</a>
+                            <a ui-set="{'activeTab': 2}" ui-class="{'active':activeTab==2}" class="btn btn-default">各类生产安全事故详情</a>
                         </div>
                         <div class="row">
                             <div class="col-md-12 ">
@@ -58,7 +58,6 @@
                     <label class="">
                         <input type="radio" value="3" ng-model="barCountStationData1.type" ng-change='typeChange1(3)'> 查看直接财产损失
                     </label>
-                    <hr>
                     <div ui-state="activeTab1" default="1">
                         <div class="btn-group justified nav-tabs">
                             <a ui-set="{'activeTab1': 1}" ui-class="{'active':activeTab1==1}" class="btn btn-default">各乡镇受理安全事故</a>
@@ -103,7 +102,6 @@
                     <label class="">
                         <input type="radio" value="3" ng-model="lineChartData.type" ng-change='typeChange(3)'> 查看直接财产损失
                     </label>
-                    <hr>
                     <div class="row">
                         <div class="col-md-12 chart-panel">
                             <highchart id="lineChart" config="lineChart" style=""></highchart>
