@@ -478,37 +478,37 @@ export default ($scope, $state, dateService, dataDetailFactory, qService, kpiDet
                 }
 
                 // function createMapData(){
-                // 	for(var i = 0 ; i < eachStationData.categories.length ; i ++){
-                // 		var obj = {
-                // 			content:0,
-                // 			description:'',
-                // 			icon:{
-                // 				h:21,
-                // 				l:0,
-                // 				lb:5,
-                // 				t:0,
-                // 				w:21,
-                // 				x:6
-                // 			},
-                // 			isOpen:0,
-                // 			stationID:'',
-                // 			title:''
-                // 		};
+                //  for(var i = 0 ; i < eachStationData.categories.length ; i ++){
+                //      var obj = {
+                //          content:0,
+                //          description:'',
+                //          icon:{
+                //              h:21,
+                //              l:0,
+                //              lb:5,
+                //              t:0,
+                //              w:21,
+                //              x:6
+                //          },
+                //          isOpen:0,
+                //          stationID:'',
+                //          title:''
+                //      };
 
-                // 		if(eachStationData.values[i] > 0){
-                // 			obj.content = eachStationData.values[i];
-                // 			obj.title = eachStationData.categories[i];
-                // 			for(var j = 0 ; j < stationInfo.length ; j++){
-                // 				if(stationInfo[j].name == obj.title){						
-                // 					obj.description = stationInfo[j].desc;
-                // 					obj.stationID = stationInfo[j].id;
-                // 					break;
-                // 				}
-                // 			}
-                // 		}
+                //      if(eachStationData.values[i] > 0){
+                //          obj.content = eachStationData.values[i];
+                //          obj.title = eachStationData.categories[i];
+                //          for(var j = 0 ; j < stationInfo.length ; j++){
+                //              if(stationInfo[j].name == obj.title){                       
+                //                  obj.description = stationInfo[j].desc;
+                //                  obj.stationID = stationInfo[j].id;
+                //                  break;
+                //              }
+                //          }
+                //      }
 
-                // 		mapData.push(obj);
-                // 	}
+                //      mapData.push(obj);
+                //  }
                 // };
 
                 function createPieChartData() {
@@ -606,8 +606,13 @@ export default ($scope, $state, dateService, dataDetailFactory, qService, kpiDet
 
                         for (var i = 0; i < mapData.length; i++) {
                             var json = mapData[i];
-                            var p0 = json.description.split("|")[0];
-                            var p1 = json.description.split("|")[1];
+                            if (json.description) {
+                                var p0 = json.description.split("|")[0];
+                                var p1 = json.description.split("|")[1];
+                            } else {
+                                var p0 = "";
+                                var p1 = "";
+                            }
                             var arr = { "lng": p0, "lat": p1, "count": json.content };
                             stationsPoints.push(arr);
                             var point = new BMap.Point(p0, p1);
@@ -652,9 +657,15 @@ export default ($scope, $state, dateService, dataDetailFactory, qService, kpiDet
                     //创建InfoWindow
                     function createInfoWindow(i) {
                         var json = mapData[i];
-                        var addr = json.description.split("|")[2];
-                        var tel = json.description.split("|")[3];
-                        var dean = json.description.split("|")[4];
+                        if (json.description) {
+                            var addr = json.description.split("|")[2];
+                            var tel = json.description.split("|")[3];
+                            var dean = json.description.split("|")[4];
+                        } else {
+                            var addr = "";
+                            var tel = "";
+                            var dean = "";
+                        }
                         var str = "<b class='iw_poi_title' title='" + json.title + "'>" + json.title + "</b><div class='iw_poi_content'>  <h5>本月发生刑事案件数:" + json.content + "起.其中:</h5> <div id='kpi' style='height: 250px; width: 400px;  margin: 0 auto'></div>" + "</div>";
                         var iw = new BMap.InfoWindow(str, { enableMessage: false });
                         return iw;
