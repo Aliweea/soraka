@@ -24,7 +24,6 @@ export default ($scope, qService, generalService, dataDetailFactory, $http, $roo
    $scope.isActive1="";
    $scope.isActive2="active";
    $scope.isToggle=false;
-
  }
 //收支详情展开
 $scope.isLink = true;
@@ -383,6 +382,7 @@ $scope.concealDetail1 = () => {
         },
         chart: {
           type: 'pie',
+           margin: [30, 30, 30, 30],
         },
         title: {
           text: ""
@@ -391,7 +391,7 @@ $scope.concealDetail1 = () => {
           align: 'right',
           x: 0,
           verticalAlign: 'top',
-          y: -10,
+          y: 10,
           floating: true,
           backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColorSolid) || 'white',
           borderColor: '#CCC',
@@ -403,11 +403,14 @@ $scope.concealDetail1 = () => {
             allowPointSelect: true,
             cursor: 'pointer',
             dataLabels: {
-              enabled: false,
-              color: '#000000',
-              connectorColor: '#000000',
-              format: '{point.percentage:.2f}%'
-            },
+              zIndex: 40,
+                    enabled: true,
+                    format: '<b>{point.name}</b>: <br><center>{point.percentage:.1f} %</center>',
+                    style: {
+
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                    }
+                },
             showInLegend: true
           }
         },
