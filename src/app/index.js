@@ -13,6 +13,8 @@ import commonSer from './common/commonSer';
 import qService from './services/q-service';
 import dService from './services/d-service';
 import hService from './services/h-service';
+import xService from './services/x-service';
+import toolService from './services/tool-service';
 import unitService from './services/unit-service';
 import dateService from './services/date-service';
 import kpiDetailService from './services/kpiDetailService';
@@ -59,6 +61,7 @@ import homeCtrl from './in/home/homeCtrl';
 // 侧边栏Controller
 import meCtrl from './in/me/meCtrl';
 import datepickCtrl from './in/datepick/datepickCtrl';
+import changepswCtrl from './in/changepsw/changepswCtrl';
 // 经济模块Controller
 import economyCtrl from './in/economy/economyCtrl.js';
 import economylistCtrl from './in/economy/one/economylistCtrl.js';
@@ -142,6 +145,8 @@ angular.module('soraka',
   .service('qService', qService)
   .service('dService', dService)
   .service('hService', hService)
+  .service('xService', xService)
+  .service('toolService', toolService)
   .service('AuthTool',AuthTool)
   .service('dateService',dateService)
   .service('generalService',generalService)
@@ -190,6 +195,7 @@ angular.module('soraka',
   // 侧边栏controllers
   .controller('meCtrl', meCtrl)
   .controller('datepickCtrl', datepickCtrl)
+  .controller('changepswCtrl', changepswCtrl)
   // 经济controllers
   .controller('economyCtrl', economyCtrl)
   .controller('economylistCtrl', economylistCtrl)
