@@ -13,6 +13,8 @@ import commonSer from './common/commonSer';
 import qService from './services/q-service';
 import dService from './services/d-service';
 import hService from './services/h-service';
+import xService from './services/x-service';
+import toolService from './services/tool-service';
 import unitService from './services/unit-service';
 import dateService from './services/date-service';
 import kpiDetailService from './services/kpiDetailService';
@@ -142,6 +144,8 @@ angular.module('soraka',
   .service('qService', qService)
   .service('dService', dService)
   .service('hService', hService)
+  .service('xService', xService)
+  .service('toolService', toolService)
   .service('AuthTool',AuthTool)
   .service('dateService',dateService)
   .service('generalService',generalService)
