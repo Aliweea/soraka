@@ -208,8 +208,8 @@ export default ($scope, $state, dateService, qService, kpiDetailService, dictSer
                             },
                             legend: {
                                 layout: 'vertical',
-                                align: 'right',
-                                verticalAlign: 'middle',
+                                align: 'center',
+                                verticalAlign: 'bottom',
                                 borderWidth: 0
                             }
                         },
@@ -268,8 +268,8 @@ export default ($scope, $state, dateService, qService, kpiDetailService, dictSer
                                 },
                                 legend: {
                                     layout: 'vertical',
-                                    align: 'right',
-                                    verticalAlign: 'middle',
+                                    align: 'center',
+                                    verticalAlign: 'bottom',
                                     borderWidth: 0
                                 }
                             },
@@ -312,8 +312,8 @@ export default ($scope, $state, dateService, qService, kpiDetailService, dictSer
                                 },
                                 legend: {
                                     layout: 'vertical',
-                                    align: 'right',
-                                    verticalAlign: 'middle',
+                                    align: 'center',
+                                    verticalAlign: 'bottom',
                                     borderWidth: 0
                                 }
                             },
@@ -356,8 +356,8 @@ export default ($scope, $state, dateService, qService, kpiDetailService, dictSer
                                 },
                                 legend: {
                                     layout: 'vertical',
-                                    align: 'right',
-                                    verticalAlign: 'middle',
+                                    align: 'center',
+                                    verticalAlign: 'bottom',
                                     borderWidth: 0
                                 }
                             },
@@ -400,8 +400,8 @@ export default ($scope, $state, dateService, qService, kpiDetailService, dictSer
                                 },
                                 legend: {
                                     layout: 'vertical',
-                                    align: 'right',
-                                    verticalAlign: 'middle',
+                                    align: 'center',
+                                    verticalAlign: 'bottom',
                                     borderWidth: 0
                                 }
                             },

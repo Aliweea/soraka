@@ -32,7 +32,6 @@
                                     <tab heading="事故详情" ui-if="activeTab==2">
                                         <div class="col-md-9 chart-panel" style="margin-top: 10px">
                                             <highchart id="pieType" config="pieType" style=""></highchart>
-                                            <hr>
                                         </div>
                                     </tab>
                                 </tabset>
@@ -58,7 +57,6 @@
                     <label class="">
                         <input type="radio" value="3" ng-model="barCountStationData1.type" ng-change='typeChange1(3)'> 查看直接财产损失
                     </label>
-                    <hr>
                     <div ui-state="activeTab1" default="1">
                         <div class="btn-group justified nav-tabs">
                             <a ui-set="{'activeTab1': 1}" ui-class="{'active':activeTab1==1}" class="btn btn-default">各指标数量</a>
@@ -103,7 +101,6 @@
                     <label class="">
                         <input type="radio" value="3" ng-model="lineChartData.type" ng-change='typeChange(3)'> 查看直接财产损失
                     </label>
-                    <hr>
                     <div class="row">
                         <div class="col-md-12 chart-panel">
                             <highchart id="lineChart" config="lineChart" style=""></highchart>

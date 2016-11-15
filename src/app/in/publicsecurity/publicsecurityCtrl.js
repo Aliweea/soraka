@@ -37,7 +37,7 @@ export default($scope, $state, hService) => {
 	$scope.toDetail = () => {
 		switch($scope.currentCategoryName) {
 			case "公安":
-				$state.go("app.publicsecurity.police");
+				$state.go("app.publicsecurity.policecall");
 				break;
 			case "消防":
 				$state.go("app.publicsecurity.fire");
