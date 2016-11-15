@@ -41,6 +41,11 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       templateUrl: 'app/in/datepick/datepick.html',
       controller: 'datepickCtrl'
     })
+    .state('app.in.changepsw', {
+      url: '/changepsw',
+      templateUrl: 'app/in/changepsw/changepsw.html',
+      controller: 'changepswCtrl'
+    })
     // 经济
     .state('app.economy', {
       abstract: true,

@@ -61,6 +61,7 @@ import homeCtrl from './in/home/homeCtrl';
 // 侧边栏Controller
 import meCtrl from './in/me/meCtrl';
 import datepickCtrl from './in/datepick/datepickCtrl';
+import changepswCtrl from './in/changepsw/changepswCtrl';
 // 经济模块Controller
 import economyCtrl from './in/economy/economyCtrl.js';
 import economylistCtrl from './in/economy/one/economylistCtrl.js';
@@ -194,6 +195,7 @@ angular.module('soraka',
   // 侧边栏controllers
   .controller('meCtrl', meCtrl)
   .controller('datepickCtrl', datepickCtrl)
+  .controller('changepswCtrl', changepswCtrl)
   // 经济controllers
   .controller('economyCtrl', economyCtrl)
   .controller('economylistCtrl', economylistCtrl)

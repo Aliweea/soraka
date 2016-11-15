@@ -21,7 +21,7 @@ export default ($scope, $localStorage, $timeout, $state, $q, $sessionStorage, qS
                 if (data.errorCode == "NO_ERROR") {
                     console.log("自动登录, 用户信息验证成功");
                     // 存储登陆用户data和token
-                    AuthTool.saveLoginInfo(data, data.headers[TOKEN_KEY]);
+                    AuthTool.saveLoginInfo(data.data, data.headers[TOKEN_KEY]);
                     $state.go('app.in.home');
                 } else {
                     $scope.errMessage = "出错了, 请重试";
@@ -60,7 +60,7 @@ export default ($scope, $localStorage, $timeout, $state, $q, $sessionStorage, qS
                     console.log("用户信息已保存, 启用自动登录");
                 }
                 // 存储登陆用户data和token
-                AuthTool.saveLoginInfo(data, data.headers[TOKEN_KEY]);
+                AuthTool.saveLoginInfo(data.data, data.headers[TOKEN_KEY]);
 
     			$state.go('app.in.home');
     		} else {

@@ -1,4 +1,4 @@
-export default($scope, qService, accountRes, AuthTool, $state) => {
+export default($scope, qService, accountRes, AuthTool, $state, $rootScope) => {
     'ngInject';
     // 隐藏topbar上的logout按钮
     $('#home_logout').hide(0);
