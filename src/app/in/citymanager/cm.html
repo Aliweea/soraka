@@ -10,13 +10,13 @@
 			ui-show="kpiChoiceDropdown"
 			ui-state="kpiChoiceDropdown"
 			ui-turn-off="kpiChoiceDropdown">
-			<li><a ui-sref="app.cm.cmlist({categoryId:7001})" ng-click="changeCategory('垃圾清运')" href="#">垃圾清运</a></li>
+			<li id="cm7001"><a ui-sref="app.cm.cmlist({categoryId:7001})" ng-click="changeCategory('垃圾清运')" href="#">垃圾清运</a></li>
 			<li class="divider"></li>
-			<li><a ui-sref="app.cm.cmlist({categoryId:7003})" ng-click="changeCategory('行政处罚')" href="#">行政处罚</a></li>
+			<li id="cm7003"><a ui-sref="app.cm.cmlist({categoryId:7003})" ng-click="changeCategory('行政处罚')" href="#">行政处罚</a></li>
 			<li class="divider"></li>
-			<li><a ui-sref="app.cm.cmlist({categoryId:7005})" ng-click="changeCategory('违法建设整治')" href="#">违法建设整治</a></li>
+			<li id="cm7005"><a ui-sref="app.cm.cmlist({categoryId:7005})" ng-click="changeCategory('违法建设整治')" href="#">违法建设整治</a></li>
 			<li class="divider"></li>
-			<li><a ui-sref="app.cm.cmlist({categoryId:7006})" ng-click="changeCategory('数字城管')" href="#">数字城管</a></li>
+			<li id="cm7006"><a ui-sref="app.cm.cmlist({categoryId:7006})" ng-click="changeCategory('数字城管')" href="#">数字城管</a></li>
 		</ul>
 		<ul class="dropdown-menu cm-dropdown-ul"
 			ui-outer-click="Ui.turnOff('kpiStatusDropdown')"

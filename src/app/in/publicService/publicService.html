@@ -10,13 +10,13 @@
 			ui-show="kpiChoiceDropdown"
 			ui-state="kpiChoiceDropdown"
 			ui-turn-off="kpiChoiceDropdown">
-			<li><a ui-sref="app.publicService.publicServicelist({categoryId:6001})" ng-click="changeCategory('教育')" href="#">教育</a></li>
+			<li id="publicService6001"><a ui-sref="app.publicService.publicServicelist({categoryId:6001})" ng-click="changeCategory('教育')" href="#">教育</a></li>
 			<li class="divider"></li>
-			<li><a ui-sref="app.publicService.publicServicelist({categoryId:6004})" ng-click="changeCategory('医疗卫生')" href="#">医疗卫生</a></li>
+			<li id="publicService6004"><a ui-sref="app.publicService.publicServicelist({categoryId:6004})" ng-click="changeCategory('医疗卫生')" href="#">医疗卫生</a></li>
 			<li class="divider"></li>
-			<li><a ui-sref="app.publicService.publicServicelist({categoryId:6003})" ng-click="changeCategory('交通')" href="#">交通</a></li>
+			<li id="publicService6003"><a ui-sref="app.publicService.publicServicelist({categoryId:6003})" ng-click="changeCategory('交通')" href="#">交通</a></li>
 			<li class="divider"></li>
-			<li><a ui-sref="app.publicService.publicServicelist({categoryId:6002})" ng-click="changeCategory('电信')" href="#">电信</a></li>
+			<li id="publicService6002"><a ui-sref="app.publicService.publicServicelist({categoryId:6002})" ng-click="changeCategory('电信')" href="#">电信</a></li>
 		</ul>
 		<ul class="dropdown-menu cm-dropdown-ul"
 			ui-outer-click="Ui.turnOff('kpiStatusDropdown')"
