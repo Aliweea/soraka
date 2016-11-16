@@ -1,11 +1,13 @@
  <div class="scrollable"style="height: 600px;margin-top: 50px">
   <div class="scrollable-content" >
 <div class="panel panel-default">
-                        <div class="panel-heading" >
-                            <h4 class="panel-title" style="display: inline-block;">
+                        <div class="panel-heading" ng-click="show()">
+                        <div style="display:flex;display: -webkit-flex;flex-direction: column;justify-content: center;align-items: center;width: 100%"></div>
+                            <div><h4 class="panel-title" style="margin:auto">
                                 居民消费价格指数趋势
-                            </h4>
-                            <a href="#" style="display: inline-block;color: gray;margin-left: 10%" ng-click="show()">点击显示数据详情</a>
+                            </h4></div>
+                            <div><a href="#" style="color: gray;margin-left: 10%" >点击显示数据详情</a></div>
+                            
                         </div>
                         <div style="position: relative;">
                             <div class="panel-body" style="position: absolute;z-index: 1;width: 99%" >
@@ -32,15 +34,15 @@
                         </div>
 </div>
 
-<div class="panel panel-default" style="margin-top:{{newtop}}px">
-                        <div class="panel-heading" >
-                            <h4 class="panel-title" style="display: inline-block;">
+<div class="panel panel-default" style="margin-top:{{bigheight}}px">
+                        <div class="panel-heading" ng-click="showtwo()">
+                            <h4 class="panel-title">
                                 居民消费价格指数类别同比累计
                             </h4>
-                            <a href="#" style="display: inline-block;color: gray;margin-left: 2%" ng-click="showtwo()">点击显示数据详情</a>
+                            <a href="#" style="color: gray;margin-left: 2%" >点击显示数据详情</a>
                         </div>
                         <div style="position: relative;">
-                            <div class="panel-body" style="position: absolute;z-index: 1;width: 99%" >
+                            <div class="panel-body" style="position: absolute;z-index: 1;width: 99%;" >
                                 <highchart config="cpiHighChartOptions.categoryDetailOption"  id="ClassInvestValueChart" style="height:{{smallheight}}px"></highchart>
                             </div>
                             <div style="width: 95%;height: {{newheight}}px;position: absolute;z-index: 2;background-color: rgb(255,255,255);margin-left: 2%;box-shadow: 5px 5px 5px gray" ng-if="show2">
@@ -62,12 +64,12 @@
                             </div>
                         </div>
 </div>
-<div class="panel panel-default" style="margin-top: {{newheight}}px">
-                        <div class="panel-heading" >
+<div class="panel panel-default" style="margin-top: {{bigheight}}px">
+                        <div class="panel-heading" ng-click="showthree()">
                             <h4 class="panel-title" style="display: inline-block;">
                                 居民消费价格指数类别同比累计
                             </h4>
-                            <a href="#" style="display: inline-block;color: gray;margin-left: 10%" ng-click="showthree()">点击显示数据详情</a>
+                            <a href="#" style="display: inline-block;color: gray;margin-left: 10%" >点击显示数据详情</a>
                         </div>
                         <div style="position: relative;">
                             <div class="panel-body" style="position: absolute;z-index: 1;width: 99%" >
