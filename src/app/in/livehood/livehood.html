@@ -3,7 +3,7 @@
 		<div class="cm-return-home" ui-sref="app.in.home"><i class="fa fa-home" aria-hidden="true"></i><span>主页</span></div>
 		<div class="cm-kpi-choose navTopShowMark" ui-turn-on='kpiChoiceDropdown'><i class="fa fa-angle-down fa-2x" aria-hidden="true"></i><span>KPI分类</span></div>
 		<div class="cm-kpi-status navTopShowMark" ui-turn-on='kpiStatusDropdown'><i class="fa fa-angle-down fa-2x" aria-hidden="true"></i><span>KPI状态</span></div>
-		<div class="lh-population-choose navTopShowPopulation" ui-turn-on='populationChoiceDropdown'><i class="fa fa-angle-down fa-2x" aria-hidden="true"></i><span>人口结构KPI状态</span></div>
+		<div class="lh-population-choose navTopShowPopulation" ui-turn-on='populationChoiceDropdown'><i class="fa fa-angle-down fa-2x" aria-hidden="true"></i><span>{{populationStructure.title}}</span></div>
 		<ul class="dropdown-menu cm-dropdown-ul"
 			ui-outer-click="Ui.turnOff('kpiChoiceDropdown')"
 			ui-outer-click-if="Ui.active('kpiChoiceDropdown')"
@@ -25,15 +25,15 @@
 			ui-state="populationChoiceDropdown"
 			ui-turn-off="populationChoiceDropdown"
 			style="z-index: 1000;">
-			<li><a ui-sref="app.livehood.PopulationStructure" href="#">人口结构图</a></li>
+			<li><a ui-sref="app.livehood.PopulationStructure" href="#" ng-click="changeTitle('人口结构图')">人口结构图</a></li>
 			<li class="divider"></li>
-			<li><a ui-sref="app.livehood.TerminalPopulation" href="#">期末户籍人口数</a></li>
+			<li><a ui-sref="app.livehood.TerminalPopulation" href="#" ng-click="changeTitle('期末户籍人口数')">期末户籍人口数</a></li>
 			<li class="divider"></li>
-			<li><a ui-sref="app.livehood.BornDeath" href="#">出生人口与死亡人口详情</a></li>
+			<li><a ui-sref="app.livehood.BornDeath" href="#" ng-click="changeTitle('出生人口与死亡人口详情')">出生人口与死亡人口详情</a></li>
 			<li class="divider"></li>
-			<li><a ui-sref="app.livehood.BearingWomen" href="#">户籍育龄妇女详情</a></li>
+			<li><a ui-sref="app.livehood.BearingWomen" href="#" ng-click="changeTitle('户籍育龄妇女详情')">户籍育龄妇女详情</a></li>
 			<li class="divider"></li>
-			<li><a ui-sref="app.livehood.FirstMarriage" href="#">初婚女性详情</a></li>
+			<li><a ui-sref="app.livehood.FirstMarriage" href="#" ng-click="changeTitle('初婚女性详情')">初婚女性详情</a></li>
 		</ul>
 		<ul class="dropdown-menu cm-dropdown-ul"
 			ui-outer-click="Ui.turnOff('kpiStatusDropdown')"
