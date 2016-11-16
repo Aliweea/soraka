@@ -6,7 +6,8 @@ export default ($scope, kpiDetailService, dateService) => {
         $(".navbar2return").show(0); // 显示返回按钮
         $(".navTopShowMark").hide(0); // 隐藏KPI状态 KPI分类
         $('#showshort').focus(); // 获取默认焦点
-    }();
+    };
+    jQueryDOMToDos();
 
     $scope.tab1 = true;
     $scope.tab2 = false;
