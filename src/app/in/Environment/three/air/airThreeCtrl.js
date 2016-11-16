@@ -6,7 +6,8 @@ export default ($scope, kpiDetailService, dateService) => {
         $(".navbar2return").show(0); // 显示返回按钮
         $(".navTopShowMark").hide(0); // 隐藏KPI状态 KPI分类
         $('#showshort').focus(); // 获取默认焦点
-    }();
+    };
+    jQueryDOMToDos();
 
     $scope.tab1 = true;
     $scope.tab2 = false;
@@ -2152,7 +2153,7 @@ export default ($scope, kpiDetailService, dateService) => {
 
             //点标记中的图标
             var markerImg = document.createElement("img");
-            markerImg.src = "http://webapi.amap.com/images/marker_sprite.png";
+            markerImg.src = "/assets/images/Environment/marker_sprite.png";
             markerContent.appendChild(markerImg);
 
             //点标记中的文本
@@ -2167,6 +2168,7 @@ export default ($scope, kpiDetailService, dateService) => {
                 topWhenClick: true,
                 topWhenMouseOver: true,
                 position: new AMap.LngLat(p0, p1)
+                // zoom: 11 //地图显示的缩放级别
             });
 
             (function (markerTemp) {
@@ -2366,9 +2368,7 @@ export default ($scope, kpiDetailService, dateService) => {
      * 页面初始化区
      * 有些图表的数据是在网页刷新时就请求到的
      **/
-
-//空气质量 当天数据模块 初始化
-
+    //空气质量 当天数据模块 初始化
     kpiDetailService.getLastestObject('AirQuality', ['date'], function (data) {
         var date = data.data.date;
         var datebaseLastestDate = moment(date).subtract(1, 'hours');
@@ -2404,7 +2404,6 @@ export default ($scope, kpiDetailService, dateService) => {
         };
         $scope.airQualityCurrentDateTime = airQulaityLastDate;
     });
-
     //废气排放 当天数据模块 初始化
     kpiDetailService.getLastestObject('AirPollution', ['date'], function (data) {
         var date = data.data.date;
