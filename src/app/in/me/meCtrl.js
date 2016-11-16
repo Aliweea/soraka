@@ -1,16 +1,18 @@
-export default($scope, qService, accountRes, AuthTool, $state) => {
+export default($scope, qService, accountRes, AuthTool, $state, $rootScope) => {
     'ngInject';
     // 隐藏topbar上的logout按钮
     $('#home_logout').hide(0);
     $('#footlabel').hide(0);
     $('#navBottomReturn').show(0);
 
-    let userid = AuthTool.getLoginInfo().data.id;
+    let userid = AuthTool.getLoginInfo().id;
     let params = {
         "userid": userid
-    }
-    let headers = {
     };
+    let headers = {
+        
+    };
+    $rootScope.loading = false;
     qService.httpGetWithToken(accountRes.accountById, params,headers).then((data) => {
         if (data.errorCode == "NO_ERROR") {
             $scope.meData = data.data;
@@ -23,5 +25,7 @@ export default($scope, qService, accountRes, AuthTool, $state) => {
         } else {
 
         }
+    }).finally(() => {
+        $rootScope.loading = false;
     });
 }

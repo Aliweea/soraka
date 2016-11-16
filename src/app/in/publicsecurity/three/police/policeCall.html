@@ -1,64 +1,95 @@
-<div>
- <div ui-state="activeTab" default="1">
-  <ul class="nav nav-tabs">
-    <li ui-class="{'active': activeTab == 1}">
-      <a ui-set="{'activeTab': 1}">太仓市警情动态</a>
-    </li>
-    <li ui-class="{'active': activeTab == 2}">
-      <a ui-set="{'activeTab': 2}">各单位接警信息</a>
-    </li>
-    <li ui-class="{'active': activeTab ==3 }">
-    	<a ui-set="{'activeTab': 3}">全年接警趋势分析</a>
-    </li>
-    <li ui-class="{'active': activeTab ==4 }">
-    	<a ui-set="{'activeTab': 4}">各类报警案件总数</a>
-    </li>
-   </ul>
-
-  <div ui-if="activeTab == 1">
-  	<div class="col-md-3 ">
-  		<div class="scrollable" style="margin-top: 0px;height: 500px">
-  			<div class="scrollable-content" >
-     			
-    			<highchart  id="kpiPieChart" config="kpiPieChart" ></highchart>
-  	</div> 
-  </div>		
-	</div>
-  </div>
-
-  <div ui-if="activeTab == 2">
-  	<div class="col-md-3 ">
-  		<div class="scrollable" style="margin-top: 0px;height: 700px">
-  			<div class="scrollable-content" >
-     			
-    			<highchart  id="kpiBarChart"  config="kpiBarChart"  style="height:100%"></highchart>
-  	</div> 
-  </div>		
-	</div>
-  </div>
-   <div ui-if="activeTab == 3">
-  	<div class="col-md-3 ">
-  		<div class="scrollable" style="margin-top: 0px;height: 500px">
-  			<div class="scrollable-content" >
-     			
-    			<highchart  id="lineChart"  config="lineChart"  style="height:400px"></highchart>
-  	</div> 
-  </div>		
-	</div>
-  </div>
-  
-<div ui-if="activeTab == 4">
-  	<div class="col-md-3 ">
-  		<div class="scrollable" style="margin-top: 0px;height: 500px">
-  			<div class="scrollable-content" >
-     		
-    			<highchart  id="barTypeChart"  config="barTypeChart"  style="height:400px"></highchart>
-  	</div> 
-  </div>		
-	</div>
-  </div>
+<script type="text/javascript" src="http://api.map.baidu.com/library/Heatmap/2.0/src/Heatmap_min.js"></script>
+<style type="text/css">
+#criminalMap {
+    width: 900px;
+    height: 500px;
+    overflow: hidden;
+    margin: 0;
+    font-family: "微软雅黑";
+}
+.anchorBL {
+    display: none;
+}
+</style>
+<div class="pentitionthree">
+    <div ui-state="activeTab" default="1">
+        <ul class="nav nav-tabs">
+            <li ui-class="{'active': activeTab == 1}" style="width: 50%">
+                <a ui-set="{'activeTab': 1}">警情动态</a>
+            </li>
+            <li ui-class="{'active': activeTab == 2}" style="width: 50%">
+                <a ui-set="{'activeTab': 2}">全年接处警趋势分析</a>
+            </li>
+        </ul>
+        <div ui-if="activeTab == 1">
+            <div class="panel-group" ui-state="accidentAccordion" ui-default="1">
+                <div class="panel panel-primary" style="margin-top: 10px;border:1px white solid">
+                    <div class="panel-heading" ui-set="{'accidentAccordion': 1}">
+                        太仓市警情动态
+                        <span class="glyphicon glyphicon-question-sign pull-right"></span>
+                    </div>
+                    <div class="panel-body" ui-if="accidentAccordion == 1">
+                        <div class="row">
+                            <div class="col-md-9 chart-panel">
+                                <span class="glyphicon glyphicon-question-sign pull-right"></span>
+                                <highchart  id="kpiPieChart" config="kpiPieChart" style="width:100%"></highchart>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-primary" style="margin-top: 10px;border:1px white solid">
+                    <div class="panel-heading" ui-set="{'accidentAccordion': 2}">
+                        各单位接警信息
+                        <span class="glyphicon glyphicon-question-sign pull-right"></span>
+                    </div>
+                    <div ui-if="accidentAccordion == 2">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-9 chart-panel">
+                                    <highchart id="kpiBarChart" config="kpiBarChart" style="width:100%"></highchart>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>              
+            </div>
+        </div>
+        <div ui-if="activeTab == 2">
+         <div class="panel-group" ui-state="accidentAccordion1" ui-default="1">            
+             <div class="panel panel-primary" style="margin-top: 10px;border:1px white solid">
+                    <div class="panel-heading" ui-set="{'accidentAccordion1': 1}">
+                        接处警趋势分析
+                        <span class="glyphicon glyphicon-question-sign pull-right"></span>
+                    </div>
+                    <div class="panel-body" ui-if="accidentAccordion1 == 1">
+                        <div class="row">
+                            <div class="col-md-9 chart-panel">
+                                <span class="glyphicon glyphicon-question-sign pull-right"></span>
+                                <highchart  id="lineChart" config="lineChart" style="width:100%"></highchart>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 <div class="panel panel-primary" style="margin-top: 10px;border:1px white solid">
+                    <div class="panel-heading" ui-set="{'accidentAccordion1': 2}">
+                        各类报警总数
+                        <span class="glyphicon glyphicon-question-sign pull-right"></span>
+                    </div>
+                    <div class="panel-body" ui-if="accidentAccordion1 == 2">
+                        <div class="row">
+                            <div class="col-md-9 chart-panel">
+                                <span class="glyphicon glyphicon-question-sign pull-right"></span> 
+                                 <highchart  id="kpiBarChart" config="kpiBarChart" style="width:100%"></highchart>
+                            </div>
+                        </div>
+                    </div>
+                </div>     
+        </div>
+        </div>
+    </div>
 </div>
-</div>
+
+
 
 
 

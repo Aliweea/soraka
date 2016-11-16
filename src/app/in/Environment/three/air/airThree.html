@@ -17,7 +17,7 @@
     </div>
     <div style="height: 380px; border: #ccc solid 1px;" id="map_canvas"></div>
     <div style="margin-top: 15px">
-        <div class="panel panel-success">
+        <div class="panel panel-primary">
             <div ng-show="mapTableStatus.airQuality">
                 <h5 align="left" style="padding-top: 0px">&nbsp(更新时间:&nbsp{{airQualityCurrentDateTime.year + '-'
                     + airQualityCurrentDateTime.month + '-'
@@ -76,7 +76,7 @@
     </div>
 </div>
 <div ng-show="tab2">
-    <div class="panel panel-success">
+    <div class="panel panel-primary">
         <div class="panel-heading">
             空气质量分析<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
         </div>
@@ -150,9 +150,9 @@
                            name="airQualityCurrentListRadio" ng-click="airQualityCurrentChange(airQualityOne)">{{airQualityOne.monitor}}
                 </label>
             </div>
-            <div style="margin-left: 75%;width: 20%">
-                <img src="/assets/images/Environment/one-sentence.png" />
-            </div>
+            <!--<div style="margin-left: 75%;width: 20%">-->
+                <!--<img src="/assets/images/Environment/one-sentence.png" />-->
+            <!--</div>-->
             <div style="margin-left: 75%;margin-top: 3px">{{airQualityCurrentDateTime.year}}年{{airQualityCurrentDateTime.month}}月{{airQualityCurrentDateTime.day}}日{{airQualityCurrentDateTime.hour}}时</div>
             <div style="margin-left: 75%;">{{airQualityOneSentence.monitor}}</div>
             <div style="margin-left: 75%">空气质量等级:&nbsp{{airQualityOneSentence.level}} 级</div>
@@ -187,7 +187,7 @@
             </div>
         </div>
     </div>
-    <div class="panel panel-success">
+    <div class="panel panel-primary">
         <div class="panel-heading">
             废气排放分析<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
         </div>

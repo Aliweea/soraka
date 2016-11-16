@@ -6,10 +6,10 @@ export default ($scope, qService, generalService, dataDetailFactory, $http, $roo
  /*******************************************************************************
                               VARIABLE AREA
   *******************************************************************************/
-  $scope.BALANCEUNIT = "万元"
-  $scope.PARTICAPTEDUNIT = "人"
-  $scope.ALLOPTION = {}
-  $scope.ALLDATA = {}
+  $scope.BALANCEUNIT = "万元";
+  $scope.PARTICAPTEDUNIT = "人";
+  $scope.ALLOPTION = {};
+  $scope.ALLDATA = {};
 
   //控制导航条
   $scope.isActive1="active";
@@ -24,7 +24,6 @@ export default ($scope, qService, generalService, dataDetailFactory, $http, $roo
    $scope.isActive1="";
    $scope.isActive2="active";
    $scope.isToggle=false;
-
  }
 //收支详情展开
 $scope.isLink = true;
@@ -96,37 +95,37 @@ $scope.concealDetail1 = () => {
   function setTab(tabName) {
       for (var i = 0; i < $scope.tabMap.length; i++) {
         if ($scope.tabMap[i].active == true && $scope.tabMap[i].name != tabName)
-          $scope.tabMap[i].active = false
+          $scope.tabMap[i].active = false;
         else if ($scope.tabMap[i].name == tabName)
-          $scope.tabMap[i].active = true
+          $scope.tabMap[i].active = true;
       }
       $scope.PARTICAPTEDUNITNEW = $scope.PARTICAPTEDUNIT;
-      $scope.PARTICAPTEDNAME = "参保人员"
+      $scope.PARTICAPTEDNAME = "参保人员";
       switch (tabName) {
         case "UrbanBasicEndowmentInsuranceData": // 城镇基本养老保险
-        $scope.CURRENTINSURANCE = "城镇基本养老保险"
+        $scope.CURRENTINSURANCE = "城镇基本养老保险";
         break;
         case "UnemploymentInsuranceData": // 失业保险
-        $scope.CURRENTINSURANCE = "失业保险"
-        $scope.PARTICAPTEDNAME = "失业金领取人员"
+        $scope.CURRENTINSURANCE = "失业保险";
+        $scope.PARTICAPTEDNAME = "失业金领取人员";
         break;
         case "UrbanBasicMedicalInsuranceData": // 城镇基本医疗保险
-        $scope.CURRENTINSURANCE = "城镇基本医疗保险"
+        $scope.CURRENTINSURANCE = "城镇基本医疗保险";
         break;
         case "UrbanResidentsMedicalInsuranceData": // 城镇居民医疗保险
-        $scope.CURRENTINSURANCE = "城镇居民医疗保险"
+        $scope.CURRENTINSURANCE = "城镇居民医疗保险";
         break;
         case "EmploymentInjuryInsuranceData": // 工伤保险
-        $scope.PARTICAPTEDUNITNEW = "%"
-        $scope.CURRENTINSURANCE = "工伤保险"
+        $scope.PARTICAPTEDUNITNEW = "%";
+        $scope.CURRENTINSURANCE = "工伤保险";
         break;
         case "MaternityInsuranceData": // 生育保险
-        $scope.PARTICAPTEDUNITNEW = "%"
-        $scope.CURRENTINSURANCE = "生育保险"
+        $scope.PARTICAPTEDUNITNEW = "%";
+        $scope.CURRENTINSURANCE = "生育保险";
         break;
         case "ResidentsBasicEndowmentInsuranceData": // 居民基本养老保险
         $scope.PARTICAPTEDUNITNEW = "%";
-        $scope.CURRENTINSURANCE = "居民基本养老保险"
+        $scope.CURRENTINSURANCE = "居民基本养老保险";
         break;
       }
       setChartData(tabName)
@@ -138,9 +137,9 @@ $scope.concealDetail1 = () => {
                             var temploc = $location.path().split("/")
                             var thisLoc = temploc[temploc.length - 1]
                             if (thisLoc == undefined) {
-                              setTab("UrbanBasicEndowmentInsuranceData")
+                              setTab("UrbanBasicEndowmentInsuranceData");
                             } else {
-                              setTab(thisLoc)
+                              setTab(thisLoc);
                             }
 /*******************************************************************************
                 HIGHCHARG CONFIGURATION AREA
@@ -154,7 +153,11 @@ $scope.concealDetail1 = () => {
                       type: 'spline',
                     },
                     title: {
-                      text: ""
+                      text: "",
+                          style:{
+         fontWeight:"bold",
+         fontSize:15
+    }
                     },
                     credits: {
                       enabled: false
@@ -235,7 +238,12 @@ $scope.concealDetail1 = () => {
           enabled: false
         },
         title: {
-          text: ""
+          text: "",
+          style:{
+            fontWeight:"bold",
+            fontSize:15
+          }
+
         },
         xAxis: {
           categories: categories,
@@ -350,13 +358,13 @@ $scope.concealDetail1 = () => {
               textShadow: '0 0 3px black'
             },
             formatter: function() {
-              return Number(this.y / 10000).toFixed(2)
+              return Number(this.y / 10000).toFixed(2);
             }
           }
         }
       }
     }
-    this.series = []
+    this.series = [];
     this.size = {
       // width: 200,
       height: height
@@ -374,6 +382,7 @@ $scope.concealDetail1 = () => {
         },
         chart: {
           type: 'pie',
+           margin: [30, 30, 30, 30],
         },
         title: {
           text: ""
@@ -382,7 +391,7 @@ $scope.concealDetail1 = () => {
           align: 'right',
           x: 0,
           verticalAlign: 'top',
-          y: -10,
+          y: 10,
           floating: true,
           backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColorSolid) || 'white',
           borderColor: '#CCC',
@@ -394,11 +403,14 @@ $scope.concealDetail1 = () => {
             allowPointSelect: true,
             cursor: 'pointer',
             dataLabels: {
-              enabled: false,
-              color: '#000000',
-              connectorColor: '#000000',
-              format: '{point.percentage:.2f}%'
-            },
+              zIndex: 40,
+                    enabled: true,
+                    format: '<b>{point.name}</b>: <br><center>{point.percentage:.1f} %</center>',
+                    style: {
+
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                    }
+                },
             showInLegend: true
           }
         },
@@ -420,20 +432,20 @@ $scope.concealDetail1 = () => {
                               function splineDataObject(name, symbol, size) {
                                 var temp = new Array(size)
                                 for (var i=0; i<size; i++) {
-                                  temp[i] = null
+                                  temp[i] = null;
                                 }
-                                this.data = temp
-                                this.name = name
-                                this.marker ={symbol: symbol}
+                                this.data = temp;
+                                this.name = name;
+                                this.marker ={symbol: symbol};
                               }
 
                               function splineListObject(size) {
-                                this.data = [new splineDataObject("收入", "triangle", size), new splineDataObject("支出", "triangle-down", size)]
+                                this.data = [new splineDataObject("收入", "triangle", size), new splineDataObject("支出", "triangle-down", size)];
                               }
 
                               function columnDataObject(name) {
-                                this.data = [null]
-                                this.name = name
+                                this.data = [null];
+                                this.name = name;
                               }
 
                               function listObject(itemList, dataObject) {
@@ -449,12 +461,12 @@ $scope.concealDetail1 = () => {
                                 for (var i=0; i < size; i++) {
                                   temp.push(new listObject(itemList, columnDataObject))
                                 }
-                                this.data = temp
+                                this.data = temp;
                               }
 
                               function pieDataObject(name) {
-                                this.name = name
-                                this.y = null
+                                this.name = name;
+                                this.y = null;
                               }
 
 /*******************************************************************************
@@ -462,7 +474,7 @@ $scope.concealDetail1 = () => {
                           *******************************************************************************/
 //这里的parameter就是传过来的UrbanBasicEndowmentInsuranceData
 $scope.tabChangeFunction = function(parmeter) {
-  $location.path("/InsuranceChart/"+parmeter)
+  $location.path("/InsuranceChart/"+parmeter);
 }
 //第一张大图
 function setChartData(entityName) {
@@ -472,9 +484,9 @@ function setChartData(entityName) {
     if (lastObjRaw.errorCode != "NO_ERROR") {
       $location.path("/main");
     }
-    var latestObj = JSOG.parse(JSOG.stringify(lastObjRaw.data))
-    $scope.LATESTYEAR = latestObj.year
-    var yearList = new Array()
+    var latestObj = JSOG.parse(JSOG.stringify(lastObjRaw.data));
+    $scope.LATESTYEAR = latestObj.year;
+    var yearList = new Array();
     for (var i=$scope.LATESTYEAR-4; i <= $scope.LATESTYEAR; i++) {
       yearList.push(i+"年")
     }
@@ -482,12 +494,12 @@ function setChartData(entityName) {
       //第一张大图
       INCOMESPLINE: new splineHighChart(345, yearList),
       //第一张小图
-      BALANCECOLUMN: new columnHighChart(350),
+      BALANCECOLUMN: new columnHighChart(370),
       //第二张大图
       ENGAGESTACKCOLUMN: new columnstackHighChart(345, yearList),
             //第二张小图，即饼图
       ENGAGEPIE: new pieHighchart(),
-    }
+    };
     $scope.ALLDATA[entityName] = {
       INCOMESPLINEDATA: new splineListObject(5),
       BALANCEDATA: new Array(5),
@@ -506,7 +518,7 @@ function getDataAll(entityName, year) {
       sortType: 'asc'
     }
   }
-  var tempData = $scope.ALLDATA[entityName]
+  var tempData = $scope.ALLDATA[entityName];
   var INSURANCEDATA = qService.httpPost(dataDetailFactory.advancedQuery, {
     tableName: entityName
   },  {"X-Auth-Token":token},queryMap)
@@ -515,141 +527,141 @@ function getDataAll(entityName, year) {
     if (data.errorCode != "NO_ERROR") {
       $location.path("/main");
     }
-    var dataList = data.data
+    var dataList = data.data;
     var currentObj, tempYear, income, outcome, lastBalance, tempIndex, tempBalance, columnNameList, lastYear, tempColumn, tempPie, lastYearDetailData, curYearDetailData, incORdecString, pieNameList
     for (var i=0; i<dataList.length; i++) {
-      currentObj = dataList[i]
-      tempYear = currentObj.year
-      lastYear = tempYear - 1
-      tempIndex = 4 - (year - tempYear)
-      income = currentObj.income
-      outcome = currentObj.outcome
-      tempBalance = income-outcome
-      lastBalance = currentObj.lastBalance
-      tempData.BALANCEDATA[tempIndex] = [income, outcome, tempBalance, lastBalance]
-      tempData.INCOMESPLINEDATA.data[0].data[tempIndex] = income
-      tempData.INCOMESPLINEDATA.data[1].data[tempIndex] = outcome
-      tempData.BALANCECOLUMNDATALIST.data[tempIndex].data[0].data[0] = income
-      tempData.BALANCECOLUMNDATALIST.data[tempIndex].data[1].data[0] = outcome
-      tempData.BALANCECOLUMNDATALIST.data[tempIndex].data[2].data[0] = tempBalance
+      currentObj = dataList[i];
+      tempYear = currentObj.year;
+      lastYear = tempYear - 1;
+      tempIndex = 4 - (year - tempYear);
+      income = currentObj.income;
+      outcome = currentObj.outcome;
+      tempBalance = income-outcome;
+      lastBalance = currentObj.lastBalance;
+      tempData.BALANCEDATA[tempIndex] = [income, outcome, tempBalance, lastBalance];
+      tempData.INCOMESPLINEDATA.data[0].data[tempIndex] = income;
+      tempData.INCOMESPLINEDATA.data[1].data[tempIndex] = outcome;
+      tempData.BALANCECOLUMNDATALIST.data[tempIndex].data[0].data[0] = income;
+      tempData.BALANCECOLUMNDATALIST.data[tempIndex].data[1].data[0] = outcome;
+      tempData.BALANCECOLUMNDATALIST.data[tempIndex].data[2].data[0] = tempBalance;
 
-      columnNameList =  ["参保人员"]
-      tempColumn = []
-      tempPie = []
+      columnNameList =  ["参保人员"];
+      tempColumn = [];
+      tempPie = [];
       var tempDetail
       var detailNameList
 
       tempColumn = [currentObj.participatedPopulation]
       switch ($scope.CURRENTINSURANCE) {
           case "城镇基本养老保险": // 城镇基本养老保险
-          columnNameList = ["在职职工", "离退人员"]
-          detailNameList = [(tempYear%1000)+"年在职职工参保人数", (tempYear%1000)+"年离退人员参保人数", (tempYear%1000)+"年总参保人数"]
-          tempColumn = [currentObj.employeesParticipatedPopulation, currentObj.participatedPopulation-currentObj.employeesParticipatedPopulation]
-          tempDetail = [currentObj.employeesParticipatedPopulation, currentObj.participatedPopulation-currentObj.employeesParticipatedPopulation, currentObj.participatedPopulation]
-          tempPie = [currentObj.employeesParticipatedPopulation, currentObj.participatedPopulation-currentObj.employeesParticipatedPopulation]
-          pieNameList = ["在职职工", "离退人员"]
+          columnNameList = ["在职职工", "离退人员"];
+          detailNameList = [(tempYear%1000)+"年在职职工参保人数", (tempYear%1000)+"年离退人员参保人数", (tempYear%1000)+"年总参保人数"];
+          tempColumn = [currentObj.employeesParticipatedPopulation, currentObj.participatedPopulation-currentObj.employeesParticipatedPopulation];
+          tempDetail = [currentObj.employeesParticipatedPopulation, currentObj.participatedPopulation-currentObj.employeesParticipatedPopulation, currentObj.participatedPopulation];
+          tempPie = [currentObj.employeesParticipatedPopulation, currentObj.participatedPopulation-currentObj.employeesParticipatedPopulation];
+          pieNameList = ["在职职工", "离退人员"];
           break;
           case "失业保险": // 失业保险
-          curYearDetailData = currentObj.benefitedPopulation
-          incORdecString = "新增"
-          pieNameList = [lastYear+"年在职参保人数", tempYear+"年"+incORdecString+"在职参保人数"]
+          curYearDetailData = currentObj.benefitedPopulation;
+          incORdecString = "新增";
+          pieNameList = [lastYear+"年在职参保人数", tempYear+"年"+incORdecString+"在职参保人数"];
           if (i === 0) {
-            lastYearDetailData = 0
-            tempPie = [lastYearDetailData, Math.abs(lastYearDetailData-curYearDetailData)]
+            lastYearDetailData = 0;
+            tempPie = [lastYearDetailData, Math.abs(lastYearDetailData-curYearDetailData)];
           } else {
-            lastYearDetailData = dataList[i-1].benefitedPopulation
-            tempPie = [lastYearDetailData, Math.abs(lastYearDetailData-curYearDetailData)]
+            lastYearDetailData = dataList[i-1].benefitedPopulation;
+            tempPie = [lastYearDetailData, Math.abs(lastYearDetailData-curYearDetailData)];
             if (lastYearDetailData > curYearDetailData) {
-              incORdecString = "减少"
-              tempPie = [curYearDetailData, Math.abs(lastYearDetailData-curYearDetailData)]
+              incORdecString = "减少";
+              tempPie = [curYearDetailData, Math.abs(lastYearDetailData-curYearDetailData)];
             }
           }
-          columnNameList =  ["失业金领取人员"]
-          detailNameList = [(lastYear%1000)+"年失业金领取人数", (tempYear%1000)+"年"+incORdecString+"失业金领取人数", (tempYear%1000)+"年失业金领取人数"]
-          tempColumn = [curYearDetailData]
-          tempDetail = [lastYearDetailData, Math.abs(lastYearDetailData-curYearDetailData), curYearDetailData]
+          columnNameList =  ["失业金领取人员"];
+          detailNameList = [(lastYear%1000)+"年失业金领取人数", (tempYear%1000)+"年"+incORdecString+"失业金领取人数", (tempYear%1000)+"年失业金领取人数"];
+          tempColumn = [curYearDetailData];
+          tempDetail = [lastYearDetailData, Math.abs(lastYearDetailData-curYearDetailData), curYearDetailData];
           break;
           case "城镇基本医疗保险": // 城镇基本医疗保险
           case "城镇居民医疗保险": // 城镇居民医疗保险
-          curYearDetailData = currentObj.participatedPopulation
-          incORdecString = "新增"
-          pieNameList = [lastYear+"年在职参保人数", tempYear+"年"+incORdecString+"在职参保人数"]
+          curYearDetailData = currentObj.participatedPopulation;
+          incORdecString = "新增";
+          pieNameList = [lastYear+"年在职参保人数", tempYear+"年"+incORdecString+"在职参保人数"];
           if (i === 0) {
-            lastYearDetailData = 0
-            tempPie = [lastYearDetailData, Math.abs(lastYearDetailData-curYearDetailData)]
+            lastYearDetailData = 0;
+            tempPie = [lastYearDetailData, Math.abs(lastYearDetailData-curYearDetailData)];
           } else {
-            lastYearDetailData = dataList[i-1].participatedPopulation
-            tempPie = [lastYearDetailData, Math.abs(lastYearDetailData-curYearDetailData)]
+            lastYearDetailData = dataList[i-1].participatedPopulation;
+            tempPie = [lastYearDetailData, Math.abs(lastYearDetailData-curYearDetailData)];
             if (lastYearDetailData > curYearDetailData) {
-              incORdecString = "减少"
-              pieNameList = [tempYear+"年在职参保人数", tempYear+"年"+incORdecString+"在职参保人数"]
-              tempPie = [curYearDetailData, Math.abs(lastYearDetailData-curYearDetailData)]
+              incORdecString = "减少";
+              pieNameList = [tempYear+"年在职参保人数", tempYear+"年"+incORdecString+"在职参保人数"];
+              tempPie = [curYearDetailData, Math.abs(lastYearDetailData-curYearDetailData)];
             }
           }
-          tempDetail = [lastYearDetailData, Math.abs(lastYearDetailData-curYearDetailData), curYearDetailData]
-          detailNameList = [(lastYear%1000)+"年在职参保人数", (tempYear%1000)+"年"+incORdecString+"在职参保人数", (tempYear%1000)+"年在职参保人数"]
+          tempDetail = [lastYearDetailData, Math.abs(lastYearDetailData-curYearDetailData), curYearDetailData];
+          detailNameList = [(lastYear%1000)+"年在职参保人数", (tempYear%1000)+"年"+incORdecString+"在职参保人数", (tempYear%1000)+"年在职参保人数"];
           break;
           case "工伤保险": // 工伤保险
           case "生育保险": // 生育保险
           case "居民基本养老保险": // 居民基本养老保险
-          tempDetail = [currentObj.participatedPopulation, currentObj.benefitedPopulation, Number(currentObj.benefitedPopulation*100/(currentObj.benefitedPopulation+currentObj.participatedPopulation)).toFixed(2)]
-          detailNameList = [(tempYear%1000)+"年在职人员参保人数", (tempYear%1000)+"年享受待遇人员数量", (tempYear%1000)+"年享受待遇人数占比"]
-          pieNameList = ["在职人员","享受待遇人员"]
-          tempPie = [currentObj.participatedPopulation, currentObj.benefitedPopulation]
+          tempDetail = [currentObj.participatedPopulation, currentObj.benefitedPopulation, Number(currentObj.benefitedPopulation*100/(currentObj.benefitedPopulation+currentObj.participatedPopulation)).toFixed(2)];
+          detailNameList = [(tempYear%1000)+"年在职人员参保人数", (tempYear%1000)+"年享受待遇人员数量", (tempYear%1000)+"年享受待遇人数占比"];
+          pieNameList = ["在职人员","享受待遇人员"];
+          tempPie = [currentObj.participatedPopulation, currentObj.benefitedPopulation];
           break;
         }
         if (tempData.ENGAGESTACKCOLUMNDATALIST  == undefined) {
-          tempData.ENGAGESTACKCOLUMNDATALIST = new listObject(columnNameList, columnDataObject)
-          tempData.yearParticipatedTitle = new Array(5)
-          tempData.insuranceDetailParticipated = new Array(5)
-          tempData.ENGAGEPIELIST = new Array(5)
-          tempData.ENGAGEPIELIST[0] = null
+          tempData.ENGAGESTACKCOLUMNDATALIST = new listObject(columnNameList, columnDataObject);
+          tempData.yearParticipatedTitle = new Array(5);
+          tempData.insuranceDetailParticipated = new Array(5);
+          tempData.ENGAGEPIELIST = new Array(5);
+          tempData.ENGAGEPIELIST[0] = null;
         }
 
-        tempData.ENGAGEPIELIST[tempIndex] = new listObject(pieNameList, pieDataObject)
+        tempData.ENGAGEPIELIST[tempIndex] = new listObject(pieNameList, pieDataObject);
         for(var j=0; j < tempColumn.length; j++) {
-          tempData.ENGAGESTACKCOLUMNDATALIST.data[j].data[tempIndex] = tempColumn[j]
+          tempData.ENGAGESTACKCOLUMNDATALIST.data[j].data[tempIndex] = tempColumn[j];
         }
-        tempData.yearParticipatedTitle[tempIndex] = detailNameList
-        tempData.insuranceDetailParticipated[tempIndex] = tempDetail
+        tempData.yearParticipatedTitle[tempIndex] = detailNameList;
+        tempData.insuranceDetailParticipated[tempIndex] = tempDetail;
         for(var j=0; j < tempPie.length; j++) {
-          tempData.ENGAGEPIELIST[tempIndex].data[j].y = tempPie[j]
+          tempData.ENGAGEPIELIST[tempIndex].data[j].y = tempPie[j];
         }
       }
 
-      $scope.ALLOPTION.INCOMESPLINE.options.title.text = "太仓市近5年" + $scope.CURRENTINSURANCE + "收支情况"
-      $scope.ALLOPTION.INCOMESPLINE.series = $scope.ALLDATA[entityName].INCOMESPLINEDATA.data
+      $scope.ALLOPTION.INCOMESPLINE.options.title.text = "太仓市近5年" + $scope.CURRENTINSURANCE + "收支情况";
+      $scope.ALLOPTION.INCOMESPLINE.series = $scope.ALLDATA[entityName].INCOMESPLINEDATA.data;
       clickEventOfIncomeSpline(entityName, year)
 
-      $scope.chartSuffix =  "参保人员"
+      $scope.chartSuffix =  "参保人员";
       if ($scope.CURRENTINSURANCE === "失业保险") {
-        $scope.chartSuffix = "失业金领取人员"
+        $scope.chartSuffix = "失业金领取人员";
       }
-      $scope.ALLOPTION.ENGAGESTACKCOLUMN.options.title.text = "太仓市近5年" + $scope.CURRENTINSURANCE + $scope.chartSuffix + "情况",
-      $scope.ALLOPTION.ENGAGESTACKCOLUMN.series = $scope.ALLDATA[entityName].ENGAGESTACKCOLUMNDATALIST.data
+      $scope.ALLOPTION.ENGAGESTACKCOLUMN.options.title.text = "太仓市近5年" + $scope.CURRENTINSURANCE + $scope.chartSuffix + "情况";
+      $scope.ALLOPTION.ENGAGESTACKCOLUMN.series = $scope.ALLDATA[entityName].ENGAGESTACKCOLUMNDATALIST.data;
       clickEventOfEngageStackColumn(entityName, year)
     })
 }
 //第一张图的小下面小图
 function clickEventOfIncomeSpline(entityName, year) {
-  var index = year - $scope.LATESTYEAR + 4
+  var index = year - $scope.LATESTYEAR + 4;
   // $scope.ALLOPTION.BALANCECOLUMN.options.title.text = "收入支出"
-  $scope.ALLOPTION.BALANCECOLUMN.series = $scope.ALLDATA[entityName].BALANCECOLUMNDATALIST.data[index].data
-  $scope.ALLOPTION.BALANCECOLUMN.options.xAxis.categories = [$scope.CURRENTINSURANCE]
-  $scope.yearBalance = $scope.ALLDATA[entityName].BALANCEDATA[index]
-  $scope.balance = $scope.ALLDATA[entityName].BALANCEDATA[index]
-  $scope.balanceSelectYear = year
+  $scope.ALLOPTION.BALANCECOLUMN.series = $scope.ALLDATA[entityName].BALANCECOLUMNDATALIST.data[index].data;
+  $scope.ALLOPTION.BALANCECOLUMN.options.xAxis.categories = [$scope.CURRENTINSURANCE];
+  $scope.yearBalance = $scope.ALLDATA[entityName].BALANCEDATA[index];
+  $scope.balance = $scope.ALLDATA[entityName].BALANCEDATA[index];
+  $scope.balanceSelectYear = year;
 }
 //饼状图
 function clickEventOfEngageStackColumn(entityName, year) {
-  var index = year - $scope.LATESTYEAR + 4
-  $scope.ALLOPTION.ENGAGEPIE.options.title.text = ""
-  $scope.ALLOPTION.ENGAGEPIE.series[0].data = $scope.ALLDATA[entityName].ENGAGEPIELIST[index].data
-  $scope.insuranceParticapted = $scope.ALLDATA[entityName].insuranceDetailParticipated[index]
-  $scope.insuranceDetailParticipated = $scope.ALLDATA[entityName].insuranceDetailParticipated[index]
-  $scope.yearParticipatedTitle = $scope.ALLDATA[entityName].yearParticipatedTitle[index]
-  $scope.participatedTitle = $scope.ALLDATA[entityName].yearParticipatedTitle[index]
-  $scope.engageSelectYear = year
+  var index = year - $scope.LATESTYEAR + 4;
+  $scope.ALLOPTION.ENGAGEPIE.options.title.text = "";
+  $scope.ALLOPTION.ENGAGEPIE.series[0].data = $scope.ALLDATA[entityName].ENGAGEPIELIST[index].data;
+  $scope.insuranceParticapted = $scope.ALLDATA[entityName].insuranceDetailParticipated[index];
+  $scope.insuranceDetailParticipated = $scope.ALLDATA[entityName].insuranceDetailParticipated[index];
+  $scope.yearParticipatedTitle = $scope.ALLDATA[entityName].yearParticipatedTitle[index];
+  $scope.participatedTitle = $scope.ALLDATA[entityName].yearParticipatedTitle[index];
+  $scope.engageSelectYear = year;
 }
 
 

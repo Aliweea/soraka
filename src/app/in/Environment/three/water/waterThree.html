@@ -23,7 +23,7 @@
     </div>
     <div style="height: 380px; border: #ccc solid 1px;" id="map_canvas"></div>
     <div style="margin-top: 15px">
-        <div class="panel panel-success">
+        <div class="panel panel-primary">
             <div ng-show="mapTableStatus.waterQuality">
                 <h5 align="left" style="padding-top: 0px">&nbsp(更新时间:&nbsp{{waterQualityCurrentDateTime.year + '-'
                     + waterQualityCurrentDateTime.month + '-'
@@ -101,7 +101,7 @@
     </div>
 </div>
 <div ng-show="tab2">
-    <div class="panel panel-success">
+    <div class="panel panel-primary">
         <div class="panel-heading">
             水质分析<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
         </div>
@@ -153,9 +153,9 @@
                            name="waterQualityCurrentListRadio" ng-click="waterQualityCurrentChange(waterQualityOne)">{{waterQualityOne.monitor}}
                 </label>
             </div>
-            <div style="margin-left: 75%;width: 20%">
-                <img src="/assets/images/Environment/one-sentence.png" />
-            </div>
+            <!--<div style="margin-left: 75%;width: 20%">-->
+                <!--<img src="/assets/images/Environment/one-sentence.png" />-->
+            <!--</div>-->
             <div style="margin-left: 75%;margin-top: 3px">{{waterQualityCurrentDateTime.year}}年{{waterQualityCurrentDateTime.month}}月{{waterQualityCurrentDateTime.day}}日{{waterQualityCurrentDateTime.hour}}时</div>
             <div style="margin-left: 75%;">{{waterQualityOneSentence.monitor}}</div>
             <div style="margin-left: 75%">
@@ -183,7 +183,7 @@
                 <span style="color:#DF5353">红色线----</span> 代表问题界线
             </div>
         </div>
-        <div class="panel panel-success">
+        <div class="panel panel-primary">
             <div class="panel-heading">
                 废水排放分析<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
             </div>
@@ -197,7 +197,7 @@
                 <highchart config="wasteWaterOptions.wasteWaterCurrentOption">废水排放</highchart>
             </div>
         </div>
-        <div class="panel panel-success">
+        <div class="panel panel-primary">
             <div class="panel-heading">
                 水情分析<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
             </div>
