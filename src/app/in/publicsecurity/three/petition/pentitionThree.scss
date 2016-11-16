@@ -5,13 +5,17 @@
             border-color: #007aff;
         }
     }
-
-	tspan{
-		font-size: 12px;
-    	font-weight:bold;
-	}
+    tspan {
+        font-size: 12px;
+        font-weight: bold;
+    }
     .highcharts-title {
-    	font-size: 12px;
-    	font-weight:bold;
+        font-size: 12px;
+        font-weight: bold;
+    }
+    .ps-map-border {
+        border-style: inset;
+        border-width: 5px;
+        border-color: #007aff;
     }
 }

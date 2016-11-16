@@ -3,7 +3,7 @@
     <div class="cm-return-home" ui-sref="app.in.home"><i class="fa fa-home" aria-hidden="true"></i><span>主页</span></div>
     <div class="cm-kpi-choose navTopShowMark" ui-turn-on='kpiChoiceDropdown'><i class="fa fa-angle-down fa-2x" aria-hidden="true"></i><span>KPI分类</span></div>
 
-    <div class="ps-police-choose navTopShowPolice" ui-turn-on='policeChoiceDropdown'><i class="fa fa-angle-down fa-2x" aria-hidden="true"></i><span>案件分类</span></div>
+    <div class="ps-police-choose navTopShowPolice" ui-turn-on='policeChoiceDropdown'><i class="fa fa-angle-down fa-2x" aria-hidden="true"></i><span>{{subTitle}}</span></div>
 
     <div class="cm-kpi-status navTopShowMark" ui-turn-on='kpiStatusDropdown'><i class="fa fa-angle-down fa-2x" aria-hidden="true"></i><span>KPI状态</span></div>
     <ul class="dropdown-menu cm-dropdown-ul"
@@ -31,11 +31,11 @@
       ui-show="policeChoiceDropdown"
       ui-state="policeChoiceDropdown"
       ui-turn-off="policeChoiceDropdown">
-      <li><a ui-sref="app.publicsecurity.policecall" href="#">报警数</a></li>
+      <li><a ui-sref="app.publicsecurity.policecall" href="#" ng-click="changeTitle('报警数')">报警数</a></li>
       <li class="divider"></li>
-      <li><a ui-sref="app.publicsecurity.police" href="#">治安案件</a></li>
+      <li><a ui-sref="app.publicsecurity.police" href="#" ng-click="changeTitle('治安案件')">治安案件</a></li>
       <li class="divider"></li>
-      <li><a ui-sref="app.publicsecurity.criminal" href="#">刑事案件</a></li>
+      <li><a ui-sref="app.publicsecurity.criminal" href="#" ng-click="changeTitle('刑事案件')">刑事案件</a></li>
     </ul>
     <ul class="dropdown-menu cm-dropdown-ul"
       ui-outer-click="Ui.turnOff('kpiStatusDropdown')"

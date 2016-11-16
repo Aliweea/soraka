@@ -1,6 +1,7 @@
 export default($scope, $state, hService, qService, xService, kpiRes, $rootScope) => {
 	'ngInject';
 	$scope.title = "公共安全";
+	$scope.subTitle = "报警数";
 	const jQueryDOMToDos = () => {
         //$(".navbar2position").hide(0); // 显示当前位置
         //$(".navbar2return").show(0); // 显示返回按钮
@@ -18,6 +19,11 @@ export default($scope, $state, hService, qService, xService, kpiRes, $rootScope)
 			$state.go(h.name, h.params);
 		}
 	}
+	$scope.changeTitle = (subTitle) => {
+		$scope.subTitle = subTitle;
+	}
+
+
 	$scope.changeState = (state) => {
 		let categoryId = hService.state().params.categoryId;
 		let paramObj = {
