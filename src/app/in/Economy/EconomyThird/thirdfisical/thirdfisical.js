@@ -105,6 +105,7 @@ $scope.newheight = height*0.78;
           $scope.tables.fTable.push(obj);
         }
       };
+      console.log($scope.tables.rTable);
       //console.log($scope.tables);
     };
     /***
@@ -132,19 +133,19 @@ $scope.newheight = height*0.78;
         colors: generalService.columnColors(),
         chart: {
           type: 'column',
-           backgroundColor: 'rgb( 122,181,175)'
+          
         }
       },
       series: [{
         name: '金融机构存款余额(人民币)',
-        color:'white',
+       
         tooltip: {
           pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f} 亿元</b> '
         }
 
       }, {
         name: '金融机构存款余额(本外币)',
-        color:'gray',
+       
         tooltip: {
           pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f} 亿元</b> '
         }
@@ -153,31 +154,23 @@ $scope.newheight = height*0.78;
         labels: {
           rotation: -45,
           align: 'right',
-          style:{
-            color:'white'
-          }
+          
         },
         title: {
           text: '月份',
           align: 'high',
-          style:{
-            color:'white'
-          }
+          
         }
       },
       yAxis: {
         title: {
           text: '值（亿元）',
-          style:{
-            color:'white'
-          }
+          
         }
       },
       title: {
         text: '金融机构存款余额',
-        style:{
-            color:'white'
-          }
+        
       },
       loading: false
     };
@@ -188,18 +181,18 @@ $scope.newheight = height*0.78;
         colors: generalService.columnColors(),
         chart: {
           type: 'column',
-          backgroundColor: 'rgb( 122,181,175)'
+         
         }
       },
       series: [{
         name: '金融机构贷款余额(人民币)',
-        color:'white',
+       
         tooltip: {
           pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f} 亿元</b> '
         }
       }, {
         name: '金融机构贷款余额(本外币)',
-        color:'gray',
+       
         tooltip: {
           pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f} 亿元</b> '
         }
@@ -208,36 +201,26 @@ $scope.newheight = height*0.78;
         labels: {
           rotation: -45,
           align: 'right',
-          style:{
-            color:'white'
-          }
+          
         },
         title: {
           text: '月份',
           align: 'high',
-           style:{
-            color:'white'
-          }
+           
         }
       },
       yAxis: {
         labels: {
-          style:{
-            color:'white'
-          }
+          
         },
         title: {
           text: '值（亿元）',
-           style:{
-            color:'white'
-          }
+           
         }
       },
       title: {
         text: '金融机构贷款余额',
-         style:{
-            color:'white'
-          }
+         
       },
       loading: false
     };
