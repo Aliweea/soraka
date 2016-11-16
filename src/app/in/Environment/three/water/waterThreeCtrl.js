@@ -1910,7 +1910,7 @@ export default ($scope, kpiDetailService, dateService) => {
         mapObj = new AMap.Map("map_canvas", { //二维地图显示视口
             view: new AMap.View2D({
                 center: new AMap.LngLat(121.106661, 31.579533), //地图中心点，后面还会更改
-                zoom: 11 //地图显示的缩放级别
+                // zoom: 11 //地图显示的缩放级别
             })
         });
     };
@@ -1925,7 +1925,7 @@ export default ($scope, kpiDetailService, dateService) => {
             markerContent.style.color = markerArr[i].color;
             //点标记中的图标
             var markerImg = document.createElement("img");
-            markerImg.src = "http://webapi.amap.com/images/marker_sprite.png";
+            markerImg.src = "/assets/images/Environment/marker_sprite.png";
             markerContent.appendChild(markerImg);
             //点标记中的文本
             var markerSpan = document.createElement("span");
@@ -1989,7 +1989,7 @@ export default ($scope, kpiDetailService, dateService) => {
      * 页面初始化区
      * 有些图表的数据是在网页刷新时就请求到的
      */
-    // 水质量 当天数据模块 初始化
+    // 水质 当天数据模块 初始化
     kpiDetailService.getLastestObject('WaterQuality', ['date'], function (data) {
         var date = data.data.date;
         var datebaseLastestDate = moment(date).subtract(1, 'hours');

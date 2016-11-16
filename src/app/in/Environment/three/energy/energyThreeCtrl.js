@@ -22,7 +22,6 @@ export default ($scope, kpiDetailService, dateService) => {
     }
 
     var processFunction = function (data) {
-
         var dataall = {data: []};
         dataall.data.push(data.data[data.data.length - 1]);
 
