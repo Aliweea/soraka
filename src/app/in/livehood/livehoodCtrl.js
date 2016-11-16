@@ -5,9 +5,18 @@ export default($scope, $state, hService, qService, xService, kpiRes, $rootScope)
 	const jQueryDOMToDos = () => {
 		$('.navTopShowPopulation').hide(0);
 	}();
+
+	$scope.changeTitle = (title = "人口结构图") => {
+		$scope.populationStructure = {
+			title: title
+		};
+	}
+	$scope.changeTitle();
+
 	// 上一级路由
 	$scope.toH = () => {
 		$('.navTopShowPopulation').hide(0);
+		$scope.changeTitle();
 		let h = hService.state();
 		if (h.params == null) {
 			$state.go(h.name);
