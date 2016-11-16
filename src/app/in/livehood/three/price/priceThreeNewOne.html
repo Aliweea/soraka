@@ -9,7 +9,7 @@
                         </div>
                         <div style="position: relative;">
                             <div class="panel-body" style="position: absolute;z-index: 1;width: 99%" >
-                                <highchart config="cpiHighChartOptions.cpiTrendOption"  id="InvestValueChart"  style="height:{{newheight}}px"></highchart>
+                                <highchart config="cpiHighChartOptions.cpiTrendOption"  id="InvestValueChart"  style="height:{{smallheight}}px"></highchart>
                             </div>
                             <div style="width: 95%;height: {{newheight}}px;position: absolute;z-index: 2;background-color: rgb(255,255,255);margin-left: 2%;box-shadow: 5px 5px 5px gray" ng-if="show1">
                             <span style="margin-left: 27%;font-size: 2em">居民消费指数详细数据</span>
@@ -41,7 +41,7 @@
                         </div>
                         <div style="position: relative;">
                             <div class="panel-body" style="position: absolute;z-index: 1;width: 99%" >
-                                <highchart config="cpiHighChartOptions.categoryDetailOption"  id="ClassInvestValueChart" style="height: 450px"></highchart>
+                                <highchart config="cpiHighChartOptions.categoryDetailOption"  id="ClassInvestValueChart" style="height:{{smallheight}}px"></highchart>
                             </div>
                             <div style="width: 95%;height: {{newheight}}px;position: absolute;z-index: 2;background-color: rgb(255,255,255);margin-left: 2%;box-shadow: 5px 5px 5px gray" ng-if="show2">
                             <span style="margin-left: 27%;font-size: 2em">居民消费指数详细数据</span>
@@ -71,10 +71,10 @@
                         </div>
                         <div style="position: relative;">
                             <div class="panel-body" style="position: absolute;z-index: 1;width: 99%" >
-                                <highchart config="cpiHighChartOptions.detailTrendOption" id="CapitalValueChart" style="height: 450px"></highchart>
+                                <highchart config="cpiHighChartOptions.detailTrendOption" id="CapitalValueChart" style="height:{{smallheight}}px"></highchart>
                             </div>
                             <div style="width: 95%;height: {{newheight}}px;position: absolute;z-index: 2;background-color: rgb(255,255,255);margin-left: 2%;box-shadow: 5px 5px 5px gray" ng-if="show3">
-                            <span style="margin-left: 25%;font-size: 1.5em">居民消费价格指数类别同比累计详细数据</span>
+                            <span style="margin-left: 10%;font-size: 1.5em">居民消费价格指数类别同比累计详细数据</span>
                               <div class="table-responsive" style="padding:5px">
                                     <table class="table">
                                         <tr>

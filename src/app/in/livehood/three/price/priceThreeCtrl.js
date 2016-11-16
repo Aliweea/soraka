@@ -262,7 +262,7 @@ function lineHighChart(title, xAxis, step, height) {
       }
     }
   }
-  this.series = [];
+ this.series=[],
   this.size = {
     // width: 200,
     height: height
@@ -414,7 +414,7 @@ function lineHighChart(title, xAxis, step, height) {
   }
 
   function initCpiTrendHighChart() {
-    $scope.cpiHighChartOptions.cpiTrendOption.options.title.text = "太仓市" + LAST_YEAR + "~" + CURRENT_YEAR + "年度" + $scope.CPIDATA.CPIList.name + "趋势";
+    $scope.cpiHighChartOptions.cpiTrendOption.options.title.text =  LAST_YEAR + "~" + CURRENT_YEAR + "年度" + $scope.CPIDATA.CPIList.name + "趋势";
     $scope.cpiHighChartOptions.cpiTrendOption.series = $scope.CPIDATA.CPIList.data;
 
     callFunctionInCpiTrend($scope.thisYear, $scope.thisMonth);
@@ -422,12 +422,12 @@ function lineHighChart(title, xAxis, step, height) {
 
   function initCpiCategoryHighChart(year, month) {
     $scope.cpiDataList = $scope.CPIDATA.DetailList.data[(year - LAST_YEAR)*12 + (month - 1)].data;
-    $scope.cpiHighChartOptions.categoryDetailOption.options.title.text = year + "年" + month + "月" + "太仓市各类别居民消费价格指数同比累计比";
+    $scope.cpiHighChartOptions.categoryDetailOption.options.title.text = year + "年" + month + "月" + "居民消费价格指数同比累计比";
     $scope.cpiHighChartOptions.categoryDetailOption.series = $scope.cpiDataList;
   }
 
   function initCpiCategoryTrendHighChart(dataList) {
-    $scope.cpiHighChartOptions.detailTrendOption.options.title.text = "太仓市" + LAST_YEAR + "~" + CURRENT_YEAR + "年度" + dataList.name + "居民消费价格指数趋势";
+    $scope.cpiHighChartOptions.detailTrendOption.options.title.text =  LAST_YEAR + "~" + CURRENT_YEAR + "年度" + dataList.name + "居民消费价格指数趋势";
     $scope.cpiHighChartOptions.detailTrendOption.series = dataList.data;
   }
 
@@ -524,19 +524,15 @@ function lineHighChart(title, xAxis, step, height) {
     $scope.foodPriceHighChartOption.series=[];
     $scope.foodPriceHighChartOption.series.push($scope.PRICEDATA.a_riceDataList.data[0]);
   }
-
+var temseries = [];
   $scope.checkBoxChange = function(item) {
     if (item.model) { // 选中的情况
-      $scope.foodPriceHighChartOption.series.push(item);
-      console.log($scope.foodPriceHighChartOption.series);
-      console.log($scope.foodPriceHighChartOption);
+      temseries.push(item);
     } else { // 取消选中的情况
-      var index = $scope.foodPriceHighChartOption.series.indexOf(item);
+      var index = temseries.indexOf(item);
       if (index > -1) {
-        $scope.foodPriceHighChartOption.series.splice(index, 1);
+        temseries.splice(index, 1);
       }
-      console.log(index);
-      console.log($scope.foodPriceHighChartOption.series);
       var chart=$("#foodPriceHighChart").highcharts()
       if (chart.hasData()) {
         chart.hideNoData();
@@ -544,6 +540,7 @@ function lineHighChart(title, xAxis, step, height) {
       }
     }
   }
+  
 
   function resetPRICEDATA() {
     var tempFoodType;
@@ -724,7 +721,15 @@ $scope.showthree = function(){
 }
 $scope.showfour = function(){
     $scope.show4 = !$scope.show4;
+    $scope.foodPriceHighChartOption.series=[];
+
 }
+$scope.makesure = function(){
+  $scope.foodPriceHighChartOption.series = temseries;
+  $scope.show4 = !$scope.show4;
+}
+
+$scope.smallheight =  $(window).height()*0.7
 $scope.newheight = $(window).height()*0.8;
 $scope.newtop = $(window).height()*0.85;
 };
