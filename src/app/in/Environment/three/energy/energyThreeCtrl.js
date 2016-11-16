@@ -6,7 +6,8 @@ export default ($scope, kpiDetailService, dateService) => {
         $(".navbar2return").show(0); // 显示返回按钮
         $(".navTopShowMark").hide(0); // 隐藏KPI状态 KPI分类
         $('#showshort').focus(); // 获取默认焦点
-    }();
+    };
+    jQueryDOMToDos();
 
     $scope.screenWidth = document.body.clientWidth;
     $scope.tab1 = true;
@@ -21,7 +22,6 @@ export default ($scope, kpiDetailService, dateService) => {
     }
 
     var processFunction = function (data) {
-
         var dataall = {data: []};
         dataall.data.push(data.data[data.data.length - 1]);
 

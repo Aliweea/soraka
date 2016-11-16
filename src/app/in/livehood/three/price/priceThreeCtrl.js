@@ -1,8 +1,8 @@
 'use strict'
 export default ($scope, qService, generalService, dataDetailFactory, $http, $rootScope, $location) => {
    'ngInject';
-    var token = "eyJhY2NvdW50Ijp7IkBpZCI6IjEiLCJpZCI6MjYsImNyZWF0ZV90aW1lIjoiMjAxNS0wNS0xNCAxOTo1MToxNSIsIm1vZGlmeV90aW1lIjoiMjAxNS0wNy0wNSAxNDozNDozMyIsImFjY291bnQiOiJzeXN0ZW0iLCJwYXNzd29yZCI6bnVsbCwidGl0bGUiOiLnrqHnkIblkZgiLCJuYW1lIjoi566h55CG5ZGYIiwic3lzdGVtTmFtZSI6bnVsbCwibW9iaWxlUGhvbmUiOm51bGwsIndvcmtQaG9uZSI6bnVsbCwicm9sZSI6IkFETUlOSVNUUkFUT1IiLCJkZXBhcnRtZW50cyI6W3siQGlkIjoiMiIsImlkIjoyNiwiY3JlYXRlX3RpbWUiOiIyMDE0LTEyLTI5IDEyOjM4OjM0IiwibW9kaWZ5X3RpbWUiOiIyMDE0LTEyLTI5IDEyOjM4OjM0IiwibmFtZSI6IuS6uuekvuWxgCIsImRlc2NyaXB0aW9uIjoiUlNKX+S6uuekvuWxgCJ9LHsiQGlkIjoiMyIsImlkIjoyNywiY3JlYXRlX3RpbWUiOiIyMDE0LTEyLTI5IDEyOjQxOjA3IiwibW9kaWZ5X3RpbWUiOiIyMDE0LTEyLTI5IDEyOjQxOjA3IiwibmFtZSI6Iua2iOmYsuWkp+mYnyIsImRlc2NyaXB0aW9uIjoiWEZERF/mtojpmLLlpKfpmJ8ifSx7IkBpZCI6IjQiLCJpZCI6OSwiY3JlYXRlX3RpbWUiOiIyMDE0LTEyLTI5IDEyOjM5OjI4IiwibW9kaWZ5X3RpbWUiOiIyMDE0LTEyLTI5IDEyOjM5OjI4IiwibmFtZSI6IueJqeS7t+WxgCIsImRlc2NyaXB0aW9uIjoiV0pKX+eJqeS7t+WxgCJ9LHsiQGlkIjoiNSIsImlkIjoxMywiY3JlYXRlX3RpbWUiOiIyMDE0LTEyLTI5IDEyOjM1OjU0IiwibW9kaWZ5X3RpbWUiOiIyMDE0LTEyLTI5IDEyOjM1OjU0IiwibmFtZSI6IuawtOWIqeWxgCIsImRlc2NyaXB0aW9uIjoiU0xKX+awtOWIqeWxgCJ9LHsiQGlkIjoiNiIsImlkIjoyOCwiY3JlYXRlX3RpbWUiOiIyMDE0LTEyLTI5IDEyOjQzOjA4IiwibW9kaWZ5X3RpbWUiOiIyMDE0LTEyLTI5IDEyOjQzOjA4IiwibmFtZSI6IuWfjueuoeWxgCIsImRlc2NyaXB0aW9uIjoiQ0dKX+WfjueuoeWxgCJ9LHsiQGlkIjoiNyIsImlkIjo1LCJjcmVhdGVfdGltZSI6IjIwMTUtMDEtMDMgMjI6MzM6MzUiLCJtb2RpZnlfdGltZSI6IjIwMTUtMDEtMDMgMjI6MzM6MzUiLCJuYW1lIjoi5raI6Ziy5bGAIiwiZGVzY3JpcHRpb24iOiJYRkpf5raI6Ziy5bGAIn0seyJAaWQiOiI4IiwiaWQiOjIyLCJjcmVhdGVfdGltZSI6IjIwMTQtMTItMjkgMTI6NDA6MTAiLCJtb2RpZnlfdGltZSI6IjIwMTQtMTItMjkgMTI6NDA6MTAiLCJuYW1lIjoi5YWs5a6J5bGAIiwiZGVzY3JpcHRpb24iOiJHQUpf5YWs5a6J5bGAIn0seyJAaWQiOiI5IiwiaWQiOjI1LCJjcmVhdGVfdGltZSI6IjIwMTQtMTItMzEgMDk6MTI6NDgiLCJtb2RpZnlfdGltZSI6IjIwMTQtMTItMzEgMDk6MTI6NDgiLCJuYW1lIjoi57uP5rWO55u45YWz57uEIiwiZGVzY3JpcHRpb24iOiJKSlhHWl/nu4/mtY7nm7jlhbPnu4QifSx7IkBpZCI6IjEwIiwiaWQiOjMwLCJjcmVhdGVfdGltZSI6IjIwMTQtMTItMjkgMTI6NDU6NTEiLCJtb2RpZnlfdGltZSI6IjIwMTQtMTItMjkgMTI6NDU6NTEiLCJuYW1lIjoi5Lqk6YCa5bGAIiwiZGVzY3JpcHRpb24iOiJKVEpf5Lqk6YCa5bGAIn0seyJAaWQiOiIxMSIsImlkIjo2LCJjcmVhdGVfdGltZSI6IjIwMTQtMTItMjkgMTI6NDE6NTciLCJtb2RpZnlfdGltZSI6IjIwMTQtMTItMjkgMTI6NDE6NTciLCJuYW1lIjoi5biC5Lqk6K2m5aSn6ZifIiwiZGVzY3JpcHRpb24iOiJTSkpERF/luILkuqTorablpKfpmJ8ifSx7IkBpZCI6IjEyIiwiaWQiOjI5LCJjcmVhdGVfdGltZSI6IjIwMTQtMTItMjkgMTI6NDQ6MDIiLCJtb2RpZnlfdGltZSI6IjIwMTQtMTItMjkgMTI6NDQ6MDIiLCJuYW1lIjoi5pWZ6IKy5bGAIiwiZGVzY3JpcHRpb24iOiJKWUpf5pWZ6IKy5bGAIn0seyJAaWQiOiIxMyIsImlkIjo3LCJjcmVhdGVfdGltZSI6IjIwMTQtMTItMjkgMTI6Mzc6MDUiLCJtb2RpZnlfdGltZSI6IjIwMTQtMTItMjkgMTI6Mzc6MDUiLCJuYW1lIjoi57uf6K6h5bGAIiwiZGVzY3JpcHRpb24iOiJUSkpf57uf6K6h5bGAIn0seyJAaWQiOiIxNCIsImlkIjoxMSwiY3JlYXRlX3RpbWUiOiIyMDE0LTEyLTI5IDEyOjM3OjM5IiwibW9kaWZ5X3RpbWUiOiIyMDE0LTEyLTI5IDEyOjM3OjM5IiwibmFtZSI6IuiuoeeUn+WnlCIsImRlc2NyaXB0aW9uIjoiSlNXX+iuoeeUn+WnlCJ9LHsiQGlkIjoiMTUiLCJpZCI6MTIsImNyZWF0ZV90aW1lIjoiMjAxNS0wNC0xOSAxNjoyMTowNyIsIm1vZGlmeV90aW1lIjoiMjAxNS0wNC0xOSAxNjoyMTowNyIsIm5hbWUiOiLnjq/kv53lsYAiLCJkZXNjcmlwdGlvbiI6IkhCSl/njq/kv53lsYAifSx7IkBpZCI6IjE2IiwiaWQiOjIsImNyZWF0ZV90aW1lIjoiMjAxNS0wMS0zMCAxNzo1MjozNCIsIm1vZGlmeV90aW1lIjoiMjAxNS0wMS0zMCAxNzo1MjozNCIsIm5hbWUiOiLotKLmlL/lsYAiLCJkZXNjcmlwdGlvbiI6IkNaSl/otKLmlL/lsYAifSx7IkBpZCI6IjE3IiwiaWQiOjE1LCJjcmVhdGVfdGltZSI6IjIwMTQtMTItMjkgMTI6MzY6MzAiLCJtb2RpZnlfdGltZSI6IjIwMTQtMTItMjkgMTI6MzY6MzAiLCJuYW1lIjoi5Zu95Zyf5bGAIiwiZGVzY3JpcHRpb24iOiJHVEpf5Zu95Zyf5bGAIn0seyJAaWQiOiIxOCIsImlkIjozMiwiY3JlYXRlX3RpbWUiOiIyMDE1LTA0LTIwIDEzOjU2OjIwIiwibW9kaWZ5X3RpbWUiOiIyMDE1LTA0LTIwIDEzOjU2OjAyIiwibmFtZSI6IuS/oeiuv+WxgCIsImRlc2NyaXB0aW9uIjoiWEZKX+S/oeiuv+WxgCJ9LHsiQGlkIjoiMTkiLCJpZCI6MzQsImNyZWF0ZV90aW1lIjoiMjAxNS0wNC0yMCAxMzo1NjowMiIsIm1vZGlmeV90aW1lIjoiMjAxNS0wNC0yMCAxMzo1NjowMiIsIm5hbWUiOiLmsJTosaHlsYAiLCJkZXNjcmlwdGlvbiI6IlFYSl/msJTosaHlsYAifSx7IkBpZCI6IjIwIiwiaWQiOjE2LCJjcmVhdGVfdGltZSI6IjIwMTQtMTAtMTYgMjE6NDE6MzQiLCJtb2RpZnlfdGltZSI6IjIwMTUtMDItMDggMTQ6NTg6NTYiLCJuYW1lIjoi6YKu5pS/5bGAIiwiZGVzY3JpcHRpb24iOiJZWkpf6YKu5pS/5bGAIn0seyJAaWQiOiIyMSIsImlkIjozMSwiY3JlYXRlX3RpbWUiOiIyMDE1LTA0LTIwIDEzOjU2OjIzIiwibW9kaWZ5X3RpbWUiOiIyMDE1LTA0LTIwIDEzOjU2OjIzIiwibmFtZSI6IuWNq+eUn+WxgCIsImRlc2NyaXB0aW9uIjoiV1NKX+WNq+eUn+WxgCJ9LHsiQGlkIjoiMjIiLCJpZCI6MzMsImNyZWF0ZV90aW1lIjoiMjAxNS0wNC0yMCAxMzo1NjowMiIsIm1vZGlmeV90aW1lIjoiMjAxNS0wNC0yMCAxMzo1NjowMiIsIm5hbWUiOiLlronnm5HlsYAiLCJkZXNjcmlwdGlvbiI6IkFKSl/lronnm5HlsYAifSx7IkBpZCI6IjIzIiwiaWQiOjE3LCJjcmVhdGVfdGltZSI6IjIwMTQtMTItMjkgMTI6NDU6MTQiLCJtb2RpZnlfdGltZSI6IjIwMTQtMTItMjkgMTI6NDU6MTQiLCJuYW1lIjoi57uP5L+h5aeUIiwiZGVzY3JpcHRpb24iOiJKWFdf57uP5L+h5aeUIn1dfSwiZXhwaXJlcyI6MTQ3OTg3MzA4MTA3MSwiZ3JhbnRlZEF1dGhzIjpbIlJPTEVfQURNSU5JU1RSQVRPUiJdLCJhY2NvdW50Tm9uTG9ja2VkIjp0cnVlLCJhY2NvdW50Tm9uRXhwaXJlZCI6dHJ1ZSwiY3JlZGVudGlhbHNOb25FeHBpcmVkIjp0cnVlLCJlbmFibGVkIjp0cnVlLCJ1c2VybmFtZSI6InN5c3RlbSIsInBhc3N3b3JkIjpudWxsfQ==.nXKJ4UHowc3prW9H/CpZ7byCTgrzZJS4ttDSXCthcx0=";
-
+    var token = "eyJhY2NvdW50Ijp7IkBpZCI6IjEiLCJpZCI6MjYsImNyZWF0ZV90aW1lIjoiMjAxNS0wNS0xNCAxOTo1MToxNSIsIm1vZGlmeV90aW1lIjoiMjAxNS0wNy0wNSAxNDozNDozMyIsImFjY291bnQiOiJzeXN0ZW0iLCJwYXNzd29yZCI6bnVsbCwidGl0bGUiOiLnrqHnkIblkZgiLCJuYW1lIjoi566h55CG5ZGYIiwic3lzdGVtTmFtZSI6bnVsbCwibW9iaWxlUGhvbmUiOm51bGwsIndvcmtQaG9uZSI6bnVsbCwicm9sZSI6IkFETUlOSVNUUkFUT1IiLCJkZXBhcnRtZW50cyI6W3siQGlkIjoiMiIsImlkIjozMSwiY3JlYXRlX3RpbWUiOiIyMDE1LTA0LTIwIDEzOjU2OjIzIiwibW9kaWZ5X3RpbWUiOiIyMDE1LTA0LTIwIDEzOjU2OjIzIiwibmFtZSI6IuWNq+eUn+WxgCIsImRlc2NyaXB0aW9uIjoiV1NKX+WNq+eUn+WxgCJ9LHsiQGlkIjoiMyIsImlkIjozMCwiY3JlYXRlX3RpbWUiOiIyMDE0LTEyLTI5IDEyOjQ1OjUxIiwibW9kaWZ5X3RpbWUiOiIyMDE0LTEyLTI5IDEyOjQ1OjUxIiwibmFtZSI6IuS6pOmAmuWxgCIsImRlc2NyaXB0aW9uIjoiSlRKX+S6pOmAmuWxgCJ9LHsiQGlkIjoiNCIsImlkIjoyMiwiY3JlYXRlX3RpbWUiOiIyMDE0LTEyLTI5IDEyOjQwOjEwIiwibW9kaWZ5X3RpbWUiOiIyMDE0LTEyLTI5IDEyOjQwOjEwIiwibmFtZSI6IuWFrOWuieWxgCIsImRlc2NyaXB0aW9uIjoiR0FKX+WFrOWuieWxgCJ9LHsiQGlkIjoiNSIsImlkIjoxNiwiY3JlYXRlX3RpbWUiOiIyMDE0LTEwLTE2IDIxOjQxOjM0IiwibW9kaWZ5X3RpbWUiOiIyMDE1LTAyLTA4IDE0OjU4OjU2IiwibmFtZSI6IumCruaUv+WxgCIsImRlc2NyaXB0aW9uIjoiWVpKX+mCruaUv+WxgCJ9LHsiQGlkIjoiNiIsImlkIjoyNywiY3JlYXRlX3RpbWUiOiIyMDE0LTEyLTI5IDEyOjQxOjA3IiwibW9kaWZ5X3RpbWUiOiIyMDE0LTEyLTI5IDEyOjQxOjA3IiwibmFtZSI6Iua2iOmYsuWkp+mYnyIsImRlc2NyaXB0aW9uIjoiWEZERF/mtojpmLLlpKfpmJ8ifSx7IkBpZCI6IjciLCJpZCI6MTcsImNyZWF0ZV90aW1lIjoiMjAxNC0xMi0yOSAxMjo0NToxNCIsIm1vZGlmeV90aW1lIjoiMjAxNC0xMi0yOSAxMjo0NToxNCIsIm5hbWUiOiLnu4/kv6Hlp5QiLCJkZXNjcmlwdGlvbiI6IkpYV1/nu4/kv6Hlp5QifSx7IkBpZCI6IjgiLCJpZCI6NiwiY3JlYXRlX3RpbWUiOiIyMDE0LTEyLTI5IDEyOjQxOjU3IiwibW9kaWZ5X3RpbWUiOiIyMDE0LTEyLTI5IDEyOjQxOjU3IiwibmFtZSI6IuW4guS6pOitpuWkp+mYnyIsImRlc2NyaXB0aW9uIjoiU0pKRERf5biC5Lqk6K2m5aSn6ZifIn0seyJAaWQiOiI5IiwiaWQiOjExLCJjcmVhdGVfdGltZSI6IjIwMTQtMTItMjkgMTI6Mzc6MzkiLCJtb2RpZnlfdGltZSI6IjIwMTQtMTItMjkgMTI6Mzc6MzkiLCJuYW1lIjoi6K6h55Sf5aeUIiwiZGVzY3JpcHRpb24iOiJKU1df6K6h55Sf5aeUIn0seyJAaWQiOiIxMCIsImlkIjoyNSwiY3JlYXRlX3RpbWUiOiIyMDE0LTEyLTMxIDA5OjEyOjQ4IiwibW9kaWZ5X3RpbWUiOiIyMDE0LTEyLTMxIDA5OjEyOjQ4IiwibmFtZSI6Iue7j+a1juebuOWFs+e7hCIsImRlc2NyaXB0aW9uIjoiSkpYR1pf57uP5rWO55u45YWz57uEIn0seyJAaWQiOiIxMSIsImlkIjozNCwiY3JlYXRlX3RpbWUiOiIyMDE1LTA0LTIwIDEzOjU2OjAyIiwibW9kaWZ5X3RpbWUiOiIyMDE1LTA0LTIwIDEzOjU2OjAyIiwibmFtZSI6IuawlOixoeWxgCIsImRlc2NyaXB0aW9uIjoiUVhKX+awlOixoeWxgCJ9LHsiQGlkIjoiMTIiLCJpZCI6NywiY3JlYXRlX3RpbWUiOiIyMDE0LTEyLTI5IDEyOjM3OjA1IiwibW9kaWZ5X3RpbWUiOiIyMDE0LTEyLTI5IDEyOjM3OjA1IiwibmFtZSI6Iue7n+iuoeWxgCIsImRlc2NyaXB0aW9uIjoiVEpKX+e7n+iuoeWxgCJ9LHsiQGlkIjoiMTMiLCJpZCI6MjksImNyZWF0ZV90aW1lIjoiMjAxNC0xMi0yOSAxMjo0NDowMiIsIm1vZGlmeV90aW1lIjoiMjAxNC0xMi0yOSAxMjo0NDowMiIsIm5hbWUiOiLmlZnogrLlsYAiLCJkZXNjcmlwdGlvbiI6IkpZSl/mlZnogrLlsYAifSx7IkBpZCI6IjE0IiwiaWQiOjMzLCJjcmVhdGVfdGltZSI6IjIwMTUtMDQtMjAgMTM6NTY6MDIiLCJtb2RpZnlfdGltZSI6IjIwMTUtMDQtMjAgMTM6NTY6MDIiLCJuYW1lIjoi5a6J55uR5bGAIiwiZGVzY3JpcHRpb24iOiJBSkpf5a6J55uR5bGAIn0seyJAaWQiOiIxNSIsImlkIjoxNSwiY3JlYXRlX3RpbWUiOiIyMDE0LTEyLTI5IDEyOjM2OjMwIiwibW9kaWZ5X3RpbWUiOiIyMDE0LTEyLTI5IDEyOjM2OjMwIiwibmFtZSI6IuWbveWcn+WxgCIsImRlc2NyaXB0aW9uIjoiR1RKX+WbveWcn+WxgCJ9LHsiQGlkIjoiMTYiLCJpZCI6MjYsImNyZWF0ZV90aW1lIjoiMjAxNC0xMi0yOSAxMjozODozNCIsIm1vZGlmeV90aW1lIjoiMjAxNC0xMi0yOSAxMjozODozNCIsIm5hbWUiOiLkurrnpL7lsYAiLCJkZXNjcmlwdGlvbiI6IlJTSl/kurrnpL7lsYAifSx7IkBpZCI6IjE3IiwiaWQiOjUsImNyZWF0ZV90aW1lIjoiMjAxNS0wMS0wMyAyMjozMzozNSIsIm1vZGlmeV90aW1lIjoiMjAxNS0wMS0wMyAyMjozMzozNSIsIm5hbWUiOiLmtojpmLLlsYAiLCJkZXNjcmlwdGlvbiI6IlhGSl/mtojpmLLlsYAifSx7IkBpZCI6IjE4IiwiaWQiOjEzLCJjcmVhdGVfdGltZSI6IjIwMTQtMTItMjkgMTI6MzU6NTQiLCJtb2RpZnlfdGltZSI6IjIwMTQtMTItMjkgMTI6MzU6NTQiLCJuYW1lIjoi5rC05Yip5bGAIiwiZGVzY3JpcHRpb24iOiJTTEpf5rC05Yip5bGAIn0seyJAaWQiOiIxOSIsImlkIjo5LCJjcmVhdGVfdGltZSI6IjIwMTQtMTItMjkgMTI6Mzk6MjgiLCJtb2RpZnlfdGltZSI6IjIwMTQtMTItMjkgMTI6Mzk6MjgiLCJuYW1lIjoi54mp5Lu35bGAIiwiZGVzY3JpcHRpb24iOiJXSkpf54mp5Lu35bGAIn0seyJAaWQiOiIyMCIsImlkIjoxMiwiY3JlYXRlX3RpbWUiOiIyMDE1LTA0LTE5IDE2OjIxOjA3IiwibW9kaWZ5X3RpbWUiOiIyMDE1LTA0LTE5IDE2OjIxOjA3IiwibmFtZSI6IueOr+S/neWxgCIsImRlc2NyaXB0aW9uIjoiSEJKX+eOr+S/neWxgCJ9LHsiQGlkIjoiMjEiLCJpZCI6MiwiY3JlYXRlX3RpbWUiOiIyMDE1LTAxLTMwIDE3OjUyOjM0IiwibW9kaWZ5X3RpbWUiOiIyMDE1LTAxLTMwIDE3OjUyOjM0IiwibmFtZSI6Iui0ouaUv+WxgCIsImRlc2NyaXB0aW9uIjoiQ1pKX+i0ouaUv+WxgCJ9LHsiQGlkIjoiMjIiLCJpZCI6MzIsImNyZWF0ZV90aW1lIjoiMjAxNS0wNC0yMCAxMzo1NjoyMCIsIm1vZGlmeV90aW1lIjoiMjAxNS0wNC0yMCAxMzo1NjowMiIsIm5hbWUiOiLkv6Horr/lsYAiLCJkZXNjcmlwdGlvbiI6IlhGSl/kv6Horr/lsYAifSx7IkBpZCI6IjIzIiwiaWQiOjI4LCJjcmVhdGVfdGltZSI6IjIwMTQtMTItMjkgMTI6NDM6MDgiLCJtb2RpZnlfdGltZSI6IjIwMTQtMTItMjkgMTI6NDM6MDgiLCJuYW1lIjoi5Z+O566h5bGAIiwiZGVzY3JpcHRpb24iOiJDR0pf5Z+O566h5bGAIn1dfSwiZXhwaXJlcyI6MTQ3OTc5MTEwNTA2NywiZ3JhbnRlZEF1dGhzIjpbIlJPTEVfQURNSU5JU1RSQVRPUiJdLCJhY2NvdW50Tm9uTG9ja2VkIjp0cnVlLCJhY2NvdW50Tm9uRXhwaXJlZCI6dHJ1ZSwiY3JlZGVudGlhbHNOb25FeHBpcmVkIjp0cnVlLCJlbmFibGVkIjp0cnVlLCJ1c2VybmFtZSI6InN5c3RlbSIsInBhc3N3b3JkIjpudWxsfQ==.zOUGv3w1P4jE58Lj5dsDvisuTeB7MmrUUoN/Av7n0VE=";
+$scope.smallheight =  $(window).height()*0.7;
     var CURRENT_YEAR;
   var LAST_YEAR;
   var yearMonthList = new Array();
@@ -54,7 +54,11 @@ function splineHighChart(height, categories, callFunc) {
       type: 'spline',
     },
     title: {
-      text: ""
+      text: "",
+      style:{
+        fontSize:'1.3em'
+      }
+
     },
     // subtitle: {
     //   text: "————红线代表目标值"
@@ -115,7 +119,10 @@ function splineHighChart(height, categories, callFunc) {
           }
         },
       },
-    }
+    },
+    exporting: {
+            enabled:false
+}
   },
   this.series = [],
   this.size = {
@@ -131,7 +138,10 @@ function columnHighChart(height, categories, callFunc) {
       type: 'column',
     },
     title: {
-      text: ""
+      text: "",
+      style:{
+        fontSize:'1.3em'
+      }
     },
     subtitle: {
       text: "——红线代表参考值"
@@ -204,6 +214,9 @@ function columnHighChart(height, categories, callFunc) {
         },
       }
     },
+    exporting: {
+            enabled:false
+}
   }
   this.series = [];
   this.size = {
@@ -220,7 +233,10 @@ function lineHighChart(title, xAxis, step, height) {
     },
     title: {
       text: title,
-      x: -20 //center
+      x: -20 ,//center,
+      style:{
+        fontSize:'1.3em'
+      }
     },
     subtitle: {
       text: "",
@@ -260,11 +276,14 @@ function lineHighChart(title, xAxis, step, height) {
         "color": "#60606a",
         "text-indent": "1em"
       }
+    },
+    exporting:{
+       enabled:false
     }
   }
-  this.series = [];
+ this.series=[],
   this.size = {
-    // width: 200,
+    width:$(window).width(),
     height: height
   }
 }
@@ -414,7 +433,7 @@ function lineHighChart(title, xAxis, step, height) {
   }
 
   function initCpiTrendHighChart() {
-    $scope.cpiHighChartOptions.cpiTrendOption.options.title.text = "太仓市" + LAST_YEAR + "~" + CURRENT_YEAR + "年度" + $scope.CPIDATA.CPIList.name + "趋势";
+    $scope.cpiHighChartOptions.cpiTrendOption.options.title.text =  LAST_YEAR + "~" + CURRENT_YEAR + "年度" + $scope.CPIDATA.CPIList.name + "趋势";
     $scope.cpiHighChartOptions.cpiTrendOption.series = $scope.CPIDATA.CPIList.data;
 
     callFunctionInCpiTrend($scope.thisYear, $scope.thisMonth);
@@ -422,12 +441,12 @@ function lineHighChart(title, xAxis, step, height) {
 
   function initCpiCategoryHighChart(year, month) {
     $scope.cpiDataList = $scope.CPIDATA.DetailList.data[(year - LAST_YEAR)*12 + (month - 1)].data;
-    $scope.cpiHighChartOptions.categoryDetailOption.options.title.text = year + "年" + month + "月" + "太仓市各类别居民消费价格指数同比累计比";
+    $scope.cpiHighChartOptions.categoryDetailOption.options.title.text = year + "年" + month + "月" + "居民消费价格指数同比累计比";
     $scope.cpiHighChartOptions.categoryDetailOption.series = $scope.cpiDataList;
   }
 
   function initCpiCategoryTrendHighChart(dataList) {
-    $scope.cpiHighChartOptions.detailTrendOption.options.title.text = "太仓市" + LAST_YEAR + "~" + CURRENT_YEAR + "年度" + dataList.name + "居民消费价格指数趋势";
+    $scope.cpiHighChartOptions.detailTrendOption.options.title.text =  LAST_YEAR + "~" + CURRENT_YEAR + "年度" + dataList.name + "居民消费价格指数趋势";
     $scope.cpiHighChartOptions.detailTrendOption.series = dataList.data;
   }
 
@@ -465,7 +484,7 @@ function lineHighChart(title, xAxis, step, height) {
 
     var SUBSIDIARYFOODPRICEDATA = qService.httpPost(dataDetailFactory.advancedQuery, {
       tableName: 'SubsidiaryFoodPriceData'
-    }, {"X-Auth-Token":token},queryMap)
+    }, {"X-Auth-Token":token},queryMap);
 
     SUBSIDIARYFOODPRICEDATA.then(function(data) {
       if (data.errorCode != "NO_ERROR") {
@@ -475,35 +494,35 @@ function lineHighChart(title, xAxis, step, height) {
       console.log(data.data);
       var dataObject, SFArray, objectIndex, itemName, dataItem;
       for (var i=0; i<dataList.length; i++) {
-        dataObject = dataList[i]
+        dataObject = dataList[i];
         switch(dataObject.subsidiaryFoodTypeName) {
           case "粮食":
-            SFArray = $scope.PRICEDATA.a_riceDataList
-            break
+            SFArray = $scope.PRICEDATA.a_riceDataList;
+            break;
           case "油脂":
-            SFArray = $scope.PRICEDATA.b_oilDataList
-            break
+            SFArray = $scope.PRICEDATA.b_oilDataList;
+            break;
           case "肉禽及制品":
-            SFArray = $scope.PRICEDATA.c_meatDataList
-            break
+            SFArray = $scope.PRICEDATA.c_meatDataList;
+            break;
           case "蛋":
-            SFArray = $scope.PRICEDATA.d_eggDataList
-            break
+            SFArray = $scope.PRICEDATA.d_eggDataList;
+            break;
           case "水产品":
-            SFArray = $scope.PRICEDATA.e_aquaticProductDataList
-            break
+            SFArray = $scope.PRICEDATA.e_aquaticProductDataList;
+            break;
           case "蔬菜":
-            SFArray = $scope.PRICEDATA.f_vegetableDataList
-            break
+            SFArray = $scope.PRICEDATA.f_vegetableDataList;
+            break;
           case "干鲜瓜果":
-            SFArray = $scope.PRICEDATA.g_fruitDataList
-            break
+            SFArray = $scope.PRICEDATA.g_fruitDataList;
+            break;
           case "其他":
-            SFArray = $scope.PRICEDATA.h_othersDataList
-            break
+            SFArray = $scope.PRICEDATA.h_othersDataList;
+            break;
         }
         itemName = dataObject.subsidiaryFoodName;
-        objectIndex = SFArray.nameList.indexOf(itemName)
+        objectIndex = SFArray.nameList.indexOf(itemName);
         if (objectIndex === -1) {
           dataItem = new subsidiaryFoodDataObject(itemName, day);
           SFArray.nameList.push(itemName);
@@ -517,26 +536,22 @@ function lineHighChart(title, xAxis, step, height) {
   }
 
   $scope.initFoodPriceHighChart = function() {
-    resetPRICEDATA();
-
+     // resetPriceData();
     $scope.PRICEDATA.a_riceDataList.isCollapsed = true;
     $scope.PRICEDATA.a_riceDataList.data[0].model = true;
     $scope.foodPriceHighChartOption.series=[];
     $scope.foodPriceHighChartOption.series.push($scope.PRICEDATA.a_riceDataList.data[0]);
-  }
 
+  }
+  var temseries = [];
   $scope.checkBoxChange = function(item) {
     if (item.model) { // 选中的情况
-      $scope.foodPriceHighChartOption.series.push(item);
-      console.log($scope.foodPriceHighChartOption.series);
-      console.log($scope.foodPriceHighChartOption);
-    } else { // 取消选中的情况
-      var index = $scope.foodPriceHighChartOption.series.indexOf(item);
+      temseries.push(item);
+  }else { // 取消选中的情况
+      var index = temseries.indexOf(item);
       if (index > -1) {
-        $scope.foodPriceHighChartOption.series.splice(index, 1);
+        temseries.splice(index, 1);
       }
-      console.log(index);
-      console.log($scope.foodPriceHighChartOption.series);
       var chart=$("#foodPriceHighChart").highcharts()
       if (chart.hasData()) {
         chart.hideNoData();
@@ -544,8 +559,9 @@ function lineHighChart(title, xAxis, step, height) {
       }
     }
   }
+  
 
-  function resetPRICEDATA() {
+  function resetPriceData(){
     var tempFoodType;
     for (tempFoodType in $scope.PRICEDATA) {
       $scope.PRICEDATA[tempFoodType].isCollapsed = false;
@@ -554,6 +570,8 @@ function lineHighChart(title, xAxis, step, height) {
       }
     }
   }
+
+
 /*******************************************************************************
                               OBJECT AREA
 *******************************************************************************/
@@ -620,7 +638,7 @@ function lineHighChart(title, xAxis, step, height) {
     if (lastObjRaw.errorCode != "NO_ERROR") {
       $location.path("/main");
     }
-    var latestObj = JSOG.parse(JSOG.stringify(lastObjRaw.data))
+    var latestObj = JSOG.parse(JSOG.stringify(lastObjRaw.data));
     CURRENT_YEAR = latestObj.year;
     LAST_YEAR = CURRENT_YEAR - 1;
 
@@ -628,7 +646,7 @@ function lineHighChart(title, xAxis, step, height) {
     $scope.thisMonth = latestObj.month;
 
     for (var i = 1; i <= 12; i++) {
-      var item = LAST_YEAR + "年" + pad(i, 2) + "月"
+      var item = LAST_YEAR + "年" + pad(i, 2) + "月";
       yearMonthList.push(item);
       monthList[i-1] = new Array();
       monthList[i-1].push(item);
@@ -665,10 +683,10 @@ function lineHighChart(title, xAxis, step, height) {
     }
 
     $scope.cpiHighChartOptions = {
-      cpiTrendOption: new splineHighChart(480, $scope.CPIDATA.splineXAxis, callFunctionInCpiTrend),
+      cpiTrendOption: new splineHighChart($scope.smallheight, $scope.CPIDATA.splineXAxis, callFunctionInCpiTrend),
       cpiTrendDetailOption: new columnHighChart(250),
-      categoryDetailOption: new columnHighChart(500, $scope.CPIDATA.columnXAxis, callFunctionInCpiCategory),
-      detailTrendOption: new splineHighChart(480, $scope.CPIDATA.splineXAxis, callFunctionInCategoryTrend),
+      categoryDetailOption: new columnHighChart($scope.smallheight, $scope.CPIDATA.columnXAxis, callFunctionInCpiCategory),
+      detailTrendOption: new splineHighChart($scope.smallheight, $scope.CPIDATA.splineXAxis, callFunctionInCategoryTrend),
       detailTrendDetailOption: new columnHighChart(250)
     }
 
@@ -697,7 +715,7 @@ function lineHighChart(title, xAxis, step, height) {
     if (step % 2 == 0) {
       step += 1;
     }
-    var chartTile = year + "年" + month + "月太仓市中心农贸市场农副产品市场价格走势详情";
+    var chartTile = year + "年" + month + "月农贸市场农副产品价格走势详情";
     $scope.foodPriceHighChartOption = new lineHighChart(chartTile, dayList, step, 450);
     $scope.PRICEDATA = {
       a_riceDataList: new subsidiaryFoodGroupObject("粮食类"),              // 粮食       2650
@@ -724,7 +742,17 @@ $scope.showthree = function(){
 }
 $scope.showfour = function(){
     $scope.show4 = !$scope.show4;
+    $scope.foodPriceHighChartOption.series = [];
+
 }
+$scope.makesure = function(){
+
+  $scope.foodPriceHighChartOption.series = temseries;
+  $scope.show4 = !$scope.show4;
+}
+
+
 $scope.newheight = $(window).height()*0.8;
 $scope.newtop = $(window).height()*0.85;
+$scope.bigheight = $(window).height()*0.88;
 };

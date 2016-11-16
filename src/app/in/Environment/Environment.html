@@ -10,13 +10,13 @@
       ui-show="kpiChoiceDropdown"
       ui-state="kpiChoiceDropdown"
       ui-turn-off="kpiChoiceDropdown">
-      <li><a ui-sref="app.environment.environmentlist({categoryId:4001})" ng-click="changeCategory('水环境')" href="#">水环境</a></li>
+      <li id="environment4001"><a ui-sref="app.environment.environmentlist({categoryId:4001})" ng-click="changeCategory('水环境')" href="#">水环境</a></li>
       <li class="divider"></li>
-      <li><a ui-sref="app.environment.environmentlist({categoryId:4002})" ng-click="changeCategory('大气环境')" href="#">大气环境</a></li>
+      <li id="environment4002"><a ui-sref="app.environment.environmentlist({categoryId:4002})" ng-click="changeCategory('大气环境')" href="#">大气环境</a></li>
       <li class="divider"></li>
-      <li><a ui-sref="app.environment.environmentlist({categoryId:4004})" ng-click="changeCategory('土地资源')" href="#">土地资源</a></li>
+      <li id="environment4004"><a ui-sref="app.environment.environmentlist({categoryId:4004})" ng-click="changeCategory('土地资源')" href="#">土地资源</a></li>
       <li class="divider"></li>
-      <li><a ui-sref="app.environment.environmentlist({categoryId:5001})" ng-click="changeCategory('电力消耗')" href="#">电力消耗</a></li>
+      <li id="environment5001"><a ui-sref="app.environment.environmentlist({categoryId:5001})" ng-click="changeCategory('电力消耗')" href="#">电力消耗</a></li>
     </ul>
     <ul class="dropdown-menu cm-dropdown-ul"
       ui-outer-click="Ui.turnOff('kpiStatusDropdown')"

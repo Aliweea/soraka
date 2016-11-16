@@ -628,9 +628,8 @@ export default ($scope, $state, dateService, dataDetailFactory, qService, kpiDet
                             enabled: false
                         },
                         legend: {
-                            layout: 'vertical',
-                            align: 'right',
-                            verticalAlign: 'middle',
+                            align: 'center',
+                            verticalAlign: 'bottom',
                             borderWidth: 0
                         }
                     },
@@ -667,7 +666,7 @@ export default ($scope, $state, dateService, dataDetailFactory, qService, kpiDet
                                     enabled: true,
                                     color: '#000000',
                                     connectorColor: '#000000',
-                                    format: '<b>{point.name}</b>:{point.percentage:.1f} %'
+                                    format: '{point.percentage:.1f} %'
                                 },
                                 showInLegend: true
                             }

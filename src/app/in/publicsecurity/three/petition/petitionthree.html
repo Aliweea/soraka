@@ -1,6 +1,6 @@
-<div>
+<div class="pentitionthree">
     <div class="panel-group" ui-state="petitionAccordion" ui-default="1">
-        <div class="panel panel-primary" style="margin-top: 10px;">
+        <div class="panel panel-primary" style="margin-top: 10px; border:1px white solid">
             <div class="panel-heading" ui-set="{'petitionAccordion': 1}">
                 信访信件统计
                 <span class="glyphicon glyphicon-question-sign pull-right"></span>
@@ -20,11 +20,9 @@
                                                 <highchart id="columnChart2" config="columnChart2" style=""></highchart>
                                             </div>
                                         </tab>
-                                    <hr>
                                     <tab heading="结案率" ui-if="activeTab==2">
                                         <div class="col-md-9 chart-panel" style="margin-top: 10px">
                                             <highchart id="PieChart" config="PieChart" style=""></highchart>
-                                            <hr>
                                         </div>
                                     </tab>
                                 </tabset>
@@ -34,7 +32,7 @@
                 </div>
             </div>
         </div>
-        <div class="panel panel-primary">
+        <div class="panel panel-primary" style="margin-top: 10px;border:1px white solid">
             <div class="panel-heading" ui-set="{'petitionAccordion': 2}">
                 越级上访动态
                 <span class="glyphicon glyphicon-question-sign pull-right"></span>
@@ -49,7 +47,7 @@
                 </div>
             </div>
         </div>
-        <div class="panel panel-primary">
+        <div class="panel panel-primary" style="margin-top: 10px;border:1px white solid">
             <div class="panel-heading" ui-set="{'petitionAccordion': 3}">
                 全年上访信件趋势
                 <span class="glyphicon glyphicon-question-sign pull-right"></span>
@@ -65,7 +63,6 @@
                             <div class="col-md-9 chart-panel" ui-if="activeTab1==3">
                                 <highchart id="lineChart" config="lineChart"></highchart>
                             </div>
-                            <hr>
                             <div style="margin-top: 10px" ui-if="activeTab1==4">
                                 <highchart id="lineChart1" config="lineChart1"></highchart>
                             </div>
