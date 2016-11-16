@@ -236,7 +236,9 @@ export default ($scope, $state, dateService, qService, kpiDetailService, dictSer
 
 
                 $scope.trendInfoChanged = function() {
-                    if ($scope.lineChartData.selected == 0) {
+
+                    let selected = $scope.lineChartData.selected
+                    if (selected == 0) {
                         $scope.columnChart = {
                             options: {
                                 exporting: {
@@ -280,7 +282,7 @@ export default ($scope, $state, dateService, qService, kpiDetailService, dictSer
                             }]
 
                         };
-                    } else if ($scope.lineChartData.selected == 1) {
+                    } else if (selected == 1) {
                         $scope.columnChart = {
                             options: {
                                 exporting: {
@@ -324,7 +326,7 @@ export default ($scope, $state, dateService, qService, kpiDetailService, dictSer
                             }]
 
                         };
-                    } else if ($scope.lineChartData.selected == 2) {
+                    } else if (selected == 2) {
                         $scope.columnChart = {
                             options: {
                                 exporting: {
@@ -368,7 +370,7 @@ export default ($scope, $state, dateService, qService, kpiDetailService, dictSer
                             }]
 
                         };
-                    } else if ($scope.lineChartData.selected == 3) {
+                    } else if (selected == 3) {
                         $scope.columnChart = {
                             options: {
                                 exporting: {

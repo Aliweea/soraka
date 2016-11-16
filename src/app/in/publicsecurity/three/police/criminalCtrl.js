@@ -666,7 +666,7 @@ export default ($scope, $state, dateService, dataDetailFactory, qService, kpiDet
                             var tel = "";
                             var dean = "";
                         }
-                        var str = "<b class='iw_poi_title' title='" + json.title + "'>" + json.title + "</b><div class='iw_poi_content'>  <h5>本月发生刑事案件数:" + json.content + "起.其中:</h5> <div id='kpi' style='height: 250px; width: 400px;  margin: 0 auto'></div>" + "</div>";
+                        var str = "<b class='iw_poi_title' title='" + json.title + "'>" + json.title + "</b><div class='iw_poi_content'>  <h5>本月发生刑事案件数:" + json.content + "起.其中:</h5> <div id='kpi' style='height: 250px; width: 75%;  margin: 0 auto'></div>" + "</div>";
                         var iw = new BMap.InfoWindow(str, { enableMessage: false });
                         return iw;
                     }
@@ -747,6 +747,9 @@ export default ($scope, $state, dateService, dataDetailFactory, qService, kpiDet
                         };
 
                         $('#kpi').highcharts({
+                            exporting: {
+                            enabled: false
+                        },
                             colors: newColors,
                             chart: {
                                 plotBackgroundColor: null,
@@ -764,9 +767,11 @@ export default ($scope, $state, dateService, dataDetailFactory, qService, kpiDet
                             },
                             plotOptions: {
                                 pie: {
+                                    size: '100%',
                                     allowPointSelect: true,
                                     cursor: 'pointer',
                                     dataLabels: {
+                                        distance: -5,
                                         enabled: true,
                                         color: '#000000',
                                         connectorColor: '#000000',
