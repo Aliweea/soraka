@@ -19,12 +19,12 @@ export default ($scope, qService, generalService, dataDetailFactory, $http, $roo
     $scope.isActive1="active";
     $scope.isActive2="";
     $scope.isToggle=true;
-  }
+  };
   $scope.show2=()=>{
    $scope.isActive1="";
    $scope.isActive2="active";
    $scope.isToggle=false;
- }
+ };
 //收支详情展开
 $scope.isLink = true;
 $scope.hideLink = () => {
@@ -47,12 +47,12 @@ $scope.hideLink1 = () => {
 $scope.concealDetail1 = () => {
   $scope.isConceal1 = false;
   $scope.isLink1 = true;
-}
+};
   // 顶部切换
   $scope.currentCategoryName = "城镇基本养老保险"; // default value
   $scope.changeCategory = (name) => {
     $scope.currentCategoryName = name;
-  }
+  };
   $scope.tabMap = [{
     id: "tab_UBEI",
     label: "城镇基本养老保险",
@@ -88,7 +88,7 @@ $scope.concealDetail1 = () => {
     label: "居民基本养老保险",
     name: "ResidentsBasicEndowmentInsuranceData",
     active: false
-  }]
+  }];
 
 
       // 取消选中当前选中tab，并且选中对应的tab
@@ -134,8 +134,8 @@ $scope.concealDetail1 = () => {
 /*******************************************************************************
                             INIT PART
 *******************************************************************************/
-                            var temploc = $location.path().split("/")
-                            var thisLoc = temploc[temploc.length - 1]
+                            var temploc = $location.path().split("/");
+                            var thisLoc = temploc[temploc.length - 1];
                             if (thisLoc == undefined) {
                               setTab("UrbanBasicEndowmentInsuranceData");
                             } else {
@@ -217,13 +217,13 @@ $scope.concealDetail1 = () => {
         }
       }
     },
-  }
-  this.series = []
+  };
+  this.series = [];
   this.size = {
       // width: 200,
       height: height
-    }
-  }
+    };
+  };
 //第二张大图
   function columnstackHighChart(height, categories) {
     this.options = {
@@ -256,7 +256,7 @@ $scope.concealDetail1 = () => {
           },
           labels: {
             formatter: function() {
-              return this.value
+              return this.value;
             }
           }
         },
@@ -283,17 +283,17 @@ $scope.concealDetail1 = () => {
             events: {
               click: function(event) {
                 var query_year = event.point.category.substr(0, 4);
-                $scope.$apply(clickEventOfEngageStackColumn(thisLoc, query_year))
+                $scope.$apply(clickEventOfEngageStackColumn(thisLoc, query_year));
               }
             }
           }
         },
-      }
-      this.series = []
+      };
+      this.series = [];
       this.size = {
       // width: 200,
       height: height
-    }
+    };
   }
 
   function columnHighChart(height) {
@@ -320,7 +320,7 @@ $scope.concealDetail1 = () => {
           },
           labels: {
             formatter: function() {
-              return this.value
+              return this.value;
             }
           }
         },
@@ -368,7 +368,7 @@ $scope.concealDetail1 = () => {
     this.size = {
       // width: 200,
       height: height
-    }
+    };
   }
 
   function pieHighchart() {
@@ -423,14 +423,14 @@ $scope.concealDetail1 = () => {
        type: 'pie',
        name: '占比',
        data: []
-     }]
+     }];
    }
 
 /*******************************************************************************
                               OBJECT AREA
  *******************************************************************************/
                               function splineDataObject(name, symbol, size) {
-                                var temp = new Array(size)
+                                var temp = new Array(size);
                                 for (var i=0; i<size; i++) {
                                   temp[i] = null;
                                 }
@@ -449,17 +449,17 @@ $scope.concealDetail1 = () => {
                               }
 
                               function listObject(itemList, dataObject) {
-                                var temp = []
+                                var temp = [];
                                 for (var i=0; i<itemList.length; i++) {
-                                  temp.push(new dataObject(itemList[i]))
+                                  temp.push(new dataObject(itemList[i]));
                                 }
                                 this.data = temp;
                               }
 
                               function detailListObject(size, itemList) {
-                                var temp = new Array()
+                                var temp = new Array();
                                 for (var i=0; i < size; i++) {
-                                  temp.push(new listObject(itemList, columnDataObject))
+                                  temp.push(new listObject(itemList, columnDataObject));
                                 }
                                 this.data = temp;
                               }
@@ -488,7 +488,7 @@ function setChartData(entityName) {
     $scope.LATESTYEAR = latestObj.year;
     var yearList = new Array();
     for (var i=$scope.LATESTYEAR-4; i <= $scope.LATESTYEAR; i++) {
-      yearList.push(i+"年")
+      yearList.push(i+"年");
     }
     $scope.ALLOPTION = {
       //第一张大图
@@ -505,7 +505,7 @@ function setChartData(entityName) {
       BALANCEDATA: new Array(5),
       BALANCECOLUMNDATALIST: new detailListObject(5, ["收入", "支出", "结余"])
     }
-    getDataAll(entityName, $scope.LATESTYEAR)
+    getDataAll(entityName, $scope.LATESTYEAR);
   })
 }
 
@@ -517,16 +517,16 @@ function getDataAll(entityName, year) {
       key: 'year',
       sortType: 'asc'
     }
-  }
+  };
   var tempData = $scope.ALLDATA[entityName];
   var INSURANCEDATA = qService.httpPost(dataDetailFactory.advancedQuery, {
     tableName: entityName
-  },  {"X-Auth-Token":token},queryMap)
+  },  {"X-Auth-Token":token},queryMap);
 
   INSURANCEDATA.then(function(data) {
     if (data.errorCode != "NO_ERROR") {
       $location.path("/main");
-    }
+    };
     var dataList = data.data;
     var currentObj, tempYear, income, outcome, lastBalance, tempIndex, tempBalance, columnNameList, lastYear, tempColumn, tempPie, lastYearDetailData, curYearDetailData, incORdecString, pieNameList
     for (var i=0; i<dataList.length; i++) {
@@ -548,10 +548,10 @@ function getDataAll(entityName, year) {
       columnNameList =  ["参保人员"];
       tempColumn = [];
       tempPie = [];
-      var tempDetail
-      var detailNameList
+      var tempDetail;
+      var detailNameList;
 
-      tempColumn = [currentObj.participatedPopulation]
+      tempColumn = [currentObj.participatedPopulation];
       switch ($scope.CURRENTINSURANCE) {
           case "城镇基本养老保险": // 城镇基本养老保险
           columnNameList = ["在职职工", "离退人员"];
@@ -639,7 +639,7 @@ function getDataAll(entityName, year) {
       }
       $scope.ALLOPTION.ENGAGESTACKCOLUMN.options.title.text = "太仓市近5年" + $scope.CURRENTINSURANCE + $scope.chartSuffix + "情况";
       $scope.ALLOPTION.ENGAGESTACKCOLUMN.series = $scope.ALLDATA[entityName].ENGAGESTACKCOLUMNDATALIST.data;
-      clickEventOfEngageStackColumn(entityName, year)
+      clickEventOfEngageStackColumn(entityName, year);
     })
 }
 //第一张图的小下面小图
