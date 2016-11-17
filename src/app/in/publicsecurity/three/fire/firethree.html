@@ -47,46 +47,35 @@
 	</div>
 </div>
 <div class="pentitionthree">
-<div class="panel panel-primary" style="margin-top: 10px;border:1px white solid">
-	<div class="panel-heading" ui-set="{'fireAccordion': 2}">
-		本年度火灾事故趋势
-		<span class="glyphicon glyphicon-question-sign pull-right"></span>
+	<div class="panel panel-primary" style="margin-top: 10px;border:1px white solid">
+		<div class="panel-heading" ui-set="{'fireAccordion': 2}">
+			本年度火灾事故趋势
+			<span class="glyphicon glyphicon-question-sign pull-right"></span>
+		</div>
+		<div ui-if="fireAccordion == 2">
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-md-9 chart-panel">
+						<div>
+							<span class="glyphicon glyphicon-question-sign pull-right"></span>
+							<label class="">
+								<input type="radio" value="0" checked ng-model="lineChartData.selected" ng-change='trendInfoChanged()'> 查看事故发生数
+							</label>
+							<label class="">
+								<input type="radio" value="1" ng-model="lineChartData.selected" ng-change='trendInfoChanged()'> 查看受伤人数
+							</label>
+							<label class="">
+								<input type="radio" value="2" ng-model="lineChartData.selected" ng-change='trendInfoChanged()'> 查看死亡人数
+							</label>
+							<label class="">
+								<input type="radio" value="3" ng-model="lineChartData.selected" ng-change='trendInfoChanged()'> 查看直接财产损失
+							</label>
+							<highchart id="columnChart" config="columnChart" style="height:450px"></highchart>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
-	<div ui-if="fireAccordion == 2">
-		<div class="panel-body">
-			<div class="row">
-				<div class="col-md-9 chart-panel">
-					<div>
-
-                            <!--  用button代替radio，在这里可以用，但是到了交通事故里，绑定数据的时候就出错了
-                              <div class="btn-group" ui-default="button1">
-      <a href class="btn btn-default " ui-turn-on="button1" ui-shared-state="button1" ui-class="{'active': button1}" ui-exclusion-group="myButtons" ng-click="trendInfoChanged(0)">事故发生数</a>
-      <a href class="btn btn-default" ui-turn-on="button2" ui-shared-state="button2" ui-class="{'active': button2}" ui-exclusion-group="myButtons" ng-click="trendInfoChanged(1)">受伤人数</a>
-      <a href class="btn btn-default" ui-turn-on="button3" ui-shared-state="button3" ui-class="{'active': button3}" ui-exclusion-group="myButtons" ng-click="trendInfoChanged(2)">死亡人数</a>
-      <a href class="btn btn-default" ui-turn-on="button4" ui-shared-state="button4" ui-class="{'active': button4}" ui-exclusion-group="myButtons" ng-click="trendInfoChanged(3)">财产损失</a>
-    </div>
--->
-
-
-<span class="glyphicon glyphicon-question-sign pull-right"></span>
-<label class="">
-	<input type="radio" value="0" checked ng-model="lineChartData.selected" ng-change='trendInfoChanged()'> 查看事故发生数
-</label>
-<label class="">
-	<input type="radio" value="1" ng-model="lineChartData.selected" ng-change='trendInfoChanged()'> 查看受伤人数
-</label>
-<label class="">
-	<input type="radio" value="2" ng-model="lineChartData.selected" ng-change='trendInfoChanged()'> 查看死亡人数
-</label>
-<label class="">
-	<input type="radio" value="3" ng-model="lineChartData.selected" ng-change='trendInfoChanged()'> 查看直接财产损失
-</label>
-<highchart id="columnChart" config="columnChart" style="height:450px"></highchart>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
 </div>
 
