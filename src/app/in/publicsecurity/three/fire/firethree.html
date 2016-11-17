@@ -1,89 +1,81 @@
 <div class="pentitionthree">
-    <div class="panel-group" ui-state="fireAccordion" ui-default="1">
-        <div class="panel panel-primary" style="margin-top: 10px; border:1px white solid">
-            <div class="panel-heading" ui-set="{'fireAccordion': 1}">
-                火灾事故警情动态
-                <span class="glyphicon glyphicon-question-sign pull-right"></span>
-            </div>
-            <div ui-if="fireAccordion == 1">
-                <div ui-state="activeTabFire" default="1">
-                    <div class="panel-body">
-                        <div class="btn-group justified nav-tabs">
-                            <a ui-set="{'activeTabFire': 1}" ui-class="{'active':activeTabFire==1}" class="btn btn-default">事故数量</a>
-                            <a ui-set="{'activeTabFire': 2}" ui-class="{'active':activeTabFire==2}" class="btn btn-default">受伤人数</a>
-                            <a ui-set="{'activeTabFire': 3}" ui-class="{'active':activeTabFire==3}" class="btn btn-default">死亡人数</a>
-                            <a ui-set="{'activeTabFire': 4}" ui-class="{'active':activeTabFire==4}" class="btn btn-default">财产损失</a>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12 ">
-                                <tabset>
-                                    <tab heading="事故数量" ui-if="activeTabFire==1">
-                                        <div class="col-md-12 " style="margin-top: 10px">
-                                            <highchart id="barCount" config="barCount"></highchart>
-                                        </div>
-                                    </tab>
-                                    <tab heading="受伤人数" ui-if="activeTabFire==2">
-                                        <div class="col-md-9 chart-panel" style="margin-top: 10px">
-                                            <highchart id="barInjury" config="barInjury"></highchart>
-                                        </div>
-                                    </tab>
-                                    <tab heading="死亡人数" ui-if="activeTabFire==3">
-                                        <div class="col-md-9 chart-panel" style="margin-top: 10px">
-                                            <highchart id="barDead" config="barDead"></highchart>
-                                        </div>
-                                    </tab>
-                                    <tab heading="财产损失" ui-if="activeTabFire==4">
-                                        <div class="col-md-9 chart-panel" style="margin-top: 10px">
-                                            <highchart id="barDamage" config="barDamage"></highchart>
-                                        </div>
-                                    </tab>
-                                </tabset>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="panel panel-primary" style="margin-top: 10px;border:1px white solid">
-            <div class="panel-heading" ui-set="{'fireAccordion': 2}">
-                本年度火灾事故趋势
-                <span class="glyphicon glyphicon-question-sign pull-right"></span>
-            </div>
-            <div ui-if="fireAccordion == 2">
-                <div class="panel-body">
-                    <div class="row">
-                        <div class="col-md-9 chart-panel">
-                            <div>
-
-                            <!--  用button代替radio，在这里可以用，但是到了交通事故里，绑定数据的时候就出错了
-                              <div class="btn-group" ui-default="button1">
-      <a href class="btn btn-default " ui-turn-on="button1" ui-shared-state="button1" ui-class="{'active': button1}" ui-exclusion-group="myButtons" ng-click="trendInfoChanged(0)">事故发生数</a>
-      <a href class="btn btn-default" ui-turn-on="button2" ui-shared-state="button2" ui-class="{'active': button2}" ui-exclusion-group="myButtons" ng-click="trendInfoChanged(1)">受伤人数</a>
-      <a href class="btn btn-default" ui-turn-on="button3" ui-shared-state="button3" ui-class="{'active': button3}" ui-exclusion-group="myButtons" ng-click="trendInfoChanged(2)">死亡人数</a>
-      <a href class="btn btn-default" ui-turn-on="button4" ui-shared-state="button4" ui-class="{'active': button4}" ui-exclusion-group="myButtons" ng-click="trendInfoChanged(3)">财产损失</a>
-    </div>
-    -->
-
-
-                                <span class="glyphicon glyphicon-question-sign pull-right"></span>
-                                <label class="">
-                                    <input type="radio" value="0" checked ng-model="lineChartData.selected" ng-change='trendInfoChanged()'> 查看事故发生数
-                                </label>
-                                <label class="">
-                                    <input type="radio" value="1" ng-model="lineChartData.selected" ng-change='trendInfoChanged()'> 查看受伤人数
-                                </label>
-                                <label class="">
-                                    <input type="radio" value="2" ng-model="lineChartData.selected" ng-change='trendInfoChanged()'> 查看死亡人数
-                                </label>
-                                <label class="">
-                                    <input type="radio" value="3" ng-model="lineChartData.selected" ng-change='trendInfoChanged()'> 查看直接财产损失
-                                </label>
-                                <highchart id="columnChart" config="columnChart" style="height:450px"></highchart>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+	<div class="panel-group" ui-state="fireAccordion" ui-default="1">
+		<div class="panel panel-primary" style="margin-top: 10px; border:1px white solid">
+			<div class="panel-heading" ui-set="{'fireAccordion': 1}">
+				火灾事故警情动态
+				<span class="glyphicon glyphicon-question-sign pull-right"></span>
+			</div>
+			<div ui-if="fireAccordion == 1">
+				<div ui-state="activeTabFire" default="1">
+					<div class="panel-body">
+						<div class="btn-group justified nav-tabs">
+							<a ui-set="{'activeTabFire': 1}" ui-class="{'active':activeTabFire==1}" class="btn btn-default">事故数量</a>
+							<a ui-set="{'activeTabFire': 2}" ui-class="{'active':activeTabFire==2}" class="btn btn-default">受伤人数</a>
+							<a ui-set="{'activeTabFire': 3}" ui-class="{'active':activeTabFire==3}" class="btn btn-default">死亡人数</a>
+							<a ui-set="{'activeTabFire': 4}" ui-class="{'active':activeTabFire==4}" class="btn btn-default">财产损失</a>
+						</div>
+						<div class="row">
+							<div class="col-md-12 ">
+								<tabset>
+									<tab heading="事故数量" ui-if="activeTabFire==1">
+										<div class="col-md-12 " style="margin-top: 10px">
+											<highchart id="barCount" config="barCount"></highchart>
+										</div>
+									</tab>
+									<tab heading="受伤人数" ui-if="activeTabFire==2">
+										<div class="col-md-9 chart-panel" style="margin-top: 10px">
+											<highchart id="barInjury" config="barInjury"></highchart>
+										</div>
+									</tab>
+									<tab heading="死亡人数" ui-if="activeTabFire==3">
+										<div class="col-md-9 chart-panel" style="margin-top: 10px">
+											<highchart id="barDead" config="barDead"></highchart>
+										</div>
+									</tab>
+									<tab heading="财产损失" ui-if="activeTabFire==4">
+										<div class="col-md-9 chart-panel" style="margin-top: 10px">
+											<highchart id="barDamage" config="barDamage"></highchart>
+										</div>
+									</tab>
+								</tabset>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
+<div class="pentitionthree">
+	<div class="panel panel-primary" style="margin-top: 10px;border:1px white solid">
+		<div class="panel-heading" ui-set="{'fireAccordion': 2}">
+			本年度火灾事故趋势
+			<span class="glyphicon glyphicon-question-sign pull-right"></span>
+		</div>
+		<div ui-if="fireAccordion == 2">
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-md-9 chart-panel">
+						<div>
+							<span class="glyphicon glyphicon-question-sign pull-right"></span>
+							<label class="">
+								<input type="radio" value="0" checked ng-model="lineChartData.selected" ng-change='trendInfoChanged()'> 查看事故发生数
+							</label>
+							<label class="">
+								<input type="radio" value="1" ng-model="lineChartData.selected" ng-change='trendInfoChanged()'> 查看受伤人数
+							</label>
+							<label class="">
+								<input type="radio" value="2" ng-model="lineChartData.selected" ng-change='trendInfoChanged()'> 查看死亡人数
+							</label>
+							<label class="">
+								<input type="radio" value="3" ng-model="lineChartData.selected" ng-change='trendInfoChanged()'> 查看直接财产损失
+							</label>
+							<highchart id="columnChart" config="columnChart" style="height:450px"></highchart>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

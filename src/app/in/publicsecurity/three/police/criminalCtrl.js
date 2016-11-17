@@ -1,4 +1,4 @@
-export default ($scope, $state, dateService, dataDetailFactory, qService, kpiDetailService) => {
+export default ($rootScope, $scope, $state, dateService, dataDetailFactory, qService, kpiDetailService) => {
     'ngInject';
     const jQueryDOMToDos = () => {
         $(".navbar2position").hide(0); // 隐藏当前位置
@@ -384,8 +384,9 @@ export default ($scope, $state, dateService, dataDetailFactory, qService, kpiDet
             //---------------------------********处理api返回data的函数*********------------------------------------------
 
             var processFunction = function(data) {
-                console.log(JSON.stringify(data));
+                //console.log(JSON.stringify(data));
                 //组装每月数据
+                
                 wireEachMonthData(data.data);
 
                 //初始化图表数据
@@ -393,7 +394,7 @@ export default ($scope, $state, dateService, dataDetailFactory, qService, kpiDet
 
                 initMapData(mapData);
 
-
+                //$rootScope.loading = false;
 
                 //---------------------------********函数区*********------------------------------------------
                 function initData(data) {
@@ -969,11 +970,13 @@ export default ($scope, $state, dateService, dataDetailFactory, qService, kpiDet
                         data: eachStationData.values
                     }]
                 };
+                $rootScope.loading = false;
 
             };
 
-
+            $rootScope.loading = true;
             kpiDetailService.advancedQuery(tableName, advancedQueryConfig, processFunction);
+            
 
         }
         //---------------------------********api调用参数*********------------------------------------------

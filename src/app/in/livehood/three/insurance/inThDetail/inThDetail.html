@@ -37,12 +37,12 @@
 
 <!--导航条开始-->
   <ul class="nav nav-tabs" role="tablist">
-  <li role="presentation" ng-click="show1()" class="{{isActive1}} insurace-nav-width"><a href="#">收入支出情况</a></li>
-  <li role="presentation" ng-click="show2()" class="{{isActive2}} insurace-nav-width"><a href="#">参保人员情况</a></li>
+  <li role="presentation" ng-click="show1()" style="text-align: center;" class="{{isActive1}} insurace-nav-width"><a href="#">收入支出情况</a></li>
+  <li role="presentation" ng-click="show2()" style="text-align: center;" class="{{isActive2}} insurace-nav-width"><a href="#">参保人员情况</a></li>
   </ul>
 <!--导航条结束-->
-
-<!-- 第一个图开始 -->
+<!-- <div style="height: 20px;"></div>
+ --><!-- 第一个图开始 -->
 <div ng-show="isToggle">
 <!-- <div class="panel-heading"><center><strong>太仓市近5年{{CURRENTINSURANCE}}收支情况</strong></center></div>
  --><highchart config="ALLOPTION.INCOMESPLINE"></highchart>
