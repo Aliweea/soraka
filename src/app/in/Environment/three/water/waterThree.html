@@ -183,33 +183,34 @@
                 <span style="color:#DF5353">红色线----</span> 代表问题界线
             </div>
         </div>
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                废水排放分析<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
-            </div>
-            <div class="panel-body">
-			<span ng-repeat="wasteWaterOne in wasteWaterCurrentList">
-				<label>
-					<input type="radio" ng-model="wasteWaterCurrentListSelected" ng-value="wasteWaterOne"
-                           name="wasteWaterCurrentListRadio" ng-click="wasteWaterCurrentChange(wasteWaterOne)">{{wasteWaterOne}}
-				</label>
-			</span>
-                <highchart config="wasteWaterOptions.wasteWaterCurrentOption">废水排放</highchart>
-            </div>
+    </div>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            废水排放分析<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
         </div>
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                水情分析<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
-            </div>
-            <div class="panel-body">
-			<span ng-repeat="waterConditionOne in waterConditionCurrentList">
-				<label>
-					<input type="radio" ng-model="waterConditionCurrentListSelected"
-                           ng-value="waterConditionOne.monitor" name="waterConditionCurrentListRadio"
-                           ng-click="waterConditionCurrentChange(waterConditionOne)">{{waterConditionOne.monitor}}
-				</label>
-			</span>
-                <highchart config="waterConditionOptions.waterConditionCurrentOption">水情</highchart>
-            </div>
+        <div class="panel-body">
+        <span ng-repeat="wasteWaterOne in wasteWaterCurrentList">
+            <label>
+                <input type="radio" ng-model="wasteWaterCurrentListSelected" ng-value="wasteWaterOne"
+                       name="wasteWaterCurrentListRadio" ng-click="wasteWaterCurrentChange(wasteWaterOne)">{{wasteWaterOne}}
+            </label>
+        </span>
+            <highchart config="wasteWaterOptions.wasteWaterCurrentOption">废水排放</highchart>
         </div>
     </div>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            水情分析<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
+        </div>
+        <div class="panel-body">
+        <span ng-repeat="waterConditionOne in waterConditionCurrentList">
+            <label>
+                <input type="radio" ng-model="waterConditionCurrentListSelected"
+                       ng-value="waterConditionOne.monitor" name="waterConditionCurrentListRadio"
+                       ng-click="waterConditionCurrentChange(waterConditionOne)">{{waterConditionOne.monitor}}
+            </label>
+        </span>
+            <highchart config="waterConditionOptions.waterConditionCurrentOption">水情</highchart>
+        </div>
+    </div>
+

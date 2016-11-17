@@ -1,4 +1,4 @@
-export default ($scope, kpiDetailService, dateService) => {
+export default ($rootScope, $scope, kpiDetailService, dateService) => {
     'ngInject';
 
     const jQueryDOMToDos = () => {
@@ -247,6 +247,7 @@ export default ($scope, kpiDetailService, dateService) => {
             "tooltip": {valueSuffix: '万千瓦时'}
         }];
 
+        $rootScope.loading=true;
         kpiDetailService.getLastestObject('EnergydianliData', ['applyTime'], function (datat) {
             var dtime = dateService.getSystemTime();
             var dd = new Date(dtime);
@@ -1074,8 +1075,11 @@ export default ($scope, kpiDetailService, dateService) => {
                     series: nongcunshenghuo_data,
                 };
             });
+            $rootScope.loading=false;
         });
+        $rootScope.loading=false;
     }
+    $rootScope.loading=true;
     kpiDetailService.query("EnergydianliData", "2014-01-01", "2014-12-31", processFunction);
 }
 ;
