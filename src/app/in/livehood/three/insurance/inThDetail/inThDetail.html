@@ -5,6 +5,7 @@
 <div class="panel-heading"><center><strong>{{balanceSelectYear}}年{{CURRENTINSURANCE}}关键指标</strong></center></div>
   </div>
       <div class=""><span>数据来源：</span><span class="insurance-blue">人社局</span><span style="margin-left: 35px">每年更新</span></div>
+      <div style="height: 4px"></div>
   <div class="chart-area">
    <table class="table table-striped table-bordered" >
     <thead>
@@ -21,7 +22,7 @@
       <td>{{balance[3]}}{{BALANCEUNIT}}</td>
     </tr>
     <thead>
-      <th class="col-md-4"  ng-repeat="title in participatedTitle">{{title}}</th>
+      <th class="col-md-4"  ng-repeat="title in participatedTitle" style="font-weight: normal;">{{title}}</th>
     </thead>
     <tr align="center">
       <td>{{insuranceParticapted[0]}}{{PARTICAPTEDUNIT}}</td>
@@ -95,9 +96,9 @@
  <table class="table table-striped table-bordered">
   <thead>
     <tr>
-     <th class="col-md-4">{{yearParticipatedTitle[0]}}</th>
-     <th class="col-md-4">{{yearParticipatedTitle[1]}}</th>
-     <th class="col-md-4">{{yearParticipatedTitle[2]}}</th>
+     <th class="col-md-4" style="font-weight: normal;">{{yearParticipatedTitle[0]}}</th>
+     <th class="col-md-4" style="font-weight: normal;">{{yearParticipatedTitle[1]}}</th>
+     <th class="col-md-4" style="font-weight: normal;">{{yearParticipatedTitle[2]}}</th>
    </tr>
  </thead>
  <tbody>

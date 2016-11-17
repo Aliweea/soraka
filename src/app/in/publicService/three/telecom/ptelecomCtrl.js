@@ -5,22 +5,11 @@ export default($scope, $rootScope, $state, qService, dataDetailFactory, dateServ
 		$(".navbar2return").show(0); // 显示返回按钮
 		$(".navTopShowMark").hide(0); // 隐藏KPI状态 KPI分类
 		$('#cmrefuse-s1').focus();
-		$('#cmRefuseTownTooglePanel').hide(0);
-		$('#cmRefuseTownToogleButton').click(() => {
-			$('#cmRefuseTownTooglePanel').toggle(0);
+		$('#psTelecomTogglePanel').hide(0);
+		$('#psTelecomToggleButton').click(() => {
+			$('#psTelecomTogglePanel').toggle(0);
 		})
 	}();
-
-	$scope.tab1 = true;
-    $scope.tab2 = false;
-    $scope.show = function () {
-        $scope.tab1 = true;
-        $scope.tab2 = false;
-    }
-    $scope.show2 = function () {
-        $scope.tab1 = false;
-        $scope.tab2 = true;
-    }
 
 	let token = "eyJhY2NvdW50Ijp7IkBpZCI6IjEiLCJpZCI6MjYsImNyZWF0ZV90aW1lIjoiMjAxNS0wNS0xNCAxOTo1MToxNSIsIm1vZGlmeV90aW1lIjoiMjAxNS0wNy0wNSAxNDozNDozMyIsImFjY291bnQiOiJzeXN0ZW0iLCJwYXNzd29yZCI6bnVsbCwidGl0bGUiOiLnrqHnkIblkZgiLCJuYW1lIjoi566h55CG5ZGYIiwic3lzdGVtTmFtZSI6bnVsbCwibW9iaWxlUGhvbmUiOm51bGwsIndvcmtQaG9uZSI6bnVsbCwicm9sZSI6IkFETUlOSVNUUkFUT1IiLCJkZXBhcnRtZW50cyI6W3siQGlkIjoiMiIsImlkIjo5LCJjcmVhdGVfdGltZSI6IjIwMTQtMTItMjkgMTI6Mzk6MjgiLCJtb2RpZnlfdGltZSI6IjIwMTQtMTItMjkgMTI6Mzk6MjgiLCJuYW1lIjoi54mp5Lu35bGAIiwiZGVzY3JpcHRpb24iOiJXSkpf54mp5Lu35bGAIn0seyJAaWQiOiIzIiwiaWQiOjIyLCJjcmVhdGVfdGltZSI6IjIwMTQtMTItMjkgMTI6NDA6MTAiLCJtb2RpZnlfdGltZSI6IjIwMTQtMTItMjkgMTI6NDA6MTAiLCJuYW1lIjoi5YWs5a6J5bGAIiwiZGVzY3JpcHRpb24iOiJHQUpf5YWs5a6J5bGAIn0seyJAaWQiOiI0IiwiaWQiOjI3LCJjcmVhdGVfdGltZSI6IjIwMTQtMTItMjkgMTI6NDE6MDciLCJtb2RpZnlfdGltZSI6IjIwMTQtMTItMjkgMTI6NDE6MDciLCJuYW1lIjoi5raI6Ziy5aSn6ZifIiwiZGVzY3JpcHRpb24iOiJYRkREX+a2iOmYsuWkp+mYnyJ9LHsiQGlkIjoiNSIsImlkIjozMCwiY3JlYXRlX3RpbWUiOiIyMDE0LTEyLTI5IDEyOjQ1OjUxIiwibW9kaWZ5X3RpbWUiOiIyMDE0LTEyLTI5IDEyOjQ1OjUxIiwibmFtZSI6IuS6pOmAmuWxgCIsImRlc2NyaXB0aW9uIjoiSlRKX+S6pOmAmuWxgCJ9LHsiQGlkIjoiNiIsImlkIjoyOCwiY3JlYXRlX3RpbWUiOiIyMDE0LTEyLTI5IDEyOjQzOjA4IiwibW9kaWZ5X3RpbWUiOiIyMDE0LTEyLTI5IDEyOjQzOjA4IiwibmFtZSI6IuWfjueuoeWxgCIsImRlc2NyaXB0aW9uIjoiQ0dKX+WfjueuoeWxgCJ9LHsiQGlkIjoiNyIsImlkIjoyOSwiY3JlYXRlX3RpbWUiOiIyMDE0LTEyLTI5IDEyOjQ0OjAyIiwibW9kaWZ5X3RpbWUiOiIyMDE0LTEyLTI5IDEyOjQ0OjAyIiwibmFtZSI6IuaVmeiCsuWxgCIsImRlc2NyaXB0aW9uIjoiSllKX+aVmeiCsuWxgCJ9LHsiQGlkIjoiOCIsImlkIjozMiwiY3JlYXRlX3RpbWUiOiIyMDE1LTA0LTIwIDEzOjU2OjIwIiwibW9kaWZ5X3RpbWUiOiIyMDE1LTA0LTIwIDEzOjU2OjAyIiwibmFtZSI6IuS/oeiuv+WxgCIsImRlc2NyaXB0aW9uIjoiWEZKX+S/oeiuv+WxgCJ9LHsiQGlkIjoiOSIsImlkIjoxNiwiY3JlYXRlX3RpbWUiOiIyMDE0LTEwLTE2IDIxOjQxOjM0IiwibW9kaWZ5X3RpbWUiOiIyMDE1LTAyLTA4IDE0OjU4OjU2IiwibmFtZSI6IumCruaUv+WxgCIsImRlc2NyaXB0aW9uIjoiWVpKX+mCruaUv+WxgCJ9LHsiQGlkIjoiMTAiLCJpZCI6MzEsImNyZWF0ZV90aW1lIjoiMjAxNS0wNC0yMCAxMzo1NjoyMyIsIm1vZGlmeV90aW1lIjoiMjAxNS0wNC0yMCAxMzo1NjoyMyIsIm5hbWUiOiLljavnlJ/lsYAiLCJkZXNjcmlwdGlvbiI6IldTSl/ljavnlJ/lsYAifSx7IkBpZCI6IjExIiwiaWQiOjM0LCJjcmVhdGVfdGltZSI6IjIwMTUtMDQtMjAgMTM6NTY6MDIiLCJtb2RpZnlfdGltZSI6IjIwMTUtMDQtMjAgMTM6NTY6MDIiLCJuYW1lIjoi5rCU6LGh5bGAIiwiZGVzY3JpcHRpb24iOiJRWEpf5rCU6LGh5bGAIn0seyJAaWQiOiIxMiIsImlkIjozMywiY3JlYXRlX3RpbWUiOiIyMDE1LTA0LTIwIDEzOjU2OjAyIiwibW9kaWZ5X3RpbWUiOiIyMDE1LTA0LTIwIDEzOjU2OjAyIiwibmFtZSI6IuWuieebkeWxgCIsImRlc2NyaXB0aW9uIjoiQUpKX+WuieebkeWxgCJ9LHsiQGlkIjoiMTMiLCJpZCI6MiwiY3JlYXRlX3RpbWUiOiIyMDE1LTAxLTMwIDE3OjUyOjM0IiwibW9kaWZ5X3RpbWUiOiIyMDE1LTAxLTMwIDE3OjUyOjM0IiwibmFtZSI6Iui0ouaUv+WxgCIsImRlc2NyaXB0aW9uIjoiQ1pKX+i0ouaUv+WxgCJ9LHsiQGlkIjoiMTQiLCJpZCI6MTUsImNyZWF0ZV90aW1lIjoiMjAxNC0xMi0yOSAxMjozNjozMCIsIm1vZGlmeV90aW1lIjoiMjAxNC0xMi0yOSAxMjozNjozMCIsIm5hbWUiOiLlm73lnJ/lsYAiLCJkZXNjcmlwdGlvbiI6IkdUSl/lm73lnJ/lsYAifSx7IkBpZCI6IjE1IiwiaWQiOjI1LCJjcmVhdGVfdGltZSI6IjIwMTQtMTItMzEgMDk6MTI6NDgiLCJtb2RpZnlfdGltZSI6IjIwMTQtMTItMzEgMDk6MTI6NDgiLCJuYW1lIjoi57uP5rWO55u45YWz57uEIiwiZGVzY3JpcHRpb24iOiJKSlhHWl/nu4/mtY7nm7jlhbPnu4QifSx7IkBpZCI6IjE2IiwiaWQiOjEyLCJjcmVhdGVfdGltZSI6IjIwMTUtMDQtMTkgMTY6MjE6MDciLCJtb2RpZnlfdGltZSI6IjIwMTUtMDQtMTkgMTY6MjE6MDciLCJuYW1lIjoi546v5L+d5bGAIiwiZGVzY3JpcHRpb24iOiJIQkpf546v5L+d5bGAIn0seyJAaWQiOiIxNyIsImlkIjoyNiwiY3JlYXRlX3RpbWUiOiIyMDE0LTEyLTI5IDEyOjM4OjM0IiwibW9kaWZ5X3RpbWUiOiIyMDE0LTEyLTI5IDEyOjM4OjM0IiwibmFtZSI6IuS6uuekvuWxgCIsImRlc2NyaXB0aW9uIjoiUlNKX+S6uuekvuWxgCJ9LHsiQGlkIjoiMTgiLCJpZCI6NywiY3JlYXRlX3RpbWUiOiIyMDE0LTEyLTI5IDEyOjM3OjA1IiwibW9kaWZ5X3RpbWUiOiIyMDE0LTEyLTI5IDEyOjM3OjA1IiwibmFtZSI6Iue7n+iuoeWxgCIsImRlc2NyaXB0aW9uIjoiVEpKX+e7n+iuoeWxgCJ9LHsiQGlkIjoiMTkiLCJpZCI6MTEsImNyZWF0ZV90aW1lIjoiMjAxNC0xMi0yOSAxMjozNzozOSIsIm1vZGlmeV90aW1lIjoiMjAxNC0xMi0yOSAxMjozNzozOSIsIm5hbWUiOiLorqHnlJ/lp5QiLCJkZXNjcmlwdGlvbiI6IkpTV1/orqHnlJ/lp5QifSx7IkBpZCI6IjIwIiwiaWQiOjEzLCJjcmVhdGVfdGltZSI6IjIwMTQtMTItMjkgMTI6MzU6NTQiLCJtb2RpZnlfdGltZSI6IjIwMTQtMTItMjkgMTI6MzU6NTQiLCJuYW1lIjoi5rC05Yip5bGAIiwiZGVzY3JpcHRpb24iOiJTTEpf5rC05Yip5bGAIn0seyJAaWQiOiIyMSIsImlkIjo1LCJjcmVhdGVfdGltZSI6IjIwMTUtMDEtMDMgMjI6MzM6MzUiLCJtb2RpZnlfdGltZSI6IjIwMTUtMDEtMDMgMjI6MzM6MzUiLCJuYW1lIjoi5raI6Ziy5bGAIiwiZGVzY3JpcHRpb24iOiJYRkpf5raI6Ziy5bGAIn0seyJAaWQiOiIyMiIsImlkIjoxNywiY3JlYXRlX3RpbWUiOiIyMDE0LTEyLTI5IDEyOjQ1OjE0IiwibW9kaWZ5X3RpbWUiOiIyMDE0LTEyLTI5IDEyOjQ1OjE0IiwibmFtZSI6Iue7j+S/oeWnlCIsImRlc2NyaXB0aW9uIjoiSlhXX+e7j+S/oeWnlCJ9LHsiQGlkIjoiMjMiLCJpZCI6NiwiY3JlYXRlX3RpbWUiOiIyMDE0LTEyLTI5IDEyOjQxOjU3IiwibW9kaWZ5X3RpbWUiOiIyMDE0LTEyLTI5IDEyOjQxOjU3IiwibmFtZSI6IuW4guS6pOitpuWkp+mYnyIsImRlc2NyaXB0aW9uIjoiU0pKRERf5biC5Lqk6K2m5aSn6ZifIn1dfSwiZXhwaXJlcyI6MTQ3OTg4MzMyOTUxNCwiZ3JhbnRlZEF1dGhzIjpbIlJPTEVfQURNSU5JU1RSQVRPUiJdLCJhY2NvdW50Tm9uTG9ja2VkIjp0cnVlLCJhY2NvdW50Tm9uRXhwaXJlZCI6dHJ1ZSwiY3JlZGVudGlhbHNOb25FeHBpcmVkIjp0cnVlLCJlbmFibGVkIjp0cnVlLCJ1c2VybmFtZSI6InN5c3RlbSIsInBhc3N3b3JkIjpudWxsfQ==.1yfx07Fa3M8CzqObBbUAGsEM5m+fi00aGs5J9NiiRac=";
 	let headers = {
@@ -29,11 +18,28 @@ export default($scope, $rootScope, $state, qService, dataDetailFactory, dateServ
 	let params = {
 		tableName: "TlcmInfrData"
 	};
+	$scope.list = [];
 	var pieColors = new Array('#3795BC', '#1FC22B', '#B5DF15', '#F6CD00', '#FB9705','#F26200');
 	var columnColors = new Array('#7CADDF', '#327EBD', '#195489', '#1FC22B', '#FB9705', '#F26200');
 	var time = new Date();
 	var thisYear = time.getUTCFullYear();
 	
+	var teleTelUserList = [];
+	var mblTelUserList = [];
+	var unicomTelUserList = [];
+	
+	var teleMblUserList = [];
+	var mblMblUserList = [];
+	var unicomMblUserList = [];
+	
+	var teleNetUserList = [];
+	var mblNetUserList = [];
+	var unicomNetUserList = [];
+	
+	var tele3gUserList = [];
+	var mbl3gUserList = [];
+	var unicom3gUserList = [];
+
 	var telUserLastYearList = [];
 	var mblUserLastYearList = [];
 	var netUserLastYearList = [];
@@ -44,28 +50,13 @@ export default($scope, $rootScope, $state, qService, dataDetailFactory, dateServ
 	var netUserTotalList = [];  //宽带用户总数
 	var bsns3gUserTotalList = []; //3G用户总数
 	$scope.userList = [];
+
 	
 	var baseStationTotalList = [];
 	var optclFiberLengthTotalList = [];
 	var switcherGateTotalList = [];
 	var netBandWidthTotalList = [];
 	$scope.infrstrctTotalList = [];
-
-	var teleTelUserList = [];
-	var mblTelUserList = [];
-	var unicomTelUserList = [];
-				
-	var teleMblUserList = [];
-	var mblMblUserList = [];
-	var unicomMblUserList = [];
-				
-	var teleNetUserList = [];
-	var mblNetUserList = [];
-	var unicomNetUserList = [];
-				
-	var tele3gUserList = [];
-	var mbl3gUserList = [];
-	var unicom3gUserList = [];
 
 	var teleBaseStationNumList = [];
 	var teleOptclFiberLengthList = [];
@@ -94,6 +85,8 @@ export default($scope, $rootScope, $state, qService, dataDetailFactory, dateServ
 	$scope.usrPrcntgKindList = [];	
 	
 	$scope.userLastYearListSelected = [];
+	$scope.lineChart = $scope.inforUserTotalLineChart;
+	$scope.areaChart = $scope.userPercentageByKindAreaChart;
 
 	let body = ['applyTime'];
 	$rootScope.loading = true;
@@ -114,187 +107,245 @@ export default($scope, $rootScope, $state, qService, dataDetailFactory, dateServ
 				start: startTime,
 				end: lastTime
 			}
+			let currentType = "user"; 
 			$rootScope.loading = true;
 			qService.httpGetbyJSOG(dataDetailFactory.query, params, headers).then((data) => {
 				
 				var data = data.data;
 				for(var i=0; i<data.length; i++){
 			
-					switch(data[i].oprtrType.id){
-					
-					case 6071://电信
-						teleTelUserList.push(data[i].telUserNum);
-						teleMblUserList.push(data[i].mblUserNum);
-						teleNetUserList.push(data[i].netUserNum);
-						tele3gUserList.push(data[i].bsns3gUserNum);
-						
-						teleBaseStationNumList.push(data[i].baseStationNum);
-						teleOptclFiberLengthList.push(data[i].optclFiberLength);
-						teleSwitcherGateNumList.push(data[i].switcherGateNum);
-						teleNetBandWidthList.push(data[i].netBandWidth);
+			switch(data[i].oprtrType.id){
+			
+			case 6071://电信
+				teleTelUserList.push(data[i].telUserNum);
+				teleMblUserList.push(data[i].mblUserNum);
+				teleNetUserList.push(data[i].netUserNum);
+				tele3gUserList.push(data[i].bsns3gUserNum);
+				
+				teleBaseStationNumList.push(data[i].baseStationNum);
+				teleOptclFiberLengthList.push(data[i].optclFiberLength);
+				teleSwitcherGateNumList.push(data[i].switcherGateNum);
+				teleNetBandWidthList.push(data[i].netBandWidth);
+				break;
+			case 6072://移动
+				mblTelUserList.push(data[i].telUserNum);
+				mblMblUserList.push(data[i].mblUserNum);
+				mblNetUserList.push(data[i].netUserNum);
+				mbl3gUserList.push(data[i].bsns3gUserNum);
+				
+				mblBaseStationNumList.push(data[i].baseStationNum);
+				mblOptclFiberLengthList.push(data[i].optclFiberLength);
+				mblSwitcherGateNumList.push(data[i].switcherGateNum);
+				mblNetBandWidthList.push(data[i].netBandWidth);
+				break;
+			case 6073://联通
+				unicomTelUserList.push(data[i].telUserNum);
+				unicomMblUserList.push(data[i].mblUserNum);
+				unicomNetUserList.push(data[i].netUserNum);
+				unicom3gUserList.push(data[i].bsns3gUserNum);
+				
+				unicomBaseStationNumList.push(data[i].baseStationNum);
+				unicomOptclFiberLengthList.push(data[i].optclFiberLength);
+				unicomSwitcherGateNumList.push(data[i].switcherGateNum);
+				unicomNetBandWidthList.push(data[i].netBandWidth);
+				break;
+			}
+			
+		}
+		var applyYear;
+		for(var j=0; j<data.length/3; j++){
+			applyYear = new Date(data[j*3].applyTime);
+			yearData.push(applyYear.getFullYear());
+			
+			if(teleTelUserList[j]==null&&mblTelUserList[j]==null&&unicomTelUserList[j]==null){
+				telUserTotalList.push(null);
+			}else{
+				telUserTotalList.push(teleTelUserList[j]+mblTelUserList[j]+unicomTelUserList[j]);
+			}
+			if(teleMblUserList[j]==null&&mblMblUserList[j]==null&&unicomMblUserList[j]==null){
+				mblUserTotalList.push(null);
+			}else{
+				mblUserTotalList.push(teleMblUserList[j]+mblMblUserList[j]+unicomMblUserList[j]);
+			}
+			if(teleNetUserList[j]==null&&mblNetUserList[j]==null&&unicomNetUserList[j]==null){
+				netUserTotalList.push(null);
+			}else{
+				netUserTotalList.push(teleNetUserList[j]+mblNetUserList[j]+unicomNetUserList[j]);
+			}
+			if(tele3gUserList[j]==null&&mbl3gUserList[j]==null&&unicom3gUserList[j]==null){
+				bsns3gUserTotalList.push(null);
+			}else{
+				bsns3gUserTotalList.push(tele3gUserList[j]+mbl3gUserList[j]+unicom3gUserList[j]);
+			}
+			
+			if(teleBaseStationNumList[j]==null&&mblBaseStationNumList[j]==null&&unicomBaseStationNumList[j]==null){
+				baseStationTotalList.push(null);
+			}else{
+				baseStationTotalList.push(teleBaseStationNumList[j]+mblBaseStationNumList[j]+unicomBaseStationNumList[j]);
+			}
+			if(teleOptclFiberLengthList[j]==null&&mblOptclFiberLengthList[j]==null&&unicomOptclFiberLengthList[j]==null){
+				optclFiberLengthTotalList.push(null);
+			}else{
+				optclFiberLengthTotalList.push(teleOptclFiberLengthList[j]+mblOptclFiberLengthList[j]+unicomOptclFiberLengthList[j]);
+			}
+			if(teleSwitcherGateNumList[j]==null&&mblSwitcherGateNumList[j]==null&&unicomSwitcherGateNumList[j]==null){
+				switcherGateTotalList.push(null);
+			}else{
+				switcherGateTotalList.push(teleSwitcherGateNumList[j]+mblSwitcherGateNumList[j]+unicomSwitcherGateNumList[j]);
+			}
+			if(teleNetBandWidthList[j]==null&&mblNetBandWidthList[j]==null&&unicomNetBandWidthList[j]==null){
+				netBandWidthTotalList.push(null);
+			}else{
+				netBandWidthTotalList.push(teleNetBandWidthList[j]+mblNetBandWidthList[j]+unicomNetBandWidthList[j]);
+			}
+		}
+		
+		$scope.displayYear = yearData[data.length/3-1];
+		console.log($scope.displayYear);
+		$scope.lastYear = yearData[data.length/3-2];
+		console.log($scope.lastYear);
+		telUserLastYearList = returnLastYearTableData(teleTelUserList, '电信', mblTelUserList, '移动', unicomTelUserList, '联通', (data.length/3-1));
+		mblUserLastYearList = returnLastYearTableData(teleMblUserList, '电信', mblMblUserList, '移动', unicomMblUserList, '联通', (data.length/3-1));
+		netUserLastYearList = returnLastYearTableData(teleNetUserList, '电信', mblNetUserList, '移动', unicomNetUserList, '联通', (data.length/3-1));
+		bsns3gUserLastYearList = returnLastYearTableData(tele3gUserList, '电信', mbl3gUserList, '移动', unicom3gUserList, '联通', (data.length/3-1));
+		$scope.userListLastYearSelected = telUserLastYearList;
+		$scope.userListLastYearTitle = '固话用户情况';
+		
+		baseStationLastYearList = returnLastYearTableData(teleBaseStationNumList, '电信', mblBaseStationNumList, '移动', unicomBaseStationNumList, '联通', (data.length/3-1));
+		optclFiberLastYearList = returnLastYearTableData(teleOptclFiberLengthList, '电信', mblOptclFiberLengthList, '移动', unicomOptclFiberLengthList, '联通', (data.length/3-1));
+		console.log(optclFiberLastYearList);
+		switcherGateLastYearList = returnLastYearTableData(teleSwitcherGateNumList, '电信', mblSwitcherGateNumList, '移动', unicomSwitcherGateNumList, '联通', (data.length/3-1));
+		netBandWidthLastYearList = returnLastYearTableData(teleNetBandWidthList, '电信', mblNetBandWidthList, '移动', unicomNetBandWidthList, '联通', (data.length/3-1));
+		$scope.infrstrctTotalLastYearTitle = '基站情况';
+		$scope.infrstrctTotalLastYearUnion = '个';
+		$scope.infrstrctListLastYearSelected = baseStationLastYearList;
+		
+		$scope.userList.push({
+			name: '固话用户',
+			data: telUserTotalList
+		});
+		$scope.userList.push({
+			name: '移动电话用户',
+			data: mblUserTotalList
+		});
+		$scope.userList.push({
+			name: '宽带用户',
+			data: netUserTotalList
+		});
+		$scope.userList.push({
+			name: '3G业务用户',
+			data: bsns3gUserTotalList
+		});
+		$scope.userKindSelected = $scope.userList[0].name;
+		$scope.inforUserTotalLineChart.series[0].name = $scope.userList[0].name;
+		$scope.inforUserTotalLineChart.series[0].data = $scope.userList[0].data;
+		
+		$scope.infrstrctTotalList.push({
+			name: '基站',
+			data: baseStationTotalList
+		});
+		$scope.infrstrctTotalList.push({
+			name: '光纤总长',
+			data: optclFiberLengthTotalList
+		});
+		$scope.infrstrctTotalList.push({
+			name: '交换机',
+			data: switcherGateTotalList
+		});
+		$scope.infrstrctTotalList.push({
+			name: '互联网带宽',
+			data: netBandWidthTotalList
+		});
+		$scope.infrstrctKindSelected = $scope.infrstrctTotalList[0].name;
+		$scope.infrstrctTotalLineChart.series[0].name = $scope.infrstrctTotalList[0].name;
+		$scope.infrstrctTotalLineChart.series[0].data = $scope.infrstrctTotalList[0].data;
+		$scope.infrstrctTotalLineChart.options.yAxis.title.text = "基站数 (个)";
+		$scope.infrstrctTotalLineChart.options.tooltip.valueSuffix = '个';
+		
+		telUserList = returnUserByKindTableData(teleTelUserList, '电信', mblTelUserList, '移动', unicomTelUserList, '联通');
+		mblUserList = returnUserByKindTableData(teleMblUserList, '电信', mblMblUserList, '移动', unicomMblUserList, '联通');
+		netUserList = returnUserByKindTableData(teleNetUserList, '电信', mblNetUserList, '移动', unicomNetUserList, '联通');
+		bsns3gUserList = returnUserByKindTableData(tele3gUserList, '电信', mbl3gUserList, '移动', unicom3gUserList, '联通');
+		
+		$scope.usrPrcntgKindList.push({
+			name: '固话用户',
+			data: telUserList
+		});
+		$scope.usrPrcntgKindList.push({
+			name: '移动电话用户',
+			data: mblUserList
+		});
+		$scope.usrPrcntgKindList.push({
+			name: '宽带用户',
+			data: netUserList
+		});
+		$scope.usrPrcntgKindList.push({
+			name: '3G业务用户',
+			data: bsns3gUserList
+		});
+		$scope.userPercentageByKindAreaChart.series[0].data = $scope.usrPrcntgKindList[0].data[0].data;
+		$scope.userPercentageByKindAreaChart.series[1].data = $scope.usrPrcntgKindList[0].data[1].data;
+		$scope.userPercentageByKindAreaChart.series[2].data = $scope.usrPrcntgKindList[0].data[2].data;
+		$scope.userPercentageKindSelected = $scope.usrPrcntgKindList[0].name;
+		
+		$scope.infrstrctPercentageByKindAreaChart.series[0].data = teleBaseStationNumList;
+		$scope.infrstrctPercentageByKindAreaChart.series[1].data = mblBaseStationNumList;
+		$scope.infrstrctPercentageByKindAreaChart.series[2].data = unicomBaseStationNumList;
+		$scope.lineChart = $scope.inforUserTotalLineChart;
+		$scope.areaChart = $scope.userPercentageByKindAreaChart;
+		$scope.changeChoice = (choice) => {
+			$('#psTelecomTogglePanel').hide(0);
+			console.log(choice);
+			if(currentType == "user"){
+				$scope.userKindChange(choice);
+				$scope.listLastYearTitle = $scope.userListLastYearTitle;
+				$scope.listLastYearSelected = $scope.userListLastYearSelected;
+				$scope.union = "人";
+			}else if(currentType == "infrastructure"){
+				$scope.infrstrctKindChange(choice);
+				$scope.listLastYearTitle = $scope.infrstrctTotalLastYearTitle;
+				$scope.listLastYearSelected = $scope.infrstrctListLastYearSelected;
+				$scope.union = $scope.infrstrctTotalLastYearUnion;
+			}
+		};
+		$scope.changeChart = (type) => {
+				switch (type) {
+					case "user":
+						$scope.type = "用户";
+						$scope.title = "基础用户";
+						$scope.list = $scope.userList;
+						$scope.lineChart = $scope.inforUserTotalLineChart;
+						$scope.areaChart = $scope.userPercentageByKindAreaChart;
+						$scope.listLastYearTitle = $scope.userListLastYearTitle;
+						$scope.listLastYearSelected = $scope.userListLastYearSelected;
+						$scope.union = "人";
+						$('#cmrefuse-s1').addClass('activeTab');
+						$('#cmrefuse-s2').removeClass('activeTab');
+						currentType = "user";
 						break;
-					case 6072://移动
-						mblTelUserList.push(data[i].telUserNum);
-						mblMblUserList.push(data[i].mblUserNum);
-						mblNetUserList.push(data[i].netUserNum);
-						mbl3gUserList.push(data[i].bsns3gUserNum);
-						
-						mblBaseStationNumList.push(data[i].baseStationNum);
-						mblOptclFiberLengthList.push(data[i].optclFiberLength);
-						mblSwitcherGateNumList.push(data[i].switcherGateNum);
-						mblNetBandWidthList.push(data[i].netBandWidth);
+					case "infrastructure":
+						$scope.type = "基础设施";
+						$scope.title = "基础设施";
+						$scope.list = $scope.infrstrctTotalList;
+						$scope.lineChart = $scope.infrstrctTotalLineChart;
+						$scope.areaChart = $scope.infrstrctPercentageByKindAreaChart;
+						$scope.listLastYearTitle = $scope.infrstrctTotalLastYearTitle;
+						$scope.listLastYearSelected = $scope.infrstrctListLastYearSelected;
+						$scope.union = $scope.infrstrctTotalLastYearUnion;
+						$('#cmrefuse-s2').addClass('activeTab');
+						$('#cmrefuse-s1').removeClass('activeTab');
+						currentType = "infrastructure";
 						break;
-					case 6073://联通
-						unicomTelUserList.push(data[i].telUserNum);
-						unicomMblUserList.push(data[i].mblUserNum);
-						unicomNetUserList.push(data[i].netUserNum);
-						unicom3gUserList.push(data[i].bsns3gUserNum);
-						
-						unicomBaseStationNumList.push(data[i].baseStationNum);
-						unicomOptclFiberLengthList.push(data[i].optclFiberLength);
-						unicomSwitcherGateNumList.push(data[i].switcherGateNum);
-						unicomNetBandWidthList.push(data[i].netBandWidth);
-						break;
-					}
-					
 				}
-				var applyYear;
-				for(var j=0; j<data.length/3; j++){
-					applyYear = new Date(data[j*3].applyTime);
-					yearData.push(applyYear.getFullYear());
-					
-					if(teleTelUserList[j]==null&&mblTelUserList[j]==null&&unicomTelUserList[j]==null){
-						telUserTotalList.push(null);
-					}else{
-						telUserTotalList.push(teleTelUserList[j]+mblTelUserList[j]+unicomTelUserList[j]);
-					}
-					if(teleMblUserList[j]==null&&mblMblUserList[j]==null&&unicomMblUserList[j]==null){
-						mblUserTotalList.push(null);
-					}else{
-						mblUserTotalList.push(teleMblUserList[j]+mblMblUserList[j]+unicomMblUserList[j]);
-					}
-					if(teleNetUserList[j]==null&&mblNetUserList[j]==null&&unicomNetUserList[j]==null){
-						netUserTotalList.push(null);
-					}else{
-						netUserTotalList.push(teleNetUserList[j]+mblNetUserList[j]+unicomNetUserList[j]);
-					}
-					if(tele3gUserList[j]==null&&mbl3gUserList[j]==null&&unicom3gUserList[j]==null){
-						bsns3gUserTotalList.push(null);
-					}else{
-						bsns3gUserTotalList.push(tele3gUserList[j]+mbl3gUserList[j]+unicom3gUserList[j]);
-					}
-					
-					if(teleBaseStationNumList[j]==null&&mblBaseStationNumList[j]==null&&unicomBaseStationNumList[j]==null){
-						baseStationTotalList.push(null);
-					}else{
-						baseStationTotalList.push(teleBaseStationNumList[j]+mblBaseStationNumList[j]+unicomBaseStationNumList[j]);
-					}
-					if(teleOptclFiberLengthList[j]==null&&mblOptclFiberLengthList[j]==null&&unicomOptclFiberLengthList[j]==null){
-						optclFiberLengthTotalList.push(null);
-					}else{
-						optclFiberLengthTotalList.push(teleOptclFiberLengthList[j]+mblOptclFiberLengthList[j]+unicomOptclFiberLengthList[j]);
-					}
-					if(teleSwitcherGateNumList[j]==null&&mblSwitcherGateNumList[j]==null&&unicomSwitcherGateNumList[j]==null){
-						switcherGateTotalList.push(null);
-					}else{
-						switcherGateTotalList.push(teleSwitcherGateNumList[j]+mblSwitcherGateNumList[j]+unicomSwitcherGateNumList[j]);
-					}
-					if(teleNetBandWidthList[j]==null&&mblNetBandWidthList[j]==null&&unicomNetBandWidthList[j]==null){
-						netBandWidthTotalList.push(null);
-					}else{
-						netBandWidthTotalList.push(teleNetBandWidthList[j]+mblNetBandWidthList[j]+unicomNetBandWidthList[j]);
-					}
-				}
-
-				$scope.displayYear = yearData[data.length/3-1];
-				$scope.lastYear = yearData[data.length/3-2];
-				telUserLastYearList = returnLastYearTableData(teleTelUserList, '电信', mblTelUserList, '移动', unicomTelUserList, '联通', (data.length/3-1));
-				mblUserLastYearList = returnLastYearTableData(teleMblUserList, '电信', mblMblUserList, '移动', unicomMblUserList, '联通', (data.length/3-1));
-				netUserLastYearList = returnLastYearTableData(teleNetUserList, '电信', mblNetUserList, '移动', unicomNetUserList, '联通', (data.length/3-1));
-				bsns3gUserLastYearList = returnLastYearTableData(tele3gUserList, '电信', mbl3gUserList, '移动', unicom3gUserList, '联通', (data.length/3-1));
-				$scope.userListLastYearSelected = telUserLastYearList;
-				$scope.userListLastYearTitle = '固话用户情况';
-
-				baseStationLastYearList = returnLastYearTableData(teleBaseStationNumList, '电信', mblBaseStationNumList, '移动', unicomBaseStationNumList, '联通', (data.length/3-1));
-				optclFiberLastYearList = returnLastYearTableData(teleOptclFiberLengthList, '电信', mblOptclFiberLengthList, '移动', unicomOptclFiberLengthList, '联通', (data.length/3-1));
-				switcherGateLastYearList = returnLastYearTableData(teleSwitcherGateNumList, '电信', mblSwitcherGateNumList, '移动', unicomSwitcherGateNumList, '联通', (data.length/3-1));
-				netBandWidthLastYearList = returnLastYearTableData(teleNetBandWidthList, '电信', mblNetBandWidthList, '移动', unicomNetBandWidthList, '联通', (data.length/3-1));
-				$scope.infrstrctTotalLastYearTitle = '基站情况';
-				$scope.infrstrctTotalLastYearUnion = '个';
-				$scope.infrstrctListLastYearSelected = baseStationLastYearList;
-
-				$scope.userList.push({
-					name: '固话用户',
-					data: telUserTotalList
-				});
-				$scope.userList.push({
-					name: '移动电话用户',
-					data: mblUserTotalList
-				});
-				$scope.userList.push({
-					name: '宽带用户',
-					data: netUserTotalList
-				});
-				$scope.userList.push({
-					name: '3G业务用户',
-					data: bsns3gUserTotalList
-				});
-				$scope.userKindSelected = $scope.userList[0].name;
-				$scope.infrstrctTotalList.push({
-					name: '基站',
-					data: baseStationTotalList
-				});
-				$scope.infrstrctTotalList.push({
-					name: '光纤总长',
-					data: optclFiberLengthTotalList
-				});
-				$scope.infrstrctTotalList.push({
-					name: '交换机',
-					data: switcherGateTotalList
-				});
-				$scope.infrstrctTotalList.push({
-					name: '互联网带宽',
-					data: netBandWidthTotalList
-				});
-				$scope.infrstrctKindSelected = $scope.infrstrctTotalList[0].name;
-				
-				telUserList = returnUserByKindTableData(teleTelUserList, '电信', mblTelUserList, '移动', unicomTelUserList, '联通');
-				mblUserList = returnUserByKindTableData(teleMblUserList, '电信', mblMblUserList, '移动', unicomMblUserList, '联通');
-				netUserList = returnUserByKindTableData(teleNetUserList, '电信', mblNetUserList, '移动', unicomNetUserList, '联通');
-				bsns3gUserList = returnUserByKindTableData(tele3gUserList, '电信', mbl3gUserList, '移动', unicom3gUserList, '联通');
-				
-				$scope.usrPrcntgKindList.push({
-					name: '固话用户',
-					data: telUserList
-				});
-				$scope.usrPrcntgKindList.push({
-					name: '移动电话用户',
-					data: mblUserList
-				});
-				$scope.usrPrcntgKindList.push({
-					name: '宽带用户',
-					data: netUserList
-				});
-				$scope.usrPrcntgKindList.push({
-					name: '3G业务用户',
-					data: bsns3gUserList
-				});
-				$scope.userPercentageByKindAreaChart.series[0].data = $scope.usrPrcntgKindList[0].data[0].data;
-				$scope.userPercentageByKindAreaChart.series[1].data = $scope.usrPrcntgKindList[0].data[1].data;
-				$scope.userPercentageByKindAreaChart.series[2].data = $scope.usrPrcntgKindList[0].data[2].data;
-				$scope.userPercentageKindSelected = $scope.usrPrcntgKindList[0].name;
-				
-				$scope.infrstrctPercentageByKindAreaChart.series[0].data = teleBaseStationNumList;
-				$scope.infrstrctPercentageByKindAreaChart.series[1].data = mblBaseStationNumList;
-				$scope.infrstrctPercentageByKindAreaChart.series[2].data = unicomBaseStationNumList;
-
-			}, (err) => {
-				if (err.errorCode == "UNAUTHORIZED") {
-					$state.go('portal');
-				} else {}
-			}).finally(() => {
-		        $rootScope.loading = false;
-		    });
+		};
+		$scope.changeChart(currentType);
+	}, (err) => {
+		if (err.errorCode == "UNAUTHORIZED") {
+			$state.go('portal');
+		} else {}
+	}).finally(() => {
+        $rootScope.loading = false;
+    });
 		} else {}
 	}, (err) => {
 		if (err.errorCode == "UNAUTHORIZED") {
@@ -304,6 +355,70 @@ export default($scope, $rootScope, $state, qService, dataDetailFactory, dateServ
         $rootScope.loading = false;
     });	
 
+	$scope.inforUserTotalLineChart = {
+			options:{
+				credits: {
+		            enabled: false
+		        },
+		        xAxis: {
+		        	tickInterval: 1,
+		        	title: {
+		                text: '年份'
+		            },
+		            categories: yearData,
+		            tickmarkPlacement: 'on',
+		            labels: {
+	                    rotation: -45,
+	                    align: 'right',
+	                    step: 1,
+	                    style: {
+							fontSize: "10px"
+						}
+                	}
+		        },
+		        yAxis: {
+		        	min: 0,
+		            title: {
+		                text: '用户数(人)'
+		            },
+		            plotLines: [{
+		                value: 0,
+		                width: 1,
+		                color: '#808080'
+		            }],
+		            labels: {
+						formatter: function() {
+							return this.value
+						}
+					}
+		        },
+		        exporting: {
+					enabled: false, // 取消打印menu
+				},
+		        tooltip: {
+		            valueSuffix: '人'
+		        },
+			},
+			legend: {
+				layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'top',
+                x: 0,
+                y: 100,
+                borderWidth: 0
+			},
+			title: {
+	            text: '近五年固话用户情况',
+	            style: {
+					fontSize: "15px"
+				}
+	        },
+	        series: [{
+	        	color: '#2F4172',
+	            name: '',
+	            data: []
+	        }]
+	};
 	$scope.userPercentageByKindAreaChart = {
 			options:{
 				colors: pieColors,
@@ -313,21 +428,31 @@ export default($scope, $rootScope, $state, qService, dataDetailFactory, dateServ
 		        credits: {
 		            enabled: false
 		        },
-		        exporting: {
-					enabled: false, // 取消打印menu
-				},
 		        xAxis: {
 		            categories: yearData,
+		            tickInterval: 1,
 		            tickmarkPlacement: 'on',
 		            title: {
 		                text: '年份'
 		            },
+		            tickmarkPlacement: 'on',
+	                labels: {
+	                    rotation: -45,
+	                    align: 'right',
+	                    step: 1,
+	                    style: {
+							fontSize: "10px"
+						}
+	                }
 		        },
 		        yAxis: {
 		            title: {
 		                text: '各运营商所占比例 (%)'
 		            }
 		        },
+		        exporting: {
+					enabled: false, // 取消打印menu
+				},
 		        tooltip: {
 		            pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.percentage:.1f}%</b> ({point.y:,.0f} 人)<br/>',
 		            shared: true
@@ -345,7 +470,10 @@ export default($scope, $rootScope, $state, qService, dataDetailFactory, dateServ
 		        }
 			},
 	        title: {
-	            text: '近五年固话用户分布情况'
+	            text: '近五年固话用户分布情况',
+	            style: {
+					fontSize: "15px"
+				}
 	        },
 	        series: [{
 	        	name: '电信',
@@ -357,7 +485,66 @@ export default($scope, $rootScope, $state, qService, dataDetailFactory, dateServ
 	        	name: '联通',
 	        	data: []
 	        }]
-	};	
+	};
+	$scope.infrstrctTotalLineChart = {
+			options:{
+				credits: {
+		            enabled: false
+		        },
+		        xAxis: {
+		        	title: {
+		                text: '年份'
+		            },
+		            categories: yearData,
+		            tickInterval: 1,
+		            tickmarkPlacement: 'on',
+		            labels: {
+	                    rotation: -45,
+	                    align: 'right',
+	                    step: 1,
+	                    style: {
+							fontSize: "10px"
+						}
+	                }
+		        },
+		        yAxis: {
+		        	min: 0,
+		            title: {
+		                text: '基站数(个)'
+		            },
+		            plotLines: [{
+		                value: 0,
+		                width: 1,
+		                color: '#808080'
+		            }],
+		            labels: {
+						formatter: function() {
+							return this.value
+						}
+					}
+		        },
+		        exporting: {
+					enabled: false, // 取消打印menu
+				},
+		        tooltip: {
+		            valueSuffix: '个'
+		        },
+		        legend: {
+		            enabled: false
+		        }
+			},
+			title: {
+	            text: '近五年基站情况',
+	            style: {
+					fontSize: "15px"
+				}
+	        },
+	        series: [{
+	            name: '',
+	            data: []
+	        }]
+	};
+	
 	$scope.infrstrctPercentageByKindAreaChart = {
 			options:{
 				colors: pieColors,
@@ -367,21 +554,30 @@ export default($scope, $rootScope, $state, qService, dataDetailFactory, dateServ
 		        credits: {
 		            enabled: false
 		        },
-		        exporting: {
-					enabled: false, // 取消打印menu
-				},
 		        xAxis: {
 		            categories: yearData,
+		            tickInterval: 1,
 		            tickmarkPlacement: 'on',
 		            title: {
 		                text: '年份'
 		            },
+		            labels: {
+	                    rotation: -45,
+	                    align: 'right',
+	                    step: 1,
+	                    style: {
+							fontSize: "10px"
+						}
+	                }
 		        },
 		        yAxis: {
 		            title: {
 		                text: '各运营商所占比例 (%)'
 		            }
 		        },
+		        exporting: {
+					enabled: false, // 取消打印menu
+				},
 		        tooltip: {
 		            pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.percentage:.1f}%</b> ({point.y:,.0f}个)<br/>',
 		            shared: true
@@ -399,7 +595,10 @@ export default($scope, $rootScope, $state, qService, dataDetailFactory, dateServ
 		        }
 			},
 	        title: {
-	            text: '近五年基站分布情况'
+	            text: '近五年基站分布情况',
+	            style: {
+					fontSize: "15px"
+				}
 	        },
 	        series: [{
 	        	name: '电信',
@@ -453,6 +652,9 @@ export default($scope, $rootScope, $state, qService, dataDetailFactory, dateServ
 		return reList;
 	}
 	$scope.userKindChange = function(user){
+		$scope.inforUserTotalLineChart.title.text = "近五年"+user.name+"情况";
+		$scope.inforUserTotalLineChart.series[0].name = user.name;
+		$scope.inforUserTotalLineChart.series[0].data = user.data;
 		switch(user.name.trim()){
 		
 		case '固话用户':  
@@ -491,11 +693,16 @@ export default($scope, $rootScope, $state, qService, dataDetailFactory, dateServ
 		}
 	};
 	$scope.infrstrctKindChange = function(infrstrct){
+		$scope.infrstrctTotalLineChart.title.text = "近五年"+infrstrct.name+"情况";
+		$scope.infrstrctTotalLineChart.series[0].name = infrstrct.name;
+		$scope.infrstrctTotalLineChart.series[0].data = infrstrct.data;
 		$scope.infrstrctPercentageByKindAreaChart.title.text = "近五年"+infrstrct.name+"分布情况";//"近五年"+infrstrct.name+"分布情况";
 		switch(infrstrct.name.trim()){
 		case '基站':
 			$scope.infrstrctTotalLastYearTitle = '基站情况';
 			$scope.infrstrctTotalLastYearUnion = '个';
+			$scope.infrstrctTotalLineChart.options.yAxis.title.text = "基站数 (个)";
+			$scope.infrstrctTotalLineChart.options.tooltip.valueSuffix = '个';
 			
 			$scope.infrstrctListLastYearSelected = baseStationLastYearList;
 			
@@ -507,6 +714,8 @@ export default($scope, $rootScope, $state, qService, dataDetailFactory, dateServ
 		case '光纤总长':
 			$scope.infrstrctTotalLastYearTitle = '光纤总长情况';
 			$scope.infrstrctTotalLastYearUnion = 'km';
+			$scope.infrstrctTotalLineChart.options.yAxis.title.text = "光纤总长 (km)";
+			$scope.infrstrctTotalLineChart.options.tooltip.valueSuffix = 'km';
 			
 			$scope.infrstrctListLastYearSelected = optclFiberLastYearList;
 			
@@ -518,6 +727,8 @@ export default($scope, $rootScope, $state, qService, dataDetailFactory, dateServ
 		case '交换机':
 			$scope.infrstrctTotalLastYearTitle = '交换机情况';
 			$scope.infrstrctTotalLastYearUnion = '门';
+			$scope.infrstrctTotalLineChart.options.yAxis.title.text = "交换机门数 (门)";
+			$scope.infrstrctTotalLineChart.options.tooltip.valueSuffix = '门';
 			
 			$scope.infrstrctListLastYearSelected = switcherGateLastYearList;
 			
@@ -529,6 +740,8 @@ export default($scope, $rootScope, $state, qService, dataDetailFactory, dateServ
 		case '互联网带宽':
 			$scope.infrstrctTotalLastYearTitle = '互联网带宽情况';
 			$scope.infrstrctTotalLastYearUnion = 'G';
+			$scope.infrstrctTotalLineChart.options.yAxis.title.text = "互联网带宽 (G)";
+			$scope.infrstrctTotalLineChart.options.tooltip.valueSuffix = 'G';
 			
 			$scope.infrstrctListLastYearSelected = netBandWidthLastYearList;
 			

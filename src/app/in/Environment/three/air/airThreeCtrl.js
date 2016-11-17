@@ -1,4 +1,4 @@
-export default ($scope, kpiDetailService, dateService) => {
+export default ($rootScope, $scope, kpiDetailService, dateService) => {
     'ngInject';
 
     const jQueryDOMToDos = () => {
@@ -1665,6 +1665,7 @@ export default ($scope, kpiDetailService, dateService) => {
             });
         }
         $scope.wasteAirOptions.wasteAirCurrentOption.series = wasteAirSeriesTemp;
+        $rootScope.loading=false;
     };
 
 //废气排放抽出前五的数据和其他数据平均值或总和
@@ -2369,6 +2370,7 @@ export default ($scope, kpiDetailService, dateService) => {
      * 有些图表的数据是在网页刷新时就请求到的
      **/
     //空气质量 当天数据模块 初始化
+    $rootScope.loading=true;
     kpiDetailService.getLastestObject('AirQuality', ['date'], function (data) {
         var date = data.data.date;
         var datebaseLastestDate = moment(date).subtract(1, 'hours');
@@ -2395,6 +2397,7 @@ export default ($scope, kpiDetailService, dateService) => {
             addMarker(airQualityMarkerArr, 'airQuality');
             mapObj.setCenter(new AMap.LngLat(121.106661, 31.479533));
             mapObj.setZoom(11);
+            $rootScope.loading=false;
         });
         var airQulaityLastDate = {
             year: dateService.formatDateTime(endTime).slice(0, 4),
@@ -2405,6 +2408,7 @@ export default ($scope, kpiDetailService, dateService) => {
         $scope.airQualityCurrentDateTime = airQulaityLastDate;
     });
     //废气排放 当天数据模块 初始化
+    $rootScope.loading=true;
     kpiDetailService.getLastestObject('AirPollution', ['date'], function (data) {
         var date = data.data.date;
         var datebaseLastestDate = moment(date);

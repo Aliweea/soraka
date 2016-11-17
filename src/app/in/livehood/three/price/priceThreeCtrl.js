@@ -536,12 +536,13 @@ function lineHighChart(title, xAxis, step, height) {
   }
 
   $scope.initFoodPriceHighChart = function() {
-     // resetPriceData();
+    resetPriceData();
     $scope.PRICEDATA.a_riceDataList.isCollapsed = true;
     $scope.PRICEDATA.a_riceDataList.data[0].model = true;
     $scope.foodPriceHighChartOption.series=[];
-    $scope.foodPriceHighChartOption.series.push($scope.PRICEDATA.a_riceDataList.data[0]);
-
+      var temseries1=[];
+      temseries1.push($scope.PRICEDATA.a_riceDataList.data[0]);
+      temseries=temseries1;
   }
   var temseries = [];
   $scope.checkBoxChange = function(item) {
