@@ -5,6 +5,7 @@ export default($scope, $state, hService, qService, xService, kpiRes, $rootScope)
 	const jQueryDOMToDos = () => {
 		$('.navTopShowPopulation').hide(0);
 	    $('.navTopShowInsurance').hide(0);
+	    $(".insurance-return").hide(0);
 
 	}();
 	$scope.changeTitle = (title = "人口结构图") => {
@@ -15,13 +16,12 @@ export default($scope, $state, hService, qService, xService, kpiRes, $rootScope)
 	$scope.changeTitle();
 
 
-    // 社会保险部分
-  	$scope.changeInsuranceTitle = (title = "人口结构图") => {
-		$scope.insuranceTitle = {
-			title: title
-		};
-	}
-	$scope.changeInsuranceTitle();
+    //社会保险部分
+	$scope.insuranceTitle = "城镇基本养老保险";
+  	$scope.changeInsuranceTitle = (name) => {
+		$scope.insuranceTitle = name;
+	};
+	$scope.changeInsuranceTitle("城镇基本养老保险");
 
 	// 上一级路由
 	$scope.toH = () => {
