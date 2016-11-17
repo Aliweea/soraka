@@ -1,4 +1,18 @@
 /*人口保险切样式*/
+.insurance-return-home{
+  display: inline-block;
+      width: 20%;
+      margin-top: ($bottomBarH - 23px) / 2;
+      text-align: left;
+      i {
+        font-size: 21px;
+        padding-left: 18px;
+      }
+      span {
+        padding-left: 7px;
+        font-size: 16px;
+      }
+}
 .lh-insurance-choose {
     width: 67%;
     display: inline-block;
@@ -23,7 +37,7 @@
     background-color: rgba(255, 255, 255, 1);
     .cm-return-home {
       display: inline-block;
-      width: 23%;
+      width: 15%;
       margin-top: ($bottomBarH - 23px) / 2;
       text-align: left;
       i {
