@@ -1,4 +1,4 @@
-export default ($scope, kpiDetailService, dateService) => {
+export default ($rootScope, $scope, kpiDetailService, dateService) => {
     'ngInject';
 
     const jQueryDOMToDos = () => {
@@ -1117,7 +1117,7 @@ export default ($scope, kpiDetailService, dateService) => {
         $scope.waterConditionOptions.waterConditionCurrentOption.xAxis.categories = waterConditionCurrentTimeList;
         $scope.waterConditionOptions.waterConditionCurrentOption.series[0].data = waterConditionCurrentArr[0].index_levelUp;
         $scope.waterConditionOptions.waterConditionCurrentOption.series[1].data = waterConditionCurrentArr[0].index_levelDown;
-
+        $rootScope.loading = false;
     };
     //水情 Button点击事件
     $scope.waterConditionBtn = function () {
@@ -1307,6 +1307,7 @@ export default ($scope, kpiDetailService, dateService) => {
             });
         }
         $scope.wasteWaterOptions.wasteWaterCurrentOption.series = wasteWaterSeriesTemp;
+        $rootScope.loading=false;
     };
     //废水排放抽出所有污染源最近一天的数据
     function wasteWaterCurrentAllGet(data) {
@@ -1990,11 +1991,13 @@ export default ($scope, kpiDetailService, dateService) => {
      * 有些图表的数据是在网页刷新时就请求到的
      */
     // 水质 当天数据模块 初始化
+    $rootScope.loading=true;
     kpiDetailService.getLastestObject('WaterQuality', ['date'], function (data) {
         var date = data.data.date;
         var datebaseLastestDate = moment(date).subtract(1, 'hours');
         var startTime = getSubstractDate(getCurrentDate(datebaseLastestDate), 23);
         var endTime = getCurrentDate(datebaseLastestDate);
+
         kpiDetailService.advancedQuery('WaterQuality', {
             date: {
                 value1: startTime,
@@ -2015,6 +2018,7 @@ export default ($scope, kpiDetailService, dateService) => {
             mapInit();
             addMarker(waterQualityMarkerArr, 'waterQuality');
             mapObj.setFitView();
+            $rootScope.loading=false;
         });
         var waterQualityLastDate = {
             year: dateService.formatDateTime(endTime).slice(0, 4),
@@ -2024,6 +2028,7 @@ export default ($scope, kpiDetailService, dateService) => {
         };
         $scope.waterQualityCurrentDateTime = waterQualityLastDate;
     });
+    $rootScope.loading=true;
     //废水排放 当天数据模块 初始化
     kpiDetailService.getLastestObject('WaterPollution', ['date'], function (data) {
         var date = data.data.date;
@@ -2054,6 +2059,7 @@ export default ($scope, kpiDetailService, dateService) => {
         };
         $scope.wasteWaterCurrentDateTime = wasteWaterLastDate;
     });
+    $rootScope.loading=true;
     //水情 当天数据模块 初始化
     kpiDetailService.getLastestObject('WaterCondition', ['date'], function (data) {
         var date = data.data.date;
