@@ -12,6 +12,7 @@ export default($scope, $state, hService, qService, xService, kpiRes, $rootScope)
     }();
 	// 上一级路由
 	$scope.toH = () => {
+		$scope.changeTitle();
 		let h = hService.state();
 		if (h.params == null) {
 			$state.go(h.name);
@@ -19,7 +20,7 @@ export default($scope, $state, hService, qService, xService, kpiRes, $rootScope)
 			$state.go(h.name, h.params);
 		}
 	}
-	$scope.changeTitle = (subTitle) => {
+	$scope.changeTitle = (subTitle = "报警数") => {
 		$scope.subTitle = subTitle;
 	}
 
