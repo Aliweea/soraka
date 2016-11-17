@@ -95,9 +95,9 @@ $scope.concealDetail1 = () => {
   function setTab(tabName) {
       for (var i = 0; i < $scope.tabMap.length; i++) {
         if ($scope.tabMap[i].active == true && $scope.tabMap[i].name != tabName)
-          $scope.tabMap[i].active = false;
+          {$scope.tabMap[i].active = false;}
         else if ($scope.tabMap[i].name == tabName)
-          $scope.tabMap[i].active = true;
+         { $scope.tabMap[i].active = true;}
       }
       $scope.PARTICAPTEDUNITNEW = $scope.PARTICAPTEDUNIT;
       $scope.PARTICAPTEDNAME = "参保人员";
@@ -128,7 +128,7 @@ $scope.concealDetail1 = () => {
         $scope.CURRENTINSURANCE = "居民基本养老保险";
         break;
       }
-      setChartData(tabName)
+      setChartData(tabName);
     }
 
 /*******************************************************************************
