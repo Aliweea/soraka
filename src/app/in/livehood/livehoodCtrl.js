@@ -4,8 +4,9 @@ export default($scope, $state, hService, qService, xService, kpiRes, $rootScope)
 
 	const jQueryDOMToDos = () => {
 		$('.navTopShowPopulation').hide(0);
-	}();
+	    $('.navTopShowInsurance').hide(0);
 
+	}();
 	$scope.changeTitle = (title = "人口结构图") => {
 		$scope.populationStructure = {
 			title: title
@@ -13,10 +14,21 @@ export default($scope, $state, hService, qService, xService, kpiRes, $rootScope)
 	}
 	$scope.changeTitle();
 
+
+    // 社会保险部分
+  	$scope.changeInsuranceTitle = (title = "人口结构图") => {
+		$scope.insuranceTitle = {
+			title: title
+		};
+	}
+	$scope.changeInsuranceTitle();
+
 	// 上一级路由
 	$scope.toH = () => {
 		$('.navTopShowPopulation').hide(0);
+	    $('.navTopShowInsurance').hide(0);
 		$scope.changeTitle();
+		$scope.changeInsuranceTitle();
 		let h = hService.state();
 		if (h.params == null) {
 			$state.go(h.name);
@@ -50,7 +62,7 @@ export default($scope, $state, hService, qService, xService, kpiRes, $rootScope)
 				$state.go("app.livehood.PopulationStructure");
 				break;
 			case "社会保险":
-				$state.go("app.inThDetail.UBEI");
+				$state.go("app.livehood.UrbanBasicEndowmentInsuranceData");
 				break;
 			case "价格指数":
 				$state.go("app.pricehome.citizen");
