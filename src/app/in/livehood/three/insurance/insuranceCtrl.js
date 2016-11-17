@@ -322,6 +322,7 @@ $scope.concealDetail1 = () => {
         colors: generalService.columnColors().slice(0,3),
         chart: {
           type: 'column',
+           margin: [30, 0, 0, 0],
         },
         title: {
           text: ""
@@ -660,7 +661,7 @@ function getDataAll(entityName, year) {
       clickEventOfEngageStackColumn(entityName, year);
     })
 }
-//第一张图的小下面小图
+//点击第一张大图发生的事件
 function clickEventOfIncomeSpline(entityName, year) {
   var index = year - $scope.LATESTYEAR + 4;
   // $scope.ALLOPTION.BALANCECOLUMN.options.title.text = "收入支出"
@@ -670,7 +671,7 @@ function clickEventOfIncomeSpline(entityName, year) {
   $scope.balance = $scope.ALLDATA[entityName].BALANCEDATA[index];
   $scope.balanceSelectYear = year;
 }
-//饼状图
+//点击第二张大图发生的事件
 function clickEventOfEngageStackColumn(entityName, year) {
   var index = year - $scope.LATESTYEAR + 4;
   $scope.ALLOPTION.ENGAGEPIE.options.title.text = "";
