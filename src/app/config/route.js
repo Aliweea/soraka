@@ -295,51 +295,44 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
     })   
     //社会保险三级界面
       .state('app.inThDetail', {
-      url: '/InsuranceChart/UrbanBasicEndowmentInsuranceData',
+      url: '/InsuranceChart',
       name: 'UBEI',
       templateUrl: 'app/in/livehood/three/insurance/insurance.html',
       controller: 'insuranceCtrl'
     })
       //社保三级子界面
- .state('app.inThDetail.UBEI', {
-      url: '/InsuranceChart/UrbanBasicEndowmentInsuranceData',
-      name: 'UBEI',
+    .state('app.inThDetail.UBEI', {
+      url: '/UrbanBasicEndowmentInsuranceData',
       templateUrl: 'app/in/livehood/three/insurance/inThDetail/inThDetail.html',
       controller: 'insuranceCtrl'
     })
-      .state('app.inThDetail.UI', {
-      url: '/InsuranceChart/UnemploymentInsuranceData',
-      name: 'UBEI',
+    .state('app.inThDetail.UI', {
+      url: '/UnemploymentInsuranceData',
       templateUrl: 'app/in/livehood/three/insurance/inThDetail/inThDetail.html',
       controller: 'insuranceCtrl'
     })
-         .state('app.inThDetail.UBMI', {
-      url: '/InsuranceChart/UrbanBasicMedicalInsuranceData',
-      name: 'UBMI',
+    .state('app.inThDetail.UBMI', {
+      url: '/UrbanBasicMedicalInsuranceData',
       templateUrl: 'app/in/livehood/three/insurance/inThDetail/inThDetail.html',
       controller: 'insuranceCtrl'
     })
-         .state('app.inThDetail.URMI', {
-      url: '/InsuranceChart/UrbanResidentsMedicalInsuranceData',
-      name: 'URMI',
+    .state('app.inThDetail.URMI', {
+      url: '/UrbanResidentsMedicalInsuranceData',
       templateUrl: 'app/in/livehood/three/insurance/inThDetail/inThDetail.html',
       controller: 'insuranceCtrl'
     })
-         .state('app.inThDetail.EII', {
-      url: '/InsuranceChart/EmploymentInjuryInsuranceData',
-      name: 'EII',
+    .state('app.inThDetail.EII', {
+      url: '/EmploymentInjuryInsuranceData',
       templateUrl: 'app/in/livehood/three/insurance/inThDetail/inThDetail.html',
       controller: 'insuranceCtrl'
     })
-            .state('app.inThDetail.MI', {
-      url: '/InsuranceChart/MaternityInsuranceData',
-      name: 'MI',
+    .state('app.inThDetail.MI', {
+      url: '/MaternityInsuranceData',
       templateUrl: 'app/in/livehood/three/insurance/inThDetail/inThDetail.html',
       controller: 'insuranceCtrl'
     })
-      .state('app.inThDetail.RBEI', {
-      url: '/InsuranceChart/ResidentsBasicEndowmentInsuranceData',
-      name: 'RBEI',
+    .state('app.inThDetail.RBEI', {
+      url: '/ResidentsBasicEndowmentInsuranceData',
       templateUrl: 'app/in/livehood/three/insurance/inThDetail/inThDetail.html',
       controller: 'insuranceCtrl'
     })
