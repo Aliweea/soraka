@@ -9,14 +9,14 @@
 </style>
 <div class="pentitionthree">
     <div class="panel-group" ui-state="accidentAccordion" ui-default="1">
-        <div class="panel panel-primary" style="margin-top: 10px;border:1px white solid">
+        <div class="panel panel-primary" style="margin-top: 10px;border: white solid">
             <div class="panel-heading" ui-set="{'accidentAccordion': 1}">
                 交通事故警情动态
                 <span class="glyphicon glyphicon-question-sign pull-right"></span>
             </div>
             <div>
                 <div ui-state="activeTab" default="1">
-                    <div class="panel-body" >
+                    <div class="panel-body">
                         <div class="btn-group justified nav-tabs">
                             <a ui-set="{'activeTab': 1}" ui-class="{'active':activeTab==1}" class="btn btn-default">事故数量</a>
                             <a ui-set="{'activeTab': 2}" ui-class="{'active':activeTab==2}" class="btn btn-default">事故详情</a>
@@ -31,87 +31,82 @@
                                     </tab>
                                     <tab heading="事故详情" ui-if="activeTab==2">
                                         <div class="col-md-9 chart-panel" style="margin-top: 10px">
-                                            <highchart id="pieType" config="pieType" style=""></highchart>
+                                            <highchart id="pieType" config="pieType" style="height: 100%"></highchart>
                                         </div>
                                     </tab>
                                 </tabset>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="panel panel-primary" style="margin-top: 10px;border:1px white solid">
-            <div class="panel-heading" ui-set="{'accidentAccordion': 2}">
-                交通事故其它主要指标
-                <span class="glyphicon glyphicon-question-sign pull-right"></span>
-            </div>
-            <div>
-                <div class="panel-body">
-                    <label class="">
-                        <input type="radio" value="0" ng-model="barCountStationData1.type" ng-change='typeChange1(1)'> 查看受伤人数
-                    </label>
-                    <label class="">
-                        <input type="radio" value="2" ng-model="barCountStationData1.type" ng-change='typeChange1(2)'> 查看死亡人数
-                    </label>
-                    <label class="">
-                        <input type="radio" value="3" ng-model="barCountStationData1.type" ng-change='typeChange1(3)'> 查看直接财产损失
-                    </label>
-                    <div ui-state="activeTab1" default="1">
-                        <div class="btn-group justified nav-tabs">
-                            <a ui-set="{'activeTab1': 1}" ui-class="{'active':activeTab1==1}" class="btn btn-default">各指标数量</a>
-                            <a ui-set="{'activeTab1': 2}" ui-class="{'active':activeTab1==2}" class="btn btn-default">各指标详情</a>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12 ">
-                                <tabset>
-                                    <tab heading="各指标数量" ui-if="activeTab1==1">
-                                        <div class="col-md-12 " style="margin-top: 10px">
-                                            <highchart id="barCountStation" config="barCountStation1" style=""></highchart>
-                                        </div>
-                                    </tab>
-                                    <tab heading="各指标详情" ui-if="activeTab1==2">
-                                        <div class="col-md-9 chart-panel" style="margin-top: 10px">
-                                            <highchart id="kpiPieChart" config="pieType1" style=""></highchart>
-                                        </div>
-                                    </tab>
-                                </tabset>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="panel panel-primary" style="margin-top: 10px;border:1px white solid">
-            <div class="panel-heading" ui-set="{'accidentAccordion': 3}">
-                {{getDate.year}}年交通事故趋势
-                <span class="glyphicon glyphicon-question-sign pull-right"></span>
-            </div>
-            <div>
-                <div class="panel-body">
-                    <label class="">
-                        <input type="radio" value="0" checked ng-model="lineChartData.type" ng-change='typeChange(0)'> 查看事故发生数
-                    </label>
-                    <label class="">
-                        <input type="radio" value="1" ng-model="lineChartData.type" ng-change='typeChange(1)'> 查看受伤人数
-                    </label>
-                    <label class="">
-                        <input type="radio" value="2" ng-model="lineChartData.type" ng-change='typeChange(2)'> 查看死亡人数
-                    </label>
-                    <label class="">
-                        <input type="radio" value="3" ng-model="lineChartData.type" ng-change='typeChange(3)'> 查看直接财产损失
-                    </label>
-                    <div class="row">
-                        <div class="col-md-12 chart-panel">
-                            <highchart id="lineChart" config="lineChart" style=""></highchart>
-                        </div>
-                    </div>
-                    <div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<div class="pentitionthree">
+    <div class="panel panel-primary" style="border: white solid">
+        <div class="panel-heading" ui-set="{'accidentAccordion': 2}">
+            交通事故其它主要指标
+            <span class="glyphicon glyphicon-question-sign pull-right"></span>
+        </div>
+            <div class="panel-body">
+                <label class="">
+                    <input type="radio" value="0" ng-model="barCountStationData1.type" ng-change='typeChange1(1)'> 查看受伤人数
+                </label>
+                <label class="">
+                    <input type="radio" value="2" ng-model="barCountStationData1.type" ng-change='typeChange1(2)'> 查看死亡人数
+                </label>
+                <label class="">
+                    <input type="radio" value="3" ng-model="barCountStationData1.type" ng-change='typeChange1(3)'> 查看直接财产损失
+                </label>
+                <div ui-state="activeTab1" default="1">
+                    <div class="btn-group justified nav-tabs">
+                        <a ui-set="{'activeTab1': 1}" ui-class="{'active':activeTab1==1}" class="btn btn-default">各指标数量</a>
+                        <a ui-set="{'activeTab1': 2}" ui-class="{'active':activeTab1==2}" class="btn btn-default">各指标详情</a>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <tabset>
+                                <tab heading="各指标数量" ui-if="activeTab1==1">
+                                    <div class="col-md-12 " style="margin-top: 10px ;height: 100%">
+                                        <highchart id="barCountStation" config="barCountStation1" style=""></highchart>
+                                    </div>
+                                </tab>
+                                <tab heading="各指标详情" ui-if="activeTab1==2">
+                                    <div class="col-md-9 chart-panel" style="margin-top: 10px">
+                                        <highchart id="kpiPieChart" config="pieType1" style="height: 100%"></highchart>
+                                    </div>
+                                </tab>
+                            </tabset>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
 
-
+    <div class="panel panel-primary" style="border: white solid;">
+        <div class="panel-heading" >
+            {{getDate.year}}年交通事故趋势
+            <span class="glyphicon glyphicon-question-sign pull-right"></span>
+        </div>
+            <div class="panel-body">
+                <label class="">
+                    <input type="radio" value="0" checked ng-model="lineChartData.type" ng-change='typeChange(0)'> 查看事故发生数
+                </label>
+                <label class="">
+                    <input type="radio" value="1" ng-model="lineChartData.type" ng-change='typeChange(1)'> 查看受伤人数
+                </label>
+                <label class="">
+                    <input type="radio" value="2" ng-model="lineChartData.type" ng-change='typeChange(2)'> 查看死亡人数
+                </label>
+                <label class="">
+                    <input type="radio" value="3" ng-model="lineChartData.type" ng-change='typeChange(3)'> 查看直接财产损失
+                </label>
+                <div class="row">
+                    <div class="col-md-12 chart-panel">
+                        <highchart id="lineChart" config="lineChart" style="height: 450px"></highchart>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
