@@ -5,56 +5,53 @@
                 火灾事故警情动态
                 <span class="glyphicon glyphicon-question-sign pull-right"></span>
             </div>
-            <div >
-                <div ui-state="activeTabFire" default="1">
-                    <div class="panel-body">
-                        <div class="btn-group justified nav-tabs">
-                            <a ui-set="{'activeTabFire': 1}" ui-class="{'active':activeTabFire==1}" class="btn btn-default">事故数量</a>
-                            <a ui-set="{'activeTabFire': 2}" ui-class="{'active':activeTabFire==2}" class="btn btn-default">受伤人数</a>
-                            <a ui-set="{'activeTabFire': 3}" ui-class="{'active':activeTabFire==3}" class="btn btn-default">死亡人数</a>
-                            <a ui-set="{'activeTabFire': 4}" ui-class="{'active':activeTabFire==4}" class="btn btn-default">财产损失</a>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12 ">
-                                <tabset>
-                                    <tab heading="事故数量" ui-if="activeTabFire==1">
-                                        <div class="col-md-12 " style="margin-top: 10px">
-                                            <highchart id="barCount" config="barCount"></highchart>
-                                        </div>
-                                    </tab>
-                                    <tab heading="受伤人数" ui-if="activeTabFire==2">
-                                        <div class="col-md-9 chart-panel" style="margin-top: 10px">
-                                            <highchart id="barInjury" config="barInjury"></highchart>
-                                        </div>
-                                    </tab>
-                                    <tab heading="死亡人数" ui-if="activeTabFire==3">
-                                        <div class="col-md-9 chart-panel" style="margin-top: 10px">
-                                            <highchart id="barDead" config="barDead"></highchart>
-                                        </div>
-                                    </tab>
-                                    <tab heading="财产损失" ui-if="activeTabFire==4">
-                                        <div class="col-md-9 chart-panel" style="margin-top: 10px">
-                                            <highchart id="barDamage" config="barDamage"></highchart>
-                                        </div>
-                                    </tab>
-                                </tabset>
-                            </div>
+            <div ui-state="activeTabFire" default="1">
+                <div class="panel-body">
+                    <div class="btn-group justified nav-tabs">
+                        <a ui-set="{'activeTabFire': 1}" ui-class="{'active':activeTabFire==1}" class="btn btn-default">事故数量</a>
+                        <a ui-set="{'activeTabFire': 2}" ui-class="{'active':activeTabFire==2}" class="btn btn-default">受伤人数</a>
+                        <a ui-set="{'activeTabFire': 3}" ui-class="{'active':activeTabFire==3}" class="btn btn-default">死亡人数</a>
+                        <a ui-set="{'activeTabFire': 4}" ui-class="{'active':activeTabFire==4}" class="btn btn-default">财产损失</a>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <tabset>
+                                <tab heading="事故数量" ui-if="activeTabFire==1">
+                                    <div class="col-md-12 " style="margin-top: 10px">
+                                        <highchart id="barCount" config="barCount"></highchart>
+                                    </div>
+                                </tab>
+                                <tab heading="受伤人数" ui-if="activeTabFire==2">
+                                    <div class="col-md-9 chart-panel" style="margin-top: 10px">
+                                        <highchart id="barInjury" config="barInjury"></highchart>
+                                    </div>
+                                </tab>
+                                <tab heading="死亡人数" ui-if="activeTabFire==3">
+                                    <div class="col-md-9 chart-panel" style="margin-top: 10px">
+                                        <highchart id="barDead" config="barDead"></highchart>
+                                    </div>
+                                </tab>
+                                <tab heading="财产损失" ui-if="activeTabFire==4">
+                                    <div class="col-md-9 chart-panel" style="margin-top: 10px">
+                                        <highchart id="barDamage" config="barDamage"></highchart>
+                                    </div>
+                                </tab>
+                            </tabset>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="panel panel-primary" style="margin-top: 10px;border:1px white solid">
+        <div class="panel panel-primary" style="margin-top: 10px; border:1px white solid">
             <div class="panel-heading" ui-set="{'fireAccordion': 2}">
                 本年度火灾事故趋势
                 <span class="glyphicon glyphicon-question-sign pull-right"></span>
             </div>
-            <div >
+            <div>
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-9 chart-panel">
                             <div>
-
                                 <span class="glyphicon glyphicon-question-sign pull-right"></span>
                                 <label class="">
                                     <input type="radio" value="0" checked ng-model="lineChartData.selected" ng-change='trendInfoChanged()'> 查看事故发生数
