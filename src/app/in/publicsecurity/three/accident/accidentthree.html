@@ -14,7 +14,7 @@
                 交通事故警情动态
                 <span class="glyphicon glyphicon-question-sign pull-right"></span>
             </div>
-            <div ui-if="accidentAccordion == 1">
+            <div>
                 <div ui-state="activeTab" default="1">
                     <div class="panel-body" >
                         <div class="btn-group justified nav-tabs">
@@ -46,7 +46,7 @@
                 交通事故其它主要指标
                 <span class="glyphicon glyphicon-question-sign pull-right"></span>
             </div>
-            <div ui-if="accidentAccordion == 2">
+            <div>
                 <div class="panel-body">
                     <label class="">
                         <input type="radio" value="0" ng-model="barCountStationData1.type" ng-change='typeChange1(1)'> 查看受伤人数
@@ -87,7 +87,7 @@
                 {{getDate.year}}年交通事故趋势
                 <span class="glyphicon glyphicon-question-sign pull-right"></span>
             </div>
-            <div ui-if="accidentAccordion == 3">
+            <div>
                 <div class="panel-body">
                     <label class="">
                         <input type="radio" value="0" checked ng-model="lineChartData.type" ng-change='typeChange(0)'> 查看事故发生数

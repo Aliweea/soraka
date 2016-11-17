@@ -1,4 +1,4 @@
-export default ($scope, $state, dateService, dataDetailFactory, qService, kpiDetailService) => {
+export default ($rootScope, $scope, $state, dateService, dataDetailFactory, qService, kpiDetailService) => {
     'ngInject';
     const jQueryDOMToDos = () => {
         $(".navbar2position").hide(0); // 显示当前位置
@@ -783,9 +783,9 @@ export default ($scope, $state, dateService, dataDetailFactory, qService, kpiDet
 
                 };
 
-
+                $rootScope.loading = false;
             };
-
+            $rootScope.loading = true;
             kpiDetailService.advancedQuery(tableName, advancedQueryConfig, processFunction);
         }
         //---------------------------********api调用参数*********------------------------------------------
