@@ -1,28 +1,21 @@
-export default($scope, $rootScope, $state, qService, dataDetailFactory, dateService) => {
+export default($scope, $rootScope, kpiDetailService,$state, qService, dataDetailFactory, dateService) => {
 	'ngInject';
 	const jQueryDOMToDos = () => {
 		$(".navbar2position").hide(0); // 显示当前位置
 		$(".navbar2return").show(0); // 显示返回按钮
 		$(".navTopShowMark").hide(0); // 隐藏KPI状态 KPI分类
 		$('#cmrefuse-s1').focus();
-		$('#cmRefuseTownTooglePanel').hide(0);
-		$('#cmRefuseTownToogleButton').click(() => {
-			$('#cmRefuseTownTooglePanel').toggle(0);
+		$('#psHealthcareTogglePanel').hide(0);
+		$('#psHealthcareToggleButton').click(() => {
+			$('#psHealthcareTogglePanel').toggle(0);
 		})
 	}();
-
-	$scope.tab1 = true;
-    $scope.tab2 = false;
-    $scope.show = function () {
-        $scope.tab1 = true;
-        $scope.tab2 = false;
-    }
-    $scope.show2 = function () {
-        $scope.tab1 = false;
-        $scope.tab2 = true;
-    }
-
-    var medicalInstitutionSumChartData = [];
+	
+	var svcRecentTime;
+	var maRecentTime;
+	var hpRecentTime;
+	var pieColors = new Array('#3795BC', '#1FC22B', '#B5DF15');
+	var medicalInstitutionSumChartData = [];
 	var sickBedsNumList = [];
 	var medicalInstitutionsLastYearData=[];
 	var medicalServiceColumnChartData=[];
@@ -35,13 +28,9 @@ export default($scope, $rootScope, $state, qService, dataDetailFactory, dateServ
 	var medicalWorkersPieChartData = [];
 	var medicalWorkersYearData = [];
 	$scope.medicalWorkersYearsList = [];
-	var pieColors = new Array('#3795BC', '#1FC22B', '#B5DF15');
-	
-	
-	let token = "eyJhY2NvdW50Ijp7IkBpZCI6IjEiLCJpZCI6MjYsImNyZWF0ZV90aW1lIjoiMjAxNS0wNS0xNCAxOTo1MToxNSIsIm1vZGlmeV90aW1lIjoiMjAxNS0wNy0wNSAxNDozNDozMyIsImFjY291bnQiOiJzeXN0ZW0iLCJwYXNzd29yZCI6bnVsbCwidGl0bGUiOiLnrqHnkIblkZgiLCJuYW1lIjoi566h55CG5ZGYIiwic3lzdGVtTmFtZSI6bnVsbCwibW9iaWxlUGhvbmUiOm51bGwsIndvcmtQaG9uZSI6bnVsbCwicm9sZSI6IkFETUlOSVNUUkFUT1IiLCJkZXBhcnRtZW50cyI6W3siQGlkIjoiMiIsImlkIjo5LCJjcmVhdGVfdGltZSI6IjIwMTQtMTItMjkgMTI6Mzk6MjgiLCJtb2RpZnlfdGltZSI6IjIwMTQtMTItMjkgMTI6Mzk6MjgiLCJuYW1lIjoi54mp5Lu35bGAIiwiZGVzY3JpcHRpb24iOiJXSkpf54mp5Lu35bGAIn0seyJAaWQiOiIzIiwiaWQiOjIyLCJjcmVhdGVfdGltZSI6IjIwMTQtMTItMjkgMTI6NDA6MTAiLCJtb2RpZnlfdGltZSI6IjIwMTQtMTItMjkgMTI6NDA6MTAiLCJuYW1lIjoi5YWs5a6J5bGAIiwiZGVzY3JpcHRpb24iOiJHQUpf5YWs5a6J5bGAIn0seyJAaWQiOiI0IiwiaWQiOjI3LCJjcmVhdGVfdGltZSI6IjIwMTQtMTItMjkgMTI6NDE6MDciLCJtb2RpZnlfdGltZSI6IjIwMTQtMTItMjkgMTI6NDE6MDciLCJuYW1lIjoi5raI6Ziy5aSn6ZifIiwiZGVzY3JpcHRpb24iOiJYRkREX+a2iOmYsuWkp+mYnyJ9LHsiQGlkIjoiNSIsImlkIjozMCwiY3JlYXRlX3RpbWUiOiIyMDE0LTEyLTI5IDEyOjQ1OjUxIiwibW9kaWZ5X3RpbWUiOiIyMDE0LTEyLTI5IDEyOjQ1OjUxIiwibmFtZSI6IuS6pOmAmuWxgCIsImRlc2NyaXB0aW9uIjoiSlRKX+S6pOmAmuWxgCJ9LHsiQGlkIjoiNiIsImlkIjoyOCwiY3JlYXRlX3RpbWUiOiIyMDE0LTEyLTI5IDEyOjQzOjA4IiwibW9kaWZ5X3RpbWUiOiIyMDE0LTEyLTI5IDEyOjQzOjA4IiwibmFtZSI6IuWfjueuoeWxgCIsImRlc2NyaXB0aW9uIjoiQ0dKX+WfjueuoeWxgCJ9LHsiQGlkIjoiNyIsImlkIjoyOSwiY3JlYXRlX3RpbWUiOiIyMDE0LTEyLTI5IDEyOjQ0OjAyIiwibW9kaWZ5X3RpbWUiOiIyMDE0LTEyLTI5IDEyOjQ0OjAyIiwibmFtZSI6IuaVmeiCsuWxgCIsImRlc2NyaXB0aW9uIjoiSllKX+aVmeiCsuWxgCJ9LHsiQGlkIjoiOCIsImlkIjozMiwiY3JlYXRlX3RpbWUiOiIyMDE1LTA0LTIwIDEzOjU2OjIwIiwibW9kaWZ5X3RpbWUiOiIyMDE1LTA0LTIwIDEzOjU2OjAyIiwibmFtZSI6IuS/oeiuv+WxgCIsImRlc2NyaXB0aW9uIjoiWEZKX+S/oeiuv+WxgCJ9LHsiQGlkIjoiOSIsImlkIjoxNiwiY3JlYXRlX3RpbWUiOiIyMDE0LTEwLTE2IDIxOjQxOjM0IiwibW9kaWZ5X3RpbWUiOiIyMDE1LTAyLTA4IDE0OjU4OjU2IiwibmFtZSI6IumCruaUv+WxgCIsImRlc2NyaXB0aW9uIjoiWVpKX+mCruaUv+WxgCJ9LHsiQGlkIjoiMTAiLCJpZCI6MzEsImNyZWF0ZV90aW1lIjoiMjAxNS0wNC0yMCAxMzo1NjoyMyIsIm1vZGlmeV90aW1lIjoiMjAxNS0wNC0yMCAxMzo1NjoyMyIsIm5hbWUiOiLljavnlJ/lsYAiLCJkZXNjcmlwdGlvbiI6IldTSl/ljavnlJ/lsYAifSx7IkBpZCI6IjExIiwiaWQiOjM0LCJjcmVhdGVfdGltZSI6IjIwMTUtMDQtMjAgMTM6NTY6MDIiLCJtb2RpZnlfdGltZSI6IjIwMTUtMDQtMjAgMTM6NTY6MDIiLCJuYW1lIjoi5rCU6LGh5bGAIiwiZGVzY3JpcHRpb24iOiJRWEpf5rCU6LGh5bGAIn0seyJAaWQiOiIxMiIsImlkIjozMywiY3JlYXRlX3RpbWUiOiIyMDE1LTA0LTIwIDEzOjU2OjAyIiwibW9kaWZ5X3RpbWUiOiIyMDE1LTA0LTIwIDEzOjU2OjAyIiwibmFtZSI6IuWuieebkeWxgCIsImRlc2NyaXB0aW9uIjoiQUpKX+WuieebkeWxgCJ9LHsiQGlkIjoiMTMiLCJpZCI6MiwiY3JlYXRlX3RpbWUiOiIyMDE1LTAxLTMwIDE3OjUyOjM0IiwibW9kaWZ5X3RpbWUiOiIyMDE1LTAxLTMwIDE3OjUyOjM0IiwibmFtZSI6Iui0ouaUv+WxgCIsImRlc2NyaXB0aW9uIjoiQ1pKX+i0ouaUv+WxgCJ9LHsiQGlkIjoiMTQiLCJpZCI6MTUsImNyZWF0ZV90aW1lIjoiMjAxNC0xMi0yOSAxMjozNjozMCIsIm1vZGlmeV90aW1lIjoiMjAxNC0xMi0yOSAxMjozNjozMCIsIm5hbWUiOiLlm73lnJ/lsYAiLCJkZXNjcmlwdGlvbiI6IkdUSl/lm73lnJ/lsYAifSx7IkBpZCI6IjE1IiwiaWQiOjI1LCJjcmVhdGVfdGltZSI6IjIwMTQtMTItMzEgMDk6MTI6NDgiLCJtb2RpZnlfdGltZSI6IjIwMTQtMTItMzEgMDk6MTI6NDgiLCJuYW1lIjoi57uP5rWO55u45YWz57uEIiwiZGVzY3JpcHRpb24iOiJKSlhHWl/nu4/mtY7nm7jlhbPnu4QifSx7IkBpZCI6IjE2IiwiaWQiOjEyLCJjcmVhdGVfdGltZSI6IjIwMTUtMDQtMTkgMTY6MjE6MDciLCJtb2RpZnlfdGltZSI6IjIwMTUtMDQtMTkgMTY6MjE6MDciLCJuYW1lIjoi546v5L+d5bGAIiwiZGVzY3JpcHRpb24iOiJIQkpf546v5L+d5bGAIn0seyJAaWQiOiIxNyIsImlkIjoyNiwiY3JlYXRlX3RpbWUiOiIyMDE0LTEyLTI5IDEyOjM4OjM0IiwibW9kaWZ5X3RpbWUiOiIyMDE0LTEyLTI5IDEyOjM4OjM0IiwibmFtZSI6IuS6uuekvuWxgCIsImRlc2NyaXB0aW9uIjoiUlNKX+S6uuekvuWxgCJ9LHsiQGlkIjoiMTgiLCJpZCI6NywiY3JlYXRlX3RpbWUiOiIyMDE0LTEyLTI5IDEyOjM3OjA1IiwibW9kaWZ5X3RpbWUiOiIyMDE0LTEyLTI5IDEyOjM3OjA1IiwibmFtZSI6Iue7n+iuoeWxgCIsImRlc2NyaXB0aW9uIjoiVEpKX+e7n+iuoeWxgCJ9LHsiQGlkIjoiMTkiLCJpZCI6MTEsImNyZWF0ZV90aW1lIjoiMjAxNC0xMi0yOSAxMjozNzozOSIsIm1vZGlmeV90aW1lIjoiMjAxNC0xMi0yOSAxMjozNzozOSIsIm5hbWUiOiLorqHnlJ/lp5QiLCJkZXNjcmlwdGlvbiI6IkpTV1/orqHnlJ/lp5QifSx7IkBpZCI6IjIwIiwiaWQiOjEzLCJjcmVhdGVfdGltZSI6IjIwMTQtMTItMjkgMTI6MzU6NTQiLCJtb2RpZnlfdGltZSI6IjIwMTQtMTItMjkgMTI6MzU6NTQiLCJuYW1lIjoi5rC05Yip5bGAIiwiZGVzY3JpcHRpb24iOiJTTEpf5rC05Yip5bGAIn0seyJAaWQiOiIyMSIsImlkIjo1LCJjcmVhdGVfdGltZSI6IjIwMTUtMDEtMDMgMjI6MzM6MzUiLCJtb2RpZnlfdGltZSI6IjIwMTUtMDEtMDMgMjI6MzM6MzUiLCJuYW1lIjoi5raI6Ziy5bGAIiwiZGVzY3JpcHRpb24iOiJYRkpf5raI6Ziy5bGAIn0seyJAaWQiOiIyMiIsImlkIjoxNywiY3JlYXRlX3RpbWUiOiIyMDE0LTEyLTI5IDEyOjQ1OjE0IiwibW9kaWZ5X3RpbWUiOiIyMDE0LTEyLTI5IDEyOjQ1OjE0IiwibmFtZSI6Iue7j+S/oeWnlCIsImRlc2NyaXB0aW9uIjoiSlhXX+e7j+S/oeWnlCJ9LHsiQGlkIjoiMjMiLCJpZCI6NiwiY3JlYXRlX3RpbWUiOiIyMDE0LTEyLTI5IDEyOjQxOjU3IiwibW9kaWZ5X3RpbWUiOiIyMDE0LTEyLTI5IDEyOjQxOjU3IiwibmFtZSI6IuW4guS6pOitpuWkp+mYnyIsImRlc2NyaXB0aW9uIjoiU0pKRERf5biC5Lqk6K2m5aSn6ZifIn1dfSwiZXhwaXJlcyI6MTQ3OTg4MzMyOTUxNCwiZ3JhbnRlZEF1dGhzIjpbIlJPTEVfQURNSU5JU1RSQVRPUiJdLCJhY2NvdW50Tm9uTG9ja2VkIjp0cnVlLCJhY2NvdW50Tm9uRXhwaXJlZCI6dHJ1ZSwiY3JlZGVudGlhbHNOb25FeHBpcmVkIjp0cnVlLCJlbmFibGVkIjp0cnVlLCJ1c2VybmFtZSI6InN5c3RlbSIsInBhc3N3b3JkIjpudWxsfQ==.1yfx07Fa3M8CzqObBbUAGsEM5m+fi00aGs5J9NiiRac=";
 	let headers = {
-		"X-Auth-Token":token
-	};
+		"X-Auth-Token": "eyJhY2NvdW50Ijp7IkBpZCI6IjEiLCJpZCI6MjYsImNyZWF0ZV90aW1lIjoiMjAxNS0wNS0xNCAxOTo1MToxNSIsIm1vZGlmeV90aW1lIjoiMjAxNi0xMS0xNSAxODowODo1OCIsImFjY291bnQiOiJzeXN0ZW0iLCJwYXNzd29yZCI6bnVsbCwidGl0bGUiOiLnrqHnkIblkZgiLCJuYW1lIjoi566h55CG5ZGYIiwic3lzdGVtTmFtZSI6bnVsbCwibW9iaWxlUGhvbmUiOm51bGwsIndvcmtQaG9uZSI6bnVsbCwicm9sZSI6IkFETUlOSVNUUkFUT1IiLCJkZXBhcnRtZW50cyI6W3siQGlkIjoiMiIsImlkIjoyNywiY3JlYXRlX3RpbWUiOiIyMDE0LTEyLTI5IDEyOjQxOjA3IiwibW9kaWZ5X3RpbWUiOiIyMDE0LTEyLTI5IDEyOjQxOjA3IiwibmFtZSI6Iua2iOmYsuWkp+mYnyIsImRlc2NyaXB0aW9uIjoiWEZERF/mtojpmLLlpKfpmJ8ifSx7IkBpZCI6IjMiLCJpZCI6MTcsImNyZWF0ZV90aW1lIjoiMjAxNC0xMi0yOSAxMjo0NToxNCIsIm1vZGlmeV90aW1lIjoiMjAxNC0xMi0yOSAxMjo0NToxNCIsIm5hbWUiOiLnu4/kv6Hlp5QiLCJkZXNjcmlwdGlvbiI6IkpYV1/nu4/kv6Hlp5QifSx7IkBpZCI6IjQiLCJpZCI6NSwiY3JlYXRlX3RpbWUiOiIyMDE1LTAxLTAzIDIyOjMzOjM1IiwibW9kaWZ5X3RpbWUiOiIyMDE1LTAxLTAzIDIyOjMzOjM1IiwibmFtZSI6Iua2iOmYsuWxgCIsImRlc2NyaXB0aW9uIjoiWEZKX+a2iOmYsuWxgCJ9LHsiQGlkIjoiNSIsImlkIjo5LCJjcmVhdGVfdGltZSI6IjIwMTQtMTItMjkgMTI6Mzk6MjgiLCJtb2RpZnlfdGltZSI6IjIwMTQtMTItMjkgMTI6Mzk6MjgiLCJuYW1lIjoi54mp5Lu35bGAIiwiZGVzY3JpcHRpb24iOiJXSkpf54mp5Lu35bGAIn0seyJAaWQiOiI2IiwiaWQiOjI2LCJjcmVhdGVfdGltZSI6IjIwMTQtMTItMjkgMTI6Mzg6MzQiLCJtb2RpZnlfdGltZSI6IjIwMTQtMTItMjkgMTI6Mzg6MzQiLCJuYW1lIjoi5Lq656S+5bGAIiwiZGVzY3JpcHRpb24iOiJSU0pf5Lq656S+5bGAIn0seyJAaWQiOiI3IiwiaWQiOjE2LCJjcmVhdGVfdGltZSI6IjIwMTQtMTAtMTYgMjE6NDE6MzQiLCJtb2RpZnlfdGltZSI6IjIwMTUtMDItMDggMTQ6NTg6NTYiLCJuYW1lIjoi6YKu5pS/5bGAIiwiZGVzY3JpcHRpb24iOiJZWkpf6YKu5pS/5bGAIn0seyJAaWQiOiI4IiwiaWQiOjMwLCJjcmVhdGVfdGltZSI6IjIwMTQtMTItMjkgMTI6NDU6NTEiLCJtb2RpZnlfdGltZSI6IjIwMTQtMTItMjkgMTI6NDU6NTEiLCJuYW1lIjoi5Lqk6YCa5bGAIiwiZGVzY3JpcHRpb24iOiJKVEpf5Lqk6YCa5bGAIn0seyJAaWQiOiI5IiwiaWQiOjMyLCJjcmVhdGVfdGltZSI6IjIwMTUtMDQtMjAgMTM6NTY6MjAiLCJtb2RpZnlfdGltZSI6IjIwMTUtMDQtMjAgMTM6NTY6MDIiLCJuYW1lIjoi5L+h6K6/5bGAIiwiZGVzY3JpcHRpb24iOiJYRkpf5L+h6K6/5bGAIn0seyJAaWQiOiIxMCIsImlkIjozNCwiY3JlYXRlX3RpbWUiOiIyMDE1LTA0LTIwIDEzOjU2OjAyIiwibW9kaWZ5X3RpbWUiOiIyMDE1LTA0LTIwIDEzOjU2OjAyIiwibmFtZSI6IuawlOixoeWxgCIsImRlc2NyaXB0aW9uIjoiUVhKX+awlOixoeWxgCJ9LHsiQGlkIjoiMTEiLCJpZCI6MzMsImNyZWF0ZV90aW1lIjoiMjAxNS0wNC0yMCAxMzo1NjowMiIsIm1vZGlmeV90aW1lIjoiMjAxNS0wNC0yMCAxMzo1NjowMiIsIm5hbWUiOiLlronnm5HlsYAiLCJkZXNjcmlwdGlvbiI6IkFKSl/lronnm5HlsYAifSx7IkBpZCI6IjEyIiwiaWQiOjI5LCJjcmVhdGVfdGltZSI6IjIwMTQtMTItMjkgMTI6NDQ6MDIiLCJtb2RpZnlfdGltZSI6IjIwMTQtMTItMjkgMTI6NDQ6MDIiLCJuYW1lIjoi5pWZ6IKy5bGAIiwiZGVzY3JpcHRpb24iOiJKWUpf5pWZ6IKy5bGAIn0seyJAaWQiOiIxMyIsImlkIjoyOCwiY3JlYXRlX3RpbWUiOiIyMDE0LTEyLTI5IDEyOjQzOjA4IiwibW9kaWZ5X3RpbWUiOiIyMDE0LTEyLTI5IDEyOjQzOjA4IiwibmFtZSI6IuWfjueuoeWxgCIsImRlc2NyaXB0aW9uIjoiQ0dKX+WfjueuoeWxgCJ9LHsiQGlkIjoiMTQiLCJpZCI6NywiY3JlYXRlX3RpbWUiOiIyMDE0LTEyLTI5IDEyOjM3OjA1IiwibW9kaWZ5X3RpbWUiOiIyMDE0LTEyLTI5IDEyOjM3OjA1IiwibmFtZSI6Iue7n+iuoeWxgCIsImRlc2NyaXB0aW9uIjoiVEpKX+e7n+iuoeWxgCJ9LHsiQGlkIjoiMTUiLCJpZCI6MjIsImNyZWF0ZV90aW1lIjoiMjAxNC0xMi0yOSAxMjo0MDoxMCIsIm1vZGlmeV90aW1lIjoiMjAxNC0xMi0yOSAxMjo0MDoxMCIsIm5hbWUiOiLlhazlronlsYAiLCJkZXNjcmlwdGlvbiI6IkdBSl/lhazlronlsYAifSx7IkBpZCI6IjE2IiwiaWQiOjExLCJjcmVhdGVfdGltZSI6IjIwMTQtMTItMjkgMTI6Mzc6MzkiLCJtb2RpZnlfdGltZSI6IjIwMTQtMTItMjkgMTI6Mzc6MzkiLCJuYW1lIjoi6K6h55Sf5aeUIiwiZGVzY3JpcHRpb24iOiJKU1df6K6h55Sf5aeUIn0seyJAaWQiOiIxNyIsImlkIjoxMiwiY3JlYXRlX3RpbWUiOiIyMDE1LTA0LTE5IDE2OjIxOjA3IiwibW9kaWZ5X3RpbWUiOiIyMDE1LTA0LTE5IDE2OjIxOjA3IiwibmFtZSI6IueOr+S/neWxgCIsImRlc2NyaXB0aW9uIjoiSEJKX+eOr+S/neWxgCJ9LHsiQGlkIjoiMTgiLCJpZCI6MiwiY3JlYXRlX3RpbWUiOiIyMDE1LTAxLTMwIDE3OjUyOjM0IiwibW9kaWZ5X3RpbWUiOiIyMDE1LTAxLTMwIDE3OjUyOjM0IiwibmFtZSI6Iui0ouaUv+WxgCIsImRlc2NyaXB0aW9uIjoiQ1pKX+i0ouaUv+WxgCJ9LHsiQGlkIjoiMTkiLCJpZCI6MzEsImNyZWF0ZV90aW1lIjoiMjAxNS0wNC0yMCAxMzo1NjoyMyIsIm1vZGlmeV90aW1lIjoiMjAxNS0wNC0yMCAxMzo1NjoyMyIsIm5hbWUiOiLljavnlJ/lsYAiLCJkZXNjcmlwdGlvbiI6IldTSl/ljavnlJ/lsYAifSx7IkBpZCI6IjIwIiwiaWQiOjYsImNyZWF0ZV90aW1lIjoiMjAxNC0xMi0yOSAxMjo0MTo1NyIsIm1vZGlmeV90aW1lIjoiMjAxNC0xMi0yOSAxMjo0MTo1NyIsIm5hbWUiOiLluILkuqTorablpKfpmJ8iLCJkZXNjcmlwdGlvbiI6IlNKSkREX+W4guS6pOitpuWkp+mYnyJ9LHsiQGlkIjoiMjEiLCJpZCI6MjUsImNyZWF0ZV90aW1lIjoiMjAxNC0xMi0zMSAwOToxMjo0OCIsIm1vZGlmeV90aW1lIjoiMjAxNC0xMi0zMSAwOToxMjo0OCIsIm5hbWUiOiLnu4/mtY7nm7jlhbPnu4QiLCJkZXNjcmlwdGlvbiI6IkpKWEdaX+e7j+a1juebuOWFs+e7hCJ9LHsiQGlkIjoiMjIiLCJpZCI6MTMsImNyZWF0ZV90aW1lIjoiMjAxNC0xMi0yOSAxMjozNTo1NCIsIm1vZGlmeV90aW1lIjoiMjAxNC0xMi0yOSAxMjozNTo1NCIsIm5hbWUiOiLmsLTliKnlsYAiLCJkZXNjcmlwdGlvbiI6IlNMSl/msLTliKnlsYAifSx7IkBpZCI6IjIzIiwiaWQiOjE1LCJjcmVhdGVfdGltZSI6IjIwMTQtMTItMjkgMTI6MzY6MzAiLCJtb2RpZnlfdGltZSI6IjIwMTQtMTItMjkgMTI6MzY6MzAiLCJuYW1lIjoi5Zu95Zyf5bGAIiwiZGVzY3JpcHRpb24iOiJHVEpf5Zu95Zyf5bGAIn1dfSwiZXhwaXJlcyI6MTQ4MDE0NjA5NTczMiwiZ3JhbnRlZEF1dGhzIjpbIlJPTEVfQURNSU5JU1RSQVRPUiJdLCJhY2NvdW50Tm9uTG9ja2VkIjp0cnVlLCJhY2NvdW50Tm9uRXhwaXJlZCI6dHJ1ZSwiY3JlZGVudGlhbHNOb25FeHBpcmVkIjp0cnVlLCJlbmFibGVkIjp0cnVlLCJ1c2VybmFtZSI6InN5c3RlbSIsInBhc3N3b3JkIjpudWxsfQ==.FGoM5cgKKtIX3azkquWK9GBo+wFpcgnTFJCKvxiP6eU="
+    };
 	let params = {
 		tableName: "HealthServiceData"
 	};
@@ -53,27 +42,27 @@ export default($scope, $rootScope, $state, qService, dataDetailFactory, dateServ
 			* 目的: 当数据更新落后于当前系统选择时间时, 按最后更新时间来显示数据
 			*/
 			var lastObj = JSOG.parse(JSOG.stringify(data.data));
-			var svcRecentTime = lastObj.applyTime;
-			
+			svcRecentTime = lastObj.applyTime;
 			$scope.displayYear = new Date(svcRecentTime).getFullYear();
-		
 			var svcStartDate = dateService.formatDate(moment(svcRecentTime).startOf('year')); // alert(startDate);
 			var svcEndDate =  dateService.formatDate(moment(svcRecentTime).endOf('month'));  // alert(endDate);
+			// 最新一天数据
 			let params = {
 				tableName: "HealthServiceData",
 				start: svcStartDate,
 				end: svcEndDate
 			}
+			let currentType = "resource"; // 标记当前处于车次还是吨数状态
+			$scope.table1 = true;
+			$scope.currentName = "公交车";
 			$rootScope.loading = true;
-			qService.httpGetbyJSOG(dataDetailFactory.query, params, headers).then((data) => {	
+			qService.httpGetbyJSOG(dataDetailFactory.query, params, headers).then((data) => {
 				var data = JSOG.parse(JSOG.stringify(data.data));
 				var outpatientNumList = [];
 				var inpatientNumList = [];
 				var emrgncyPatientNumList = [];
 				var firstAid120List = [];
-				
 				var applyMonth;
-				
 				for(var i=0; i<data.length; i++){
 					outpatientNumList.push(data[i].outpatientNum);
 					inpatientNumList.push(data[i].inpatientNum);
@@ -113,13 +102,52 @@ export default($scope, $rootScope, $state, qService, dataDetailFactory, dateServ
 			    medicalServiceColumnChartData1.push(medicalServiceColumnChartData[1]);
 			    medicalServiceColumnChartData2.push(medicalServiceColumnChartData[2]);
 			    medicalServiceColumnChartData2.push(medicalServiceColumnChartData[3]);
+				$scope.chart3 = $scope.medicalServiceColumnChart2;
+				$scope.changeChoice = (choice) => {
+					console.log(choice);
+					$('#psHealthcareTogglePanel').hide(0);
+					if(currentType == "resource"){
+						$scope.medicalInstitutionKindChange(choice);
+					}else if(currentType == "service"){
+						$scope.medicalServiceKindChange(choice);
+					}
+				};
+				$scope.changeChart = (type) => {
+						switch (type) {
+							case "resource":
+								$scope.typeTitle = "选择医院类别";
+								$scope.title1 = "医疗机构";
+								$scope.list = $scope.medicalInstitutionByKindSumList;
+								$scope.listSelected = $scope.medicalInstitutionSelected;
+								$scope.chart1 = $scope.medicalInstitutionSumByKindChart;
+								$scope.chart2 = $scope.medicalInstitutionSumChart;
+								$scope.tab1 = true;
+								$('#cmhealthcare-s1').addClass('activeTab');
+								$('#cmhealthcare-s2').removeClass('activeTab');
+								currentType = "resource";
+								break;
+							case "service":
+								$scope.typeTitle = "选择诊疗类别";
+								$scope.title1 = "诊疗服务";
+								$scope.list = $scope.medicalServicePatientsByKindList;
+								$scope.listSelected = $scope.medicalServiceSelected;
+								$scope.chart1 = $scope.medicalServiceByKindLineChart;
+								$scope.chart2 = $scope.medicalServiceColumnChart1;
+								$('#cmhealthcare-s2').addClass('activeTab');
+								$('#cmhealthcare-s1').removeClass('activeTab');
+								$scope.tab1 = false;
+								currentType = "service";
+								break;
+						}
+				};
+				$scope.changeChart(currentType);
 			}, (err) => {
 				if (err.errorCode == "UNAUTHORIZED") {
 					$state.go('portal');
 				} else {}
 			}).finally(() => {
 		        $rootScope.loading = false;
-		    });
+		    });	
 		} else {}
 	}, (err) => {
 		if (err.errorCode == "UNAUTHORIZED") {
@@ -132,26 +160,24 @@ export default($scope, $rootScope, $state, qService, dataDetailFactory, dateServ
 	params = {
 		tableName: "MedicalAdminData"
 	};
-	$rootScope.loading = true;
-	qService.httpPost(dataDetailFactory.lastestObject, params, headers, body).then((data) => {
+    qService.httpPost(dataDetailFactory.lastestObject, params, headers, body).then((data) => {
 		if (data.errorCode == "NO_ERROR") {
 			/* 最外层: 获取最新垃圾清运数据的时间
 			* 目的: 当数据更新落后于当前系统选择时间时, 按最后更新时间来显示数据
 			*/
 			var lastObj = JSOG.parse(JSOG.stringify(data.data));
-			var maRecentTime = lastObj.applyTime;
-			
+			maRecentTime = lastObj.applyTime;
 			var maStartOprtr = new Date(maRecentTime);
 			var maStartDate = dateService.formatDate(moment(maStartOprtr.setFullYear(maStartOprtr.getFullYear()-4)).startOf('year')); //alert(startDate);
 			var maEndDate =  dateService.formatDate(moment(maRecentTime).endOf('year')); // alert(endDate);
-			
+			// 最新一天数据
 			let params = {
 				tableName: "MedicalAdminData",
 				start: maStartDate,
 				end: maEndDate
 			}
 			$rootScope.loading = true;
-			qService.httpGetbyJSOG(dataDetailFactory.query, params, headers).then((data) => {	
+			qService.httpGetbyJSOG(dataDetailFactory.query, params, headers).then((data) => {
 				var data = JSOG.parse(JSOG.stringify(data.data));
 				var thrdLvlHsptlNumList = [];
 				var scndLvlHsptlNumList = [];
@@ -209,13 +235,14 @@ export default($scope, $rootScope, $state, qService, dataDetailFactory, dateServ
 				$scope.medicalInstitutionSumByKindChart.series[0].name = $scope.medicalInstitutionByKindSumList[1].name;
 				$scope.medicalInstitutionSumByKindChart.series[0].data = $scope.medicalInstitutionByKindSumList[1].data;
 				$scope.medicalInstitutionLastYear = medicalInstitutionsLastYearData[medicalInstitutionsLastYearData.length-1];
+			
 			}, (err) => {
 				if (err.errorCode == "UNAUTHORIZED") {
 					$state.go('portal');
 				} else {}
 			}).finally(() => {
 		        $rootScope.loading = false;
-		    });
+		    });	
 		} else {}
 	}, (err) => {
 		if (err.errorCode == "UNAUTHORIZED") {
@@ -228,26 +255,25 @@ export default($scope, $rootScope, $state, qService, dataDetailFactory, dateServ
     params = {
 		tableName: "HealthPersonnelData"
 	};
-	$rootScope.loading = true;
-	qService.httpPost(dataDetailFactory.lastestObject, params, headers, body).then((data) => {
+    qService.httpPost(dataDetailFactory.lastestObject, params, headers, body).then((data) => {
 		if (data.errorCode == "NO_ERROR") {
 			/* 最外层: 获取最新垃圾清运数据的时间
 			* 目的: 当数据更新落后于当前系统选择时间时, 按最后更新时间来显示数据
 			*/
 			var lastObj = JSOG.parse(JSOG.stringify(data.data));
-			var hpRecentTime = lastObj.applyTime;
+			hpRecentTime = lastObj.applyTime;
 			
 			var hpStartOprtr = new Date(hpRecentTime);
 			var hpStartDate = dateService.formatDate(moment(hpStartOprtr.setFullYear(hpStartOprtr.getFullYear()-4)).startOf('year')); //alert(startDate);
 			var hpEndDate =  dateService.formatDate(moment(hpRecentTime).endOf('year')); // alert(endDate);
-			
+			// 最新一天数据
 			let params = {
 				tableName: "HealthPersonnelData",
 				start: hpStartDate,
 				end: hpEndDate
 			}
 			$rootScope.loading = true;
-			qService.httpGetbyJSOG(dataDetailFactory.query, params, headers).then((data) => {	
+			qService.httpGetbyJSOG(dataDetailFactory.query, params, headers).then((data) => {
 				var data = JSOG.parse(JSOG.stringify(data.data));
 				var doctorNumList = [];
 				var nurseNumList = [];
@@ -280,13 +306,14 @@ export default($scope, $rootScope, $state, qService, dataDetailFactory, dateServ
 					data: nurseNumList
 					});
 				$scope.medicalWorkersByKindLineChart.series[0].data = $scope.medicalWorkersYearsList[0].data;
+		
 			}, (err) => {
 				if (err.errorCode == "UNAUTHORIZED") {
 					$state.go('portal');
 				} else {}
 			}).finally(() => {
 		        $rootScope.loading = false;
-		    });
+		    });	
 		} else {}
 	}, (err) => {
 		if (err.errorCode == "UNAUTHORIZED") {
@@ -296,21 +323,35 @@ export default($scope, $rootScope, $state, qService, dataDetailFactory, dateServ
         $rootScope.loading = false;
     });	
 
-	$scope.medicalInstitutionSumChart = {
+   	$scope.medicalInstitutionSumChart = {
 		options:{
 			title: {
 	            text: '近五年全市医疗机构总数情况',
-	            x: -20 //center
+	            style: {
+					fontSize: "13px"
+				}
 	        },
 	        credits: {
 				enabled: false
 				},
+			exporting: {
+				enabled: false, // 取消打印menu
+			},
 	        xAxis: {
 	            title: {
 	                text: '年份'
 	            },
 	            categories: medicalInstitutionsLastYearData,
-	            tickmarkPlacement: 'on'
+	            tickmarkPlacement: 'on',
+	            tickInterval: 1,
+                labels: {
+                    rotation: -45,
+                    align: 'right',
+                    step: 1,
+                    style: {
+						fontSize: "10px"
+					}
+                }
 	        },
 	        yAxis: {
 	        	min: 0 ,
@@ -340,12 +381,25 @@ export default($scope, $rootScope, $state, qService, dataDetailFactory, dateServ
 		options:{
 			chart: {                                                           
 	            type: 'column'                                                   
-	        },                                                                                                                                  
+	        },  
+	        exporting: {
+					enabled: false, // 取消打印menu
+			},                                                                                                                                
 	        xAxis: {                                                           
 	            categories: medicalInstitutionsLastYearData,
 	            title: {                                                       
 	                text: '年份'
-	            }                                                              
+	            },
+	            tickmarkPlacement: 'on',
+	            tickInterval: 1,
+                labels: {
+                    rotation: -45,
+                    align: 'right',
+                    step: 1,
+                    style: {
+						fontSize: "10px"
+					}
+                }                                                              
 	        },                                                                 
 	        yAxis: {                                                           
 	            min: 0,                                                        
@@ -377,7 +431,10 @@ export default($scope, $rootScope, $state, qService, dataDetailFactory, dateServ
 	        }
 		},
 		title: {                                                           
-	            text: '近五年二级医院情况'                    
+	            text: '近五年二级医院情况',
+	            style: {
+					fontSize: "13px"
+				}              
 	        }, 
 		series: [{                                                         
 	            name: '',                                             
@@ -393,11 +450,17 @@ export default($scope, $rootScope, $state, qService, dataDetailFactory, dateServ
 	            plotBorderWidth: null,
 	            plotShadow: false
 	        },
+	        exporting: {
+					enabled: false, // 取消打印menu
+				},
 	        credits: {                                                         
 	            enabled: false                                                 
 	        },
 	        title: {
-	            text: ''
+	            text: '',
+	            style: {
+					fontSize: "13px"
+				}
 	        },
 	        subtitle: {
 	            text: '点击饼图各部分查看近五年走势'
@@ -447,9 +510,22 @@ export default($scope, $rootScope, $state, qService, dataDetailFactory, dateServ
 	        credits: {
 	            enabled: false
 	            },
+	            exporting: {
+					enabled: false, // 取消打印menu
+				},
 	        xAxis: {
 	            title: {
-	                text: '年份'
+	                text: '年份',
+	                tickInterval: 1,
+	                tickmarkPlacement: 'on',
+	                labels: {
+	                    rotation: -45,
+	                    align: 'right',
+	                    step: 1,
+	                    style: {
+							fontSize: "10px"
+						}
+	                }
 	            },
 	            categories: medicalWorkersYearData,
 	            tickmarkPlacement: 'on'
@@ -490,14 +566,30 @@ export default($scope, $rootScope, $state, qService, dataDetailFactory, dateServ
 	            type: 'column'
 	           // margin: [ 50, 50, 100, 80]
 	        },
+	        exporting: {
+					enabled: false, // 取消打印menu
+				},
 	        title: {
-	            text: '近五年全市医疗机构病床情况'
+	            text: '近五年全市医疗机构病床情况',
+	            style: {
+					fontSize: "13px"
+				}
 	        },
 	        xAxis: {
 	            title: {
 	                text: '年份'
 	            },
-	            categories: medicalInstitutionsLastYearData
+	            categories: medicalInstitutionsLastYearData,
+	            tickInterval: 1,
+	            tickmarkPlacement: 'on',
+                labels: {
+                    rotation: -45,
+                    align: 'right',
+                    step: 1,
+                    style: {
+						fontSize: "10px"
+					}
+                }
 	        },
 	        yAxis: {
 	            min: 0,
@@ -527,11 +619,27 @@ export default($scope, $rootScope, $state, qService, dataDetailFactory, dateServ
 	            type: 'column'
 	           // margin: [ 50, 50, 100, 80]
 	        },
+	        exporting: {
+					enabled: false, // 取消打印menu
+				},
 	        title: {
-	            text: ''
+	            text: '',
+	            style: {
+					fontSize: "13px"
+				}
 	        },
 	        xAxis: {
-	            categories: ['门诊人次', '急诊人次']
+	            categories: ['门诊人次', '急诊人次'],
+	            tickInterval: 1,
+	            tickmarkPlacement: 'on',
+                labels: {
+                    rotation: -45,
+                    align: 'right',
+                    step: 1,
+                    style: {
+						fontSize: "10px"
+					}
+                }
 	        },
 	        yAxis: {
 	            min: 0,
@@ -566,11 +674,27 @@ export default($scope, $rootScope, $state, qService, dataDetailFactory, dateServ
 		            type: 'column'
 		           // margin: [ 50, 50, 100, 80]
 		        },
+		        exporting: {
+					enabled: false, // 取消打印menu
+				},
 		        title: {
-		            text: ''
+		            text: '',
+		            style: {
+						fontSize: "13px"
+					}
 		        },
 		        xAxis: {
-		            categories: ['住院人次', '120急救人次']
+		            categories: ['住院人次', '120急救人次'],
+		            tickInterval: 1,
+	                tickmarkPlacement: 'on',
+	                labels: {
+	                    rotation: -45,
+	                    align: 'right',
+	                    step: 1,
+	                    style: {
+							fontSize: "10px"
+						}
+	                }
 		        },
 		        yAxis: {
 		            min: 0,
@@ -592,7 +716,7 @@ export default($scope, $rootScope, $state, qService, dataDetailFactory, dateServ
 		    },
 		    series: [{
 		            name: '诊疗人次',
-		            data: medicalServiceColumnChartData2
+		            data: medicalServiceColumnChartData2,
 		    }]
 		};
 
@@ -605,12 +729,24 @@ export default($scope, $rootScope, $state, qService, dataDetailFactory, dateServ
 	            type: 'line'
 	           // margin: [ 50, 50, 100, 80]
 	        },   
+	        exporting: {
+					enabled: false, // 取消打印menu
+				},
 	        xAxis: {
 	            title: {
 	                text: '月份'
 	            },
 	            categories: monthData,
-	            tickmarkPlacement: 'on'
+	            tickmarkPlacement: 'on',
+	            tickInterval: 1,
+                labels: {
+                    rotation: -45,
+                    align: 'right',
+                    step: 1,
+                    style: {
+						fontSize: "10px"
+					}
+                }
 	        },
 	        yAxis: {
 	            title: {
@@ -644,6 +780,7 @@ export default($scope, $rootScope, $state, qService, dataDetailFactory, dateServ
 	    }]
 	};
 
+	// radio点击事件
 	$scope.medicalInstitutionKindChange = function(medicalInstitutionSumOne){
 		$scope.medicalInstitutionSumByKindChart.title.text = "近五年"+medicalInstitutionSumOne.name+"情况";
 		$scope.medicalInstitutionSumByKindChart.series[0].name = medicalInstitutionSumOne.name;

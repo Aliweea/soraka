@@ -1,3 +1,4 @@
+
 .cmtraffic-module{
 	width:100%;
 	.tabs{
@@ -56,6 +57,11 @@
 	.key-value-area{
 		padding:10px 0 0 0;
 		background-color: rgba(255,255,255,0.8);
+		@include cmTa();
+	}
+	.key-value-area1{
+		padding:10px 0 0 0;
+		background-color: rgba(208,224,224,0.5);
 		@include cmTa();
 	}
 	.chart-area{

@@ -4,10 +4,10 @@ export default($scope, $rootScope, $state, qService, dataDetailFactory, dateServ
 		$(".navbar2position").hide(0); // 显示当前位置
 		$(".navbar2return").show(0); // 显示返回按钮
 		$(".navTopShowMark").hide(0); // 隐藏KPI状态 KPI分类
-		$('#cmrefuse-s1').focus();
-		$('#psTelecomTogglePanel').hide(0);
-		$('#psTelecomToggleButton').click(() => {
-			$('#psTelecomTogglePanel').toggle(0);
+		$('#cmhealthcare-s1').focus();
+		$('#pshealthcareTogglePanel').hide(0);
+		$('#pshealthcareToggleButton').click(() => {
+			$('#pshealthcareTogglePanel').toggle(0);
 		})
 	}();
 

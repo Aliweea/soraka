@@ -1,98 +1,7 @@
-<!-- <ul class="nav nav-tabs">
-    <li class="active" ng-click="show()">
-        <a style="font-size: 20px" data-toggle="tab">基础用户</a>
-    </li>
-    <li ng-click="show2()">
-        <a style="font-size: 20px" data-toggle="tab">基础设施</a>
-    </li>
-</ul>
-<div ng-show="tab1">
-    <div class="container">
-		<tabset>
-			<tab heading="基础用户" id="tab_teleOperation">
-				<div class="row">
-					<div class="panel panel-primary">
-						<div class="panel-body">
-							<div class="row">
-								<div class="col-md-4">
-									<h4>用户类别选择</h4>
-									<div class="radio" ng-repeat="user in userList">
-										<label>
-											<input type="radio" ng-model="userKindSelected" ng-value="user.name" name="userList" ng-click="userKindChange(user)">
-								            <font size="2">{{user.name}}</font>
-								        </label>
-									</div>
-									<table class="container table">
-										<th>
-											<td class="t-right"><font size="3">{{displayYear}} 年{{userListLastYearTitle}}</font></td>
-										</th>
-	    								<tr ng-repeat="userOne in userListLastYearSelected">
-	    									<td><font size="2">{{userOne.name}}</font></td>
-	    									<td class="t-right"><font size="2">{{userOne.number}}人</font></td>
-	    								</tr>
-									</table>
-								</div>
-							</div>
-							<div><br><br><br></div>
-							<div class="row">
-								<div class="chart-panel">
-									<highchart  id="userPercentageByKindAreaChart"  config="userPercentageByKindAreaChart" ></highchart>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</tab>
-		</tabset>
-	</div>
-</div>
-<div ng-show="tab2">
-    <div class="container">
-		<tabset>
-			<tab heading="基础设施" id="tab_infrstrct">
-				<div class="row">
-					<div class="panel panel-primary">
-						<div class="panel-body">
-							<div class="row">
-								<div class="col-md-4">
-									<h4>基础设施选择</h4>
-									<div class="radio" ng-repeat="infrstrct in infrstrctTotalList">
-										<label>
-											<input type="radio" ng-model="infrstrctKindSelected" ng-value="infrstrct.name" name="infrstrctTotalList" ng-click="infrstrctKindChange(infrstrct)">
-								            <font size="2">{{infrstrct.name}}</font>
-								        </label>
-									</div>
-									<table class="container table table-hover">
-										<th>
-											<td>
-												<font size="3">{{displayYear}} 年{{infrstrctTotalLastYearTitle}}</font>
-											</td>
-										</th>
-	    								<tr ng-repeat="infrstrct in infrstrctListLastYearSelected">
-	    									<td><font size="2">{{infrstrct.name}}</font></td>
-	    									<td class="t-right"><font size="2">{{infrstrct.number}}{{infrstrctTotalLastYearUnion}}</font></td>
-	    								</tr>
-									</table>
-									
-								</div>
-							</div>
-							<div><br><br><br></div>
-							<div class="row">
-								<div class="chart-panel">
-									<highchart  id="infrstrctPercentageByKindAreaChart" config="infrstrctPercentageByKindAreaChart" ></highchart>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</tab>
-		</tabset>
-	</div>
-</div> -->
 <div class="pstelecom-module">
 	<div class="tabs">
-		<input ng-click="changeChart('user')" type="button" value="基础用户" id="cmrefuse-s1" class="s1">
-		<input ng-click="changeChart('infrastructure')" type="button" value="基础设施" id="cmrefuse-s2" class="s2">
+		<input ng-click="changeChart('user')" type="button" value="基础用户" id="cmhealthcare-s1" class="s1">
+		<input ng-click="changeChart('infrastructure')" type="button" value="基础设施" id="cmhealthcare-s2" class="s2">
 	</div>
 	<div class="key-value-area">
 		<div class="title-area">
@@ -103,12 +12,12 @@
 	</div>
 	<div class="distribute-area">
 		<i class="fa fa-hand-o-right i-label" aria-hidden="true"></i>
-		<span name="" id="psTelecomToggleButton" class="toggle-button">
+		<span name="" id="pshealthcareToggleButton" class="toggle-button">
 			选择{{type}}
 		</span>
 	</div>
 	<div class="distribute-toggle-area">
-		<div class="toggle-panel" id="psTelecomTogglePanel">
+		<div class="toggle-panel" id="pshealthcareTogglePanel">
 			<input class="toggle-item" type="button" ng-repeat="item in list" ng-click="changeChoice(item)" value="{{item.name}}" name="">
 		</div>
 	</div>

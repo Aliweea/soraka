@@ -35,16 +35,16 @@ export default($scope, $state, hService, qService, xService, kpiRes, $rootScope)
 	$scope.toDetail = () => {
 		switch($scope.currentCategoryName) {	
 			case "教育":
-				$state.go("app.publicService.peducation");
+				$state.go("app.publicService.eduGuarantee");
 				break;
 			case "医疗卫生":
-				$state.go("app.publicService.phealthCare");
+				$state.go("app.publicService.hlthPblcHlth");
 				break;
 			case "电信":
 				$state.go("app.publicService.ptelecom");
 				break;
 			case "交通":
-				$state.go("app.publicService.ptraffic");
+				$state.go("app.traffichome.psngrTransportation");
 				break;
 
 		}

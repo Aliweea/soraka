@@ -376,21 +376,37 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       templateUrl: 'app/in/publicService/three/education/peducation.html',
       controller: 'peducationCtrl'
     })
-    .state('app.publicService.phealthCare', {
-      url: '/detail/healthCare',
-      templateUrl: 'app/in/publicService/three/healthCare/phealthCare.html',
+    .state('app.publicService.eduGuarantee', {
+      url: '/education/eduGuarantee',
+      templateUrl: 'app/in/publicService/three/education/eduGuarantee.html',
+      controller: 'eduGuaranteeCtrl'
+    })
+    .state('app.publicService.hlthRscSvc', {
+      url: '/healthCare/hlthRscSvc',
+      templateUrl: 'app/in/publicService/three/healthCare/hlthRscSvc.html',
       controller: 'phealthCareCtrl'
+    })
+    .state('app.publicService.hlthPblcHlth',{
+    url:'/healthcare/hlthPblcHlth',
+    templateUrl:'app/in/publicService/three/healthcare/hlthPblcHlth.html',
+    controller:'hlthPblcHlthCtrl'
     })
     .state('app.publicService.ptelecom', {
       url: '/detail/telecom',
       templateUrl: 'app/in/publicService/three/telecom/ptelecom.html',
       controller: 'ptelecomCtrl'
     })
-    .state('app.publicService.ptraffic', {
-      url: '/detail/traffic',
-      templateUrl: 'app/in/publicService/three/traffic/ptraffic.html',
-      controller: 'ptrafficCtrl'
+    .state('app.traffichome.psngrTransportation',{
+      url:'/traffic/psngrTransportation',
+      templateUrl:'app/in/publicService/three/traffic/psngrTransportation.html',
+      controller:'ptrafficCtrl'
     })
+    .state('app.traffichome',{
+      abstract: true,
+      url:'/traffic',
+      templateUrl:'app/in/publicService/traffichome.html'
+    }) 
+
     
     
     // 城市管理

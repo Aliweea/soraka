@@ -54,7 +54,7 @@
 		}
 	}
 	.key-value-area{
-		padding:45px 0 0 0;
+		padding:25px 0 0 0;
 		@include cmTa();
 	}
 	.distribute-area{
@@ -81,7 +81,7 @@
 	.chart-area{
 			border-top:1px dashed $cborder;
 			border-bottom:1px solid $cborder;
-		}
+	}
 	.distribute-toggle-area{
 		position: relative;
 		.toggle-panel {
