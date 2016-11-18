@@ -168,10 +168,10 @@ export default ($scope, $state, $location, qService, dataDetailFactory, generalS
 			}
 		};
 		this.series = [];
-		this.size = {
-			// width: 200,
-			height: height
-		};
+		// this.size = {
+		// 	// width: 200,
+		// 	height: height
+		// };
 	};
 
 	let STACKCOLUMNHIGHCHART = function(height, marginBottom, categories, yAxisTitle, callFunc1, callFunc2) {
@@ -268,10 +268,10 @@ export default ($scope, $state, $location, qService, dataDetailFactory, generalS
 			}
 		};
 		this.series = [];
-		this.size = {
-			// width: 200,
-			height: height
-		};
+		// this.size = {
+		// 	// width: 200,
+		// 	height: height
+		// };
 	};
 
 	let COLUMNHIGHCHART = function(height, marginBottom, categories, yAxisTitle, callFunc1, callFunc2) {
@@ -353,10 +353,10 @@ export default ($scope, $state, $location, qService, dataDetailFactory, generalS
 			}
 		};
 		this.series = [];
-		this.size = {
-			// width: 200,
-			height: height
-		};
+		// this.size = {
+		// 	// width: 200,
+		// 	height: height
+		// };
 	};
 
 

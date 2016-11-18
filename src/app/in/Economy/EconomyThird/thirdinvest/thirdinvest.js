@@ -69,7 +69,7 @@ $scope.newheight = height*0.78;
         }
       }, {
         name: '房地产投资',
-        color:'black',
+
         tooltip: {
           pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f} 万元</b> '
         }

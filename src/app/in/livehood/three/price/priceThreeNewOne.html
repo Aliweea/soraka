@@ -6,14 +6,12 @@
                             <div><h4 class="panel-title" style="margin:auto">
                                 居民消费价格指数趋势
                             </h4></div>
-                            <div><a href="#" style="color: gray;margin-left: 10%" >点击显示数据详情</a></div>
-                            
                         </div>
                         <div style="position: relative;">
                             <div class="panel-body" style="position: absolute;z-index: 1;width: 99%" >
                                 <highchart config="cpiHighChartOptions.cpiTrendOption"  id="InvestValueChart"  style="height:{{smallheight}}px"></highchart>
                             </div>
-                            <div style="width: 95%;height: {{newheight}}px;position: absolute;z-index: 2;background-color: rgb(255,255,255);margin-left: 2%;box-shadow: 5px 5px 5px gray" ng-if="show1">
+                            <div style="width: 95%;height: {{newheight}}px;position: absolute;z-index: 2;background-color: rgb(255,255,255);margin-left: 2%;box-shadow: 5px 5px 5px gray" ng-if="show1" class="fadein fadeout">
                             <span style="margin-left: 27%;font-size: 2em">居民消费指数详细数据</span>
                                 <div class="table-responsive" style="padding:5px">
                                     <table class="table">
@@ -39,13 +37,12 @@
                             <h4 class="panel-title">
                                 居民消费价格指数类别同比累计
                             </h4>
-                            <a href="#" style="color: gray;margin-left: 2%" >点击显示数据详情</a>
                         </div>
                         <div style="position: relative;">
                             <div class="panel-body" style="position: absolute;z-index: 1;width: 99%;" >
                                 <highchart config="cpiHighChartOptions.categoryDetailOption"  id="ClassInvestValueChart" style="height:{{smallheight}}px"></highchart>
                             </div>
-                            <div style="width: 95%;height: {{newheight}}px;position: absolute;z-index: 2;background-color: rgb(255,255,255);margin-left: 2%;box-shadow: 5px 5px 5px gray" ng-if="show2">
+                            <div style="width: 95%;height: {{newheight}}px;position: absolute;z-index: 2;background-color: rgb(255,255,255);margin-left: 2%;box-shadow: 5px 5px 5px gray" ng-if="show2" class="fadein fadeout">
                             <span style="margin-left: 27%;font-size: 2em">居民消费指数详细数据</span>
                                <div class="table-responsive" style="padding:5px">
                                     <table class="table">
@@ -69,13 +66,12 @@
                             <h4 class="panel-title" style="display: inline-block;">
                                 居民消费价格指数类别同比累计
                             </h4>
-                            <a href="#" style="display: inline-block;color: gray;margin-left: 10%" >点击显示数据详情</a>
                         </div>
                         <div style="position: relative;">
                             <div class="panel-body" style="position: absolute;z-index: 1;width: 99%" >
                                 <highchart config="cpiHighChartOptions.detailTrendOption" id="CapitalValueChart" style="height:{{smallheight}}px"></highchart>
                             </div>
-                            <div style="width: 95%;height: {{newheight}}px;position: absolute;z-index: 2;background-color: rgb(255,255,255);margin-left: 2%;box-shadow: 5px 5px 5px gray" ng-if="show3">
+                            <div style="width: 95%;height: {{newheight}}px;position: absolute;z-index: 2;background-color: rgb(255,255,255);margin-left: 2%;box-shadow: 5px 5px 5px gray" ng-if="show3" class="fadein fadeout">
                             <span style="margin-left: 10%;font-size: 1.5em">居民消费价格指数类别同比累计详细数据</span>
                               <div class="table-responsive" style="padding:5px">
                                     <table class="table">
