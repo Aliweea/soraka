@@ -546,7 +546,7 @@ export default ($rootScope, $scope, $state, dateService, dataDetailFactory, qSer
                             type: 'bar'
                         },
                         title: {
-                            text: $scope.getDate.year + "年" + $scope.getDate.month + "月太仓市各类报警案件总数"
+                            text: $scope.getDate.year + "年" + "截止"+$scope.getDate.month + "月末太仓市各类报警案件总数"
                         },
                         subtitle: {
                             text: ''
