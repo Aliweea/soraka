@@ -7,6 +7,7 @@ export default($scope, $stateParams, qService, kpiRes, dateService, hService, $s
         $(".navbar2position").show(0); // 显示当前位置
         $(".navTopShowMark").show(0); // 显示KPI状态 KPI分类
          $('.navTopShowInsurance').hide(0); //隐藏社会保险下拉框
+         $(".navTopShowPopulation").hide(0);
 
     }();
     
