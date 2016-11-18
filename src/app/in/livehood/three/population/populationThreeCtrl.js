@@ -2,7 +2,7 @@ export default ($scope, $state, $location, qService, dataDetailFactory, generalS
 	'ngInject';
 
 	const jQueryDOMToDos = () => {
-		$(".navbar2position").hide(0); // 显示当前位置
+		$(".navbar2position").hide(0); // 隐藏下面当前位置
 		$(".navbar2return").show(0); // 显示返回按钮
 		$(".navTopShowMark").hide(0); // 隐藏KPI状态 KPI分类
 		$('#showshort').focus(); // 获取默认焦点
@@ -85,20 +85,12 @@ export default ($scope, $state, $location, qService, dataDetailFactory, generalS
 
 	let entityName;
 	let getDataFunction = () => {}
-	// qService.httpPost(dataDetailFactory.lastestObject, params, headers, body).then((data) => {
-	// 	console.log(data);
-	// }, (err) => {
-	// 	if (err.errorCode == "UNAUTHORIZED") r
-	// 		console.log(err);
-	// 	} else {}
-	// });
 
 	let barHighChart = function(height, categories) {
 		this.options = {
 			colors: ['#7CADDF','#195489'],
 			chart: {
-				type: 'bar',
-				//width: $(window).width() * 0.9
+				type: 'bar'
 			},
 			credits: {
 				enabled: false
@@ -168,10 +160,6 @@ export default ($scope, $state, $location, qService, dataDetailFactory, generalS
 			}
 		};
 		this.series = [];
-		// this.size = {
-		// 	// width: 200,
-		// 	height: height
-		// };
 	};
 
 	let STACKCOLUMNHIGHCHART = function(height, marginBottom, categories, yAxisTitle, callFunc1, callFunc2) {
@@ -218,17 +206,6 @@ export default ($scope, $state, $location, qService, dataDetailFactory, generalS
 					}
 				},
 			},
-			// legend: {
-			// 	align: 'center',
-			// 	//x: -30,
-			// 	verticalAlign: 'bottom',
-			// 	y: 15,
-			// 	floating: true,
-			// 	backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
-			// 	borderColor: '#CCC',
-			// 	borderWidth: 1,
-			// 	shadow: false
-			// },
 			tooltip: {
 				formatter: function() {
 					return '<b>' + this.x + '</b><br/>' +
@@ -268,18 +245,12 @@ export default ($scope, $state, $location, qService, dataDetailFactory, generalS
 			}
 		};
 		this.series = [];
-		// this.size = {
-		// 	// width: 200,
-		// 	height: height
-		// };
 	};
 
 	let COLUMNHIGHCHART = function(height, marginBottom, categories, yAxisTitle, callFunc1, callFunc2) {
 		this.options = {
 			chart: {
-				type: 'column',
-				//width: $(window).width() * 0.9,
-				//marginBottom: marginBottom
+				type: 'column'
 			},
 			title: {
 				text: "",
@@ -311,18 +282,6 @@ export default ($scope, $state, $location, qService, dataDetailFactory, generalS
 					}
 				}
 			},
-			// legend: {
-			// 	//enabled: true,
-			// 	//align: 'center',
-			// 	//x: -50,
-			// 	//verticalAlign: 'bottom',
-			// 	//y: 15,
-			// 	//floating: true,
-			// 	//backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
-			// 	//borderColor: '#CCC',
-			// 	//: 1,
-			// 	//shadow: false
-			// },
 			tooltip: {
 				formatter: function() {
 					return '<b>' + this.x + '</b><br/>' +
@@ -353,10 +312,6 @@ export default ($scope, $state, $location, qService, dataDetailFactory, generalS
 			}
 		};
 		this.series = [];
-		// this.size = {
-		// 	// width: 200,
-		// 	height: height
-		// };
 	};
 
 
@@ -374,9 +329,7 @@ export default ($scope, $state, $location, qService, dataDetailFactory, generalS
 		}
 		let aquiredData = qService.httpPost(dataDetailFactory.lastestObject, {
 			tableName: entityName
-		}, headers, ['year']);
-
-		aquiredData.then((lastObjRaw) => {
+		}, headers, ['year']).then((lastObjRaw) => {
 			if (lastObjRaw.errorCode != "NO_ERROR") {
 				$location.path("/main");
 			}
@@ -501,6 +454,8 @@ export default ($scope, $state, $location, qService, dataDetailFactory, generalS
 			}
 
 			getDataFunction(entityName, $scope.LATESTYEAR);
+		}).finally(() => {
+			$rootScope.loading = false;
 		});
 	};
 
@@ -520,9 +475,7 @@ export default ($scope, $state, $location, qService, dataDetailFactory, generalS
 		};
 		let POPULATIONSTRUCTUREDATA = qService.httpPost(dataDetailFactory.advancedQuery, {
 			tableName: entityName
-		}, headers, queryMap);
-
-		POPULATIONSTRUCTUREDATA.then((data) => {
+		}, headers, queryMap).then((data) => {
 			if (data.errorCode != "NO_ERROR") {
 				$location.path("/main");
 			}
@@ -584,6 +537,8 @@ export default ($scope, $state, $location, qService, dataDetailFactory, generalS
 			$scope.ALLOPTION.POPULATIONCHART.series = $scope.ALLDATA.POPULATIONCHARTDATA.data;
 			callFunctionOfPopulationChart(year, 4, $scope.tableNameStr);
 			callFunctionOfPopulationTownChart(year, 4, "城厢镇", $scope.tableNameStr);
+		}).finally(() => {
+			$rootScope.loading = false;
 		});
 	};
 
@@ -601,9 +556,7 @@ export default ($scope, $state, $location, qService, dataDetailFactory, generalS
 		};
 		let POPULATIONSTRUCTUREDATA = qService.httpPost(dataDetailFactory.advancedQuery, {
 			tableName: entityName
-		}, headers, queryMap);
-
-		POPULATIONSTRUCTUREDATA.then((data) => {
+		}, headers, queryMap).then((data) => {
 			if (data.errorCode != "NO_ERROR") {
 				$location.path("/main");
 			}
@@ -662,6 +615,8 @@ export default ($scope, $state, $location, qService, dataDetailFactory, generalS
 			$scope.ALLOPTION.POPULATIONCHART.series = $scope.ALLDATA.POPULATIONCHARTDATA.data;
 			callFunctionOfPopulationChart(year, 4, $scope.tableNameStr);
 			callFunctionOfPopulationTownChart(year, 4, "城厢镇", $scope.tableNameStr);
+		}).finally(() => {
+			$rootScope.loading = false;
 		});
 	};
 
@@ -679,9 +634,7 @@ export default ($scope, $state, $location, qService, dataDetailFactory, generalS
 		};
 		let POPULATIONSTRUCTUREDATA = qService.httpPost(dataDetailFactory.advancedQuery, {
 			tableName: entityName
-		}, headers, queryMap);
-
-		POPULATIONSTRUCTUREDATA.then((data) => {
+		}, headers, queryMap).then((data) => {
 			if (data.errorCode != "NO_ERROR") {
 				$location.path("/main");
 			}
@@ -749,6 +702,8 @@ export default ($scope, $state, $location, qService, dataDetailFactory, generalS
 			$scope.ALLOPTION.POPULATIONCHART.series = $scope.ALLDATA.POPULATIONCHARTDATA.data;
 			callFunctionOfPopulationChart(year, 4, $scope.tableNameStr);
 			callFunctionOfPopulationTownChart(year, 4, "城厢镇", $scope.tableNameStr);
+		}).finally(() => {
+			$rootScope.loading = false;
 		});
 	};
 
@@ -766,9 +721,7 @@ export default ($scope, $state, $location, qService, dataDetailFactory, generalS
 		};
 		let POPULATIONSTRUCTUREDATA = qService.httpPost(dataDetailFactory.advancedQuery, {
 			tableName: entityName
-		}, headers, queryMap);
-
-		POPULATIONSTRUCTUREDATA.then((data) => {
+		}, headers, queryMap).then((data) => {
 			if (data.errorCode != "NO_ERROR") {
 				$location.path("/main");
 			}
@@ -830,6 +783,8 @@ export default ($scope, $state, $location, qService, dataDetailFactory, generalS
 			$scope.ALLOPTION.POPULATIONCHART.options.yAxis.min = minTerminalPopulation;
 			callFunctionOfPopulationChart(year, 4, $scope.tableNameStr);
 			callFunctionOfPopulationTownChart(year, 4, "城厢镇", $scope.tableNameStr);
+		}).finally(() => {
+			$rootScope.loading = false;
 		});
 	};
 
@@ -843,9 +798,7 @@ export default ($scope, $state, $location, qService, dataDetailFactory, generalS
 		};
 		let POPULATIONSTRUCTUREDATA = qService.httpPost(dataDetailFactory.advancedQuery, {
 			tableName: entityName
-		}, headers, queryMap);
-
-		POPULATIONSTRUCTUREDATA.then((data) => {
+		}, headers, queryMap).then((data) => {
 			console.log(data);
 			if (data.errorCode != "NO_ERROR") {
 				$location.path("/main");
@@ -897,6 +850,8 @@ export default ($scope, $state, $location, qService, dataDetailFactory, generalS
 			$scope.ALLOPTION.POPULATIONCHART.series = $scope.ALLDATA.POPULATIONCHARTDATA.data;
 			$scope.ALLDATA.detailTableData = $scope.ALLDATA.detailTableDataList[0].data;
 			$scope.ALLDATA.tableData = $scope.ALLDATA.tableDataList.data;
+		}).finally(() => {
+			$rootScope.loading = false;
 		});
 		console.log($scope.ALLDATA);
 	};

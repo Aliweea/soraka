@@ -1,4 +1,4 @@
-export default ($scope, $state, dateService, dataDetailFactory, qService) => {
+export default ($scope, $state, $rootScope,dateService, dataDetailFactory, qService) => {
     'ngInject';
 
     const jQueryDOMToDos = () => {
@@ -491,139 +491,157 @@ export default ($scope, $state, dateService, dataDetailFactory, qService) => {
         //土地使用当前,数据获取
         qService.httpPost(dataDetailFactory.lastestObject,
           {tableName: 'LandUse'}, headers, ['year']).then(function (result) {
-            var year = result.data.year;
-            var yearCurrent = getCurrentYearMonth(year, 1).year;
-            landUseLastDate = {
-                year: yearCurrent
-            };
-            qService.httpPost(dataDetailFactory.advancedQuery,
-              {tableName: 'LandUse'}, headers, {
-                  year: {
-                      value1: landUseLastDate.year - 4,
-                      value2: landUseLastDate.year,
-                      queryType: 'bt',
-                      valueType: 'innt'
-                  },
-                  sort1: {
-                      key: 'year',
-                      sortType: 'asc'
-                  }
-              }).then(function (data) {
-                  var landUsePieArr = [];
-                  var farmlandList = [];
-                  var forestList = [];
-                  var gardenList = [];
-                  var grassList = [];
-                  var townList = [];
-                  var trafficList = [];
-                  var waterList = [];
-                  var otherList = [];
-                  for (var i = 0; i < data.data.length; i++) {
-                      if (data.data[i].year == landUseLastDate.year) {
-                          landUsePieArr.push(['耕地', data.data[i].farmland]);
-                          landUsePieArr.push(['水域及水利设施用地', data.data[i].water]);
-                          landUsePieArr.push(['草地', data.data[i].grass]);
-                          landUsePieArr.push(['城镇村及工矿用地', data.data[i].town]);
-                          landUsePieArr.push(['园地', data.data[i].garden]);
-                          landUsePieArr.push(['林地', data.data[i].forest]);
-                          landUsePieArr.push(['交通运输用地', data.data[i].traffic]);
-                          landUsePieArr.push(['其他用地', data.data[i].other]);
+            if (result.errorCode == "NO_ERROR") {
+                var year = result.data.year;
+                var yearCurrent = getCurrentYearMonth(year, 1).year;
+                landUseLastDate = {
+                    year: yearCurrent
+                };
+                qService.httpPost(dataDetailFactory.advancedQuery,
+                  {tableName: 'LandUse'}, headers, {
+                      year: {
+                          value1: landUseLastDate.year - 4,
+                          value2: landUseLastDate.year,
+                          queryType: 'bt',
+                          valueType: 'innt'
+                      },
+                      sort1: {
+                          key: 'year',
+                          sortType: 'asc'
                       }
-                      farmlandList.push(data.data[i].farmland);
-                      forestList.push(data.data[i].forest);
-                      gardenList.push(data.data[i].garden);
-                      grassList.push(data.data[i].grass);
-                      townList.push(data.data[i].town);
-                      trafficList.push(data.data[i].traffic);
-                      waterList.push(data.data[i].water);
-                      otherList.push(data.data[i].other);
-                  }
-                  landUseHistoryArr = [{
-                      index: '耕地',
-                      dataList: farmlandList
-                  }, {
-                      index: '水域及水利设施用地',
-                      dataList: waterList
-                  }, {
-                      index: '草地',
-                      dataList: grassList
-                  }, {
-                      index: '城镇村及工矿用地',
-                      dataList: townList
-                  }, {
-                      index: '园地',
-                      dataList: gardenList
-                  }, {
-                      index: '林地',
-                      dataList: forestList
-                  }, {
-                      index: '交通运输用地',
-                      dataList: trafficList
-                  }, {
-                      index: '其他用地',
-                      dataList: otherList
-                  }];
-
-                  var landUseIncre = [];
-                  var landUseDecre = [];
-
-                  for (var i = 0; i < data.data.length; i++) {
-                      if (data.data[i].year == landUseLastDate.year) {
-                          //排行榜数组构造
-                          processRank(landUseIncre, landUseDecre, (parseFloat(data.data[i].farmland - data.data[i - 1].farmland)).toFixed(2), '耕地');
-                          processRank(landUseIncre, landUseDecre, (parseFloat(data.data[i].water - data.data[i - 1].water)).toFixed(2), '水域及水利设施用地');
-                          processRank(landUseIncre, landUseDecre, (parseFloat(data.data[i].grass - data.data[i - 1].grass)).toFixed(2), '草地');
-                          processRank(landUseIncre, landUseDecre, (parseFloat(data.data[i].town - data.data[i - 1].town)).toFixed(2), '城镇村及工矿用地');
-                          processRank(landUseIncre, landUseDecre, (parseFloat(data.data[i].garden - data.data[i - 1].garden)).toFixed(2), '园地');
-                          processRank(landUseIncre, landUseDecre, (parseFloat(data.data[i].forest - data.data[i - 1].forest)).toFixed(2), '林地');
-                          processRank(landUseIncre, landUseDecre, (parseFloat(data.data[i].traffic - data.data[i - 1].traffic)).toFixed(2), '交通运输用地');
-                          processRank(landUseIncre, landUseDecre, (parseFloat(data.data[i].other - data.data[i - 1].other)).toFixed(2), '其他用地');
+                  }).then(function (data) {
+                      var landUsePieArr = [];
+                      var farmlandList = [];
+                      var forestList = [];
+                      var gardenList = [];
+                      var grassList = [];
+                      var townList = [];
+                      var trafficList = [];
+                      var waterList = [];
+                      var otherList = [];
+                      for (var i = 0; i < data.data.length; i++) {
+                          if (data.data[i].year == landUseLastDate.year) {
+                              landUsePieArr.push(['耕地', data.data[i].farmland]);
+                              landUsePieArr.push(['水域及水利设施用地', data.data[i].water]);
+                              landUsePieArr.push(['草地', data.data[i].grass]);
+                              landUsePieArr.push(['城镇村及工矿用地', data.data[i].town]);
+                              landUsePieArr.push(['园地', data.data[i].garden]);
+                              landUsePieArr.push(['林地', data.data[i].forest]);
+                              landUsePieArr.push(['交通运输用地', data.data[i].traffic]);
+                              landUsePieArr.push(['其他用地', data.data[i].other]);
+                          }
+                          farmlandList.push(data.data[i].farmland);
+                          forestList.push(data.data[i].forest);
+                          gardenList.push(data.data[i].garden);
+                          grassList.push(data.data[i].grass);
+                          townList.push(data.data[i].town);
+                          trafficList.push(data.data[i].traffic);
+                          waterList.push(data.data[i].water);
+                          otherList.push(data.data[i].other);
                       }
+                      landUseHistoryArr = [{
+                          index: '耕地',
+                          dataList: farmlandList
+                      }, {
+                          index: '水域及水利设施用地',
+                          dataList: waterList
+                      }, {
+                          index: '草地',
+                          dataList: grassList
+                      }, {
+                          index: '城镇村及工矿用地',
+                          dataList: townList
+                      }, {
+                          index: '园地',
+                          dataList: gardenList
+                      }, {
+                          index: '林地',
+                          dataList: forestList
+                      }, {
+                          index: '交通运输用地',
+                          dataList: trafficList
+                      }, {
+                          index: '其他用地',
+                          dataList: otherList
+                      }];
+
+                      var landUseIncre = [];
+                      var landUseDecre = [];
+
+                      for (var i = 0; i < data.data.length; i++) {
+                          if (data.data[i].year == landUseLastDate.year) {
+                              //排行榜数组构造
+                              processRank(landUseIncre, landUseDecre, (parseFloat(data.data[i].farmland - data.data[i - 1].farmland)).toFixed(2), '耕地');
+                              processRank(landUseIncre, landUseDecre, (parseFloat(data.data[i].water - data.data[i - 1].water)).toFixed(2), '水域及水利设施用地');
+                              processRank(landUseIncre, landUseDecre, (parseFloat(data.data[i].grass - data.data[i - 1].grass)).toFixed(2), '草地');
+                              processRank(landUseIncre, landUseDecre, (parseFloat(data.data[i].town - data.data[i - 1].town)).toFixed(2), '城镇村及工矿用地');
+                              processRank(landUseIncre, landUseDecre, (parseFloat(data.data[i].garden - data.data[i - 1].garden)).toFixed(2), '园地');
+                              processRank(landUseIncre, landUseDecre, (parseFloat(data.data[i].forest - data.data[i - 1].forest)).toFixed(2), '林地');
+                              processRank(landUseIncre, landUseDecre, (parseFloat(data.data[i].traffic - data.data[i - 1].traffic)).toFixed(2), '交通运输用地');
+                              processRank(landUseIncre, landUseDecre, (parseFloat(data.data[i].other - data.data[i - 1].other)).toFixed(2), '其他用地');
+                          }
+                      }
+
+                      function sortLandUse(a, b) {
+                          return b.dataResult - a.dataResult;
+                      }
+
+                      landUseIncre.sort(sortLandUse);
+                      landUseDecre.sort(sortLandUse);
+
+                      var increChartCategories = [];
+                      var increChartData = [];
+                      var decreChartCategories = [];
+                      var decreChartData = [];
+                      for (var i = 0; i < landUseIncre.length; i++) {
+                          increChartCategories.push(landUseIncre[i].index);
+                          increChartData.push(parseFloat(landUseIncre[i].dataResult));
+                      }
+                      $scope.landUseOption.increaseOption.options.title.text = landUseLastDate.year + '年各类土地面积增加排行';
+                      $scope.landUseOption.increaseOption.options.xAxis.categories = increChartCategories;
+                      $scope.landUseOption.increaseOption.series[0].data = increChartData;
+
+                      for (var i = 0; i < landUseDecre.length; i++) {
+                          decreChartCategories.push(landUseDecre[i].index);
+                          decreChartData.push(parseFloat(landUseDecre[i].dataResult));
+                      }
+
+                      $scope.landUseOption.decreaseOption.options.title.text = landUseLastDate.year + '年各类土地面积减少排行';
+                      $scope.landUseOption.decreaseOption.options.xAxis.categories = decreChartCategories;
+                      $scope.landUseOption.decreaseOption.series[0].data = decreChartData;
+
+                      //土地使用 初始化
+                      $scope.landUseOption.allOption.options.title.text = landUseLastDate.year + "年土地类型面积分布";
+                      $scope.landUseOption.allOption.series[0].data = landUsePieArr;
+
+                      $scope.landUseOption.detailOption.options.title.text = landUseHistoryArr[0].index + '面积';
+                      $scope.landUseOption.detailOption.options.xAxis.categories = [landUseLastDate.year - 4, landUseLastDate.year - 3, landUseLastDate.year - 2, landUseLastDate.year - 1, landUseLastDate.year];
+
+                      $scope.landUseOption.detailOption.series[0].name = landUseHistoryArr[0].index;
+                      $scope.landUseOption.detailOption.series[0].data = landUseHistoryArr[0].dataList;
+
+                      $scope.landUseDetailList = ['耕地', '园地', '林地', '草地', '城镇村及工矿用地', '交通运输用地', '水域及水利设施用地', '其他用地'];
+                      $scope.landUseOneDetailListSelected = '耕地';
                   }
-
-                  function sortLandUse(a, b) {
-                      return b.dataResult - a.dataResult;
+                  , (err) => {
+                      if (err.errorCode == "UNAUTHORIZED") {
+                          $state.go('portal');
+                      }
+                  }).finally(
+                  () => {
+                      $rootScope.loading = false;
                   }
-
-                  landUseIncre.sort(sortLandUse);
-                  landUseDecre.sort(sortLandUse);
-
-                  var increChartCategories = [];
-                  var increChartData = [];
-                  var decreChartCategories = [];
-                  var decreChartData = [];
-                  for (var i = 0; i < landUseIncre.length; i++) {
-                      increChartCategories.push(landUseIncre[i].index);
-                      increChartData.push(parseFloat(landUseIncre[i].dataResult));
-                  }
-                  $scope.landUseOption.increaseOption.options.title.text = landUseLastDate.year + '年各类土地面积增加排行';
-                  $scope.landUseOption.increaseOption.options.xAxis.categories = increChartCategories;
-                  $scope.landUseOption.increaseOption.series[0].data = increChartData;
-
-                  for (var i = 0; i < landUseDecre.length; i++) {
-                      decreChartCategories.push(landUseDecre[i].index);
-                      decreChartData.push(parseFloat(landUseDecre[i].dataResult));
-                  }
-
-                  $scope.landUseOption.decreaseOption.options.title.text = landUseLastDate.year + '年各类土地面积减少排行';
-                  $scope.landUseOption.decreaseOption.options.xAxis.categories = decreChartCategories;
-                  $scope.landUseOption.decreaseOption.series[0].data = decreChartData;
-
-                  //土地使用 初始化
-                  $scope.landUseOption.allOption.options.title.text = landUseLastDate.year + "年土地类型面积分布";
-                  $scope.landUseOption.allOption.series[0].data = landUsePieArr;
-
-                  $scope.landUseOption.detailOption.options.title.text = landUseHistoryArr[0].index + '面积';
-                  $scope.landUseOption.detailOption.options.xAxis.categories = [landUseLastDate.year - 4, landUseLastDate.year - 3, landUseLastDate.year - 2, landUseLastDate.year - 1, landUseLastDate.year];
-
-                  $scope.landUseOption.detailOption.series[0].name = landUseHistoryArr[0].index;
-                  $scope.landUseOption.detailOption.series[0].data = landUseHistoryArr[0].dataList;
-
-                  $scope.landUseDetailList = ['耕地', '园地', '林地', '草地', '城镇村及工矿用地', '交通运输用地', '水域及水利设施用地', '其他用地'];
-                  $scope.landUseOneDetailListSelected = '耕地';
-              }
-            );
-        });
+                );
+            }
+        }, (err) => {
+            if (err.errorCode == "UNAUTHORIZED") {
+                $state.go('portal');
+            }
+        }).finally(
+          () => {
+              $rootScope.loading = false;
+          }
+        );
 
         //土地出让最近五年，数据获取
         qService.httpPost(dataDetailFactory.lastestObject,
@@ -689,8 +707,24 @@ export default ($scope, $state, dateService, dataDetailFactory, qService) => {
                 $scope.landUseGrantList = ['土地出让成交总价', '土地出让成交总面积', '土地出让成交总宗数'];
                 $scope.landUseGrantListSelected = '土地出让成交总价';
                 landUseFlag = true;
-            });
-        });
+            }, (err) => {
+                if (err.errorCode == "UNAUTHORIZED") {
+                    $state.go('portal');
+                }
+            }).finally(
+              () => {
+                  $rootScope.loading = false;
+              }
+            );
+        }, (err) => {
+            if (err.errorCode == "UNAUTHORIZED") {
+                $state.go('portal');
+            }
+        }).finally(
+          () => {
+              $rootScope.loading = false;
+          }
+        );
     };
 
     //土地执法 列表点击事件
@@ -882,8 +916,24 @@ export default ($scope, $state, dateService, dataDetailFactory, qService) => {
                 $scope.landIllegalIndexList = ['总宗数', '总面积', '基本农田面积', '已整改宗数', '已整改面积'];
                 $scope.landIllegalIndexListSelected = '总宗数';
                 landIllegalFlag = true;
-            });
-        });
+            }, (err) => {
+                if (err.errorCode == "UNAUTHORIZED") {
+                    $state.go('portal');
+                }
+            }).finally(
+              () => {
+                  $rootScope.loading = false;
+              }
+            );
+        }, (err) => {
+            if (err.errorCode == "UNAUTHORIZED") {
+                $state.go('portal');
+            }
+        }).finally(
+          () => {
+              $rootScope.loading = false;
+          }
+        );
     };
 
     //土地使用
@@ -891,6 +941,7 @@ export default ($scope, $state, dateService, dataDetailFactory, qService) => {
         $('#useGrantSelectPanel').hide(0);
         $('#useDetailSelectPanel').hide(0);
         if (!landUseFlag){
+            $rootScope.loading = true;
             landUseFun();
         }
     };
@@ -907,9 +958,11 @@ export default ($scope, $state, dateService, dataDetailFactory, qService) => {
     $scope.landIllegalFunction = function () {
         $('#illegalDetailSelectPanel').hide(0);
         if (!landIllegalFlag){
+            $rootScope.loading = true;
             landIllegalFun();
         }
     };
     //进入页面，默认显示土地使用
+    $rootScope.loading = true;
     landUseFun();
 };

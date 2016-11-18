@@ -1,4 +1,4 @@
-export default ($scope, kpiDetailService, dateService) => {
+export default ($rootScope, $scope, kpiDetailService, dateService) => {
     'ngInject';
 
     const jQueryDOMToDos = () => {
@@ -6,7 +6,8 @@ export default ($scope, kpiDetailService, dateService) => {
         $(".navbar2return").show(0); // 显示返回按钮
         $(".navTopShowMark").hide(0); // 隐藏KPI状态 KPI分类
         $('#showshort').focus(); // 获取默认焦点
-    }();
+    };
+    jQueryDOMToDos();
 
     $scope.tab1 = true;
     $scope.tab2 = false;
@@ -67,7 +68,6 @@ export default ($scope, kpiDetailService, dateService) => {
         upLevel: 3.7,
         downLevel: 3.7
     };
-
     var mapObj, marker;
     var waterQualityMarkerArr;
     var waterQualityCurrentArr;
@@ -757,7 +757,6 @@ export default ($scope, kpiDetailService, dateService) => {
             }],
         }
     };
-
     //水情 highcharts options
     $scope.waterConditionOptions = {
         waterConditionCurrentOption: {
@@ -808,7 +807,6 @@ export default ($scope, kpiDetailService, dateService) => {
             }],
         }
     };
-
     //废水排放 highcharts options
     $scope.wasteWaterOptions = {
         wasteWaterCurrentOption: {
@@ -842,7 +840,6 @@ export default ($scope, kpiDetailService, dateService) => {
             series: []
         }
     };
-
     //首页表格显示状态
     $scope.mapTableStatus = {
         waterQuality: true,
@@ -854,14 +851,11 @@ export default ($scope, kpiDetailService, dateService) => {
      * 函数区
      *
      */
-        //水质量 http请求后处理过程（即http.success(function(data))中的function)
+    //水质量 http请求后处理过程（即http.success(function(data))中的function)
     var waterQualityCurrentSuccess = function (data) {
-
             if (data.data.length == 0) return null;
-
             waterQualityCurrentArr = [];
             waterQualityMarkerArr = [];
-
             var hourOne = data.data[0].hour;
             waterQualityCurrentTimeList = [];
             for (var i = 0; i < 6; i++) {
@@ -963,7 +957,6 @@ export default ($scope, kpiDetailService, dateService) => {
             $scope.waterQualityOptions.currentNh4nLineOption.series[0].data = formatDataArr(waterQualityCurrentArr[0].index_nh4nList.slice(0));
             $scope.waterQualityOptions.currentPOption.options.xAxis.categories = waterQualityCurrentTimeList;
             $scope.waterQualityOptions.currentPOption.series[0].data = formatDataArr(waterQualityCurrentArr[0].index_pList.slice(0));
-
         };
 
     //水质量 Button点击事件
@@ -1124,7 +1117,7 @@ export default ($scope, kpiDetailService, dateService) => {
         $scope.waterConditionOptions.waterConditionCurrentOption.xAxis.categories = waterConditionCurrentTimeList;
         $scope.waterConditionOptions.waterConditionCurrentOption.series[0].data = waterConditionCurrentArr[0].index_levelUp;
         $scope.waterConditionOptions.waterConditionCurrentOption.series[1].data = waterConditionCurrentArr[0].index_levelDown;
-
+        $rootScope.loading = false;
     };
     //水情 Button点击事件
     $scope.waterConditionBtn = function () {
@@ -1314,6 +1307,7 @@ export default ($scope, kpiDetailService, dateService) => {
             });
         }
         $scope.wasteWaterOptions.wasteWaterCurrentOption.series = wasteWaterSeriesTemp;
+        $rootScope.loading=false;
     };
     //废水排放抽出所有污染源最近一天的数据
     function wasteWaterCurrentAllGet(data) {
@@ -1790,86 +1784,9 @@ export default ($scope, kpiDetailService, dateService) => {
         else if (status == 'take_action') return '#CC0033';
         else return '#AAAAAA';
     };
-    //高德地图初始化
-    function mapInit() {
-        mapObj = new AMap.Map("map_canvas", { //二维地图显示视口
-            view: new AMap.View2D({
-                center: new AMap.LngLat(121.106661, 31.579533), //地图中心点，后面还会更改
-                zoom: 11 //地图显示的缩放级别
-            })
-        });
-    };
 
-    //高德地图加点
-    function addMarker(markerArr, type) {
-        for (var i = 0; i < markerArr.length; i++) {
-            var p0 = markerArr[i].point.split("|")[0];
-            var p1 = markerArr[i].point.split("|")[1];
-            //自定义点标记内容
-            var markerContent = document.createElement("div");
-            markerContent.className = "markerContentStyle";
-            markerContent.style.color = markerArr[i].color;
-            //点标记中的图标
-            var markerImg = document.createElement("img");
-            markerImg.src = "http://webapi.amap.com/images/marker_sprite.png";
-            markerContent.appendChild(markerImg);
-            //点标记中的文本
-            var markerSpan = document.createElement("span");
-            markerSpan.innerHTML = markerArr[i].abbr;
-            markerSpan.style.borderRadius = "7px";
-            markerSpan.style.borderWidth = 1;
-            markerSpan.style.padding = "4px";
-            markerContent.appendChild(markerSpan);
-            marker = new AMap.Marker({
-                content: markerContent,
-                topWhenClick: true,
-                topWhenMouseOver: true,
-                position: new AMap.LngLat(p0, p1)
-            });
-            (function (markerTemp) {
-                //构建信息窗体中显示的内容
-                var info = [];
-                info.push("<div><b>" + markerArr[i].monitor + "</b>");
-                if (type == 'waterQuality') {
-                    info.push("<div style=\"margin-top:10px; font-size:14px\"><table class=\"table table-bordered\">")
-                    info.push("<tr><td>溶解氧</td><td><span class=\"label " + getLabelCss(getStatusDesc(markerArr[i].index_o2, waterQualityO2Scan.scan, '溶解氧').status) + "\">" + markerArr[i].index_o2 + "mg/L</span></td></tr>");
-                    info.push("<tr><td>高锰酸钾浓度</td><td><span class=\"label " + getLabelCss(getStatusAsc(markerArr[i].index_kmno4, waterQualityKmno4Scan.scan, '高锰酸钾').status) + "\">" + markerArr[i].index_kmno4 + "mg/L</span></td></tr>");
-                    info.push("<tr><td>氨氮浓度</td><td><span class=\"label " + getLabelCss(getStatusAsc(markerArr[i].index_nh4n, waterQualityNh4nScan.scan, '氨氮').status) + "\">" + markerArr[i].index_nh4n + "mg/L</span></td></tr>");
-                    info.push("<tr><td>总磷浓度</td><td><span class=\"label " + getLabelCss(getStatusAsc(markerArr[i].index_p, waterQualityPScan.scan, '总磷').status) + "\">" + markerArr[i].index_p + "mg/L</span></td></tr>");
-                    info.push("<tr><td>监测站状态</td><td><span class=\"label " + getLabelCss(markerArr[i].monitor_status) + "\">" + getChineseStatus(markerArr[i].monitor_status) + "</span></td></tr>");
-                    info.push("</table></div></div>");
 
-                } else if (type == 'waterCondition') {
-                    info.push("<div style=\"margin-top:10px; font-size:14px\"><table class=\"table table-bordered\">")
-                    info.push("<tr><td>闸上水位</td><td><span class=\"label " + getLabelCss(WaterConditionStatusUpLevel(markerArr[i].index_levelUp).status) + "\">" + markerArr[i].index_levelUp + "m</span></td></tr>");
-                    info.push("<tr><td>闸下水位</td><td><span class=\"label " + getLabelCss(WaterConditionStatusDownLevel(markerArr[i].index_levelDown).status) + "\">" + markerArr[i].index_levelDown + "m</span></td></tr>");
-                    info.push("<tr><td>监测站状态</td><td><span class=\"label " + getLabelCss(markerArr[i].monitor_status) + "\">" + getChineseStatus(markerArr[i].monitor_status) + "</span></td></tr>");
-                    info.push("</table></div></div>");
 
-                } else if (type == 'waterPollution') {
-                    info.push("<div style=\"margin-top:10px; font-size:14px\"><table class=\"table table-bordered\">")
-                    info.push("<tr><td>排放量</td><td>" + (markerArr[i].index_discharge[1]).toFixed(2) + "吨</td></tr>");
-                    info.push("<tr><td>COD浓度</td><td><span class=\"label " + getLabelCss(getStatusAsc(markerArr[i].index_cod, waterPollutionCodScan.scan, 'COD浓度').status) + "\">" + (markerArr[i].index_cod).toFixed(2) + "mg/L</span></td></tr>");
-                    info.push("<tr><td>氨氮浓度</td><td><span class=\"label " + getLabelCss(getStatusAsc(markerArr[i].index_nh4n, waterPollutionNh4nScan.scan, '氨氮浓度').status) + "\">" + (markerArr[i].index_nh4n).toFixed(2) + "mg/L</span></td></tr>");
-                    info.push("<tr><td>总磷浓度</td><td><span class=\"label " + getLabelCss(getStatusAsc(markerArr[i].index_p, waterPollutionPScan.scan, '总磷浓度').status) + "\">" + (markerArr[i].index_p).toFixed(2) + "mg/L</span></td></tr>");
-                    info.push("<tr><td>监测站状态</td><td><span class=\"label " + getLabelCss(markerArr[i].monitor_status) + "\">" + getChineseStatus(markerArr[i].monitor_status) + "</span></td></tr>");
-                    info.push("</table></div></div>");
-                }
-                var infoWindow = new AMap.InfoWindow({
-                    content: info.join(""), //使用默认信息窗体框样式，显示信息内容
-                    offset: new AMap.Pixel(16, -45)
-                });
-                AMap.event.addListener(markerTemp, 'click', function () { //鼠标点击marker弹出自定义的信息窗体
-                    infoWindow.open(mapObj, markerTemp.getPosition());
-                });
-            })(marker);
-            marker.setMap(mapObj); //在地图上添加点
-        }
-    };
-    //高德地图去点
-    function removeMarker() {
-        mapObj.clearMap();
-    };
     //根据是否达到目标值获取颜色
     function getTargetColor(num, scan) {
         if (num <= scan[1])
@@ -1898,7 +1815,6 @@ export default ($scope, kpiDetailService, dateService) => {
         }
         return result;
     }
-
     //数值越大，越严重
     function getStatusAsc(data1, scan, indexName) {
         var data = parseFloat(data1);
@@ -1987,17 +1903,101 @@ export default ($scope, kpiDetailService, dateService) => {
         return moment(date).subtract(hours, 'hours').toDate().getTime();
     };
 
+    /**
+     * 高德地图区
+     */
+    //高德地图初始化
+    function mapInit() {
+        mapObj = new AMap.Map("map_canvas", { //二维地图显示视口
+            view: new AMap.View2D({
+                center: new AMap.LngLat(121.106661, 31.579533), //地图中心点，后面还会更改
+                // zoom: 11 //地图显示的缩放级别
+            })
+        });
+    };
+    //高德地图加点
+    function addMarker(markerArr, type) {
+        for (var i = 0; i < markerArr.length; i++) {
+            var p0 = markerArr[i].point.split("|")[0];
+            var p1 = markerArr[i].point.split("|")[1];
+            //自定义点标记内容
+            var markerContent = document.createElement("div");
+            markerContent.className = "markerContentStyle";
+            markerContent.style.color = markerArr[i].color;
+            //点标记中的图标
+            var markerImg = document.createElement("img");
+            markerImg.src = "/assets/images/Environment/marker_sprite.png";
+            markerContent.appendChild(markerImg);
+            //点标记中的文本
+            var markerSpan = document.createElement("span");
+            markerSpan.innerHTML = markerArr[i].abbr;
+            markerSpan.style.borderRadius = "7px";
+            markerSpan.style.borderWidth = 1;
+            markerSpan.style.padding = "4px";
+            markerContent.appendChild(markerSpan);
+            marker = new AMap.Marker({
+                content: markerContent,
+                topWhenClick: true,
+                topWhenMouseOver: true,
+                position: new AMap.LngLat(p0, p1)
+            });
+            (function (markerTemp) {
+                //构建信息窗体中显示的内容
+                var info = [];
+                info.push("<div><b>" + markerArr[i].monitor + "</b>");
+                if (type == 'waterQuality') {
+                    info.push("<div style=\"margin-top:10px; font-size:14px\"><table class=\"table table-bordered\">")
+                    info.push("<tr><td>溶解氧</td><td><span class=\"label " + getLabelCss(getStatusDesc(markerArr[i].index_o2, waterQualityO2Scan.scan, '溶解氧').status) + "\">" + markerArr[i].index_o2 + "mg/L</span></td></tr>");
+                    info.push("<tr><td>高锰酸钾浓度</td><td><span class=\"label " + getLabelCss(getStatusAsc(markerArr[i].index_kmno4, waterQualityKmno4Scan.scan, '高锰酸钾').status) + "\">" + markerArr[i].index_kmno4 + "mg/L</span></td></tr>");
+                    info.push("<tr><td>氨氮浓度</td><td><span class=\"label " + getLabelCss(getStatusAsc(markerArr[i].index_nh4n, waterQualityNh4nScan.scan, '氨氮').status) + "\">" + markerArr[i].index_nh4n + "mg/L</span></td></tr>");
+                    info.push("<tr><td>总磷浓度</td><td><span class=\"label " + getLabelCss(getStatusAsc(markerArr[i].index_p, waterQualityPScan.scan, '总磷').status) + "\">" + markerArr[i].index_p + "mg/L</span></td></tr>");
+                    info.push("<tr><td>监测站状态</td><td><span class=\"label " + getLabelCss(markerArr[i].monitor_status) + "\">" + getChineseStatus(markerArr[i].monitor_status) + "</span></td></tr>");
+                    info.push("</table></div></div>");
+
+                } else if (type == 'waterCondition') {
+                    info.push("<div style=\"margin-top:10px; font-size:14px\"><table class=\"table table-bordered\">")
+                    info.push("<tr><td>闸上水位</td><td><span class=\"label " + getLabelCss(WaterConditionStatusUpLevel(markerArr[i].index_levelUp).status) + "\">" + markerArr[i].index_levelUp + "m</span></td></tr>");
+                    info.push("<tr><td>闸下水位</td><td><span class=\"label " + getLabelCss(WaterConditionStatusDownLevel(markerArr[i].index_levelDown).status) + "\">" + markerArr[i].index_levelDown + "m</span></td></tr>");
+                    info.push("<tr><td>监测站状态</td><td><span class=\"label " + getLabelCss(markerArr[i].monitor_status) + "\">" + getChineseStatus(markerArr[i].monitor_status) + "</span></td></tr>");
+                    info.push("</table></div></div>");
+
+                } else if (type == 'waterPollution') {
+                    info.push("<div style=\"margin-top:10px; font-size:14px\"><table class=\"table table-bordered\">")
+                    info.push("<tr><td>排放量</td><td>" + (markerArr[i].index_discharge[1]).toFixed(2) + "吨</td></tr>");
+                    info.push("<tr><td>COD浓度</td><td><span class=\"label " + getLabelCss(getStatusAsc(markerArr[i].index_cod, waterPollutionCodScan.scan, 'COD浓度').status) + "\">" + (markerArr[i].index_cod).toFixed(2) + "mg/L</span></td></tr>");
+                    info.push("<tr><td>氨氮浓度</td><td><span class=\"label " + getLabelCss(getStatusAsc(markerArr[i].index_nh4n, waterPollutionNh4nScan.scan, '氨氮浓度').status) + "\">" + (markerArr[i].index_nh4n).toFixed(2) + "mg/L</span></td></tr>");
+                    info.push("<tr><td>总磷浓度</td><td><span class=\"label " + getLabelCss(getStatusAsc(markerArr[i].index_p, waterPollutionPScan.scan, '总磷浓度').status) + "\">" + (markerArr[i].index_p).toFixed(2) + "mg/L</span></td></tr>");
+                    info.push("<tr><td>监测站状态</td><td><span class=\"label " + getLabelCss(markerArr[i].monitor_status) + "\">" + getChineseStatus(markerArr[i].monitor_status) + "</span></td></tr>");
+                    info.push("</table></div></div>");
+                }
+                var infoWindow = new AMap.InfoWindow({
+                    content: info.join(""), //使用默认信息窗体框样式，显示信息内容
+                    offset: new AMap.Pixel(16, -45)
+                });
+                AMap.event.addListener(markerTemp, 'click', function () { //鼠标点击marker弹出自定义的信息窗体
+                    infoWindow.open(mapObj, markerTemp.getPosition());
+                });
+            })(marker);
+            marker.setMap(mapObj); //在地图上添加点
+        }
+    };
+    //高德地图去点
+    function removeMarker() {
+        mapObj.clearMap();
+    };
     /*
      /**
      * 页面初始化区
      * 有些图表的数据是在网页刷新时就请求到的
      */
-    // 水质量 当天数据模块 初始化
+    // 水质 当天数据模块 初始化
+    $rootScope.loading=true;
     kpiDetailService.getLastestObject('WaterQuality', ['date'], function (data) {
         var date = data.data.date;
         var datebaseLastestDate = moment(date).subtract(1, 'hours');
         var startTime = getSubstractDate(getCurrentDate(datebaseLastestDate), 23);
         var endTime = getCurrentDate(datebaseLastestDate);
+
         kpiDetailService.advancedQuery('WaterQuality', {
             date: {
                 value1: startTime,
@@ -2018,6 +2018,7 @@ export default ($scope, kpiDetailService, dateService) => {
             mapInit();
             addMarker(waterQualityMarkerArr, 'waterQuality');
             mapObj.setFitView();
+            $rootScope.loading=false;
         });
         var waterQualityLastDate = {
             year: dateService.formatDateTime(endTime).slice(0, 4),
@@ -2027,36 +2028,7 @@ export default ($scope, kpiDetailService, dateService) => {
         };
         $scope.waterQualityCurrentDateTime = waterQualityLastDate;
     });
-    //水情 当天数据模块 初始化
-    kpiDetailService.getLastestObject('WaterCondition', ['date'], function (data) {
-        var date = data.data.date;
-        var datebaseLastestDate = moment(date).subtract(1, 'hours');
-        var startTime = getSubstractDate(getCurrentDate(datebaseLastestDate), 11);
-        var endTime = getCurrentDate(datebaseLastestDate);
-        kpiDetailService.advancedQuery('WaterCondition', {
-            date: {
-                value1: startTime,
-                value2: endTime,
-                queryType: 'bt',
-                valueType: 'datte'
-            },
-            sort1: {
-                key: 'waterMonitor.id',
-                sortType: 'asc'
-            },
-            sort2: {
-                key: 'date',
-                sortType: 'asc'
-            }
-        }, waterConditionCurrentSuccess);
-        var waterConditionLastDate = {
-            year: dateService.formatDateTime(endTime).slice(0, 4),
-            month: dateService.formatDateTime(endTime).slice(5, 7),
-            day: dateService.formatDateTime(endTime).slice(8, 10),
-            hour: dateService.formatDateTime(endTime).slice(11, 13)
-        };
-        $scope.waterConditionCurrentDateTime = waterConditionLastDate;
-    });
+    $rootScope.loading=true;
     //废水排放 当天数据模块 初始化
     kpiDetailService.getLastestObject('WaterPollution', ['date'], function (data) {
         var date = data.data.date;
@@ -2086,5 +2058,36 @@ export default ($scope, kpiDetailService, dateService) => {
             hour: dateService.formatDateTime(endTime).slice(11, 13)
         };
         $scope.wasteWaterCurrentDateTime = wasteWaterLastDate;
+    });
+    $rootScope.loading=true;
+    //水情 当天数据模块 初始化
+    kpiDetailService.getLastestObject('WaterCondition', ['date'], function (data) {
+        var date = data.data.date;
+        var datebaseLastestDate = moment(date).subtract(1, 'hours');
+        var startTime = getSubstractDate(getCurrentDate(datebaseLastestDate), 11);
+        var endTime = getCurrentDate(datebaseLastestDate);
+        kpiDetailService.advancedQuery('WaterCondition', {
+            date: {
+                value1: startTime,
+                value2: endTime,
+                queryType: 'bt',
+                valueType: 'datte'
+            },
+            sort1: {
+                key: 'waterMonitor.id',
+                sortType: 'asc'
+            },
+            sort2: {
+                key: 'date',
+                sortType: 'asc'
+            }
+        }, waterConditionCurrentSuccess);
+        var waterConditionLastDate = {
+            year: dateService.formatDateTime(endTime).slice(0, 4),
+            month: dateService.formatDateTime(endTime).slice(5, 7),
+            day: dateService.formatDateTime(endTime).slice(8, 10),
+            hour: dateService.formatDateTime(endTime).slice(11, 13)
+        };
+        $scope.waterConditionCurrentDateTime = waterConditionLastDate;
     });
 };

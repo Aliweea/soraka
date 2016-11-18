@@ -1,4 +1,4 @@
-export default ($scope, $state, dateService, qService, kpiDetailService, dictService) => {
+export default ($rootScope, $scope, $state, dateService, qService, kpiDetailService, dictService) => {
     'ngInject';
     const jQueryDOMToDos = () => {
         $(".navbar2position").hide(0); // 显示当前位置
@@ -97,7 +97,7 @@ export default ($scope, $state, dateService, qService, kpiDetailService, dictSer
 
     //---------------------------*****************------------------------------------------
     var processFunction1 = function(data) {
-            console.log(data.data);
+            //console.log(data.data);
             var obj = data.data;
             if (obj != null) {
                 var year_ = obj.year;
@@ -621,9 +621,9 @@ export default ($scope, $state, dateService, qService, kpiDetailService, dictSer
                         data: eachStationData.data[3]
                     }]
                 };
-
+                $rootScope.loading = false;
             }; //end of processFunction
-
+            $rootScope.loading = true;
             kpiDetailService.advancedQuery(tableName, advancedQueryConfig, processFunction);
 
         }
