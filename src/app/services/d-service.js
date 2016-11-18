@@ -263,6 +263,9 @@ export default (dateService, unitService) => {
 					chart: {
 						type:'spline'
 					},
+					exporting: {
+						enabled: false
+					},
 					tooltip: {
 	                    shared: true,
 	                    useHTML: true,
