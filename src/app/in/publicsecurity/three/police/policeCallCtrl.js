@@ -1,4 +1,4 @@
-export default ($scope, $state, dateService, dataDetailFactory, qService, kpiDetailService) => {
+export default ($rootScope, $scope, $state, dateService, dataDetailFactory, qService, kpiDetailService) => {
     'ngInject';
     const jQueryDOMToDos = () => {
         $(".navbar2position").hide(0); // 隐藏当前位置
@@ -369,14 +369,14 @@ export default ($scope, $state, dateService, dataDetailFactory, qService, kpiDet
                 //处理函数返回data的函数，就是原来的http.success()里面的function
 
             var processFunction = function(data) {
-                console.log(JSON.stringify(data));
+                //console.log(JSON.stringify(data));
                 //组装每月数据
 
                 wireEachMonthData(data.data);
                 //初始化图表数据
                 initChartData(data.data);
 
-
+                //$rootScope.loading = false;
                 function initChartData(data) {
                     if (data.length == 0) {
                         alert('本年度数据未录入 ！');
@@ -546,7 +546,7 @@ export default ($scope, $state, dateService, dataDetailFactory, qService, kpiDet
                             type: 'bar'
                         },
                         title: {
-                            text: $scope.getDate.year + "年" + $scope.getDate.month + "月太仓市各类报警案件总数"
+                            text: $scope.getDate.year + "年" + "截止"+$scope.getDate.month + "月末太仓市各类报警案件总数"
                         },
                         subtitle: {
                             text: ''
@@ -732,9 +732,10 @@ export default ($scope, $state, dateService, dataDetailFactory, qService, kpiDet
                         data: eachStationData[$scope.totalData.checkModel].values
                     }]
                 };
+                $rootScope.loading = false;
 
             };
-
+            $rootScope.loading = true;
             kpiDetailService.advancedQuery(tableName, advancedQueryConfig, processFunction);
         }
         //---------------------------********api调用参数*********------------------------------------------

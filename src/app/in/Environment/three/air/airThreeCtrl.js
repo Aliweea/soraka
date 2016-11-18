@@ -1287,7 +1287,7 @@ export default ($rootScope, $scope, kpiDetailService, dateService) => {
                 colors: ['#0787C8', '#3795BC', '#1FC22B', '#B5DF15', '#F6CD00', '#FB9705', '#F26200'],
                 chart: {
                     type: 'area',
-                    width: $(window).width() * 0.9
+                    width: $(window).width() * 0.9,
                 },
                 exporting: {
                     enabled: false
@@ -1311,7 +1311,6 @@ export default ($rootScope, $scope, kpiDetailService, dateService) => {
                 }
             },
             series: []
-
         }
     };
 
