@@ -44,7 +44,7 @@ export default($scope, $state, hService, qService, xService, kpiRes, $rootScope)
 				$state.go("app.publicService.ptelecom");
 				break;
 			case "交通":
-				$state.go("app.traffichome.psngrTransportation");
+				$state.go("app.publicService.psngrTransportation");
 				break;
 
 		}

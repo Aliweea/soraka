@@ -399,16 +399,16 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       templateUrl: 'app/in/publicService/three/telecom/ptelecom.html',
       controller: 'ptelecomCtrl'
     })
-    .state('app.traffichome.psngrTransportation',{
+    .state('app.publicService.psngrTransportation',{
       url:'/traffic/psngrTransportation',
       templateUrl:'app/in/publicService/three/traffic/psngrTransportation.html',
       controller:'ptrafficCtrl'
     })
-    .state('app.traffichome',{
-      abstract: true,
-      url:'/traffic',
-      templateUrl:'app/in/publicService/traffichome.html'
-    }) 
+    // .state('app.traffichome',{
+    //   abstract: true,
+    //   url:'/traffic',
+    //   templateUrl:'app/in/publicService/traffichome.html'
+    // }) 
 
     
     
