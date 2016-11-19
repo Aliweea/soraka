@@ -1,0 +1,34 @@
+.pshealthcare-module{
+	width:100%;
+	.tabs{
+		position: fixed;
+		z-index:1000;
+		width:100%;
+		font-size: 15px;
+		background-color: #fff;
+		border-bottom: 1px solid $cborder;
+		@mixin ss(){
+			background-color: transparent;
+			display: inline-block;
+			padding: 10px 2px;
+			outline: none;
+		}
+		.activeTab{
+			background: radical-gradient(50% 100%,#dee,#dee,#fff);
+			border-bottom: 2px solid #567;
+		}
+		.s1{
+			@include ss();
+			width:48%;
+			border: none;
+			border-right: 1px solid $cborder;
+			border-bottom: 2px solid #fff;
+		}
+		.s2{
+			@include ss();
+			width:48%;
+			border: none;
+			border-bottom: 2px solid #fff;
+		}
+	}
+}

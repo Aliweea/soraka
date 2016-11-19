@@ -131,7 +131,7 @@
 	<div class="distribute-area"  ng-show="tab2">
 		<i class="fa fa-hand-o-right i-label" aria-hidden="true"></i>
 		<span name="" id="pseducationToggleButton2" class="toggle-button">
-			教师学历类别
+			学校类别
 		</span>
 	</div>
 	<div class="distribute-toggle-area" ng-show="tab2">
@@ -142,23 +142,124 @@
 	<div class="chart-area key-value-area" ng-show="tab2">
 		<highchart config="perEduFundChart" id="perEduFundChart"></highchart>
 	</div>
-
-
-	<!-- <div class="key-value-area1">
-		<div style="text-align: center;line-height: 15px;">
-	        <span style="font-size: 15px;">{{displayYear}} 年{{listLastYearTitle}}</span>
-      </div>
-      <table class="table population-table">
-        <tr ng-repeat="one in listLastYearSelected">
-          <td>{{one.name}}</td>
-          <td align="right">{{one.number}}{{union}}</td>
-        </tr>
-      </table>
+</div>
+<div class="key-value-area" ng-show="tab2">
+	<div class="title-area">
+			<i class="fa fa-bar-chart" aria-hidden="true"> 
+			</i>
+			<span class="title">生均公共财政预算教育事业费支出增长增减率情况</span><br>
+		</div>
 	</div>
-	<div class="chart-area">
-		<highchart config="lineChart" id="inforUserTotalLineChart"></highchart>
+	<div class="distribute-area"  ng-show="tab2">
+		<i class="fa fa-hand-o-right i-label" aria-hidden="true"></i>
+		<span name="" id="pseducationToggleButton3" class="toggle-button">
+			学校类别
+		</span>
 	</div>
-	<div class="chart-area">
-		<highchart config="areaChart" id="userPercentageByKindAreaChart"></highchart>
-	</div> -->
+	<div class="distribute-toggle-area" ng-show="tab2">
+		<div class="toggle-panel" id="pseducationTogglePanel3">
+			<input class="toggle-item" type="button" ng-repeat="investGrntTwo in perEduFundGrntRateList" ng-model="investGrntRateKindSelected" ng-click="investGrntRateKindChange(investGrntTwo)" ng-value="investGrntTwo.name" name="perEduFundGrntRateList">
+		</div>
+	</div>
+	<div class="chart-area key-value-area" ng-show="tab2">
+		<highchart config="perEduFundRateChart" id="perEduFundRateChart"></highchart>
+	</div>
+</div>
+<div class="key-value-area" ng-show="tab2">
+	<div class="title-area">
+			<i class="fa fa-bar-chart" aria-hidden="true"> 
+			</i>
+			<span class="title">生均公共财政预算公用经费支出增长情况</span><br>
+		</div>
+	</div>
+	<div class="distribute-area"  ng-show="tab2">
+		<i class="fa fa-hand-o-right i-label" aria-hidden="true"></i>
+		<span name="" id="pseducationToggleButton4" class="toggle-button">
+			学校类别
+		</span>
+	</div>
+	<div class="distribute-toggle-area" ng-show="tab2">
+		<div class="toggle-panel" id="pseducationTogglePanel4">
+			<input class="toggle-item" type="button" ng-repeat="investpubGrntOne in perFundGrntList" ng-model="investpubGrntKindSelected" ng-click="investpubGrntKindChange(investpubGrntOne)" ng-value="investpubGrntOne.name" name="perFundGrntList">
+		</div>
+	</div>
+	<div class="chart-area key-value-area" ng-show="tab2">
+		<highchart config="perFundChart" id="perFundChart"></highchart>
+	</div>
+</div>
+<div class="key-value-area" ng-show="tab2">
+	<div class="title-area">
+			<i class="fa fa-bar-chart" aria-hidden="true"> 
+			</i>
+			<span class="title">生均公共财政预算公用经费支出增长增减率情况</span><br>
+		</div>
+	</div>
+	<div class="distribute-area"  ng-show="tab2">
+		<i class="fa fa-hand-o-right i-label" aria-hidden="true"></i>
+		<span name="" id="pseducationToggleButton5" class="toggle-button">
+			学校类别
+		</span>
+	</div>
+	<div class="distribute-toggle-area" ng-show="tab2">
+		<div class="toggle-panel" id="pseducationTogglePanel5">
+			<input class="toggle-item" type="button" ng-repeat="investpubGrntTwo in perFundGrntRateList" ng-model="investpubGrntRateKindSelected" ng-click="investpubGrntRateKindChange(investpubGrntTwo)" ng-value="investpubGrntTwo.name" name="perFundGrntRateList">
+		</div>
+	</div>
+	<div class="chart-area key-value-area" ng-show="tab2">
+		<highchart config="perFundRateChart" id="perFundRateChart"></highchart>
+	</div>
+</div>
+<div class="key-value-area" ng-show="tab2">
+	<div class="title-area">
+		<i class="fa fa-bar-chart" aria-hidden="true"> 
+		</i>
+		<span class="title">年国家财政性教育经费占国内生产总值的比例</span><br>
+	</div>
+</div>
+<div class="chart-area key-value-area" ng-show="tab2">
+	<highchart config="stateChart" id="stateChart"></highchart>
+</div>
+<div class="key-value-area"  ng-show="tab2">
+	<div style="text-align: center;line-height: 15px;">
+        <span style="font-size: 15px;">{{lastYear}} 年国家财政性教育经费占国内生产总值的比例</span>
+  </div>
+  <table class="table population-table">
+  	<tr>
+		<th>统计项目</th>
+		<th> 统计值</th>
+		<th>比上年同期增长</th>
+	</tr>
+    <tr>
+		<td>国家财政性教育经费占国内生产总值的比例增减率</td>
+		<td >{{investGrntLastYearList[21].number}} %</td>
+		<td >{{investGrntLastYearList[22].number}} %</td>
+	</tr>
+  </table>
+</div>
+<div class="key-value-area" ng-show="tab2">
+	<div class="title-area">
+		<i class="fa fa-bar-chart" aria-hidden="true"> 
+		</i>
+		<span class="title">公共财政预算教育经费占公共财政预算支出的比例</span><br>
+	</div>
+</div>
+<div class="chart-area key-value-area" ng-show="tab2">
+	<highchart config="stateChart" id="stateChart"></highchart>
+</div>
+<div class="key-value-area"  ng-show="tab2">
+	<div style="text-align: center;line-height: 15px;">
+        <span style="font-size: 15px;">{{lastYear}} 年公共财政预算教育经费占公共财政预算支出的比例</span>
+  </div>
+  <table class="table population-table">
+  	<tr>
+		<th>统计项目</th>
+		<th> 统计值</th>
+		<th>比上年同期增长</th>
+	</tr>
+    <tr>
+		<td>公共财政预算教育经费占公共财政预算支出的比例增减率</td>
+		<td >{{investGrntLastYearList[23].number}} %</td>
+		<td >{{investGrntLastYearList[24].number}} %</td>
+	</tr>
+  </table>
 </div>
