@@ -117,11 +117,15 @@ import publicServiceCtrl from './in/publicService/publicServiceCtrl.js';
 import publicServicelistCtrl from './in/publicService/one/publicServicelistCtrl.js';
 import publicServicedetailCtrl from './in/publicService/two/publicServicedetailCtrl.js';
 import publicServiceByStateCtrl from './in/publicService/one/bystate/bystateCtrl.js';
-import peducationCtrl from './in/publicService/three/education/peducationCtrl.js';
+// import peducationCtrl from './in/publicService/three/education/peducationCtrl.js';
 import phealthCareCtrl from './in/publicService/three/healthCare/phealthCareCtrl.js';
 import hlthPblcHlthCtrl from './in/publicService/three/healthCare/hlthPblcHlthCtrl.js';
 import ptelecomCtrl from './in/publicService/three/telecom/ptelecomCtrl.js';
-import ptrafficCtrl from './in/publicService/three/traffic/ptrafficCtrl.js';
+import psngrTransportationCtrl from './in/publicService/three/traffic/psngrTransportationCtrl.js';
+import trnspAdminPermitCtrl from './in/publicService/three/traffic/trnspAdminPermitCtrl.js';
+import gdsTransCtrl from './in/publicService/three/traffic/gdsTransCtrl.js';
+import driverTrainCtrl from './in/publicService/three/traffic/driverTrainCtrl.js';
+import trnspInfstCnstrCtrl from './in/publicService/three/traffic/trnspInfstCnstrCtrl.js';
 import eduGuaranteeCtrl from './in/publicService/three/education/eduGuaranteeCtrl.js';
 // import ptrafficCtrl from './in/publicService/three/traffic/ptrafficCtrl.js';
 
@@ -245,10 +249,14 @@ angular.module('soraka',
   .controller('publicServicelistCtrl', publicServicelistCtrl)
   .controller('publicServicedetailCtrl', publicServicedetailCtrl)
   .controller('publicServiceByStateCtrl', publicServiceByStateCtrl)
-  .controller('peducationCtrl', peducationCtrl)
+  // .controller('peducationCtrl', peducationCtrl)
   .controller('phealthCareCtrl', phealthCareCtrl)
   .controller('ptelecomCtrl', ptelecomCtrl)
-  .controller('ptrafficCtrl', ptrafficCtrl)
+  .controller('psngrTransportationCtrl', psngrTransportationCtrl)
+  .controller('trnspAdminPermitCtrl', trnspAdminPermitCtrl)
+  .controller('gdsTransCtrl', gdsTransCtrl)
+  .controller('driverTrainCtrl', driverTrainCtrl)
+  .controller('trnspInfstCnstrCtrl', trnspInfstCnstrCtrl)
   .controller('eduGuaranteeCtrl', eduGuaranteeCtrl)
   .controller('hlthPblcHlthCtrl', hlthPblcHlthCtrl)
 

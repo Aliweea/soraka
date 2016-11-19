@@ -1,0 +1,32 @@
+<div class="cmtraffic-module">
+	<div class="key-value-area">
+		<div class="title-area">
+			<i class="fa fa-bar-chart" aria-hidden="true"> 
+			</i>
+			<span class="title">驾校培训</span><br>
+		</div>
+	</div>
+	<div class="distribute-area key-value-area">
+		<i class="fa fa-hand-o-right i-label" aria-hidden="true"></i>
+		<span name="" id="psTrafficToggleButton" class="toggle-button">选择驾校培训信息类别</span>
+	</div>
+	<div class="distribute-toggle-area">
+		<div class="toggle-panel" id="psTrafficTogglePanel">
+			<input class="toggle-item" type="button" ng-repeat="item in driverTrainList" ng-model="driverTrainKindSelected" ng-value="item.name" name="driverTrainList" ng-click="changeChoice(item)">
+		</div>
+	</div>
+	<div class="chart-area">
+		<highchart config="driverTrainKindColumnChart" id="driverTrainKindColumnChart"></highchart>
+	</div>
+	<div class="key-value-area">
+		<div style="text-align:center;line-height:15px;margin:17px 0;">
+			<span style="font-size:15px;">{{displayYear}} 年 {{driverTrainLastMonth}} 月驾校培训情况</span>
+		</div>
+		<table class="table traffic-table">
+			<tr ng-repeat="driverTrainMsg in driverTrainMsgLastMonthList">
+				<td>{{driverTrainMsg.name}}</td>
+				<td align="right">{{driverTrainMsg.number}}</td>
+			</tr>
+		</table>
+	</div>
+</div>

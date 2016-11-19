@@ -1,0 +1,24 @@
+<div class="cmtraffic-module">
+	<div class="tabs">
+		<input ng-click="changeChart('enforce')" type="button" class="s1" id="cmtraffic-s1" value="行政执法">
+		<input ng-click="changeChart('permit')" type="button" class="s2" id="cmtraffic-s2" value="行政许可">
+	</div>
+	<div class="distribute-area key-value-area">
+		<i class="fa fa-hand-o-right i-label" aria-hidden="true"></i>
+		<span name="" id="psTrafficToggleButton" class="toggle-button">{{type}}</span>
+	</div>
+	<div class="distribute-toggle-area">
+		<div class="toggle-panel" id="psTrafficTogglePanel">
+			<input class="toggle-item" type="button" ng-repeat="item in kindList" ng-model="kindSelected" ng-value="item.name" name="kindList" ng-click="changeChoice(item)">
+		</div>
+	</div>
+		<div class="chart-area">
+		<highchart config="chart1" id="chart1"></highchart>
+	</div>
+	<div class="chart-area">
+		<highchart config="chart2" id="chart2"></highchart>
+	</div>
+	<div class="chart-area">
+		<highchart config="chart3" id="chart3"></highchart>
+	</div>
+</div>

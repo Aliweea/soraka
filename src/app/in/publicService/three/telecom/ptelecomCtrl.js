@@ -5,9 +5,9 @@ export default($scope, $rootScope, $state, qService, dataDetailFactory, dateServ
 		$(".navbar2return").show(0); // 显示返回按钮
 		$(".navTopShowMark").hide(0); // 隐藏KPI状态 KPI分类
 		$('#cmhealthcare-s1').focus();
-		$('#pshealthcareTogglePanel').hide(0);
+		$('#psTelecomTogglePanel').hide(0);
 		$('#pshealthcareToggleButton').click(() => {
-			$('#pshealthcareTogglePanel').toggle(0);
+			$('#psTelecomTogglePanel').toggle(0);
 		})
 	}();
 

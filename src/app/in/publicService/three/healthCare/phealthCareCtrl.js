@@ -4,6 +4,7 @@ export default($scope, $rootScope, kpiDetailService,$state, qService, dataDetail
 		$(".navbar2position").hide(0); // 显示当前位置
 		$(".navbar2return").show(0); // 显示返回按钮
 		$(".navTopShowMark").hide(0); // 隐藏KPI状态 KPI分类
+		$('.navTopShowhealthcare').show(0);
 		$('#cmrefuse-s1').focus();
 		$('#psHealthcareTogglePanel').hide(0);
 		$('#psHealthcareToggleButton').click(() => {

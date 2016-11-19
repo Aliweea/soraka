@@ -3,6 +3,7 @@ export default($scope, $rootScope, kpiDetailService,$state, qService, dataDetail
 	const jQueryDOMToDos = () => {
 		$(".navbar2position").hide(0); // 显示当前位置
 		$(".navbar2return").show(0); // 显示返回按钮
+		$(".navTopShowtraffic").show(0); 
 		$(".navTopShowMark").hide(0); // 隐藏KPI状态 KPI分类
 		$('#cmrefuse-s1').focus();
 		$('#psTrafficTogglePanel').hide(0);

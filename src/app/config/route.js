@@ -374,11 +374,6 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       templateUrl: 'app/in/publicService/two/publicServicedetail.html',
       controller: 'publicServicedetailCtrl'
     })
-    .state('app.publicService.peducation', {
-      url: '/detail/education',
-      templateUrl: 'app/in/publicService/three/education/peducation.html',
-      controller: 'peducationCtrl'
-    })
     .state('app.publicService.eduGuarantee', {
       url: '/education/eduGuarantee',
       templateUrl: 'app/in/publicService/three/education/eduGuarantee.html',
@@ -402,7 +397,27 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
     .state('app.publicService.psngrTransportation',{
       url:'/traffic/psngrTransportation',
       templateUrl:'app/in/publicService/three/traffic/psngrTransportation.html',
-      controller:'ptrafficCtrl'
+      controller:'psngrTransportationCtrl'
+    })
+    .state('app.publicService.trnspAdminPermit',{
+      url:'/traffic/trnspAdminPermit',
+      templateUrl:'app/in/publicService/three/traffic/trnspAdminPermit.html',
+      controller:'trnspAdminPermitCtrl'
+    })
+    .state('app.publicService.gdsTrans',{
+      url:'/traffic/gdsTrans',
+      templateUrl:'app/in/publicService/three/traffic/gdsTrans.html',
+      controller:'gdsTransCtrl'
+    })
+    .state('app.publicService.driverTrain',{
+      url:'/traffic/driverTrain',
+      templateUrl:'app/in/publicService/three/traffic/driverTrain.html',
+      controller:'driverTrainCtrl'
+    })
+    .state('app.publicService.trnspInfstCnstr',{
+      url:'/traffic/trnspInfstCnstr',
+      templateUrl:'app/in/publicService/three/traffic/trnspInfstCnstr.html',
+      controller:'trnspInfstCnstrCtrl'
     })
     // .state('app.traffichome',{
     //   abstract: true,

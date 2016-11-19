@@ -3,6 +3,8 @@
 		<div class="cm-return-home" ui-sref="app.in.home"><i class="fa fa-home" aria-hidden="true"></i><span>主页</span></div>
 		<div class="cm-kpi-choose navTopShowMark" ui-turn-on='kpiChoiceDropdown'><i class="fa fa-angle-down fa-2x" aria-hidden="true"></i><span>KPI分类</span></div>
 		<div class="cm-kpi-status navTopShowMark" ui-turn-on='kpiStatusDropdown'><i class="fa fa-angle-down fa-2x" aria-hidden="true"></i><span>KPI状态</span></div>
+		<div class="cm-kpi-healthcare navTopShowhealthcare" ui-turn-on='kpiHealthcareDropdown'><i class="fa fa-angle-down fa-2x" aria-hidden="true"></i><span>{{healthcare.title}}</span></div>
+		<div class="cm-kpi-traffic navTopShowtraffic" ui-turn-on='kpiTrafficDropdown'><i class="fa fa-angle-down fa-2x" aria-hidden="true"></i><span>{{traffic.title}}</span></div>
 		<ul class="dropdown-menu cm-dropdown-ul"
 			ui-outer-click="Ui.turnOff('kpiChoiceDropdown')"
 			ui-outer-click-if="Ui.active('kpiChoiceDropdown')"
@@ -30,6 +32,36 @@
 			<li><a ng-click="changeState('YELLOW')" class="clevel2">轻微问题</a></li>
 			<li class="divider"></li>
 			<li><a ng-click="changeState('RED')" class="clevel3">问题</a></li>
+		</ul>
+		<ul class="dropdown-menu cm-dropdown-ul"
+			ui-outer-click="Ui.turnOff('kpiHealthcareDropdown')"
+			ui-outer-click-if="Ui.active('kpiHealthcareDropdown')"
+			role="menu"
+			ui-show="kpiHealthcareDropdown"
+			ui-state="kpiHealthcareDropdown"
+			ui-turn-off="kpiHealthcareDropdown"
+			style="z-index: 1000;">
+			<li><a ui-sref="app.publicService.hlthRscSvc" href="#" ng-click="changeHealthCareTitle('医疗卫生资源')">医疗卫生资源</a></li>
+			<li class="divider"></li>
+			<li><a ui-sref="app.publicService.hlthPblcHlth" href="#" ng-click="changeHealthCareTitle('公共卫生')">公共卫生</a></li>
+		</ul>
+		<ul class="dropdown-menu cm-dropdown-ul"
+			ui-outer-click="Ui.turnOff('kpiTrafficDropdown')"
+			ui-outer-click-if="Ui.active('kpiTrafficDropdown')"
+			role="menu"
+			ui-show="kpiTrafficDropdown"
+			ui-state="kpiTrafficDropdown"
+			ui-turn-off="kpiTrafficDropdown"
+			style="z-index: 1000;">
+			<li><a ui-sref="app.publicService.psngrTransportation" href="#" ng-click="changeTrafficTitle('旅客运输')">旅客运输</a></li>
+			<li class="divider"></li>
+			<li><a ui-sref="app.publicService.trnspAdminPermit" href="#" ng-click="changeTrafficTitle('交通行政执法与许可')">交通行政执法与许可</a></li>
+			<li class="divider"></li>
+			<li><a ui-sref="app.publicService.gdsTrans" href="#" ng-click="changeTrafficTitle('货物运输')">货物运输</a></li>
+			<li class="divider"></li>
+			<li><a ui-sref="app.publicService.driverTrain" href="#" ng-click="changeTrafficTitle('驾校培训')">驾校培训</a></li>
+			<li class="divider"></li>
+			<li><a ui-sref="app.publicService.trnspInfstCnstr" href="#" ng-click="changeTrafficTitle('交通基础设施建设')">交通基础设施建设</a></li>
 		</ul>
 	</div>
 	<div class="app-body" ng-class="{loading: loading}">
