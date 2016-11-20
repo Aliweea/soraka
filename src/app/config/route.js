@@ -1,8 +1,6 @@
 export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
   'ngInject';
 
-  // 去掉路由中的「#」井号
-  $locationProvider.html5Mode(true);
   $stateProvider
 
     //登陆

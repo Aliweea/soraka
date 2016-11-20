@@ -518,7 +518,6 @@ export default($scope, $rootScope, kpiDetailService,$state, qService, dataDetail
 	            title: {
 	                text: '年份',
 	                tickInterval: 1,
-	                tickmarkPlacement: 'on',
 	                labels: {
 	                    rotation: -45,
 	                    align: 'right',

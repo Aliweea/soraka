@@ -341,7 +341,6 @@ export default($scope, $rootScope, kpiDetailService,$state, qService, dataDetail
 					},
 			        xAxis: {
 			        	tickInterval: 1,
-			        	tickmarkPlacement: 'on',
 			            title: {
 			                text: '月份'
 			            },
@@ -550,7 +549,6 @@ export default($scope, $rootScope, kpiDetailService,$state, qService, dataDetail
 				},
 		        xAxis: {
 		            categories: vehicleByKindYearList,
-		            tickmarkPlacement: 'on',
 		            title: {
 			                text: '年份'
 			        },

@@ -1076,9 +1076,6 @@ $scope.perFundRateChart={
 	    };
 $scope.stateChart={
 		options:{
-			credits: {
-				enabled: false
-				},
 				chart: {                                                           
 					zoomType: 'xy'                                                   
 		        }, 
