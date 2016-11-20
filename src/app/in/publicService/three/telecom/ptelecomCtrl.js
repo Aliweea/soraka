@@ -435,7 +435,6 @@ export default($scope, $rootScope, $state, qService, dataDetailFactory, dateServ
 		            title: {
 		                text: '年份'
 		            },
-		            tickmarkPlacement: 'on',
 	                labels: {
 	                    rotation: -45,
 	                    align: 'right',
