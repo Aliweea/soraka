@@ -1,34 +1,28 @@
-.cmpunish-module {
+.xcmpunish-module {
 	width: 100%;
-	.tabs {
-		position: fixed;
-		z-index: 1000;
-		width: 100%;
-		font-size: 15px;
-		background-color: #fff;
-		border-bottom: 1px solid $cborder;
-		@mixin ss() {
-			background-color: transparent;
-			display: inline-block;
-			padding: 10px 2px;
-			outline: none;
+	.tab-container {
+		.tabs {
+			@mixin tab() {
+				display: inline-block;
+				font-size: 15px;
+				width: 45%;
+				padding: 8px 0;
+				text-align: center;
+			}
+			.tab-inactive {
+				@include tab();
+				border-bottom: 3px solid $cborder;
+				color: #777;
+			}
+			.tab-active {
+				@include tab();
+				border-bottom: 3px solid $bgDarkBlue;
+				color: #333;
+				background-color: rgba(255,255,255,0.5);
+			}
 		}
-		.activeTab {
-			background: radial-gradient(50% 100%, #dee, #dee, #fff);
-			border-bottom: 2px solid #567;
-		}
-		.s1 {
-			@include ss();
-			width: 48%;
-			border: none;
-			border-right: 1px solid $cborder;
-			border-bottom: 2px solid #fff;
-		}
-		.s2 {
-			@include ss();
-			width: 48%;
-			border: none;
-			border-bottom: 2px solid #fff;
+		.divider {
+			height: 15px;
 		}
 	}
 	@mixin cmTa() {
@@ -52,82 +46,103 @@
 			font-size: 13px;
 		}
 	}
-	.key-value-area1 {
-		padding:60px 0 0 0;
-		background: linear-gradient($bgLightGrey, #fff);
-		@include cmTa();
-	}
-	.key-value-area2 {
-		padding:25px 0 10px 0;
-		background: linear-gradient($bgLightGrey, #fff);
-		@include cmTa();
-		.i-label {
-			margin-top: 10px;
-			margin-left: 10px;
-			font-size: 13px;
+	// 第一部分 行政处罚动态
+	.d1 {
+		.bar {
+			font-size: 15px;
+			background-color: $bgDarkBlue;
+			padding: 8px 10px;
+			color: #fff;
 		}
-		.toggle-button {
-			width: 8em;
-			height: 30px;
-			outline: none;
-			border: none;
-			border-bottom: 1px dashed #008AFF;
-			color: #008AFF;
-			background: radial-gradient(3em 40%, #ddd, #ddd, rgba(255,255,255,0));
-			text-align: left;
-			font-size: 13px;
+		.content {
+			border-bottom: 1px solid $bgDarkBlue;
+			.key-value-area1 {
+				padding: 10px 0 8px 0;
+				background: linear-gradient($bgLightGrey, #fff);
+				@include cmTa();
+			}
 		}
 	}
-	.key-value-area3 {
-		padding:25px 0 12px 0;
-		background: linear-gradient($bgLightGrey, #fff);
-		@include cmTa();
-	}
-	.reasons-toggle-area {
-		position: relative;
-		.toggle-bar {
-			position: absolute;
-			z-index: 1999;
-			height: 20px;
-			width: 50%;
-			margin: -5px 25%;
-			border: 2px solid #bbb;
-			border-radius: 15px 15px 0 0;
-			border-bottom: none;
-			background: linear-gradient(#bbb, #fff, #bbb);
+	// 第二部分 行政处罚案由统计
+	.d2 {
+		margin-top: 20px;
+		.bar {
+			font-size: 15px;
+			background-color: $bgDarkBlue;
+			padding: 8px 10px;
+			color: #fff;
 		}
-		.toggle-panel {
-			width: 80%;
-			box-shadow: 5px 10px 5px #999999;
-			border: 1px solid $cborder;
-			border-radius: 8px;
-			position: absolute;
-			z-index: 2000;
-			padding: 5px 5px;
-			margin: 10px 10%;
-			background-color: rgba(255,255,255,0.8);
-			.item {
-				display: block;
-				padding: 2px 5px;
-				border-bottom: 1px inset #444; 
-				span {
-					display: inline-block;
-					margin-left: 2px;
-					font-weight: bold;
+		.content {
+			border-bottom: 1px solid $bgDarkBlue;
+			.key-value-area2 {
+				padding:10px 0 10px 0;
+				background: linear-gradient($bgLightGrey, #fff);
+				.i-label {
+					margin-left: 10px;
+					font-size: 13px;
+				}
+				.toggle-button {
+					width: 8em;
+					height: 30px;
+					outline: none;
+					border: none;
+					border-bottom: 1px dashed #008AFF;
+					color: #008AFF;
+					background: radial-gradient(3em 40%, #ddd, #ddd, rgba(255,255,255,0));
+					text-align: left;
+					font-size: 13px;
+				}
+			}
+			.reasons-toggle-area {
+				position: relative;
+				.toggle-bar {
+					position: absolute;
+					z-index: 1999;
+					height: 20px;
+					width: 50%;
+					margin: -5px 25%;
+					border: 2px solid #bbb;
+					border-radius: 15px 15px 0 0;
+					border-bottom: none;
+					background: linear-gradient(#bbb, #fff, #bbb);
+				}
+				.toggle-panel {
+					width: 80%;
+					box-shadow: 5px 10px 5px #999999;
+					border: 1px solid $cborder;
+					border-radius: 8px;
+					position: absolute;
+					z-index: 2000;
+					padding: 5px 5px;
+					margin: 10px 10%;
+					background-color: rgba(255,255,255,0.8);
+					.item {
+						display: block;
+						padding: 2px 5px;
+						border-bottom: 1px inset #444; 
+						span {
+							display: inline-block;
+							margin-left: 2px;
+							font-weight: bold;
+						}
+					}
 				}
 			}
 		}
 	}
-	.chart-area1 {
-		border-top: 1px dashed $cborder;
-		border-bottom: 1px solid $cborder;
+	// 第三部分 各城管执法中队处理案件详情
+	.d3 {
+		.bar {
+			font-size: 15px;
+			background-color: $bgDarkBlue;
+			padding: 8px 10px;
+			color: #fff;
+		}
+		.content {
+			border-bottom: 1px solid $bgDarkBlue;
+		}
 	}
-	.chart-area2 {
+	.chart-area {
 		border-top: 1px dashed $cborder;
-		border-bottom: 1px solid $cborder;
-	}
-	.chart-area3 {
-		border-top: 1px dashed $cborder;
-		border-bottom: 1px solid $cborder;
 	}
 }

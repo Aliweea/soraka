@@ -1,0 +1,94 @@
+.example-module {
+	width: 100%;
+	padding: 20px 0;
+	background-color: rgb(240, 243, 244);
+	.d1 {
+		.bar {
+			font-size: 15px;
+			background-color: $bgDarkBlue;
+			padding: 8px 10px;
+			color: #fff;
+		}
+		.content {
+			border-bottom: 1px solid $bgDarkBlue;
+			padding: 8px 10px;
+		}
+	}
+	.d2 {
+		margin-top: 20px;
+		.tab-container {
+			.tabs {
+				@mixin tab() {
+					display: inline-block;
+					font-size: 15px;
+					width: 45%;
+					padding: 8px 0;
+					text-align: center;
+				}
+				.tab-inactive {
+					@include tab();
+					border-bottom: 3px solid $cborder;
+					color: #777;
+				}
+				.tab-active {
+					@include tab();
+					border-bottom: 3px solid $bgDarkBlue;
+					color: #333;
+					background-color: rgba(255,255,255,0.5);
+				}
+			}
+			.divider {
+				height: 15px;
+			}
+			.tab-content {
+				padding: 8px 10px;
+				height: 100px;
+			}
+		}
+	}
+	.d3 {
+		.i-label {
+			margin-left: 10px;
+			font-size: 13px;
+		}
+		.toggle-button {
+			width: 8em;
+			height: 30px;
+			outline: none;
+			border: none;
+			border-bottom: 1px dashed #008AFF;
+			color: #008AFF;
+			text-align: left;
+			font-size: 13px;
+		}
+		.example-toggle-area {
+			position: relative;
+			margin-top: 5px;
+			.toggle-panel {
+				width: 80%;
+				box-shadow: 5px 10px 5px #999999;
+				border: 1px solid $cborder;
+				position: absolute;
+				z-index: 2000;
+				padding: 10px 2% 10px 2%;
+				margin: 0 10%;
+				background-color: #fff;
+				.toggle-item {
+					font-size: 10px;
+					width: 47%;
+					background: rgba(240, 240, 240, 0.7);
+					border: 1px solid $cborder;
+					padding: 3px 3px;
+					margin: 2px;
+					outline: none;
+					&:hover, &:active, &:focus {
+						background: $bgDarkBlue;
+						border: 1px solid $bgDarkBlue;
+						color:#fff;
+					}
+				}
+			}
+		}
+	}
+
+}

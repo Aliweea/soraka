@@ -1,22 +1,34 @@
 <div class="cmfix-module">
-	<div class="key-value-area1">
-		<div class="title-area">
-			<i class="fa fa-pie-chart" aria-hidden="true"></i>
-			<span class="title">分区域拆除详情</span><br>
+	<div class="d1">
+		<div class="bar">
+			分区域拆除详情
 		</div>
-		<span class="value">{{oneword1}}</span>
-	</div>
-	<div class="chart-area1">
-		<highchart config="pieChart"></highchart>
-	</div>
-	<div class="key-value-area2">
-		<div class="title-area">
-			<i class="fa fa-bar-chart" aria-hidden="true"></i>
-			<span class="title">各类拆除方式详情</span><br>
+		<div class="content">
+			<div class="key-value-area1">
+				<div class="title-area">
+					<span class="title">一句话解读</span><br>
+				</div>
+				<span class="value">{{oneword1}}</span>
+			</div>
+			<div class="chart-area">
+				<highchart config="pieChart"></highchart>
+			</div>
 		</div>
-		<span class="value">{{oneword2}}</span>
 	</div>
-	<div class="chart-area2">
-		<highchart config="columnChart"></highchart>
+	<div class="d2">
+		<div class="bar">
+			各类拆除方式详情
+		</div>
+		<div class="content">
+			<div class="key-value-area2">
+				<div class="title-area">
+					<span class="title">一句话解读</span><br>
+				</div>
+				<span class="value">{{oneword2}}</span>
+			</div>
+			<div class="chart-area">
+				<highchart config="columnChart"></highchart>
+			</div>
+		</div>
 	</div>
 </div>
