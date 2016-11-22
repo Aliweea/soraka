@@ -14,11 +14,11 @@
 			ui-show="kpiChoiceDropdown"
 			ui-state="kpiChoiceDropdown"
 			ui-turn-off="kpiChoiceDropdown">
-			<li id="livehood2003"><a ui-sref="app.livehood.livehoodlist({categoryId:2003})" ng-click="changeCategory('人口结构')" href="#">人口结构</a></li>
+			<li id="livehood2003"><a ui-sref="app.livehood.livehoodlist({categoryId:2003})" ng-click="changeCategory('人口结构')" href="javascript:void(0)">人口结构</a></li>
 			<li class="divider"></li>
-			<li id="livehood2004"><a ui-sref="app.livehood.livehoodlist({categoryId:2004})" ng-click="changeCategory('社会保险')"  href="#">社会保险</a></li>
+			<li id="livehood2004"><a ui-sref="app.livehood.livehoodlist({categoryId:2004})" ng-click="changeCategory('社会保险')"  href="javascript:void(0)">社会保险</a></li>
 			<li class="divider"></li>
-			<li id="livehood2001"><a ui-sref="app.livehood.livehoodlist({categoryId:2001})" ng-click="changeCategory('价格指数')" href="#">价格指数</a></li>
+			<li id="livehood2001"><a ui-sref="app.livehood.livehoodlist({categoryId:2001})" ng-click="changeCategory('价格指数')" href="javascript:void(0)">价格指数</a></li>
 		</ul>
 		<ul class="dropdown-menu cm-dropdown-ul"
 			ui-outer-click="Ui.turnOff('populationChoiceDropdown')"
@@ -27,15 +27,15 @@
 			ui-state="populationChoiceDropdown"
 			ui-turn-off="populationChoiceDropdown"
 			style="z-index: 1000;">
-			<li><a ui-sref="app.livehood.PopulationStructure" href="#" ng-click="changeTitle('人口结构图')">人口结构图</a></li>
+			<li><a ui-sref="app.livehood.PopulationStructure" href="javascript:void(0)" ng-click="changeTitle('人口结构图')">人口结构图</a></li>
 			<li class="divider"></li>
-			<li><a ui-sref="app.livehood.TerminalPopulation" href="#" ng-click="changeTitle('期末户籍人口数')">期末户籍人口数</a></li>
+			<li><a ui-sref="app.livehood.TerminalPopulation" href="javascript:void(0)" ng-click="changeTitle('期末户籍人口数')">期末户籍人口数</a></li>
 			<li class="divider"></li>
-			<li><a ui-sref="app.livehood.BornDeath" href="#" ng-click="changeTitle('出生人口与死亡人口详情')">出生人口与死亡人口详情</a></li>
+			<li><a ui-sref="app.livehood.BornDeath" href="javascript:void(0)" ng-click="changeTitle('出生人口与死亡人口详情')">出生人口与死亡人口详情</a></li>
 			<li class="divider"></li>
-			<li><a ui-sref="app.livehood.BearingWomen" href="#" ng-click="changeTitle('户籍育龄妇女详情')">户籍育龄妇女详情</a></li>
+			<li><a ui-sref="app.livehood.BearingWomen" href="javascript:void(0)" ng-click="changeTitle('户籍育龄妇女详情')">户籍育龄妇女详情</a></li>
 			<li class="divider"></li>
-			<li><a ui-sref="app.livehood.FirstMarriage" href="#" ng-click="changeTitle('初婚女性详情')">初婚女性详情</a></li>
+			<li><a ui-sref="app.livehood.FirstMarriage" href="javascript:void(0)" ng-click="changeTitle('初婚女性详情')">初婚女性详情</a></li>
 		</ul>
           <!-- 社会保险部分代码 -->
 		<ul class="dropdown-menu cm-dropdown-ul"
@@ -45,19 +45,19 @@
 			ui-state="kpiInsuranceDropdown"
 			ui-turn-off="kpiInsuranceDropdown"
 			style="z-index: 1000;">
-			<li><a ui-sref="app.livehood.UrbanBasicEndowmentInsuranceData" href="#" ng-click="changeInsuranceTitle('城镇基本养老保险')">城镇基本养老保险</a></li>
+			<li><a ui-sref="app.livehood.UrbanBasicEndowmentInsuranceData" href="javascript:void(0)" ng-click="changeInsuranceTitle('城镇基本养老保险')">城镇基本养老保险</a></li>
 			<li class="divider"></li>
-			<li><a ui-sref="app.livehood.UnemploymentInsuranceData" href="#" ng-click="changeInsuranceTitle('失业保险')">失业保险</a></li>
+			<li><a ui-sref="app.livehood.UnemploymentInsuranceData" href="javascript:void(0)" ng-click="changeInsuranceTitle('失业保险')">失业保险</a></li>
 			<li class="divider"></li>
-			<li><a ui-sref="app.livehood.UrbanBasicMedicalInsuranceData" href="#" ng-click="changeInsuranceTitle('城镇基本医疗保险')">城镇基本医疗保险</a></li>
+			<li><a ui-sref="app.livehood.UrbanBasicMedicalInsuranceData" href="javascript:void(0)" ng-click="changeInsuranceTitle('城镇基本医疗保险')">城镇基本医疗保险</a></li>
 			<li class="divider"></li>
-			<li><a ui-sref="app.livehood.UrbanResidentsMedicalInsuranceData" href="#" ng-click="changeInsuranceTitle('城镇居民医疗保险')">城镇居民医疗保险</a></li>
+			<li><a ui-sref="app.livehood.UrbanResidentsMedicalInsuranceData" href="javascript:void(0)" ng-click="changeInsuranceTitle('城镇居民医疗保险')">城镇居民医疗保险</a></li>
 			<li class="divider"></li>
-			<li><a ui-sref="app.livehood.EmploymentInjuryInsuranceData" href="#" ng-click="changeInsuranceTitle('工伤保险')">工伤保险</a></li>
+			<li><a ui-sref="app.livehood.EmploymentInjuryInsuranceData" href="javascript:void(0)" ng-click="changeInsuranceTitle('工伤保险')">工伤保险</a></li>
 			<li class="divider"></li>
-			<li><a ui-sref="app.livehood.MaternityInsuranceData" href="#" ng-click="changeInsuranceTitle('生育保险')">生育保险</a></li>
+			<li><a ui-sref="app.livehood.MaternityInsuranceData" href="javascript:void(0)" ng-click="changeInsuranceTitle('生育保险')">生育保险</a></li>
 			<li class="divider"></li>
-			<li><a ui-sref="app.livehood.ResidentsBasicEndowmentInsuranceData" href="#" ng-click="changeInsuranceTitle('居民基本养老保险')">居民基本养老保险</a></li>
+			<li><a ui-sref="app.livehood.ResidentsBasicEndowmentInsuranceData" href="javascript:void(0)" ng-click="changeInsuranceTitle('居民基本养老保险')">居民基本养老保险</a></li>
 		</ul>
 
 		
