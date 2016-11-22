@@ -1,12 +1,15 @@
 <div class="cm-refuse-module">
-	<div ng-repeat="data in items" ui-sref="app.environment.detail({kpiId:data.id})" class="cm-refuse-item">
+	<div class="title-area">
+		<span>资源环境</span><i class="fa fa-angle-right title-i" aria-hidden="true"></i><span>{{currentCategoryName}}KPI总览</span>
+	</div>
+	<div ng-repeat="data in items" ng-click="registerHistory()" ui-sref="app.cm.detail({kpiId:data.id})" class="cm-refuse-item">
 		<div class="cm-refuse-top">
 			<span>{{data.name}}</span><i ng-class="data.data.status">{{data.data.status | kpiStatusTextFilter}}</i>
 		</div>
 		<div class="cm-refuse-value  {{data.data.status | kpiStatusClassFilter}}"><i class="{{(item.data.value>item.data.target)?'fa fa-long-arrow-up':'fa fa-long-arrow-down'}}" aria-hidden="true"></i><span>{{data | unitTransFilter}}</span></div>
 		<div class="cm-refuse-bottom">
 			<span class="cm-refuse-bottom-s1">资源环境</span><span class="cm-refuse-bottom-s2">{{deptname}}</span><span class="cm-refuse-bottom-s3">{{data | applyDateFilter}}</span>
-			<span class="cm-refuse-bottom-s4"><i class="fa fa-hand-o-right" aria-hidden="true"></i><span>查看详情</span></span>
+			<span class="cm-refuse-bottom-s4"><i class="fa fa-hand-o-right" aria-hidden="true"></i><span>查看走势</span></span>
 		</div>
 	</div>
 </div>
