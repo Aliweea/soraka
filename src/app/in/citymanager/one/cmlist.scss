@@ -4,6 +4,17 @@
 }
 .cm-refuse-module {
 	padding: 12px;
+	.title-area {
+		display: inline-block;
+		font-size: 16px;
+		color: $wordGray;
+		margin-bottom: 12px;
+		border-bottom: 1px dashed $wordGray;
+		.title-i {
+			margin-left: 7px;
+			margin-right: 7px;
+		}
+	}
 	.cm-refuse-item {
 		width: 100%;
 		border: 1px solid $cborder;
