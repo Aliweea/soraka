@@ -100,8 +100,18 @@
 					margin-right: 2px;
 				}
 			}
+		}
+		.cm-menu-navbar-bottomright{
+			margin-top: 13px;
+			font-size: 17px;
+			margin-left: 1em;
+			color: $wordGray;
+			i {
+				margin-right: 0.5em;
+			}
 			.s3 {
 				margin-left: 10px;
+				margin-right: 1em;
 				font-size: 13px;
 				color: #008AFF;
 				span {

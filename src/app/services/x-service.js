@@ -1,4 +1,4 @@
-export default ($state) => {
+export default ($state, hService) => {
   'ngInject';
     return {
         h: (n, a) => {
@@ -10,6 +10,7 @@ export default ($state) => {
         o: (o) => {
             for (let k in o) {
                 $("#m"+k).click(() => {
+                    hService.register($state); // 如果跳转到下一级, 则将主页计入历史记录
                     switch (k) {
                         case "1": $state.go("app.economy.economylist",{"categoryId": o[k]}); break;
                         case "2": $state.go("app.environment.environmentlist",{"categoryId": o[k]}); break;
