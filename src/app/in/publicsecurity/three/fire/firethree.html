@@ -1,13 +1,17 @@
-<div class="pentitionthree">
-	<div class="panel-group" ui-state="fireAccordion" ui-default="1">
-		<div class="panel panel-primary" style="margin-top: 10px; border:1px white solid">
-			<div class="panel-heading" ui-set="{'fireAccordion': 1}">
-				火灾事故警情动态
-				<span class="glyphicon glyphicon-question-sign pull-right"></span>
+<div class="xcmrefuse-module">
+		<div class="d1">
+			<div class="bar">
+				火灾事故警情动态				
 			</div>
-			<div ui-if="fireAccordion == 1">
+			<div class="content">
+               <div class="key-value-area">
+                  <div class="title-area">
+                    <span class="title">一句话解读</span><br>
+                 </div>
+             <span class="value">2016年6月份全市发生各类火灾事故总数 24 起。</span>                                                  
+			<div>
 				<div ui-state="activeTabFire" default="1">
-					<div class="panel-body">
+					<div class="chart-area">
 						<div class="btn-group justified nav-tabs">
 							<a ui-set="{'activeTabFire': 1}" ui-class="{'active':activeTabFire==1}" class="btn btn-default">事故数量</a>
 							<a ui-set="{'activeTabFire': 2}" ui-class="{'active':activeTabFire==2}" class="btn btn-default">受伤人数</a>
@@ -43,17 +47,18 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		
 	</div>
 </div>
-<div class="pentitionthree">
-	<div class="panel panel-primary" style="margin-top: 10px;border:1px white solid">
-		<div class="panel-heading" ui-set="{'fireAccordion': 2}">
-			本年度火灾事故趋势
-			<span class="glyphicon glyphicon-question-sign pull-right"></span>
+</div>
+</div>
+<div class="xcmrefuse-module">
+	<div class="d1">
+		<div class="bar">
+			本年度火灾事故趋势		
 		</div>
-		<div >
-			<div class="panel-body">
+		<div class="content">
+			<div class="chart-area">
 				<div class="row">
 					<div class="col-md-9 chart-panel">
 						<div>
