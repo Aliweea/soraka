@@ -1,46 +1,112 @@
-.land-three-tabs{
-  width: 40%;
-  font-size: large;
-  text-align: center;
-}
-.land-chart-panel {
-  border: solid #ccc 1px;
-  font-size: medium;
-}
-.land-select-area{
-  position: relative;
-  .land-select-btn{
-    color: #008AFF;
-    font-size: 15px;
+.land-three-module {
+  width: 100%;
+  .tab-container {
+    .tabs {
+      @mixin tab() {
+        display: inline-block;
+        font-size: 15px;
+        width: 45%;
+        padding: 8px 0;
+        text-align: center;
+      }
+      .tab-inactive {
+        @include tab();
+        border-bottom: 3px solid $cborder;
+        color: #777;
+      }
+      .tab-active {
+        @include tab();
+        border-bottom: 3px solid $bgDarkBlue;
+        color: #333;
+        background-color: rgba(255,255,255,0.5);
+      }
+    }
+    .divider {
+      height: 15px;
+    }
   }
-  .land-select-panel{
-    width: 90%;
-    margin: auto;
-    left: 0;
-    right: 0;
-    box-shadow: 5px 10px 5px #999999;
-    border: 1px solid $cborder;
-    border-radius: 8px;
-    position: absolute;
-    z-index: 2000;
-    background-color: rgba(255,255,255,0.9);
+  .d1 {
+    .bar {
+      font-size: 15px;
+      background-color: $bgDarkBlue;
+      padding: 8px 10px;
+      color: #fff;
+    }
+    .content {
+      border-bottom: 1px solid $bgDarkBlue;
+      .divide-line{
+        width: 90%;
+        height: 1px;
+        border-bottom: 1px solid $bgDarkBlue;
+        margin:auto;
+      }
+    }
   }
-  .land-select-item{
-    width: 50%;
-    text-align: center;
+  .d2 {
+    margin-top: 15px;
+    .bar {
+      font-size: 15px;
+      background-color: $bgDarkBlue;
+      padding: 8px 10px;
+      color: #fff;
+    }
+    .content {
+      border-bottom: 1px solid $bgDarkBlue;
+      .divide-line{
+        width: 90%;
+        height: 5px;
+        border-bottom: 1px solid $bgDarkBlue;
+        margin:auto;
+      }
+      .key-value-area {
+        padding: 10px 0;
+        background: linear-gradient($bgLightGrey, #fff);
+        .i-label {
+          margin-left: 10px;
+          font-size: 13px;
+        }
+        .toggle-button {
+          width: 8em;
+          height: 30px;
+          outline: none;
+          border: none;
+          border-bottom: 1px dashed #008AFF;
+          color: #008AFF;
+          text-align: left;
+          font-size: 13px;
+        }
+      }
+      .town-toggle-area {
+        position: relative;
+        .toggle-panel {
+          width: 80%;
+          box-shadow: 5px 10px 5px #999999;
+          border: 1px solid $cborder;
+          position: absolute;
+          z-index: 2000;
+          padding: 10px 2% 10px 2%;
+          margin: 0 10%;
+          background-color: #fff;
+          .toggle-item {
+            font-size: 10px;
+            width: 47%;
+            background: rgba(240, 240, 240, 0.7);
+            border: 1px solid $cborder;
+            padding: 3px 3px;
+            margin: 2px;
+            outline: none;
+            &:hover, &:active, &:focus {
+              background: $bgDarkBlue;
+              border: 1px solid $bgDarkBlue;
+              color:#fff;
+            }
+          }
+        }
+      }
+    }
   }
-  .land-select-item-left{
-    width: 55%;
-    text-align: center;
-  }
-  .land-select-item-right{
-    width: 45%;
-    text-align: center;
-  }
-  .land-select-span{
-    font-size: 13px;
-    border-radius: 8px;
-    padding-left: 0px;
-    padding-right: 0px;
+  .chart-area {
+    border-top: 1px dashed $cborder;
+    height:400px;
   }
 }
