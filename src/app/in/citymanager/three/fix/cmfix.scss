@@ -16,32 +16,53 @@
 			}
 		}
 	}
-	.key-value-area1 {
-		padding:15px 0 5px 0;
-		background: linear-gradient($bgLightGrey, #fff);
-		@include cmTa();
-		.value {
-			display: block;
+	// 第一部分 分区域拆除详情
+	.d1 {
+		margin-top: 15px;
+		.bar {
+			font-size: 15px;
+			background-color: $bgDarkBlue;
 			padding: 8px 10px;
-			font-size: 13px;
+			color: #fff;
+		}
+		.content {
+			border-bottom: 1px solid $bgDarkBlue;
+			.key-value-area1 {
+				padding:10px 0 5px 0;
+				background: linear-gradient($bgLightGrey, #fff);
+				@include cmTa();
+				.value {
+					display: block;
+					padding: 8px 10px;
+					font-size: 13px;
+				}
+			}
 		}
 	}
-	.key-value-area2 {
-		padding:25px 0 5px 0;
-		background: linear-gradient($bgLightGrey, #fff);
-		@include cmTa();
-		.value {
-			display: block;
+	// 第二部分 各类拆除方式详情
+	.d2 {
+		margin-top: 15px;
+		.bar {
+			font-size: 15px;
+			background-color: $bgDarkBlue;
 			padding: 8px 10px;
-			font-size: 13px;
+			color: #fff;
+		}
+		.content {
+			border-bottom: 1px solid $bgDarkBlue;
+			.key-value-area2 {
+				padding:10px 0 5px 0;
+				background: linear-gradient($bgLightGrey, #fff);
+				@include cmTa();
+				.value {
+					display: block;
+					padding: 8px 10px;
+					font-size: 13px;
+				}
+			}
 		}
 	}
-	.chart-area1 {
+	.chart-area {
 		border-top: 1px dashed $cborder;
-		border-bottom: 1px solid $cborder;
-	}
-	.chart-area2 {
-		border-top: 1px dashed $cborder;
-		border-bottom: 1px solid $cborder;
 	}
 }

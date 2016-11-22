@@ -57,6 +57,7 @@ import appCtrl from './appCtrl';
 // 登陆及首页Controller
 import portalCtrl from './auth/portal/portalCtrl';
 import inCtrl from './in/inCtrl';
+import exampleCtrl from './in/example/exampleCtrl';
 import homeCtrl from './in/home/homeCtrl';
 // 侧边栏Controller
 import meCtrl from './in/me/meCtrl';
@@ -199,6 +200,7 @@ angular.module('soraka',
   .controller('portalCtrl', portalCtrl)
   .controller('inCtrl', inCtrl)
   .controller('homeCtrl', homeCtrl)
+  .controller('exampleCtrl', exampleCtrl)
   // 侧边栏controllers
   .controller('meCtrl', meCtrl)
   .controller('datepickCtrl', datepickCtrl)

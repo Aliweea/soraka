@@ -17,8 +17,7 @@
 		}
 	}
 	.key-value-area0 {
-		padding:15px 0 5px 0;
-		border-bottom: 1px solid $cborder;
+		padding:15px 0 15px 0;
 		background: linear-gradient($bgLightGrey, #fff);
 		@include cmTa();
 		.keyvalue-area {
@@ -33,108 +32,154 @@
 			}
 		}
 	}
-	.key-value-area1 {
-		padding:15px 0 5px 0;
-		background: linear-gradient($bgLightGrey, #fff);
-		@include cmTa();
-		.value {
-			display: block;
-			padding: 8px 10px;
-			font-size: 13px;
-		}
-		.i-label {
-			margin-top: 10px;
-			margin-left: 10px;
-			font-size: 13px;
-		}
-		.toggle-button {
-			width: 8em;
-			height: 30px;
-			outline: none;
-			border: none;
-			border-bottom: 1px dashed #008AFF;
-			color: #008AFF;
-			background: radial-gradient(3em 40%, #ddd, #ddd, rgba(255,255,255,0));
-			text-align: left;
-			font-size: 13px;
-		}
-	}
 	.index-toggle-area {
 		position: relative;
 		.toggle-panel {
 			width: 80%;
 			box-shadow: 5px 10px 5px #999999;
 			border: 1px solid $cborder;
-			border-radius: 5px;
 			position: absolute;
 			z-index: 2000;
-			padding: 10px 5px;
+			padding: 10px 2% 10px 2%;
 			margin: 0 10%;
-			background-color: rgba(255,255,255,0.8);
+			background-color: #fff;
 			.toggle-item {
-				width: 48%;
-				background: radial-gradient(50% 50%, #eee, #eee, #fff);
+				font-size: 10px;
+				width: 47%;
+				background: rgba(240, 240, 240, 0.7);
 				border: 1px solid $cborder;
-				border-radius: 3px;
 				padding: 3px 3px;
 				margin: 2px;
 				outline: none;
 				&:hover, &:active, &:focus {
-					background: radial-gradient(50% 50%, #dee, #dee, #fff);
+					background: $bgDarkBlue;
+					border: 1px solid $bgDarkBlue;
+					color:#fff;
 				}
 			}
 		}
 	}
-	.key-value-area2 {
-		padding:25px 0 5px 0;
-		background: linear-gradient($bgLightGrey, #fff);
-		@include cmTa();
-		.value {
-			display: block;
+	.d1 {
+		.bar {
+			font-size: 15px;
+			background-color: $bgDarkBlue;
 			padding: 8px 10px;
-			font-size: 13px;
+			color: #fff;
 		}
-		.i-label {
-			margin-top: 10px;
-			margin-left: 10px;
-			font-size: 13px;
-		}
-		.toggle-button {
-			width: 8em;
-			height: 30px;
-			outline: none;
-			border: none;
-			border-bottom: 1px dashed #008AFF;
-			color: #008AFF;
-			background: radial-gradient(3em 40%, #ddd, #ddd, rgba(255,255,255,0));
-			text-align: left;
-			font-size: 13px;
+		.content {
+			border-bottom: 1px solid $bgDarkBlue;
+			.key-value-area1 {
+				padding:5px 0 5px 0;
+				background: linear-gradient($bgLightGrey, #fff);
+				@include cmTa();
+				.i-label {
+					margin-left: 10px;
+					font-size: 13px;
+				}
+				.toggle-button {
+					width: 8em;
+					height: 30px;
+					outline: none;
+					border: none;
+					border-bottom: 1px dashed #008AFF;
+					color: #008AFF;
+					text-align: left;
+					font-size: 13px;
+				}
+			}
 		}
 	}
-	.key-value-area3 {
-		padding:15px 0 5px 0;
-		background: linear-gradient($bgLightGrey, #fff);
-		@include cmTa();
-		.value {
-			display: block;
+	.d2 {
+		margin-top: 20px;
+		.bar {
+			font-size: 15px;
+			background-color: $bgDarkBlue;
 			padding: 8px 10px;
-			font-size: 13px;
+			color: #fff;
 		}
-		.i-label {
-			margin-top: 10px;
-			margin-left: 10px;
-			font-size: 13px;
+		.content {
+			border-bottom: 1px solid $bgDarkBlue;
+			.key-value-area2 {
+				padding:5px 0 5px 0;
+				background: linear-gradient($bgLightGrey, #fff);
+				@include cmTa();
+				.i-label {
+					margin-left: 10px;
+					font-size: 13px;
+				}
+				.toggle-button {
+					width: 8em;
+					height: 30px;
+					outline: none;
+					border: none;
+					border-bottom: 1px dashed #008AFF;
+					color: #008AFF;
+					text-align: left;
+					font-size: 13px;
+				}
+			}
 		}
-		.toggle-button {
-			width: 8em;
-			height: 30px;
-			outline: none;
-			border: none;
-			border-bottom: 1px dashed #008AFF;
-			color: #008AFF;
-			background: radial-gradient(3em 40%, #ddd, #ddd, rgba(255,255,255,0));
-			text-align: left;
-			font-size: 13px;
+	}
+	.d3 {
+		margin-top: 20px;
+		.bar {
+			font-size: 15px;
+			background-color: $bgDarkBlue;
+			padding: 8px 10px;
+			color: #fff;
+		}
+		.content {
+			border-bottom: 1px solid $bgDarkBlue;
+			.key-value-area3 {
+				padding:5px 0 5px 0;
+				background: linear-gradient($bgLightGrey, #fff);
+				@include cmTa();
+				.i-label {
+					margin-left: 10px;
+					font-size: 13px;
+				}
+				.toggle-button {
+					width: 8em;
+					height: 30px;
+					outline: none;
+					border: none;
+					border-bottom: 1px dashed #008AFF;
+					color: #008AFF;
+					text-align: left;
+					font-size: 13px;
+				}
+			}
+		}
+	}
+	.d4 {
+		margin-top: 20px;
+		.bar {
+			font-size: 15px;
+			background-color: $bgDarkBlue;
+			padding: 8px 10px;
+			color: #fff;
+		}
+		.content {
+			border-bottom: 1px solid $bgDarkBlue;
+			.key-value-area4 {
+				padding:5px 0 5px 0;
+				background: linear-gradient($bgLightGrey, #fff);
+				@include cmTa();
+				.i-label {
+					margin-left: 10px;
+					font-size: 13px;
+				}
+				.toggle-button {
+					width: 8em;
+					height: 30px;
+					outline: none;
+					border: none;
+					border-bottom: 1px dashed #008AFF;
+					color: #008AFF;
+					text-align: left;
+					font-size: 13px;
+				}
+			}
 		}
 	}
 	.dept-toggle-area {
@@ -143,50 +188,25 @@
 			width: 80%;
 			box-shadow: 5px 10px 5px #999999;
 			border: 1px solid $cborder;
-			border-radius: 5px;
 			position: absolute;
 			z-index: 2000;
-			padding: 10px 5px;
+			padding: 10px 2% 10px 2%;
 			margin: 0 10%;
-			background-color: rgba(255,255,255,0.8);
+			background-color: #fff;
 			.toggle-item {
-				width: 48%;
-				background: radial-gradient(50% 50%, #eee, #eee, #fff);
+				font-size: 10px;
+				width: 47%;
+				background: rgba(240, 240, 240, 0.7);
 				border: 1px solid $cborder;
-				border-radius: 3px;
 				padding: 3px 3px;
 				margin: 2px;
 				outline: none;
 				&:hover, &:active, &:focus {
-					background: radial-gradient(50% 50%, #dee, #dee, #fff);
+					background: $bgDarkBlue;
+					border: 1px solid $bgDarkBlue;
+					color:#fff;
 				}
 			}
-		}
-	}
-	.key-value-area4 {
-		padding:15px 0 5px 0;
-		background: linear-gradient($bgLightGrey, #fff);
-		@include cmTa();
-		.value {
-			display: block;
-			padding: 8px 10px;
-			font-size: 13px;
-		}
-		.i-label {
-			margin-top: 10px;
-			margin-left: 10px;
-			font-size: 13px;
-		}
-		.toggle-button {
-			width: 8em;
-			height: 30px;
-			outline: none;
-			border: none;
-			border-bottom: 1px dashed #008AFF;
-			color: #008AFF;
-			background: radial-gradient(3em 40%, #ddd, #ddd, rgba(255,255,255,0));
-			text-align: left;
-			font-size: 13px;
 		}
 	}
 	.his-toggle-area {
@@ -195,42 +215,28 @@
 			width: 80%;
 			box-shadow: 5px 10px 5px #999999;
 			border: 1px solid $cborder;
-			border-radius: 5px;
 			position: absolute;
 			z-index: 2000;
-			padding: 10px 5px;
+			padding: 10px 2% 10px 2%;
 			margin: 0 10%;
-			background-color: rgba(255,255,255,0.8);
+			background-color: #fff;
 			.toggle-item {
-				width: 48%;
-				background: radial-gradient(50% 50%, #eee, #eee, #fff);
+				font-size: 10px;
+				width: 47%;
+				background: rgba(240, 240, 240, 0.7);
 				border: 1px solid $cborder;
-				border-radius: 3px;
 				padding: 3px 3px;
 				margin: 2px;
 				outline: none;
 				&:hover, &:active, &:focus {
-					background: radial-gradient(50% 50%, #dee, #dee, #fff);
+					background: $bgDarkBlue;
+					border: 1px solid $bgDarkBlue;
+					color:#fff;
 				}
 			}
 		}
 	}
-	.chart-area1 {
+	.chart-area {
 		border-top: 1px dashed $cborder;
-		border-bottom: 1px solid $cborder;
-	}
-	.chart-area2 {
-		border-top: 1px dashed $cborder;
-		border-bottom: 1px solid $cborder;
-	}
-	.first{
-		border-top: 1px dashed $cborder;
-	}
-	.last {
-		border-top: 1px dashed $cborder;	
-		border-bottom: 1px solid $cborder;	
-	}
-	.mid {
-		border-top: 1px dashed $cborder;	
 	}
 }

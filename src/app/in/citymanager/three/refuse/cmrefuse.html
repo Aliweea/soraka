@@ -1,33 +1,44 @@
-<div class="cmrefuse-module">
-	<div class="tabs">
-		<input ng-click="changeChart('time');changeTown(currentTownName)" type="button" class="s1" id="cmrefuse-s1" value="按车次">
-		<input ng-click="changeChart('ton');changeTown(currentTownName)" type="button" class="s2" id="cmrefuse-s2" value="按吨数">
-	</div>
-	<div class="key-value-area">
-		<div class="title-area">
-			<i class="fa fa-bar-chart" aria-hidden="true"></i>
-			<span class="title">分清运点垃圾清运车次</span><br>
+<div class="xcmrefuse-module">
+	<div class="tab-container">
+		<div class="tabs">
+			<div ng-class="{'tab-active': tab1, 'tab-inactive': tab2}" ng-click="changeChart('time');changeTown(currentTownName)">按车次</div><!--不要去掉这个注释
+	 	 --><div ng-class="{'tab-active': tab2, 'tab-inactive': tab1}" ng-click="changeChart('ton');changeTown(currentTownName)">按吨数</div>
 		</div>
-		<span class="value">{{status}}</span>
+	 	<div class="divider"></div>
 	</div>
-	<div class="chart-area">
-		<highchart config="oChart" id="oTimeChart"></highchart>
-	</div>
-	<div class="town-area">
-		<div class="title-area">
-			<i class="fa fa-line-chart" aria-hidden="true"></i>
-			<span class="title">各清运点数据走势</span><br>
+	<div class="d1">
+		<div class="bar">
+			分清运点垃圾清运情况
 		</div>
-		<br>
-		<i class="fa fa-hand-o-right i-label" aria-hidden="true"></i>
-		<span name="" id="cmRefuseTownToogleButton" class="toggle-button">选择垃圾清运点</span>
-	</div>
-	<div class="town-toggle-area">
-		<div class="toggle-panel"  id="cmRefuseTownTooglePanel">
-			<input class="toggle-item" type="button" ng-repeat="item in townList" ng-click="changeTown(item)" value="{{item}}" name="">
+		<div class="content">
+			<div class="key-value-area">
+				<div class="title-area">
+					<span class="title">一句话解读</span><br>
+				</div>
+				<span class="value">{{status}}</span>
+			</div>
+			<div class="chart-area">
+				<highchart config="oChart" id="oTimeChart"></highchart>
+			</div>
 		</div>
 	</div>
-	<div class="town-chart-area">
-		<highchart config="townChart"></highchart>
+	<div class="d2">
+		<div class="bar">
+			各清运点数据走势
+		</div>
+		<div class="content">
+			<div class="key-value-area">
+				<i class="fa fa-hand-o-right i-label" aria-hidden="true"></i>
+				<span name="" id="cmRefuseTownToogleButton" class="toggle-button">选择垃圾清运点</span>
+			</div>
+			<div class="town-toggle-area">
+				<div class="toggle-panel"  id="cmRefuseTownTooglePanel">
+					<input class="toggle-item" type="button" ng-repeat="item in townList" ng-click="changeTown(item)" value="{{item}}" name="">
+				</div>
+			</div>
+			<div class="chart-area">
+				<highchart config="townChart"></highchart>
+			</div>	
+		</div>
 	</div>
 </div>

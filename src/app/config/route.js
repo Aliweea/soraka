@@ -9,7 +9,12 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       templateUrl: 'app/auth/portal/portal.html',
       controller: 'portalCtrl'
     })
-
+    // 样例
+    .state('example', {
+      url: '/example',
+      templateUrl: 'app/in/example/example.html',
+      controller: 'exampleCtrl'
+    })
     // 登陆之后的界面
     .state('app', {
       abstract: true,

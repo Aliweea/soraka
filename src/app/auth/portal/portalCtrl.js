@@ -50,7 +50,7 @@ export default ($scope, $localStorage, $timeout, $state, $q, $sessionStorage, qS
     	};
     	let info = {
     		'X-Username': $scope.loginAccount,
-            'X-Password': $scope.loginPassword
+            'X-Password': encryptPassword($scope.loginPassword)
     	};
     	qService.httpPost(accountRes.account, {}, info, {}).then((data) => {
     		if (data.errorCode == "NO_ERROR") {
@@ -90,4 +90,10 @@ export default ($scope, $localStorage, $timeout, $state, $q, $sessionStorage, qS
             $(".index-module").css({"margin-top":"30px","margin-bottom":"30px"});
         }
     });
+    // ~ private methods
+  // 密码加密函数
+  const encryptPassword = (password) => {
+    var password_ran = password + 'py458as586_v2';
+    return md5(password_ran);
+  }
 };

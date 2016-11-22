@@ -1,8 +1,7 @@
 <div class="cmicm-module">
 	<div class="key-value-area0">
 		<div class="title-area">
-			<i class="fa fa-lightbulb-o" aria-hidden="true"></i>
-			<span class="title">关键指标详情</span>
+			<span class="title">关键指标</span>
 		</div>
 		<div class="keyvalue-area">
 			<div class="keyvalue">全市数字城管案件立案数: <span>{{keyValue1}}</span>起</div>
@@ -10,86 +9,94 @@
 			<div class="keyvalue">全市数字城管案件处置数: <span>{{keyValue3}}</span>起</div>
 		</div>
 	</div>
-	<div class="key-value-area1">
-		<div class="title-area">
-			<i class="fa fa-bar-chart" aria-hidden="true"></i>
-			<span class="title">各单位处理数字城管案件情况详情</span>
+	<div class="d1">
+		<div class="bar">
+			各单位处理数字城管案件情况详情
 		</div>
-		<br>
-		<i class="fa fa-hand-o-right i-label i-label" aria-hidden="true"></i>
-		<span name="" id="cmIcmIndexToogleButton" class="toggle-button">切换指标</span>
-	</div>
-	<div class="index-toggle-area">
-		<div class="toggle-panel"  id="cmIcmIndexTooglePanel">
-			<input class="toggle-item" type="button" ng-repeat="(name, abbr) in indexs" ng-click="changeIndex1(name, abbr)" value="{{name}}" name="">
-		</div>
-	</div>
-	<div class="chart-area1">
-		<highchart config="chart1"></highchart>
-	</div>
-	<div class="key-value-area2">
-		<div class="title-area">
-			<i class="fa fa-bar-chart" aria-hidden="true"></i>
-			<span class="title">各单位处理数字城管案件累计情况详情</span><br>
-		</div>
-		<br>
-		<i class="fa fa-hand-o-right i-label i-label" aria-hidden="true"></i>
-		<span name="" id="cmIcmIndexAccToggleButton" class="toggle-button">切换指标</span>
-	</div>
-	<div class="index-toggle-area">
-		<div class="toggle-panel"  id="cmIcmIndexAccTogglePanel">
-			<input class="toggle-item" type="button" ng-repeat="(name, abbr) in indexs" ng-click="changeIndex2(name, abbr)" value="{{name}}" name="">
+		<div class="content">
+			<div class="key-value-area1">
+				<i class="fa fa-hand-o-right i-label i-label" aria-hidden="true"></i>
+				<span name="" id="cmIcmIndexToogleButton" class="toggle-button">切换指标</span>
+			</div>
+			<div class="index-toggle-area">
+				<div class="toggle-panel"  id="cmIcmIndexTooglePanel">
+					<input class="toggle-item" type="button" ng-repeat="(name, abbr) in indexs" ng-click="changeIndex1(name, abbr)" value="{{name}}" name="">
+				</div>
+			</div>
+			<div class="chart-area">
+				<highchart config="chart1"></highchart>
+			</div>
 		</div>
 	</div>
-	<div class="chart-area2">
-		<highchart config="chart2"></highchart>
-	</div>
-	<div class="key-value-area3">
-		<div class="title-area">
-			<i class="fa fa-bar-chart" aria-hidden="true"></i>
-			<span class="title">数字城管案件处理情况(分单位)</span><br>
+	<div class="d2">
+		<div class="bar">
+			各单位处理数字城管案件累计情况详情
 		</div>
-		<br>
-		<i class="fa fa-hand-o-right i-label i-label" aria-hidden="true"></i>
-		<span name="" id="cmIcmDeptToggleButton" class="toggle-button">切换部门</span>
-	</div>
-	<div class="dept-toggle-area">
-		<div class="toggle-panel"  id="cmIcmDeptTogglePanel">
-			<input class="toggle-item" type="button" ng-repeat="name in departmentsCategory" ng-click="changeDept(name);changeDeptAcc(name);" value="{{name}}" name="">
-		</div>
-	</div>
-	<div class="first">
-		<highchart config="spider1"></highchart>
-	</div>
-	<div class="mid">
-		<highchart config="spider2"></highchart>
-	</div>
-	<div class="mid">
-		<highchart config="spider3"></highchart>
-	</div>
-	<div class="last">
-		<highchart config="spider4"></highchart>
-	</div>
-	<div class="key-value-area4">
-		<div class="title-area">
-			<i class="fa fa-bar-chart" aria-hidden="true"></i>
-			<span class="title">数字城管案件处理情况(历史状况)</span><br>
-		</div>
-		<br>
-		<i class="fa fa-hand-o-right i-label i-label" aria-hidden="true"></i>
-		<span name="" id="cmIcmHisDeptToggleButton" class="toggle-button">切换部门</span>
-		<i class="fa fa-hand-o-right i-label i-label" aria-hidden="true"></i>
-		<span name="" id="cmIcmHisIndexToggleButton" class="toggle-button">切换指标</span>
-	</div>
-	<div class="his-toggle-area">
-		<div class="toggle-panel"  id="cmIcmHisDeptTogglePanel">
-			<input class="toggle-item" type="button" ng-repeat="dept in departmentsCategory" ng-click="changeHis(dept, currentIndex);" value="{{dept}}" name="">
-		</div>
-		<div class="toggle-panel"  id="cmIcmHisIndexTogglePanel">
-			<input class="toggle-item" type="button" ng-repeat="index in indexCategory" ng-click="changeHis(currentDept, index);" value="{{index}}" name="">
+		<div class="content">
+			<div class="key-value-area2">
+				<i class="fa fa-hand-o-right i-label i-label" aria-hidden="true"></i>
+				<span name="" id="cmIcmIndexAccToggleButton" class="toggle-button">切换指标</span>
+			</div>
+			<div class="index-toggle-area">
+				<div class="toggle-panel"  id="cmIcmIndexAccTogglePanel">
+					<input class="toggle-item" type="button" ng-repeat="(name, abbr) in indexs" ng-click="changeIndex2(name, abbr)" value="{{name}}" name="">
+				</div>
+			</div>
+			<div class="chart-area">
+				<highchart config="chart2"></highchart>
+			</div>
 		</div>
 	</div>
-	<div class="first">
-		<highchart config="hisChart"></highchart>
+	<div class="d3">
+		<div class="bar">
+			数字城管案件处理情况(分单位)
+		</div>
+		<div class="content">
+			<div class="key-value-area3">
+				<i class="fa fa-hand-o-right i-label i-label" aria-hidden="true"></i>
+				<span name="" id="cmIcmDeptToggleButton" class="toggle-button">切换部门</span>
+			</div>
+			<div class="dept-toggle-area">
+				<div class="toggle-panel"  id="cmIcmDeptTogglePanel">
+					<input class="toggle-item" type="button" ng-repeat="name in departmentsCategory" ng-click="changeDept(name);changeDeptAcc(name);" value="{{name}}" name="">
+				</div>
+			</div>
+			<div class="chart-area">
+				<highchart config="spider1"></highchart>
+			</div>
+			<div class="chart-area">
+				<highchart config="spider2"></highchart>
+			</div>
+			<div class="chart-area">
+				<highchart config="spider3"></highchart>
+			</div>
+			<div class="chart-area">
+				<highchart config="spider4"></highchart>
+			</div>	
+		</div>
+	</div>
+	<div class="d4">
+		<div class="bar">
+			数字城管案件处理情况(历史状况)
+		</div>
+		<div class="content">
+			<div class="key-value-area4">
+				<i class="fa fa-hand-o-right i-label i-label" aria-hidden="true"></i>
+				<span name="" id="cmIcmHisDeptToggleButton" class="toggle-button">切换部门</span>
+				<i class="fa fa-hand-o-right i-label i-label" aria-hidden="true"></i>
+				<span name="" id="cmIcmHisIndexToggleButton" class="toggle-button">切换指标</span>
+			</div>
+			<div class="his-toggle-area">
+				<div class="toggle-panel"  id="cmIcmHisDeptTogglePanel">
+					<input class="toggle-item" type="button" ng-repeat="dept in departmentsCategory" ng-click="changeHis(dept, currentIndex);" value="{{dept}}" name="">
+				</div>
+				<div class="toggle-panel"  id="cmIcmHisIndexTogglePanel">
+					<input class="toggle-item" type="button" ng-repeat="index in indexCategory" ng-click="changeHis(currentDept, index);" value="{{index}}" name="">
+				</div>
+			</div>
+			<div class="chart-area">
+				<highchart config="hisChart"></highchart>
+			</div>
+		</div>
 	</div>
 </div>

@@ -1,0 +1,71 @@
+<div class="example-module">
+	<!-- $bgDarkBlue -->
+	<div class="d1">
+		<div class="bar">
+			将所有独立模块用这个套起来 样式全部统一
+		</div>
+		<div class="content">
+			样式：<br>
+			.d1 {
+				.bar {
+					font-size: 15px;
+					background-color: $bgDarkBlue;
+					padding: 8px 15px;
+					color: #eee;
+				}
+				.content {
+					border-bottom: 1px solid $bgDarkBlue;
+				}
+			}
+		</div>
+	</div>
+	<div class="d2">
+		<div class="tab-container">
+			<div class="tabs">
+				<div ng-class="{'tab-active': tab1, 'tab-inactive': tab2}" ng-click="activeTab1()">标签一</div><!--不要去掉这个注释
+			 --><div ng-class="{'tab-active': tab2, 'tab-inactive': tab1}" ng-click="activeTab2()">标签二</div>
+			</div>
+			<div class="divider"></div>
+			<div ng-if="tab1" class="tab-content">
+				.tab-inactive {
+					@include tab();
+					border-bottom:1px solid $cborder;
+					color: #777;
+				}
+			</div>
+			<div ng-if="tab2" class="tab-content">
+				.tab-active {
+					@include tab();
+					border:1px solid $bgDarkBlue;
+					border-top: 3px solid $bgDarkBlue;
+					color: $bgDarkBlue;
+					border-bottom: none;
+				}
+			</div>
+		</div>
+	</div>
+	<div class="d3">
+		<i class="fa fa-hand-o-right i-label" aria-hidden="true"></i>
+		<span name="" id="cmRefuseTownToogleButton" ng-click="togglePanel()" class="toggle-button">弹出按钮组</span>
+		<div class="example-toggle-area">
+			<div class="toggle-panel"  ng-if="examplePanel">
+				<input type="button" class="toggle-item" ng-click="activeItem()" name="" value="点击面板消失">
+				<input type="button" class="toggle-item" ng-click="activeItem()" name="" value="点击面板消失">
+				<input type="button" class="toggle-item" ng-click="activeItem()" name="" value="点击面板消失">
+				<input type="button" class="toggle-item" ng-click="activeItem()" name="" value="点击面板消失">
+			</div>
+		</div>
+	</div>
+	<div class="d4">
+		
+	</div>
+	<div class="d5">
+		
+	</div>
+	<div class="d6">
+		
+	</div>
+	<div class="d7">
+		
+	</div>
+</div>
