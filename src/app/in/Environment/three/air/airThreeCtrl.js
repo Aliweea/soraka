@@ -1,4 +1,4 @@
-export default ($rootScope, $scope, kpiDetailService, dateService) => {
+export default ($rootScope, $scope, kpiDetailService, dateService, $location, $anchorScroll) => {
     'ngInject';
 
     const jQueryDOMToDos = () => {
@@ -6,6 +6,9 @@ export default ($rootScope, $scope, kpiDetailService, dateService) => {
         $(".navbar2return").show(0); // 显示返回按钮
         $(".navTopShowMark").hide(0); // 隐藏KPI状态 KPI分类
         $('#showshort').focus(); // 获取默认焦点
+
+        $location.hash('airTop');//尝试移动锚点
+        $anchorScroll();//别忘记注入$location,$anchorScroll
     };
     jQueryDOMToDos();
 
