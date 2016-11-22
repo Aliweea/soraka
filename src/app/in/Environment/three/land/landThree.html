@@ -1,118 +1,111 @@
-<script src="../../../../../../../TongjiIOC/ioc-kpi-new/src/main/webapp/scripts/controllers/environment/landresource-controller.js"></script>
-<div ui-state="activeTab" default="1">
-    <ul class="nav nav-tabs">
-        <li ui-class="{'active':activeTab==1 || activeTab==2}" class="land-three-tabs" ng-click="landUseFunction()">
-            <a ui-set="{'activeTab':1}">土地使用</a>
-        </li>
-        <li ui-class="{'active':activeTab==3 || activeTab==4}" class="land-three-tabs" ng-click="landIllegalFunction()">
-            <a ui-set="{'activeTab':3}">土地执法</a>
-        </li>
-    </ul>
-    <div ui-if="activeTab==1 || activeTab==2" class="btn-group justified nav-tabs" ng-click="landUseFunction()">
-        <a ui-set="{'activeTab': 1}" ui-class="{'active':activeTab==1}" class="btn btn-default">土地使用 当前数据</a>
-        <a ui-set="{'activeTab': 2}" ui-class="{'active':activeTab==2}" class="btn btn-default">土地使用 历史数据</a>
+<div class="land-three-module">
+    <div class="tab-container">
+        <div class="tabs">
+            <div ng-class="{'tab-active': tab1, 'tab-inactive': tab2}" ng-click="landUseFunction()">
+                土地使用
+            </div>
+            <div ng-class="{'tab-active': tab2, 'tab-inactive': tab1}" ng-click="landIllegalFunction()">
+                土地执法
+            </div>
+        </div>
+        <div class="divider"></div>
     </div>
-    <div ui-if="activeTab==3 || activeTab==4" class="btn-group justified nav-tabs" ng-click="landIllegalFunction()">
-        <a ui-set="{'activeTab': 3}" ui-class="{'active':activeTab==3}" class="btn btn-default">土地执法 当前数据</a>
-        <a ui-set="{'activeTab': 4}" ui-class="{'active':activeTab==4}" class="btn btn-default">土地执法 历史数据</a>
-    </div>
-    <div ui-if="activeTab==1" class="panel panel-info land-chart-panel">
-        <h4 class="panel-heading">土地类型面积分布</h4>
-        <div>
-            <highchart config="landUseOption.allOption"></highchart>
-        </div>
-        <h4 class="panel-heading">土地面积增加排行</h4>
-        <div>
-            <highchart config="landUseOption.increaseOption"></highchart>
-        </div>
-        <h4 class="panel-heading">土地面积减少排行</h4>
-        <div>
-            <highchart config="landUseOption.decreaseOption"></highchart>
-        </div>
-    </div>
-    <div ui-if="activeTab==2" class="panel panel-info land-chart-panel">
-        <h4 class="panel-heading">
-            土地出让
-        </h4>
-        <div class="land-select-area">
-            <div>
-                &nbsp;&nbsp;
-                <i class="fa fa-hand-o-right i-label" aria-hidden="true"></i>
-                <span class="land-select-btn" id="useGrantSelectBtn" ng-click="useGantSelectFun()">土地出让指标选择</span>
+    <div ng-if="tab1">
+        <div class="d1">
+            <div class="bar">
+                土地使用 当前数据
             </div>
-            <div id="useGrantSelectPanel" class="land-select-panel">
-                <ul class="nav nav-tabs">
-                    <li  class="land-select-item" ng-repeat="landUseOne in landUseGrantList">
-                        <a class="land-select-span" ng-model="landUseGrantListSelected"
-                           ng-value="landUseOne" name="landUseGrantListRadio"
-                           ng-click="landUseGrantListChange(landUseOne)">{{landUseOne}}</a>
-                    </li>
-                </ul>
+            <div class="content">
+                <div>
+                    <highchart config="landUseOption.allOption"></highchart>
+                </div>
+                <div class="divide-line"/>
+                <div>
+                    <highchart config="landUseOption.increaseOption"></highchart>
+                </div>
+                <div class="divide-line"/>
+                <div>
+                    <highchart config="landUseOption.decreaseOption"></highchart>
+                </div>
             </div>
         </div>
-        <div>
-            <highchart style="height:400px" config="landUseOption.grantOption"></highchart>
-        </div>
-        <h4 class="panel-heading">
-            各类型土地面积
-        </h4>
-        <div class="land-select-area">
-            <div>
-                &nbsp;&nbsp;
-                <i class="fa fa-hand-o-right i-label" aria-hidden="true"></i>
-                <span class="land-select-btn" id="useDetailSelectBtn" ng-click="useDetailSelectFun()">土地类型选择</span>
+        <div class="d2">
+            <div class="bar">
+                土地使用 历史数据
             </div>
-            <div id="useDetailSelectPanel" class="land-select-panel">
-                <ul class="nav nav-tabs">
-                    <li class="{{$index%2==0?'land-select-item-left':'land-select-item-right'}}"
-                        ng-repeat="landUseOne in landUseDetailList">
-                        <a class="land-select-span" ng-model="landUseOneDetailListSelected"
-                           ng-value="landUseOne" name="landUseDetailListRadio"
-                           ng-click="landUseDetailListChange(landUseOne)">{{landUseOne}}面积</a>
-                    </li>
-                </ul>
+            <div class="content">
+                <div class="key-value-area">
+                    <i class="fa fa-hand-o-right i-label" aria-hidden="true"></i>
+                    <span ng-click="useGantSelectFun()" class="toggle-button">土地出让指标选择</span>
+                </div>
+                <div class="town-toggle-area">
+                    <div class="toggle-panel" ng-if="useGrantPanel">
+                        <input class="toggle-item" type="button" ng-repeat="landUseOne in landUseGrantList"
+                               value="{{landUseOne}}" ng-model="landUseGrantListSelected" name="landUseGrantListRadio"
+                               ng-click="landUseGrantListChange(landUseOne)">
+                    </div>
+                </div>
+                <div class="chart-area">
+                    <highchart config="landUseOption.grantOption"></highchart>
+                </div>
+                <div class="divide-line"/>
+                <div class="key-value-area">
+                    <i class="fa fa-hand-o-right i-label" aria-hidden="true"></i>
+                    <span id="useDetailSelectBtn" ng-click="useDetailSelectFun()" class="toggle-button">土地类型选择</span>
+                </div>
+                <div class="town-toggle-area">
+                    <div class="toggle-panel" ng-if="useDetailPanel">
+                        <input class="toggle-item" type="button" ng-repeat="landUseOne in landUseDetailList"
+                               value="{{landUseOne}}" ng-model="landUseOneDetailListSelected" name="landUseDetailListRadio"
+                               ng-click="landUseDetailListChange(landUseOne)">
+                    </div>
+                </div>
+                <div class="chart-area">
+                    <highchart config="landUseOption.detailOption"></highchart>
+                </div>
             </div>
-        </div>
-        <div>
-            <highchart style="height:400px" config="landUseOption.detailOption"></highchart>
         </div>
     </div>
-    <div ui-if="activeTab==3" class="panel panel-info land-chart-panel">
-        <h4 class="panel-heading">违法用地宗数</h4>
-        <div>
-            <highchart config="landIllegalOption.allOption"></highchart>
-        </div>
-        <h4 class="panel-heading">违法用地总面积</h4>
-        <div>
-            <highchart config="landIllegalOption.increaseOption"></highchart>
-        </div>
-        <h4 class="panel-heading">违法基本农田用地面积</h4>
-        <div>
-            <highchart config="landIllegalOption.decreaseOption"></highchart>
-        </div>
-    </div>
-    <div ui-if="activeTab==4" class="panel panel-info land-chart-panel">
-        <h4 class="panel-heading">
-            各土地执法指标
-        </h4>
-        <div class="land-select-area">
-            <div>
-                &nbsp;&nbsp;
-                <i class="fa fa-hand-o-right i-label" aria-hidden="true"></i>
-                <span class="land-select-btn" id="illegalDetailSelectBtn" ng-click="illegalDetailSelectFun()">土地执法指标选择</span>
+    <div ng-if="tab2">
+        <div class="d1">
+            <div class="bar">
+                土地执法 当前数据
             </div>
-            <div id="illegalDetailSelectPanel" class="land-select-panel">
-                <ul class="nav nav-tabs">
-                    <li class="land-select-item" ng-repeat="landIllegalOne in landIllegalIndexList ">
-                        <a class="land-select-span" ng-model="landIllegalIndexListSelected"
-                           ng-value="landIllegalOne" name="landIllegalIndexListRadio"
-                           ng-click="landIllegalIndexListChange(landIllegalOne)">违法用地{{landIllegalOne}}</a>
-                    </li>
-                </ul>
+            <div class="content">
+                <div>
+                    <highchart config="landIllegalOption.allOption"></highchart>
+                </div>
+                <div class="divide-line"/>
+                <div>
+                    <highchart config="landIllegalOption.increaseOption"></highchart>
+                </div>
+                <div class="divide-line"/>
+                <div>
+                    <highchart config="landIllegalOption.decreaseOption"></highchart>
+                </div>
             </div>
         </div>
-        <div>
-            <highchart style="height:400px" config="landIllegalOption.detailOption"></highchart>
+
+        <div class="d2">
+            <div class="bar">
+                土地执法 历史数据
+            </div>
+            <div class="content">
+                <div class="key-value-area">
+                    <i class="fa fa-hand-o-right i-label" aria-hidden="true"></i>
+                    <span ng-click="illegalDetailSelectFun()" class="toggle-button">土地执法指标选择</span>
+                </div>
+                <div class="town-toggle-area">
+                    <div class="toggle-panel" ng-if="illegalDetailPanel">
+                        <input class="toggle-item" type="button" ng-repeat="landIllegalOne in landIllegalIndexList"
+                               value="违法用地{{landIllegalOne}}" ng-model="landIllegalIndexListSelected" name="landIllegalIndexListRadio"
+                               ng-click="landIllegalIndexListChange(landIllegalOne)">
+                    </div>
+                </div>
+                <div class="chart-area">
+                    <highchart config="landIllegalOption.detailOption"></highchart>
+                </div>
+            </div>
         </div>
     </div>
 </div>
