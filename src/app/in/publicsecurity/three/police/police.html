@@ -1,75 +1,73 @@
 <script type="text/javascript" src="http://api.map.baidu.com/library/Heatmap/2.0/src/Heatmap_min.js"></script>
 <style type="text/css">
-#criminalMap {
-    width: 90%;
-    height: 400px;
-    overflow: hidden;
-    margin: 0;
-    font-family: "微软雅黑";
-}
-
-.anchorBL {
-    display: none;
-}
+    #criminalMap {
+        width: 90%;
+        height: 400px;
+        overflow: hidden;
+        margin: 0;
+        font-family: "微软雅黑";
+    }
+    .anchorBL {
+        display: none;
+    }
 </style>
-<div class="pentitionthree">
-            <div class="panel-group" >   
-                
-                <div class="panel panel-primary" style="margin-top: 10px;border:1px white solid">
-                    <div class="panel-heading">
-                        各类治安案件详情
-                        <span class="glyphicon glyphicon-question-sign pull-right"></span>
-                    </div>
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-md-9 chart-panel">
-                                    <highchart id="pieChart" config="pieChart" style="width:100%"></highchart>
-                                </div>
-                            </div>
-                        </div>
+<div class="xcmrefuse-module" >                  
+    <div class="d1">
+        <div class="bar">
+            各类治安案件详情                       
+        </div>
+        <div class="content">
+            <div class="key-value-area">
+                <div class="title-area">
+                    <span class="title">一句话解读</span><br>
                 </div>
-                <div class="panel panel-primary" style="margin-top: 10px;border:1px white solid">
-                    <div class="panel-heading" >
-                        各派出所治安案件详情
-                        <span class="glyphicon glyphicon-question-sign pull-right"></span>
-                    </div>
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-md-9 chart-panel">
-                                    <highchart id="kpiBarChart" config="kpiBarChart"></highchart>
-                                </div>
-                            </div>
-                        </div>
+                <span class="value">2016年6月份全市发生各类治安案件总数 612 起。</span>
+            </div>
+            <div class="chart-area">
+                <highchart config="pieChart" id="pieChart"></highchart>
+            </div>                            
+        </div>
+    </div>
+    <div class="xcmrefuse-module">
+        <div class="d1" >
+            <div class="bar">
+                各派出所治安案件详情                       
+            </div>
+            <div class="content">
+                <div class="key-value-area">
+                    <div class="chart-area">
+                        <highchart config="kpiBarChart" id="kpiBarChart"></highchart>
+                    </div>                                
                 </div>
             </div>
-
-            <div class="panel panel-primary" style="margin-top: 10px;border:1px white solid">
-                <div class="panel-heading">
-                    本年度治安案件趋势图
-                    <span class="glyphicon glyphicon-question-sign pull-right"></span>
-                </div>
-                <div class="panel-body">
-                    <div class="row">
-                        <div class="col-md-9 chart-panel">
-                            <highchart id="columnChart" config="columnChart"></highchart>
-                        </div>
-                    </div>
-                </div>
+        </div>
+    </div>
+    <div class="xcmrefuse-module">
+        <div class="d1">
+            <div class="bar">
+                本年度治安案件趋势图                   
             </div>
-
-            <div class="panel panel-primary" style="margin-top: 10px;border:1px white solid">
-                    <div class="panel-heading" >
-                        治安案件警情动态
-                        <span class="glyphicon glyphicon-question-sign pull-right"></span>
-                    </div>
-                    <div class="panel-body" >
-                        <div class="row">
-                            <div class="col-md-9 chart-panel">
-                                <span class="glyphicon glyphicon-question-sign pull-right"></span>
-                                <h5><span class="label label-info">太仓市{{getDate.year}}年{{getDate.month}}月各地区治安形势图</span></h5>
-                                <div id="criminalMap" style="width:90%" class="ps-map-border"></div>
-                            </div>
-                        </div>
-                    </div>
+            <div class="content">
+                <div class="key-value-area">
+                    <div class="chart-area">
+                        <highchart config="columnChart" id="columnChart"></highchart>
+                    </div>                                
                 </div>
-</div>
+            </div>              
+        </div>
+    </div>
+    <div class="xcmrefuse-module">
+        <div class="d1">
+            <div class="bar">
+                治安案件警情动态                   
+            </div>
+            <div class="content">
+                <div class="key-value-area">
+                    <div class="chart-area">
+                        <h5><span class="label label-info">太仓市{{getDate.year}}年{{getDate.month}}月各地区治安形势图</span></h5>
+                        <highchart config="criminalMap" id="criminalMap"></highchart>
+                    </div>                                
+                </div>
+            </div>              
+        </div>
+    </div>
