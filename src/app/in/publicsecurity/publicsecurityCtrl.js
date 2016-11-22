@@ -6,19 +6,20 @@ export default($scope, $state, hService, qService, xService, kpiRes, $rootScope)
         //$(".navbar2position").hide(0); // 显示当前位置
         //$(".navbar2return").show(0); // 显示返回按钮
         //$(".navTopShowMark").hide(0); // 隐藏KPI状态 KPI分类
-        $('.navTopShowPolice').hide(0); // 显示公安类型
+        $('.navTopShowPolice').hide(0); // 隐藏公安类型
         //$('#showshort').focus(); // 获取默认焦点
 
     }();
 	// 上一级路由
 	$scope.toH = () => {
-		$scope.changeTitle();
-		let h = hService.state();
-		if (h.params == null) {
-			$state.go(h.name);
-		} else {
-			$state.go(h.name, h.params);
-		}
+		// $scope.changeTitle();
+		// let h = hService.state();
+		// if (h.params == null) {
+		// 	$state.go(h.name);
+		// } else {
+		// 	$state.go(h.name, h.params);
+		// }
+		hService.back();
 	}
 	$scope.changeTitle = (subTitle = "报警数") => {
 		$scope.subTitle = subTitle;
@@ -49,6 +50,7 @@ export default($scope, $state, hService, qService, xService, kpiRes, $rootScope)
 	}
 
 	$scope.toDetail = () => {
+		hService.register($state);//向下级跳转，将当前位置计入历史记录
 		switch($scope.currentCategoryName) {
 			case "公安":
 				$state.go("app.publicsecurity.policecall");

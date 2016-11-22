@@ -1,12 +1,15 @@
-export default($scope, $rootScope, $stateParams, qService, dService, kpiRes, dateService, kpiSpanRes) => {
+export default($scope, $rootScope,$state, $stateParams, qService, dService, kpiRes, dateService, kpiSpanRes, hService) => {
 	'ngInject';
 	
 	const jQueryDOMToDos = () => {
-		$(".navbar2position").hide(0); // 显示当前位置
-		$(".navbar2return").show(0); // 显示返回按钮
-		$(".navTopShowMark").hide(0); // 隐藏KPI状态 KPI分类
+		$(".navbar2return").show(0); // 显示 返回
+        $(".navbar2detail").show(0); // 显示 查看kpi详情
+
+        $(".navTopShowMark").hide(0); // 隐藏 KPI状态KPI分类
+        $(".navbar3position").hide(0); // 隐藏 当前三级界面位置
+
+        $('#showshort').focus(); // 获取默认焦点
 		$('.navTopShowPolice').hide(0); // 隐藏公安类型
-		$('#showshort').focus(); // 获取默认焦点
 	}();
 
 	let kpiId = $stateParams.kpiId;

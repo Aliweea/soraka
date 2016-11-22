@@ -1,11 +1,15 @@
 export default($scope, $stateParams, qService, kpiRes, dateService, hService, $state) => {
     'ngInject';
     hService.state($state);
+    $scope.registerHistory = () => {
+        hService.register($state); // 向下级跳转则将当前位置计入历史记录
+    }
 
     const jQueryDOMToDos = () => {
-        $(".navbar2return").hide(0); // 隐藏返回按钮
-        $(".navbar2position").show(0); // 显示当前位置
-        $(".navTopShowMark").show(0); // 显示KPI状态 KPI分类
+        $(".navTopShowMark").show(0); // 显示 KPI状态KPI分类
+        $(".navbar2return").show(0); // 显示 返回
+        $(".navbar3position").hide(0); // 隐藏 当前三级界面位置
+        $(".navbar2detail").hide(0); // 隐藏 查看kpi详情
         $('.navTopShowPolice').hide(0); // 隐藏公安类型
     }();
     
