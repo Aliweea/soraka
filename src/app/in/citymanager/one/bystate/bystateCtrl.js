@@ -1,7 +1,3 @@
-<<<<<<< .merge_file_a05052
-=======
-
->>>>>>> .merge_file_a28244
 export default($scope, $rootScope, $stateParams, qService, kpiRes, dateService, hService, $state) => {
 	'ngInject';
     hService.state($state);
