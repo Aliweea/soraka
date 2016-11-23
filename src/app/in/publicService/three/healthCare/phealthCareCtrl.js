@@ -793,7 +793,9 @@ export default($scope, $rootScope, kpiDetailService,$state, qService, dataDetail
 	    },
 	    title: {
 	            text: '',
-	            x: -20//center
+	            style: {
+						fontSize: "13px"
+					}
 	    },
 	    series: [{
 	        name: "",//$scope.medicalServicePatientsByKindList[0].name,
