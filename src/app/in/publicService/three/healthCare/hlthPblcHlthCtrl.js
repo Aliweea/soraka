@@ -335,59 +335,11 @@ export default($scope, $rootScope, kpiDetailService,$state, qService, dataDetail
 	}).finally(() => {
         $rootScope.loading = false;
     });	
-	// const pieStore = (title, tooltip, data, dataFormat) => {
-	// 	return {
-	// 		options: {
-	// 			chart: {
-	// 				height: 600,
-	// 				plotBackgroundColor: null,
-	// 				plotBorderWidth: null,
-	// 				plotShadow: false
-	// 			},
-	// 			credits:{
-	// 				enabled:false
-	// 			},
-	// 			exporting: {
-	// 				enabled: false, // 取消打印menu
-	// 			},
-	// 			title: {
-	// 				text: title,
-	// 				style: {
-	// 					fontSize: '13px'
-	// 				}
-	// 			},
-	// 			tooltip: {
-	// 				pointFormat: tooltip
-	// 			},
-	// 			legend: {
-	// 				lineHeight: 10,
-	// 			},
-	// 			plotOptions: {
-	// 				pie: {
-	// 					allowPointSelect: true,
-	// 					cursor: 'pointer',
-	// 					dataLabels: {
-	// 						enabled: false,
-	// 						color: '#000000',
-	// 						connectorColor: '#000000',
-	// 						format: dataFormat
-	// 					},
-	// 					showInLegend: true
-	// 				}					
- //                }
- //            },
-	// 		series: [{
-	// 			type: 'pie',
-	// 			name: '',
-	// 			data: data
-	// 		}]       
-	// 	};
-	// }
 	 	$scope.infectiousDiseasesPieChart = {
 		    options:{
 		        colors: pieColors,
 		        chart: {
-					height: 600,
+					height: 400,
 					plotBackgroundColor: null,
 					plotBorderWidth: null,
 					plotShadow: false
@@ -424,18 +376,6 @@ export default($scope, $rootScope, kpiDetailService,$state, qService, dataDetail
 						showInLegend: true
 					}					
                 }
-		        // plotOptions: {
-		        //     pie: {
-		        //         allowPointSelect: true,
-		        //         cursor: 'pointer',
-		        //         // dataLabels: {
-		        //         //     enabled: true,
-		        //         //     color: '#000000',
-		        //         //     connectorColor: '#000000',
-		        //         //     format: '<b>{point.name}</b>: {point.percentage:.1f} %'
-		        //         // }
-		        //     }
-		        // }
 		    },
 		    series: [{
 	            type: 'pie',
@@ -443,49 +383,6 @@ export default($scope, $rootScope, kpiDetailService,$state, qService, dataDetail
 	            data: infectiousDiseasesPieChartData
 	        }]
 		};
-  //  	$scope.infectiousDiseasesPieChart = {
-		//     options:{
-		//         colors: pieColors,
-		//         credits: {
-		//             enabled: false
-		//         },
-		//         exporting: {
-		// 			enabled: false, // 取消打印menu
-		// 		},
-		//         chart: {
-		//             plotBackgroundColor: null,
-		//             plotBorderWidth: null,
-		//             plotShadow: false
-		//         },
-		//         title: {
-		//             text: '',
-		//             style: {
-		// 				fontSize: "13px"
-		// 			}
-		//         },
-		//         tooltip: {
-		//     	    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-		//         }
-		//         ,
-		//         // plotOptions: {
-		//         //     pie: {
-		//         //         allowPointSelect: true,
-		//         //         cursor: 'pointer',
-		//         //         // dataLabels: {
-		//         //         //     enabled: true,
-		//         //         //     color: '#000000',
-		//         //         //     connectorColor: '#000000',
-		//         //         //     format: '<b>{point.name}</b>: {point.percentage:.1f} %'
-		//         //         // }
-		//         //     }
-		//         // }
-		//     },
-		//     series: [{
-	 //            type: 'pie',
-	 //            name: '占比',
-	 //            data: infectiousDiseasesPieChartData
-	 //        }]
-		// };
 	$scope.infectiousDiseasesByKindLineChart = {
 			options:{
 				credits: {

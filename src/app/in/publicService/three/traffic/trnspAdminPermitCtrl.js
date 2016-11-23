@@ -224,6 +224,7 @@ export default($scope, $rootScope, kpiDetailService,$state, qService, dataDetail
 					}
 				};
 				$scope.changeChart = (type) => {
+					$('#psTrafficTogglePanel').hide(0);
 					switch (type) {
 						case "enforce":		
 							$scope.kindList = $scope.transAdminSumList;
@@ -693,7 +694,8 @@ export default($scope, $rootScope, kpiDetailService,$state, qService, dataDetail
 		        title: {
 		            text: '',
 		            style: {
-							fontSize: '13px'
+							fontSize: '13px',
+							color:'black'
 						}
 		        },
 				series: [{

@@ -457,6 +457,7 @@ export default($scope, $rootScope, kpiDetailService,$state, qService, dataDetail
 	    options:{
 	        colors: pieColors,
 	        chart: {
+	        	height:300,
 	            plotBackgroundColor: null,
 	            plotBorderWidth: null,
 	            plotShadow: false

@@ -12,7 +12,7 @@
 		</div>
 		<div class="content">
 			<div class="dd">
-				<div ng-show="tab1">
+				<div ng-if="tab1">
 					<div style="text-align:center;line-height:15px;margin:17px 0;">
 						<span style="font-size:15px;">{{medicalInstitutionsLastYear}} 年末全市医疗机构情况分布</span>
 					</div>
@@ -44,7 +44,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="d2" ng-show="tab1">
+	<div class="d2" ng-if="tab1">
 		<div class="bar">
 			卫生技术人员
 		</div>
@@ -57,7 +57,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="d2" ng-show="tab1">
+	<div class="d2" ng-if="tab1">
 		<div class="bar">
 			病床
 		</div>
@@ -68,68 +68,3 @@
 		</div>
 	</div>
 </div>
-<!-- <div class="cmtraffic-module">
-	<div class="tabs">
-		<input ng-click="changeChart('resource')" type="button" class="s1" id="cmhealthcare-s1" value="卫生资源">
-		<input ng-click="changeChart('service')" type="button" class="s2" id="cmhealthcare-s2" value="诊疗服务">
-	</div>
-	<div class="key-value-area">
-		<div class="title-area">
-			<i class="fa fa-bar-chart" aria-hidden="true"> 
-			</i>
-			<span class="title">{{title1}}</span><br>
-		</div>
-	</div>
-	<div class="distribute-area key-value-area">
-		<i class="fa fa-hand-o-right i-label" aria-hidden="true"></i>
-		<span name="" id="psHealthcareToggleButton" class="toggle-button">{{typeTitle}}</span>
-	</div>
-	<div class="distribute-toggle-area">
-		<div class="toggle-panel" id="psHealthcareTogglePanel">
-			<input class="toggle-item" type="button" ng-repeat="item in list" ng-model="listSelected" ng-value="item.name" name="list" ng-click="changeChoice(item)">
-		</div>
-	</div>
-	<div class="chart-adivrea">
-		<highchart config="chart1" id="chart1"></highchart>
-	</div>
-	<div class="key-value-area" ng-show="tab1">
-		<div style="text-align:center;line-height:15px;margin:17px 0;">
-			<span style="font-size:15px;">{{medicalInstitutionsLastYear}} 年末全市医疗机构情况分布</span>
-		</div>
-		<table class="table traffic-table">
-			<tr ng-repeat="institution in medicalInstitutions">
-				<td>{{institution.name}}</td>
-				<td align="right">{{institution.number}}家</td>
-			</tr>
-		</table>
-	</div>
-	<div class="chart-area">
-		<highchart config="chart2" id="chart2"></highchart>
-	</div>
-	<div class="chart-area" ng-hide="tab1">
-		<highchart config="chart3" id="chart3"></highchart>
-	</div>
-	<div class="key-value-area" ng-show="tab1">
-		<div class="title-area">
-			<i class="fa fa-bar-chart" aria-hidden="true"> 
-			</i>
-			<span class="title">卫生技术人员</span><br>
-		</div>
-	</div>
-	<div class="chart-area" ng-show="tab1">
-		<highchart config="medicalWorkersPieChart" id="medicalWorkersPieChart"></highchart>
-	</div>
-	<div class="chart-area" ng-show="tab1">
-		<highchart config="medicalWorkersByKindLineChart" id="medicalWorkersByKindLineChart"></highchart>
-	</div>
-	<div class="key-value-area" ng-show="tab1">
-		<div class="title-area">
-			<i class="fa fa-bar-chart" aria-hidden="true"> 
-			</i>
-			<span class="title">病床</span><br>
-		</div>
-	</div>
-	<div class="chart-area" ng-show="tab1">
-		<highchart config="medicalBedsColumnChart" id="medicalBedsColumnChart"></highchart>
-	</div>
-</div> -->

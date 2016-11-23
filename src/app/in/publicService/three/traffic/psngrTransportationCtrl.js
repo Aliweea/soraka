@@ -128,6 +128,7 @@ export default($scope, $rootScope, kpiDetailService,$state, qService, dataDetail
 					}
 				};
 				$scope.changeChart = (type) => {
+					$('#psTrafficTogglePanel').hide(0);
 					switch (type) {
 						case "passenger":						
 							$scope.kindList = $scope.passengerCapacityByKindList;
@@ -476,7 +477,8 @@ export default($scope, $rootScope, kpiDetailService,$state, qService, dataDetail
 			            text: '近五年客运车辆情况',
 			            style: {
 							fontSize: "15px",
-							fontStyle:"宋体"
+							fontStyle:"宋体",
+							color:'black'
 						}
 			        },
 			        xAxis: {
