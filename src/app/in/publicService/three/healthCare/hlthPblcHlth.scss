@@ -1,32 +1,32 @@
-.pstelecom-module{
-	width: 100%;
-    background-color: #fff;
-    .tab-container {
-        .tabs {
-            @mixin tab() {
-                display: inline-block;
-                font-size: 15px;
-                width: 50%;
-                padding: 8px 0;
-                text-align: center;
-            }
-            .tab-inactive {
+.hlthPblcHlth-module{
+	width:100%;
+    background: #fff;
+	.tab-container{
+		.tabs{
+			@mixin tab(){
+				display:inline-block;
+				font-size: 15px;
+				width:33.3%;
+				padding:8px 0;
+				text-align: center;
+			}
+			.tab-inactive {
                 @include tab();
                 border-bottom: 3px solid $cborder;
                 color: #777;
             }
-            .tab-active {
-                @include tab();
-                border-bottom: 3px solid $bgDarkBlue;
-                color: #333;
-                background-color: rgba(255,255,255,0.5);
-            }
-        }
-        .divider {
+			.tab-active{
+				@include tab();
+				border-bottom: 3px solid $bgDarkBlue;
+				color: #333;
+				background-color: rgba(255,255,255,0.5);
+			}
+		}
+		.divider {
             height: 15px;
         }
-    }
-    @mixin cmTa() {
+	}
+	@mixin cmTa() {
         font-size: 15px;
         .title-area {
             display: inline-block;
@@ -48,14 +48,14 @@
         }
     }
     .d1{
-        .bar{
-            font-size: 15px;
+    	.bar{
+    		font-size: 15px;
             background-color: $bgDarkBlue;
             padding: 8px 10px;
             color: #fff;
-        }
-        .content{
-            border-bottom: 1px solid $bgDarkBlue;
+    	}
+    	.content{
+    		border-bottom: 1px solid $bgDarkBlue;
             .key-value-area1{
                 padding: 10px 0 10px 0;
                 background: linear-gradient($bgLightGrey,#fff);
@@ -75,11 +75,8 @@
                     font-size: 13px;
                 }
             }
-            .dd{
-                padding: 0 10px;
-            }
-            .distribute-toggle-area{
-                position: relative;
+            .type-toggle-area{
+            	position: relative;
                 .toggle-panel {
                     width: 80%;
                     box-shadow: 5px 10px 5px #999999;
@@ -105,7 +102,7 @@
                     }
                 }
             }
-        }
+    	}
     }
     .chart-area {
         border-top: 1px dashed $cborder;

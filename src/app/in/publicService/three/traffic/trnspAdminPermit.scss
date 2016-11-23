@@ -1,6 +1,6 @@
-.pstelecom-module{
+.trnspAdminPermit-module{
 	width: 100%;
-    background-color: #fff;
+	background-color: #fff;
     .tab-container {
         .tabs {
             @mixin tab() {
@@ -75,10 +75,7 @@
                     font-size: 13px;
                 }
             }
-            .dd{
-                padding: 0 10px;
-            }
-            .distribute-toggle-area{
+            .distribute-area{
                 position: relative;
                 .toggle-panel {
                     width: 80%;

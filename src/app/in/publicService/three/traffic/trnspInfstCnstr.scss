@@ -1,0 +1,17 @@
+.pstrnspInfstCnstr-module{
+	width:100%;
+	background: #fff;
+	.d1{
+		margin-top: 15px;
+		.bar{
+			font-size: 15px;
+			background-color: $bgDarkBlue;
+			padding: 8px 10px;
+			color:#fff;
+		}
+		.content{
+			border-bottom: 1px solid $bgDarkBlue;
+			padding:0 10px;
+		}
+	}
+}

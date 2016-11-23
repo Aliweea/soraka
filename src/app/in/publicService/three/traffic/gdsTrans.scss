@@ -1,6 +1,6 @@
-.pstelecom-module{
+.gdsTrans-module{
 	width: 100%;
-    background-color: #fff;
+	background-color: #fff;
     .tab-container {
         .tabs {
             @mixin tab() {
@@ -48,14 +48,14 @@
         }
     }
     .d1{
-        .bar{
-            font-size: 15px;
+    	.bar{
+    		font-size: 15px;
             background-color: $bgDarkBlue;
             padding: 8px 10px;
             color: #fff;
-        }
-        .content{
-            border-bottom: 1px solid $bgDarkBlue;
+    	}
+    	.content{
+    		border-bottom: 1px solid $bgDarkBlue;
             .key-value-area1{
                 padding: 10px 0 10px 0;
                 background: linear-gradient($bgLightGrey,#fff);
@@ -75,10 +75,7 @@
                     font-size: 13px;
                 }
             }
-            .dd{
-                padding: 0 10px;
-            }
-            .distribute-toggle-area{
+            .distribute-area{
                 position: relative;
                 .toggle-panel {
                     width: 80%;
@@ -105,7 +102,10 @@
                     }
                 }
             }
-        }
+            .dd{
+                padding:0 10px;
+            }
+    	}
     }
     .chart-area {
         border-top: 1px dashed $cborder;
