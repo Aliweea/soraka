@@ -2,6 +2,8 @@ export default ($scope, $state, $location, qService, dataDetailFactory, generalS
 	'ngInject';
 
 	const jQueryDOMToDos = () => {
+		$(".insurance-return").show(0); // 显示上面的返回按钮
+        $(".homepage").hide(0); // 隐藏主页键
 		$(".navbar2position").hide(0); // 隐藏下面当前位置
 		$(".navbar2return").show(0); // 显示返回按钮
 		$(".navTopShowMark").hide(0); // 隐藏KPI状态 KPI分类

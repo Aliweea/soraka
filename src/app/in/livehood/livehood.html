@@ -1,10 +1,10 @@
 <div class="app cm-module">
 	<div class="navbar navbar-app navbar-absolute-top cm-menu-navbar-top">
 		<div id="homewillch" class="cm-return-home homepage" ui-sref="app.in.home"><i class="fa fa-home" aria-hidden="true"></i><span>主页</span></div>
-		    <div class="insurance-return-home insurance-return" ui-sref="app.livehood.livehoodlist({categoryId:2004})"><span>返回</span></div>
+		<div class="insurance-return-home insurance-return" ui-sref="app.in.home"><i class="fa fa-home" aria-hidden="true"></i><span>主页</span></div>
 		<div class="cm-kpi-choose navTopShowMark" ui-turn-on='kpiChoiceDropdown'><i class="fa fa-angle-down fa-2x" aria-hidden="true"></i><span>KPI分类</span></div>
 		<div class="cm-kpi-status navTopShowMark" ui-turn-on='kpiStatusDropdown'><i class="fa fa-angle-down fa-2x" aria-hidden="true"></i><span>KPI状态</span></div>
-		<div class="lh-population-choose navTopShowPopulation" ui-turn-on='populationChoiceDropdown'><i class="fa fa-angle-down fa-2x" aria-hidden="true"></i><span>{{populationStructure.title}}</span></div>
+		<div style="width: 60%;" class="cm-kpi-choose navTopShowPopulation" ui-turn-on='populationChoiceDropdown'><i class="fa fa-angle-down fa-2x" aria-hidden="true"></i><span>{{populationStructure.title}}</span></div>
          <!--社会保险模块内容  -->
 		<div style="width: 60%;" class="cm-kpi-choose navTopShowInsurance" ui-turn-on='kpiInsuranceDropdown'><i class="fa fa-angle-down fa-2x" aria-hidden="true"></i><span >{{insuranceTitle}}</span></div>
 		<ul class="dropdown-menu cm-dropdown-ul"
