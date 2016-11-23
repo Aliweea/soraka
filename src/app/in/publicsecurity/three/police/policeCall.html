@@ -11,7 +11,7 @@
     display: none;
 }
 </style>
-<div class="pentitionthree">
+<div class="xcmrefuse-module">
     <div ui-state="activeTab" default="1">
         <ul class="nav nav-tabs plice-call-tab">
             <li ui-class="{'active': activeTab == 1}" style="width: 50%">
@@ -22,67 +22,64 @@
             </li>
         </ul>
         <div ui-if="activeTab == 1">
-            <div class="panel-group" ui-state="accidentAccordion" ui-default="1">
-                <div class="panel panel-primary" style="margin-top: 10px;border:1px white solid">
-                    <div class="panel-heading" ui-set="{'accidentAccordion': 1}">
-                        太仓市警情动态
-                        <span class="glyphicon glyphicon-question-sign pull-right"></span>
+            <div class="xcmrefuse-module" ui-state="accidentAccordion" ui-default="1">
+                <div class="d1">
+                    <div class="bar" ui-set="{'accidentAccordion': 1}">
+                        太仓市警情动态                        
                     </div>
-                    <div class="panel-body" >
-                        <div class="row">
-                            <div class="col-md-9 chart-panel">
-                                <span class="glyphicon glyphicon-question-sign pull-right"></span>
-                                <highchart  id="kpiPieChart" config="kpiPieChart" style="width:100%"></highchart>
+                    <div class="content">
+                        <div class="key-value-area">
+                            <div class="title-area">
+                                <span class="title">一句话解读</span><br>
                             </div>
+                            <span class="value">{{getDate.year}}年{{getDate.month}}月太仓市公安局共接警数为  {{totalData.month}} 起。</span>
+                        </div>     
+                        <div class="key-value-area">
+                            <div class="chart-area">
+                                <highchart config="kpiPieChart" id="kpiPieChart"></highchart>
+                            </div>                                
                         </div>
-                    </div>
-                </div>
-                <div class="panel panel-primary" style="margin-top: 10px;border:1px white solid">
-                    <div class="panel-heading" ui-set="{'accidentAccordion': 2}">
+                    </div>    
+               </div>
+                <div class="d1">
+                    <div class="bar" ui-set="{'accidentAccordion': 2}">
                         各单位接警信息
-                        <span class="glyphicon glyphicon-question-sign pull-right"></span>
                     </div>
-                    <div >
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-md-9 chart-panel">
-                                    <highchart id="kpiBarChart" config="kpiBarChart" style="width:100%"></highchart>
-                                </div>
-                            </div>
+                   <div class="content">                           
+                        <div class="key-value-area">
+                            <div class="chart-area">
+                                <highchart config="kpiBarChart" id="kpiBarChart"></highchart>
+                            </div>                                
                         </div>
-                    </div>
+                    </div>                    
                 </div>              
             </div>
         </div>
         <div ui-if="activeTab == 2">
-         <div class="panel-group" ui-state="accidentAccordion1" ui-default="1">            
-             <div class="panel panel-primary" style="margin-top: 10px;border:1px white solid">
-                    <div class="panel-heading" ui-set="{'accidentAccordion1': 1}">
+         <div class="xcmrefuse-module" ui-state="accidentAccordion1" ui-default="1">            
+             <div class="d1">
+                    <div class="bar" ui-set="{'accidentAccordion1': 1}">
                         各类报警案件趋势
-                        <span class="glyphicon glyphicon-question-sign pull-right"></span>
                     </div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-md-9 chart-panel">
-                                <span class="glyphicon glyphicon-question-sign pull-right"></span>
-                                <highchart  id="lineChart" config="lineChart" style="width:100%"></highchart>
-                            </div>
+                   <div class="content">   
+                        <div class="key-value-area">
+                            <div class="chart-area">
+                                <highchart config="lineChart" id="lineChart"></highchart>
+                            </div>                                
                         </div>
-                    </div>
+                    </div>                      
                 </div>
-                 <div class="panel panel-primary" style="margin-top: 10px;border:1px white solid">
-                    <div class="panel-heading" ui-set="{'accidentAccordion1': 2}">
-                        各类报警案件总数
-                        <span class="glyphicon glyphicon-question-sign pull-right"></span>
+                 <div class="d1">
+                    <div class="bar" ui-set="{'accidentAccordion1': 2}">
+                        太仓市各类报警案件总数
                     </div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-md-9 chart-panel">
-                                <span class="glyphicon glyphicon-question-sign pull-right"></span> 
-                                 <highchart  id="barTypeChart" config="barTypeChart" style="width:100%"></highchart>
-                            </div>
+                    <div class="content">   
+                        <div class="key-value-area">
+                            <div class="chart-area">
+                                <highchart config="barTypeChart" id="barTypeChart"></highchart>
+                            </div>                                
                         </div>
-                    </div>
+                    </div>                   
                 </div>     
         </div>
         </div>
