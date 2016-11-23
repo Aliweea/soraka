@@ -1,0 +1,14 @@
+.insurance-return-home{
+  display: inline-block;
+  width: 22%;
+  margin-top: ($bottomBarH - 23px) / 2;
+  text-align: left;
+  i {
+    font-size: 21px;
+    padding-left: 18px;
+  }
+  span {
+    padding-left: 7px;
+    font-size: 16px;
+  }
+}

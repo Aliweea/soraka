@@ -1,14 +1,14 @@
- <div class="scrollable"style="height: 600px;margin-top: 50px">
+ <div class="scrollable"style="height: 90%;margin-top: 50px">
   <div class="scrollable-content" >
 <div class="panel panel-default">
-                        <div class="panel-heading" ng-click="show()">
+                        <div class="panel-heading" ng-click="show()" style="background-color:#3399CC;color:white">
                         <div style="display:flex;display: -webkit-flex;flex-direction: column;justify-content: center;align-items: center;width: 100%"></div>
-                            <div><h4 class="panel-title" style="margin:auto">
+                            <div ><h4 class="panel-title" style="margin:auto ;color:white">
                                 居民消费价格指数趋势
                             </h4></div>
                         </div>
                         <div style="position: relative;">
-                            <div class="panel-body" style="position: absolute;z-index: 1;width: 99%" >
+                            <div class="panel-body" style="position: absolute;z-index: 1;width: 99%;" >
                                 <highchart config="cpiHighChartOptions.cpiTrendOption"  id="InvestValueChart"  style="height:{{smallheight}}px"></highchart>
                             </div>
                             <div style="width: 95%;height: {{newheight}}px;position: absolute;z-index: 2;background-color: rgb(255,255,255);margin-left: 2%;box-shadow: 5px 5px 5px gray" ng-if="show1" class="fadein fadeout">
@@ -33,7 +33,7 @@
 </div>
 
 <div class="panel panel-default" style="margin-top:{{bigheight}}px">
-                        <div class="panel-heading" ng-click="showtwo()">
+                        <div class="panel-heading" ng-click="showtwo()" style="background-color:#3399CC;color:white">
                             <h4 class="panel-title">
                                 居民消费价格指数类别同比累计
                             </h4>
@@ -62,7 +62,7 @@
                         </div>
 </div>
 <div class="panel panel-default" style="margin-top: {{bigheight}}px">
-                        <div class="panel-heading" ng-click="showthree()">
+                        <div class="panel-heading" ng-click="showthree()" style="background-color:#3399CC;color:white">
                             <h4 class="panel-title" style="display: inline-block;">
                                 居民消费价格指数类别同比累计
                             </h4>
@@ -96,7 +96,7 @@
 <div class="navbar navbar-app navbar-absolute-bottom">
    <div class="btn-group btn-group-justified">
   <div class="btn-group">
-    <a type="button" class="btn btn-default" ui-sref="app.economy.economylist" style="color: gray">返回上页</a>
+    <a type="button" class="btn btn-default" ui-sref="app.livehood.detail({kpiId:2101})" style="color: gray">返回</a>
   </div>
   <div class="btn-group">
     <a type="button" class="btn btn-default" ui-turn-on="modal2"></a>
@@ -106,4 +106,3 @@
   </div>
 </div>
   </div>
-
