@@ -6,7 +6,7 @@ export default($scope, $state, hService, qService, xService, kpiRes, $rootScope)
 		$('.navTopShowPopulation').hide(0);
 	    $('.navTopShowInsurance').hide(0);
 	    $(".insurance-return").hide(0);
-
+        $(".insurance2detail").hide(0);
 	}();
 	$scope.changeTitle = (title = "人口结构图") => {
 		$scope.populationStructure = {
@@ -24,17 +24,8 @@ export default($scope, $state, hService, qService, xService, kpiRes, $rootScope)
 	$scope.changeInsuranceTitle("城镇基本养老保险");
 
 	// 上一级路由
-	$scope.toH = () => {
-		$('.navTopShowPopulation').hide(0);
-	    $('.navTopShowInsurance').hide(0);
-		$scope.changeTitle();
-		$scope.changeInsuranceTitle();
-		let h = hService.state();
-		if (h.params == null) {
-			$state.go(h.name);
-		} else {
-			$state.go(h.name, h.params);
-		}
+   $scope.toH = () => {
+		hService.back();
 	}
 	$scope.changeState = (state) => {
 		let categoryId = hService.state().params.categoryId;
@@ -57,6 +48,7 @@ export default($scope, $state, hService, qService, xService, kpiRes, $rootScope)
 	}
 
 	$scope.toDetail = () => {
+		hService.register($state); // 向下级跳转则将当前位置计入历史记录=
 		switch($scope.currentCategoryName) {
 			case "人口结构":
 				$state.go("app.livehood.PopulationStructure");

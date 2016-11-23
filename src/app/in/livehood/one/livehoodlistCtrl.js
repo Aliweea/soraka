@@ -1,6 +1,9 @@
 export default($scope, qService, kpiRes, $state, dateService, hService) => {
 	'ngInject';
 	hService.state($state);
+	$scope.registerHistory = () => {
+        hService.register($state); // 向下级跳转则将当前位置计入历史记录
+    }
 
 	const jQueryDOMToDos = () => {
 		$(".insurance-return").hide(0); // 隐藏下面当前位置
