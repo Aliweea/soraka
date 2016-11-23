@@ -720,7 +720,7 @@ export default ($scope, $state, $location, qService, dataDetailFactory, generalS
 				tempDataObj.data[3].name = "一孩率";
 				tempDataObj.data[3].value = Number(kid1Rate).toFixed(2) + "%";
 				tempDataObj.data[4].name = "出生性别比（男/女）";
-				tempDataObj.data[4].value = Number(bornGenderRation).toFixed(2)
+				tempDataObj.data[4].value = Number(bornGenderRation).toFixed(2)+":100";
 			}
 			$scope.ALLOPTION.POPULATIONCHART.options.title.text = "太仓市近5年户籍人口出生死亡情况 ";
 			$scope.ALLOPTION.POPULATIONCHART.series = $scope.ALLDATA.POPULATIONCHARTDATA.data;
