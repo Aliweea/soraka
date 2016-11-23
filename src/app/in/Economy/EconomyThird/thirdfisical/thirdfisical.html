@@ -1,56 +1,17 @@
 <div ui-state="activeTab" default="1">
-  <ul class="nav nav-tabs">
-    <li ui-class="{'active': activeTab == 1}" style="width:50%">
-      <a ui-set="{'activeTab': 1}">数据详情</a>
-    </li>
-    <li ui-class="{'active': activeTab == 2}" style="width: 50%">
-      <a ui-set="{'activeTab': 2}">数据走势</a>
-    </li>
-   
+<ul class="nav nav-tabs">
+    <div style="display: flex;display: -webkit-flex;flex-direction: row;">
+    <div style="width: 50%;height: 40px;display: flex;display: -webkit-flex;flex-direction: row;justify-content:center;align-items: center;" class="economyactive" ng-click="tab1()" id="tab1">
+      <div>数据详情</div>
+    </div> 
+    <div style="width: 50%;height: 40px;display: flex;display: -webkit-flex;flex-direction: row;justify-content:center;align-items: center;" class="economyinactive" ng-click="tab2()" id="tab2">
+      <div>数据走势</div>
+    </div>
   </ul>
 
-  <div ui-if="activeTab == 1">
+  <div ng-if="newtab1">
   <div class="scrollable"style="margin-top: 100px;height:{{newheight}}px">
-  <div class="scrollable-content" >
- <!--  <div ng-show="false"><h3 class="page-header">{{kpiText}}KPI详情</h3>
-    <li>数据名称:金融机构存款余额</li>
-    <li>时间:{{lastestObject.year}} 年 {{lastestObject.month}} 月</li>
-    <span ng-show="false">{{ai = dataMap.Ivalue.lastestObject}}</span>
-    <span ng-show="false"></span>
-    <div class="table-responsive" style="padding:5px">
-      <table class="table">
-        <tr>
-          <td class="info" style="text-align: center;">项目</td>
-          <td class="info" style="text-align: center;">月末</td>
-          <td class="info" style="text-align: center;">比年初增加</td>
-        </tr>
-         <tr ng-repeat="d in tables.rTable">
-          <td class="active" style="text-align: center;">{{d.key}}</td>
-          <td class="active" style="text-align: center;">{{d.remain | number:1}}亿元</td>
-          <td class="active" style="text-align: center;">{{d.rateWithOpen | number:1}} 亿元</td>
-        </tr>
-      </table>
-    </div>
-     <h3 class="page-header">{{kpiText}}KPI详情</h3>
-    <li>数据名称:金融机构贷款余额情况</li>
-    <li>时间:{{lastestObject.year}} 年 {{lastestObject.month}} 月</li>
-    <span ng-show="false">{{ai = dataMap.Ivalue.lastestObject}}</span>
-    <span ng-show="false"></span>
-    <div class="table-responsive" style="padding:5px">
-      <table class="table">
-        <tr>
-          <td class="info" style="text-align: center;">项目</td>
-          <td class="info" style="text-align: center;">月末</td>
-          <td class="info" style="text-align: center;">比年初增加</td>
-        </tr>
-         <tr ng-repeat="d in tables.fTable">
-          <td class="active" style="text-align: center;">{{d.key}}</td>
-          <td class="active" style="text-align: center;">{{d.remain | number:1}}亿元</td>
-          <td class="active" style="text-align: center;">{{d.rateWithOpen | number:1}} 亿元</td>
-        </tr>
-      </table>
-    </div></div> -->
-    
+  <div class="scrollable-content" >    
     <div style="height: 30px; display: flex;display: -webkit-flex;flex-direction: row;justify-content: center;align-items: center;">
       <div style="width: 100%;height: 30px;box-shadow: 3px 3px 6px -4px white;border-radius: 5px;display: flex;display: -webkit-flex;flex-direction: row;justify-content: center;align-items: center;">
       <span style="font-size: 2em">金融数据详情</span>
@@ -65,8 +26,8 @@
 
       <div class="panel-group" ui-state="myAccordion" ui-default="2">
        <div class="panel panel-default">
-        <div class="panel-heading" ui-set="{'myAccordion': 2}">        
-          <h4 class="panel-title">
+        <div class="panel-heading" ui-set="{'myAccordion': 2}" style="background-color: rgb(51,153,204);">        
+          <h4 class="panel-title" style="color: white">
              金融机构存款余额
           </h4>
           <!--  <span ng-show="false">{{ai = dataMap.Ivalue.lastestObject}}</span> -->
@@ -100,7 +61,7 @@
  
   </div>
 
-  <div ui-if="activeTab == 2">
+  <div ng-if="newtab2">
   <div class="scrollable"style="margin-top: 100px;height:{{newheight}}px">
   <div class="scrollable-content" ng-click="show()">
      <div style="height: 30px; display: flex;display: -webkit-flex;flex-direction: row;justify-content: center;align-items: center;">
@@ -115,8 +76,8 @@
      </div>
         <div class="panel-group" ui-state="myAccordion" ui-default="2">
     <div class="panel panel-default">
-        <div class="panel-heading" ui-set="{'myAccordion': 2}">        
-          <h4 class="panel-title">
+        <div class="panel-heading" ui-set="{'myAccordion': 2}" style="background-color: rgb(51,153,204);">        
+          <h4 class="panel-title" style="color: white">
               金融机构存款余额
           </h4>
         </div>
@@ -127,8 +88,8 @@
         </div>
       </div>
       <div class="panel panel-default">
-    <div class="panel-heading" ui-set="{'myAccordion': 1}">        
-      <h4 class="panel-title">
+    <div class="panel-heading" ui-set="{'myAccordion': 1}" style="background-color: rgb(51,153,204);">        
+      <h4 class="panel-title" style="color: white">
           金融机构贷款余额
       </h4>
     </div>
