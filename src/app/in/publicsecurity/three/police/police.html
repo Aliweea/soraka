@@ -11,58 +11,62 @@
         display: none;
     }
 </style>
-<div class="xcmrefuse-module" >                  
-    <div class="d1">
+<div class="xcmrefuse-module pentitionthree" >
+    <div class="d2" id="top">
+        <div class="bar">
+            治安案件警情动态                   
+        </div>
+        <div class="content " >
+                <div class="chart-area " >
+                    <h5><span class="label label-info ">太仓市{{getDate.year}}年{{getDate.month}}月各地区治安形势图</span></h5>
+                    <highchart class="ps-map-border" config="criminalMap" id="criminalMap"></highchart>
+                </div>
+
+                <div class="key-value-area">
+                <div class="title-area">
+                    <span class="title">一句话解读</span><br>
+                </div>
+                <span class="value"><p>{{getDate.year}}年{{getDate.month}}月份全市发生各类治安案件总数 {{totalData.month}} 起。</p>
+                                                    各类治安案件详情如下:</span>
+            </div>
+        </div>              
+    </div>                  
+    <div class="d2">
         <div class="bar">
             各类治安案件详情                       
         </div>
         <div class="content">
-            <div class="key-value-area">
-                <div class="title-area">
-                    <span class="title">一句话解读</span><br>
-                </div>
-                <span class="value">2016年6月份全市发生各类治安案件总数 612 起。</span>
-            </div>
+            
             <div class="chart-area">
                 <highchart config="pieChart" id="pieChart"></highchart>
             </div>                            
         </div>
     </div>
-    <div class="d1" >
+    <div class="d2" >
         <div class="bar">
             各派出所治安案件详情                       
         </div>
         <div class="content">
-            <div class="key-value-area">
                 <div class="chart-area">
                     <highchart config="kpiBarChart" id="kpiBarChart"></highchart>
-                </div>                                
-            </div>
+                </div>
         </div>
     </div>
-    <div class="d1">
+    <div class="d2">
         <div class="bar">
             本年度治安案件趋势图                   
         </div>
         <div class="content">
-            <div class="key-value-area">
+        <div class="key-value-area">
+                <div class="title-area">
+                    <span class="title">一句话解读</span><br>
+                </div>
+                <span class="value">{{getDate.year}}年截止{{getDate.month}}月末受理治安案件总数 {{totalData.year}} 起。</span>
+            </div>
                 <div class="chart-area">
                     <highchart config="columnChart" id="columnChart"></highchart>
-                </div>                                
-            </div>
+                </div>
         </div>              
     </div>
-    <div class="d1">
-        <div class="bar">
-            治安案件警情动态                   
-        </div>
-        <div class="content">
-            <div class="key-value-area">
-                <div class="chart-area">
-                    <h5><span class="label label-info">太仓市{{getDate.year}}年{{getDate.month}}月各地区治安形势图</span></h5>
-                    <highchart config="criminalMap" id="criminalMap"></highchart>
-                </div>                                
-            </div>
-        </div>              
-    </div>
+    
 </div>
