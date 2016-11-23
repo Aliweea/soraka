@@ -1,8 +1,8 @@
 <div class="scrollable"style="height: {{newheight}}px;margin-top: 50px">
   <div class="scrollable-content" >
-<div class="panel panel-default">
+<div class="panel panel-default" style="width:100%">
                         <div class="panel-heading" style="background-color:#3399CC" >
-                        <div style="width: 100%;display: flex;display: -webkit-flex;flex-direction: row;justify-content: space-between;align-content: center;">
+                        <div style="display: flex;display: -webkit-flex;flex-direction: row;justify-content: space-between;align-content: center;">
                           <div><h4 class="panel-title" style="display: inline-block; color:white">
                                 农副产品市场价格
                             </h4></div>
@@ -12,7 +12,7 @@
                             
                         </div>
                         <div style="position: relative;">
-                            <div class="span9 col-md-9 chart-panel" style="position: absolute;z-index: 1;width: 99%" >
+                            <div class="span9 col-md-9 chart-panel" style="position: absolute;z-index: 1;width: 100%" >
                                <highchart id="foodPriceHighChart" config="foodPriceHighChartOption"></highchart>
                             </div>
                             <div style="width: 70%;height: 500px;position: absolute;z-index: 2" class="fadein fadeout" ng-if="show4">
@@ -20,6 +20,7 @@
                                 <button class="btn btn-default btn-block" ng-click="initFoodPriceHighChart()" style="background-color:#3399CC;color:white">恢复图表至默认</button>
                                 <button class="btn btn-default btn-block" ng-click="makesure()" style="background-color:#3399CC;color:white">确定</button>
                                             <div ng-repeat="tempFoodType in PRICEDATA" style="margin-bottom: 10px">
+
                                                 <button class="btn btn-default btn-block" ng-click="tempFoodType.isCollapsed = !tempFoodType.isCollapsed">{{tempFoodType.name}}</button>
                                                 <div collapse="!tempFoodType.isCollapsed" style="border: 1px solid black; background-color:skyblue">
                                                     <div class="row">
