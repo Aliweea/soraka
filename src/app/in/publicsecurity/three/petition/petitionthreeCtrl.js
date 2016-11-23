@@ -334,7 +334,7 @@ export default ($anchorScroll, $location, $rootScope, $scope, $state, dateServic
                     options: {
                         colors: pieColors,
                         title: {
-                            text: 2015 + '年越级上访信件趋势',
+                            text: $scope.getDate.year + '年越级上访信件趋势',
                             x: -20 //center
 
                         },
