@@ -150,7 +150,7 @@ export default($scope, $rootScope, kpiDetailService,$state, qService, dataDetail
 					}
 				};
 				$scope.changeChart = (type) => {
-					console.log(type);
+					$('#psTrafficTogglePanel').hide(0);
 					switch (type) {
 						case "quantity":		
 							$scope.kindList = $scope.gdsTrckNumList;

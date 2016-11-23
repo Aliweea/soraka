@@ -18,14 +18,15 @@
 				<table class="table">
 					<tr>
 						<td>类别</td>
-						<td align="right">总数</td>
-						<td ng-hide="tab1" align="right">新(清洁)能源车辆数</td>
+						<td ng-if="tab1" align="right">总数</td>
+						<td ng-if="!tab1" align="center">总数</td>
+						<td ng-if="!tab1" align="right">新(清洁)能源车辆数</td>
 					</tr>
 					<tr ng-repeat="item in list">
 						<td>{{item.name}}</td>
-						<td ng-show="tab1" align="right">{{item.number}}人次</td>
-						<td ng-hide="tab1" align="center">{{item.sum}}辆</td>
-						<td ng-hide="tab1" align="right">{{item.newEnerge}}辆</td>
+						<td ng-if="tab1" align="right">{{item.number}}人次</td>
+						<td ng-if="!tab1" align="center">{{item.sum}}辆</td>
+						<td ng-if="!tab1" align="right">{{item.newEnerge}}辆</td>
 					</tr>
 				</table>
 			</div>
@@ -47,42 +48,3 @@
 		</div>
 	</div>
 </div>
-<!-- <div class="cmtraffic-module">
-	<div class="tabs">
-		<input ng-click="changeChart('passenger')" type="button" class="s1" id="cmtraffic-s1" value="旅客运输量">
-		<input ng-click="changeChart('vehicle')" type="button" class="s2" id="cmtraffic-s2" value="客运车辆">
-	</div>
-	<div class="key-value-area">
-		<div style="text-align:center;line-height:15px;margin:17px 0;">
-			<span style="font-size:15px;">{{tableTitle}}</span>
-		</div>
-		<table class="table traffic-table">
-			<tr>
-				<td>类别</td>
-				<td align="right">总数</td>
-				<td ng-hide="table1" align="right">新(清洁)能源车辆数</td>
-			</tr>
-			<tr ng-repeat="item in list">
-				<td>{{item.name}}</td>
-				<td ng-show="table1" align="right">{{item.number}}人次</td>
-				<td ng-hide="table1" align="center">{{item.sum}}辆</td>
-				<td ng-hide="table1" align="right">{{item.newEnerge}}辆</td>
-			</tr>
-		</table>
-	</div>
-	<div class="chart-area">
-		<highchart config="chart1" id="chart1"></highchart>
-	</div>
-	<div class="distribute-area">
-		<i class="fa fa-hand-o-right i-label" aria-hidden="true"></i>
-		<span name="" id="psTrafficToggleButton" class="toggle-button">选择客运车辆类别</span>
-	</div>
-	<div class="distribute-toggle-area">
-		<div class="toggle-panel" id="psTrafficTogglePanel">
-			<input class="toggle-item" type="button" ng-repeat="item in kindList" ng-model="kindSelected" ng-value="item.name" name="kindList" ng-click="changeChoice(item)">
-		</div>
-	</div>
-	<div class="chart-area">
-		<highchart config="chart2" id="chart2"></highchart>
-	</div>
-</div> -->
