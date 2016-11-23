@@ -1,15 +1,16 @@
 <div ui-state="activeTab" default="1">
   <ul class="nav nav-tabs">
-    <li ui-class="{'active': activeTab == 1}" style="width: 50%">
-      <a ui-set="{'activeTab': 1}">数据详情</a>
-    </li>
-    <li ui-class="{'active': activeTab == 2}" style="width: 50%">
-      <a ui-set="{'activeTab': 2}">数据走势</a>
-    </li>
+     <div style="display: flex;display: -webkit-flex;flex-direction: row;">
+    <div style="width: 50%;height: 40px;display: flex;display: -webkit-flex;flex-direction: row;justify-content:center;align-items: center;" class="economyactive" ng-click="tab1()" id="tab1">
+      <div>数据详情</div>
+    </div> 
+    <div style="width: 50%;height: 40px;display: flex;display: -webkit-flex;flex-direction: row;justify-content:center;align-items: center;" class="economyinactive" ng-click="tab2()" id="tab2">
+      <div>数据走势</div>
+    </div>
    
   </ul>
 
-  <div ui-if="activeTab == 1">
+  <div ng-if="newtab1">
   <div class="scrollable"style="margin-top: 100px;height:{{newheight}}px">
   <div class="scrollable-content" >
 <!--     <h3 class="page-header">{{kpiText}}KPI详情</h3>
@@ -52,9 +53,9 @@
 
 
       <div class="panel-group" ui-state="myAccordion" ui-default="2">
-       <div class="panel panel-default">
-        <div class="panel-heading" ui-set="{'myAccordion': 2}">        
-          <h4 class="panel-title">
+       <div class="panel panel-default" style="border-bottom: 1px solid rgb(51,153,204)">
+        <div class="panel-heading" ui-set="{'myAccordion': 2}" style="background-color: rgb(51,153,204);">        
+          <h4 class="panel-title" style="color: white">
              财政和税收收支情况
           </h4>
            <span ng-show="false">{{gi = dataMap.InvestData.lastestObject}}</span>
@@ -88,7 +89,7 @@
 </div>
   </div>
 
-  <div ui-if="activeTab == 2">
+  <div ng-if="newtab2">
   <div class="scrollable"style="margin-top: 100px;height:{{newheight}}px">
   <div class="scrollable-content" >
     <div style="height: 30px; display: flex;display: -webkit-flex;flex-direction: row;justify-content: center;align-items: center;">
@@ -103,9 +104,9 @@
          <span class="label" style="color: black">每月更新</span>
      </div>
            <div class="panel-group" ui-state="myAccordion" ui-default="2">
-    <div class="panel panel-default">
-        <div class="panel-heading" ui-set="{'myAccordion': 2}">        
-          <h4 class="panel-title">
+    <div class="panel panel-default" style="border-bottom: 1px solid rgb(51,153,204)">
+        <div class="panel-heading" ui-set="{'myAccordion': 2}" style="background-color: rgb(51,153,204);">        
+          <h4 class="panel-title" style="color: white">
              财政收入额(当年累计)
           </h4>
         </div>
@@ -115,9 +116,9 @@
           </div>
         </div>
       </div>
-      <div class="panel panel-default">
-    <div class="panel-heading" ui-set="{'myAccordion': 1}">        
-      <h4 class="panel-title">
+      <div class="panel panel-default" style="border-bottom: 1px solid rgb(51,153,204)">
+    <div class="panel-heading" ui-set="{'myAccordion': 1}" style="background-color: rgb(51,153,204);">        
+      <h4 class="panel-title" style="color: white">
           财政支出额(当年累计)
       </h4>
     </div>
@@ -127,9 +128,9 @@
       </div>
     </div>
   </div>
-   <div class="panel panel-default">
-    <div class="panel-heading" ui-set="{'myAccordion': 3}">        
-      <h4 class="panel-title">
+   <div class="panel panel-default" style="border-bottom: 1px solid rgb(51,153,204)">
+    <div class="panel-heading" ui-set="{'myAccordion': 3}" style="background-color: rgb(51,153,204);">        
+      <h4 class="panel-title" style="color: white">
           税收额(当年累计)
       </h4>
     </div>

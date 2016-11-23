@@ -1,15 +1,15 @@
 <div ui-state="activeTab" default="1" >
-  <ul class="nav nav-tabs" >
-    <li ui-class="{'active': activeTab == 1}" style="width: 50%;">
-      <a ui-set="{'activeTab': 1}">数据详情</a>
-    </li>
-    <li ui-class="{'active': activeTab == 2}" style="width: 50%;">
-      <a ui-set="{'activeTab': 2}">数据走势</a>
-    </li>
-   
+  <ul class="nav nav-tabs">
+    <div style="display: flex;display: -webkit-flex;flex-direction: row;">
+    <div style="width: 50%;height: 40px;display: flex;display: -webkit-flex;flex-direction: row;justify-content:center;align-items: center;" class="economyactive" ng-click="tab1()" id="tab1">
+      <div>数据详情</div>
+    </div> 
+    <div style="width: 50%;height: 40px;display: flex;display: -webkit-flex;flex-direction: row;justify-content:center;align-items: center;" class="economyinactive" ng-click="tab2()" id="tab2">
+      <div>数据走势</div>
+    </div>
   </ul>
 
-  <div ui-if="activeTab == 1">
+  <div ng-if="newtab1">
   <div class="scrollable" style="margin-top: 100px;height:{{newheight}}px"id="container">
   <div class="scrollable-content" >
       <div style="height: 30px; display: flex;display: -webkit-flex;flex-direction: row;justify-content: center;align-items: center;">
@@ -27,8 +27,8 @@
 
       <div class="panel-group" ui-state="myAccordion" ui-default="2">
     <div class="panel panel-default">
-        <div class="panel-heading" ui-set="{'myAccordion': 2}">        
-          <h4 class="panel-title">
+        <div class="panel-heading" ui-set="{'myAccordion': 2}" style="background-color: rgb(51,153,204);">        
+          <h4 class="panel-title" style="color:white">
              全社会固定资产投资
           </h4>
           <span ng-show="false">{{gi = dataMap.InvestData.lastestObject}}</span>
@@ -53,8 +53,8 @@
         </div>
       </div>
        <div class="panel panel-default">
-        <div class="panel-heading" ui-set="{'myAccordion': 1}">        
-          <h4 class="panel-title">
+        <div class="panel-heading" ui-set="{'myAccordion': 1}" style="background-color: rgb(51,153,204);">        
+          <h4 class="panel-title" style="color:white">
              主要分类固定资产投资
           </h4>
            <span ng-show="false">{{gi = dataMap.InvestData.lastestObject}}</span>
@@ -84,8 +84,8 @@
         </div>
       </div>
          <div class="panel panel-default">
-        <div class="panel-heading" ui-set="{'myAccordion': 3}">        
-          <h4 class="panel-title">
+        <div class="panel-heading" ui-set="{'myAccordion': 3}" style="background-color: rgb(51,153,204);">        
+          <h4 class="panel-title" style="color:white">
              数据名称:引进内外资(累计值)
           </h4>
           <span ng-show="false">{{ci = dataMap.ImportData.lastestObject}}</span>
@@ -123,7 +123,7 @@
   </div>
   </div>
 
-  <div ui-if="activeTab == 2">
+  <div ng-if="newtab2">
   <div class="scrollable" style="margin-top: 110px;height:{{newheight}}px" id="container2">
   <div class="scrollable-content" ng-click="show()" >
       <div style="height: 30px; display: flex;display: -webkit-flex;flex-direction: row;justify-content: center;align-items: center;">
@@ -139,8 +139,8 @@
      </div>
            <div class="panel-group" ui-state="myAccordion" ui-default="2">
     <div class="panel panel-default">
-        <div class="panel-heading" ui-set="{'myAccordion': 2}">        
-          <h4 class="panel-title">
+        <div class="panel-heading" ui-set="{'myAccordion': 2}" style="background-color: rgb(51,153,204);">        
+          <h4 class="panel-title" style="color:white">
               全社会固定资产投资(累计值)
           </h4>
         </div>
@@ -151,8 +151,8 @@
         </div>
       </div>
       <div class="panel panel-default">
-    <div class="panel-heading" ui-set="{'myAccordion': 1}">        
-      <h4 class="panel-title">
+    <div class="panel-heading" ui-set="{'myAccordion': 1}" style="background-color: rgb(51,153,204);">        
+      <h4 class="panel-title" style="color:white">
           主要分类固定资产投资(累计值)
       </h4>
     </div>
@@ -163,8 +163,8 @@
     </div>
   </div>
    <div class="panel panel-default">
-    <div class="panel-heading" ui-set="{'myAccordion': 3}">        
-      <h4 class="panel-title">
+    <div class="panel-heading" ui-set="{'myAccordion': 3}" style="background-color: rgb(51,153,204);">        
+      <h4 class="panel-title" style="color:white">
           引进外资(累计值)
       </h4>
     </div>
@@ -175,8 +175,8 @@
     </div>
   </div>
   <div class="panel panel-default">
-    <div class="panel-heading" ui-set="{'myAccordion': 4}">        
-      <h4 class="panel-title">
+    <div class="panel-heading" ui-set="{'myAccordion': 4}" style="background-color: rgb(51,153,204);">        
+      <h4 class="panel-title" style="color:white">
           引进内资(累计值)
       </h4>
     </div>
@@ -187,10 +187,6 @@
     </div>
   </div>
     </div>
-    <!-- <highchart config="InvestValueChart"  id="InvestValueChart" style="height: 450px" ng-if="show1" class="economyfade"></highchart>
-    <highchart config="ClassInvestValueChart"  id="ClassInvestValueChart" style="height: 450px" ng-if="show2" class="economyfade"></highchart>
-    <highchart config="CapitalValueChart" id="CapitalValueChart" style="height: 450px" ng-if="show3" class="economyfade"></highchart>
-    <highchart config="ImportCapitalValueChart" id="ImportCapitalValueChart" style="height: 450px" ng-if="show4" class="economyfade"></highchart> -->
   </div>
  
   </div>

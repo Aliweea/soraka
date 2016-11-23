@@ -1,50 +1,17 @@
 <div ui-state="activeTab" default="1">
   <ul class="nav nav-tabs">
-    <li ui-class="{'active': activeTab == 1}" style="width: 50%">
-      <a ui-set="{'activeTab': 1}">数据详情</a>
-    </li>
-    <li ui-class="{'active': activeTab == 2}" style="width: 50%">
-      <a ui-set="{'activeTab': 2}">数据走势</a>
-    </li>
-   
+    <div style="display: flex;display: -webkit-flex;flex-direction: row;">
+    <div style="width: 50%;height: 40px;display: flex;display: -webkit-flex;flex-direction: row;justify-content:center;align-items: center;" class="economyactive" ng-click="tab1()" id="tab1">
+      <div>数据详情</div>
+    </div> 
+    <div style="width: 50%;height: 40px;display: flex;display: -webkit-flex;flex-direction: row;justify-content:center;align-items: center;" class="economyinactive" ng-click="tab2()" id="tab2">
+      <div>数据走势</div>
+    </div>
   </ul>
 
-  <div ui-if="activeTab == 1" style="background-image: url('app/in/Economy/EconomyThird/picture/backgroundpicture1.png');background-size: 100% 100%;">
+  <div ng-if="newtab1" style="background-image: url('app/in/Economy/EconomyThird/picture/backgroundpicture1.png');background-size: 100% 100%;">
   <div class="scrollable"style="margin-top: 100px;height:{{newheight}}px" id="container">
     <div class="scrollable-content" ng-click="show()"  >
-   <!--  <h3 class="page-header">{{kpiText}}KPI详情</h3>
-    <li>数据名称：太仓市国内生产总值</li>
-    <li>数据时间：{{lastestYM.year}}年{{lastestYM.month}}月</li> -->
-    <!-- <div class="table-responsive" style="padding:5px">
-      <table class="table">
-        <tr>
-          <td class="info" style="text-align: center;">统计项目</td>
-          <td class="info" style="text-align: center;">统计值(万元)</td>
-          <td class="info" style="text-align: center;">比上年同期增长(%)</td>
-        </tr>
-         <tr>
-          <td class="active" style="text-align: center;">GDP本年累计额</td>
-          <td class="active" style="text-align: center;">{{GDPaccm}}</td>
-          <td class="active" style="text-align: center;">{{GDPaccmRate}}</td>
-        </tr>
-         <tr>
-          <td class="active" style="text-align: center;">第一产业GDP累计额</td>
-          <td class="active" style="text-align: center;">{{gdptable.ONE_GDP.chartData[0].accmAmount}}</td>
-          <td class="active" style="text-align: center;">{{gdptable.ONE_GDP.chartData[0].accmRate}}</td>
-        </tr>
-        <tr>
-          <td class="active" style="text-align: center;">第二产业GDP累计额</td>
-          <td class="active" style="text-align: center;">{{gdptable.TWO_GDP.chartData[0].accmAmount}}</td>
-          <td class="active" style="text-align: center;">{{gdptable.TWO_GDP.chartData[0].accmRate}}</td>
-        </tr>
-         <tr>
-          <td class="active" style="text-align: center;">第三产业GDP累计额</td>
-          <td class="active" style="text-align: center;">{{gdptable.THREE_GDP.chartData[0].accmAmount}}</td>
-          <td class="active" style="text-align: center;">{{gdptable.THREE_GDP.chartData[0].accmRate}}</td>
-        </tr>
-      </table>
-
-    </div> -->
      <div style="height: 30px; display: flex;display: -webkit-flex;flex-direction: row;justify-content: center;align-items: center;">
       <div style="width: 100%;height: 30px;box-shadow: 3px 3px 6px -4px white;border-radius: 5px;display: flex;display: -webkit-flex;flex-direction: row;justify-content: center;align-items: center;">
       <span style="font-size: 2em">GDP数据详情</span>
@@ -83,7 +50,7 @@
 </div>
   </div>
 
-  <div ui-if="activeTab == 2">
+  <div ng-if="newtab2">
   <div class="scrollable"style="margin-top: 100px;height:{{newheight}}px"id="container2">
     <div class="scrollable-content" ng-click="show()" >
       <div style="height: 30px; display: flex;display: -webkit-flex;flex-direction: row;justify-content: center;align-items: center;">
@@ -97,9 +64,9 @@
          <span class="label" style="color: black">每月更新</span>
      </div>
       <div class="panel-group" ui-state="myAccordion" ui-default="2">
-    <div class="panel panel-default">
-        <div class="panel-heading" ui-set="{'myAccordion': 2}">        
-          <h4 class="panel-title">
+    <div class="panel panel-default" style="border-bottom: 1px solid rgb(51,153,204)">
+        <div class="panel-heading" ui-set="{'myAccordion': 2}" style="background-color: rgb(51,153,204);">        
+          <h4 class="panel-title" style="color: white">
               国内生产总值全年走势
           </h4>
         </div>
@@ -109,9 +76,9 @@
           </div>
         </div>
       </div>
-      <div class="panel panel-default">
-    <div class="panel-heading" ui-set="{'myAccordion': 1}">        
-      <h4 class="panel-title">
+      <div class="panel panel-default"  style="border-bottom: 1px solid rgb(51,153,204)">
+    <div class="panel-heading" ui-set="{'myAccordion': 1}" style="background-color: rgb(51,153,204);">        
+      <h4 class="panel-title" style="color: white">
           国内生产总值(分类)全年走势
       </h4>
     </div>
