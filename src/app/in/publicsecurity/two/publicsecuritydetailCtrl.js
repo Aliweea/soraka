@@ -7,7 +7,7 @@ export default($scope, $rootScope,$state, $stateParams, qService, dService, kpiR
 
         $(".navTopShowMark").hide(0); // 隐藏 KPI状态KPI分类
         $(".navbar3position").hide(0); // 隐藏 当前三级界面位置
-
+        $scope.subTitle = "报警数";
         $('#showshort').focus(); // 获取默认焦点
 		$('.navTopShowPolice').hide(0); // 隐藏公安类型
 	}();

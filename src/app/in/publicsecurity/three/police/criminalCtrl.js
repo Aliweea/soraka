@@ -3,7 +3,7 @@ export default ($anchorScroll, $location, $rootScope, $scope, $state, dateServic
     const jQueryDOMToDos = () => {
         $(".navbar2return").show(0); // 显示 返回
         $(".navbar3position").show(0); // 显示 当前三级界面位置
-
+        $scope.subTitle = "报警数";
         $(".navbar2detail").hide(0); // 隐藏 查看kpi详情
         $(".navTopShowMark").hide(0); // 隐藏 KPI状态KPI分类
         $('.navTopShowPolice').show(0); // 显示公安类型

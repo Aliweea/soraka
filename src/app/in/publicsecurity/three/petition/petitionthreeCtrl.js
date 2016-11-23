@@ -257,7 +257,7 @@ export default ($anchorScroll, $location, $rootScope, $scope, $state, dateServic
                         barTypeData1[0][1] = data.data[i].bypassperLetter;
                         barTypeData1[1][1] = data.data[i].bypasscollectiveLetter;
                         $scope.totalData.bypassletter = data.data[i].bypassperLetter + data.data[i].bypasscollectiveLetter;
-                        $scope.totalData.qnafs = ((doneLetterdata / (doneLetterdata + undoneLetterdata)).toFixed(4)) * 100 + "%";
+                        $scope.totalData.qnafs = ((doneLetterdata / (doneLetterdata + undoneLetterdata)) * 100).toFixed(2)  + "%";
                     }
 
                     //console.log(eachMonthData[$scope.getDate.month].doneLetter);
