@@ -15,35 +15,29 @@
 
 .population-three-module {
     width: 100%;
-    .tabs {
-        position: fixed;
-        z-index: 100;
-        width: 100%;
-        font-size: 15px;
-        background-color: #fff;
-        border-bottom: 1px solid $cborder;
-        @mixin ss() {
-            background-color: transparent;
-            display: inline-block;
-            padding: 10px 2px;
-            outline: none;
+    .tab-container {
+        .tabs {
+            @mixin tab() {
+                display: inline-block;
+                font-size: 15px;
+                width: 45%;
+                padding: 8px 0;
+                text-align: center;
+            }
+            .tab-inactive {
+                @include tab();
+                border-bottom: 3px solid $cborder;
+                color: #777;
+            }
+            .tab-active {
+                @include tab();
+                border-bottom: 3px solid $bgDarkBlue;
+                color: #333;
+                background-color: rgba(255,255,255,0.5);
+            }
         }
-        .activeTab {
-            background: radial-gradient(50% 100%, #dee, #dee, #fff);
-            border-bottom: 2px solid #567;
-        }
-        .s1 {
-            @include ss();
-            width: 48%;
-            border: none;
-            border-right: 1px solid $cborder;
-            border-bottom: 2px solid #fff;
-        }
-        .s2 {
-            @include ss();
-            width: 48%;
-            border: none;
-            border-bottom: 2px solid #fff;
+        .divider {
+            height: 15px;
         }
     }
     @mixin cmTa() {
@@ -54,20 +48,30 @@
             border: 1px dashed #abb;
             background-color: rgba(208,224,224,0.5);
             border-left: none;
-            i {
-
-
-            }
-
             .title {
                 font-size: 15px;
             }
         }
         .value {
-            background: linear-gradient($bgLightGrey, #fff);
             display: block;
             padding: 5px 10px;
             font-size: 13px;
+        }
+    }
+    .d1 {
+        .bar {
+            font-size: 15px;
+            background-color: $bgDarkBlue;
+            padding: 8px 10px;
+            color: #fff;
+        }
+        .content {
+            .key-value-area {
+                padding: 10px 0 8px 0;
+                background: linear-gradient($bgLightGrey, #fff);
+                @include cmTa();
+            }
+            border-bottom: 1px solid $bgDarkBlue;
         }
     }
     .population-table {
