@@ -20,8 +20,7 @@
                                 <a ui-set="{'activeTabFire': 3}" ui-class="{'active':activeTabFire==3}" class="btn btn-default">死亡人数</a>
                                 <a ui-set="{'activeTabFire': 4}" ui-class="{'active':activeTabFire==4}" class="btn btn-default">财产损失</a>
                             </div>
-                            <div class="row">
-                                <div class="col-md-12 ">
+                            <div class="row">                                
                                     <tabset>
                                         <tab heading="事故数量" ui-if="activeTabFire==1">
                                             <div class="col-md-12 " style="margin-top: 10px">
@@ -43,19 +42,17 @@
                                                 <highchart id="barDamage" config="barDamage"></highchart>
                                             </div>
                                         </tab>
-                                    </tabset>
-                                </div>
+                                    </tabset>                               
                             </div>
                         </div>
                     </div>
-                </div>
-            
+                </div>           
         </div>
     </div>
 
     <div class="d2">
         <div class="bar">
-            本年度火灾事故趋势
+            本年度太仓市火灾事故趋势
         </div>
         <div class="content">
             <div class="chart-area">
