@@ -698,6 +698,10 @@ export default ($anchorScroll, $location, $rootScope, $scope, $state, dateServic
                             type: 'bar'
                         },
                         xAxis: {
+                            labels: {
+                              rotation: -45,
+                              align: 'right'
+                            },
                             categories: eachStationData[$scope.totalData.checkModel].categories,
                             title: {
                                 text: '接警单位',
