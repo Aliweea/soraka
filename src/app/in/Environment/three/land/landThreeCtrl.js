@@ -843,7 +843,7 @@ export default ($scope, $state, $rootScope,dateService, dataDetailFactory, qServ
               {tableName: 'LandIllegal'}, headers, {
                   applyTime: {
                       value1: new Date(fromYear, fromMonth - 1, 1, 0, 0, 0).getTime(),
-                      value2: new Date(endYear, endMonth - 1, 1, 0, 0, 0).getTime(),
+                      value2: new Date(endYear, endMonth - 1, 2, 0, 0, 0).getTime(),
                       queryType: 'bt',
                       valueType: 'datte'
                   },

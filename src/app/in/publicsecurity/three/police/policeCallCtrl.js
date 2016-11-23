@@ -553,7 +553,7 @@ export default ($anchorScroll, $location, $rootScope, $scope, $state, dateServic
                             type: 'bar'
                         },
                         title: {
-                            text: $scope.getDate.year + "年" + "截止"+$scope.getDate.month + "月末太仓市各类报警案件总数"
+                            text: $scope.getDate.year + "年" + "截止"+$scope.getDate.month + "月末各类报警案件总数"
                         },
                         subtitle: {
                             text: ''

@@ -10,6 +10,7 @@ export default ($scope, $state, $location, qService, dataDetailFactory, generalS
 		$('#showshort').focus(); // 获取默认焦点
 		$('.navTopShowPopulation').show(0); //显示人口结构下拉框
 		$('#cmRefuseTownTooglePanel').hide(0);
+		$(".insurance2detail").hide(0);
 		$('#chooseAge').click(() => {
 			$('#chooseAgePanel').toggle(0);
 		})
@@ -26,6 +27,8 @@ export default ($scope, $state, $location, qService, dataDetailFactory, generalS
 		switch (choices) {
 			case 'total':
 				$scope.choice = true;
+				$scope.tab1 = true;
+				$scope.tab2 = false;
 				$('#lhpopulation-s1').addClass('activeTab');
 				$('#lhpopulation-s2').removeClass('activeTab');
 				$('#lhpopulation2-s1').addClass('activeTab');
@@ -33,6 +36,8 @@ export default ($scope, $state, $location, qService, dataDetailFactory, generalS
 				break;
 			case 'structure':
 				$scope.choice = false;
+				$scope.tab1 = false;
+				$scope.tab2 = true;
 				$('#lhpopulation-s2').addClass('activeTab');
 				$('#lhpopulation-s1').removeClass('activeTab');
 				$('#lhpopulation2-s2').addClass('activeTab');
@@ -80,10 +85,26 @@ export default ($scope, $state, $location, qService, dataDetailFactory, generalS
 	};
 	let body = ['year'];
 
-	// let temploc;
-	// $scope.thisloc = temploc;
 	let temploc = $location.path().split('/');
 	$scope.thisloc = temploc[temploc.length - 1];
+	switch($scope.thisloc) {
+		case "TerminalPopulation":
+			$scope.tabName1 = "太仓市期末户籍人口数量";
+			$scope.tabName2 = "各乡镇期末户籍人口详情";
+			break;
+		case "BornDeath":
+			$scope.tabName1 = "太仓市户籍人口出生死亡情况";
+			$scope.tabName2 = "各乡镇户籍人口出生死亡详情";
+			break;
+		case "BearingWomen":
+			$scope.tabName1 = "太仓市育龄妇女情况";
+			$scope.tabName2 = "各乡镇育龄妇女数据详情";
+			break;
+		case "FirstMarriage":
+			$scope.tabName1 = "太仓市初婚女性情况";
+			$scope.tabName2 = "各乡镇初婚女性数据详情";
+			break;
+	}
 
 	let entityName;
 	let getDataFunction = () => {}
@@ -95,6 +116,9 @@ export default ($scope, $state, $location, qService, dataDetailFactory, generalS
 				type: 'bar'
 			},
 			credits: {
+				enabled: false
+			},
+			exporting: {
 				enabled: false
 			},
 			title: {
@@ -170,9 +194,7 @@ export default ($scope, $state, $location, qService, dataDetailFactory, generalS
 		this.options = {
 			colors: colors,
 			chart: {
-				type: 'column',
-				//width: $(window).width() * 0.9,
-				//marginBottom: marginBottom
+				type: 'column'
 			},
 			title: {
 				text: "",
