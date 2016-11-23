@@ -1,7 +1,7 @@
 <script type="text/javascript" src="http://api.map.baidu.com/library/Heatmap/2.0/src/Heatmap_min.js"></script>
 <style type="text/css">
     #criminalMap {
-        width: 100%;
+        width: 90%;
         height: 400px;
         overflow: hidden;
         margin: 0;
@@ -11,8 +11,24 @@
         display: none;
     }
 </style>
-    <div class="xcmrefuse-module" >                  
-    <div class="d1">
+    <div class="xcmrefuse-module pentitionthree" >
+    <div class="d1" id="top">
+            <div class="bar">
+                刑事案件警情动态                   
+            </div>
+            <div class="content">
+                    <div class="chart-area">
+                        <h5><span class="label label-info">太仓市{{getDate.year}}年{{getDate.month}}月各地区刑事形势图</span></h5>
+                        <highchart class="ps-map-border" config="criminalMap" id="criminalMap"></highchart>
+                    </div>  
+                    <div class="key-value-area">
+                <div class="title-area">
+                    <span class="title">一句话解读</span><br>
+                </div>
+                <span class="value">{{getDate.year}}年{{getDate.month}}月份全市发生各类刑事案件总数 {{totalData.month}} 起。</span>
+            </div>           
+        </div>
+    <div class="d2">
         <div class="bar">
             各类刑事案件详情                       
         </div>
@@ -28,7 +44,7 @@
             </div>                            
         </div>
     </div>
-        <div class="d1" >
+        <div class="d2" >
             <div class="bar">
                 各派出所刑事案件详情                       
             </div>
@@ -40,7 +56,7 @@
                 </div>
             </div>
         </div>
-        <div class="d1">
+        <div class="d2">
             <div class="bar">
                 本年度刑事案件趋势图                   
             </div>
@@ -52,23 +68,5 @@
                 </div>
             </div>              
         </div>
-        <div class="d1">
-            <div class="bar">
-                刑事案件警情动态                   
-            </div>
-            <div class="content">
-                <div class="key-value-area">
-                    <div class="title-area">
-                        <span class="title">一句话解读</span><br>
-                    </div>
-                    <span class="value"> 2016年截止6月末全市发生各类刑事案件总数 2697 起。</span>
-                </div>               
-                <div class="key-value-area">
-                    <div class="chart-area">
-                        <h5><span class="label label-info">太仓市{{getDate.year}}年{{getDate.month}}月各地区刑事形势图</span></h5>
-                        <highchart config="criminalMap" id="criminalMap"></highchart>
-                    </div>                                
-                </div>
-            </div>              
-        </div>
+        
     </div>

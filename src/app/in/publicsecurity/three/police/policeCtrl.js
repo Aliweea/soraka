@@ -1,11 +1,18 @@
-export default ($rootScope, $scope, $state, dateService, dataDetailFactory, qService, kpiDetailService) => {
+export default ($anchorScroll, $location, $rootScope, $scope, $state, dateService, dataDetailFactory, qService, kpiDetailService) => {
     'ngInject';
     const jQueryDOMToDos = () => {
-        $(".navbar2position").hide(0); // 隐藏当前位置
-        $(".navbar2return").show(0); // 显示返回按钮
-        $(".navTopShowMark").hide(0); // 隐藏KPI状态 KPI分类
+        $(".navbar2return").show(0); // 显示 返回
+        $(".navbar3position").show(0); // 显示 当前三级界面位置
         $('.navTopShowPolice').show(0); // 显示公安类型
-        $('#showshort').focus(); // 获取默认焦点
+        $(".navbar2detail").hide(0); // 隐藏 查看kpi详情
+        $(".navTopShowMark").hide(0); // 隐藏 KPI状态KPI分类
+
+        $('#cmRefuseTownTooglePanel').hide(0);
+        $('#cmRefuseTownToogleButton').click(() => {
+            $('#cmRefuseTownTooglePanel').toggle(0);
+        })
+        $location.hash('top');//尝试移动锚点
+        $anchorScroll();//别忘记注入$location, $anchorScroll
 
     }();
 

@@ -7,50 +7,43 @@
     font-family: "微软雅黑";
 }
 </style>
-<div class="pentitionthree">
-    <div class="panel-group" ui-state="accidentAccordion" ui-default="1">
-        <div class="panel panel-primary" style="margin-top: 10px;border:1px white solid">
-            <div class="panel-heading" ui-set="{'accidentAccordion': 1}">
-                太仓市生产安全动态
-                <span class="glyphicon glyphicon-question-sign pull-right"></span>
-            </div>
-            <div>
-                <div ui-state="activeTab" default="1">
-                    <div class="panel-body">
-                        <div class="btn-group justified nav-tabs">
-                            <a ui-set="{'activeTab': 1}" ui-class="{'active':activeTab==1}" class="btn btn-default">各乡镇生产安全事故</a>
-                            <a ui-set="{'activeTab': 2}" ui-class="{'active':activeTab==2}" class="btn btn-default">各类生产安全事故</a>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12 ">
-                                <tabset>
-                                    <tab heading="各乡镇受理生产安全事故" ui-if="activeTab==1">
-                                        <div class="col-md-12 " style="margin-top: 10px">
-                                            <highchart id="barCountStation" config="barCountStation" style=""></highchart>
-                                        </div>
-                                    </tab>
-                                    <tab heading="全市受理各类生产安全事故" ui-if="activeTab==2">
-                                        <div class="col-md-9 chart-panel" style="margin-top: 10px">
-                                            <highchart id="pieType" config="pieType" style=""></highchart>
-                                        </div>
-                                    </tab>
-                                </tabset>
-                            </div>
-                        </div>
-                    </div>
+
+
+
+<div class="xcmrefuse-module">
+    <div class="d1" id="top">
+        <div class="bar">
+            生产安全动态
+        </div>
+        <div class="content">
+            <div class="key-value-area">
+                <div class="title-area">
+                    <span class="title">一句话解读</span>
+                    <br>
                 </div>
+                <span class="value">{{getDate.year}}年{{getDate.month}}月份全市发生各类生产安全事故总数 {{amountData.amount}} 起。其中特别重大事故 {{amountData.moreLargeAccident}} 起，重大事故 {{amountData.largeAccident}} 起。</span>
+            </div>
+            <div class="chart-area">
+                <highchart id="barCountStation" config="barCountStation" style=""></highchart>
+            </div>
+            <div class="chart-area">
+                <highchart id="pieType" config="pieType" style=""></highchart>
             </div>
         </div>
     </div>
-</div>
-<div class="pentitionthree">
-    <div class="panel panel-primary" style="margin-top: 10px;border:1px white solid">
-        <div class="panel-heading" ui-set="{'accidentAccordion': 2}">
-            太仓市生产安全其它指标
-            <span class="glyphicon glyphicon-question-sign pull-right"></span>
+    <div class="d2">
+        <div class="bar">
+            生产安全其它指标
         </div>
-        <div>
-            <div class="panel-body">
+        <div class="content">
+            <div class="key-value-area">
+                <div class="title-area">
+                    <span class="title">一句话解读</span>
+                    <br>
+                </div>
+                <span class="value">{{getDate.year}}年{{getDate.month}}月份全市生产安全事故{{barCountStationData1.title}} 总共 {{amountData.elseIndicator}} {{barCountStationData1.unit}}。</span>
+            </div>
+            <div class="key-value-area">
                 <label class="">
                     <input type="radio" value="0" ng-model="barCountStationData1.type" ng-change='typeChange1(1)'> 查看受伤人数
                 </label>
@@ -60,40 +53,28 @@
                 <label class="">
                     <input type="radio" value="3" ng-model="barCountStationData1.type" ng-change='typeChange1(3)'> 查看直接财产损失
                 </label>
-                <div ui-state="activeTab1" default="1">
-                    <div class="btn-group justified nav-tabs">
-                        <a ui-set="{'activeTab1': 1}" ui-class="{'active':activeTab1==1}" class="btn btn-default">各乡镇受理安全事故</a>
-                        <a ui-set="{'activeTab1': 2}" ui-class="{'active':activeTab1==2}" class="btn btn-default">全市各类安全事故</a>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12 ">
-                            <tabset>
-                                <tab heading="各乡镇受理安全事故" ui-if="activeTab1==1">
-                                    <div class="col-md-12 " style="margin-top: 10px">
-                                        <highchart id="barCountStation" config="barCountStation1" style=""></highchart>
-                                    </div>
-                                </tab>
-                                <tab heading="全市各类安全事故" ui-if="activeTab1==2">
-                                    <div class="col-md-9 chart-panel" style="margin-top: 10px">
-                                        <highchart id="kpiPieChart" config="pieType1" style=""></highchart>
-                                    </div>
-                                </tab>
-                            </tabset>
-                        </div>
-                    </div>
-                </div>
+            </div>
+            <div class="chart-area">
+                <highchart id="barCountStation" config="barCountStation1" style=""></highchart>
+            </div>
+            <div class="chart-area">
+                <highchart id="kpiPieChart" config="pieType1" style=""></highchart>
             </div>
         </div>
     </div>
-</div>
-<div class="pentitionthree">
-    <div class="panel panel-primary" style="margin-top: 10px;border:1px white solid">
-        <div class="panel-heading" ui-set="{'accidentAccordion': 3}">
+    <div class="d2" >
+        <div class="bar">
             {{getDate.year}}年生产安全事故趋势
-            <span class="glyphicon glyphicon-question-sign pull-right"></span>
         </div>
-        <div>
-            <div class="panel-body">
+        <div class="content">
+            <div class="key-value-area">
+                <div class="title-area">
+                    <span class="title">一句话解读</span>
+                    <br>
+                </div>
+                <span class="value">{{getDate.year}}年全市交通事故{{lineChartData.title}} 总共 {{sumData.sumAccident}} {{lineChartData.unit}}</span>
+            </div>
+            <div class="key-value-area" >
                 <label class="">
                     <input type="radio" value="0" checked ng-model="lineChartData.type" ng-change='typeChange(0)'> 查看事故发生数
                 </label>
@@ -106,12 +87,12 @@
                 <label class="">
                     <input type="radio" value="3" ng-model="lineChartData.type" ng-change='typeChange(3)'> 查看直接财产损失
                 </label>
-                <div class="row">
-                    <div class="col-md-12 chart-panel">
-                        <highchart id="lineChart" config="lineChart" style="height : 450px"></highchart>
-                    </div>
-                </div>
+            </div>
+            <div class="chart-area" id="safetyBot">
+                <highchart id="lineChart" config="lineChart" style="height: 400px"></highchart>
             </div>
         </div>
     </div>
 </div>
+
+
