@@ -6,34 +6,31 @@
         <div class="content">
             <div class="key-value-area">
                 <div class="title-area">
-                    <span class="title">一句话解读</span>
-                    <br>
+                    <span class="title">一句话解读</span>                   
                 </div>
-                <span class="value">2016年截止6月份太仓市群众上访信件结案率</span>
+                <span class="value">{{getDate.year}}年截止{{getDate.month}}月份太仓市群众上访信件结案率{{totalData.qnafs}} </span>
                 <div>
                     <div ui-state="activeTab" default="1">
-                        <div class="panel-body">
-                            <div class="btn-group justified nav-tabs">
-                                <a ui-set="{'activeTab': 1}" ui-class="{'active':activeTab==1}" class="btn btn-default">信件数量</a>
-                                <a ui-set="{'activeTab': 2}" ui-class="{'active':activeTab==2}" class="btn btn-default">结案率</a>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12 ">
-                                    <tabset>
-                                        <tab heading="信件数量" ui-if="activeTab==1">
-                                            <div class="chart-area">
-                                                <highchart id="columnChart2" config="columnChart2" style=""></highchart>
-                                            </div>
-                                        </tab>
-                                        <tab heading="结案率" ui-if="activeTab==2">
-                                            <div class="chart-area">
-                                                <highchart id="PieChart" config="PieChart" style=""></highchart>
-                                            </div>
-                                        </tab>
-                                    </tabset>
-                                </div>
-                            </div>
+                        <div class="btn-group justified nav-tabs">
+                            <a ui-set="{'activeTab': 1}" ui-class="{'active':activeTab==1}" class="btn btn-default">信件数量</a>
+                            <a ui-set="{'activeTab': 2}" ui-class="{'active':activeTab==2}" class="btn btn-default">结案率</a>
                         </div>
+                        <div class="row">
+                            <div class="col-md-12 ">
+                                <tabset>
+                                    <tab heading="信件数量" ui-if="activeTab==1">
+                                        <div class="chart-area">
+                                            <highchart id="columnChart2" config="columnChart2" style=""></highchart>
+                                        </div>
+                                    </tab>
+                                    <tab heading="结案率" ui-if="activeTab==2">
+                                        <div class="chart-area">
+                                            <highchart id="PieChart" config="PieChart" style=""></highchart>
+                                        </div>
+                                    </tab>
+                                </tabset>
+                            </div>
+                        </div>                        
                     </div>
                 </div>
             </div>
@@ -49,14 +46,12 @@
                     <span class="title">一句话解读</span>
                     <br>
                 </div>
-                <span class="value">2016年截止6月份太仓市越级上访信件起。</span>
+                <span class="value">{{getDate.year}}年截止{{getDate.month}}月份太仓市越级上访信件{{totalData.bypassletter}}起。</span>
                 <div>
                     <div>
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-md-9 chart-panel">
-                                    <highchart config="columnChart1"></highchart>
-                                </div>
+                        <div class="row">
+                            <div class="chart-area">
+                                <highchart config="columnChart1"></highchart>
                             </div>
                         </div>
                     </div>
@@ -72,20 +67,18 @@
             <div class="key-value-area">
                 <div>
                     <div ui-state="activeTab1" default="3">
-                        <div class="panel-body">
-                            <div class="btn-group justified nav-tabs">
-                                <a ui-set="{'activeTab1': 3}" ui-class="{'active':activeTab1==3}" class="btn btn-default">越级上访信件趋势</a>
-                                <a ui-set="{'activeTab1': 4}" ui-class="{'active':activeTab1==4}" class="btn btn-default">群众上访信件趋势</a>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-9 chart-panel" ui-if="activeTab1==3">
-                                    <highchart id="lineChart" config="lineChart"></highchart>
-                                </div>
-                                <div style="margin-top: 10px" ui-if="activeTab1==4">
-                                    <highchart id="lineChart1" config="lineChart1" style="height : 450px"></highchart>
-                                </div>
-                            </div>
+                        <div class="btn-group justified nav-tabs">
+                            <a ui-set="{'activeTab1': 3}" ui-class="{'active':activeTab1==3}" class="btn btn-default">越级上访信件趋势</a>
+                            <a ui-set="{'activeTab1': 4}" ui-class="{'active':activeTab1==4}" class="btn btn-default">群众上访信件趋势</a>
                         </div>
+                        <div class="row">
+                            <div class="chart-area" ui-if="activeTab1==3">
+                                <highchart id="lineChart" config="lineChart" style="height : 450px"></highchart>
+                            </div>
+                            <div class="chart-area" ui-if="activeTab1==4">
+                                <highchart id="lineChart1" config="lineChart1" style="height : 450px"></highchart>
+                            </div>
+                        </div>                        
                     </div>
                 </div>
             </div>
