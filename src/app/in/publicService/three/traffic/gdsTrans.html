@@ -1,4 +1,46 @@
-<div class="cmtraffic-module">
+<div class="gdsTrans-module">
+	<div class="tab-container">
+		<div class="tabs">
+			<div ng-class="{'tab-active': tab1, 'tab-inactive': tab2}" ng-click="changeChart('quantity')">货车数量</div><!--不要去掉这个注释
+	 	 --><div ng-class="{'tab-active': tab2, 'tab-inactive': tab1}" ng-click="changeChart('weight')">货车吨位数</div>
+		</div>
+		<div class="divider"></div>
+	</div>
+	<div class="d1">
+		<div class="bar">
+			{{title1}}
+		</div>
+		<div class="content">
+			<div class="dd">
+				<div style="text-align:center;line-height:15px;margin:17px 0;">
+					<span style="font-size:15px;">{{tableTitle}}</span>
+				</div>
+				<table class="table">
+					<tr ng-repeat="item in list">
+						<td>{{item.name}}</td>
+						<td align="right">{{item.number}}{{union}}</td>
+					</tr>
+				</table>
+			</div>
+	    	<div class="chart-area" ng-if="tab1">
+				<highchart style="100%" config="chart2"></highchart>
+			</div>
+			<div class="key-value-area1">
+				<i class="fa fa-hand-o-right i-label" aria-hidden="true"></i>
+				<span name="" id="psTrafficToggleButton" class="toggle-button">{{type}}</span>
+			</div>
+			<div class="distribute-area">
+				<div class="toggle-panel" id="psTrafficTogglePanel">
+					<input class="toggle-item" type="button" ng-repeat="item in kindList" ng-click="changeChoice(item)" value="{{item.name}}" name="">
+				</div>
+			</div>
+			<div class="chart-area">
+				<highchart style="100%" config="chart1"></highchart>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- <div class="cmtraffic-module">
 	<div class="tabs">
 		<input ng-click="changeChart('quantity')" type="button" class="s1" id="cmtraffic-s1" value="货车数量">
 		<input ng-click="changeChart('weight')" type="button" class="s2" id="cmtraffic-s2" value="货车吨位数">
@@ -29,4 +71,4 @@
 			</tr>
 		</table>
 	</div>
-</div>
+</div> -->

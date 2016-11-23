@@ -1,18 +1,43 @@
 export default($scope, $rootScope, kpiDetailService,$state, qService, dataDetailFactory, dateService) => {
 	'ngInject';
 	const jQueryDOMToDos = () => {
-		$(".navbar2position").hide(0); // 显示当前位置
-		$(".navbar2return").show(0); // 显示返回按钮
-		$(".navTopShowMark").hide(0); // 隐藏KPI状态 KPI分类
-		$('#cmeducation-s1').focus();
-		$('#pseducationTogglePanel1').hide(0);
+		$(".navbar2return").show(0); // 显示 返回
+		$(".navbar3position").show(0); // 显示 当前三级界面位置
+
+        $(".navbar2detail").hide(0); // 隐藏 查看kpi详情
+        $(".navTopShowMark").hide(0); // 隐藏 KPI状态KPI分类
+
 		$('#pseducationTogglePanel2').hide(0);
-		$('#pseducationToggleButton1').click(() => {
-			$('#pseducationTogglePanel1').toggle(0);
-		});
 		$('#pseducationToggleButton2').click(() => {
 			$('#pseducationTogglePanel2').toggle(0);
 		})
+
+		$('#pseducationTogglePanel3').hide(0);
+		$('#pseducationToggleButton3').click(() => {
+			$('#pseducationTogglePanel3').toggle(0);
+		})
+
+		$('#pseducationTogglePanel4').hide(0);
+		$('#pseducationToggleButton4').click(() => {
+			$('#pseducationTogglePanel4').toggle(0);
+		})
+
+		$('#pseducationTogglePanel5').hide(0);
+		$('#pseducationToggleButton5').click(() => {
+			$('#pseducationTogglePanel5').toggle(0);
+		})
+		// $(".navbar2position").hide(0); // 显示当前位置
+		// $(".navbar2return").show(0); // 显示返回按钮
+		// $(".navTopShowMark").hide(0); // 隐藏KPI状态 KPI分类
+		// $('#cmeducation-s1').focus();
+		// $('#pseducationTogglePanel1').hide(0);
+		// $('#pseducationTogglePanel2').hide(0);
+		// $('#pseducationToggleButton1').click(() => {
+		// 	$('#pseducationTogglePanel1').toggle(0);
+		// });
+		// $('#pseducationToggleButton2').click(() => {
+		// 	$('#pseducationTogglePanel2').toggle(0);
+		// })
 
 	}();
 	
@@ -181,82 +206,82 @@ export default($scope, $rootScope, kpiDetailService,$state, qService, dataDetail
 					comment: ''
 				});
 				$scope.perEduFundGrntList.push({   
-					name: '生均公共财政预算教育事业费支出增长情况 (普通小学（元）)',
+					name: '普通小学',
 					data: perEduExpenseRisePrimarySchlList,
 					comment: ''
 				});
 				$scope.perEduFundGrntRateList.push({   
-					name: '生均公共财政预算教育事业费支出增长情况 (普通小学（元）)增减率',
+					name: '普通小学',
 					data: perEduExpenseRisePrimarySchlRateList,
 					comment: ''
 				});
 				$scope.perEduFundGrntList.push({   
-					name: '生均公共财政预算教育事业费支出增长情况 (普通中学（元）)',
+					name: '普通中学',
 					data: perEduExpenseRiseMiddleSchlList,
 					comment: ''
 				});
 				$scope.perEduFundGrntRateList.push({   
-					name: '生均公共财政预算教育事业费支出增长情况 (普通中学（元）)增减率',
+					name: '普通中学',
 					data: perEduExpenseRiseMiddleSchlRateList,
 					comment: ''
 				});
 				$scope.perEduFundGrntList.push({   
-					name: '生均公共财政预算教育事业费支出增长情况 (普通高中（元）)',
+					name: '普通高中',
 					data: perEduExpenseRiseHighSchlList,
 					comment: ''
 				});
 				$scope.perEduFundGrntRateList.push({   
-					name: '生均公共财政预算教育事业费支出增长情况 (普通高中（元）)增减率',
+					name: '普通高中',
 					data: perEduExpenseRiseHighSchlRateList,
 					comment: ''
 				});
 				$scope.perEduFundGrntList.push({   
-					name: '生均公共财政预算教育事业费支出增长情况 (中等职业学校（元）)',
+					name: '中等职业学校',
 					data: perEduExpenseRiseSecVocSchlList,
 					comment: ''
 				});
 				$scope.perEduFundGrntRateList.push({   
-					name: '生均公共财政预算教育事业费支出增长情况 (中等职业学校（元）)增减率',
+					name: '中等职业学校',
 					data: perEduExpenseRiseSecVocSchlRateList,
 					comment: ''
 				});
 				$scope.perFundGrntList.push({   
-					name: '生均公共财政预算公用经费支出增长情况 (普通小学（元）)',
+					name: '普通小学',
 					data: perPubFundRisePrimarySchlList,
 					comment: ''
 				});
 				$scope.perFundGrntRateList.push({   
-					name: '生均公共财政预算公用经费支出增长情况 (普通小学（元）)增减率',
+					name: '普通小学',
 					data: perPubFundRisePrimarySchlRateList,
 					comment: ''
 				});
 				$scope.perFundGrntList.push({   
-					name: '生均公共财政预算公用经费支出增长情况 (普通中学（元）)',
+					name: '普通中学',
 					data: perPubFundRiseMiddleSchlList,
 					comment: ''
 				});
 				$scope.perFundGrntRateList.push({   
-					name: '生均公共财政预算公用经费支出增长情况 (普通中学（元）)增减率',
+					name: '普通中学',
 					data: perPubFundRiseMiddleSchlRateList,
 					comment: ''
 				});
 				$scope.perFundGrntList.push({   
-					name: '生均公共财政预算公用经费支出增长情况 (普通高中（元）)',
+					name: '普通高中',
 					data: perPubFundRiseHighSchlList,
 					comment: ''
 				});
 				$scope.perFundGrntRateList.push({   
-					name: '生均公共财政预算公用经费支出增长情况 (普通高中（元）)增减率',
+					name: '普通高中',
 					data: perPubFundRiseHighSchlRateList,
 					comment: ''
 				});
 				$scope.perFundGrntList.push({   
-					name: '生均公共财政预算公用经费支出增长情况 (中等职业学校（元）)',
+					name: '中等职业学校',
 					data: perPubFundRiseSecVocSchlList,
 					comment: ''
 				});
 				$scope.perFundGrntRateList.push({   
-					name: '生均公共财政预算公用经费支出增长情况 (中等职业学校（元）)增减率',
+					name: '中等职业学校',
 					data: perPubFundRiseSecVocSchlRateList,
 					comment: ''
 				});
@@ -484,7 +509,6 @@ export default($scope, $rootScope, kpiDetailService,$state, qService, dataDetail
 						}
 				};
 				$scope.changeChart(currentType);
-
 			}, (err) => {
 				if (err.errorCode == "UNAUTHORIZED") {
 					$state.go('portal');
@@ -645,7 +669,8 @@ $scope.pubFinEduChart={
 			            
 		            },
 		            labels: {
-		                format: '{value} 万元',
+		                // format: '{value} 万元',
+		                format: '{value}',
 		               
 		            },
 		            opposite: true
@@ -718,7 +743,8 @@ $scope.financeRegIncomeChart={
 		              
 		            },
 		            labels: {
-		                format: '{value} 亿元',
+		                // format: '{value} 亿元',
+		                format: '{value}',
 		               
 		            },
 		            opposite: true
@@ -1079,6 +1105,9 @@ $scope.stateChart={
 				chart: {                                                           
 					zoomType: 'xy'                                                   
 		        }, 
+		        exporting: {
+					enabled: false, // 取消打印menu
+				}, 
 		        credits: {
 					enabled: false, // 不显示商标
 				},                                                                 
@@ -1246,6 +1275,7 @@ $scope.pubEduFinanceChart={
 		};
 
 		$scope.investGrntKindChange = function(investGrntOne){
+				$('#pseducationTogglePanel2').hide(0);
 				$scope.perEduFundChart.title.text = "近五年"+investGrntOne.name+"情况";
 				$scope.perEduFundChart.series[0].name = investGrntOne.name;
 				$scope.perEduFundChart.series[0].data = investGrntOne.data;
@@ -1254,6 +1284,7 @@ $scope.pubEduFinanceChart={
 		};
 			
 		$scope.investGrntRateKindChange = function(investGrntTwo){
+				$('#pseducationTogglePanel3').hide(0);
 				$scope.perEduFundRateChart.title.text = "近五年"+investGrntTwo.name+"情况";
 				$scope.perEduFundRateChart.series[0].name = investGrntTwo.name;
 				$scope.perEduFundRateChart.series[0].data = investGrntTwo.data;
@@ -1261,6 +1292,7 @@ $scope.pubEduFinanceChart={
 				$scope.investGrntRateListCommentSelected = investGrntTwo.comment;
 		};
 		$scope.investpubGrntKindChange = function(investpubGrntOne){
+				$('#pseducationTogglePanel4').hide(0);
 				$scope.perFundChart.title.text = "近五年"+investpubGrntOne.name+"情况";
 				$scope.perFundChart.series[0].name = investpubGrntOne.name;
 				$scope.perFundChart.series[0].data = investpubGrntOne.data;
@@ -1269,6 +1301,7 @@ $scope.pubEduFinanceChart={
 		};
 			
 		$scope.investpubGrntRateKindChange = function(investpubGrntTwo){
+				$('#pseducationTogglePanel5').hide(0);
 				$scope.perFundRateChart.title.text = "近五年"+investpubGrntTwo.name+"情况";
 				$scope.perFundRateChart.series[0].name = investpubGrntTwo.name;
 				$scope.perFundRateChart.series[0].data = investpubGrntTwo.data;

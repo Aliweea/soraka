@@ -1,33 +1,41 @@
-<div class="cmtraffic-module">
-	<div class="tabs">
-		<input ng-click="changeChart('infection')" type="button" class="s11" id="cmhealthcare-s1" value="传染病">
-		<input ng-click="changeChart('lifetime')" type="button" class="s22" id="cmhealthcare-s2" value="期望寿命">
-		<input ng-click="changeChart('mc')" type="button" class="s33" id="cmhealthcare-s2" value="妇幼">
-	</div>	
-	<div class="distribute-area key-value-area">
-		<i class="fa fa-hand-o-right i-label" aria-hidden="true"></i>
-		<span name="" id="psHealthcareToggleButton" class="toggle-button">{{type}}</span>
-	</div>
-	<div class="distribute-toggle-area">
-		<div class="toggle-panel" id="psHealthcareTogglePanel">
-			<input class="toggle-item" type="button" ng-repeat="item in list" ng-model="listSelected" ng-value="item.name" name="list" ng-click="changeChoice(item)">
+<div class="hlthPblcHlth-module">
+	<div class="tab-container">
+		<div class="tabs">
+			<div ng-class="{'tab-active':tab1,'tab-inactive':!tab1}" ng-click="changeChart('infection')">传染病</div><div ng-class="{'tab-active':tab2,'tab-inactive':!tab2}" ng-click="changeChart('lifetime')">期望寿命</div><div ng-class="{'tab-active':tab3,'tab-inactive':!tab3}" ng-click="changeChart('mc')">妇幼</div>
 		</div>
+		<div class="divider"></div>
 	</div>
-	<div class="chart-area">
-		<highchart config="chart1" id="chart1"></highchart>
-	</div>
-	<div class="key-value-area" ng-show="tab1">
-		<div style="text-align:center;line-height:15px;margin:17px 0;">
-			<span style="font-size:15px;">{{displayYear}} 年 {{infectiousDiseasesLastMonth}} 月全市主要传染病分布情况}</span>
+	<div class="d1">
+		<div class="bar">
+			{{title1}}
 		</div>
-		<table class="table traffic-table">
-			<tr ng-repeat="disease in infectiousDiseases">
-				<td>{{disease.name}}</td>
-				<td align="right">{{disease.number}}家</td>
-			</tr>
-		</table>
-	</div>
-	<div class="chart-area" ng-show="!tab3">
-		<highchart config="chart2" id="chart2"></highchart>
+		<div class="content">
+			<div ng-show="tab1">
+				<div style="text-align:center;line-height:15px;margin:17px 0;">
+					<span style="font-size:15px;">{{displayYear}} 年 {{infectiousDiseasesLastMonth}} 月全市主要传染病分布情况</span>
+				</div>
+				<table class="table">
+					<tr ng-repeat="disease in infectiousDiseases">
+						<td>{{disease.name}}</td>
+						<td align="right">{{disease.number}}家</td>
+					</tr>
+				</table>
+			</div>
+			<div class="chart-area" ng-show="!tab3">
+				<highchart config="chart2"></highchart>
+			</div>
+			<div class="key-value-area1">
+				<i class="fa fa-hand-o-right i-label" aria-hidden="true"></i>
+				<span name="" id="psHealthcareToggleButton" class="toggle-button">{{type}}</span>
+			</div>
+			<div class="type-toggle-area">
+				<div class="toggle-panel" id="psHealthcareTogglePanel">
+					<input class="toggle-item" type="button" ng-repeat="item in list" ng-click="changeChoice(item)" value="{{item.name}}" name="">
+				</div>
+			</div>
+			<div class="chart-area">
+				<highchart config="chart1"></highchart>
+			</div>
+		</div>
 	</div>
 </div>

@@ -133,7 +133,6 @@ export default($scope, $rootScope, kpiDetailService,$state, qService, dataDetail
 				$scope.infectiousDiseasesLastMonth = infectiousDiseasesByKindLineChartCategories[data.length/4-1];
 				$scope.infectiousDiseasesByKindLineChart.title.text = $scope.displayYear+'年各月份肠道传染病(甲乙类)情况';
 				$scope.changeChoice = (choice) => {
-					console.log(choice);
 					$('#psHealthcareTogglePanel').hide(0);
 					if(currentType == "infection"){
 						$scope.infectiousDiseasesKindChange(choice);
@@ -144,6 +143,7 @@ export default($scope, $rootScope, kpiDetailService,$state, qService, dataDetail
 					}
 				};
 				$scope.changeChart = (type) => {
+					$('#psHealthcareTogglePanel').hide(0);
 						switch (type) {
 							case "infection":
 								$scope.type = "选择传染病类别";
@@ -153,10 +153,10 @@ export default($scope, $rootScope, kpiDetailService,$state, qService, dataDetail
 
 								$scope.chart1 = $scope.infectiousDiseasesByKindLineChart;
 								$scope.chart2 = $scope.infectiousDiseasesPieChart;
-								$('#cmhealthcare-s1').addClass('activeTab');
-								$('#cmhealthcare-s2').removeClass('activeTab');
 								currentType = "infection";
+								$scope.title1 = "传染病情况";
 								$scope.tab1 = true;
+								$scope.tab2 = false;
 								$scope.tab3 = false;
 								break;
 							case "lifetime":
@@ -168,10 +168,10 @@ export default($scope, $rootScope, kpiDetailService,$state, qService, dataDetail
 
 								$scope.chart1 = $scope.averageExpectedLifeLineChart;
 								$scope.chart2 = $scope.averageExpectedLifeComparedColumnChart;
-								$('#cmhealthcare-s2').addClass('activeTab');
-								$('#cmhealthcare-s1').removeClass('activeTab');
 								currentType = "lifetime";
+								$scope.title1 = "期望寿命";
 								$scope.tab1 = false;
+								$scope.tab2 = true;
 								$scope.tab3 = false;
 								break;
 							case "mc":
@@ -182,10 +182,10 @@ export default($scope, $rootScope, kpiDetailService,$state, qService, dataDetail
 
 								$scope.chart1 = $scope.womenAndChildrenDeathRateColumnChart;
 								$scope.chart2 = $scope.medicalServiceColumnChart1;
-								$('#cmhealthcare-s2').addClass('activeTab');
-								$('#cmhealthcare-s1').removeClass('activeTab');
 								currentType = "mc";
+								$scope.title1 = "妇幼";
 								$scope.tab1 = false;
+								$scope.tab2 = false;
 								$scope.tab3 = true;
 								break;
 						}
@@ -335,21 +335,69 @@ export default($scope, $rootScope, kpiDetailService,$state, qService, dataDetail
 	}).finally(() => {
         $rootScope.loading = false;
     });	
-
-   	$scope.infectiousDiseasesPieChart = {
+	// const pieStore = (title, tooltip, data, dataFormat) => {
+	// 	return {
+	// 		options: {
+	// 			chart: {
+	// 				height: 600,
+	// 				plotBackgroundColor: null,
+	// 				plotBorderWidth: null,
+	// 				plotShadow: false
+	// 			},
+	// 			credits:{
+	// 				enabled:false
+	// 			},
+	// 			exporting: {
+	// 				enabled: false, // 取消打印menu
+	// 			},
+	// 			title: {
+	// 				text: title,
+	// 				style: {
+	// 					fontSize: '13px'
+	// 				}
+	// 			},
+	// 			tooltip: {
+	// 				pointFormat: tooltip
+	// 			},
+	// 			legend: {
+	// 				lineHeight: 10,
+	// 			},
+	// 			plotOptions: {
+	// 				pie: {
+	// 					allowPointSelect: true,
+	// 					cursor: 'pointer',
+	// 					dataLabels: {
+	// 						enabled: false,
+	// 						color: '#000000',
+	// 						connectorColor: '#000000',
+	// 						format: dataFormat
+	// 					},
+	// 					showInLegend: true
+	// 				}					
+ //                }
+ //            },
+	// 		series: [{
+	// 			type: 'pie',
+	// 			name: '',
+	// 			data: data
+	// 		}]       
+	// 	};
+	// }
+	 	$scope.infectiousDiseasesPieChart = {
 		    options:{
 		        colors: pieColors,
-		        credits: {
-		            enabled: false
-		        },
+		        chart: {
+					height: 600,
+					plotBackgroundColor: null,
+					plotBorderWidth: null,
+					plotShadow: false
+				},
+				credits:{
+					enabled:false
+				},
 		        exporting: {
 					enabled: false, // 取消打印menu
 				},
-		        chart: {
-		            plotBackgroundColor: null,
-		            plotBorderWidth: null,
-		            plotShadow: false
-		        },
 		        title: {
 		            text: '',
 		            style: {
@@ -358,19 +406,36 @@ export default($scope, $rootScope, kpiDetailService,$state, qService, dataDetail
 		        },
 		        tooltip: {
 		    	    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-		        },
-		        plotOptions: {
-		            pie: {
-		                allowPointSelect: true,
-		                cursor: 'pointer',
-		                dataLabels: {
-		                    enabled: true,
-		                    color: '#000000',
-		                    connectorColor: '#000000',
-		                    format: '<b>{point.name}</b>: {point.percentage:.1f} %'
-		                }
-		            }
 		        }
+		        ,
+		        legend: {
+					lineHeight: 10,
+				},
+				plotOptions: {
+					pie: {
+						allowPointSelect: true,
+						cursor: 'pointer',
+						dataLabels: {
+							enabled: false,
+							color: '#000000',
+							connectorColor: '#000000',
+							format:  '<b>{point.name}</b>: {point.percentage:.1f} %'
+						},
+						showInLegend: true
+					}					
+                }
+		        // plotOptions: {
+		        //     pie: {
+		        //         allowPointSelect: true,
+		        //         cursor: 'pointer',
+		        //         // dataLabels: {
+		        //         //     enabled: true,
+		        //         //     color: '#000000',
+		        //         //     connectorColor: '#000000',
+		        //         //     format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+		        //         // }
+		        //     }
+		        // }
 		    },
 		    series: [{
 	            type: 'pie',
@@ -378,6 +443,49 @@ export default($scope, $rootScope, kpiDetailService,$state, qService, dataDetail
 	            data: infectiousDiseasesPieChartData
 	        }]
 		};
+  //  	$scope.infectiousDiseasesPieChart = {
+		//     options:{
+		//         colors: pieColors,
+		//         credits: {
+		//             enabled: false
+		//         },
+		//         exporting: {
+		// 			enabled: false, // 取消打印menu
+		// 		},
+		//         chart: {
+		//             plotBackgroundColor: null,
+		//             plotBorderWidth: null,
+		//             plotShadow: false
+		//         },
+		//         title: {
+		//             text: '',
+		//             style: {
+		// 				fontSize: "13px"
+		// 			}
+		//         },
+		//         tooltip: {
+		//     	    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+		//         }
+		//         ,
+		//         // plotOptions: {
+		//         //     pie: {
+		//         //         allowPointSelect: true,
+		//         //         cursor: 'pointer',
+		//         //         // dataLabels: {
+		//         //         //     enabled: true,
+		//         //         //     color: '#000000',
+		//         //         //     connectorColor: '#000000',
+		//         //         //     format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+		//         //         // }
+		//         //     }
+		//         // }
+		//     },
+		//     series: [{
+	 //            type: 'pie',
+	 //            name: '占比',
+	 //            data: infectiousDiseasesPieChartData
+	 //        }]
+		// };
 	$scope.infectiousDiseasesByKindLineChart = {
 			options:{
 				credits: {
@@ -438,6 +546,9 @@ export default($scope, $rootScope, kpiDetailService,$state, qService, dataDetail
 				credits: {
 		            enabled: false
 		        },
+		        exporting: {
+					enabled: false, // 取消打印menu
+				},
 				xAxis: {
 					title: {
 		                text: '年份'

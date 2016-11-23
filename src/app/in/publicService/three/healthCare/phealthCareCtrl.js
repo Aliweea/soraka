@@ -1,11 +1,23 @@
 export default($scope, $rootScope, kpiDetailService,$state, qService, dataDetailFactory, dateService) => {
 	'ngInject';
+	// const jQueryDOMToDos = () => {
+	// 	$(".navbar2position").hide(0); // 显示当前位置
+	// 	$(".navbar2return").show(0); // 显示返回按钮
+	// 	$(".navTopShowMark").hide(0); // 隐藏KPI状态 KPI分类
+	// 	$('.navTopShowhealthcare').show(0);
+	// 	$('#cmrefuse-s1').focus();
+	// 	$('#psHealthcareTogglePanel').hide(0);
+	// 	$('#psHealthcareToggleButton').click(() => {
+	// 		$('#psHealthcareTogglePanel').toggle(0);
+	// 	})
+	// }();
 	const jQueryDOMToDos = () => {
-		$(".navbar2position").hide(0); // 显示当前位置
-		$(".navbar2return").show(0); // 显示返回按钮
-		$(".navTopShowMark").hide(0); // 隐藏KPI状态 KPI分类
-		$('.navTopShowhealthcare').show(0);
-		$('#cmrefuse-s1').focus();
+		$(".navbar2return").show(0); // 显示 返回
+		$(".navbar3position").show(0); // 显示 当前三级界面位置
+
+        $(".navbar2detail").hide(0); // 隐藏 查看kpi详情
+        $(".navTopShowMark").hide(0); // 隐藏 KPI状态KPI分类
+        $('.navTopShowhealthcare').show(0);
 		$('#psHealthcareTogglePanel').hide(0);
 		$('#psHealthcareToggleButton').click(() => {
 			$('#psHealthcareTogglePanel').toggle(0);
@@ -105,7 +117,6 @@ export default($scope, $rootScope, kpiDetailService,$state, qService, dataDetail
 			    medicalServiceColumnChartData2.push(medicalServiceColumnChartData[3]);
 				$scope.chart3 = $scope.medicalServiceColumnChart2;
 				$scope.changeChoice = (choice) => {
-					console.log(choice);
 					$('#psHealthcareTogglePanel').hide(0);
 					if(currentType == "resource"){
 						$scope.medicalInstitutionKindChange(choice);
@@ -114,6 +125,7 @@ export default($scope, $rootScope, kpiDetailService,$state, qService, dataDetail
 					}
 				};
 				$scope.changeChart = (type) => {
+					$('#psHealthcareTogglePanel').hide(0);
 						switch (type) {
 							case "resource":
 								$scope.typeTitle = "选择医院类别";
@@ -123,8 +135,7 @@ export default($scope, $rootScope, kpiDetailService,$state, qService, dataDetail
 								$scope.chart1 = $scope.medicalInstitutionSumByKindChart;
 								$scope.chart2 = $scope.medicalInstitutionSumChart;
 								$scope.tab1 = true;
-								$('#cmhealthcare-s1').addClass('activeTab');
-								$('#cmhealthcare-s2').removeClass('activeTab');
+								$scope.tab2 = false;
 								currentType = "resource";
 								break;
 							case "service":
@@ -134,9 +145,8 @@ export default($scope, $rootScope, kpiDetailService,$state, qService, dataDetail
 								$scope.listSelected = $scope.medicalServiceSelected;
 								$scope.chart1 = $scope.medicalServiceByKindLineChart;
 								$scope.chart2 = $scope.medicalServiceColumnChart1;
-								$('#cmhealthcare-s2').addClass('activeTab');
-								$('#cmhealthcare-s1').removeClass('activeTab');
 								$scope.tab1 = false;
+								$scope.tab2 = true;
 								currentType = "service";
 								break;
 						}
@@ -466,19 +476,27 @@ export default($scope, $rootScope, kpiDetailService,$state, qService, dataDetail
 	        subtitle: {
 	            text: '点击饼图各部分查看近五年走势'
 	        },
-	        tooltip: {
-	            enabled : false 
-	        },
+	        // tooltip: {
+	        //     enabled : false 
+	        // },
+	       tooltip: {
+                    shared: true,
+                    useHTML: true,
+                    headerFormat: '{point.name}',
+                    pointFormat: '{point.y:.0f}人',
+                    footerFormat: '</table>',
+                    valueDecimals: 2
+                },
 	        plotOptions: {
 	            pie: {
 	                allowPointSelect: true,
 	                cursor: 'pointer',
-	                dataLabels: {
-	                    enabled: true,
-	                    color: '#000000',
-	                    connectorColor: '#000000',
-	                    format: '<b>{point.name}</b>: {point.y:.0f}人'
-	                },
+	                // dataLabels: {
+	                //     enabled: true,
+	                //     color: '#000000',
+	                //     connectorColor: '#000000',
+	                //     format: '<b>{point.name}</b>: {point.y:.0f}人'
+	                // },
 	                events: {
 	                    click: function(event){
 	                        var name = event.point.name;
@@ -549,7 +567,9 @@ export default($scope, $rootScope, kpiDetailService,$state, qService, dataDetail
 	    },
 	    title: {
 	            text: '近五年全市医生情况',
-	            x: -20 //center
+	            style: {
+					fontSize: "13px"
+				}
 	        },
 	    series: [{
 	            name: '人数',

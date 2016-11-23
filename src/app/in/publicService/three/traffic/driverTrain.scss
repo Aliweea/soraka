@@ -1,0 +1,68 @@
+.driverTrain-module{
+	width:100%;
+	.d1{
+		margin-top: 15px;
+		.bar{
+			font-size: 15px;
+			background-color: $bgDarkBlue;
+			padding: 8px 10px;
+			color:#fff;
+		}
+		.content{
+			border-bottom: 1px solid $bgDarkBlue;
+			.key-value-area1{
+				padding:10px 0;
+				background: linear-gradient($bgLightGrey,#fff);
+				
+				i-label{
+					margin-left: 10px;
+					font-size: 13px;
+				}
+				.toggle-button{
+					width:8em;
+					height: 30px;
+					outline: none;
+					border: none;
+					border-bottom: 1px dashed #008AFF;
+					color:#008AFF;
+					text-align: left;
+					font-size: 13px;
+				}
+			}
+			.dd{
+				background: #fff;
+				padding: 0 10px;
+			}
+			.distribute-area{
+				position: relative;
+				.toggle-panel{
+					width:80%;
+					box-shadow: 5px 10px 5px #999999;
+					border:1px solid $cborder;
+					position:absolute;
+					z-index:2000;
+					padding: 10px 2% 10px 2%;
+					margin:0 10%;
+					background-color: #fff;
+					.toggle-item{
+						font-size: 10px;
+						width:47%;
+						background: rgba(240,240,240,0.7);
+						border:1px solid $cborder;
+						padding: 3px 3px;
+						margin:2px;
+						outline: none;
+						&:hover,&:active,&:focus{
+							background:$bgDarkBlue;
+							border: 1px solid $bgDarkBlue;
+							color: #fff;
+						}
+					}
+				}
+			}
+		}
+	}
+	.chart-area{
+		border-top: 1px dashed $cborder;
+	}
+}

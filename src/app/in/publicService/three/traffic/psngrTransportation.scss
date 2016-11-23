@@ -1,5 +1,19 @@
-.pstelecom-module{
-	width: 100%;
+.cm-kpi-traffic {
+    width: 67%;
+    display: inline-block;
+    text-align: left;
+    margin-top: ($bottomBarH - 30px) / 2;
+    i {
+        font-size: 21px;
+    }
+    span {
+        padding-left: 7px;
+        padding-right: 0px;
+        font-size: 16px;
+    }
+}
+.psngrTransportation-module{
+    width: 100%;
     background-color: #fff;
     .tab-container {
         .tabs {
@@ -78,7 +92,7 @@
             .dd{
                 padding: 0 10px;
             }
-            .distribute-toggle-area{
+            .distribute-area{
                 position: relative;
                 .toggle-panel {
                     width: 80%;

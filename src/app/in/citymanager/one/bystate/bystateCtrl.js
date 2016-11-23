@@ -1,3 +1,4 @@
+
 export default($scope, $rootScope, $stateParams, qService, kpiRes, dateService, hService, $state) => {
 	'ngInject';
     hService.state($state);

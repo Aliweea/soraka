@@ -1,4 +1,74 @@
-<div class="cmtraffic-module">
+<div class="pshealthcare-module">
+	<div class="tab-container">
+		<div class="tabs">
+			<div ng-class="{'tab-active': tab1, 'tab-inactive': tab2}" ng-click="changeChart('resource')">卫生资源</div><!--不要去掉这个注释
+	 	 --><div ng-class="{'tab-active': tab2, 'tab-inactive': tab1}" ng-click="changeChart('service')">诊疗服务</div>
+		</div>
+		<div class="divider"></div>
+	</div>
+	<div class="d1">
+		<div class="bar">
+			{{title1}}
+		</div>
+		<div class="content">
+			<div class="dd">
+				<div ng-show="tab1">
+					<div style="text-align:center;line-height:15px;margin:17px 0;">
+						<span style="font-size:15px;">{{medicalInstitutionsLastYear}} 年末全市医疗机构情况分布</span>
+					</div>
+					<table class="table">
+						<tr ng-repeat="institution in medicalInstitutions">
+							<td>{{institution.name}}</td>
+							<td align="right">{{institution.number}}家</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="chart-area" ng-hide="tab1">
+				<highchart config="chart3"></highchart>
+			</div>
+			<div class="chart-area">
+				<highchart config="chart2"></highchart>
+			</div>
+			<div class="key-value-area1">
+				<i class="fa fa-hand-o-right i-label" aria-hidden="true"></i>
+				<span name="" id="psHealthcareToggleButton" class="toggle-button">{{typeTitle}}</span>
+			</div>
+			<div class="distribute-area">
+				<div class="toggle-panel"  id="psHealthcareTogglePanel">
+					<input class="toggle-item" type="button" ng-repeat="item in list" ng-click="changeChoice(item)" value="{{item.name}}" name="">
+				</div>
+			</div>
+			<div class="chart-area">
+				<highchart config="chart1"></highchart>
+			</div>
+		</div>
+	</div>
+	<div class="d2" ng-show="tab1">
+		<div class="bar">
+			卫生技术人员
+		</div>
+		<div class="content">
+			<div class="chart-area">
+				<highchart config="medicalWorkersPieChart"></highchart>
+			</div>
+			<div class="chart-area">
+				<highchart config="medicalWorkersByKindLineChart"></highchart>
+			</div>
+		</div>
+	</div>
+	<div class="d2" ng-show="tab1">
+		<div class="bar">
+			病床
+		</div>
+		<div class="content">
+			<div class="chart-area">
+				<highchart config="medicalBedsColumnChart"></highchart>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- <div class="cmtraffic-module">
 	<div class="tabs">
 		<input ng-click="changeChart('resource')" type="button" class="s1" id="cmhealthcare-s1" value="卫生资源">
 		<input ng-click="changeChart('service')" type="button" class="s2" id="cmhealthcare-s2" value="诊疗服务">
@@ -19,7 +89,7 @@
 			<input class="toggle-item" type="button" ng-repeat="item in list" ng-model="listSelected" ng-value="item.name" name="list" ng-click="changeChoice(item)">
 		</div>
 	</div>
-	<div class="chart-area">
+	<div class="chart-adivrea">
 		<highchart config="chart1" id="chart1"></highchart>
 	</div>
 	<div class="key-value-area" ng-show="tab1">
@@ -62,4 +132,4 @@
 	<div class="chart-area" ng-show="tab1">
 		<highchart config="medicalBedsColumnChart" id="medicalBedsColumnChart"></highchart>
 	</div>
-</div>
+</div> -->
