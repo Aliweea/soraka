@@ -20,19 +20,18 @@ export default($scope, qService, generalService, dataDetailFactory, $http, $loca
   $scope.ALLOPTION = {};
   $scope.ALLDATA = {};
   $scope.isLink = true;
-  $scope.isActive1="active";
-  $scope.isActive2="";
-  $scope.isToggle=true;
   $scope.isLink1 = true;
+  $scope.tab1=true;
+  $scope.tab2=false;
 
   $scope.show1=()=>{
-    $scope.isActive1="active";
-    $scope.isActive2="";
+    $scope.tab1 = true;
+    $scope.tab2 = false;
     $scope.isToggle=true;
   };
   $scope.show2=()=>{
-   $scope.isActive1="";
-   $scope.isActive2="active";
+   $scope.tab1 = false;
+   $scope.tab2 = true;
    $scope.isToggle=false;
   };
   $scope.hideLink = () => {
