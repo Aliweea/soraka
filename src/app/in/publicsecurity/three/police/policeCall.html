@@ -11,7 +11,7 @@
     display: none;
 }
 </style>
-<div class="xcmrefuse-module">
+<div class="xcmrefuse-module pentitionthree">
     <div ui-state="activeTab" default="1">
         <ul class="nav nav-tabs plice-call-tab">
             <li ui-class="{'active': activeTab == 1}" style="width: 50%">
@@ -23,7 +23,7 @@
         </ul>
         <div ui-if="activeTab == 1">
             <div class="xcmrefuse-module" ui-state="accidentAccordion" ui-default="1">
-                <div class="d1">
+                <div class="d2">
                     <div class="bar" ui-set="{'accidentAccordion': 1}">
                         太仓市警情动态                        
                     </div>
@@ -41,14 +41,14 @@
                         </div>
                     </div>    
                </div>
-                <div class="d1">
+                <div class="d2">
                     <div class="bar" ui-set="{'accidentAccordion': 2}">
                         各单位接警信息
                     </div>
                    <div class="content">                           
                         <div class="key-value-area">
                             <div class="chart-area">
-                                <highchart config="kpiBarChart" id="kpiBarChart"></highchart>
+                                <highchart config="kpiBarChart" id="kpiBarChart" style="height: 700px"></highchart>
                             </div>                                
                         </div>
                     </div>                    
@@ -57,7 +57,7 @@
         </div>
         <div ui-if="activeTab == 2">
          <div class="xcmrefuse-module" ui-state="accidentAccordion1" ui-default="1">            
-             <div class="d1">
+             <div class="d2">
                     <div class="bar" ui-set="{'accidentAccordion1': 1}">
                         各类报警案件趋势
                     </div>
@@ -69,7 +69,7 @@
                         </div>
                     </div>                      
                 </div>
-                 <div class="d1">
+                 <div class="d2">
                     <div class="bar" ui-set="{'accidentAccordion1': 2}">
                         太仓市各类报警案件总数
                     </div>

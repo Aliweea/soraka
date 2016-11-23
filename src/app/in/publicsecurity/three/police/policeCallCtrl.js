@@ -6,7 +6,7 @@ export default ($anchorScroll, $location, $rootScope, $scope, $state, dateServic
         $('.navTopShowPolice').show(0); // 显示公安类型
         $(".navbar2detail").hide(0); // 隐藏 查看kpi详情
         $(".navTopShowMark").hide(0); // 隐藏 KPI状态KPI分类
-
+        $scope.subTitle = "报警数";
         $('#cmRefuseTownTooglePanel').hide(0);
         $('#cmRefuseTownToogleButton').click(() => {
             $('#cmRefuseTownTooglePanel').toggle(0);
@@ -698,6 +698,10 @@ export default ($anchorScroll, $location, $rootScope, $scope, $state, dateServic
                             type: 'bar'
                         },
                         xAxis: {
+                            labels: {
+                              rotation: -45,
+                              align: 'right'
+                            },
                             categories: eachStationData[$scope.totalData.checkModel].categories,
                             title: {
                                 text: '接警单位',
