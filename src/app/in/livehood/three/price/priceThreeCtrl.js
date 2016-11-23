@@ -542,6 +542,7 @@ function lineHighChart(title, xAxis, step, height) {
   $scope.initFoodPriceHighChart = function() {
     resetPriceData();
     $scope.PRICEDATA.a_riceDataList.isCollapsed = true;
+   //   $scope.PRICEDATA.a_riceDataList.Collapsed = true;
     $scope.PRICEDATA.a_riceDataList.data[0].model = true;
     $scope.foodPriceHighChartOption.series=[];
       var temseries1=[];
@@ -570,6 +571,7 @@ function lineHighChart(title, xAxis, step, height) {
     var tempFoodType;
     for (tempFoodType in $scope.PRICEDATA) {
       $scope.PRICEDATA[tempFoodType].isCollapsed = false;
+     //   $scope.PRICEDATA[tempFoodType].collapsed=false;
       for (var i=0; i < $scope.PRICEDATA[tempFoodType].data.length; i++) {
         $scope.PRICEDATA[tempFoodType].data[i].model = false;
       }
@@ -613,6 +615,7 @@ function lineHighChart(title, xAxis, step, height) {
     this.nameList = new Array();
     this.data = new Array();
     this.isCollapsed = false;
+     // this.Collapsed = false;
   }
 
   function subsidiaryFoodDataObject(name, len) {
