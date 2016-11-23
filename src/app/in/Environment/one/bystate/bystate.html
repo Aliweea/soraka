@@ -8,7 +8,7 @@
 		</div>
 		<div class="cm-refuse-value  {{data.data.status | kpiStatusClassFilter}}"><i class="{{(item.data.value>item.data.target)?'fa fa-long-arrow-up':'fa fa-long-arrow-down'}}" aria-hidden="true"></i><span>{{data | unitTransFilter}}</span></div>
 		<div class="cm-refuse-bottom">
-			<span class="cm-refuse-bottom-s1">资源环境</span><span class="cm-refuse-bottom-s2">{{deptname}}</span><span class="cm-refuse-bottom-s3">{{data | applyDateFilter}}</span>
+			<span class="cm-refuse-bottom-s1">资源环境</span><span class="cm-refuse-bottom-s2" ng-if="data.name!='24小时水位超警戒次数(率)'">{{deptname}}</span><span class="cm-refuse-bottom-s2" ng-if="data.name=='24小时水位超警戒次数(率)'">水利局</span><span class="cm-refuse-bottom-s3">{{data | applyDateFilter}}</span>
 			<span class="cm-refuse-bottom-s4"><i class="fa fa-hand-o-right" aria-hidden="true"></i><span>查看走势</span></span>
 		</div>
 	</div>
