@@ -30,7 +30,6 @@
           <h4 class="panel-title" style="color: white">
              金融机构存款余额
           </h4>
-          <!--  <span ng-show="false">{{ai = dataMap.Ivalue.lastestObject}}</span> -->
         </div>
         <div ui-if="myAccordion == 2">
           <div class="panel-body" >
@@ -41,10 +40,6 @@
                   <span style="font-size: 2em;margin-top: 30px">{{tables.rTable[0].remain | number:1}}亿元</span>
                   <span style="font-size: 1.5em;margin-top: 40px"><i class="fa fa-level-up" aria-hidden="true" style="color: green"></i>{{tables.rTable[0].rateWithOpen | number:1}} 亿元</span>
                 </div>
-               <!-- <div style="width: 50%;height: 200px;display: flex;display: -webkit-flex;flex-direction: column;justify-content: center;align-items: center;background-color: rgba(116,140,146,.7);color: white">
-                  <span>金融机构贷款余额:{{d.key}}</span>
-                  <span style="font-size: 2em;margin-top: 30px">{{d.remain | number:1}}亿元</span>
-                </div> -->
                  <div style="width: 50%;height: 200px;display: flex;display: -webkit-flex;flex-direction: column;justify-content: center;align-items: center;background-color: rgba(116,140,146,.7);color: white" class="economyclick"   >
                   <span>{{tables.rTable[1].key}}</span>
                   <span style="font-size: 2em;margin-top: 30px">{{tables.rTable[1].remain | number:1}}亿元</span>
@@ -99,13 +94,7 @@
     </div>
   </div>
     </div>
-    <!-- <highchart config="FinanceKeepingChart"  id="FinanceKeepingChart" style="height: 450px" ng-if="show1" class="economyfade"></highchart>
-    <highchart config="FinanceLoanChart"  id="FinanceLoanChart" style="height: 450px" ng-if="show2" class="economyfade"></highchart> -->
   </div>
- 
   </div>
-    
   </div>
-
-  
 </div>
