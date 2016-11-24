@@ -767,8 +767,7 @@ export default ($rootScope, $scope, kpiDetailService, dateService, $location, $a
                 colors: ['#7CADDF', '#195489', '#1FC22B', '#FB9705', '#F26200'],
                 chart: {
                     zoomType: 'xy',
-                    margin: [50, 50, 100, 80],
-                    width: $(window).width() * 0.9
+                    margin: [50, 50, 100, 80]
                 },
                 exporting: {
                     enabled: false

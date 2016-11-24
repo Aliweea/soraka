@@ -1,21 +1,60 @@
-<ul id="energyTop" class="nav nav-tabs">
-    <li class="active" ng-click="show()">
-		<a style="font-size: 20px" data-toggle="tab">全行业用电量</a>
-    </li>
-    <li ng-click="show2()">
-        <a style="font-size: 20px" data-toggle="tab">生活用电量</a>
-    </li>
-</ul>
+<style type="text/css">
+    .zhenergythree {
+        width: 100%;
+    }
+    .zhenergythree .nav-tabs > li > a {
+        font-size: 15px;
+        padding: 8px 0;
+        text-align: center;
+        border:none;
+        border-radius: none;
+        border-bottom: 3px solid rgb(204, 204, 204);
+        color: #777;
+    }
+    .zhenergythree .nav-tabs > li.active > a {
+        font-size: 15px;
+        padding: 8px 0;
+        text-align: center;
+        border:none;
+        border-radius: none;
+        border-bottom: 3px solid #3399CC;
+        color: #333;
+        background-color: rgba(255,255,255,0.5);
+    }
+    .zhenergythreebtngrp {
+        margin-top: 15px;
+        padding: 0 15px;
+    }
+    .zhenergythreebtngrp .btn-group > .btn-default.active,
+    .zhenergythreebtngrp .btn-group > .btn-default.active:focus
+    .zhenergythreebtngrp .btn-group > .btn-default.active:hover {
+        border: 1px solid rgb(170, 187, 187);
+        background-color: rgba(208, 224, 224, 0.5);
+        color: #333;
+    }
+</style>
+<div class="zhenergythree">
+    <ul id="energyTop" class="nav nav-tabs">
+        <li class="active" ng-click="show()" style="width: 50%;">
+            <a data-toggle="tab">全行业用电量</a>
+        </li>
+        <li ng-click="show2()" style="width: 50%;">
+            <a data-toggle="tab">生活用电量</a>
+        </li>
+    </ul>
+</div>
 <div ng-show="tab1">
     <ui-shared-state id="activeTab" default="1"></ui-shared-state>
-    <div class="btn-group justified nav-tabs">
-        <a ui-set="{'activeTab': 1}" ui-class="{'active': activeTab == 1}" class="btn btn-default">电力消耗-分产业</a>
-        <a ui-set="{'activeTab': 2}" ui-class="{'active': activeTab == 2}" class="btn btn-default active">电力消耗-分行业</a>
+    <div class="zhenergythreebtngrp">
+        <div class="btn-group justified nav-tabs">
+            <a ui-set="{'activeTab': 1}" ui-class="{'active': activeTab == 1}" class="btn btn-default">电力消耗-分产业</a>
+            <a ui-set="{'activeTab': 2}" ui-class="{'active': activeTab == 2}" class="btn btn-default active">电力消耗-分行业</a>
+        </div>
     </div>
     <div ui-if="activeTab == 1" class="ng-scope">
-        <div class="panel panel-primary" style="margin-top:20px">
-            <div class="panel-heading">
-                {{nowyear}}{{nowmonth}}电力消耗关键数据<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
+        <div class="panel panel-primary" style="margin-top: 15px;border: none;border-bottom: 1px solid #3399CC;">
+            <div class="panel-heading" style="border-radius: none;font-size: 15px;background-color: #3399CC;padding: 8px 10px;color: #fff;border-bottom: none;">
+                {{nowyear}}{{nowmonth}}电力消耗关键数据
             </div>
             <div class="panel-body">
                 <table style="width: 100%">
@@ -30,18 +69,18 @@
                 </table>
             </div>
         </div>
-        <div class="panel panel-primary" style="margin-top:20px">
-            <div class="panel-heading">
-                {{nowyear}}{{nowmonth}}电力消耗量-分产业<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
+        <div class="panel panel-primary" style="margin-top: 15px;border: none;border-bottom: 1px solid #3399CC;">
+            <div class="panel-heading" style="border-radius: none;font-size: 15px;background-color: #3399CC;padding: 8px 10px;color: #fff;border-bottom: none;">
+                {{nowyear}}{{nowmonth}}电力消耗量-分产业
             </div>
             <div class="panel-body">
                 <highchart style="border-bottom: 1px solid black" config="energydianli_chanye_option"></highchart>
                 <highchart config="energydianli_chanye_column_option"></highchart>
             </div>
         </div>
-        <div class="panel panel-primary" style="margin-top:20px">
-            <div class="panel-heading">
-                {{nowyear}}第一产业电力消耗量<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
+        <div class="panel panel-primary" style="margin-top: 15px;border: none;border-bottom: 1px solid #3399CC;">
+            <div class="panel-heading" style="border-radius: none;font-size: 15px;background-color: #3399CC;padding: 8px 10px;color: #fff;border-bottom: none;">
+                {{nowyear}}第一产业电力消耗量
             </div>
             <div class="panel-body">
                 <highchart style="border-bottom: 1px solid black" config="energydianli_diyichanye_option">第一产业电力消耗量
@@ -52,9 +91,9 @@
                 <p>二.{{nowmonth}}第一产业用电量累计比上年同期增加:{{diyichanye_rate}}%</p>
             </div>
         </div>
-        <div class="panel panel-primary" style="margin-top:20px">
-            <div class="panel-heading">
-                {{nowyear}}第二产业电力消耗量<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
+        <div class="panel panel-primary" style="margin-top: 15px;border: none;border-bottom: 1px solid #3399CC;">
+            <div class="panel-heading" style="border-radius: none;font-size: 15px;background-color: #3399CC;padding: 8px 10px;color: #fff;border-bottom: none;">
+                {{nowyear}}第二产业电力消耗量
             </div>
             <div class="panel-body">
                 <highchart style="border-bottom: 1px solid black" config="energydianli_dierchanye_option">第二产业电力消耗量</highchart>
@@ -64,9 +103,9 @@
                 <p>二.{{nowmonth}}第二产业用电量累计比上年同期增加:{{dierchanye_rate}}%</p>
             </div>
         </div>
-        <div class="panel panel-primary" style="margin-top:20px">
-            <div class="panel-heading">
-                {{nowyear}}第三产业电力消耗量<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
+        <div class="panel panel-primary" style="margin-top: 15px;border: none;border-bottom: 1px solid #3399CC;">
+            <div class="panel-heading" style="border-radius: none;font-size: 15px;background-color: #3399CC;padding: 8px 10px;color: #fff;border-bottom: none;">
+                {{nowyear}}第三产业电力消耗量
             </div>
             <div class="panel-body">
                 <highchart style="border-bottom: 1px solid black" config="energydianli_disanchanye_option">第三产业电力消耗量</highchart>
@@ -78,9 +117,9 @@
         </div>
     </div>
     <div ui-if="activeTab == 2" class="ng-scope">
-        <div class="panel panel-primary" style="margin-top:20px">
-            <div class="panel-heading">
-                {{nowyear}}{{nowmonth}}电力消耗量-分行业<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
+        <div class="panel panel-primary" style="margin-top: 15px;border: none;border-bottom: 1px solid #3399CC;">
+            <div class="panel-heading" style="border-radius: none;font-size: 15px;background-color: #3399CC;padding: 8px 10px;color: #fff;border-bottom: none;">
+               {{nowyear}}{{nowmonth}}电力消耗量-分行业
             </div>
             <div class="panel-body">
                 <highchart style="border-bottom: 1px solid black" config="energydianli_hangye_option">第三产业电力消耗量</highchart>
@@ -89,9 +128,9 @@
         </div>
     </div>
     <div ui-if="activeTab == 2" class="ng-scope">
-        <div class="panel panel-primary" style="margin-top:20px">
-            <div class="panel-heading">
-                {{nowyear}}农、林、牧、渔业电力消耗量<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
+        <div class="panel panel-primary" style="margin-top: 15px;border: none;border-bottom: 1px solid #3399CC;">
+            <div class="panel-heading" style="border-radius: none;font-size: 15px;background-color: #3399CC;padding: 8px 10px;color: #fff;border-bottom: none;">
+               {{nowyear}}农、林、牧、渔业电力消耗量
             </div>
             <div class="panel-body">
                 <highchart style="border-bottom: 1px solid black" config="energydianli_nonglingmuyuhangye_option">第三产业电力消耗量</highchart>
@@ -101,9 +140,9 @@
                 <p>二.{{nowmonth}}农、林、牧、渔业用电量累计比上年同期增加:{{nonglingyongdianliang_rate}}%</p>
             </div>
         </div>
-        <div class="panel panel-primary" style="margin-top:20px">
-            <div class="panel-heading">
-                {{nowyear}}工业电力消耗量<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
+        <div class="panel panel-primary" style="margin-top: 15px;border: none;border-bottom: 1px solid #3399CC;">
+            <div class="panel-heading" style="border-radius: none;font-size: 15px;background-color: #3399CC;padding: 8px 10px;color: #fff;border-bottom: none;">
+               {{nowyear}}工业电力消耗量
             </div>
             <div class="panel-body">
                 <highchart style="border-bottom: 1px solid black" config="energydianli_gongyehangye_option">工业电力消耗量</highchart>
@@ -113,9 +152,9 @@
                 <p>二.{{nowmonth}}工业用电量累计比上年同期增加:{{gongyeyongdianliang_rate}}%</p>
             </div>
         </div>
-        <div class="panel panel-primary" style="margin-top:20px">
-            <div class="panel-heading">
-                {{nowyear}}建筑业电力消耗量<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
+        <div class="panel panel-primary" style="margin-top: 15px;border: none;border-bottom: 1px solid #3399CC;">
+            <div class="panel-heading" style="border-radius: none;font-size: 15px;background-color: #3399CC;padding: 8px 10px;color: #fff;border-bottom: none;">
+               {{nowyear}}建筑业电力消耗量
             </div>
             <div class="panel-body">
                 <highchart style="border-bottom: 1px solid black" config="energydianli_jianzhuyehangye_option">建筑业电力消耗量</highchart>
@@ -125,9 +164,9 @@
                 <p>二.{{nowmonth}}建筑业用电量累计比上年同期增加:{{jianzhuyeyongdianliang_rate}}%</p>
             </div>
         </div>
-        <div class="panel panel-primary" style="margin-top:20px">
-            <div class="panel-heading">
-                {{nowyear}}交通运输、仓储和邮政业电力消耗量<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
+        <div class="panel panel-primary" style="margin-top: 15px;border: none;border-bottom: 1px solid #3399CC;">
+            <div class="panel-heading" style="border-radius: none;font-size: 15px;background-color: #3399CC;padding: 8px 10px;color: #fff;border-bottom: none;">
+               {{nowyear}}交通运输、仓储和邮政业电力消耗量
             </div>
             <div class="panel-body">
                 <highchart style="border-bottom: 1px solid black" config="energydianli_jtccyzhangye_option">交通运输、仓储和邮政业</highchart>
@@ -137,9 +176,9 @@
                 <p>二.{{nowmonth}}交通运输、仓储和邮政业用电量累计比上年同期增加:{{jiaotongyongdianliang_rate}}%</p>
             </div>
         </div>
-        <div class="panel panel-primary" style="margin-top:20px">
-            <div class="panel-heading">
-                {{nowyear}}信息传输、计算机服务和软件业电力消耗量<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
+        <div class="panel panel-primary" style="margin-top: 15px;border: none;border-bottom: 1px solid #3399CC;">
+            <div class="panel-heading" style="border-radius: none;font-size: 15px;background-color: #3399CC;padding: 8px 10px;color: #fff;border-bottom: none;">
+               {{nowyear}}信息传输、计算机服务和软件业电力消耗量
             </div>
             <div class="panel-body">
                 <highchart style="border-bottom: 1px solid black" config="energydianli_xxjsjrjhangye_option">信息传输、计算机服务和软件业</highchart>
@@ -149,9 +188,9 @@
                 <p>二.{{nowmonth}}信息传输、计算机服务和软件业用电量累计比上年同期增加:{{xingxiyongdianliang_rate}}%</p>
             </div>
         </div>
-        <div class="panel panel-primary" style="margin-top:20px">
-            <div class="panel-heading">
-                {{nowyear}}批发和零售、住宿和餐饮业电力消耗量<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
+        <div class="panel panel-primary" style="margin-top: 15px;border: none;border-bottom: 1px solid #3399CC;">
+            <div class="panel-heading" style="border-radius: none;font-size: 15px;background-color: #3399CC;padding: 8px 10px;color: #fff;border-bottom: none;">
+               {{nowyear}}批发和零售、住宿和餐饮业电力消耗量
             </div>
             <div class="panel-body">
                 <highchart style="border-bottom: 1px solid black" config="energydianli_pflszscyhangye_option">批发和零售、住宿和餐饮业</highchart>
@@ -161,9 +200,9 @@
                 <p>二.{{nowmonth}}批发和零售、住宿和餐饮业用电量累计比上年同期增加:{{pifayongdianliang_rate}}%</p>
             </div>
         </div>
-        <div class="panel panel-primary" style="margin-top:20px">
-            <div class="panel-heading">
-                {{nowyear}}金融、房地产、商务及居民服务业电力消耗量<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
+        <div class="panel panel-primary" style="margin-top: 15px;border: none;border-bottom: 1px solid #3399CC;">
+            <div class="panel-heading" style="border-radius: none;font-size: 15px;background-color: #3399CC;padding: 8px 10px;color: #fff;border-bottom: none;">
+               {{nowyear}}金融、房地产、商务及居民服务业电力消耗量
             </div>
             <div class="panel-body">
                 <highchart style="border-bottom: 1px solid black" config="energydianli_jrfdcswjmfwyhangye_option">金融、房地产、商务及居民服务业</highchart>
@@ -173,9 +212,9 @@
                 <p>二.{{nowmonth}}金融、房地产、商务及居民服务业用电量累计比上年同期增加:{{jinrongyongdianliang_rate}}%</p>
             </div>
         </div>
-        <div class="panel panel-primary" style="margin-top:20px">
-            <div class="panel-heading">
-                {{nowyear}}公共事业及管理组织电力消耗量<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
+        <div class="panel panel-primary" style="margin-top: 15px;border: none;border-bottom: 1px solid #3399CC;">
+            <div class="panel-heading" style="border-radius: none;font-size: 15px;background-color: #3399CC;padding: 8px 10px;color: #fff;border-bottom: none;">
+               {{nowyear}}公共事业及管理组织电力消耗量
             </div>
             <div class="panel-body">
                 <highchart style="border-bottom: 1px solid black" config="energydianli_ggsyglhangye_option">公共事业及管理组织</highchart>
@@ -188,9 +227,9 @@
     </div>
 </div>
 <div ng-show="tab2">
-    <div class="panel panel-primary" style="margin-top:20px">
-        <div class="panel-heading">
-            {{nowyear}}{{nowmonth}}电力消耗关键数据<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
+    <div class="panel panel-primary" style="margin-top: 15px;border: none;border-bottom: 1px solid #3399CC;">
+        <div class="panel-heading" style="border-radius: none;font-size: 15px;background-color: #3399CC;padding: 8px 10px;color: #fff;border-bottom: none;">
+           {{nowyear}}{{nowmonth}}电力消耗关键数据
         </div>
         <div class="panel-body">
             <table style="width: 100%">
@@ -203,9 +242,9 @@
             </table>
         </div>
     </div>
-    <div class="panel panel-primary" style="margin-top:20px">
-        <div class="panel-heading">
-            {{nowyear}}{{nowmonth}}城乡生活电力消耗量<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
+    <div class="panel panel-primary" style="margin-top: 15px;border: none;border-bottom: 1px solid #3399CC;">
+        <div class="panel-heading" style="border-radius: none;font-size: 15px;background-color: #3399CC;padding: 8px 10px;color: #fff;border-bottom: none;">
+           {{nowyear}}{{nowmonth}}城乡生活电力消耗量
         </div>
         <div class="panel-body">
             <highchart style="border-bottom: 1px solid black" config="energydianli_shenghuo_option"></highchart>
@@ -216,9 +255,9 @@
             <p>三.{{nowmonth}}农村生活用电量占总量比例:{{nongcunyongdianliang_zongrate}}</p>
         </div>
     </div>
-    <div class="panel panel-primary" style="margin-top:20px">
-        <div class="panel-heading">
-            {{nowyear}}城镇生活电力消耗量<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
+     <div class="panel panel-primary" style="margin-top: 15px;border: none;border-bottom: 1px solid #3399CC;">
+        <div class="panel-heading" style="border-radius: none;font-size: 15px;background-color: #3399CC;padding: 8px 10px;color: #fff;border-bottom: none;">
+           {{nowyear}}城镇生活电力消耗量
         </div>
         <div class="panel-body">
             <highchart style="border-bottom: 1px solid black" config="energydianli_chengzhenshenghuo_option"></highchart>
@@ -228,9 +267,9 @@
             <p>二.{{nowmonth}}城镇用电量累计比上年同期增加:{{chengzhengyongdianliang_rate}}%</p>
         </div>
     </div>
-    <div class="panel panel-primary" style="margin-top:20px">
-        <div class="panel-heading">
-            {{nowyear}}农村生活电力消耗量<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
+    <div class="panel panel-primary" style="margin-top: 15px;border: none;border-bottom: 1px solid #3399CC;">
+        <div class="panel-heading" style="border-radius: none;font-size: 15px;background-color: #3399CC;padding: 8px 10px;color: #fff;border-bottom: none;">
+           {{nowyear}}农村生活电力消耗量
         </div>
         <div class="panel-body">
             <highchart style="border-bottom: 1px solid black" config="energydianli_nongcunshenghuo_option"></highchart>
