@@ -383,8 +383,8 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       controller: 'phealthCareCtrl'
     })
     .state('app.publicService.hlthPblcHlth',{
-    url:'/healthcare/hlthPblcHlth',
-    templateUrl:'app/in/publicService/three/healthcare/hlthPblcHlth.html',
+    url:'/healthCare/hlthPblcHlth',
+    templateUrl:'app/in/publicService/three/healthCare/hlthPblcHlth.html',
     controller:'hlthPblcHlthCtrl'
     })
     .state('app.publicService.ptelecom', {
