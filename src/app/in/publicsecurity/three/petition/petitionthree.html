@@ -1,4 +1,13 @@
-<div class="xcmrefuse-module">
+<style type="text/css">
+    .pspentitionthree .btn-group > .btn-default.active,
+    .pspentitionthree .btn-group > .btn-default.active:focus
+    .pspentitionthree .btn-group > .btn-default.active:hover {
+        border: 1px solid rgb(170, 187, 187);
+        background-color: rgba(208, 224, 224, 0.5);
+        color: #333;
+    }
+</style>
+<div class="xcmrefuse-module pspentitionthree">
     <div class="d1" id="top">
         <div class="bar">
             信访信件统计
@@ -20,12 +29,12 @@
                             <div class="col-md-12 ">
                                 <tabset>
                                     <tab heading="信件数量" ui-if="activeTab==1">
-                                        <div class="chart-area">
+                                        <div class="chart-area" style="margin-top: 10px;">
                                             <highchart id="columnChart2" config="columnChart2" style=""></highchart>
                                         </div>
                                     </tab>
                                     <tab heading="结案率" ui-if="activeTab==2">
-                                        <div class="chart-area">
+                                        <div class="chart-area" style="margin-top: 10px;">
                                             <highchart id="PieChart" config="PieChart" style=""></highchart>
                                         </div>
                                     </tab>
@@ -72,11 +81,11 @@
                             <a ui-set="{'activeTab1': 4}" ui-class="{'active':activeTab1==4}" class="btn btn-default">群众上访信件趋势</a>
                         </div>
                         <div class="row">
-                            <div class="chart-area" ui-if="activeTab1==3">
+                            <div class="chart-area" ui-if="activeTab1==3" style="margin-top: 10px;">
                                 <highchart id="lineChart" config="lineChart" style="height : 450px"></highchart>
                             </div>
 
-                            <div class="chart-area" ui-if="activeTab1==4">
+                            <div class="chart-area" ui-if="activeTab1==4" style="margin-top: 10px;">
                                 <highchart id="lineChart1" config="lineChart1" style="height : 450px"></highchart>
                             </div>
                         </div>                        

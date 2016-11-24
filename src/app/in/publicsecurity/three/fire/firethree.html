@@ -1,4 +1,13 @@
-<div class="xcmrefuse-module">
+<style type="text/css">
+    .psfirethree .btn-group > .btn-default.active,
+    .psfirethree .btn-group > .btn-default.active:focus
+    .psfirethree .btn-group > .btn-default.active:hover {
+        border: 1px solid rgb(170, 187, 187);
+        background-color: rgba(208, 224, 224, 0.5);
+        color: #333;
+    }
+</style>
+<div class="xcmrefuse-module psfirethree">
     <div class="d1" id="top">
         <div class="bar">
             火灾事故警情动态
@@ -10,43 +19,43 @@
                     <br>
                 </div>
                 <span class="value">{{getDate.year}}年{{getDate.month}}月份全市发生各类火灾事故总数 {{amountData.thisMonthAmount}} 起</span>
+                <div class="btn-group justified nav-tabs">
+                    <a ui-set="{'activeTabFire': 1}" ui-class="{'active':activeTabFire==1}" class="btn btn-default">事故数量</a>
+                    <a ui-set="{'activeTabFire': 2}" ui-class="{'active':activeTabFire==2}" class="btn btn-default">受伤人数</a>
+                    <a ui-set="{'activeTabFire': 3}" ui-class="{'active':activeTabFire==3}" class="btn btn-default">死亡人数</a>
+                    <a ui-set="{'activeTabFire': 4}" ui-class="{'active':activeTabFire==4}" class="btn btn-default">财产损失</a>
                 </div>
-                <div>
-                    <div ui-state="activeTabFire" default="1">
-                        <div class="chart-area">
-                            <div class="btn-group justified nav-tabs">
-                                <a ui-set="{'activeTabFire': 1}" ui-class="{'active':activeTabFire==1}" class="btn btn-default">事故数量</a>
-                                <a ui-set="{'activeTabFire': 2}" ui-class="{'active':activeTabFire==2}" class="btn btn-default">受伤人数</a>
-                                <a ui-set="{'activeTabFire': 3}" ui-class="{'active':activeTabFire==3}" class="btn btn-default">死亡人数</a>
-                                <a ui-set="{'activeTabFire': 4}" ui-class="{'active':activeTabFire==4}" class="btn btn-default">财产损失</a>
-                            </div>
-                            <div class="row">                                
-                                    <tabset>
-                                        <tab heading="事故数量" ui-if="activeTabFire==1">
-                                            <div class="col-md-12 " style="margin-top: 10px">
-                                                <highchart id="barCount" config="barCount"></highchart>
-                                            </div>
-                                        </tab>
-                                        <tab heading="受伤人数" ui-if="activeTabFire==2">
-                                            <div class="col-md-9 chart-panel" style="margin-top: 10px">
-                                                <highchart id="barInjury" config="barInjury"></highchart>
-                                            </div>
-                                        </tab>
-                                        <tab heading="死亡人数" ui-if="activeTabFire==3">
-                                            <div class="col-md-9 chart-panel" style="margin-top: 10px">
-                                                <highchart id="barDead" config="barDead"></highchart>
-                                            </div>
-                                        </tab>
-                                        <tab heading="财产损失" ui-if="activeTabFire==4">
-                                            <div class="col-md-9 chart-panel" style="margin-top: 10px">
-                                                <highchart id="barDamage" config="barDamage"></highchart>
-                                            </div>
-                                        </tab>
-                                    </tabset>                               
-                            </div>
+            </div>
+            <div>
+                <div ui-state="activeTabFire" default="1">
+                    <div class="chart-area">
+                        <div class="row">                                
+                                <tabset>
+                                    <tab heading="事故数量" ui-if="activeTabFire==1">
+                                        <div class="col-md-12 " style="">
+                                            <highchart id="barCount" config="barCount"></highchart>
+                                        </div>
+                                    </tab>
+                                    <tab heading="受伤人数" ui-if="activeTabFire==2">
+                                        <div class="col-md-9 chart-panel">
+                                            <highchart id="barInjury" config="barInjury"></highchart>
+                                        </div>
+                                    </tab>
+                                    <tab heading="死亡人数" ui-if="activeTabFire==3">
+                                        <div class="col-md-9 chart-panel">
+                                            <highchart id="barDead" config="barDead"></highchart>
+                                        </div>
+                                    </tab>
+                                    <tab heading="财产损失" ui-if="activeTabFire==4">
+                                        <div class="col-md-9 chart-panel">
+                                            <highchart id="barDamage" config="barDamage"></highchart>
+                                        </div>
+                                    </tab>
+                                </tabset>                               
                         </div>
                     </div>
-                </div>           
+                </div>
+            </div>           
         </div>
     </div>
 
@@ -60,16 +69,16 @@
                     <div class="col-md-9 chart-panel">
                         <div>
                             <span class="glyphicon glyphicon-question-sign pull-right"></span>
-                            <label class="">
+                            <label class="" style="margin-left: 5px;margin-top: 3px;">
                                 <input type="radio" value="0" checked ng-model="lineChartData.selected" ng-change='trendInfoChanged()'> 查看事故发生数
                             </label>
-                            <label class="">
+                            <label class="" style="margin-left: 5px;margin-top: 3px;">
                                 <input type="radio" value="1" ng-model="lineChartData.selected" ng-change='trendInfoChanged()'> 查看受伤人数
                             </label>
-                            <label class="">
+                            <label class="" style="margin-left: 5px;margin-top: 3px;">
                                 <input type="radio" value="2" ng-model="lineChartData.selected" ng-change='trendInfoChanged()'> 查看死亡人数
                             </label>
-                            <label class="">
+                            <label class="" style="margin-left: 5px;margin-top: 3px;">
                                 <input type="radio" value="3" ng-model="lineChartData.selected" ng-change='trendInfoChanged()'> 查看直接财产损失
                             </label>
                             <highchart id="columnChart" config="columnChart" style="height:400px"></highchart>

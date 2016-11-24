@@ -680,7 +680,7 @@ export default ($anchorScroll, $location, $rootScope, $scope, $state, dateServic
                     }
                     //创建一个Icon
                     function createIcon(json) {
-                        var icon = new BMap.Icon("http://app.baidu.com/map/images/us_mk_icon.png", new BMap.Size(json.w, json.h), { imageOffset: new BMap.Size(-json.l, -json.t), infoWindowOffset: new BMap.Size(json.lb + 5, 1), offset: new BMap.Size(json.x, json.h) })
+                        var icon = new BMap.Icon("http://apis.map.qq.com/uri/v1/marker", new BMap.Size(json.w, json.h), { imageOffset: new BMap.Size(-json.l, -json.t), infoWindowOffset: new BMap.Size(json.lb + 5, 1), offset: new BMap.Size(json.x, json.h) })
                         return icon;
                     }
 
