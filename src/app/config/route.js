@@ -80,32 +80,32 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
      url:'/economy/third',
      templateUrl:'app/in/economy/EconomyThird/thirdHome.html'
     })
-    .state('app.thirddetail.economy',{
+    .state('app.economy.economy',{
      url:'/economy/third/economy',
      templateUrl:'app/in/economy/EconomyThird/thirddetail.html',
      controller:'thirdgdpcontroller'
     })
-    .state('app.thirddetail.finance',{
+    .state('app.economy.finance',{
      url:'/economy/third/fianance',
      templateUrl:'app/in/economy/EconomyThird/thirdfinance/thirdfinance.html',
      controller:'thirdfinancecontroller'
     })
-    .state('app.thirddetail.thirdinvest',{
+    .state('app.economy.thirdinvest',{
      url:'/economy/third/invest',
      templateUrl:'app/in/economy/EconomyThird/thirdinvest/thirdinvest.html',
      controller:'thirdinvestcontroller'
     })
-    .state('app.thirddetail.thirdindustry',{
+    .state('app.economy.thirdindustry',{
      url:'/economy/third/industry',
      templateUrl:'app/in/economy/EconomyThird/thirdindustry/thirdindustry.html',
      controller:'thirdindustrycontroller'
     })
-    .state('app.thirddetail.thirdfisical',{
+    .state('app.economy.thirdfisical',{
      url:'/economy/third/fisical',
      templateUrl:'app/in/economy/EconomyThird/thirdfisical/thirdfisical.html',
      controller:'thirdfisicalcontroller'
     })
-    .state('app.thirddetail.select',{
+    .state('app.economy.select',{
      url:'/economy/third/select',
      templateUrl:'app/in/economy/EconomyThird/select.html'
     })

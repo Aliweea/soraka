@@ -73,6 +73,7 @@ import thirdfinancecontroller from './in/economy/EconomyThird/thirdfinance/third
 import thirdinvestcontroller from './in/economy/EconomyThird/thirdinvest/thirdinvest.js';
 import thirdindustrycontroller from './in/economy/EconomyThird/thirdindustry/thirdindustry.js';
 import thirdfisicalcontroller from './in/economy/EconomyThird/thirdfisical/thirdfisical.js';
+import thirdHomeCtrl from './in/economy/EconomyThird/thirdHomeCtrl.js';
 //环境模块Controller
 import environmentCtrl from './in/Environment/EnvironmentCtrl.js';
 import environmentlistCtrl from './in/Environment/one/EnvironmentlistCtrl.js';
@@ -215,6 +216,7 @@ angular.module('soraka',
   .controller('thirdinvestcontroller',thirdinvestcontroller)
   .controller('thirdindustrycontroller',thirdindustrycontroller)
   .controller('thirdfisicalcontroller',thirdfisicalcontroller)
+  .controller('thirdHomeCtrl',thirdHomeCtrl)
   // 环境controllers
   .controller('environmentCtrl', environmentCtrl)
   .controller('environmentlistCtrl', environmentlistCtrl)
