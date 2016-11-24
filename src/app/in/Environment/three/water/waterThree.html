@@ -1,28 +1,54 @@
-<ul id="waterTop" class="nav nav-tabs">
-    <li class="active" ng-click="show()">
-        <a style="font-size: 20px" data-toggle="tab">水环境概况</a>
-    </li>
-    <li ng-click="show2()">
-        <a style="font-size: 20px" data-toggle="tab">水环境分析</a>
-    </li>
-</ul>
+<style type="text/css">
+    .zhwaterthree {
+        width: 100%;
+    }
+    .zhwaterthree .nav-tabs > li > a {
+        font-size: 15px;
+        padding: 8px 0;
+        text-align: center;
+        border:none;
+        border-radius: none;
+        border-bottom: 3px solid rgb(204, 204, 204);
+        color: #777;
+    }
+    .zhwaterthree .nav-tabs > li.active > a {
+        font-size: 15px;
+        padding: 8px 0;
+        text-align: center;
+        border:none;
+        border-radius: none;
+        border-bottom: 3px solid #3399CC;
+        color: #333;
+        background-color: rgba(255,255,255,0.5);
+    }
+</style>
+<div class="zhwaterthree">
+    <ul id="waterTop" class="nav nav-tabs">
+        <li class="active" ng-click="show()" style="width: 50%;">
+            <a data-toggle="tab">水环境概况</a>
+        </li>
+        <li ng-click="show2()" style="width: 50%;">
+            <a data-toggle="tab">水环境分析</a>
+        </li>
+    </ul>
+</div>
 <div ng-show="tab1">
     <div style="margin-top:10px; margin-bottom: 5px;padding: 0px">
-        <button style="width: 32%; font-size: 13px" class="btn" ng-class="getButtonStatus(waterQualityStatus.status)"
+        <button style="width: 30%; font-size: 13px;margin-left: 2%;" class="btn" ng-class="getButtonStatus(waterQualityStatus.status)"
                 ng-click="waterQualityBtn()"><i class="fa fa-hand-o-right" aria-hidden="true"></i>&nbsp江河水质
         </button>
-        <button style="width: 32%; font-size: 13px" class="btn" ng-click="waterConditionBtn()"
+        <button style="width: 30%; font-size: 13px" class="btn" ng-click="waterConditionBtn()"
                 ng-class="getButtonStatus(waterConditionStatus.status)"><i class="fa fa-hand-o-right"
                                                                            aria-hidden="true"></i>&nbsp江河水情
         </button>
-        <button style="width: 32%; font-size: 13px" class="btn" ng-click="wasteWaterBtn()"
+        <button style="width: 30%; font-size: 13px" class="btn" ng-click="wasteWaterBtn()"
                 ng-class="getButtonStatus(wasteWaterStatus.status)"><i class="fa fa-hand-o-right"
                                                                        aria-hidden="true"></i>&nbsp工业废水
         </button>
     </div>
     <div style="height: 380px; border: #ccc solid 1px;" id="map_canvas"></div>
-    <div style="margin-top: 15px">
-        <div class="panel panel-primary">
+    <div>
+        <div class="panel panel-primary" style="border: none;padding-top: 15px;">
             <div ng-show="mapTableStatus.waterQuality">
                 <h5 align="left" style="padding-top: 0px">&nbsp(更新时间:&nbsp{{waterQualityCurrentDateTime.year + '-'
                     + waterQualityCurrentDateTime.month + '-'
@@ -38,7 +64,7 @@
                     </tr>
                 </table>
             </div>
-            <div style="overflow: auto;overflow-x:hidden;height: 240px" ng-show="mapTableStatus.waterQuality">
+            <div style="overflow: auto;overflow-x:hidden;" ng-show="mapTableStatus.waterQuality">
                 <table class="table table-striped" style="font-size:14px">
                     <tr ng-repeat="waterQualityOne in waterQualityMarkerList">
                         <td style="width:20%">{{waterQualityOne.monitor}}</td>
@@ -62,7 +88,7 @@
                     </tr>
                 </table>
             </div>
-            <div style="overflow: auto;overflow-x:hidden;height: 240px" ng-show="mapTableStatus.waterCondition">
+            <div style="overflow: auto;overflow-x:hidden;" ng-show="mapTableStatus.waterCondition">
                 <table class="table table-striped" style="font-size:14px">
                     <tr ng-repeat="waterConditionOne in waterConditionMarkerList">
                         <td style="width:30%">{{waterConditionOne.monitor}}</td>
@@ -85,7 +111,7 @@
                     </tr>
                 </table>
             </div>
-            <div style="overflow: auto; overflow-x:hidden;height:220px" ng-show="mapTableStatus.wasteWater">
+            <div style="overflow: auto; overflow-x:hidden;" ng-show="mapTableStatus.wasteWater">
                 <table class="table table-striped" style="font-size:14px">
                     <tr ng-repeat="wasteWaterOne in wasteWaterMarkerList">
                         <td style="width:25%">{{wasteWaterOne.monitor}}</td>
@@ -100,13 +126,13 @@
     </div>
 </div>
 <div ng-show="tab2">
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            水质分析<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
+    <div class="panel panel-primary" style="margin-top: 15px;border: none;border-bottom: 1px solid #3399CC;">
+        <div class="panel-heading" style="border-radius: none;font-size: 15px;background-color: #3399CC;padding: 8px 10px;color: #fff;border-bottom: none;">
+            水质分析
         </div>
         <div class="panel-body">
+            <!-- <a style="font-size: 13px;margin-left: 3px;display:block;margin-bottom:5px;color: #333;" href="#waterQualityAnchorTop" du-smooth-scroll>水质指标:</a>
             <nav class="navbar navbar-default" role="navigation" du-scroll-container="scroll-container">
-                <a style="font-size: 15px;margin-left: 3px" href="#waterQualityAnchorTop" du-smooth-scroll>水质指标</a>
                 <a href="#waterQualityAnchor1" style="margin-left: 3px;font-size: 13px"
                    class="btn btn-default navbar-btn" du-smooth-scroll>溶解氧</a>
                 <a href="#waterQualityAnchor2" style="margin-left: 3px;font-size: 13px"
@@ -115,7 +141,7 @@
                    class="btn btn-default navbar-btn" du-smooth-scroll>氨氮</a>
                 <a href="#waterQualityAnchor4" style="margin-left: 3px;font-size: 13px"
                    class="btn btn-default navbar-btn" du-smooth-scroll>总磷</a>
-            </nav>
+            </nav> -->
             <div style="border-right: 0.5px solid black; overflow: auto; height: 500px; display: inline-block; float: left"
                  id="scroll-container">
                 <p id="waterQualityAnchorTop"></p>
@@ -145,11 +171,11 @@
                 </div>
             </div>
             <p style="font-size: 15px;margin-left: 75%">水质监测点</p>
-            <div style="margin-left: 75%" class="radio" ng-repeat="waterQualityOne in waterQualityCurrentList">
+            <div style="margin-left: 75%;" class="radio" ng-repeat="waterQualityOne in waterQualityCurrentList">
                 <label>
                     <input id="waterMonitor" type="radio" ng-model="waterQualityCurrentListSelected"
                            ng-value="waterQualityOne.monitor"
-                           name="waterQualityCurrentListRadio" ng-click="waterQualityCurrentChange(waterQualityOne)">{{waterQualityOne.monitor}}
+                           name="waterQualityCurrentListRadio" ng-click="waterQualityCurrentChange(waterQualityOne)" style="position: relative;top: 3px;margin-right: 3px;">{{waterQualityOne.monitor}}
                 </label>
             </div>
             <!--<div style="margin-left: 75%;width: 20%">-->
@@ -183,13 +209,13 @@
             </div>
         </div>
     </div>
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            废水排放分析<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
+    <div class="panel panel-primary" style="margin-top: 15px;border: none;border-bottom: 1px solid #3399CC;">
+        <div class="panel-heading" style="border-radius: none;font-size: 15px;background-color: #3399CC;padding: 8px 10px;color: #fff;border-bottom: none;">
+            废水排放分析
         </div>
-        <div class="panel-body">
+        <div class="panel-body" style="padding: 10px 0">
         <span ng-repeat="wasteWaterOne in wasteWaterCurrentList">
-            <label>
+            <label style="margin-left: 15px;">
                 <input type="radio" ng-model="wasteWaterCurrentListSelected" ng-value="wasteWaterOne"
                        name="wasteWaterCurrentListRadio" ng-click="wasteWaterCurrentChange(wasteWaterOne)">{{wasteWaterOne}}
             </label>
@@ -197,13 +223,13 @@
             <highchart config="wasteWaterOptions.wasteWaterCurrentOption">废水排放</highchart>
         </div>
     </div>
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            水情分析<i class="fa fa-question-circle-o pull-right" aria-hidden="true"></i>
+    <div class="panel panel-primary" style="margin-top: 15px;border: none;border-bottom: 1px solid #3399CC;">
+        <div class="panel-heading" style="border-radius: none;font-size: 15px;background-color: #3399CC;padding: 8px 10px;color: #fff;border-bottom: none;">
+            水情分析
         </div>
-        <div class="panel-body">
+        <div class="panel-body" style="padding: 10px 0">
         <span ng-repeat="waterConditionOne in waterConditionCurrentList">
-            <label>
+            <label style="margin-left: 15px;">
                 <input type="radio" ng-model="waterConditionCurrentListSelected"
                        ng-value="waterConditionOne.monitor" name="waterConditionCurrentListRadio"
                        ng-click="waterConditionCurrentChange(waterConditionOne)">{{waterConditionOne.monitor}}
