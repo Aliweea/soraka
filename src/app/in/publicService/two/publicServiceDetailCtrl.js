@@ -12,6 +12,9 @@ export default($scope, $rootScope,$state, $stateParams, qService, dService, kpiR
         $(".navTopShowMark").hide(0); // 隐藏 KPI状态KPI分类
         $(".navbar3position").hide(0); // 隐藏 当前三级界面位置
 
+        $('.navTopShowhealthcare').hide(0);
+		$('.navTopShowtraffic').hide(0);
+
         $('#showshort').focus(); // 获取默认焦点
     }();
 
