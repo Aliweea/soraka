@@ -34,22 +34,21 @@
         </div>
         <div class="content">
             <div class="key-value-area">
-                <div class="title-area">
+                <label class="" style="font-size: 10px; margin-left: 5px;">
+                    <input type="radio" value="0" ng-model="barCountStationData1.type" ng-change='typeChange1(1)'> 查看受伤人数
+                </label>
+                <label class="" style="font-size: 10px; margin-left: 5px;">
+                    <input type="radio" value="2" ng-model="barCountStationData1.type" ng-change='typeChange1(2)'> 查看死亡人数
+                </label>
+                <label class="" style="font-size: 10px; margin-left: 5px;">
+                    <input type="radio" value="3" ng-model="barCountStationData1.type" ng-change='typeChange1(3)'> 查看直接财产损失
+                </label>
+                <br>
+                <div class="title-area" style="margin-top: 5px;">
                     <span class="title">一句话解读</span>
                     <br>
                 </div>
                 <span class="value">{{getDate.year}}年{{getDate.month}}月份全市交通事故{{barCountStationData1.title}} 总共 {{amountData.elseIndicator}} {{barCountStationData1.unit}}。</span>
-            </div>
-            <div class="key-value-area">
-                <label class="">
-                    <input type="radio" value="0" ng-model="barCountStationData1.type" ng-change='typeChange1(1)'> 查看受伤人数
-                </label>
-                <label class="">
-                    <input type="radio" value="2" ng-model="barCountStationData1.type" ng-change='typeChange1(2)'> 查看死亡人数
-                </label>
-                <label class="">
-                    <input type="radio" value="3" ng-model="barCountStationData1.type" ng-change='typeChange1(3)'> 查看直接财产损失
-                </label>
             </div>
             <div class="chart-area">
                 <highchart id="barCountStation" config="barCountStation1" style=""></highchart>
@@ -65,27 +64,26 @@
         </div>
         <div class="content">
             <div class="key-value-area">
-                <div class="title-area">
+                <label class="" style="font-size: 10px; margin-left: 5px;">
+                    <input type="radio" value="0" checked ng-model="lineChartData.type" ng-change='typeChange(0)'> 查看事故发生数
+                </label>
+                <label class="" style="font-size: 10px; margin-left: 5px;">
+                    <input type="radio" value="1" ng-model="lineChartData.type" ng-change='typeChange(1)'> 查看受伤人数
+                </label>
+                <label class="" style="font-size: 10px; margin-left: 5px;">
+                    <input type="radio" value="2" ng-model="lineChartData.type" ng-change='typeChange(2)'> 查看死亡人数
+                </label>
+                <label class="" style="font-size: 10px; margin-left: 5px;">
+                    <input type="radio" value="3" ng-model="lineChartData.type" ng-change='typeChange(3)'> 查看直接财产损失
+                </label>
+                <br>
+                <div class="title-area" style="margin-top: 5px;">
                     <span class="title">一句话解读</span>
                     <br>
                 </div>
                 <span class="value">{{getDate.year}}年全市交通事故{{lineChartData.title}} 总共 {{sumData.sumAccident}} {{lineChartData.unit}}</span>
             </div>
             <div class="chart-area">
-                <label class="">
-                    <input type="radio" value="0" checked ng-model="lineChartData.type" ng-change='typeChange(0)'> 查看事故发生数
-                </label>
-                <label class="">
-                    <input type="radio" value="1" ng-model="lineChartData.type" ng-change='typeChange(1)'> 查看受伤人数
-                </label>
-                <label class="">
-                    <input type="radio" value="2" ng-model="lineChartData.type" ng-change='typeChange(2)'> 查看死亡人数
-                </label>
-                <label class="">
-                    <input type="radio" value="3" ng-model="lineChartData.type" ng-change='typeChange(3)'> 查看直接财产损失
-                </label>
-            
-            
                 <highchart id="lineChart" config="lineChart" style="height:400px"></highchart>
             </div>
         </div>
