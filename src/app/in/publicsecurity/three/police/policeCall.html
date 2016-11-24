@@ -10,8 +10,27 @@
 .anchorBL {
     display: none;
 }
+.policethree .nav-tabs > li > a {
+    font-size: 15px;
+    padding: 8px 0;
+    text-align: center;
+    border:none;
+    border-radius: none;
+    border-bottom: 3px solid rgb(204, 204, 204);
+    color: #777;
+}
+.policethree .nav-tabs > li.active > a {
+    font-size: 15px;
+    padding: 8px 0;
+    text-align: center;
+    border:none;
+    border-radius: none;
+    border-bottom: 3px solid #3399CC;
+    color: #333;
+    background-color: rgba(255,255,255,0.5);
+}
 </style>
-<div class="xcmrefuse-module pentitionthree">
+<div class="xcmrefuse-module pentitionthree policethree">
     <div ui-state="activeTab" default="1">
         <ul class="nav nav-tabs plice-call-tab">
             <li ui-class="{'active': activeTab == 1}" style="width: 50%">
@@ -34,7 +53,7 @@
                             </div>
                             <span class="value">{{getDate.year}}年{{getDate.month}}月太仓市公安局共接警数为  {{totalData.month}} 起。</span>
                         </div>     
-                        <div class="key-value-area">
+                        <div class="key-value-area" style="padding: 0;">
                             <div class="chart-area">
                                 <highchart config="kpiPieChart" id="kpiPieChart"></highchart>
                             </div>                                
@@ -46,7 +65,7 @@
                         各单位接警信息
                     </div>
                    <div class="content">                           
-                        <div class="key-value-area">
+                        <div class="key-value-area" style="padding: 0;">
                             <div class="chart-area">
                                 <highchart config="kpiBarChart" id="kpiBarChart" style="height: 700px"></highchart>
                             </div>                                
@@ -62,7 +81,7 @@
                         各类报警案件趋势
                     </div>
                    <div class="content">   
-                        <div class="key-value-area">
+                        <div class="key-value-area" style="padding: 0;">
                             <div class="chart-area">
                                 <highchart config="lineChart" id="lineChart"></highchart>
                             </div>                                
@@ -74,7 +93,7 @@
                         太仓市各类报警案件总数
                     </div>
                     <div class="content">   
-                        <div class="key-value-area">
+                        <div class="key-value-area" style="padding: 0;">
                             <div class="chart-area">
                                 <highchart config="barTypeChart" id="barTypeChart"></highchart>
                             </div>                                

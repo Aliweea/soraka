@@ -17,16 +17,17 @@
             治安案件警情动态                   
         </div>
         <div class="content " >
-                <div class="chart-area " >
-                    <h5><span class="label label-info ">太仓市{{getDate.year}}年{{getDate.month}}月份各地区治安形势图</span></h5>
-                    <highchart class="ps-map-border" config="criminalMap" id="criminalMap"></highchart>
-                </div>
-
-                <div class="key-value-area">
+            <div class="key-value-area">
                 <div class="title-area">
                     <span class="title">一句话解读</span><br>
                 </div>
                 <span class="value"><p>{{getDate.year}}年{{getDate.month}}月份全市发生各类治安案件总数 {{totalData.month}} 起。</p></span>
+                <div class="title-area">
+                    <span class="title">太仓市{{getDate.year}}年{{getDate.month}}月份各地区治安形势图</span><br>
+                </div>
+                <div style="padding: 10px 0;">
+                    <highchart style="border: 1px solid rgb(204, 204, 204);" config="criminalMap" id="criminalMap"></highchart>
+                </div>
             </div>
         </div>              
     </div>                  

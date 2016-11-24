@@ -11,23 +11,26 @@
         display: none;
     }
 </style>
-    <div class="xcmrefuse-module pentitionthree" >
+<div class="xcmrefuse-module pentitionthree" >
     <div class="d1" id="top">
-            <div class="bar">
-                刑事案件警情动态                   
-            </div>
-            <div class="content">
-                    <div class="chart-area">
-                        <h5><span class="label label-info">太仓市{{getDate.year}}年{{getDate.month}}月份各地区刑事形势图</span></h5>
-                        <highchart class="ps-map-border" config="criminalMap" id="criminalMap"></highchart>
-                    </div>  
-                    <div class="key-value-area">
+        <div class="bar">
+            刑事案件警情动态                   
+        </div>
+        <div class="content " >
+            <div class="key-value-area">
                 <div class="title-area">
                     <span class="title">一句话解读</span><br>
                 </div>
-                <span class="value">{{getDate.year}}年{{getDate.month}}月份全市发生各类刑事案件总数 {{totalData.month}} 起。</span>
-            </div>           
-        </div>
+                <span class="value"><p>{{getDate.year}}年{{getDate.month}}月份全市发生各类刑事案件总数 {{totalData.month}} 起。</p></span>
+                <div class="title-area">
+                    <span class="title">太仓市{{getDate.year}}年{{getDate.month}}月份各地区刑事形势图</span><br>
+                </div>
+                <div style="padding: 10px 0;">
+                    <highchart style="border: 1px solid rgb(204, 204, 204);" config="criminalMap" id="criminalMap"></highchart>
+                </div>
+            </div>
+        </div>              
+    </div>
     <div class="d2">
         <div class="bar">
             各类刑事案件详情                       
@@ -43,7 +46,7 @@
                 各派出所刑事案件详情                       
             </div>
             <div class="content">
-                <div class="key-value-area">
+                <div class="key-value-area" style="padding: 0;">
                     <div class="chart-area">
                         <highchart config="kpiBarChart" id="kpiBarChart"></highchart>
                     </div>                                
@@ -61,7 +64,7 @@
                     </div>
                     <span class="value">{{getDate.year}}年截止{{getDate.month}}月末全市发生各类刑事案件总数 {{totalData.year}} 起。</span>
                 </div>     
-                <div class="key-value-area">
+                <div class="key-value-area" style="padding: 0;">
                     <div class="chart-area">
                         <highchart config="columnChart" id="columnChart"></highchart>
                         <highchart config="mainCaseColumnChart" id="mainCaseColumnChart"></highchart>
