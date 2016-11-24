@@ -4,7 +4,7 @@ export default ($scope,dateService,dictService,generalService,dataDetailFactory,
  var height = $(window).height();
  var bottomheight = $('.navbar-absolute-bottom').height();
 $scope.newheight = height*0.78;
- 
+ $(".navbar2detail").hide(0); 
  // $('.scrollable').css('height',$(window).height()-200);
  $scope.InvestValueChart = {
       options: {

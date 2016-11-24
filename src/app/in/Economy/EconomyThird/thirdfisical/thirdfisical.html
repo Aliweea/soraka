@@ -10,7 +10,7 @@
   </ul>
 
   <div ng-if="newtab1">
-  <div class="scrollable"style="margin-top: 100px;height:{{newheight}}px">
+  <div class="scrollable"style="margin-top:50px;height:{{newheight}}px">
   <div class="scrollable-content" >    
     <div style="height: 30px; display: flex;display: -webkit-flex;flex-direction: row;justify-content: center;align-items: center;">
       <div style="width: 100%;height: 30px;box-shadow: 3px 3px 6px -4px white;border-radius: 5px;display: flex;display: -webkit-flex;flex-direction: row;justify-content: center;align-items: center;">
@@ -62,16 +62,15 @@
   </div>
 
   <div ng-if="newtab2">
-  <div class="scrollable"style="margin-top: 100px;height:{{newheight}}px">
+  <div class="scrollable"style="margin-top: 50px;height:{{newheight}}px">
   <div class="scrollable-content" ng-click="show()">
      <div style="height: 30px; display: flex;display: -webkit-flex;flex-direction: row;justify-content: center;align-items: center;">
       <div style="width: 100%;height: 30px;box-shadow: 3px 3px 6px -4px white;border-radius: 5px;display: flex;display: -webkit-flex;flex-direction: row;justify-content: center;align-items: center;">
       <span style="font-size: 2em">金融数据全年走势</span>
       </div>
       </div>
-     <div style="height: 40px;display: flex;display: -webkit-flex;flex-direction: row;justify-content: center;align-items: center;">
+     <div style="height: 40px;display: flex;display: -webkit-flex;flex-direction: row;justify-content: space-around;align-items: center;">
        <span class="label label-primary">统计局</span>
-        <span class="label" style="color: black;margin-left: 5px">时间:{{lastestObject.year}} 年 {{lastestObject.month}} 月</span>
          <span class="label" style="color: black">每月更新</span>
      </div>
         <div class="panel-group" ui-state="myAccordion" ui-default="2">
@@ -110,16 +109,3 @@
 
   
 </div>
-<div class="navbar navbar-app navbar-absolute-bottom">
-   <div class="btn-group btn-group-justified">
-  <div class="btn-group">
-    <a type="button" class="btn btn-default" ui-sref="app.economy.economylist({categoryId:3})" style="color: gray">返回上页</a>
-  </div>
-  <div class="btn-group">
-    <a type="button" class="btn btn-default" ui-turn-on="modal2"></a>
-  </div>
-  <div class="btn-group">
-    <a type="button" class="btn btn-default" ui-turn-off="modal2"></a>
-  </div>
-</div>
-  </div>
