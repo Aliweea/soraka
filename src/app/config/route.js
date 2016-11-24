@@ -75,11 +75,6 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       templateUrl: 'app/in/economy/two/economydetail.html',
       controller: 'economydetailCtrl'
     })
-    .state('app.thirddetail',{
-     abstract:true,
-     url:'/economy/third',
-     templateUrl:'app/in/economy/EconomyThird/thirdHome.html'
-    })
     .state('app.economy.economy',{
      url:'/economy/third/economy',
      templateUrl:'app/in/economy/EconomyThird/thirddetail.html',
