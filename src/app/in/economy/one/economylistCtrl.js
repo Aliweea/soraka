@@ -1,7 +1,10 @@
 export default($scope, qService, kpiRes, $state, dateService, hService) => {
 	'ngInject';
 	hService.state($state);
-
+	$scope.registerHistory = () => {
+        hService.register($state); // 向下级跳转则将当前位置计入历史记录
+    }
+    
 	$(".navbar2return").show(0); // 隐藏返回按钮 
     $(".navbar2detail").hide(0); 
 	$(".navTopShowMark").show(0); // 显示KPI状态 KPI分类

@@ -3,8 +3,8 @@ export default($scope, $state, hService, xService, kpiRes, qService, $rootScope)
 	$scope.title = "经济";
 	// 上一级路由
 	$scope.toH = () => {
-    hService.back();
-  }
+	    hService.back();
+	  }
 	
 	$scope.changeState = (state) => {
 		let categoryId = hService.state().params.categoryId;
@@ -28,7 +28,7 @@ export default($scope, $state, hService, xService, kpiRes, qService, $rootScope)
 	}
 
 	$scope.toDetail = () => {
-    hService.register($state);
+    	hService.register($state);
 		switch($scope.currentCategoryName) {
 			case "国内生产总值":
 				$state.go("app.economy.economy");

@@ -1,5 +1,8 @@
 <div class="cm-refuse-module">
-	<div ng-repeat="data in items" ui-sref="app.economy.detail({kpiId:data.id})" class="cm-refuse-item">
+	<div class="title-area">
+		<span>经济</span><i class="fa fa-angle-right title-i" aria-hidden="true"></i><span>{{currentCategoryName}}KPI总览</span>
+	</div>
+	<div ng-repeat="data in items"  ng-click="registerHistory()" ui-sref="app.economy.detail({kpiId:data.id})" class="cm-refuse-item">
 		<div class="cm-refuse-top">
 			<span>{{data.name}}</span><i ng-class="data.data.status">{{data.data.status | kpiStatusTextFilter}}</i>
 		</div>
