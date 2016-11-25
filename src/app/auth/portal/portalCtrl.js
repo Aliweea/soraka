@@ -2,7 +2,7 @@
 * 登陆控制器
 * --Mondooo
 */
-export default ($scope, $localStorage, $timeout, $state, $q, $sessionStorage, qService, accountRes, AuthTool) => {
+export default ($scope, $rootScope, $localStorage, $timeout, $state, $q, $sessionStorage, qService, accountRes, AuthTool) => {
     'ngInject';
 
     let TOKEN_KEY  = 'x-auth-token',
@@ -83,6 +83,14 @@ export default ($scope, $localStorage, $timeout, $state, $q, $sessionStorage, qS
     $(function() {
         let contentH = 446; // 内容高度
         let clientH = $(window).height(); // 视口高度
+        let clientW = $(window).width(); // 视口高度
+        // 解决输入法弹窗bug
+        if (clientH > clientW) {
+            $rootScope.clientMax = $(window).height(); // 视口高度
+        } else {
+            $rootScope.clientMax = $(window).width(); // 视口宽度
+        }
+        // ! 解决输入法弹窗bug
         if (contentH < clientH) {
             let marginT = (clientH - contentH) / 2;
             $(".index-module").css("margin-top", marginT + "px");

@@ -42,13 +42,17 @@ export default ($scope, $rootScope, qService, kpiRes, xService, toolService) => 
 		let clientW = $(window).width();
 		if (clientW < clientH) { // 竖屏
 			$(".list-group-item-side").css("height", "126px");
-
-			let midH = clientH - 126 * 2 - 51 * 2;
+            let midH = clientH - 126 * 2 - 51 * 2;
+            if ($rootScope.clientMax !== undefined) { // 解决输入法弹窗bug
+                let midH = $rootScope.clientMax - 126 * 2 - 51 * 2;    
+            }
 			$("#list-group-middle").height(midH);
 		} else {
 			$(".list-group-item-side").css("height", "126px");
-
-			let midH = clientW - 126 * 2 - 51 * 2;
+            let midH = clientW - 126 * 2 - 51 * 2;
+            if ($rootScope.clientMax !== undefined) {
+                let midH = $rootScope.clientMax - 126 * 2 - 51 * 2;
+            }
 			$("#list-group-middle").height(midH);
 		}
 	}();
