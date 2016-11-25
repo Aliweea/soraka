@@ -24,6 +24,10 @@ export default($scope, $stateParams, qService, kpiRes, dateService, hService, $s
             $scope.deptname = rawData[0].department.name;
             let filtedData = [];
             for (var i = 0; i < rawData.length; i++) {
+                if (state === "ALL") {
+                    filtedData.push(rawData[i]);
+                    continue;
+                }
                 if (rawData[i].data.status == state) {
                     filtedData.push(rawData[i]);
                 }

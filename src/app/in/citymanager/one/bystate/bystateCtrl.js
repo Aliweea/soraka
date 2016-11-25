@@ -30,6 +30,10 @@ export default($scope, $rootScope, $stateParams, qService, kpiRes, dateService, 
             $scope.deptname = rawData[0].department.name;
             let filtedData = [];
             for (var i = 0; i < rawData.length; i++) {
+                if (state === "ALL") {
+                    filtedData.push(rawData[i]);
+                    continue;
+                }
             	if (rawData[i].data.status == state) {
             		filtedData.push(rawData[i]);
             	}
@@ -42,7 +46,6 @@ export default($scope, $rootScope, $stateParams, qService, kpiRes, dateService, 
         if (err.errorCode == "UNAUTHORIZED") {
             $state.go('portal');
         } else {
-
         }
     }).finally(() => {
         $rootScope.loading = false;
