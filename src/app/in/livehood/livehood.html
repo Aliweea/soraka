@@ -71,6 +71,8 @@
 			ui-show="kpiStatusDropdown"
 			ui-state="kpiStatusDropdown"
 			ui-turn-off="kpiStatusDropdown">
+			<li><a ng-click="changeState('ALL')">全部</a></li>
+			<li class="divider"></li>
 			<li><a ng-click="changeState('GREEN')" class="clevel1">可接受</a></li>
 			<li class="divider"></li>
 			<li><a ng-click="changeState('YELLOW')" class="clevel2">轻微问题</a></li>
