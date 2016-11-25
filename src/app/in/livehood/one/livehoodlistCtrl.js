@@ -1,4 +1,4 @@
-export default($scope, qService, kpiRes, $state, dateService, hService) => {
+export default($scope, $rootScope, qService, kpiRes, $state, dateService, hService) => {
 	'ngInject';
 	hService.state($state);
 	$scope.registerHistory = () => {
