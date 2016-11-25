@@ -4,11 +4,11 @@ export default (dataDetailFactory, $sessionStorage) => {
 	var error_conf = {
 		ttl: 4000
 	};
-    
+    let TOKEN_KEY = 'x-auth-token';
 	return {
 		query: function(tableName, fromDate, endDate, successProcess) {
 			dataDetailFactory.query({
-				'x-auth-token': $sessionStorage[TOKEN_KEY];
+				'x-auth-token': $sessionStorage[TOKEN_KEY]
 			}).get({
 					tableName: tableName,
 					start: fromDate,
@@ -23,7 +23,7 @@ export default (dataDetailFactory, $sessionStorage) => {
 		},
 		advancedQuery: function(tableName, advancedQueryConfig, successProcess) {
 			dataDetailFactory.advancedQuery({
-				'x-auth-token': $sessionStorage[TOKEN_KEY];
+				'x-auth-token': $sessionStorage[TOKEN_KEY]
 			}).post({
 					tableName: tableName,
 				},
@@ -37,7 +37,7 @@ export default (dataDetailFactory, $sessionStorage) => {
 		},
 		getLastestObject: function(tableName, sortArr, successProcess) {
 			dataDetailFactory.lastestObject({
-				'x-auth-token': $sessionStorage[TOKEN_KEY];
+				'x-auth-token': $sessionStorage[TOKEN_KEY]
 			}).post({
 					tableName: tableName,
 				},

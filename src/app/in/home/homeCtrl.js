@@ -55,5 +55,4 @@ export default ($scope, $rootScope, qService, kpiRes, xService, toolService) => 
 			$("#list-group-middle").height(midH);
 		}
 	}();
-	$rootScope.loading = false;
 };

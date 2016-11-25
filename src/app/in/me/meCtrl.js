@@ -12,7 +12,7 @@ export default($scope, qService, accountRes, AuthTool, $state, $rootScope) => {
     let headers = {
         
     };
-    $rootScope.loading = false;
+    $rootScope.loading = true;
     qService.httpGetWithToken(accountRes.accountById, params,headers).then((data) => {
         if (data.errorCode == "NO_ERROR") {
             $scope.meData = data.data;

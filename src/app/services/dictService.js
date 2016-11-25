@@ -1,6 +1,7 @@
 export default (dictFactory, $sessionStorage) => {
   'ngInject';
-     
+    
+  let TOKEN_KEY = 'x-auth-token';
    return{
     zoneDict:()=>{
        var zones = [{
@@ -38,7 +39,7 @@ export default (dictFactory, $sessionStorage) => {
     },
     getType:() => {
      dictFactory.getType({
-      'x-auth-token': $sessionStorage[TOKEN_KEY];
+      'x-auth-token': $sessionStorage[TOKEN_KEY]
     }).get({
         id: typeId
       },
@@ -52,7 +53,7 @@ export default (dictFactory, $sessionStorage) => {
 
    getDictListByType:(typeId) => {
     dictFactory.getDictListByType({
-      'x-auth-token': $sessionStorage[TOKEN_KEY];
+      'x-auth-token': $sessionStorage[TOKEN_KEY]
     }).get({
         id: typeId
       },

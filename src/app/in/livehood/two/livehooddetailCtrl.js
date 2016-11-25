@@ -19,6 +19,7 @@ export default($scope, $rootScope, $stateParams, qService, dService, kpiRes, dat
 	* 根据数据的时间粒度设置当前kpi界面的前置数据
 	*/
 	const cmConfig = () => {
+		$rootScope.loading = true;
 		qService.httpGetWithToken(kpiRes.singlekpi, {
 			"currentDate": dateStr,
 			"kpiId": kpiId
@@ -32,7 +33,9 @@ export default($scope, $rootScope, $stateParams, qService, dService, kpiRes, dat
 	        if (err.errorCode == "UNAUTHORIZED") {
 	            $state.go('portal');
 	        } else {}
-	    });
+	    }).finally(() => {
+		    $rootScope.loading = false;
+		});
 	}();
 	
 	const main = (config) => {

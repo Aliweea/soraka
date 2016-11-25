@@ -67,7 +67,7 @@ export default($scope, $state, hService, qService, xService, kpiRes, $rootScope)
 	let headers = {
 		
     };
-	$rootScope.loading = false;
+	$rootScope.loading = true;
     qService.httpGetWithToken(kpiRes.blueMap, {}, headers).then((data) => {
         if (data.errorCode == "NO_ERROR") {
         	let t = data.data;

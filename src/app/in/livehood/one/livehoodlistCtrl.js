@@ -24,6 +24,7 @@ export default($scope, qService, kpiRes, $state, dateService, hService) => {
 	let headers = {
 		
 	};
+	$rootScope.loading = true;
 	qService.httpGetWithToken(kpiRes.categorykpi, params,headers).then((data) => {
         if (data.errorCode == "NO_ERROR") {
             $scope.cmRefuseData = data.data.data;
@@ -37,5 +38,7 @@ export default($scope, qService, kpiRes, $state, dateService, hService) => {
         } else {
 
         }
+    }).finally(() => {
+        $rootScope.loading = false;
     });
 }

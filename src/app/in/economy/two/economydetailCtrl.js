@@ -15,6 +15,7 @@ export default($scope, $rootScope, $state, $stateParams, qService, dService, kpi
 	* 根据数据的时间粒度设置当前kpi界面的前置数据
 	*/
 	const cmConfig = () => {
+		$rootScope.loading = true;
 		qService.httpGetWithToken(kpiRes.singlekpi, {
 			"currentDate": dateStr,
 			"kpiId": kpiId
@@ -28,6 +29,8 @@ export default($scope, $rootScope, $state, $stateParams, qService, dService, kpi
 	        if (err.errorCode == "UNAUTHORIZED") {
 	            $state.go('portal');
 	        } else {}
+	    }).finally(() => {
+	        $rootScope.loading = false;
 	    });
 	}();
 	
@@ -53,7 +56,7 @@ export default($scope, $rootScope, $state, $stateParams, qService, dService, kpi
 		        } else {
 
 		        }
-		    });		
+		    });
 		};
 		// 长走势
 		$scope.longShow = () => {
@@ -69,7 +72,7 @@ export default($scope, $rootScope, $state, $stateParams, qService, dService, kpi
 		        if (err.errorCode == "UNAUTHORIZED") {
 		            $state.go('portal');
 		        } else {}
-		    });		
+		    });	
 		}
 		$scope.shortShow();
 	}

@@ -64,7 +64,7 @@ export default($scope, $state, hService, qService, xService, kpiRes, $rootScope)
 	xService.h("livehood", ["2003", "2004", "2001"]);
 	let headers = {
     };
-	$rootScope.loading = false;
+	$rootScope.loading = true;
     qService.httpGetWithToken(kpiRes.blueMap, {}, headers).then((data) => {
         if (data.errorCode == "NO_ERROR") {
         	let t = data.data;
