@@ -19,6 +19,7 @@ export default ($scope, qService, generalService, dataDetailFactory, $http, $loc
     $scope.isLink1 = true;
     $scope.tab1 = true;
     $scope.tab2 = false;
+    $scope.isToggle = true;
     $scope.show1 = () => {
         $scope.tab1 = true;
         $scope.tab2 = false;
