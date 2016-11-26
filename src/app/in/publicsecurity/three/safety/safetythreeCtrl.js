@@ -658,8 +658,8 @@ export default ($anchorScroll, $location,$rootScope, $scope, $state, dateService
                 $scope.typeChange = function(type) { //折线
                     $scope.lineChartData.categories = [];
                     $scope.lineChartData.data = [];
-                    $location.hash('safetyBot');//尝试移动锚点
-                    $anchorScroll();//别忘记注入$location, $anchorScroll
+                    //$location.hash('safetyBot');//尝试移动锚点
+                    //$anchorScroll();//别忘记注入$location, $anchorScroll
                     var titles = ['事故发生数(起)', '受伤人数(人)', '死亡人数(人)', '直接财产损失(万元)']
                     var units = ['起', '人', '人', '万元']
                     var s = 0;
