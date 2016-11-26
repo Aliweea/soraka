@@ -79,7 +79,7 @@ function splineHighChart(height, categories, callFunc) {
     },
     yAxis: {
       title: {
-        text: '价格指数'
+        text: ''
       },
       labels: {
         formatter: function() {
