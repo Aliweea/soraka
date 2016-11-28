@@ -540,6 +540,7 @@ export default ($anchorScroll, $location, $rootScope, $scope, $state, dateServic
                         stationsPoints.push(arr);
                         var point = new BMap.Point(p0, p1);
                         var iconImg = createIcon(json.icon);
+                        //var marker = new BMap.Marker(point, { icon: iconImg });
                         var marker = new BMap.Marker(point, { icon: iconImg });
                         //var iw = createInfoWindow(i);
                         var label = new BMap.Label(json.title, { "offset": new BMap.Size(json.icon.lb - json.icon.x + 10, -20) });
@@ -596,7 +597,7 @@ export default ($anchorScroll, $location, $rootScope, $scope, $state, dateServic
                 }
                 //创建一个Icon
                 function createIcon(json) {
-                    var icon = new BMap.Icon("http://app.baidu.com/map/images/us_mk_icon.png", new BMap.Size(json.w, json.h), { imageOffset: new BMap.Size(-json.l, -json.t), infoWindowOffset: new BMap.Size(json.lb + 5, 1), offset: new BMap.Size(json.x, json.h) })
+                    var icon = new BMap.Icon("/assets/images/Environment/marker_sprite.png", new BMap.Size(json.w, json.h), { imageOffset: new BMap.Size(-json.l, -json.t), infoWindowOffset: new BMap.Size(json.lb + 5, 1), offset: new BMap.Size(json.x, json.h) })
                     return icon;
                 }
 
