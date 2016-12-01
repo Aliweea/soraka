@@ -10,12 +10,17 @@ export default ($scope, $rootScope, $localStorage, $timeout, $state, $q, $sessio
         PASSWORD   = 'password',
         AUTOLOGIN  = 'ioc-kpi-autologin';
 
+    // 密码加密函数
+    const encryptPassword = (password) => {
+        var password_ran = password + 'py458as586_v2';
+        return md5(password_ran);
+    }
     // 自动登录
     const autoLogin = () => {
         if ($localStorage[AUTOLOGIN] && $localStorage[USERNAME] && $localStorage[PASSWORD]) {
             let info = {
                 'X-Username': $localStorage[USERNAME],
-                'X-Password': $localStorage[PASSWORD]
+                'X-Password': encryptPassword($localStorage[PASSWORD])
             };
             qService.httpPost(accountRes.account, {}, info, {}).then((data) => {
                 if (data.errorCode == "NO_ERROR") {
@@ -37,6 +42,7 @@ export default ($scope, $rootScope, $localStorage, $timeout, $state, $q, $sessio
         }
     }();
 
+    $scope.isAutoLogin = true;
     $scope.login = () => {
     	if (isNull($scope.loginAccount)) {
     		$scope.errMessage = "账号不能为空!";
@@ -99,9 +105,5 @@ export default ($scope, $rootScope, $localStorage, $timeout, $state, $q, $sessio
         }
     });
     // ~ private methods
-  // 密码加密函数
-  const encryptPassword = (password) => {
-    var password_ran = password + 'py458as586_v2';
-    return md5(password_ran);
-  }
+  
 };
