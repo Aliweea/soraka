@@ -105,7 +105,9 @@ body {
   margin-top: -25px;
 }
 .nodisplay {
-  display: none;
+  min-height: 0 !important;
+  height: 0;
+  border-bottom: 2px solid $bgDarkBlue;
 }
 .nopaddingbottom {
   padding-bottom: 0 !important;
