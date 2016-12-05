@@ -1,5 +1,6 @@
-export default ($scope, qService, generalService, dataDetailFactory, $http, $location) => {
+export default ($scope, $rootScope, qService, generalService, dataDetailFactory, $http, $location) => {
     'ngInject';
+    $rootScope.loading = true;
     const jQueryDOMToDos = () => {
         $(".navbar2return").hide(0); // 隐藏下面的返回按钮
         $(".insurance-return").show(0); // 显示上面的返回按钮
@@ -482,7 +483,9 @@ export default ($scope, qService, generalService, dataDetailFactory, $http, $loc
                 BALANCECOLUMNDATALIST: new detailListObject(5, ["收入", "支出", "结余"])
             }
             getDataAll(entityName, $scope.LATESTYEAR);
-        })
+        }).finally(() => {
+            $rootScope.loading = false;
+        });
     }
 
     function getDataAll(entityName, year) {
@@ -609,7 +612,9 @@ export default ($scope, qService, generalService, dataDetailFactory, $http, $loc
             $scope.ALLOPTION.ENGAGESTACKCOLUMN.options.title.text = "太仓市近5年" + $scope.CURRENTINSURANCE + $scope.chartSuffix + "情况";
             $scope.ALLOPTION.ENGAGESTACKCOLUMN.series = $scope.ALLDATA[entityName].ENGAGESTACKCOLUMNDATALIST.data;
             clickEventOfEngageStackColumn(entityName, year);
-        })
+        }).finally(() => {
+            $rootScope.loading = false;
+        });
     }
 
     function clickEventOfIncomeSpline(entityName, year) {

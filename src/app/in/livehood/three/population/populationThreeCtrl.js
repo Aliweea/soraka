@@ -1,6 +1,6 @@
-export default ($scope, $state, $location, qService, dataDetailFactory, generalService) => {
+export default ($scope, $rootScope, $state, $location, qService, dataDetailFactory, generalService) => {
 	'ngInject';
-
+	$rootScope.loading = true;
 	const jQueryDOMToDos = () => {
 		$(".insurance-return").show(0); // 显示上面的返回按钮
         $(".homepage").hide(0); // 隐藏主页键
