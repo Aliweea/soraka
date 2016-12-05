@@ -1,6 +1,7 @@
 export default($scope, dateService) => {
     'ngInject';
-
+	$('#sorakaHomeFooter').removeClass("nodisplay");
+    $('#sorakaHomeBody').removeClass("nopaddingbottom");
     // 隐藏topbar上的logout按钮
     $('#home_logout').hide(0);
     $('#footlabel').hide(0);

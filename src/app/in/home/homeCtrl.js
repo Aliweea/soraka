@@ -35,24 +35,26 @@ export default ($scope, $rootScope, qService, kpiRes, xService, toolService) => 
     });
 
     // 适应屏幕高度
-    $rootScope.loading = true;
 	const adjustLayout = () => {
 		let clientH = $(window).height();
 		let clientW = $(window).width();
 		if (clientW < clientH) { // 竖屏
 			$(".list-group-item-side").css("height", "126px");
-            let midH = clientH - 126 * 2 - 51 * 2;
+            let midH = clientH - 126 * 2 - 51;
             if ($rootScope.clientMax !== undefined) { // 解决输入法弹窗bug
-                midH = $rootScope.clientMax - 126 * 2 - 51 * 2;    
+                midH = $rootScope.clientMax - 126 * 2 - 51;    
             }
 			$("#list-group-middle").height(midH);
 		} else {
 			$(".list-group-item-side").css("height", "126px");
-            let midH = clientW - 126 * 2 - 51 * 2;
+            let midH = clientW - 126 * 2 - 51;
             if ($rootScope.clientMax !== undefined) {
-                midH = $rootScope.clientMax - 126 * 2 - 51 * 2;
+                midH = $rootScope.clientMax - 126 * 2 - 51;
             }
 			$("#list-group-middle").height(midH);
 		}
+        // 去掉底部的bar
+        $('#sorakaHomeFooter').addClass("nodisplay");
+        $('#sorakaHomeBody').addClass("nopaddingbottom");
 	}();
 };
