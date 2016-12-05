@@ -1,5 +1,6 @@
-export default ($scope,dateService,dictService,generalService,dataDetailFactory,qService) => {
+export default ($scope,$rootScope,dateService,dictService,generalService,dataDetailFactory,qService) => {
   'ngInject';
+  $rootScope.loading = true;
     //获取当前数据项的最新时间
     $(".navbar2detail").hide(0); 
     var height = $(window).height();
@@ -79,6 +80,8 @@ export default ($scope,dateService,dictService,generalService,dataDetailFactory,
         }
         renderCharts();
         renderTables();
+      }).finally(() => {
+          $rootScope.loading = false;
       });
     };
 

@@ -1,5 +1,6 @@
-export default ($scope,dateService,dictService,generalService,dataDetailFactory,qService) => {
+export default ($scope,$rootScope,dateService,dictService,generalService,dataDetailFactory,qService) => {
   'ngInject';
+  $rootScope.loading = true;
 var height = $(window).height();
 $(".navbar2detail").hide(0); 
 $scope.newheight = height*0.78;
@@ -257,6 +258,8 @@ $scope.firstchart = {
             setTargetChart('QS', mapKey, i);
           }
         });
+      }).finally(() => {
+          $rootScope.loading = false;
       });
     };
 

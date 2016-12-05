@@ -1,5 +1,6 @@
-export default ($scope,dateService,dictService,generalService,dataDetailFactory,qService) => {
+export default ($scope,$rootScope,dateService,dictService,generalService,dataDetailFactory,qService) => {
   'ngInject';
+  $rootScope.loading = true;
     var year = 2014;
     /*************************
      * 图表定义
@@ -356,6 +357,8 @@ $scope.newheight = height*0.78;
             setTargetChart('QS', mapKey, i);
           }
         });
+      }).finally(() => {
+          $rootScope.loading = false;
       });
     };
 

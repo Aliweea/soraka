@@ -1,5 +1,6 @@
 export default ($scope,$rootScope,$stateParams,dateService,generalService,dataDetailFactory,qService,hService) => {
   'ngInject';
+  $rootScope.loading = true;
 $scope.toH = () => {
     hService.back();
   }
@@ -90,6 +91,8 @@ var radialObj = $('#indicatorContainer').data('radialIndicator');
         $scope.GDPaccm = $scope.dataMap.ACCM_GDP.chartData[0].accmAmount;
         $scope.GDPaccmRate = $scope.dataMap.ACCM_GDP.chartData[0].accmRate;
         renderCharts();
+      }).finally(() => {
+          $rootScope.loading = false;
       });
     }
 
