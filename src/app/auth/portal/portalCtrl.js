@@ -5,6 +5,12 @@
 export default ($scope, $rootScope, $localStorage, $timeout, $state, $q, $sessionStorage, qService, accountRes, AuthTool) => {
     'ngInject';
 
+    // 密码加密函数
+    const encryptPassword = (password) => {
+        var password_ran = password + 'py458as586_v2';
+        return md5(password_ran);
+    }
+    
     let TOKEN_KEY  = 'x-auth-token',
         USERNAME   = 'username',
         PASSWORD   = 'password',
@@ -15,7 +21,7 @@ export default ($scope, $rootScope, $localStorage, $timeout, $state, $q, $sessio
         if ($localStorage[AUTOLOGIN] && $localStorage[USERNAME] && $localStorage[PASSWORD]) {
             let info = {
                 'X-Username': $localStorage[USERNAME],
-                'X-Password': $localStorage[PASSWORD]
+                'X-Password': encryptPassword($localStorage[PASSWORD])
             };
             qService.httpPost(accountRes.account, {}, info, {}).then((data) => {
                 if (data.errorCode == "NO_ERROR") {
@@ -36,6 +42,8 @@ export default ($scope, $rootScope, $localStorage, $timeout, $state, $q, $sessio
             });
         }
     }();
+
+    $scope.isAutoLogin = true; // 默认勾选自动登录
 
     $scope.login = () => {
     	if (isNull($scope.loginAccount)) {
@@ -99,9 +107,5 @@ export default ($scope, $rootScope, $localStorage, $timeout, $state, $q, $sessio
         }
     });
     // ~ private methods
-  // 密码加密函数
-  const encryptPassword = (password) => {
-    var password_ran = password + 'py458as586_v2';
-    return md5(password_ran);
-  }
+  
 };
