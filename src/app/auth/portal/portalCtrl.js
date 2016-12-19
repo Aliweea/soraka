@@ -17,10 +17,10 @@ export default ($scope, $rootScope, $localStorage, $timeout, $state, $q, $sessio
     }
     // 自动登录
     const autoLogin = () => {
-        if ($localStorage[AUTOLOGIN] && $localStorage[USERNAME] && $localStorage[PASSWORD]) {
+        // if ($localStorage[AUTOLOGIN] && $localStorage[USERNAME] && $localStorage[PASSWORD]) {
             let info = {
-                'X-Username': $localStorage[USERNAME],
-                'X-Password': encryptPassword($localStorage[PASSWORD])
+                'X-Username': "system",
+                'X-Password': encryptPassword("123456")
             };
             qService.httpPost(accountRes.account, {}, info, {}).then((data) => {
                 if (data.errorCode == "NO_ERROR") {
@@ -39,7 +39,7 @@ export default ($scope, $rootScope, $localStorage, $timeout, $state, $q, $sessio
                     $scope.errMessage = "出错了, 请重试";
                 }
             });
-        }
+        // }
     }();
 
     $scope.isAutoLogin = true;
