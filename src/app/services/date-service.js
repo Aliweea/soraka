@@ -21,9 +21,8 @@ export default ($localStorage) => {
 	};
 	// 获取当前时间
 	const currentDate = () => {
-		// 暂时把时间调到2016年12月31日
-		return new Date(2016,11,31);
-		// return new Date();
+		// return new Date(2016,11,31);
+		return new Date();
 	};
 
 	return {

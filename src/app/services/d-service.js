@@ -229,8 +229,13 @@ export default (dateService, unitService) => {
 					startShortStr = dateService.formatDate(moment(startShort).subtract(2, 'month').startOf('month')); // 三个月走势起点
 					startLongStr = dateService.formatDate(moment(startLong).startOf('year')); // 当年走势起点
 					endStr = dateService.formatDate(moment(end).endOf('month')); // 三个月走势&&当年走势终点
-					periodDateStr = moment(end).get('year') + '年' + (moment(end).get('month') + 1) + '月'; // 时段
-					xName = '月';
+					if (kpiData.name.indexOf('GDP') > 0) {
+						xName = '季度';
+						periodDateStr = moment(end).get('year') + '年第' + ( parseInt( moment(end).get('month') / 3 ) + 1) + '季度'; // 时段
+					} else {
+						xName = '月';
+						periodDateStr = moment(end).get('year') + '年' + (moment(end).get('month') + 1) + '月'; // 时段
+					}
 					break;
 				case "DAILY":
 					startShortStr = dateService.formatDate(moment(startShort).subtract(6, 'days').startOf('day')); // 七天走势起点
