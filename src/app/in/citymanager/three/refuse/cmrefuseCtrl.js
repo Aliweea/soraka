@@ -138,21 +138,21 @@ export default($scope, $rootScope, $state, qService, dataDetailFactory, dateServ
 							times.push(data.data[i].cheshu);
 							tons.push(data.data[i].dunshu);
 						} else {
-							timeStatus = data.data[i].cheshu < 170? lastTime+"垃圾清运车次正常,"+data.data[i].cheshu+"车次(实绩)<170车次(警戒值)": lastTime+"垃圾清运车次不正常,"+data.data[i].cheshu+"车次(实绩)>170车次(警戒值)";
-							tonStatus = data.data[i].dunshu < 900? lastTime+"垃圾清运吨数正常,"+data.data[i].dunshu+"吨(实绩)<900吨(警戒值)": "正常,"+data.data[i].dunshu+"吨(实绩)>900吨(警戒值)";
+							timeStatus = data.data[i].cheshu < 170? lastTime+"日垃圾清运车次正常,"+data.data[i].cheshu+"车次(实绩)<170车次(警戒值)": lastTime+"垃圾清运车次不正常,"+data.data[i].cheshu+"车次(实绩)>170车次(警戒值)";
+							tonStatus = data.data[i].dunshu < 900? lastTime+"日垃圾清运吨数正常,"+data.data[i].dunshu+"吨(实绩)<900吨(警戒值)": "正常,"+data.data[i].dunshu+"吨(实绩)>900吨(警戒值)";
 						}
 					}
 					$scope.changeChart = (type) => {
 						switch (type) {
 							case "time":
-								$scope.oChart = chartStore("column", lastTime+"垃圾清运车次", "车次", "垃圾清运点", "次", towns, times);
+								$scope.oChart = chartStore("column", lastTime+"日垃圾清运车次", "车次", "垃圾清运点", "次", towns, times);
 								$scope.status = timeStatus;
 								$scope.tab1 = true;
 								$scope.tab2 = false;
 								currentType = "time";
 								break;
 							case "ton":
-								$scope.oChart = chartStore("column", lastTime+"垃圾清运吨数", "吨数", "垃圾清运点", "吨", towns, tons);
+								$scope.oChart = chartStore("column", lastTime+"日垃圾清运吨数", "吨数", "垃圾清运点", "吨", towns, tons);
 								$scope.status = tonStatus;
 								$scope.tab1 = false;
 								$scope.tab2 = true;
