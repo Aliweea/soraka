@@ -216,9 +216,17 @@ $scope.firstchart = {
       qService.httpPostWithToken(dataDetailFactory.lastestObject, {
         tableName: $scope.dataMap[mapKey].tableName
       }, {},['year', 'month']).then(function(result) {
-        console.log(result.data);
-        $scope.financeIn = result.data.iaccmAmount;
-        $scope.financeRate = result.data.iaccmRate;
+        console.log(result.data);   
+        if (result.data.iaccmAmount == 0) {
+          $scope.datadown = true;
+          $scope.dataup = false;
+        }else{
+          $scope.datadown = false;
+          $scope.dataup = true;
+          $scope.financeIn = result.data.iaccmAmount;
+          $scope.financeRate = result.data.iaccmRate;  
+        }
+        
         $scope.financeOut = result.data.oaccmAmount;
         $scope.financeOutRate = result.data.oaccmRate;
         $scope.taxAccmAmount = result.data.taxAccmAmount;

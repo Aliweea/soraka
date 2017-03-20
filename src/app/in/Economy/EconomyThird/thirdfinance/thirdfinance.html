@@ -15,12 +15,12 @@
   <div class="scrollable-content" >
   <div style="height: 30px; display: flex;display: -webkit-flex;flex-direction: row;justify-content: center;align-items: center;">
       <div style="width: 100%;height: 30px;box-shadow: 3px 3px 6px -4px white;border-radius: 5px;display: flex;display: -webkit-flex;flex-direction: row;justify-content: center;align-items: center;">
-      <span style="font-size: 2em">投资数据详情</span>
+      <span style="font-size: 2em">财政数据详情</span>
       </div>
       </div>
      <div style="height: 40px;display: flex;display: -webkit-flex;flex-direction: row;justify-content: center;align-items: center;">
        <span class="label label-primary">统计局</span>
-        <span class="label" style="color: black;margin-left: 5px">统计时间: {{datayear}}年{{datamonth}}月 </span>
+        <span class="label" style="color: black;margin-left: 5px">时间: {{datayear}}年{{datamonth}}月 </span>
          <span class="label" style="color: black">每月更新</span>
      </div>
 
@@ -39,8 +39,10 @@
               <div style="width: 80%;height: 400px;display: flex;display:-webkit-flex;flex-direction: row;justify-content: center;align-items: flex-start;flex-wrap: wrap;">
                 <div style="width: 50%;height: 200px;display: flex;display: -webkit-flex;flex-direction: column;justify-content: center;align-items: center;background-color: rgba(92,95,105,.7);color: white" class="economyclick" >
                   <span>财政本年累计收入</span>
-                  <span style="font-size: 2em;margin-top: 30px">{{financeIn}}万元</span>
-                  <span style="font-size: 1.5em;margin-top: 40px"><i class="fa fa-level-up" aria-hidden="true" style="color: green"></i>{{financeRate}}%</span>
+                  <span style="font-size: 2em;margin-top: 30px" ng-if="dataup">{{financeIn}}万元</span>
+                  <span style="font-size: 1.5em;margin-top: 40px" ng-if="dataup"><i class="fa fa-level-up" aria-hidden="true" style="color: green"></i>{{financeRate}}%</span>
+                  <span style="font-size: 2em;margin-top: 30px;color: #00BFFF" ng-if="datadown">数据未上报</span>
+                  <span style="font-size: 1.5em;margin-top: 40px;color: #00BFFF" ng-if="datadown"><i class="fa" aria-hidden="true" style="color: green"></i>数据未上报</span>
                 </div>
                <div style="width: 50%;height: 200px;display: flex;display: -webkit-flex;flex-direction: column;justify-content: center;align-items: center;background-color: rgba(116,140,146,.7);color: white" class="economyclick">
                   <span>财政本年累计支出</span>
@@ -67,7 +69,7 @@
   <div class="scrollable-content" >
     <div style="height: 30px; display: flex;display: -webkit-flex;flex-direction: row;justify-content: center;align-items: center;">
       <div style="width: 100%;height: 30px;box-shadow: 3px 3px 6px -4px white;border-radius: 5px;display: flex;display: -webkit-flex;flex-direction: row;justify-content: center;align-items: center;">
-      <span style="font-size: 2em">投资数据全年走势</span>
+      <span style="font-size: 2em">财政数据全年走势</span>
       </div>
       </div>
      <div style="height: 40px;display: flex;display: -webkit-flex;flex-direction: row;justify-content: space-around;align-items: center;">
@@ -79,7 +81,7 @@
     <div class="panel panel-default" style="border-bottom: 1px solid rgb(51,153,204)">
         <div class="panel-heading" ui-set="{'myAccordion': 2}" style="background-color: rgb(51,153,204);">        
           <h4 class="panel-title" style="color: white">
-             财政收入额(当年累计)
+             财政支出额(当年累计)
           </h4>
         </div>
         <div ui-if="myAccordion == 2">
@@ -91,12 +93,12 @@
       <div class="panel panel-default" style="border-bottom: 1px solid rgb(51,153,204)">
     <div class="panel-heading" ui-set="{'myAccordion': 1}" style="background-color: rgb(51,153,204);">        
       <h4 class="panel-title" style="color: white">
-          财政支出额(当年累计)
+          财政收入额(当年累计)
       </h4>
     </div>
     <div ui-if="myAccordion == 1">
       <div class="panel-body">
-       <highchart config="secondchart"  id="firstchart" style="height: 450px"></highchart>
+       <highchart config="firstchart"  id="firstchart" style="height: 450px"></highchart>
       </div>
     </div>
   </div>
