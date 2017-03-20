@@ -89,7 +89,7 @@ var radialObj = $('#indicatorContainer').data('radialIndicator');
         console.log($scope.dataMap);
         $scope.gdptable = $scope.dataMap;
         console.log("gdptabale"+$scope.gdptable);
-        var maplength = $scope.dataMap.chartData.length-1;
+        var maplength = $scope.dataMap.ACCM_GDP.chartData.length-1;
         $scope.GDPaccm = $scope.dataMap.ACCM_GDP.chartData[maplength].accmAmount;
         $scope.GDPaccmRate = $scope.dataMap.ACCM_GDP.chartData[maplength].accmRate;
         $scope.GDPONE = gdptable.ONE_GDP.chartData[maplength].accmAmount;
