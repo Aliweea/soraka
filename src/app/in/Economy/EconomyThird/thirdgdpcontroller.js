@@ -88,9 +88,16 @@ var radialObj = $('#indicatorContainer').data('radialIndicator');
         }
         console.log($scope.dataMap);
         $scope.gdptable = $scope.dataMap;
-        console.log("gdptabale"+gdptable);
-        $scope.GDPaccm = $scope.dataMap.ACCM_GDP.chartData[2].accmAmount;
-        $scope.GDPaccmRate = $scope.dataMap.ACCM_GDP.chartData[2].accmRate;
+        console.log("gdptabale"+$scope.gdptable);
+        var maplength = $scope.dataMap.chartData.length-1;
+        $scope.GDPaccm = $scope.dataMap.ACCM_GDP.chartData[maplength].accmAmount;
+        $scope.GDPaccmRate = $scope.dataMap.ACCM_GDP.chartData[maplength].accmRate;
+        $scope.GDPone = gdptable.ONE_GDP.chartData[maplength].accmAmount;
+        $scope.GDPoneRate = gdptable.ONE_GDP.chartData[maplength].accmRate;
+        $scope.GDPTWO = gdptable.TWO_GDP.chartData[maplength].accmAmount;
+        $scope.GDPTWORate = gdptable.TWO_GDP.chartData[maplength].accmRate;
+        $scope.GDPTHREE = gdptable.THREE_GDP.chartData[maplength].accmAmount;
+        $scope.GDPTHREERate = gdptable.THREE_GDP.chartData[maplength].accmRate;
         renderCharts();
       }).finally(() => {
           $rootScope.loading = false;
