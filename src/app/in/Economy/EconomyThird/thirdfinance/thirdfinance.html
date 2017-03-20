@@ -79,7 +79,7 @@
     <div class="panel panel-default" style="border-bottom: 1px solid rgb(51,153,204)">
         <div class="panel-heading" ui-set="{'myAccordion': 2}" style="background-color: rgb(51,153,204);">        
           <h4 class="panel-title" style="color: white">
-             财政收入额(当年累计)
+             财政支出额(当年累计)
           </h4>
         </div>
         <div ui-if="myAccordion == 2">
@@ -91,12 +91,12 @@
       <div class="panel panel-default" style="border-bottom: 1px solid rgb(51,153,204)">
     <div class="panel-heading" ui-set="{'myAccordion': 1}" style="background-color: rgb(51,153,204);">        
       <h4 class="panel-title" style="color: white">
-          财政支出额(当年累计)
+          财政收入额(当年累计)
       </h4>
     </div>
     <div ui-if="myAccordion == 1">
       <div class="panel-body">
-       <highchart config="secondchart"  id="firstchart" style="height: 450px"></highchart>
+       <highchart config="firstchart"  id="firstchart" style="height: 450px"></highchart>
       </div>
     </div>
   </div>
