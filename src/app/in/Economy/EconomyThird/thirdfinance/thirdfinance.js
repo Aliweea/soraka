@@ -1,4 +1,4 @@
-financeOutexport default ($scope,$rootScope,dateService,dictService,generalService,dataDetailFactory,qService) => {
+export default ($scope,$rootScope,dateService,dictService,generalService,dataDetailFactory,qService) => {
   'ngInject';
   $rootScope.loading = true;
 var height = $(window).height();
