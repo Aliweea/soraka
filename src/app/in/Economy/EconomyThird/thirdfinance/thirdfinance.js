@@ -1,4 +1,4 @@
-export default ($scope,$rootScope,dateService,dictService,generalService,dataDetailFactory,qService) => {
+financeOutexport default ($scope,$rootScope,dateService,dictService,generalService,dataDetailFactory,qService) => {
   'ngInject';
   $rootScope.loading = true;
 var height = $(window).height();
@@ -219,7 +219,15 @@ $scope.firstchart = {
         console.log(result.data);
         $scope.financeIn = result.data.iaccmAmount;
         $scope.financeRate = result.data.iaccmRate;
-        $scope.financeOut = result.data.oaccmAmount;
+        if (result.data.oaccmAmount == 0) {
+          $scope.datadown = true;
+          $scope.dataup = false;
+
+        }else{
+          $scope.datadown = false;
+          $scope.dataup = true;
+          $scope.financeOut = result.data.oaccmAmount;
+        }
         $scope.financeOutRate = result.data.oaccmRate;
         $scope.taxAccmAmount = result.data.taxAccmAmount;
         $scope.taxAccmRate = result.data.taxAccmRate;
