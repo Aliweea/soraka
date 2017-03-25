@@ -16,21 +16,21 @@ export default ($scope,$rootScope,dateService,dictService,generalService,dataDet
       },
       'R_LOAN': {
         value: '金融机构存款余额(人民币)',
-        key: 'R_SAVE',
+        key: 'R_LOAN',
         chartData: [],
         tableData: {},
         categories:[]
       },
       'F_SAVE': {
-        value: '金融机构存款余额(人民币)',
-        key: 'R_SAVE',
+        value: '金融机构存款余额(本外币)',
+        key: 'F_SAVE',
         chartData: [],
         tableData: {},
         categories:[]
       },
       'F_LOAN': {
-        value: '金融机构存款余额(人民币)',
-        key: 'R_SAVE',
+        value: '金融机构贷款余额(本外币)',
+        key: 'F_LOAN',
         chartData: [],
         tableData: {},
         categories:[]
@@ -88,10 +88,10 @@ export default ($scope,$rootScope,dateService,dictService,generalService,dataDet
 
     function renderCharts() {
       $scope.FinanceKeepingChart.series[0].data = $scope.dataMap.R_SAVE.chartData;
-      $scope.FinanceKeepingChart.series[1].data = $scope.dataMap.R_LOAN.chartData;
+      $scope.FinanceKeepingChart.series[1].data = $scope.dataMap.F_SAVE.chartData;
       $scope.FinanceKeepingChart.xAxis.categories = $scope.dataMap.R_LOAN.categories;
 
-      $scope.FinanceLoanChart.series[0].data = $scope.dataMap.F_SAVE.chartData;
+      $scope.FinanceLoanChart.series[0].data = $scope.dataMap.R_LOAN.chartData;
       $scope.FinanceLoanChart.series[1].data = $scope.dataMap.F_LOAN.chartData;
       $scope.FinanceLoanChart.xAxis.categories = $scope.dataMap.F_LOAN.categories;
       console.log($scope.dataMap.R_SAVE.chartData);
@@ -102,9 +102,9 @@ export default ($scope,$rootScope,dateService,dictService,generalService,dataDet
         var key = keys[i];
         var td = $scope.dataMap[key].tableData;
         var obj = generateFinanceObject($scope.dataMap[key].value, td.remain, td.rateWithOpen);
-        if (key.indexOf('R_') >= 0) {
+        if (key.indexOf('SAVE') >= 0) {
           $scope.tables.rTable.push(obj);
-        } else if (key.indexOf('F_') >= 0) {
+        } else if (key.indexOf('LOAN') >= 0) {
           $scope.tables.fTable.push(obj);
         }
       };
