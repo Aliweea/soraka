@@ -1,4 +1,4 @@
-export default ($scope, $rootScope, qService, kpiRes, xService, toolService) => {
+export default ($state, $scope, $rootScope, qService, kpiRes, xService, toolService) => {
 	'ngInject';
 	// 隐藏topbar上的logout按钮
     $('#footlabel').show(0);
