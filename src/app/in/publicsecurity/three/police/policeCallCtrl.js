@@ -315,6 +315,9 @@ export default ($anchorScroll, $location, $rootScope, $scope, $state, dateServic
             name: '交通事故类',
             data: []
         }, {
+            name: '火灾类',
+            data: []
+        }, {
             name: '其它',
             data: []
         }]
@@ -343,8 +346,8 @@ export default ($anchorScroll, $location, $rootScope, $scope, $state, dateServic
     var pieChartData = {};
 
     var barTypeChartData = {
-        categories: ['违法犯罪类', '交通事故类', '其它'],
-        data: [0, 0, 0]
+        categories: ['违法犯罪类', '交通事故类', '火灾类', '其它'],
+        data: [0, 0, 0, 0]
     };
 
     // var barTypeChartData = {
@@ -453,8 +456,8 @@ export default ($anchorScroll, $location, $rootScope, $scope, $state, dateServic
                         barTypeChartData.data[0] = barTypeChartData.data[0] + eachMonthData[i].police + eachMonthData[i].criminal;
                         //barTypeChartData.data[1] = barTypeChartData.data[1] + eachMonthData[i].criminal;
                         barTypeChartData.data[1] = barTypeChartData.data[1] + eachMonthData[i].trafficAccident;
-                        //barTypeChartData.data[3] = barTypeChartData.data[3] + eachMonthData[i].fire;
-                        barTypeChartData.data[2] = barTypeChartData.data[2] + eachMonthData[i].elseCase;
+                        barTypeChartData.data[2] = barTypeChartData.data[2] + eachMonthData[i].fire;
+                        barTypeChartData.data[3] = barTypeChartData.data[3] + eachMonthData[i].elseCase;
                     }
                 }
 
@@ -463,7 +466,7 @@ export default ($anchorScroll, $location, $rootScope, $scope, $state, dateServic
                         ['违法犯罪类', parseInt(data.police)],
                         
                         ['交通事故类', data.trafficAccident],
-                        
+                        ['火灾类', data.fire],
                         ['其它', data.elseCase]
                     ];
 
@@ -484,8 +487,8 @@ export default ($anchorScroll, $location, $rootScope, $scope, $state, dateServic
                         lineChartData.series[0].data.push(eachMonthData[i].police + eachMonthData[i].criminal);
                         //lineChartData.series[1].data.push(eachMonthData[i].criminal);
                         lineChartData.series[1].data.push(eachMonthData[i].trafficAccident);
-                        //lineChartData.series[3].data.push(eachMonthData[i].fire);
-                        lineChartData.series[2].data.push(eachMonthData[i].elseCase);
+                        lineChartData.series[2].data.push(eachMonthData[i].fire);
+                        lineChartData.series[3].data.push(eachMonthData[i].elseCase);
                     }
                 };
 
