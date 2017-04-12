@@ -54,55 +54,55 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       abstract: true,
       name: 'economy',
       url: '/economy',
-      templateUrl: 'app/in/economy/economy.html', 
+      templateUrl: 'app/in/Economy/economy.html',
       controller: 'economyCtrl'
     })
     .state('app.economy.economylist', {
       url: '/economylist?categoryId',
       name: 'economylist',
-      templateUrl: 'app/in/economy/one/economylist.html',
+      templateUrl: 'app/in/Economy/one/economylist.html',
       controller: 'economylistCtrl'
     })
     .state('app.economy.bystate', {
       url: '/bystate/?categoryId&state',
       name: 'bystate',
-      templateUrl: 'app/in/economy/one/bystate/bystate.html',
+      templateUrl: 'app/in/Economy/one/bystate/bystate.html',
       controller: 'economyByStateCtrl'
     })
     .state('app.economy.detail', {
       url: '/detail?kpiId',
       name: 'economydetail',
-      templateUrl: 'app/in/economy/two/economydetail.html',
+      templateUrl: 'app/in/Economy/two/economydetail.html',
       controller: 'economydetailCtrl'
     })
     .state('app.economy.economy',{
      url:'/economy/third/economy',
-     templateUrl:'app/in/economy/EconomyThird/thirddetail.html',
+     templateUrl:'app/in/Economy/EconomyThird/thirddetail.html',
      controller:'thirdgdpcontroller'
     })
     .state('app.economy.finance',{
      url:'/economy/third/fianance',
-     templateUrl:'app/in/economy/EconomyThird/thirdfinance/thirdfinance.html',
+     templateUrl:'app/in/Economy/EconomyThird/thirdfinance/thirdfinance.html',
      controller:'thirdfinancecontroller'
     })
     .state('app.economy.thirdinvest',{
      url:'/economy/third/invest',
-     templateUrl:'app/in/economy/EconomyThird/thirdinvest/thirdinvest.html',
+     templateUrl:'app/in/Economy/EconomyThird/thirdinvest/thirdinvest.html',
      controller:'thirdinvestcontroller'
     })
     .state('app.economy.thirdindustry',{
      url:'/economy/third/industry',
-     templateUrl:'app/in/economy/EconomyThird/thirdindustry/thirdindustry.html',
+     templateUrl:'app/in/Economy/EconomyThird/thirdindustry/thirdindustry.html',
      controller:'thirdindustrycontroller'
     })
     .state('app.economy.thirdfisical',{
      url:'/economy/third/fisical',
-     templateUrl:'app/in/economy/EconomyThird/thirdfisical/thirdfisical.html',
+     templateUrl:'app/in/Economy/EconomyThird/thirdfisical/thirdfisical.html',
      controller:'thirdfisicalcontroller'
     })
     .state('app.economy.select',{
      url:'/economy/third/select',
-     templateUrl:'app/in/economy/EconomyThird/select.html'
+     templateUrl:'app/in/Economy/EconomyThird/select.html'
     })
     // 环境
     .state('app.environment', {
