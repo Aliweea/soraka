@@ -34,7 +34,7 @@ export default($scope, $rootScope, kpiDetailService,$state, qService, dataDetail
 	var medicalServiceColumnChartData=[];
 	var medicalServiceColumnChartData1=[];
 	var medicalServiceColumnChartData2=[];
-	var medicalServiceKind=["门诊","急诊","住院","120急救"];
+	var medicalServiceKind=["门诊和急诊","住院","120急救"];
 	var monthData=[];
 	$scope.medicalServicePatientsByKindList=[];
 	$scope.medicalInstitutionByKindSumList=[];
@@ -73,47 +73,52 @@ export default($scope, $rootScope, kpiDetailService,$state, qService, dataDetail
 				var outpatientNumList = [];
 				var inpatientNumList = [];
 				var emrgncyPatientNumList = [];
+				var emrgncyAndoutpatientList=[];
 				var firstAid120List = [];
 				var applyMonth;
 				for(var i=0; i<data.length; i++){
 					outpatientNumList.push(data[i].outpatientNum);
 					inpatientNumList.push(data[i].inpatientNum);
 					emrgncyPatientNumList.push(data[i].emrgncyPatientNum);
+					emrgncyAndoutpatientList.push(data[i].emrgncyAndoutpatient);
 					firstAid120List.push(data[i].firstAid120);
 					applyMonth = new Date(data[i].applyTime);
 					monthData.push(applyMonth.getMonth()+1);
 				}
+				// $scope.medicalServicePatientsByKindList.push({
+				// 	name: medicalServiceKind[0],
+				// 	data: outpatientNumList
+				// 	});
 				$scope.medicalServicePatientsByKindList.push({
 					name: medicalServiceKind[0],
-					data: outpatientNumList
+					data: emrgncyAndoutpatientList
 					});
 				$scope.medicalServicePatientsByKindList.push({
 					name: medicalServiceKind[1],
-					data: emrgncyPatientNumList
-					});
-				$scope.medicalServicePatientsByKindList.push({
-					name: medicalServiceKind[2],
 					data: inpatientNumList
 					});
 				$scope.medicalServicePatientsByKindList.push({
-					name: medicalServiceKind[3],
+					name: medicalServiceKind[2],
 					data: firstAid120List
 					});
 				$scope.medicalServiceSelected = $scope.medicalServicePatientsByKindList[0].name;
-				$scope.medicalServiceColumnChart1.options.title.text = $scope.displayYear+'年'+monthData[data.length-1]+"月全市门诊及急诊情况";
+				//$scope.medicalServiceColumnChart1.options.title.text = $scope.displayYear+'年'+monthData[data.length-1]+"月全市门诊及急诊情况";
 				$scope.medicalServiceColumnChart2.options.title.text = $scope.displayYear+'年'+monthData[data.length-1]+"月全市住院及120急救情况";
 				$scope.medicalServiceByKindLineChart.title.text = $scope.displayYear+'年全市门诊服务情况';
 				$scope.displayMonth = monthData[data.length-1];
-				medicalServiceColumnChartData.push(outpatientNumList[data.length-1]);
-				medicalServiceColumnChartData.push(emrgncyPatientNumList[data.length-1]);
+				//medicalServiceColumnChartData.push(outpatientNumList[data.length-1]);
+				//medicalServiceColumnChartData.push(emrgncyPatientNumList[data.length-1]);
+                medicalServiceColumnChartData.push(emrgncyAndoutpatientList[data.length-1]);
 				medicalServiceColumnChartData.push(inpatientNumList[data.length-1]);
 				medicalServiceColumnChartData.push(firstAid120List[data.length-1]);
 				$scope.medicalServiceByKindLineChart.series[0].name = $scope.medicalServicePatientsByKindList[0].name;
 			    $scope.medicalServiceByKindLineChart.series[0].data = $scope.medicalServicePatientsByKindList[0].data;
-			    medicalServiceColumnChartData1.push(medicalServiceColumnChartData[0]);
-			    medicalServiceColumnChartData1.push(medicalServiceColumnChartData[1]);
-			    medicalServiceColumnChartData2.push(medicalServiceColumnChartData[2]);
-			    medicalServiceColumnChartData2.push(medicalServiceColumnChartData[3]);
+			    //medicalServiceColumnChartData1.push(medicalServiceColumnChartData[0]);
+			    //medicalServiceColumnChartData1.push(medicalServiceColumnChartData[1]);
+			    //medicalServiceColumnChartData2.push(medicalServiceColumnChartData[2]);
+			    //medicalServiceColumnChartData2.push(medicalServiceColumnChartData[3]);
+                medicalServiceColumnChartData2.push(medicalServiceColumnChartData[1]);
+                medicalServiceColumnChartData2.push(medicalServiceColumnChartData[2]);
 				$scope.chart3 = $scope.medicalServiceColumnChart2;
 				$scope.changeChoice = (choice) => {
 					$('#psHealthcareTogglePanel').hide(0);
@@ -143,7 +148,7 @@ export default($scope, $rootScope, kpiDetailService,$state, qService, dataDetail
 								$scope.list = $scope.medicalServicePatientsByKindList;
 								$scope.listSelected = $scope.medicalServiceSelected;
 								$scope.chart1 = $scope.medicalServiceByKindLineChart;
-								$scope.chart2 = $scope.medicalServiceColumnChart1;
+							//	$scope.chart2 = $scope.medicalServiceColumnChart1;
 								$scope.tab1 = false;
 								$scope.tab2 = true;
 								currentType = "service";
@@ -630,60 +635,60 @@ export default($scope, $rootScope, kpiDetailService,$state, qService, dataDetail
 	    }]
 	};
 
-	$scope.medicalServiceColumnChart1 = {
-	    options:{
-	    	credits: {
-	            enabled: false
-	            },
-	        chart: {
-	            type: 'column'
-	           // margin: [ 50, 50, 100, 80]
-	        },
-	        exporting: {
-					enabled: false, // 取消打印menu
-				},
-	        title: {
-	            text: '',
-	            style: {
-					fontSize: "13px"
-				}
-	        },
-	        xAxis: {
-	            categories: ['门诊人次', '急诊人次'],
-	            tickInterval: 1,
-	            tickmarkPlacement: 'on',
-                labels: {
-                    rotation: -45,
-                    align: 'right',
-                    step: 1,
-                    style: {
-						fontSize: "10px"
-					}
-                }
-	        },
-	        yAxis: {
-	            min: 0,
-	            title: {
-	                text: '诊疗人数(人次)'
-	            },
-	            labels: {
-					formatter: function() {
-						return this.value
-					}
-				}
-	        },
-	        legend: {
-	            enabled: false
-	        },
-	        tooltip: {
-	            pointFormat: '诊疗人次: <b>{point.y:.0f}人次</b>',
-	        }
-	    },
-	    series: [{
-	            name: '诊疗人次',
-	            data: medicalServiceColumnChartData1,
-	    }]
-	};
+	// $scope.medicalServiceColumnChart1 = {
+	//     options:{
+	//     	credits: {
+	//             enabled: false
+	//             },
+	//         chart: {
+	//             type: 'column'
+	//            // margin: [ 50, 50, 100, 80]
+	//         },
+	//         exporting: {
+	// 				enabled: false, // 取消打印menu
+	// 			},
+	//         title: {
+	//             text: '',
+	//             style: {
+	// 				fontSize: "13px"
+	// 			}
+	//         },
+	//         xAxis: {
+	//             categories: ['门诊人次', '急诊人次'],
+	//             tickInterval: 1,
+	//             tickmarkPlacement: 'on',
+     //            labels: {
+     //                rotation: -45,
+     //                align: 'right',
+     //                step: 1,
+     //                style: {
+	// 					fontSize: "10px"
+	// 				}
+     //            }
+	//         },
+	//         yAxis: {
+	//             min: 0,
+	//             title: {
+	//                 text: '诊疗人数(人次)'
+	//             },
+	//             labels: {
+	// 				formatter: function() {
+	// 					return this.value
+	// 				}
+	// 			}
+	//         },
+	//         legend: {
+	//             enabled: false
+	//         },
+	//         tooltip: {
+	//             pointFormat: '诊疗人次: <b>{point.y:.0f}人次</b>',
+	//         }
+	//     },
+	//     series: [{
+	//             name: '诊疗人次',
+	//             data: medicalServiceColumnChartData1,
+	//     }]
+	// };
 
 	$scope.medicalServiceColumnChart2 = {
 		    options:{
