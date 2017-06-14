@@ -1,4 +1,124 @@
+<div class="insurance-three-module">
+  
+  <div class="tab-container">
+    <div class="tabs">
+      <div ng-class="{'tab-active': tab1, 'tab-inactive': tab2}" ng-click="insuranceSwitch('income')">按年份</div>
+      <div ng-class="{'tab-active': tab2, 'tab-inactive': tab1}" ng-click="insuranceSwitch('people')">按城镇</div>
+    </div>
+    <div class="divider"></div>
+  </div>
+
+  <div class="d1" ng-if="choice">
+    <div class="bar">
+      {{tabName1}}
+    </div>
+    <div class="content">
+      <div class="key-value-area">
+        <div style="text-align: center;line-height: 15px;">
+          <span style="font-size: 15px;">{{ALLDATA.tableName}}</span>
+        </div>
+        <table class="table population-table">
+          <caption class="ioc-thead">
+            {{lastestObject.year}}年{{lastestObject.month}}月{{CURRENTINSURANCE}}收支
+          </caption>
+          <tr align="right">
+            <th class="col-md-6">基金收入</th>
+            <td class="col-md-6">{{lastestObject.income}}{{BALANCEUNIT}}</td>
+          </tr>
+          <tr align="right" ng-show="ENGAGE != 3 && ENGAGE != 4">
+            <th class="col-md-6">基金支出</th>
+            <td class="col-md-6">{{lastestObject.outcome}}{{BALANCEUNIT}}</td>
+          </tr>
+          <tr align="right" ng-show="ENGAGE == 3 || ENGAGE == 4">
+            <th class="col-md-6">本地基金支出</th>
+            <td class="col-md-6">{{lastestObject.localOutcome}}{{BALANCEUNIT}}</td>
+          </tr>
+          <tr align="right" ng-show="ENGAGE == 3">
+            <th class="col-md-6">外地基金支出</th>
+            <td class="col-md-6">{{lastestObject.nonlocalOutcome}}{{BALANCEUNIT}}</td>
+          </tr>
+          <tr align="right" ng-show="ENGAGE != 4">
+            <th class="col-md-6">基金结余</th>
+            <td class="col-md-6">{{lastestObject.balance}}{{BALANCEUNIT}}</td>
+          </tr>
+          <tr align="right" ng-show="ENGAGE != 4">
+            <th class="col-md-6">基金累计结余</th>
+            <td class="col-md-6">{{lastestObject.lastBalance}}{{BALANCEUNIT}}</td>
+          </tr>
+        </table>
+      </div>
+      <div class="chart-area">
+        <highchart style="width: 100%;" config="ALLOPTION.INCOMESPLINE"></highchart>
+      </div>
+    </div>
+  </div>
+
+  <div class="d1" ng-if="!choice">
+    <div class="bar">
+      {{tabName2}}
+    </div>
+    <div class="content">
+      <div class="key-value-area">
+        <div style="text-align: center;line-height: 15px;">
+          <span style="font-size: 15px;">{{ALLDATA.townTableName}}</span>
+        </div>
+        <table class="table population-table">
+          <caption class="ioc-thead">
+            {{lastestObject.year}}年{{lastestObject.month}}月{{CURRENTINSURANCE}}{{PARTICAPTEDNAME}}
+          </caption>
+          <tr align="right" ng-show="ENGAGE == 1">
+            <th class="col-md-8">当月在职员工参保人数</th>
+            <td class="col-md-4">{{lastestObject.employeesParticipatedPopulation}}人</td>
+          </tr>
+          <tr align="right" ng-show="ENGAGE == 1">
+            <th class="col-md-8">当月离退员工参保人数</th>
+            <td class="col-md-4">{{lastestObject.retireeParticipatedPopulation}}人</td>
+          </tr>
+          <tr align="right" ng-show="ENGAGE == 1">
+            <th class="col-md-8">当月新增离退人员</th>
+            <td class="col-md-4">{{lastestObject.newRetiree}}人</td>
+          </tr>
+          <tr align="right" ng-show="ENGAGE != 2">
+            <th class="col-md-8">当月总参保人数</th>
+            <td class="col-md-4">{{lastestObject.participatedPopulation}}人</td>
+          </tr>
+          <tr align="right" ng-show="ENGAGE == 2">
+            <th class="col-md-8">当月失业金领取人数</th>
+            <td class="col-md-4">{{lastestObject.benefitedPopulation}}人</td>
+          </tr>
+          <tr align="right" ng-show="ENGAGE == 2">
+            <th class="col-md-8">当月新增失业金领取人数</th>
+            <td class="col-md-4">{{lastestObject.newBenefitedPopulation}}人</td>
+          </tr>
+          <tr align="right" ng-show="ENGAGE == 5">
+            <th class="col-md-8">当月一级至四级工伤待遇申报人数</th>
+            <td class="col-md-4">{{lastestObject.oneToFourDeclarationPopulation}}人</td>
+          </tr>
+          <tr align="right" ng-show="ENGAGE == 5">
+            <th class="col-md-8">当月五级至十级工伤待遇申报人数</th>
+            <td class="col-md-4">{{lastestObject.fiveToTenDeclarationPopulation}}人</td>
+          </tr>
+          <tr align="right" ng-show="ENGAGE == 5">
+            <th class="col-md-8">当月工伤死亡待遇申报人数</th>
+            <td class="col-md-4">{{lastestObject.deathDeclarationPopulation}}人</td>
+          </tr>
+          <tr align="right" ng-show="ENGAGE == 6">
+            <th class="col-md-8">当月生育保险待遇申报人数</th>
+            <td class="col-md-4">{{lastestObject.declarationPopulation}}人</td>
+          </tr>
+        </table>
+      </div>
+      <div class="chart-area">
+        <highchart class="insurance-width" config="ALLOPTION.ENGAGESTACKCOLUMN"></highchart>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
 <!-- 上面的表格开始 -->
+<!--
 <div class="insurace-d-module">
   <div>  
     <div class="title-area">
@@ -33,30 +153,29 @@
   </table> 
 </div>
 </div>
+-->
 <!-- 上面的表格结束 -->
 
 <!--导航条开始-->
+<!--
   <div style="width: 100%" class="tab-insurance">
     <div style="width: 100%" class="tabs">
-      <div ng-class="{'tab-active': tab1, 'tab-inactive': tab2}" ng-click="show1()">收入支出情况</div><!--
-      --><div ng-class="{'tab-active': tab2, 'tab-inactive': tab1}" ng-click="show2()">参保人员情况</div>
+      <div ng-class="{'tab-active': tab1, 'tab-inactive': tab2}" ng-click="show1()">收入支出情况</div>
+      <div ng-class="{'tab-active': tab2, 'tab-inactive': tab1}" ng-click="show2()">参保人员情况</div>
     </div>
     <div class="divider"></div>
   </div>
-<!-- <ul class="nav nav-tabs" role="tablist">
-  <li role="presentation" ng-click="show1()" style="text-align: center;" class="{{isActive1}} insurace-nav-width"><a href="javascript:void(0)">收入支出情况</a></li>
-  <li role="presentation" ng-click="show2()" style="text-align: center;" class="{{isActive2}} insurace-nav-width"><a href="javascript:void(0)">参保人员情况</a></li>
-</ul> -->
+  -->
 <!--导航条结束-->
+
 <!-- <div style="height: 20px;"></div>
 --><!-- 第一个图开始 -->
-
+<!--
 <div ng-show="isToggle">
 <div class="bar">
       收入支出趋势图
     </div>
-<!-- <div class="panel-heading"><center><strong>太仓市近5年{{CURRENTINSURANCE}}收支情况</strong></center></div>
---><highchart style="width: 100%;" config="ALLOPTION.INCOMESPLINE"></highchart>
+<highchart style="width: 100%;" config="ALLOPTION.INCOMESPLINE"></highchart>
 <a ng-show="isLink1" ng-click="hideLink1()">点击展开数据详情>></a>
 <div ng-hide="isLink1">
  <div class="cm-return-home"><i class="fa fa-chevron-up"></i>
@@ -90,16 +209,16 @@
  <highchart style="width: 100%"  class="insurance-width" config="ALLOPTION.BALANCECOLUMN"></highchart>
 </div>
 </div>
+-->
 <!-- 第一个图结束 -->
 
 
-<!-- 第二个图开始-->
+<!--
 <div  ng-hide="isToggle">
 <div class="bar">
       参保人员趋势图
     </div>
-<!-- <div class="panel-heading"><center><strong>太仓市近5年{{CURRENTINSURANCE}}参保人员情况</strong></center></div>
---><highchart class="insurance-width" config="ALLOPTION.ENGAGESTACKCOLUMN"></highchart>
+<highchart class="insurance-width" config="ALLOPTION.ENGAGESTACKCOLUMN"></highchart>
 <a ng-show="isLink" ng-click="hideLink()">点击展开数据详情>></a>
 <div ng-hide="isLink">
  <div class="cm-return-home"><i class="fa fa-chevron-up"></i>
@@ -128,63 +247,10 @@
 </div>
 </div>
 
+-->
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- 第二个图结束--> 
-
-                 <!--  <table class="table">
-                    <caption class="ioc-thead">
-                      {{engageSelectYear}}年{{CURRENTINSURANCE}}{{PARTICAPTEDNAME}}组成
-                    </caption>
-                    <tr align="right">
-                      <th class="col-md-8">{{yearParticipatedTitle[0]}}</th>
-                      <td class="col-md-4">{{insuranceDetailParticipated[0]}}{{PARTICAPTEDUNIT}}</td>
-                    </tr>
-                    <tr align="right">
-                      <th class="col-md-8">{{yearParticipatedTitle[1]}}</th>
-                      <td class="col-md-4">{{insuranceDetailParticipated[1]}}{{PARTICAPTEDUNIT}}</td>
-                    </tr>
-                    <tr align="right">
-                      <th class="col-md-8">{{yearParticipatedTitle[2]}}</th>
-                      <td class="col-md-4">{{insuranceDetailParticipated[2]}}{{PARTICAPTEDUNITNEW}}</td>
-                    </tr>
-                  </table> -->
-                  <!-- 第二个图结束--> 
 

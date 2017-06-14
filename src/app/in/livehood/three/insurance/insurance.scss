@@ -1,4 +1,110 @@
 /*人口保险切样式*/
+.insurance-three-module {
+    width: 100%;
+    .tab-container {
+        .tabs {
+            @mixin tab() {
+                display: inline-block;
+                font-size: 15px;
+                width: 49.5%;
+                padding: 8px 0;
+                text-align: center;
+            }
+            .tab-inactive {
+                @include tab();
+                border-bottom: 3px solid $cborder;
+                color: #777;
+            }
+            .tab-active {
+                @include tab();
+                border-bottom: 3px solid $bgDarkBlue;
+                color: #333;
+                background-color: rgba(255,255,255,0.5);
+            }
+        }
+        .divider {
+            height: 15px;
+        }
+    }
+    @mixin cmTa() {
+        font-size: 15px;
+        .title-area {
+            display: inline-block;
+            padding: 0 10px;
+            border: 1px dashed #abb;
+            background-color: rgba(208,224,224,0.5);
+            border-left: none;
+            .title {
+                font-size: 15px;
+            }
+        }
+        .value {
+            display: block;
+            padding: 5px 10px;
+            font-size: 13px;
+        }
+    }
+    .d1 {
+        .bar {
+            font-size: 15px;
+            background-color: $bgDarkBlue;
+            padding: 8px 10px;
+            color: #fff;
+        }
+        .content {
+            .key-value-area {
+                padding: 10px 0 8px 0;
+                background: linear-gradient($bgLightGrey, #fff);
+                @include cmTa();
+            }
+            border-bottom: 1px solid $bgDarkBlue;
+        }
+    }
+    .population-table {
+        font-size: 13px;
+        margin-top: 10px;
+        margin-bottom: 0px;
+    }
+    img {
+        display: none;
+    }
+    .key-value-area {
+        padding:54px 0 0 0;
+        @include cmTa();
+    }
+    .chart-area {
+        border-top: 1px dashed $cborder;
+        border-bottom: 1px solid $cborder;
+    }
+    .age-toggle-area {
+        position: relative;
+        .toggle-panel {
+            width: 80%;
+            box-shadow: 5px 10px 5px #999999;
+            border: 1px solid $cborder;
+            border-radius: 8px;
+            position: absolute;
+            z-index: 2000;
+            padding: 10px 5px;
+            margin: 5px 10%;
+            background-color: rgba(255,255,255,0.8);
+            .toggle-item {
+                width: 48%;
+                background: radial-gradient(50% 50%, #eee, #eee, #fff);
+                border: 1px solid $cborder;
+                border-radius: 5px;
+                padding: 3px 3px;
+                margin: 2px;
+                outline: none;
+                &:hover, &:active, &:focus {
+                    background: radial-gradient(50% 50%, #dee, #dee, #fff);
+                }
+            }
+        }
+    }
+
+}
+/*
 .bar {
       font-size: 15px;
       background-color: $bgDarkBlue;
@@ -315,7 +421,7 @@ font-size: 18px !important;
     .insurance-kpi-hight{
            height:100px;
     } 
-/*表头样式*/
+
 .insurance-table-header{
   padding: 10px 15px;
   border-bottom: 1px solid transparent;
@@ -344,32 +450,6 @@ font-size: 18px !important;
 .table-header-insurance{
   height: 30px;
 }
-/*.nav {
-  padding-left: 0;
-  margin-bottom: 0;
-  list-style: none;
-}
-.nav-tabs {
-  border-bottom: 1px solid #ddd;
-}
-.nav-tabs > li {
-  float: left;
-  margin-bottom: -1px;
-}
-.nav-tabs > li > a {
-  margin-right: 2px;
-  line-height: 1.42857143;
-  border: 1px solid transparent;
-  border-radius: 4px 4px 0 0;
-}
-*/
-/*.nav-tabs.nav-justified {
-  width: 100%;
-  border-bottom: 0;
-}
-.nav-tabs.nav-justified > li {
-  float: none;
-}*/
 .insurace-nav-width{
   width: 50%;
 }
@@ -388,3 +468,4 @@ font-size: 18px !important;
           margin-right: 5px;
         }
 
+*/
