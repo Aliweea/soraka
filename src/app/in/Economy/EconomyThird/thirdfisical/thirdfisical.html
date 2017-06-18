@@ -19,7 +19,7 @@
       </div>
      <div style="height: 40px;display: flex;display: -webkit-flex;flex-direction: row;justify-content: center;align-items: center;">
        <span class="label label-primary">统计局</span>
-        <span class="label" style="color: black;margin-left: 5px">时间: {{lastestObject.year}} 年 {{lastestObject.month}} 月</span>
+        <span class="label" style="color: black;margin-left: 5px">统计时间: {{lastestObject.year}} 年 {{lastestObject.month}} 月</span>
          <span class="label" style="color: black">每月更新</span>
      </div>
 
@@ -28,7 +28,7 @@
        <div class="panel panel-default">
         <div class="panel-heading" ui-set="{'myAccordion': 2}" style="background-color: rgb(51,153,204);">        
           <h4 class="panel-title" style="color: white">
-             金融机构存款余额
+             金融机构存款与贷款余额
           </h4>
         </div>
         <div ui-if="myAccordion == 2">
@@ -38,12 +38,22 @@
                 <div style="width: 50%;height: 200px;display: flex;display: -webkit-flex;flex-direction: column;justify-content: center;align-items: center;background-color: rgba(92,95,105,.7);color: white" class="economyclick"   >
                   <span>{{tables.rTable[0].key}}</span>
                   <span style="font-size: 2em;margin-top: 30px">{{tables.rTable[0].remain | number:1}}亿元</span>
-                  <span style="font-size: 1.5em;margin-top: 40px"><i class="fa fa-level-up" aria-hidden="true" style="color: green"></i>{{tables.rTable[0].rateWithOpen | number:1}} 亿元</span>
+                  <span style="font-size: 1.5em;margin-top: 40px">比年初增减额：{{tables.rTable[0].rateWithOpen | number:1}} 亿元</span>
                 </div>
                  <div style="width: 50%;height: 200px;display: flex;display: -webkit-flex;flex-direction: column;justify-content: center;align-items: center;background-color: rgba(116,140,146,.7);color: white" class="economyclick"   >
                   <span>{{tables.rTable[1].key}}</span>
                   <span style="font-size: 2em;margin-top: 30px">{{tables.rTable[1].remain | number:1}}亿元</span>
-                  <span style="font-size: 1.5em;margin-top: 40px"><i class="fa fa-level-up" aria-hidden="true" style="color: green"></i>{{tables.rTable[1].rateWithOpen | number:1}} 亿元</span>
+                  <span style="font-size: 1.5em;margin-top: 40px">比年初增减额：{{tables.rTable[1].rateWithOpen | number:1}} 亿元</span>
+                </div>
+                <div style="width: 50%;height: 200px;display: flex;display: -webkit-flex;flex-direction: column;justify-content: center;align-items: center;background-color: rgba(151,87,89,.7);color: white" class="economyclick"   >
+                  <span>{{tables.fTable[0].key}}</span>
+                  <span style="font-size: 2em;margin-top: 30px">{{tables.fTable[0].remain | number:1}}亿元</span>
+                  <span style="font-size: 1.5em;margin-top: 40px">比年初增减额：{{tables.fTable[0].rateWithOpen | number:1}} 亿元</span>
+                </div>
+                <div style="width: 50%;height: 200px;display: flex;display: -webkit-flex;flex-direction: column;justify-content: center;align-items: center;background-color: rgba(92,95,105,.7);color: white" class="economyclick"   >
+                  <span>{{tables.fTable[1].key}}</span>
+                  <span style="font-size: 2em;margin-top: 30px">{{tables.fTable[1].remain | number:1}}亿元</span>
+                  <span style="font-size: 1.5em;margin-top: 40px">比年初增减额：{{tables.fTable[1].rateWithOpen | number:1}} 亿元</span>
                 </div>
               </div>
            </div>

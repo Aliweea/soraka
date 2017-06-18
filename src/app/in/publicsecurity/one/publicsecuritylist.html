@@ -6,7 +6,7 @@
 		<div class="cm-refuse-top">
 			<span>{{data.name}}</span><i ng-class="data.data.status">{{data.data.status | kpiStatusTextFilter}}</i>
 		</div>
-		<div class="cm-refuse-value  {{data.data.status | kpiStatusClassFilter}}"><i class="{{(item.data.value>item.data.target)?'fa fa-long-arrow-up':'fa fa-long-arrow-down'}}" aria-hidden="true"></i><span>{{data | unitTransFilter}}</span></div>
+		<div class="cm-refuse-value  {{data.data.status | kpiStatusClassFilter}}"><span>{{data | unitTransFilter}}</span></div>
 		<div class="cm-refuse-bottom">
 			<span class="cm-refuse-bottom-s1">公共安全</span><span class="cm-refuse-bottom-s2">{{deptname}}</span><span class="cm-refuse-bottom-s3">{{data | applyDateFilter}}</span>
 			<span class="cm-refuse-bottom-s4"><i class="fa fa-hand-o-right" aria-hidden="true"></i><span>查看走势</span></span>
