@@ -117,7 +117,7 @@ import cmicmCtrl from './in/citymanager/three/icm/cmicmCtrl.js';
 // 公共事业Controller
 import publicServiceCtrl from './in/publicService/publicServiceCtrl.js';
 import publicServicelistCtrl from './in/publicService/one/publicServicelistCtrl.js';
-import publicServicedetailCtrl from './in/publicService/two/publicServicedetailCtrl.js';
+import publicServiceDetailCtrl from './in/publicService/two/publicServiceDetailCtrl.js';
 import publicServiceByStateCtrl from './in/publicService/one/bystate/bystateCtrl.js';
 // import peducationCtrl from './in/publicService/three/education/peducationCtrl.js';
 import phealthCareCtrl from './in/publicService/three/healthCare/phealthCareCtrl.js';
@@ -251,7 +251,7 @@ angular.module('soraka',
   // 公共事业controllers
   .controller('publicServiceCtrl', publicServiceCtrl)
   .controller('publicServicelistCtrl', publicServicelistCtrl)
-  .controller('publicServicedetailCtrl', publicServicedetailCtrl)
+  .controller('publicServiceDetailCtrl', publicServiceDetailCtrl)
   .controller('publicServiceByStateCtrl', publicServiceByStateCtrl)
   // .controller('peducationCtrl', peducationCtrl)
   .controller('phealthCareCtrl', phealthCareCtrl)
