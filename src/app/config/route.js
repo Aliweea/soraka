@@ -368,9 +368,9 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
     })
     .state('app.publicService.detail', {
       url: '/detail?kpiId',
-      name: 'publicServicedetail',
-      templateUrl: 'app/in/publicService/two/publicServicedetail.html',
-      controller: 'publicServicedetailCtrl'
+      name: 'publicServiceDetail',
+      templateUrl: 'app/in/publicService/two/publicServiceDetail.html',
+      controller: 'publicServiceDetailCtrl'
     })
     .state('app.publicService.eduGuarantee', {
       url: '/education/eduGuarantee',

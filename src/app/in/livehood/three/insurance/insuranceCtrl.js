@@ -179,7 +179,7 @@ export default ($scope, $rootScope, qService, generalService, dataDetailFactory,
 
             setChartData(tabName, $scope.allObject);
 
-          });     
+          });
         });
     };
 
@@ -204,7 +204,7 @@ export default ($scope, $rootScope, qService, generalService, dataDetailFactory,
           getSeries("outcome", "支出", "column", "万元", $scope.incomeSeries);
           getSeries("balance", "结余", "column", "万元", $scope.incomeSeries);
           getSeries("lastBalance", "累计结余", "column", "万元", $scope.incomeSeries);
-          
+
           getSeries("benefitedPopulation", "失业金领取人数", "column", "人", $scope.engageSeries);
           getSeries("newBenefitedPopulation", "新增失业金领取人数", "column", "人", $scope.engageSeries);
         break;
@@ -252,7 +252,7 @@ export default ($scope, $rootScope, qService, generalService, dataDetailFactory,
           var irs_ch = ["收入同比增长", "收入环比增长", "支出同比增长", "支出环比增长"];
           var engageSequence = ["participatedPopulation"];
           var e_ch = ["参保人数"];
-          
+
           getSeries("income", "收入", "column", "万元", $scope.incomeSeries);
           getSeries("outcome", "支出", "column", "万元", $scope.incomeSeries);
           getSeries("balance", "结余", "column", "万元", $scope.incomeSeries);
