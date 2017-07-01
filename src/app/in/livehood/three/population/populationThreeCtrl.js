@@ -372,10 +372,10 @@ export default ($scope, $rootScope, $state, $location, qService, dataDetailFacto
 					};
 					$scope.ALLDATA = {
 						POPULATIONCHARTDATA: new DataList(["男性", "女性"], ageList.length, chartDataObject),
-						tableName: $scope.LATESTYEAR + "年太仓市人口总量数据详请",
+						tableName: $scope.LATESTYEAR + "年太仓市人口总量数据详情",
 						tableDataList: new tableDataList(3),
 						tableData: null,
-						detailTableName: $scope.LATESTYEAR + "年太仓市人口结构数据详请",
+						detailTableName: $scope.LATESTYEAR + "年太仓市人口结构数据详情",
 						detailTableDataList: new Array(ageList.length)
 					};
 					getDataFunction = getPopulationStructureData;
@@ -389,12 +389,12 @@ export default ($scope, $rootScope, $state, $location, qService, dataDetailFacto
 					};
 					$scope.ALLDATA = {
 						POPULATIONCHARTDATA: new DataList(["期末户籍人口数"], yearList.length, chartDataObject),
-						tableName: $scope.LATESTYEAR + "年太仓全市户籍人口数据详请",
+						tableName: $scope.LATESTYEAR + "年太仓全市户籍人口数据详情",
 						tableDataList: new Array(yearList.length),
 						tableData: null,
 						POPULATIONTOWNCHARTDATA: new Array(yearList.length),
 						POPULATIONTOWNCHARTCATEGORIES: new Array(yearList.length),
-						townTableName: $scope.LATESTYEAR + "年太仓城厢镇户籍人口数据详请",
+						townTableName: $scope.LATESTYEAR + "年太仓城厢镇户籍人口数据详情",
 						townTableDataList: new Array(yearList.length),
 						townTableData: null
 					};
@@ -414,12 +414,12 @@ export default ($scope, $rootScope, $state, $location, qService, dataDetailFacto
 							["多孩总数", "出生总数"],
 							["死亡总数", "死亡总数"]
 						], yearList.length, stackColumnDataObject),
-						tableName: $scope.LATESTYEAR + "年太仓全市户籍人口出生死亡数据详请",
+						tableName: $scope.LATESTYEAR + "年太仓全市户籍人口出生死亡数据详情",
 						tableDataList: new Array(yearList.length),
 						tableData: null,
 						POPULATIONTOWNCHARTDATA: new Array(yearList.length),
 						POPULATIONTOWNCHARTCATEGORIES: new Array(yearList.length),
-						townTableName: $scope.LATESTYEAR + "年太仓城厢镇户籍人口出生死亡数据详请",
+						townTableName: $scope.LATESTYEAR + "年太仓城厢镇户籍人口出生死亡数据详情",
 						townTableDataList: new Array(yearList.length),
 						townTableData: null
 					};
@@ -442,7 +442,7 @@ export default ($scope, $rootScope, $state, $location, qService, dataDetailFacto
 						tableData: null,
 						POPULATIONTOWNCHARTDATA: new Array(yearList.length),
 						POPULATIONTOWNCHARTCATEGORIES: new Array(yearList.length),
-						townTableName: $scope.LATESTYEAR + "年太仓城厢镇育龄妇女数据详请",
+						townTableName: $scope.LATESTYEAR + "年太仓城厢镇育龄妇女数据详情",
 						townTableDataList: new Array(yearList.length),
 						townTableData: null
 					};
@@ -466,7 +466,7 @@ export default ($scope, $rootScope, $state, $location, qService, dataDetailFacto
 						tableData: null,
 						POPULATIONTOWNCHARTDATA: new Array(yearList.length),
 						POPULATIONTOWNCHARTCATEGORIES: new Array(yearList.length),
-						townTableName: $scope.LATESTYEAR + "年太仓城厢镇初婚女性数据详请",
+						townTableName: $scope.LATESTYEAR + "年太仓城厢镇初婚女性数据详情",
 						townTableDataList: new Array(yearList.length),
 						townTableData: null
 					};
@@ -910,7 +910,7 @@ export default ($scope, $rootScope, $state, $location, qService, dataDetailFacto
 	}
 
 	let callFunctionOfPopulationChart = (year, index, nameStr) => {
-		$scope.ALLDATA.tableName = year + "年太仓全市" + nameStr + "数据详请";
+		$scope.ALLDATA.tableName = year + "年太仓全市" + nameStr + "数据详情";
 		$scope.ALLDATA.tableData = $scope.ALLDATA.tableDataList[index].data;
 		$scope.ALLOPTION.POPULATIONTOWNCHART.options.title.text = year + "年太仓全市各乡镇" + nameStr + "情况";
 		$scope.ALLOPTION.POPULATIONTOWNCHART.options.xAxis.categories = $scope.ALLDATA.POPULATIONTOWNCHARTCATEGORIES[index];
@@ -918,7 +918,7 @@ export default ($scope, $rootScope, $state, $location, qService, dataDetailFacto
 	}
 
 	let callFunctionOfPopulationTownChart = (year, index, town, nameStr) => {
-		$scope.ALLDATA.townTableName = year + "年太仓市" + town + nameStr + "数据详请";
+		$scope.ALLDATA.townTableName = year + "年太仓市" + town + nameStr + "数据详情";
 		$scope.ALLDATA.townTableData = $scope.ALLDATA.townTableDataList[index][$scope.ALLDATA.POPULATIONTOWNCHARTCATEGORIES[index].indexOf(town)].data;
 	}
 };
